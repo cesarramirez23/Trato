@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.Views.V_Registro">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView x:Name="stackTodo" IsVisible="True">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="Titulo" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalOptions="CenterAndExpand"/>
+                    <Label x:Name="Persona" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                         Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="3" BackgroundColor="Green"></Label>
+                    <Switch Toggled="Cambio" IsToggled="False" Grid.Column="3" 
+                            Grid.Row="1" Grid.ColumnSpan="1"  ></Switch>
+                    <Entry  Placeholder="Nombre completo"  Keyboard="Default" x:Name="nombre"
+                                Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="3" ></Entry>
+                    <Entry  Placeholder="RFC"  Keyboard="Default" x:Name="rfc" 
+                                Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="3"></Entry>
+                    <DatePicker  Format="D" x:Name="fecha" MinimumDate="01/01/1900"
+                                     Grid.Column="0" Grid.Row="4"  Grid.ColumnSpan="3"></DatePicker>
+                    <Entry  Placeholder="Lugar Nacimiento"  Keyboard="Default" x:Name="lugar"
+                                Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="3"></Entry>
+                    <Entry  Placeholder="Ocupacion"  Keyboard="Default" x:Name="giro"
+                                Grid.Column="0" Grid.Row="6"  Grid.ColumnSpan="3"></Entry>
+                    <Entry  Placeholder="Domicilio Calle"  Keyboard="Default" x:Name="dom"
+                                Grid.Column="0" Grid.Row="7"  Grid.ColumnSpan="3"></Entry>
+                    <Entry  Placeholder="Numero Exterior"  Keyboard="Numeric" x:Name="ext"
+                                Grid.Column="0" Grid.Row="8"  Grid.ColumnSpan="2"></Entry>
+                    <Entry  Placeholder="Numero Interior"  Keyboard="Numeric" x:Name="inte"
+                                Grid.Column="2" Grid.Row="8"  Grid.ColumnSpan="2"></Entry>
+                    <Entry  Placeholder="Colonia"  Keyboard="Default" x:Name="col"
+                                Grid.Column="0" Grid.Row="9"  Grid.ColumnSpan="2"></Entry>
+                    <Entry  Placeholder="Ciudad"  Keyboard="Default" x:Name="ciu"
+                                Grid.Column="2" Grid.Row="9"  Grid.ColumnSpan="2"></Entry>
+                    <Entry  Placeholder="Municipio"  Keyboard="Default" x:Name="mun"
+                                Grid.Column="0" Grid.Row="10"  Grid.ColumnSpan="2"></Entry>
+                    <Entry  Placeholder="Estado"  Keyboard="Default" x:Name="est"
+                                Grid.Column="2" Grid.Row="10"  Grid.ColumnSpan="2"></Entry>
+                    <Entry  Placeholder="Codigo Postal"  Keyboard="Numeric" x:Name="cp"
+                                Grid.Column="2" Grid.Row="11"  Grid.ColumnSpan="2"></Entry>
+                    <Entry  Placeholder="Correo Electronico"  Keyboard="Default" x:Name="correo"
+                                Grid.Column="0" Grid.Row="11"  Grid.ColumnSpan="3"></Entry>
+                    <Entry  Placeholder="Telefono"  Keyboard="Numeric" x:Name="tel"
+                                Grid.Column="2" Grid.Row="12"  Grid.ColumnSpan="2"></Entry>
+                    <Entry  Placeholder="Celular"  Keyboard="Numeric" x:Name="cel"
+                                Grid.Column="0" Grid.Row="12"  Grid.ColumnSpan="2"></Entry>
+                    <Picker x:Name="tipo" Grid.Column="0" Grid.Row="13"  Grid.ColumnSpan="2" Title="Tipo de Membresia" SelectedIndexChanged="Fn_Drop">
+                        <Picker.Items>
+                            <x:String>Individual</x:String>
+                            <x:String>Familiiaar</x:String>
+                            <x:String>Empresarial</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center"
+                               Grid.Column="2" Grid.Row="13"  Grid.ColumnSpan="2"></Label>
+                    <Entry x:Name="Tar_Nombre" Grid.Column="0" Grid.Row="14"  Grid.ColumnSpan="4" Placeholder="Tajeta habiente"></Entry>
+                    <Entry x:Name="Tar_Numero" Grid.Column="0" Grid.Row="15"  Grid.ColumnSpan="4" Placeholder="Numero Tajeta" Keyboard="Numeric"></Entry>
+                    <Entry x:Name="Tar_Cvc" Grid.Column="0" Grid.Row="16"  Grid.ColumnSpan="1" Placeholder="CVC" Keyboard="Numeric" ></Entry>
+                    <Entry x:Name="Tar_Mes" Grid.Column="1" Grid.Row="16"  Grid.ColumnSpan="1" Placeholder="MES" Keyboard="Numeric" TextChanged="Fn_Max"></Entry>
+                    <Entry x:Name="Tar_Año" Grid.Column="2" Grid.Row="16"  Grid.ColumnSpan="1" Placeholder="AÑO" Keyboard="Numeric" TextChanged="Fn_Max"></Entry>
+                    <Button BackgroundColor="Beige"  Text="Registrar" Clicked="Registrar" 
+                                Grid.Column="1" Grid.Row="17"  Grid.ColumnSpan="2"></Button>
+                </Grid>
+            </ScrollView>
+            <StackLayout x:Name="StackFolio" IsVisible="False">
+                <Label Text="Ingresa tu folio"></Label>
+                <Entry Placeholder="No de folio" x:Name="Fol_folio" Margin="0,5"></Entry>
+
+                <Label Text="Ingresa tu folio"></Label>
+                <Entry Placeholder="Nombre" x:Name="Fol_usu" Margin="0,5"></Entry>
+
+                <Label Text="Ingresa tu contraseña"></Label>
+                <Entry x:Name="Fol_pass" Placeholder="Contraseña" IsPassword="True"></Entry>
+
+                <Button Text="Iniciar Sesion" Clicked="Folio_Registro"></Button>
+
+                <Label x:Name="mensajes" Text=""></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.Views.V_Informacion">
+
+
+    <ContentPage.Content>
+        <!-- columnas vertical https://developer.telerik.com/topics/mobile-development/understanding-xamarin-forms-layouts/ Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="0"-->
+        <StackLayout>
+            <ScrollView >
+                <Label x:Name="v_info" Text=""></Label>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

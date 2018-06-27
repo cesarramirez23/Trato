@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.Views.V_Login">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Nombre de usuario"></Label>
+            <Entry Placeholder="Nombre" x:Name="usu"></Entry>
+            <Label Text="Ingresa tu contraseña"></Label>
+            <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña"></Entry>
+            <Button Text="Iniciar Sesion" Clicked="Fn_Login"></Button>
+            <Label Text="¿No tienes cuenta?" FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label x:Name="mensajes" Text=""></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+<!--
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:pruebaXamarin.ViewModels"
+             x:Class="pruebaXamarin.Views.V_Login"
+             >
+
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="Mensaje" BackgroundColor="Black" TextColor="White" Text="Texto label"></Label>
+                <Entry IsPassword="True" Placeholder="place"  Keyboard="Numeric"></Entry>
+                <DatePicker x:Uid="picker" x:Name="picker" IsEnabled="False"></DatePicker>
+                <Button x:Name="_boton"  BackgroundColor="Beige"  Text="Botons aca"  Clicked="Click"></Button>
+            <Entry x:Name="Nombre" Placeholder="Nombre" ></Entry>
+
+            <Picker x:Name="Drop" Title="Elige Ciudad">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}" >
+
+                        <x:String>Uno</x:String>
+                        <x:String>dos</x:String>
+                        <x:String>tres</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            
+        </StackLayout>
+        </ScrollView>
+</ContentPage>
+    -->
+    
