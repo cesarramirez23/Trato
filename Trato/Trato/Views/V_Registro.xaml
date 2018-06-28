@@ -92,7 +92,7 @@
                 <Label Text="Ingresa tu folio"></Label>
                 <Entry Placeholder="No de folio" x:Name="Fol_folio" Margin="0,5"></Entry>
 
-                <Label Text="Ingresa tu folio"></Label>
+                <Label Text="Ingresa tu Nombre "></Label>
                 <Entry Placeholder="Nombre" x:Name="Fol_usu" Margin="0,5"></Entry>
 
                 <Label Text="Ingresa tu contraseña"></Label>

@@ -6,10 +6,32 @@
     <!--<ContentPage.ToolbarItems> <ToolbarItem Text="saafsaf"> </ToolbarItem>            </ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <StackLayout>
-            <Image></Image>
-            <Button Clicked="Fn_Info" Text="Información"></Button>
-            <Button Clicked="Fn_Reg" Text="Membresias"></Button>
-            <Button Clicked="Fn_Log" Text="Iniciar Sesión"></Button>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="xamarin_logo.png" Grid.Column="0" Grid.Row="0"  BackgroundColor="Black"></Image>
+                <StackLayout Grid.Column="0" Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Clicked="Fn_Info" Text="Información" Grid.Column="0" Grid.Row="0" ></Button>
+                        <Button Clicked="Fn_Reg" Text="Membresias" Grid.Column="0" Grid.Row="1"></Button>
+                        <Button Clicked="Fn_Log" Text="Iniciar Sesión" Grid.Column="0" Grid.Row="2"></Button>
+                    </Grid>
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
