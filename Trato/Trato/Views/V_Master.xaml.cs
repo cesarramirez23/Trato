@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.Maps;
 
 namespace Trato.Views
 {
@@ -14,6 +15,8 @@ namespace Trato.Views
 	{/*
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
+
+        Map v_vmap;
 		public V_Master ()
 		{
 			InitializeComponent ();

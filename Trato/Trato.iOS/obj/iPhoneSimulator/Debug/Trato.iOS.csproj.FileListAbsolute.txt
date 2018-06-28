@@ -42,6 +42,8 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Deb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zh-HK\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zh-Hans\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Maps.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Maps.iOS.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Trato.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Trato.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items

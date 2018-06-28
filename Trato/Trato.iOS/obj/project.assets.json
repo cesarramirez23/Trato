@@ -134,12 +134,27 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.Maps/3.1.0.583944": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.1.0.583944"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
+        }
+      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
-          "Xamarin.Forms": "3.1.0.583944"
+          "Xamarin.Forms": "3.1.0.583944",
+          "Xamarin.Forms.Maps": "3.1.0.583944"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -282,12 +297,27 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.Maps/3.1.0.583944": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.1.0.583944"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
+        }
+      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
-          "Xamarin.Forms": "3.1.0.583944"
+          "Xamarin.Forms": "3.1.0.583944",
+          "Xamarin.Forms.Maps": "3.1.0.583944"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -430,12 +460,27 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.Maps/3.1.0.583944": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.1.0.583944"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
+        }
+      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
-          "Xamarin.Forms": "3.1.0.583944"
+          "Xamarin.Forms": "3.1.0.583944",
+          "Xamarin.Forms.Maps": "3.1.0.583944"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -578,12 +623,27 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.Maps/3.1.0.583944": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.1.0.583944"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll": {},
+          "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll": {}
+        }
+      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
-          "Xamarin.Forms": "3.1.0.583944"
+          "Xamarin.Forms": "3.1.0.583944",
+          "Xamarin.Forms.Maps": "3.1.0.583944"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -772,6 +832,37 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "Xamarin.Forms.Maps/3.1.0.583944": {
+      "sha512": "f2B2h/VzSY9KwMCD4jexPImJGo22GrFlPEPwUZgME7OBrnSUxtTNSwUx+GLu2mirux1A8MHnUfumY+Z7LZPDDg==",
+      "type": "package",
+      "path": "xamarin.forms.maps/3.1.0.583944",
+      "files": [
+        ".signature.p7s",
+        "lib/MonoAndroid10/Xamarin.Forms.Maps.Android.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Maps.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Maps.xml",
+        "lib/Xamarin.Mac/Xamarin.Forms.Maps.dll",
+        "lib/Xamarin.Mac/Xamarin.Forms.Maps.macOS.dll",
+        "lib/Xamarin.Mac/Xamarin.Forms.Maps.xml",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.xml",
+        "lib/netstandard1.0/Xamarin.Forms.Maps.Design.dll",
+        "lib/netstandard1.0/Xamarin.Forms.Maps.dll",
+        "lib/netstandard1.0/Xamarin.Forms.Maps.xml",
+        "lib/netstandard2.0/Xamarin.Forms.Maps.Design.dll",
+        "lib/netstandard2.0/Xamarin.Forms.Maps.dll",
+        "lib/netstandard2.0/Xamarin.Forms.Maps.xml",
+        "lib/tizen40/Xamarin.Forms.Maps.Tizen.dll",
+        "lib/tizen40/Xamarin.Forms.Maps.dll",
+        "lib/tizen40/Xamarin.Forms.Maps.xml",
+        "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll",
+        "lib/uap10.0/Xamarin.Forms.Maps.UWP.pri",
+        "lib/uap10.0/Xamarin.Forms.Maps.dll",
+        "xamarin.forms.maps.3.1.0.583944.nupkg.sha512",
+        "xamarin.forms.maps.nuspec"
+      ]
+    },
     "Trato/1.0.0": {
       "type": "project",
       "path": "../Trato/Trato.csproj",
@@ -782,7 +873,8 @@
     "Xamarin.iOS,Version=v1.0": [
       "Newtonsoft.Json >= 11.0.2",
       "Trato >= 1.0.0",
-      "Xamarin.Forms >= 3.1.0.583944"
+      "Xamarin.Forms >= 3.1.0.583944",
+      "Xamarin.Forms.Maps >= 3.1.0.583944"
     ]
   },
   "packageFolders": {
@@ -827,6 +919,10 @@
             "version": "[11.0.2, )"
           },
           "Xamarin.Forms": {
+            "target": "Package",
+            "version": "[3.1.0.583944, )"
+          },
+          "Xamarin.Forms.Maps": {
             "target": "Package",
             "version": "[3.1.0.583944, )"
           }
