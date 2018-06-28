@@ -223,6 +223,8 @@ namespace Trato.Views
 
 
                 await DisplayAlert("TODO BIEN", _registro.Fn_GetInfo(), "cancel");
+                await Application.Current.MainPage.Navigation.PopAsync();
+                 Application.Current.MainPage = new NavigationPage(new V_Master() { Title="REGISTRADO"});
             }
             else
             {
@@ -232,6 +234,11 @@ namespace Trato.Views
 
 
         }
+        /// <summary>
+        /// cuando es crear usuario, folio y contraseña
+        /// </summary>
+        /// <param name="_folio"></param>
+        /// <returns></returns>
         bool Fn_Condiciones(bool _folio)
         {
             int _conta = 0;

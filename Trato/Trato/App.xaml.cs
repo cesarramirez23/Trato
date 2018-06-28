@@ -13,7 +13,7 @@ namespace Trato
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage()); //new V_Master(); 
         }
         protected override void OnStart()
         {

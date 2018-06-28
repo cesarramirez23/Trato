@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trato.Android", "Trato\Trat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trato.iOS", "Trato\Trato.iOS\Trato.iOS.csproj", "{8A4AA535-184E-4983-89ED-D201A4B95059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trato", "Trato\Trato\Trato.csproj", "{836A9D76-73EE-400C-91EE-81D95837F9F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trato", "Trato\Trato\Trato.csproj", "{836A9D76-73EE-400C-91EE-81D95837F9F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

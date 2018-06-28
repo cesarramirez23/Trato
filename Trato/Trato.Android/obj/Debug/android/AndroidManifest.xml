@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.Trato">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.Trato" android:installLocation="auto">
   <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <application android:label="Trato.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
+  <application android:label="Trato.Android" android:icon="@drawable/xamarin_logo" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyClgpdJAlSDhGlIf1ZQuCtbEPDwsmLYOMA" />
     <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="Trato" android:theme="@style/MainTheme" android:name="md5ce4146481b0e10d4c6acf6953c1b068e.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_Membresias">
+             x:Class="Trato.Views.V_Membresias" Title="Membresias">
     <ContentPage.Content>
-        <StackLayout>
-
+        <StackLayout >
             <Grid  x:Name="grid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width= "*"/>
@@ -20,43 +19,42 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image Source="xamarin_logo.png" BackgroundColor="Black"   Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  >
+                
+                <Image Source="xamarin_logo.png" BackgroundColor="Black" Grid.RowSpan="2"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Individual" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
-                <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Text="INDIVIDUAL" ></Label>
+                <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="1" Text="INDIVIDUAL" ></Label>
                 <Label Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="1" Text="Presiona para mas informacion" BackgroundColor="Gold"  >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Individual" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
-
-                <Image Source="xamarin_logo.png" BackgroundColor="Black" VerticalOptions="Center"  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" >
+               
+                <Image Source="xamarin_logo.png" BackgroundColor="Black" Grid.RowSpan="2" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Familiar" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
-                <Label Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Text="FAMILIAR" ></Label>
+                <Label Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1" Text="FAMILIAR" ></Label>
                 <Label Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="1" Text="Presiona para mas informacion" BackgroundColor="Gold" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Familiar" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
-
-                <Image Source="xamarin_logo.png" BackgroundColor="Black" VerticalOptions="Center"  Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
+                
+                <Image Source="xamarin_logo.png" BackgroundColor="Black" Grid.RowSpan="2" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Empresarial" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
-                <Label Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Text="EMPRESARIAL"></Label>
+                <Label Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="1" Text="EMPRESARIAL"></Label>
                 <Label Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="1" Text="Presiona para mas informacion" BackgroundColor="Gold" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Empresarial" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
-
-
             </Grid>
             <StackLayout x:Name="StackInfo" IsVisible="False">
                 <ScrollView>
