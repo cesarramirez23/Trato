@@ -16,6 +16,6 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Vi
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.csproj.CoreCompileInputs.cache
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.AssemblyInfoInputs.cache
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.AssemblyInfo.cs
-C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.pdb
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_Buscador.xaml.g.cs

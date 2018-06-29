@@ -9,7 +9,6 @@
     <ContentPage.Content>
         <!-- columnas vertical https://developer.telerik.com/topics/mobile-development/understanding-xamarin-forms-layouts/ Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="0"-->
         <StackLayout>
-                <maps:Map MapType="Street" />
             <ScrollView >
                 <Label x:Name="v_info" Text=""></Label>
             </ScrollView>
