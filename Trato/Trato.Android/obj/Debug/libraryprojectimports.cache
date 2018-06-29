@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
   <Jars>
-    <Jar>obj\Debug\lp\0\jl\formsviewgroup.jar</Jar>
-    <Jar>obj\Debug\lp\4\jl\arch-core-common.jar</Jar>
-    <Jar>obj\Debug\lp\5\jl\arch-lifecycle-common.jar</Jar>
-    <Jar>obj\Debug\lp\8\jl\support-annotations.jar</Jar>
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\0\jl\formsviewgroup.jar</Jar>
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\10\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\11\jl\bin\classes.jar</Jar>
@@ -19,6 +15,10 @@
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\20\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\21\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\22\jl\bin\classes.jar</Jar>
+    <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\29\jl\classes.jar</Jar>
+    <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\30\jl\classes.jar</Jar>
+    <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\31\jl\classes.jar</Jar>
+    <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\32\jl\classes.jar</Jar>
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\4\jl\arch-core-common.jar</Jar>
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\5\jl\arch-lifecycle-common.jar</Jar>
     <Jar>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\6\jl\bin\classes.jar</Jar>
@@ -36,6 +36,9 @@
     <ResolvedResourceDirectory>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\18\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\19\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\21\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\29\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\31\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\32\jl\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\lp\16\jl\assets</ResolvedAssetDirectory>
@@ -51,5 +54,8 @@
     <ResolvedResourceDirectoryStamp>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\18.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\19.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\21.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\29.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\31.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\lp\32.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.Maps;
 
 namespace Trato.Views
 {
@@ -40,10 +41,6 @@ namespace Trato.Views
             InitializeComponent();
             v_indice = _valor;
             v_info.Text = v_Textos[v_indice];
-        }
-        private async void Fn_Info()
-        {
-            await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Registro("Comprar")) { Title = "Registro" });
         }
     }
 }

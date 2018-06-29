@@ -34,10 +34,10 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\a
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll
-C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.GooglePlayServices.Base.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.GooglePlayServices.Basement.dll
-C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.GooglePlayServices.Maps.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.GooglePlayServices.Tasks.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.GooglePlayServices.Base.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.GooglePlayServices.Maps.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\System.Runtime.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\System.ComponentModel.Composition.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\System.Diagnostics.Debug.dll
