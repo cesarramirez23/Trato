@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace Trato.Personas
 {
-    /* EN LA TARJETA CON LOS DATOS DE COBRO ENVIAR EL NOMBRE DE LA MEMBRESIA CON STRING
+    /* https://forums.xamarin.com/discussion/116786/how-can-i-target-android-api-27-oreo-8-1 
+     * 
+     * 
+     * EN LA TARJETA CON LOS DATOS DE COBRO ENVIAR EL NOMBRE DE LA MEMBRESIA CON STRING
      * Y TAMBIEN ENVIAR  COMO NUMERO EL TIPO DE MEMBRESiA( DE 0 A 2)
          */
     class C_Tarjeta
@@ -217,22 +219,6 @@ namespace Trato.Personas
 
 
     }
-
-    /*
-    Gravedad Código  Descripción Proyecto    Archivo Línea   Estado suprimido
-Error Error inesperado en la tarea "ResolveLibraryProjectImports".
-System.IO.DirectoryNotFoundException: No se puede encontrar una parte de la ruta de acceso
-        'C:\Users\AlsainVR\source\repos\pruebaXamarin\pruebaXamarin\pruebaXamarin.Android\obj\Debug\lp\5'.
-   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   en System.IO.FileSystemEnumerableIterator`1.CommonInit()
-   en System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
-   en System.IO.Directory.EnumerateFiles(String path, String searchPattern, SearchOption searchOption)
-   en Xamarin.Android.Tasks.ResolveLibraryProjectImports.Extract(DirectoryAssemblyResolver res, ICollection`1 jars, ICollection`1 resolvedResourceDirectories, ICollection`1 resolvedAssetDirectories, ICollection`1 resolvedEnvironments)
-   en Xamarin.Android.Tasks.ResolveLibraryProjectImports.Execute()
-   en Microsoft.Build.BackEnd.TaskExecutionHost.Microsoft.Build.BackEnd.ITaskExecutionHost.Execute()
-   en Microsoft.Build.BackEnd.TaskBuilder.<ExecuteInstantiatedTask>d__26.MoveNext() pruebaXamarin.Android
-
-       */
 
     class C_Ind_Moral
     {

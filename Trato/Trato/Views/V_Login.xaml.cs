@@ -113,7 +113,7 @@ namespace Trato.Views
         bool Fn_Condiciones()
         {
             int _conta = 0;
-            if (string.IsNullOrEmpty(usu.Text))
+            if (string.IsNullOrEmpty(usu.Text) || string.IsNullOrWhiteSpace(usu.Text))
             {
                 usu.BackgroundColor = Color.Red;
                 _conta++;
@@ -122,7 +122,7 @@ namespace Trato.Views
             {
                 usu.BackgroundColor = Color.Transparent;
             }
-            if (string.IsNullOrEmpty(pass.Text))
+            if (string.IsNullOrEmpty(pass.Text) || string.IsNullOrWhiteSpace(pass.Text))
             {
                 pass.BackgroundColor = Color.Red;
                 _conta++;

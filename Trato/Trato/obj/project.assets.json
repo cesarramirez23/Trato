@@ -35,15 +35,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/4.5.0.6": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Plugin.Geolocator.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Plugin.Geolocator.dll": {}
-        }
-      },
       "Xamarin.Forms/3.1.0.583944": {
         "type": "package",
         "compile": {
@@ -247,31 +238,6 @@
         "newtonsoft.json.nuspec"
       ]
     },
-    "Xam.Plugin.Geolocator/4.5.0.6": {
-      "sha512": "Ro7peBDxsDXPc7J7yLx0ekAcXIfVTAXj/rXiBKiTgZ4Lm7KZJIU8PXOCcI4JztzT3MQrL8Rmka48il/ix0pwoA==",
-      "type": "package",
-      "path": "xam.plugin.geolocator/4.5.0.6",
-      "files": [
-        "lib/monoandroid71/Plugin.Geolocator.dll",
-        "lib/monoandroid71/Plugin.Geolocator.xml",
-        "lib/netstandard1.0/Plugin.Geolocator.dll",
-        "lib/netstandard1.0/Plugin.Geolocator.xml",
-        "lib/netstandard2.0/Plugin.Geolocator.dll",
-        "lib/netstandard2.0/Plugin.Geolocator.xml",
-        "lib/uap10.0.10240/Plugin.Geolocator.dll",
-        "lib/uap10.0.10240/Plugin.Geolocator.pri",
-        "lib/uap10.0.10240/Plugin.Geolocator.xml",
-        "lib/xamarinios10/Plugin.Geolocator.dll",
-        "lib/xamarinios10/Plugin.Geolocator.xml",
-        "lib/xamarinmac20/Plugin.Geolocator.dll",
-        "lib/xamarinmac20/Plugin.Geolocator.xml",
-        "lib/xamarintvos10/Plugin.Geolocator.dll",
-        "lib/xamarintvos10/Plugin.Geolocator.xml",
-        "readme.txt",
-        "xam.plugin.geolocator.4.5.0.6.nupkg.sha512",
-        "xam.plugin.geolocator.nuspec"
-      ]
-    },
     "Xamarin.Forms/3.1.0.583944": {
       "sha512": "q4AGFr8k9z6v5u++COV6M5TEZ8Oh8iiU3inVysapL5j75bhKfbcU2RizgZxTQ7+2CdlzVK+Dz+nyFx4JFh0Cwg==",
       "type": "package",
@@ -457,29 +423,28 @@
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.1",
       "Newtonsoft.Json >= 11.0.2",
-      "Xam.Plugin.Geolocator >= 4.5.0.6",
       "Xamarin.Forms >= 3.1.0.583944",
       "Xamarin.Forms.Maps >= 3.1.0.583944"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CesarAugusto\\.nuget\\packages\\": {},
+    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato\\Trato.csproj",
+      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
       "projectName": "Trato",
-      "projectPath": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato\\Trato.csproj",
-      "packagesPath": "C:\\Users\\CesarAugusto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato\\obj\\",
+      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
+      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\CesarAugusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -512,10 +477,6 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[11.0.2, )"
-          },
-          "Xam.Plugin.Geolocator": {
-            "target": "Package",
-            "version": "[4.5.0.6, )"
           },
           "Xamarin.Forms": {
             "target": "Package",

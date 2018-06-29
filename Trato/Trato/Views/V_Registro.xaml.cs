@@ -242,7 +242,7 @@ namespace Trato.Views
         bool Fn_Condiciones(bool _folio)
         {
             int _conta = 0;
-            if (string.IsNullOrEmpty(Fol_folio.Text))
+            if (string.IsNullOrEmpty(Fol_folio.Text) )
             {
                 Fol_folio.BackgroundColor = Color.Red;
                 _conta++;

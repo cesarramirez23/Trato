@@ -15,16 +15,15 @@ namespace Trato.Views
 	{/*
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
-
-        Map v_vmap;
-		public V_Master ()
+         
+		public V_Master()
 		{
 			InitializeComponent ();
 		}
 
         public void Fn_uno()
         {
-            Detail = new NavigationPage(new V_Informacion() { Title = "sadsafsaf" });
+            Detail = new V_Buscador() { Title = "Buscador" };
         }
 
 	}
