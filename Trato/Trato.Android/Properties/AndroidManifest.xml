@@ -9,6 +9,8 @@
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<application android:label="Trato.Android" android:icon="@drawable/xamarin_logo">
-		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyClgpdJAlSDhGlIf1ZQuCtbEPDwsmLYOMA" />
+    <!--  android:name="com.google.android.maps.v2.API_KEY"
+                     -->
+		<meta-data  android:name="com.google.android.geo.API_KEY"  android:value="AIzaSyCbunHvSQc8oP6eailMPOS9a6DJU98Ni9s" />
 	</application>
 </manifest>

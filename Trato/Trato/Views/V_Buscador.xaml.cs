@@ -16,19 +16,20 @@ namespace Trato.Views
 		public V_Buscador ()
 		{
 			InitializeComponent ();
-           v_mapa= new Map(
+            v_mapa = new Map(
             MapSpan.FromCenterAndRadius(
-                    new Position(37, -122), Distance.FromMiles(0.3)))
-           {
-               IsShowingUser = true,
-               HeightRequest = 100,
-               WidthRequest = 960,
-               VerticalOptions = LayoutOptions.FillAndExpand
-           };
-            Pin _pin = new Pin { Type = PinType.Place, Address = "123,345", Label="Posicion 1", Position =new Position(37, -122) };
-            v_mapa.Pins.Add(_pin);
-            _pin = new Pin { Type = PinType.Place, Address = "direccion", Label = "Posicion 2", Position = new Position(34, -118) };
-            v_mapa.Pins.Add(_pin);
+                    new Position(20.6719563, -103.416501), Distance.FromMiles(1)))
+            {
+                IsShowingUser = true,
+                VerticalOptions = LayoutOptions.FillAndExpand
+            };
+            //If Label is not set, runtime exception
+            var pin = new Pin()
+            {
+                Position = new Position(20.6719563, -103.416501),
+                Label = "Some Pin!"
+            };
+            v_mapa.Pins.Add(pin);
         }
 	}
 }

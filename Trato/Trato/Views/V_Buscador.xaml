@@ -8,39 +8,43 @@
             <!--
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                    
+                    
+            <maps:Map  x:Name="v_mapa">
+                    
+                </maps:Map>
+                    
+            </Grid>
+            -->
                 <Picker Title="LUGARES" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1">
-                    <Picker.ItemsSource>
+                    <Picker.Items>
                         <x:String>Lugar1</x:String>
                         <x:String>Lugar2</x:String>
                         <x:String>Lugar3</x:String>
                         <x:String>Lugar4</x:String>
-                    </Picker.ItemsSource>
+                    </Picker.Items>
                 </Picker>
                 <Entry Placeholder="Filtro nombre" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1"/>
                 <Picker Title="ESPECIALIDADES"  Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="1">
-                    <Picker.ItemsSource>
+                    <Picker.Items>
                         <x:String>ESPECIALIDAD</x:String>
                         <x:String>ESPECIALIDAD2</x:String>
                         <x:String>ESPECIALIDAD3</x:String>
                         <x:String>ESPECIALIDAD4</x:String>
-                    </Picker.ItemsSource>
+                    </Picker.Items>
                 </Picker>
-             <maps:Map Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" x:Name="v_mapa">
-                    
+            
+                <maps:Map  x:Name="v_mapa" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">
                 </maps:Map>
-            </Grid>
-            -->
-                <maps:Map  x:Name="v_mapa">
-                    
-                </maps:Map>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
