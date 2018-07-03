@@ -42,7 +42,8 @@
                     </Picker.Items>
                 </Picker>
             
-                <maps:Map  x:Name="v_mapa" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">
+                <maps:Map  x:Name="v_mapa" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
+                           Margin="25,0,25,0">
                 </maps:Map>
             
         </StackLayout>
