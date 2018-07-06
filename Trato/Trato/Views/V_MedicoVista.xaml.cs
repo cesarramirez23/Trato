@@ -21,6 +21,35 @@ namespace Trato.Views
             especial.Text = _medico.v_Especialidad;
             domicilio.Text = _medico.v_Domicilio;
             info.Text = _medico.v_Info;
+            img.Source = _medico.v_img;
+            descuento.IsVisible = false;
+            if(App.v_logeado)
+            {
+                boton.IsVisible = true;
+            }
+            else
+            {
+                boton.IsVisible = false;
+            }
+        }
+        public V_MedicoVista(C_Servicios _servicios)
+        {
+            InitializeComponent();
+            nombre.Text = _servicios.v_Nombre;
+            especial.Text = _servicios.v_Servicios;
+            domicilio.Text = _servicios.v_Domicilio;
+            info.Text = _servicios.v_Info;
+            img.Source = _servicios.v_img;
+            descuento.IsVisible = true;
+            descuento.Text = _servicios.v_Descuento;
+            if (App.v_logeado)
+            {
+                boton.IsVisible = true;
+            }
+            else
+            {
+                boton.IsVisible = false;
+            }
         }
 
         public void Fn_Click(object sender, EventArgs _args)

@@ -51,20 +51,6 @@
           "build/netstandard2.0/Xamarin.Forms.props": {},
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
-      },
-      "Xamarin.Forms.Maps/3.1.0.583944": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "3.1.0.583944"
-        },
-        "compile": {
-          "lib/netstandard2.0/Xamarin.Forms.Maps.Design.dll": {},
-          "lib/netstandard2.0/Xamarin.Forms.Maps.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Xamarin.Forms.Maps.Design.dll": {},
-          "lib/netstandard2.0/Xamarin.Forms.Maps.dll": {}
-        }
       }
     }
   },
@@ -386,65 +372,33 @@
         "xamarin.forms.3.1.0.583944.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
-    },
-    "Xamarin.Forms.Maps/3.1.0.583944": {
-      "sha512": "f2B2h/VzSY9KwMCD4jexPImJGo22GrFlPEPwUZgME7OBrnSUxtTNSwUx+GLu2mirux1A8MHnUfumY+Z7LZPDDg==",
-      "type": "package",
-      "path": "xamarin.forms.maps/3.1.0.583944",
-      "files": [
-        ".signature.p7s",
-        "lib/MonoAndroid10/Xamarin.Forms.Maps.Android.dll",
-        "lib/MonoAndroid10/Xamarin.Forms.Maps.dll",
-        "lib/MonoAndroid10/Xamarin.Forms.Maps.xml",
-        "lib/Xamarin.Mac/Xamarin.Forms.Maps.dll",
-        "lib/Xamarin.Mac/Xamarin.Forms.Maps.macOS.dll",
-        "lib/Xamarin.Mac/Xamarin.Forms.Maps.xml",
-        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll",
-        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll",
-        "lib/Xamarin.iOS10/Xamarin.Forms.Maps.xml",
-        "lib/netstandard1.0/Xamarin.Forms.Maps.Design.dll",
-        "lib/netstandard1.0/Xamarin.Forms.Maps.dll",
-        "lib/netstandard1.0/Xamarin.Forms.Maps.xml",
-        "lib/netstandard2.0/Xamarin.Forms.Maps.Design.dll",
-        "lib/netstandard2.0/Xamarin.Forms.Maps.dll",
-        "lib/netstandard2.0/Xamarin.Forms.Maps.xml",
-        "lib/tizen40/Xamarin.Forms.Maps.Tizen.dll",
-        "lib/tizen40/Xamarin.Forms.Maps.dll",
-        "lib/tizen40/Xamarin.Forms.Maps.xml",
-        "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll",
-        "lib/uap10.0/Xamarin.Forms.Maps.UWP.pri",
-        "lib/uap10.0/Xamarin.Forms.Maps.dll",
-        "xamarin.forms.maps.3.1.0.583944.nupkg.sha512",
-        "xamarin.forms.maps.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.1",
       "Newtonsoft.Json >= 11.0.2",
-      "Xamarin.Forms >= 3.1.0.583944",
-      "Xamarin.Forms.Maps >= 3.1.0.583944"
+      "Xamarin.Forms >= 3.1.0.583944"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CesarAugusto\\.nuget\\packages\\": {},
+    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato\\Trato.csproj",
+      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
       "projectName": "Trato",
-      "projectPath": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato\\Trato.csproj",
-      "packagesPath": "C:\\Users\\CesarAugusto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato\\obj\\",
+      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
+      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\CesarAugusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -479,10 +433,6 @@
             "version": "[11.0.2, )"
           },
           "Xamarin.Forms": {
-            "target": "Package",
-            "version": "[3.1.0.583944, )"
-          },
-          "Xamarin.Forms.Maps": {
             "target": "Package",
             "version": "[3.1.0.583944, )"
           }

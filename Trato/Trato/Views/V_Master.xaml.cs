@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Forms.Maps;
+
+using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+using System.Net.Http;
+using System.Data;
 
 namespace Trato.Views
 {
@@ -15,13 +19,20 @@ namespace Trato.Views
 	{/*
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
-         
+
 		public V_Master()
 		{
 			InitializeComponent ();
+            A();
+        }
+        public async void A()
+        {
+            var client = new HttpClient();
+            var response = await client.GetAsync("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCbunHvSQc8oP6eailMPOS9a6DJU98Ni9s");
+            
+       
 
         }
-
         public void Fn_uno()
         {
             Detail = new V_Buscador() { Title = "Buscador" };
@@ -48,4 +59,6 @@ namespace Trato.Views
         }
 
     }
+
+  
 }

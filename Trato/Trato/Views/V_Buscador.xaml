@@ -1,30 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="Trato.Views.V_Buscador">
     <ContentPage.Content>
-        <StackLayout >
-            <!--
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                    
-                    
-            <maps:Map  x:Name="v_mapa">
-                    
-                </maps:Map>
-                    
-            </Grid>
-            -->
-                <Picker Title="LUGARES" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1">
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Picker Title="Filtro" HorizontalOptions="StartAndExpand" x:Name="v_filtro" SelectedIndexChanged="Fn_Filtro">
+                    <Picker.Items>
+                        <x:String>Nombre</x:String>
+                        <x:String>Especialidad</x:String>
+                        <x:String>Ciudad</x:String>
+                        <x:String>Todos</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"> 
+                <Entry Placeholder="¿Como se llama tu doctor?" HorizontalOptions="Center" x:Name="v_nom" x:Uid="1" />
+                <Picker Title="Lugar" x:Name="v_ciu" HorizontalOptions="Center" >
                     <Picker.Items>
                         <x:String>Lugar1</x:String>
                         <x:String>Lugar2</x:String>
@@ -32,18 +24,27 @@
                         <x:String>Lugar4</x:String>
                     </Picker.Items>
                 </Picker>
-                <Entry Placeholder="Filtro nombre" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1"/>
-                <Picker Title="ESPECIALIDADES" x:Uid="1"  Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="1">
-                    <Picker.Items>
-                        <x:String>ESPECIALIDAD</x:String>
-                        <x:String>ESPECIALIDAD2</x:String>
-                        <x:String>ESPECIALIDAD3</x:String>
-                        <x:String>ESPECIALIDAD4</x:String>
-                    </Picker.Items>
-                </Picker>
-             <maps:Map  x:Name="v_mapa" Margin="20,10,20,0">
-            </maps:Map>
-            
+                <Entry Placeholder="especialista" x:Name="v_espe" HorizontalOptions="Center" x:Uid="1"/>
+            </StackLayout>
+            <Label x:Name="text"/>
+            <ListView  x:Name="v_lista" RowHeight="100" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh" GroupShortNameBinding="">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                <StackLayout Orientation="Vertical">
+                                    <!--SON LOS MISMOS NOMBRES QUE TIENE LA CLASE-->
+                                    <Label Text="{Binding v_Nombre}" />
+                                    <Label Text="{Binding v_Especialidad}" />
+                                    <Label Text="{Binding v_Domicilio}" />
+                                    <Label Text="{Binding v_Info}" />
+                                </StackLayout>
+                                <Image Source="{Binding v_img}" AbsoluteLayout.LayoutBounds="250.25, 0.25, 50, 50 " HorizontalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

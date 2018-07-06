@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.LISTA">
     <ContentPage.Content>
-        <ListView  x:Name="v_lista" RowHeight="100" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh">
+        <ListView  x:Name="v_lista" RowHeight="100" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh" GroupShortNameBinding="">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -16,12 +16,16 @@
                             <Image Source="{Binding Image}" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="250.25, 0.25, 50, 50 "/>
                         </StackLayout>
                         -->
-                        <StackLayout Orientation="Vertical">
-                            <!--SON LOS MISMOS NOMBRES QUE TIENE LA CLASE-->
-                            <Label Text="{Binding v_Nombre}" />
-                            <Label Text="{Binding v_Especialidad}" />
-                            <Label Text="{Binding v_Domicilio}" />
-                            <Label Text="{Binding v_Info}" />
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                            <StackLayout Orientation="Vertical">
+                                <!--SON LOS MISMOS NOMBRES QUE TIENE LA CLASE-->
+                                <Label Text="{Binding v_Nombre}" />
+                                <Label Text="{Binding v_Especialidad}" />
+                                <Label Text="{Binding v_Domicilio}" />
+                                <Label Text="{Binding v_Info}" />
+                            </StackLayout>
+                            <Image Source="{Binding v_img}" AbsoluteLayout.LayoutBounds="250.25, 0.25, 50, 50 " HorizontalOptions="End"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

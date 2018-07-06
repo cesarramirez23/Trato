@@ -345,7 +345,16 @@ namespace Trato.Personas
         public string v_Especialidad { get; set; }
         public string v_Domicilio { get; set; }
         public string v_Info { get; set; }
-        //imagen
+        public string v_img { get; set; }
 
+    }
+    public class C_Servicios
+    {
+        public string v_Nombre { get; set; }
+        public string v_Servicios{ get; set; }
+        public string v_Domicilio { get; set; }
+        public string v_Info { get; set; }
+        public string v_Descuento { get; set; }
+        public string v_img { get; set; }
     }
 }

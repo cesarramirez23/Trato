@@ -12,10 +12,9 @@
             </Style>
             <Style x:Key="But" TargetType="Button">
                 <Setter Property="HeightRequest" Value="50"/>
-                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="CornerRadius" Value="1"/>
                 <Setter Property="BackgroundColor" Value="White"/>
-                <Setter Property="Margin" Value="100,50,100,70"/>
-                <Setter Property="BorderWidth" Value="10"/>
+                <Setter Property="BorderWidth" Value="5"/>
                 <Setter Property="BorderRadius" Value="10"/>
                 <Setter Property="BorderColor" Value="LightGray"/>
                 <Setter Property="TextColor" Value="Blue" />
