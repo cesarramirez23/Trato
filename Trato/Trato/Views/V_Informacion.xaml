@@ -1,16 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:local="clr-namespace:XamarinMaps"
-             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"  
              x:Class="Trato.Views.V_Informacion"  NavigationPage.TitleIcon="Informacion" Title="Informacion">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="img" TargetType="Image">
+                <Setter Property="Source" Value="xamarin_logo.png"/>
+                <Setter Property="BackgroundColor" Value="Blue"/>
+                <Setter Property="Margin" Value="0,0,4,0"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <!-- columnas vertical https://developer.telerik.com/topics/mobile-development/understanding-xamarin-forms-layouts/ Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="0"-->
         <StackLayout>
-            <ScrollView >
-                <Label x:Name="v_info" Text=""></Label>
+            <Image Style="{StaticResource img}" Source=""></Image>
+            <ScrollView Margin="50,10,50,0">
+                <Label x:Name="v_info" Text="" HorizontalTextAlignment="Center"></Label>
             </ScrollView>
         </StackLayout>
     </ContentPage.Content>

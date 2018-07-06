@@ -28,7 +28,7 @@ namespace Trato.Views
         {
 
             //Application.Current.MainPage = new NavigationPage(new V_Informacion());
-            await Navigation.PushAsync(new NavigationPage(new V_Informacion(1)) { Title = "Informacion" });
+            await Navigation.PushAsync(new NavigationPage(new V_Informacion(1)));
         }
     }
 }

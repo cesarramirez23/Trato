@@ -337,4 +337,15 @@ namespace Trato.Personas
         }
 
     }
+
+    public class C_Medico
+    {
+        //get y set para poder que sean binding
+        public string v_Nombre { get; set; }
+        public string v_Especialidad { get; set; }
+        public string v_Domicilio { get; set; }
+        public string v_Info { get; set; }
+        //imagen
+
+    }
 }

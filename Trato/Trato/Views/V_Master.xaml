@@ -2,14 +2,14 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Master"
-                  MasterBehavior="SplitOnLandscape">
+                  MasterBehavior="Popover">
     <MasterDetailPage.Master>
-        <ContentPage Padding="10" BackgroundColor="Gray" Title="Master">
+        <ContentPage Padding="10" BackgroundColor="Gray" Title="Master" Icon="xamarin_logo.png">
             <ContentPage.Content>
                 <StackLayout Margin="5,30,5,5">
                     <Label Text="Opciones"></Label>
                     <Button Text="Buscador de Medicos" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
-                    <Button Text="Centro de Salud" BackgroundColor="Yellow"></Button>
+                    <Button Text="Lista Medicos" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
                     <Button Text="Tarjeta Visual" BackgroundColor="Yellow"></Button>
                 </StackLayout>
             </ContentPage.Content>
@@ -17,7 +17,7 @@
     </MasterDetailPage.Master>
     
     <MasterDetailPage.Detail>
-        <ContentPage Padding="10">
+        <ContentPage Padding="10" Icon="xamarin_logo.png">
             <ContentPage.Content>
                 <StackLayout Margin="5,30,5,5">
                     <Label Text="Detail Page"></Label>

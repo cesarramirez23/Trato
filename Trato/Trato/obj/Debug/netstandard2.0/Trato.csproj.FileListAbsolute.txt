@@ -42,3 +42,6 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Tr
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.pdb
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\LISTA.xaml.g.cs
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_MedicoVista.xaml.g.cs
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\pruebas.xaml.g.cs

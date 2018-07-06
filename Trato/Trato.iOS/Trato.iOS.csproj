@@ -151,4 +151,7 @@
       <Name>Trato</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_icon.png" />
+  </ItemGroup>
 </Project>

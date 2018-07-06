@@ -1,37 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:views="clr-namespace:Trato.Views"
             x:Class="Trato.Views.MainPage">
-    <!--<ContentPage.ToolbarItems> <ToolbarItem Text="saafsaf"> </ToolbarItem>            </ContentPage.ToolbarItems>-->
-    <ContentPage.Content>
-        <StackLayout>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="img" TargetType="Image">
+                <Setter Property="Source" Value="xamarin_logo.png"/>
+                <Setter Property="BackgroundColor" Value="Blue"/>
+                <Setter Property="Margin" Value="0,0,4,0"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+            </Style>
+            <Style x:Key="But" TargetType="Button">
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="Margin" Value="100,50,100,70"/>
+                <Setter Property="BorderWidth" Value="10"/>
+                <Setter Property="BorderRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="LightGray"/>
+                <Setter Property="TextColor" Value="Blue" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-                <Image Source="xamarin_logo.png" Grid.Column="0" Grid.Row="0"  BackgroundColor="Black"></Image>
-                <StackLayout Grid.Column="0" Grid.Row="1">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Button Clicked="Fn_Info" Text="Información" Grid.Column="0" Grid.Row="0" ></Button>
-                        <Button Clicked="Fn_Reg" Text="Membresias" Grid.Column="0" Grid.Row="1"></Button>
-                        <Button Clicked="Fn_Log" Text="Iniciar Sesión" Grid.Column="0" Grid.Row="2"></Button>
-                    </Grid>
-                </StackLayout>
-            </Grid>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="INFO"></ToolbarItem>
+        <ToolbarItem Text="MEDICO"></ToolbarItem>
+        <ToolbarItem Text="SERVICOS"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" x:Name="fondo" BackgroundColor="Blue">
+            <!-- para encimar texto a la imagen https://forums.xamarin.com/discussion/92896/display-an-image-inside-in-a-text-->
+            <Image Style="{StaticResource img}"></Image>
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical">
+                <Button Clicked="Fn_Info" Text="¿Qué es Trato Especial" Style="{StaticResource But}"  ></Button>
+                <Button Clicked="Fn_Reg" Text="Membresias" Style="{StaticResource But}" ></Button>
+                <Button Clicked="Fn_Log" Text="Iniciar Sesión" Style="{StaticResource But}"></Button>
+                <!--
+                <Button Clicked="Fn_Info" HeightRequest="50" CornerRadius="5"  Margin="100,50,100,70" BorderWidth="10" BorderRadius="30" BorderColor="LightGray"
+                                Text="¿Qué es Trato Especial"  BackgroundColor="White"></Button>
+                <Button Clicked="Fn_Reg" HeightRequest="50" CornerRadius="5" Margin="100,50,100,70" BorderWidth="10" BorderRadius="30" BorderColor="LightGray" 
+                                Text="Membresias"  BackgroundColor="White"></Button>
+                <Button Clicked="Fn_Log" CornerRadius="5" HeightRequest="50" BorderColor="LightGray" Margin="100,50,100,70" BorderWidth="10" BorderRadius="30"
+                                Text="Iniciar Sesión" BackgroundColor="White"></Button>
+                -->
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
