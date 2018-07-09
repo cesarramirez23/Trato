@@ -3,32 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.pruebas">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" VerticalOptions="Center" >
-           <StackLayout Orientation="Vertical" VerticalOptions="Start" BackgroundColor="Aqua">
-                <Button Text="ereret"></Button>
-                <Image Source="menu_icon.png"></Image>
-            </StackLayout>
-            
-            <StackLayout Orientation="Vertical" VerticalOptions="End">
-                
-                <StackLayout Orientation="Horizontal"  BackgroundColor="Chocolate">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition ></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Button Text="sadasd"  CornerRadius="12"  Grid.Column="0" BackgroundColor="Red"></Button>
-                        <Button Text="sadkiuoiuo" CornerRadius="20"  Grid.Column="1" BackgroundColor="Blue"></Button>
-                        <Button Text="sadfhgjgh" CornerRadius="20"  Grid.Column="2" BackgroundColor="Red"></Button>
-                        <Button Text="safdfdg" CornerRadius="15" Grid.Column="3" BackgroundColor="Blue"></Button>
-                    </Grid>
-                </StackLayout>
-            </StackLayout>
-        </StackLayout>
+      
     </ContentPage.Content>
 </ContentPage>

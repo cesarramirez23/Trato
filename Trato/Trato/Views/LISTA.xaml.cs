@@ -22,22 +22,22 @@ namespace Trato.Views
             InitializeComponent();
 
             Title = "Titulo";
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom1", v_Especialidad = "esps1", v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom1",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"});
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom2",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom3",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom4",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom5",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom6",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom7",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"});
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom8",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"});
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom9",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"});
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom10",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom11",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom12",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom13",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom14",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"  });
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nom15",  v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });           
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom1", v_Apellido = "apell", v_Especialidad = "esps1", v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom1", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"});
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom2", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom3", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom4", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom5", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom6", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom7", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"});
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom8", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"});
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom9", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"});
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom10", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom11", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom12", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom13", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom14", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd"  });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nom15", v_Apellido = "apell", v_Especialidad = "esps1",  v_Domicilio = "domicillio sadsadsad", v_Info = "sadsadasfsafdsdsgdgsgdsgdsgd" });           
             v_lista.ItemsSource = App.v_medicos;
 
            // Fn_nada();
@@ -65,7 +65,7 @@ namespace Trato.Views
             //por ahora esta creando nuevoos
             Random rand = new Random();
             string _val = rand.Next(0, 120).ToString();
-            App.v_medicos.Add(new C_Medico { v_Nombre = "nombre nuevo" + _val, v_Especialidad = "esec" + _val, v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val });
+            App.v_medicos.Add(new C_Medico { v_Nombre = "nombre nuevo" + _val, v_Apellido = "apell"+_val, v_Especialidad = "esec" + _val, v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val });
             //darle la nueva lista
             list.ItemsSource = App.v_medicos;
             //cancelar la actualizacion

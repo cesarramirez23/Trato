@@ -35,11 +35,11 @@ namespace Trato.Views
         }
         public void Fn_uno()
         {
-            Detail = new V_Buscador() { Title = "Buscador" };
+            Detail = new V_Buscador(true) { Title = "MEDICOS" };
         }
         public void Fn_dos()
         {
-            Detail =  new LISTA() { Title = "Lista" };//new V_Buscador() { Title = "Buscador" };
+            Detail =  new V_Buscador(false) { Title = "SERVICIOS" };//new V_Buscador() { Title = "Buscador" };
            // Page _page= new Page();
             //_page.Layout
             //var map = new Map(

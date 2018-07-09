@@ -13,11 +13,10 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_MedicoVista : ContentPage
 	{
-        bool _focus = true;
         public V_MedicoVista (C_Medico _medico)
 		{
 			InitializeComponent ();
-            nombre.Text = _medico.v_Nombre;
+            nombre.Text = _medico.v_Nombre + _medico.v_Apellido;
             especial.Text = _medico.v_Especialidad;
             domicilio.Text = _medico.v_Domicilio;
             info.Text = _medico.v_Info;
@@ -54,15 +53,7 @@ namespace Trato.Views
 
         public void Fn_Click(object sender, EventArgs _args)
         {
-            _focus = !_focus;
-            if(!_focus)
-            {
-                boton.Unfocus();
-            }
-            else
-            {
-                boton.Focus();
-            }
+           
 
         }
 
