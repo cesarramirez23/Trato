@@ -3162,7 +3162,7 @@ namespace Trato.Droid
 			public const int design_snackbar_background = 2131296347;
 			
 			// aapt resource value: 0x7F010003
-			public const int FONDO DEGRADADO = 2130771971;
+			public const int FONDODEGRADADO = 2130771971;
 			
 			// aapt resource value: 0x1
 			public const int googleg_disabled_color_18 = 1;
@@ -3171,7 +3171,7 @@ namespace Trato.Droid
 			public const int googleg_standard_color_18 = 1;
 			
 			// aapt resource value: 0x7F010004
-			public const int ICONO APP = 2130771972;
+			public const int ICONOAPP = 2130771972;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;

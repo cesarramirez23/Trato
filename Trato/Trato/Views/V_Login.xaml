@@ -3,13 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Login" Title="Login">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="Green">
             <Label Text="Nombre de usuario"></Label>
             <Entry Placeholder="Nombre" x:Name="usu"></Entry>
             <Label Text="Ingresa tu contraseña"></Label>
             <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña"></Entry>
-            <Button Text="Iniciar Sesion" Clicked="Fn_Login"></Button>
-            <Label Text="¿No tienes cuenta?" FontAttributes="Bold">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="BOTONDEGRADADO.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Red" Grid.Row="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer  Tapped="Fn_Login"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label TextColor="White" Font="Arial" Text="Login" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Grid>
+            <!--
+            <Button Text="Iniciar Sesion" ContentLayout="Left,10" Image="BOTONDEGRADADO.png" Clicked="Fn_Login" HorizontalOptions="Fill"
+            VerticalOptions="Center" >
+            </Button>
+            -->
+            
+                <Label Text="¿No tienes cuenta?" FontAttributes="Bold">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
                 </Label.GestureRecognizers>

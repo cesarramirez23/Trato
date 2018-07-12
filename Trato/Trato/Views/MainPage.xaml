@@ -11,8 +11,6 @@
                 <Setter Property="VerticalOptions" Value="StartAndExpand"/>
             </Style>
             <Style x:Key="ImgBut" TargetType="Image">
-                <Setter Property="Grid.Column" Value="0"/>
-                <Setter Property="Grid.ColumnSpan" Value="1"/>
             </Style>
             <Style x:Key="Lbl" TargetType="Label">
                 <Setter Property="TextColor" Value="White"/>
@@ -77,22 +75,22 @@
             -->
             <Image Source="LOGOTRATOESPECIAL.png" AbsoluteLayout.LayoutBounds="0,0,1,.5"  AbsoluteLayout.LayoutFlags="All"> </Image>
 
-            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".25,.55,.5,.1"  HorizontalOptions="EndAndExpand" AbsoluteLayout.LayoutFlags="All"></Image>
-            <Label TextColor="White" Text="¿Qué es Trato Especial" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" AbsoluteLayout.LayoutBounds=".25,.55,.5,.1"  AbsoluteLayout.LayoutFlags="All">
+            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".45,.55,.5,.1"  HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutFlags="All"></Image>
+            <Label TextColor="White" Text="¿Qué es Trato Especial" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" AbsoluteLayout.LayoutBounds=".45,.55,.5,.1"  AbsoluteLayout.LayoutFlags="All">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Fn_Info"></TapGestureRecognizer>
+                    <TapGestureRecognizer  Tapped="Fn_Info"></TapGestureRecognizer>
                 </Label.GestureRecognizers>
             </Label>
 
-            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".25,.70,.5,.1" HorizontalOptions="EndAndExpand" AbsoluteLayout.LayoutFlags="All"></Image>
-            <Label TextColor="White" Text="Membresias"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" AbsoluteLayout.LayoutBounds=".25,.70,.5,.1"  AbsoluteLayout.LayoutFlags="All">
+            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".45,.70,.5,.1" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutFlags="All"></Image>
+            <Label TextColor="White" Text="Membresias"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" AbsoluteLayout.LayoutBounds=".45,.70,.5,.1"  AbsoluteLayout.LayoutFlags="All">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Fn_Reg"></TapGestureRecognizer>
                 </Label.GestureRecognizers>
             </Label>
 
-            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".25,.85,.5,.1" HorizontalOptions="EndAndExpand"  AbsoluteLayout.LayoutFlags="All"></Image>
-            <Label TextColor="White" Text="Iniciar Sesión" AbsoluteLayout.LayoutBounds=".25,.85,.5,.1" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  AbsoluteLayout.LayoutFlags="All">
+            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".45,.85,.5,.1" HorizontalOptions="FillAndExpand"  AbsoluteLayout.LayoutFlags="All"></Image>
+            <Label TextColor="White" Text="Iniciar Sesión" AbsoluteLayout.LayoutBounds=".45,.85,.5,.1" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  AbsoluteLayout.LayoutFlags="All">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Fn_Log"></TapGestureRecognizer>
                 </Label.GestureRecognizers>
