@@ -40,11 +40,14 @@ namespace Trato.Views
             if(_valor)
             {
                 v_medico = true;
+              //  Orden();
                 v_lista.ItemsSource = App.v_medicos;
+                
             }
             else
             {
                 v_medico = false;
+               // Orden();
                 v_lista.ItemsSource = App.v_servicios;
             }
         }
@@ -58,21 +61,22 @@ namespace Trato.Views
 
             overlay.IsVisible = v_filtro;
         }
-        void Orden()
+        async Task Orden()
         {
-            C_Medico _tem = new C_Medico();
-            for (int i = 1; i < App.v_medicos.Count; i++)
+            if(v_medico)
             {
-                for (int j = 0; j < App.v_medicos.Count - i; j++)
-                {
-                    if (App.v_medicos[j].v_Apellido[0] > App.v_medicos[j + 1].v_Apellido[0])
-                    {
-                        _tem = App.v_medicos[j + 1];
-                        App.v_medicos[j + 1] = App.v_medicos[j];
-                        App.v_medicos[j] = _tem;
-                    }
-                }
+                //  List<C_Medico> temp = App.v_medicos.OrderBy(x => x.v_Nombre).ToList(); ;
+                IEnumerable<C_Medico> _temp=      App.v_medicos.OrderBy(x => x.v_Nombre);
+                App.v_medicos = new ObservableCollection<C_Medico>(_temp);
+               await Task.Delay(100);
             }
+            else
+            {
+                IEnumerable<C_Servicios> _temp = App.v_servicios.OrderBy(x => x.v_Nombre);
+                App.v_servicios =new ObservableCollection<C_Servicios>( _temp);
+                await Task.Delay(100);                
+            }
+
         }
 
         void Fn_Fil()
@@ -101,14 +105,28 @@ namespace Trato.Views
         /// <param name="args"></param>
         async void Fn_Select(object sender, SelectedItemChangedEventArgs args)
         {
-            C_Medico item = args.SelectedItem as C_Medico;
-            if (item == null)
-                return;
+            if(v_medico)
+            {
+                C_Medico item = args.SelectedItem as C_Medico;
+                if (item == null)
+                    return;
 
-            await App.Current.MainPage.Navigation.PushAsync(new V_MedicoVista(item) { Title = " Medico " + item.v_Nombre });
+                await Navigation.PushAsync(new V_MedicoVista(item) { Title = " Medico " + item.v_Nombre });
 
-            // Manually deselect item.
-            v_lista.SelectedItem = null;
+                // Manually deselect item.
+                v_lista.SelectedItem = null;
+            }
+            else
+            {
+                C_Servicios item = args.SelectedItem as C_Servicios;
+                if (item == null)
+                    return;
+
+                await Navigation.PushAsync(new V_MedicoVista(item) { Title = " Medico " + item.v_Nombre });
+
+                // Manually deselect item.
+                v_lista.SelectedItem = null;
+            }
         }
         bool Fn_Ciudad(C_Medico _temp)
         {
@@ -141,21 +159,43 @@ namespace Trato.Views
                 _filEsp.Remove(_valor);
             }
         }
-        void Fn_Refresh(object sender, EventArgs e)
+        async void Fn_Refresh(object sender, EventArgs e)
         {
-
-            //hacer una conversion de la lista que esta siendo actualizada
             var list = (ListView)sender;
+            if(v_medico)
+            {
+            //hacer una conversion de la lista que esta siendo actualizada
             //pedir los datos y hacerlos nuevos
             // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
 
             //por ahora esta creando nuevoos
             Random rand = new Random();
             string _val = rand.Next(0, 120).ToString();
-            App.v_medicos.Add(new C_Medico { v_Nombre = "Aombre nuevo" + _val+" "+"fpell" +_val, v_Especialidad = "esec" + _val, v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val });
-          
+            App.v_medicos.Add(new C_Medico { v_Nombre = "Aombre nuevo" + _val+" "+"fpell" +_val, v_Especialidad = "esec" + _val,
+                v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val , v_img="menu_icon.png"});
+
+                await Orden();
             //darle la nueva lista
             list.ItemsSource = App.v_medicos;
+            }
+            else
+            {
+                //hacer una conversion de la lista que esta siendo actualizada
+                //pedir los datos y hacerlos nuevos
+                // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
+
+                //por ahora esta creando nuevoos
+                Random rand = new Random();
+                string _val = rand.Next(0, 120).ToString();
+                App.v_servicios.Add(new C_Servicios { v_Nombre = "Aombre nuevo" + _val + " " + "fpell" + _val, v_Servicios = "esec" + _val,
+                    v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val, v_Descuento ="descuento "+ _val+"%",
+                    v_img = "menu_icon.png"
+                });
+
+                await Orden();
+                //darle la nueva lista
+                list.ItemsSource = App.v_servicios;
+            }
             //cancelar la actualizacion
             list.IsRefreshing = false;
         }

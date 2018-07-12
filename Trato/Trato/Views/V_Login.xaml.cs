@@ -83,7 +83,7 @@ namespace Trato.Views
 
                 mensajes.Text = usu.Text + " pass " + pass.Text;
                 C_Login _aenviar = new C_Login(usu.Text, pass.Text);
-                DisplayAlert("Login Correcto", _aenviar.Fn_GetInfo(), "cancel");
+              //  DisplayAlert("Login Correcto", _aenviar.Fn_GetInfo(), "cancel");
                 Application.Current.MainPage = new NavigationPage(new V_Master() { Title = "REGISTRADO" });
                 ////crear el json a enviar
                 //string _json = JsonConvert.SerializeObject(_aenviar);

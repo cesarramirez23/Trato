@@ -154,4 +154,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\menu_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BOTONDEGRADADO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FONDODEGRADADO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ICONOAPP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LOGOTRATOESPECIAL.png" />
+  </ItemGroup>
 </Project>

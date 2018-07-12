@@ -5,10 +5,19 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="img" TargetType="Image">
-                <Setter Property="Source" Value="xamarin_logo.png"/>
-                <Setter Property="BackgroundColor" Value="Blue"/>
+                <Setter Property="Source" Value="LOGOTRATOESPECIAL.png"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
                 <Setter Property="Margin" Value="0,0,4,0"/>
                 <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+            </Style>
+            <Style x:Key="ImgBut" TargetType="Image">
+                <Setter Property="Grid.Column" Value="0"/>
+                <Setter Property="Grid.ColumnSpan" Value="1"/>
+            </Style>
+            <Style x:Key="Lbl" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Grid.Column" Value="0"/>
+                <Setter Property="Grid.ColumnSpan" Value="1"/>
             </Style>
             <Style x:Key="But" TargetType="Button">
                 <Setter Property="HeightRequest" Value="50"/>
@@ -21,21 +30,89 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="INFO"></ToolbarItem>
-        <ToolbarItem Text="MEDICO"></ToolbarItem>
-        <ToolbarItem Text="SERVICOS"></ToolbarItem>
-    </ContentPage.ToolbarItems>
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical" x:Name="fondo" BackgroundColor="Blue">
+    
             <!-- para encimar texto a la imagen https://forums.xamarin.com/discussion/92896/display-an-image-inside-in-a-text-->
-            <Image Style="{StaticResource img}"></Image>
-            <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical">
-                <Button Clicked="Fn_Info" Text="¿Qué es Trato Especial" Style="{StaticResource But}"  ></Button>
+    <ContentPage.Content>
+        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All">
+            <!--
+        <StackLayout Orientation="Vertical" x:Name="fondo" BackgroundColor="White">
+            <Image Style="{StaticResource img}" AbsoluteLayout.LayoutBounds="0,0,1,.5"></Image>
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,.5,1,.5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <Image Style="{StaticResource ImgBut}" Grid.Row="0"></Image>
+                <Label Style="{StaticResource Lbl}" Grid.Row="0" Text="¿Qué es Trato Especial" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Fn_Info"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Image Style="{StaticResource ImgBut}" Grid.Row="1"></Image>
+                <Label Style="{StaticResource Lbl}" Grid.Row="1" Text="Membresias" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Fn_Reg"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Image Style="{StaticResource ImgBut}" Grid.Row="2"></Image>
+                <Label Style="{StaticResource Lbl}" Grid.Row="2" Text="Iniciar Sesión" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Fn_Log"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+
+
+              
+            </StackLayout>
+        </StackLayout>
+            -->
+            <Image Source="LOGOTRATOESPECIAL.png" AbsoluteLayout.LayoutBounds="0,0,1,.5"  AbsoluteLayout.LayoutFlags="All"> </Image>
+
+            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".25,.55,.5,.1"  HorizontalOptions="EndAndExpand" AbsoluteLayout.LayoutFlags="All"></Image>
+            <Label TextColor="White" Text="¿Qué es Trato Especial" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" AbsoluteLayout.LayoutBounds=".25,.55,.5,.1"  AbsoluteLayout.LayoutFlags="All">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Fn_Info"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".25,.70,.5,.1" HorizontalOptions="EndAndExpand" AbsoluteLayout.LayoutFlags="All"></Image>
+            <Label TextColor="White" Text="Membresias"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" AbsoluteLayout.LayoutBounds=".25,.70,.5,.1"  AbsoluteLayout.LayoutFlags="All">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Fn_Reg"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".25,.85,.5,.1" HorizontalOptions="EndAndExpand"  AbsoluteLayout.LayoutFlags="All"></Image>
+            <Label TextColor="White" Text="Iniciar Sesión" AbsoluteLayout.LayoutBounds=".25,.85,.5,.1" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  AbsoluteLayout.LayoutFlags="All">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Fn_Log"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+
+
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
+<!--    estos son los buenos
+                 <Button Clicked="Fn_Info" Text="¿Qué es Trato Especial" Style="{StaticResource But}"  >
+                    
+                </Button>
                 <Button Clicked="Fn_Reg" Text="Membresias" Style="{StaticResource But}" ></Button>
                 <Button Clicked="Fn_Log" Text="Iniciar Sesión" Style="{StaticResource But}"></Button>
-                <!--
+                
+                
+                
+                
                 <Button Clicked="Fn_Info" HeightRequest="50" CornerRadius="5"  Margin="100,50,100,70" BorderWidth="10" BorderRadius="30" BorderColor="LightGray"
                                 Text="¿Qué es Trato Especial"  BackgroundColor="White"></Button>
                 <Button Clicked="Fn_Reg" HeightRequest="50" CornerRadius="5" Margin="100,50,100,70" BorderWidth="10" BorderRadius="30" BorderColor="LightGray" 
@@ -43,10 +120,8 @@
                 <Button Clicked="Fn_Log" CornerRadius="5" HeightRequest="50" BorderColor="LightGray" Margin="100,50,100,70" BorderWidth="10" BorderRadius="30"
                                 Text="Iniciar Sesión" BackgroundColor="White"></Button>
                 -->
-            </StackLayout>
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+
+
 <!--
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"

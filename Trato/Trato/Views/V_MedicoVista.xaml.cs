@@ -41,6 +41,9 @@ namespace Trato.Views
             img.Source = _servicios.v_img;
             descuento.IsVisible = true;
             descuento.Text = _servicios.v_Descuento;
+            //"Río + Purificación + 1603,+Las + Águilas,+45080 + Zapopan,+Jal"
+
+                
             if (App.v_logeado)
             {
                 boton.IsVisible = true;
@@ -50,10 +53,21 @@ namespace Trato.Views
                 boton.IsVisible = false;
             }
         }
-
+        public void Fn_AbrirMapa(object sender, EventArgs _args)
+        {
+            if(Device.RuntimePlatform == Device.Android)
+            {
+                Uri _direc = new Uri("https://www.google.com.mx/maps/place/Río+Purificación+1603,+Las+Águilas,+45080+Zapopan,+Jal");
+                Device.OpenUri(_direc);
+            }
+            else if(Device.RuntimePlatform== Device.iOS)
+            {
+                Uri _direc = new Uri("http://maps.apple.com/?q=Río+Purificación+1603,+Las+Águilas,+45080+Zapopan,+Jal");
+                Device.OpenUri(_direc);
+            }
+        }
         public void Fn_Click(object sender, EventArgs _args)
         {
-           
 
         }
 

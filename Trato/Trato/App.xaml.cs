@@ -17,16 +17,17 @@ namespace Trato
         {
             InitializeComponent();
             //aca cargar los datos de los medicos
-            v_medicos.Add(new C_Medico { v_Nombre = "inicio Apell", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio1", v_Info = "creado al inicio 1" });
-            v_medicos.Add(new C_Medico { v_Nombre = "inicio2 Bape", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio2", v_Info = "creado al inicio 2" });
-            v_medicos.Add(new C_Medico { v_Nombre = "inici3 Cape", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio3", v_Info = "creado al inicio 3" });
+            v_medicos.Add(new C_Medico { v_Nombre = "inicio Apell", v_Especialidad = "esps1", v_Domicilio = "Río Purificación 1603,Las  Águilas, 45080,Zapopan,Jal", v_Info = "creado al inicio 1", v_img="menu_icon.png" });
+            v_medicos.Add(new C_Medico { v_Nombre = "inicio2 Bape", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio2", v_Info = "creado al inicio 2", v_img = "menu_icon.png" });
+            v_medicos.Add(new C_Medico { v_Nombre = "inici3 Cape", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio3", v_Info = "creado al inicio 3", v_img = "menu_icon.png" });
 
-            v_servicios.Add(new C_Servicios { v_Nombre = "inicio", v_Servicios = "esps1", v_Domicilio = "domicillio inicio1", v_Info = "creado al inicio 1", v_Descuento="descuentos " });
+            v_servicios.Add(new C_Servicios { v_Nombre = "inicio", v_Servicios = "esps1", v_Domicilio = "domicillio inicio1", v_Info = "creado al inicio 1", v_Descuento="descuentos %" });
             v_servicios.Add(new C_Servicios { v_Nombre = "inicio2", v_Servicios = "esps1", v_Domicilio = "domicillio inicio2", v_Info = "creado al inicio 2", v_Descuento = "descuentos " });
             v_servicios.Add(new C_Servicios { v_Nombre = "inici3", v_Servicios = "esps1", v_Domicilio = "domicillio inicio3", v_Info = "creado al inicio 3", v_Descuento = "descuentos " });
             v_logeado = false;
+            App.Current.MainPage = new NavigationPage(new MainPage()); //new V_Master();
+            //MainPage =new NavigationPage( new V_Master());// new NavigationPage(new pruebas());//// new NavigationPage(new V_Master());
 
-            MainPage = new NavigationPage(new V_Master());// new NavigationPage(new pruebas());//new NavigationPage(new MainPage());// new NavigationPage(new V_Master());
         }
         async void Fn_Cargar()
         {

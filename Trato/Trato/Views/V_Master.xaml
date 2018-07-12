@@ -9,23 +9,18 @@
                 <StackLayout Margin="5,30,5,5">
                     <Label Text="Opciones"></Label>
                     <Button Text="Buscador de Medicos" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
-                    <Button Text="Lista Medicos" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
+                    <Button Text="Lista de Servicio" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
                     <Button Text="Tarjeta Visual" BackgroundColor="Yellow"></Button>
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>
-    
+
     <MasterDetailPage.Detail>
-        <ContentPage Padding="10" Icon="xamarin_logo.png">
-            <ContentPage.Content>
-                    <ScrollView>
-                        <StackLayout Margin="5,30,5,5">
-                                <Image Source="https://xamarin.com/content/images/pages/forms/example-app.png"></Image>
-                                <Label x:Name="lbl" Text="Detail Page"></Label>
-                        </StackLayout>
-                    </ScrollView>
-            </ContentPage.Content>
-        </ContentPage>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Title="This is a view" ></ContentPage>
+            </x:Arguments>
+        </NavigationPage>
     </MasterDetailPage.Detail>
 </MasterDetailPage>  
