@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 namespace Trato.Personas
 {
-    /* https://forums.xamarin.com/discussion/116786/how-can-i-target-android-api-27-oreo-8-1 
+    /* https://forums.xamarin.com/discussion/100135/json-response-parsing-in-xamarin-froms
+     * EXPLICA EL FORMATO Y COMO DEBEN ESTAR LOS ATRIBUTOS PARA EL JSON
      * 
      * 
      * EN LA TARJETA CON LOS DATOS DE COBRO ENVIAR EL NOMBRE DE LA MEMBRESIA CON STRING
@@ -11,16 +13,26 @@ namespace Trato.Personas
          */
     class C_Tarjeta
     {
-        string v_Nombre = "";
-        string v_Correo = "";
-        string v_Telefono = "";
-        string v_Membresia = "";
-        string v_Costo = "";
-        string v_NombreTar = "";
-        string v_NumeroTar = "";
-        string v_CVC = "";
-        string v_Mes = "";
-        string v_Ano = "";
+        [JsonProperty("nombre")]
+        string v_Nombre { get; set; }
+        [JsonProperty("correo")]
+        string v_Correo { get; set; }
+        [JsonProperty("tel")]
+        string v_Telefono { get; set; }
+        [JsonProperty("membre")]
+        string v_Membresia { get; set; }///nombre de la membresi
+        [JsonProperty("costo")]
+        string v_Costo { get; set; }
+        [JsonProperty("nombretarjeta")]
+        string v_NombreTar { get; set; }
+        [JsonProperty("numtarjeta")]
+        string v_NumeroTar { get; set; }
+        [JsonProperty("cvc")]
+        string v_CVC { get; set; }
+        [JsonProperty("mes")]
+        string v_Mes { get; set; }
+        [JsonProperty("ano")]
+        string v_Ano { get; set; }
 
         public C_Tarjeta()
         {
@@ -75,35 +87,54 @@ namespace Trato.Personas
         }
 
     }
+    
     class C_Ind_Fisica
     {
-
-        string v_Nombre = "";
-        //year dayofmonth, month   son int
-        string v_Rfc;
+        [JsonProperty("nombre")]
+        string v_Nombre { get; set; }
+        [JsonProperty("rfc")]
+        string v_Rfc { get; set; }
         /// <summary>
         /// Fecha de nacimiento, tiene que ser dia mes año
         /// </summary>
-        string v_FecNaci;
+        [JsonProperty("fechanac")]
+        string v_FecNaci { get; set; }
         /// <summary>
         /// lugar de nacimiento
         /// </summary>
-        string v_LugNac;
-        string v_Ocup;
-        string v_Tel;
-        string v_Cel;
-        string v_Calle;
-        string v_NumExt;
-        string v_NumInt;
-        string v_Colonia;
-        string v_Ciudad;
-        string v_municipio;
-        string v_Estado;
-        string v_Cp;
-        string v_Correo;
-        int Id = 0;
-        public C_Ind_Fisica()
+        [JsonProperty("lugnac")]
+        string v_LugNac { get; set; }
+        [JsonProperty("ocu")]
+        string v_Ocup { get; set; }
+        [JsonProperty("tel")]
+        string v_Tel { get; set; }
+        [JsonProperty("cel")]
+        string v_Cel { get; set; }
+        [JsonProperty("calle")]
+        string v_Calle { get; set; }
+        [JsonProperty("numext")]
+        string v_NumExt { get; set; }
+        [JsonProperty("numint")]
+        string v_NumInt { get; set; }
+        [JsonProperty("colonia")]
+        string v_Colonia { get; set; }
+        [JsonProperty("ciudad")]
+        string v_Ciudad { get; set; }
+        [JsonProperty("municipio")]
+        string v_municipio { get; set; }
+        [JsonProperty("estado")]
+        string v_Estado { get; set; }
+        [JsonProperty("cp")]
+        string v_Cp { get; set; }
+        [JsonProperty("correo")]
+        string v_Correo { get; set; }
+        [JsonProperty("membre")]
+        int v_membre { get; set; }
+        [JsonProperty("id")]
+        const int Id = 0;
+    public C_Ind_Fisica()
         {
+
             this.v_Nombre = "";
             this.v_Rfc = "";
             //4-2-2
@@ -125,7 +156,7 @@ namespace Trato.Personas
         }
         public C_Ind_Fisica(string _nom, string _rfc, DateTime _nac,
            string _lugnac, string _ocu, string _tel, string _cel, string _call,
-           string _ext, string _int, string _col, string _ciud, string _muni, string _est, string _cp, string _corr, int _tipo)
+           string _ext, string _int, string _col, string _ciud, string _muni, string _est, string _cp, string _corr, int _membre)
         {
             this.v_Nombre = _nom;
             this.v_Rfc = _rfc;
@@ -145,9 +176,9 @@ namespace Trato.Personas
             this.v_Estado = _est;
             this.v_Cp = _cp;
             this.v_Correo = _corr;
-            this.Id = _tipo;
+            this.v_membre = _membre;
         }
-
+        
         public string Fn_GetInfo()
         {
             string _mensaje = v_Nombre + " " + v_Rfc + " " + v_FecNaci + " " + v_LugNac + " " + v_Ocup +
@@ -226,19 +257,34 @@ namespace Trato.Personas
         /// nombre oi razon social
         /// </summary>
         string v_Nombre;
+        [JsonProperty("rfc")]
         string v_Rfc;
-        string v_Calle;
-        string v_NumExt;
-        string v_NumInt;
-        string v_Colonia;
-        string v_Ciudad;
-        string v_municipio;
-        string v_Estado;
-        string v_Cp;
-        string v_Giro;
-        string v_Tel;
-        string v_Correo;
-        int Id = 1;
+        [JsonProperty("ocu")]
+        string v_Ocup { get; set; }
+        [JsonProperty("tel")]
+        string v_Tel { get; set; }
+        [JsonProperty("calle")]
+        string v_Calle { get; set; }
+        [JsonProperty("numext")]
+        string v_NumExt { get; set; }
+        [JsonProperty("numint")]
+        string v_NumInt { get; set; }
+        [JsonProperty("colonia")]
+        string v_Colonia { get; set; }
+        [JsonProperty("ciudad")]
+        string v_Ciudad { get; set; }
+        [JsonProperty("municipio")]
+        string v_municipio { get; set; }
+        [JsonProperty("estado")]
+        string v_Estado { get; set; }
+        [JsonProperty("cp")]
+        string v_Cp { get; set; }
+        [JsonProperty("correo")]
+        string v_Correo { get; set; }
+        [JsonProperty("Membre")]
+        int v_membre { get; set; }
+        [JsonProperty("id")]
+        const int Id = 1;
 
 
         public C_Ind_Moral()
@@ -254,11 +300,11 @@ namespace Trato.Personas
             this.v_municipio = "";
             this.v_Estado = "";
             this.v_Cp = "";
-            this.v_Giro = "";
+            this.v_Ocup = "";
             this.v_Correo = "";
         }
         public C_Ind_Moral(string _nom, string _rfc, string _giro, string _tel, string _call,
-           string _ext, string _int, string _col, string _ciud, string _muni, string _est, string _cp, string _corr, int _tipo)
+           string _ext, string _int, string _col, string _ciud, string _muni, string _est, string _cp, string _corr, int _membre)
         {
             this.v_Nombre = _nom;
             this.v_Rfc = _rfc;
@@ -270,17 +316,17 @@ namespace Trato.Personas
             this.v_municipio = _muni;
             this.v_Estado = _est;
             this.v_Cp = _cp;
-            this.v_Giro = _giro;
+            this.v_Ocup = _giro;
             this.v_Tel = _tel;
             this.v_Correo = _corr;
-            this.Id = _tipo;
+            this.v_membre = _membre;
         }
 
         public string Fn_GetInfo()
         {
             string _mensaje = v_Nombre + " " + v_Rfc + " " + v_Calle + " " + v_NumExt + " " + v_NumInt + "  " +
                 v_Colonia + " " + v_Ciudad + " " + v_municipio + " " + v_Estado + " " +
-                v_Cp + " " + v_Giro + " " + v_Tel + " " + v_Correo;
+                v_Cp + " " + v_Ocup + " " + v_Tel + " " + v_Correo;
 
             return _mensaje;
         }
@@ -352,7 +398,7 @@ namespace Trato.Personas
     public class C_Servicios
     {
         public string v_Nombre { get; set; }
-        public string v_Servicios{ get; set; }
+        public string v_Especialidad { get; set; }
         public string v_Domicilio { get; set; }
         public string v_Info { get; set; }
         public string v_Descuento { get; set; }

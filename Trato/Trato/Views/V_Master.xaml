@@ -4,10 +4,9 @@
              x:Class="Trato.Views.V_Master" 
                   MasterBehavior="Popover">
     <MasterDetailPage.Master>
-        <ContentPage Padding="10" BackgroundColor="Gray" Title="Master" Icon="xamarin_logo.png">
+        <ContentPage Padding="10" BackgroundColor="Gray" Title="Master">
             <ContentPage.Content>
                 <StackLayout Margin="5,30,5,5">
-                    <Label Text="Opciones"></Label>
                     <Button Text="Buscador de Medicos" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
                     <Button Text="Lista de Servicio" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
                     <Button Text="Tarjeta Visual" BackgroundColor="Yellow"></Button>
@@ -19,7 +18,12 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <ContentPage Title="This is a view" ></ContentPage>
+                <ContentPage Title="Bienvenido" >
+                    <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                        <!--<Image VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Source="LOGOTRATOESPECIAL.png"></Image>-->
+                        <Label x:Name="texto"></Label>
+                    </AbsoluteLayout>
+                </ContentPage>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

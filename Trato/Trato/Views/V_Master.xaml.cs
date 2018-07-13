@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Net.Http;
-using System.Data;
+using Trato.Personas;
 
 namespace Trato.Views
 {
@@ -23,21 +22,33 @@ namespace Trato.Views
 		public V_Master()
 		{
 			InitializeComponent ();
-            A();
+
+            
+
+           // A();
         }
         public async void A()
         {
-            var client = new HttpClient();
-            var response = await client.GetAsync("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCbunHvSQc8oP6eailMPOS9a6DJU98Ni9s");
-           // var _mensajestring = response.Content.ReadAsStringAsync();            
-           //List<string> _listaString= JsonConvert.DeserializeObject<List<string>>(_mensajestring);
+            //C_Ind_Fisica fisi = new C_Ind_Fisica("nombresdsa", "rfcdfsf", new DateTime(2013, 1, 20, 0, 0, 0, DateTimeKind.Utc), "luga naci", "ocupacsdsad",
+            //    "2134535", "345667", "calle dssads", "23", "23", "colonisadsad", "ciudad dsfdfdf", "muni dsadsdf", "estado dsad", "2345",
+            //    "correro sdfdgf", 0);
+            //C_Ind_Moral fisi = new C_Ind_Moral("nombresdsa", "rfcdfsf", "ocupacsdsad",
+            //   "2134535", "calle dssads", "23", "23", "colonisadsad", "ciudad dsfdfdf", "muni dsadsdf", "estado dsad", "2345",
+            //   "correro sdfdgf", 0);
 
-           // string json = @"['Starcraft','Halo','Legend of Zelda']";
+            //C_Tarjeta fisi = new C_Tarjeta("nombre", "correo sadasd", "2134567", "personal membresia", "2344", "nombre en la tarjeta", "1223456124356567",
+            //    "234", "12", "12");
+           // string _jsonTar = JsonConvert.SerializeObject(fisi, Formatting.Indented);
 
-           // List<string> videogames = JsonConvert.DeserializeObject<List<string>>(json);
+            //HttpClient _client = new HttpClient();
+            ////HACER ESTO PARA QUE ESTE EN FORMATO PARA ENVIAR
+            
+            //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
+            //Uri _uri = new Uri("ww.asf");
+            //await _client.PostAsync(_uri, _contTar);
 
-
-        }
+           // texto.Text = _jsonTar;
+        } 
         public void Fn_uno()
         {
             Detail = new NavigationPage( new V_Buscador(true) { Title = "MEDICOS" });

@@ -10,7 +10,7 @@
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <application android:label="Trato.Android" android:icon="@drawable/xamarin_logo" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+  <application android:label="Trato.Android" android:icon="@drawable/iconoapp" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <!--  android:name="com.google.android.maps.v2.API_KEY"
                      -->
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCbunHvSQc8oP6eailMPOS9a6DJU98Ni9s" />

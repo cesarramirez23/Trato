@@ -5,6 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView x:Name="stackTodo" IsVisible="True">
+                
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -86,21 +87,27 @@
                     <Entry x:Name="Tar_Año" Grid.Column="2" Grid.Row="16"  Grid.ColumnSpan="1" Placeholder="AÑO" Keyboard="Numeric" TextChanged="Fn_Max"></Entry>
                     <Button BackgroundColor="Beige"  Text="Registrar" Clicked="Registrar" 
                                 Grid.Column="1" Grid.Row="17"  Grid.ColumnSpan="2"></Button>
+                <Label x:Name="otroaa" Text="sdfsdf\ndrfdsfdf"></Label>
                 </Grid>
+                
             </ScrollView>
+            
             <StackLayout x:Name="StackFolio" IsVisible="False">
-                <Label Text="Ingresa tu folio"></Label>
-                <Entry Placeholder="No de folio" x:Name="Fol_folio" Margin="0,5"></Entry>
+                <Label Text="Ingresa tu Numero de Membresía"></Label>
+                <Entry Placeholder="No de Membresía" x:Name="Fol_folio" Margin="0,5"></Entry>
 
-                <Label Text="Ingresa tu Nombre "></Label>
-                <Entry Placeholder="Nombre" x:Name="Fol_usu" Margin="0,5"></Entry>
+                <Label Text="Ingresa tu Nombre de usuario "></Label>
+                <Entry Placeholder="Nombre de usuario" x:Name="Fol_usu" Margin="0,5"></Entry>
 
                 <Label Text="Ingresa tu contraseña"></Label>
                 <Entry x:Name="Fol_pass" Placeholder="Contraseña" IsPassword="True"></Entry>
 
                 <Button Text="Iniciar Sesion" Clicked="Folio_Registro"></Button>
 
-                <Label x:Name="mensajes" Text=""></Label>
+                <ScrollView>
+                <Label x:Name="mensajes" Text="sadfdfdsgd"></Label>
+                    
+                </ScrollView>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

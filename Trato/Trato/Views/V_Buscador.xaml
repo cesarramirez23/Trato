@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1">
             <!--Orientation="Vertical">-->
-            <StackLayout VerticalOptions="Start" BackgroundColor="Gray"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                AbsoluteLayout.LayoutFlags="All">
                 <Button Clicked="Fn_Filtro"  Text="texto"></Button>
                 <!--<Picker Title="Filtro"  HorizontalOptions="StartAndExpand" x:Name="v_filtro" SelectedIndexChanged="Fn_Filtro">
@@ -17,18 +17,18 @@
                     </Picker.Items>
                 </Picker>-->
 
-                <ListView  x:Name="v_lista" RowHeight="100" SeparatorColor="Red" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh">
+                <ListView  x:Name="v_lista" RowHeight="150" SeparatorColor="Gray" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh">                
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                                    <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
                                         <Label Text="{Binding v_Nombre}" />
                                         <Label Text="{Binding v_Especialidad}" />
                                         <Label Text="{Binding v_Domicilio}" />
                                         <Label Text="{Binding v_Info}" />
-                                        <Image Source="{Binding v_img}" HorizontalOptions="End"/>
                                     </StackLayout>
+                                        <Image Source="{Binding v_img}" HorizontalOptions="End"/>
                                     <!--<Image Source="{Binding v_img}"   HorizontalOptions="End"/>-->
                                 </StackLayout>
                             </ViewCell>
@@ -42,40 +42,64 @@
                            IsVisible="False"
                            BackgroundColor="#C0808080"
                            Padding="10, 0">
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text=" cancel" Clicked="Fn_Filtro" HorizontalOptions="Start"  ></Button>
+                        <Button Text=" acep" Clicked="Fn_Filtro" HorizontalOptions="End"></Button>
+                    </StackLayout>
+                            <Label HorizontalOptions="Center" Text="Especialidad"></Label>
+                    <ListView x:Name="filEspc" ItemSelected="Fn_TapEspec">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding }" TextColor="White">
+                                </TextCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                            
+                    
+                    <Label HorizontalOptions="Center" Text="CIUDAD"></Label>
+                    <ListView x:Name="filCiudad" ItemSelected="Fn_TapCiu">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding }" TextColor="White">
+                                </TextCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <!--
                         <ScrollView>
                             <StackLayout>
                                 <Label Text="Ciudad" TextColor="White">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Fn_Tap" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                        <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                     </Label.GestureRecognizers>
                                 </Label>
                                 <Label Text="Ciudad" TextColor="White">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Fn_Tap" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                        <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                     </Label.GestureRecognizers>
                                 </Label>
                                 <Label Text="Ciudad" TextColor="White">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Fn_Tap" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                         <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                     </Label.GestureRecognizers>
                                 </Label>
                                 <Label Text="Ciudad" TextColor="White">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Fn_Tap" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                         <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                     </Label.GestureRecognizers>
                                 </Label>
                                 <Label Text="Ciudad" TextColor="White" >
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Fn_Tap" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                            <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
                                     </Label.GestureRecognizers>
                                 </Label>
+-->
 
-
-                                <Button Text=" cancel" Clicked="Fn_Filtro"  ></Button>
-                                <Button Text=" acep" Clicked="Fn_Filtro" ></Button>
-                            </StackLayout>
-                        </ScrollView>
-                        <!-- Overlay -->
+                    
+                </StackLayout>
+                <!-- Overlay -->
                     </ContentView>  
         </AbsoluteLayout>
     </ContentPage.Content>

@@ -25,8 +25,15 @@ namespace Trato.Views
         /// </summary>
         bool v_filtro = false;
 
-        List<Label> _filEsp = new List<Label>();
-        
+        /// <summary>
+        /// filtro de especialidad
+        /// </summary>
+        List<string> _filEspec = new List<string>();
+        List<string> _filCiud = new List<string>();
+
+        List<string> _especialidades = new List<string>();
+        List<string> _ciudades = new List<string>();
+
         public V_Buscador()
         {
             InitializeComponent();
@@ -36,6 +43,26 @@ namespace Trato.Views
         public V_Buscador(bool _valor)
         {
             InitializeComponent();
+
+            _especialidades.Add("sadsad");
+            _especialidades.Add("poiu");
+            _especialidades.Add("retret");
+            _especialidades.Add("piutrrr");
+            _especialidades.Add("asdt");
+            _especialidades.Add("yutyuytet");
+            _especialidades.Add("piutrrr");
+            _especialidades.Add("poiu");
+            filEspc.ItemsSource = _especialidades;
+            
+            _ciudades.Add("sadsad");
+            _ciudades.Add("yutyuytet");
+            _ciudades.Add("dfgfdgfd");
+            _ciudades.Add("cxvcxv");
+            _ciudades.Add("ewrwe");
+            _ciudades.Add("fgdfgfdg");
+            _ciudades.Add("yutyuytet");
+            filCiudad.ItemsSource = _ciudades;
+
             overlay.IsVisible = v_filtro;
             if(_valor)
             {
@@ -51,6 +78,12 @@ namespace Trato.Views
                 v_lista.ItemsSource = App.v_servicios;
             }
         }
+
+        /// <summary>
+        /// activar/Desactivar la pantalla de los filtros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_Args"></param>
         public void Fn_Filtro(object sender, EventArgs _Args)
         {
             //sacar el id para saber si es aceptar o cancelar
@@ -79,24 +112,6 @@ namespace Trato.Views
 
         }
 
-        void Fn_Fil()
-        {
-            //if(v_medico)
-            //{
-            //    ObservableCollection<C_Medico> _temp = new ObservableCollection<C_Medico>(); 
-            //    for(int i=0; i<App.v_medicos.Count; i++)
-            //    {
-            //        string _ciud = App.v_medicos[i].v_Domicilio.Split(' ')[5];
-            //        if (App.v_medicos[i].v_Nombre == v_nom.Text ||
-            //            _ciud == v_ciu.SelectedItem.ToString() ||//5
-            //            App.v_medicos[i].v_Nombre == v_espe.Text)
-            //        {
-            //            _temp.Add(App.v_medicos[i]);
-            //        }
-            //    }
-            //}
-
-        }
 
         /// <summary>
         /// seleccionas un elemento de la lista para expandir su informacion
@@ -122,7 +137,7 @@ namespace Trato.Views
                 if (item == null)
                     return;
 
-                await Navigation.PushAsync(new V_MedicoVista(item) { Title = " Medico " + item.v_Nombre });
+                await Navigation.PushAsync(new V_MedicoVista(item) { Title = "Lugar " + item.v_Nombre });
 
                 // Manually deselect item.
                 v_lista.SelectedItem = null;
@@ -132,31 +147,58 @@ namespace Trato.Views
         {
             return true;
         }
+
+
         bool Fn_Espec(C_Medico _temp)
         {
             bool _ret=false;
-            for(int i=0; i< _filEsp.Count; i++)
+            for(int i=0; i< _filEspec.Count; i++)
             {
-                if(_filEsp[i].Text == _temp.v_Especialidad)
+                if(_filEspec[i] == _temp.v_Especialidad)
                 {
                     _ret = true;
                 }
             }
             return _ret;
         }
-        void Fn_Tap(object sender, EventArgs _Args)
+        /// <summary>
+        /// agregar o quitar del filtro de especialidad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_Args"></param>
+        void Fn_TapEspec(object sender, SelectedItemChangedEventArgs _Args)
         {
-            var _valor=(Label)sender;
+            var _valor =(ListView)sender;
            
-            if(!_filEsp.Contains(_valor))
+            //if(!_filEspec.Contains(_valor.Text))
+            //{
+            //    _valor.TextColor = Color.Red;
+            //    _filEspec.Add(_valor.Text);
+            //}
+            //else
+            //{
+            //    _valor.TextColor = Color.White;
+            //    _filEspec.Remove(_valor.Text);
+            //}
+        }
+        /// <summary>
+        /// agregar o quitar del filtro de especialidad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_Args"></param>
+        void Fn_TapCiu(object sender, SelectedItemChangedEventArgs _Args)
+        {
+            var _valor = (TextCell)sender;
+
+            if (!_filCiud.Contains(_valor.Text))
             {
                 _valor.TextColor = Color.Red;
-                _filEsp.Add(_valor);
+                _filCiud.Add(_valor.Text);
             }
             else
             {
                 _valor.TextColor = Color.White;
-                _filEsp.Remove(_valor);
+                _filCiud.Remove(_valor.Text);
             }
         }
         async void Fn_Refresh(object sender, EventArgs e)
@@ -172,7 +214,7 @@ namespace Trato.Views
             Random rand = new Random();
             string _val = rand.Next(0, 120).ToString();
             App.v_medicos.Add(new C_Medico { v_Nombre = "Aombre nuevo" + _val+" "+"fpell" +_val, v_Especialidad = "esec" + _val,
-                v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val , v_img="menu_icon.png"});
+                v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val , v_img="ICONOAPP.png"});
 
                 await Orden();
             //darle la nueva lista
@@ -187,9 +229,9 @@ namespace Trato.Views
                 //por ahora esta creando nuevoos
                 Random rand = new Random();
                 string _val = rand.Next(0, 120).ToString();
-                App.v_servicios.Add(new C_Servicios { v_Nombre = "Aombre nuevo" + _val + " " + "fpell" + _val, v_Servicios = "esec" + _val,
-                    v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val, v_Descuento ="descuento "+ _val+"%",
-                    v_img = "menu_icon.png"
+                App.v_servicios.Add(new C_Servicios { v_Nombre = "Aombre nuevo" + _val + " " + "fpell" + _val,
+                    v_Especialidad = "esec" + _val, v_Domicilio = "dom sdsafsdfdf" + _val, v_Info = "infoooooooooo" + _val,
+                    v_Descuento ="descuento "+ _val+"%", v_img = "ICONOAPP.png"
                 });
 
                 await Orden();

@@ -132,35 +132,40 @@ namespace Trato.Views
         }
         public async void Registrar(object sender, EventArgs _args)
         {
-
             if (Fn_Condiciones())
             {
-
                 ///construir los datos de la tarkjeta que se va a enviar
                 C_Tarjeta _Tarjeta = new C_Tarjeta(Persona.Text, correo.Text, cel.Text, tipo.SelectedItem.ToString(), v_costo[tipo.SelectedIndex],
-                    Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text);
-                await DisplayAlert("Datos enviados", "ya", "cancel");
+                Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text);
+
+                string _jsonTar = JsonConvert.SerializeObject(_Tarjeta,Formatting.Indented);
+                otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO
+
+                if (v_T_Persona)
+                {
+                    C_Ind_Fisica _Usuario = new C_Ind_Fisica(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
+                        dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
+                    string _jsonUsu = JsonConvert.SerializeObject(_Usuario,Formatting.Indented);
+                    otroaa.Text += "\n" + _jsonUsu;
+                }
+                else
+                {
+                    C_Ind_Moral _Usuario = new C_Ind_Moral(nombre.Text, rfc.Text, giro.Text, tel.Text,
+                       dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
+                    string _jsonUsu = JsonConvert.SerializeObject(_Usuario, Formatting.Indented);
+                    otroaa.Text += "\n" + _jsonUsu;
+                }
+                /* ENVIO EN POST
+                HttpClient _cliente = new HttpClient();
+                StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");*/
+
             }
             else
             {
                 await DisplayAlert("Errores", "errores", "cancel");
 
             }
-
-            ////HttpClient _cliente = new HttpClient();
-            //string _jsonTar = JsonConvert.SerializeObject(_Tarjeta);
-            //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
-            //////enviar el post
-            //string url = "http://jsonplaceholder.typicode.com/posts";
-            //HttpResponseMessage _response = await _cliente.PostAsync(url, _contTar);
-
-
-            //if (v_T_Persona)
-            //{
-            //C_Ind_Fisica _Usuario = new C_Ind_Fisica(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
-            //    dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
-
-            //    mensaje.Text = _Usuario.Fn_GetInfo();
+            
 
             //    HttpClient _cli = new HttpClient();
             //    string jsonconv = JsonConvert.SerializeObject(_Usuario);
@@ -180,32 +185,6 @@ namespace Trato.Views
             //    // handling the answer  
             //    var resultString = await result.Content.ReadAsStringAsync();
             //    var post = JsonConvert.DeserializeObject(resultString);
-
-
-            //    //NavigationPage.SetHasNavigationBar(this, false);
-
-
-            //    //te encima una nueva pagina, pone solo el boton de regresar
-            //    //await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Informacion(1)) { Title = "Informacion" });
-            //    //await Navigation.PushAsync(new NavigationPage(new V_Informacion(1)));
-            //    await DisplayAlert("Listo", _Usuario.Fn_GetInfo(), "cancel");
-            //}
-            //else
-            //{
-            //    C_Ind_Moral _Usuario = new C_Ind_Moral(nombre.Text, rfc.Text, giro.Text, tel.Text,
-            //       dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
-            //    string jsonconv = JsonConvert.SerializeObject(_Usuario);
-            //    mensaje.Text = _Usuario.Fn_GetInfo();
-
-            //    //NavigationPage.SetHasNavigationBar(this, false);
-            //    // te encima una nueva pagina, pone solo el boton de regresar
-
-            //    //await Navigation.PushAsync(new NavigationPage(new V_Informacion(2)));
-            //    //await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Informacion(1)) { Title = "Informacion" });
-            //    await DisplayAlert("Listo", _Usuario.Fn_GetInfo(), "cancel");
-            //}
-
-
 
         }
 

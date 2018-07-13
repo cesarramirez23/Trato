@@ -35,7 +35,7 @@ namespace Trato.Views
         {
             InitializeComponent();
             nombre.Text = _servicios.v_Nombre;
-            especial.Text = _servicios.v_Servicios;
+            especial.Text = _servicios.v_Especialidad;
             domicilio.Text = _servicios.v_Domicilio;
             info.Text = _servicios.v_Info;
             img.Source = _servicios.v_img;

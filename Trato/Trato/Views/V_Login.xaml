@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Login" Title="Login">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="Green">
+        <StackLayout>
             <Label Text="Nombre de usuario"></Label>
             <Entry Placeholder="Nombre" x:Name="usu"></Entry>
             <Label Text="Ingresa tu contraseña"></Label>
             <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña"></Entry>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Image Source="BOTONDEGRADADO.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Red" Grid.Row="0">
+                <Image Source="BOTONDEGRADADO.png" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer  Tapped="Fn_Login"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
