@@ -10,6 +10,25 @@
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+            <Style x:Key="Buton" TargetType="Button">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderWidth" Value="5"/>
+                <Setter Property="BorderRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="Blue"/>
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="Margin" Value="20,0,20,0"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+            </Style>
+            <Style x:Key="StyEntry" TargetType="Entry">
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="PlaceholderColor" Value="Gray"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+            </Style>
+            <Style x:Key="StyLbl" TargetType="Label">
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

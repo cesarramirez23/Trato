@@ -17,109 +17,28 @@
                 <Setter Property="Grid.Column" Value="0"/>
                 <Setter Property="Grid.ColumnSpan" Value="1"/>
             </Style>
-            <Style x:Key="But" TargetType="Button">
-                <Setter Property="HeightRequest" Value="50"/>
-                <Setter Property="CornerRadius" Value="1"/>
-                <Setter Property="BackgroundColor" Value="White"/>
-                <Setter Property="BorderWidth" Value="5"/>
-                <Setter Property="BorderRadius" Value="10"/>
-                <Setter Property="BorderColor" Value="LightGray"/>
-                <Setter Property="TextColor" Value="Blue" />
-            </Style>
+
         </ResourceDictionary>
     </ContentPage.Resources>
     
             <!-- para encimar texto a la imagen https://forums.xamarin.com/discussion/92896/display-an-image-inside-in-a-text-->
     <ContentPage.Content>
-        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All">
-            <!--
-        <StackLayout Orientation="Vertical" x:Name="fondo" BackgroundColor="White">
-            <Image Style="{StaticResource img}" AbsoluteLayout.LayoutBounds="0,0,1,.5"></Image>
-            <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,.5,1,.5">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Image Style="{StaticResource ImgBut}" Grid.Row="0"></Image>
-                <Label Style="{StaticResource Lbl}" Grid.Row="0" Text="¿Qué es Trato Especial" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Fn_Info"></TapGestureRecognizer>
-                    </Label.GestureRecognizers>
-                </Label>
-
-                <Image Style="{StaticResource ImgBut}" Grid.Row="1"></Image>
-                <Label Style="{StaticResource Lbl}" Grid.Row="1" Text="Membresias" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Fn_Reg"></TapGestureRecognizer>
-                    </Label.GestureRecognizers>
-                </Label>
-                
-                <Image Style="{StaticResource ImgBut}" Grid.Row="2"></Image>
-                <Label Style="{StaticResource Lbl}" Grid.Row="2" Text="Iniciar Sesión" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Fn_Log"></TapGestureRecognizer>
-                    </Label.GestureRecognizers>
-                </Label>
-
-
-
-              
-            </StackLayout>
+        <StackLayout>
+            <Grid HeightRequest="300" VerticalOptions="Start">
+                <Image Source="FONDODEGRADADO.png" Aspect="AspectFill" ></Image>
+                <Image Source="ICONOAPP.png" ></Image>
+            </Grid>
+            <Button Text="¿Qué es?" Style="{StaticResource Buton}" Clicked="Fn_Info"  ></Button>
+            <Button Text="Membresias" Style="{StaticResource Buton}" Clicked="Fn_Reg"  ></Button>
+            <Button Text="Iniciar Sesión"  Style="{StaticResource Buton}" Clicked="Fn_Log"  ></Button>
         </StackLayout>
-            -->
+        <!--<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All">
             <Image Source="LOGOTRATOESPECIAL.png" AbsoluteLayout.LayoutBounds="0,0,1,.5"  AbsoluteLayout.LayoutFlags="All"></Image>
-
-            <!--
-
-            <Button Image="BOTONDEGRADADO.png" Text="¿Qué es?" TextColor="Red" Clicked="Fn_Info" AbsoluteLayout.LayoutBounds=".45,.55,.5,.1" AbsoluteLayout.LayoutFlags="All"></Button>
-
-            <Button Image="BOTONDEGRADADO.png" Text="Membresias" Clicked="Fn_Reg" TextColor="Red"  AbsoluteLayout.LayoutBounds=".45,.70,.5,.1" AbsoluteLayout.LayoutFlags="All"></Button>
-
-            <Button Image="BOTONDEGRADADO.png" Text="Login" Clicked="Fn_Log" TextColor="Red"  AbsoluteLayout.LayoutBounds=".45,.85,.5,.1" AbsoluteLayout.LayoutFlags="All" ></Button>
-            -->
-            
-            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".45,.55,.5,.1" Aspect="Fill" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutFlags="All">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer  Tapped="Fn_Info"></TapGestureRecognizer>
-                </Image.GestureRecognizers>
-            </Image>
-            <Label TextColor="White" Text="¿Qué es?" HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds=".45,.55,.5,.1"  AbsoluteLayout.LayoutFlags="All">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer  Tapped="Fn_Info"></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
-
-            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".45,.70,.5,.1" Aspect="Fill" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutFlags="All">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Fn_Reg"></TapGestureRecognizer>
-                </Image.GestureRecognizers>
-            </Image>
-            <Label TextColor="White" Text="Membresias"  HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds=".45,.70,.5,.1"  AbsoluteLayout.LayoutFlags="All">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Fn_Reg"></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
-
-            <Image Source="BOTONDEGRADADO" AbsoluteLayout.LayoutBounds=".45,.85,.5,.1" Aspect="Fill" HorizontalOptions="FillAndExpand"  AbsoluteLayout.LayoutFlags="All">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Fn_Log"></TapGestureRecognizer>
-                </Image.GestureRecognizers>
-            </Image>
-            <Label TextColor="White" Text="Iniciar Sesión" AbsoluteLayout.LayoutBounds=".45,.85,.5,.1" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  AbsoluteLayout.LayoutFlags="All">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Fn_Log"></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
-
-
-
+            <Button Text="¿Qué es?" AbsoluteLayout.LayoutBounds=".45,.55,.5,.1" Style="{StaticResource Buton}" Clicked="Fn_Info"  ></Button>
+            <Button Text="Membresias" AbsoluteLayout.LayoutBounds=".45,.70,.5,.1" Style="{StaticResource Buton}" Clicked="Fn_Reg"  ></Button>
+            <Button Text="Iniciar Sesión" AbsoluteLayout.LayoutBounds=".45,.85,.5,.1" Style="{StaticResource Buton}" Clicked="Fn_Log"  ></Button>
         </AbsoluteLayout>
+        -->
     </ContentPage.Content>
 </ContentPage>
 <!--    estos son los buenos

@@ -1,11 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Membresias" Title="Membresias">
-    <ContentPage.Content>
-
-        <StackLayout>
-            <!--ESTE ES EL FONDO PONERLO EN UN LAYOUT VACIO SOLO CON LA FOTO -->
+    <CarouselPage.Resources>
+        <Style x:Key="Stack" TargetType="StackLayout">
+            <Setter Property="Margin" Value="10,10,10,10"></Setter>                
+        </Style>
+    </CarouselPage.Resources>
+    
+    <ContentPage >
+        <StackLayout Style="{StaticResource Key=Stack}">
+            <Grid HeightRequest="300" VerticalOptions="Start">
+                <Image Source="FONDODEGRADADO.png" Aspect="AspectFill" ></Image>
+                <Image Source="ICONOAPP.png" ></Image>
+            </Grid>
+            <ScrollView >
+                <Label Text="sdadasdasdsadsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\n
+                       sadsadsadsad\n"/>
+            </ScrollView>
+            <Button Text="Comprar" Clicked="Fn_Comprar"  Style="{StaticResource Buton}" ></Button>
+        </StackLayout>
+    </ContentPage>
+    
+    
+    <ContentPage>
+        <StackLayout Style="{StaticResource Key=Stack}">
+            <Grid HeightRequest="300" VerticalOptions="Start">
+                <Image Source="FONDODEGRADADO.png" Aspect="AspectFill" ></Image>
+                <Image Source="ICONOAPP.png" ></Image>
+            </Grid>
+            <ScrollView >
+                <Label Text="sdadasdasdsadsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\n
+                       sadsadsadsad\n"/>
+            </ScrollView>
+            <Button Text="Comprar" Clicked="Fn_Comprar"  Style="{StaticResource Buton}" ></Button>
+        </StackLayout>
+    </ContentPage>
+    
+    
+    <ContentPage>
+        <StackLayout Style="{StaticResource Key=Stack}">
+            <Grid HeightRequest="300" VerticalOptions="Start">
+                <Image Source="FONDODEGRADADO.png" Aspect="AspectFill" ></Image>
+                <Image Source="ICONOAPP.png" ></Image>
+            </Grid>
+            <ScrollView >
+                <Label Text="sdadasdasdsadsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\n
+                       sadsadsadsad\n"/>
+            </ScrollView>
+            <Button Text="Comprar" Clicked="Fn_Comprar" Style="{StaticResource Buton}" ></Button>
+        </StackLayout>
+    </ContentPage>
+        <!--<StackLayout>
+            ESTE ES EL FONDO PONERLO EN UN LAYOUT VACIO SOLO CON LA FOTO 
             <Image  Source="FONDODEGRADADO.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,.4" 
                     HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutFlags="All"></Image>
             <StackLayout Orientation="Horizontal">
@@ -29,5 +76,5 @@
                 <Label Text="texto aca" TextColor="Gray" x:Name="label"></Label>
             </ScrollView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+        -->
+</CarouselPage>

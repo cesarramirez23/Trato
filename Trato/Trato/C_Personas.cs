@@ -66,8 +66,10 @@ namespace Trato.Personas
     }
     class C_Login
     {
-        string v_usuario = "";
-        string v_pass = "";
+        [JsonProperty("usu")]
+        string v_usuario { get; set; }
+        [JsonProperty("pass")]
+        string v_pass  { get;set;}
 
         public C_Login()
         {
@@ -92,6 +94,7 @@ namespace Trato.Personas
     {
         [JsonProperty("nombre")]
         string v_Nombre { get; set; }
+        string v_apellido { get; set; }
         [JsonProperty("rfc")]
         string v_Rfc { get; set; }
         /// <summary>
@@ -154,11 +157,12 @@ namespace Trato.Personas
             this.v_Cp = "";
             this.v_Correo = "";
         }
-        public C_Ind_Fisica(string _nom, string _rfc, DateTime _nac,
+        public C_Ind_Fisica(string _nom,string _ape, string _rfc, DateTime _nac,
            string _lugnac, string _ocu, string _tel, string _cel, string _call,
            string _ext, string _int, string _col, string _ciud, string _muni, string _est, string _cp, string _corr, int _membre)
         {
             this.v_Nombre = _nom;
+            this.v_apellido = _ape;
             this.v_Rfc = _rfc;
             //4-2-2
             //AÑO - MES NUMERO- DIA
@@ -189,9 +193,12 @@ namespace Trato.Personas
     }
     class C_Registro
     {
-        string v_folio = "";
-        string v_usuario = "";
-        string v_pass = "";
+        [JsonProperty("membresia")]
+        string v_folio { get; set; }
+        [JsonProperty("usu")]
+        string v_usuario { get; set; }
+        [JsonProperty("pass")]
+        string v_pass  { get;set; }
 
         public C_Registro()
         {
@@ -215,6 +222,7 @@ namespace Trato.Personas
 
     class C_Fam
     {
+
         string v_Nombre;
         string v_Parentesco;
         /// <summary>
@@ -387,11 +395,17 @@ namespace Trato.Personas
     public class C_Medico
     {
         //get y set para poder que sean binding
+        [JsonProperty("nombre")]
         public string v_Nombre { get; set; }
+        [JsonProperty("ape")]
         public string v_Apellido { get; set; }
+        [JsonProperty("espe")]
         public string v_Especialidad { get; set; }
+        [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
+        [JsonProperty("info")]
         public string v_Info { get; set; }
+        [JsonProperty("img")]
         public string v_img { get; set; }
 
     }

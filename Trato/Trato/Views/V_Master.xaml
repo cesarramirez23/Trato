@@ -20,6 +20,7 @@
             <x:Arguments>
                 <ContentPage Title="Bienvenido" >
                     <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                        <Image  Source="ICONOAPP.png" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="All"></Image>
                         <!--<Image VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Source="LOGOTRATOESPECIAL.png"></Image>-->
                         <Label x:Name="texto"></Label>
                     </AbsoluteLayout>

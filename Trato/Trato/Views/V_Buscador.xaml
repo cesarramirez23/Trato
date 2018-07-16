@@ -21,15 +21,15 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
+                                <!--https://stackoverflow.com/questions/49373982/access-views-inside-a-datatemplate-at-runtime-in-xamarin-forms -->
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                                    <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Start">
                                         <Label Text="{Binding v_Nombre}" />
                                         <Label Text="{Binding v_Especialidad}" />
-                                        <Label Text="{Binding v_Domicilio}" />
-                                        <Label Text="{Binding v_Info}" />
+                                        <!--<Label Text="{Binding v_Domicilio}" />
+                                        <Label Text="{Binding v_Info}" />-->
                                     </StackLayout>
-                                        <Image Source="{Binding v_img}" HorizontalOptions="End"/>
-                                    <!--<Image Source="{Binding v_img}"   HorizontalOptions="End"/>-->
+                                    <Image Source="{Binding v_img}" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

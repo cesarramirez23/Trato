@@ -8,6 +8,8 @@
             <Entry Placeholder="Nombre" x:Name="usu"></Entry>
             <Label Text="Ingresa tu contraseña"></Label>
             <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña"></Entry>
+            <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login">  </Button>
+            <!--
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"></RowDefinition>
@@ -19,6 +21,7 @@
                 </Image>
                 <Label TextColor="White" Font="Arial" Text="Login" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center"/>
             </Grid>
+            -->
             <!--
             <Button Text="Iniciar Sesion" ContentLayout="Left,10" Image="BOTONDEGRADADO.png" Clicked="Fn_Login" HorizontalOptions="Fill"
             VerticalOptions="Center" >
@@ -26,10 +29,10 @@
             -->
             
                 <Label Text="¿No tienes cuenta?" FontAttributes="Bold">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
             <Label x:Name="mensajes" Text=""></Label>
         </StackLayout>
     </ContentPage.Content>

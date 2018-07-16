@@ -238,6 +238,9 @@ namespace Trato.Views
                 //darle la nueva lista
                 list.ItemsSource = App.v_servicios;
             }
+
+            
+
             //cancelar la actualizacion
             list.IsRefreshing = false;
         }
