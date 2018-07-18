@@ -37,15 +37,15 @@
                         <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
                     </StackLayout>
                     <Entry x:Name="Tar_Nombre" Placeholder="Tajeta habiente"></Entry>
-                    <Entry x:Name="Tar_Numero" Placeholder="Numero Tajeta" Keyboard="Numeric"></Entry>
+                    <Entry x:Name="Tar_Numero" Placeholder="Numero Tajeta" TextChanged="Fn_Max18" Keyboard="Numeric"></Entry>
                     <StackLayout Orientation="Horizontal">
                         <Entry x:Name="Tar_Cvc" HorizontalOptions="Start" Placeholder="CVC" Keyboard="Numeric" ></Entry>
-                        <Entry x:Name="Tar_Mes" HorizontalOptions="Center" Placeholder="MES" Keyboard="Numeric" TextChanged="Fn_Max"></Entry>
-                        <Entry x:Name="Tar_Año" HorizontalOptions="End" Placeholder="AÑO" Keyboard="Numeric" TextChanged="Fn_Max"></Entry>
+                        <Entry x:Name="Tar_Mes" HorizontalOptions="Center" Placeholder="MES" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
+                        <Entry x:Name="Tar_Año" HorizontalOptions="End" Placeholder="AÑO" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
                     </StackLayout>
-                    <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" ></Button>
+                    <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" ></Button>
                     <!--Clicked="Registrar" -->
-                    <Label x:Name="otroaa" Text="sdfsdf\ndrfdsfdf"></Label>
+                    <Label x:Name="otroaa" Text=" aqui mensajes"></Label>
                 </StackLayout>
             </ScrollView>
             

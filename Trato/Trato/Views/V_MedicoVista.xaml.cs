@@ -19,7 +19,7 @@ namespace Trato.Views
             nombre.Text = _medico.v_Nombre + _medico.v_Apellido;
             especial.Text = _medico.v_Especialidad;
             domicilio.Text = _medico.v_Domicilio;
-            info.Text = _medico.v_Info;
+            info.Text = _medico.v_descripcion;
             img.Source = _medico.v_img;
             descuento.IsVisible = false;
             if(App.v_logeado)
@@ -37,10 +37,10 @@ namespace Trato.Views
             nombre.Text = _servicios.v_Nombre;
             especial.Text = _servicios.v_Especialidad;
             domicilio.Text = _servicios.v_Domicilio;
-            info.Text = _servicios.v_Info;
+            info.Text = _servicios.v_descripcion;
             img.Source = _servicios.v_img;
             descuento.IsVisible = true;
-            descuento.Text = _servicios.v_Descuento;
+           // descuento.Text = _servicios.v_Descuento;
             //"Río + Purificación + 1603,+Las + Águilas,+45080 + Zapopan,+Jal"
 
                 

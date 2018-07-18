@@ -9,7 +9,7 @@
                 <StackLayout Margin="5,30,5,5">
                     <Button Text="Buscador de Medicos" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
                     <Button Text="Lista de Servicio" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
-                    <Button Text="Tarjeta Visual" BackgroundColor="Yellow"></Button>
+                    <Button Text="Perfil" BackgroundColor="Yellow" Clicked="Fn_Perfil"></Button>
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>

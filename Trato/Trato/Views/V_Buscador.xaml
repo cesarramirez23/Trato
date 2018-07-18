@@ -23,13 +23,15 @@
                             <ViewCell>
                                 <!--https://stackoverflow.com/questions/49373982/access-views-inside-a-datatemplate-at-runtime-in-xamarin-forms -->
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                                    <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                                    <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                                      
+                                        <Label Text="{Binding v_Apellido}"/>
                                         <Label Text="{Binding v_Nombre}" />
                                         <Label Text="{Binding v_Especialidad}" />
                                         <!--<Label Text="{Binding v_Domicilio}" />
                                         <Label Text="{Binding v_Info}" />-->
                                     </StackLayout>
-                                    <Image Source="{Binding v_img}" />
+                                    <Image HorizontalOptions="End" Source="{Binding v_img}" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -44,15 +46,16 @@
                            Padding="10, 0">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
-                        <Button Text=" cancel" Clicked="Fn_Filtro" HorizontalOptions="Start"  ></Button>
-                        <Button Text=" acep" Clicked="Fn_Filtro" HorizontalOptions="End"></Button>
+                        <Button Text=" cancel" Clicked="Fn_Cancelar" HorizontalOptions="Start"  ></Button>
+                        <Button Text=" acep" Clicked="Fn_Aceptar" HorizontalOptions="End"></Button>
                     </StackLayout>
                             <Label HorizontalOptions="Center" Text="Especialidad"></Label>
-                    <ListView x:Name="filEspc" ItemSelected="Fn_TapEspec">
+                    <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <TextCell Text="{Binding }" TextColor="White">
-                                </TextCell>
+                                <ViewCell>
+                                    <Label Text="{Binding v_texto }" BackgroundColor="{Binding v_color}" ></Label>
+                                </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -62,42 +65,12 @@
                     <ListView x:Name="filCiudad" ItemSelected="Fn_TapCiu">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <TextCell Text="{Binding }" TextColor="White">
-                                </TextCell>
+                                <ViewCell>
+                                    <Label Text="{Binding v_texto }" BackgroundColor="{Binding v_color}" ></Label>
+                                </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <!--
-                        <ScrollView>
-                            <StackLayout>
-                                <Label Text="Ciudad" TextColor="White">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                                    </Label.GestureRecognizers>
-                                </Label>
-                                <Label Text="Ciudad" TextColor="White">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                                    </Label.GestureRecognizers>
-                                </Label>
-                                <Label Text="Ciudad" TextColor="White">
-                                    <Label.GestureRecognizers>
-                                         <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                                    </Label.GestureRecognizers>
-                                </Label>
-                                <Label Text="Ciudad" TextColor="White">
-                                    <Label.GestureRecognizers>
-                                         <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                                    </Label.GestureRecognizers>
-                                </Label>
-                                <Label Text="Ciudad" TextColor="White" >
-                                    <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="Fn_TapEspec" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                                    </Label.GestureRecognizers>
-                                </Label>
--->
-
-                    
                 </StackLayout>
                 <!-- Overlay -->
                     </ContentView>  

@@ -38,26 +38,30 @@ namespace Trato.Views
 
             //C_Tarjeta fisi = new C_Tarjeta("nombre", "correo sadasd", "2134567", "personal membresia", "2344", "nombre en la tarjeta", "1223456124356567",
             //    "234", "12", "12");
-           // string _jsonTar = JsonConvert.SerializeObject(fisi, Formatting.Indented);
+            // string _jsonTar = JsonConvert.SerializeObject(fisi, Formatting.Indented);
 
             //HttpClient _client = new HttpClient();
             ////HACER ESTO PARA QUE ESTE EN FORMATO PARA ENVIAR
-            
+
             //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
             //Uri _uri = new Uri("ww.asf");
             //await _client.PostAsync(_uri, _contTar);
 
-           // texto.Text = _jsonTar;
+            // texto.Text = _jsonTar;
+            await Task.Delay(100);
         } 
-        public void Fn_uno()
+        public void Fn_uno(object sender, EventArgs _args)
         {
             Detail = new NavigationPage( new V_Buscador(true) { Title = "MEDICOS" });
         }
-        public void Fn_dos()
+        public void Fn_dos(object sender, EventArgs _args)
         {
             Detail = new NavigationPage( new V_Buscador(false) { Title = "SERVICIOS" });//new V_Buscador() { Title = "Buscador" };
         }
-
+        public void Fn_Perfil(object sender, EventArgs _args)
+        {
+            Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });//new V_Buscador() { Title = "Buscador" };
+        }
     }
 
   

@@ -88,13 +88,11 @@ namespace Trato.Personas
             return _info;
         }
 
-    }
-    
+    }    
     class C_Ind_Fisica
     {
         [JsonProperty("nombre")]
         string v_Nombre { get; set; }
-        string v_apellido { get; set; }
         [JsonProperty("rfc")]
         string v_Rfc { get; set; }
         /// <summary>
@@ -157,12 +155,11 @@ namespace Trato.Personas
             this.v_Cp = "";
             this.v_Correo = "";
         }
-        public C_Ind_Fisica(string _nom,string _ape, string _rfc, DateTime _nac,
+        public C_Ind_Fisica(string _nom,string _rfc, DateTime _nac,
            string _lugnac, string _ocu, string _tel, string _cel, string _call,
            string _ext, string _int, string _col, string _ciud, string _muni, string _est, string _cp, string _corr, int _membre)
         {
             this.v_Nombre = _nom;
-            this.v_apellido = _ape;
             this.v_Rfc = _rfc;
             //4-2-2
             //AÑO - MES NUMERO- DIA
@@ -191,74 +188,6 @@ namespace Trato.Personas
             return _mensaje;
         }
     }
-    class C_Registro
-    {
-        [JsonProperty("membresia")]
-        string v_folio { get; set; }
-        [JsonProperty("usu")]
-        string v_usuario { get; set; }
-        [JsonProperty("pass")]
-        string v_pass  { get;set; }
-
-        public C_Registro()
-        {
-            v_folio = "";
-            v_usuario = "";
-            v_pass = "";
-        }
-        public C_Registro(string _fol, string _usu, string _pass)
-        {
-            v_folio = _fol;
-            v_usuario = _usu;
-            v_pass = _pass;
-        }
-        public string Fn_GetInfo()
-        {
-            string _valor = "";
-            _valor = v_folio + "  " + v_usuario + "  " + v_pass;
-            return _valor;
-        }
-    }
-
-    class C_Fam
-    {
-
-        string v_Nombre;
-        string v_Parentesco;
-        /// <summary>
-        /// Fecha de nacimiento, tiene que ser dia mes año
-        /// </summary>
-        string v_FecNaci;
-        string v_Correo;
-        string v_Cel;
-        const int Id = 2;
-
-        public C_Fam()
-        {
-            this.v_Nombre = "";
-            this.v_Parentesco = "";
-            this.v_FecNaci = "0000-00-00";
-            this.v_Correo = "";
-            this.v_Cel = "";
-
-        }
-        public C_Fam(string _nom, string _paren, DateTime _nac,
-           string _cel, string _corr)
-        {
-            this.v_Nombre = _nom;
-            this.v_Parentesco = _paren;
-            this.v_FecNaci = _nac.Year.ToString() + "-" + _nac.Month.ToString() + "-" + _nac.Day.ToString();
-            this.v_Correo = _corr;
-            this.v_Cel = _cel;
-        }
-        public string Fn_GetInfo()
-        {
-            return "";
-        }
-
-
-    }
-
     class C_Ind_Moral
     {
         /// <summary>
@@ -340,7 +269,69 @@ namespace Trato.Personas
         }
 
     }
+    class C_Fam
+    {
 
+        string v_Nombre;
+        string v_Parentesco;
+        /// <summary>
+        /// Fecha de nacimiento, tiene que ser dia mes año
+        /// </summary>
+        string v_FecNaci;
+        string v_Correo;
+        string v_Cel;
+        const int Id = 2;
+        public C_Fam()
+        {
+            this.v_Nombre = "";
+            this.v_Parentesco = "";
+            this.v_FecNaci = "0000-00-00";
+            this.v_Correo = "";
+            this.v_Cel = "";
+
+        }
+        public C_Fam(string _nom, string _paren, DateTime _nac,
+           string _cel, string _corr)
+        {
+            this.v_Nombre = _nom;
+            this.v_Parentesco = _paren;
+            this.v_FecNaci = _nac.Year.ToString() + "-" + _nac.Month.ToString() + "-" + _nac.Day.ToString();
+            this.v_Correo = _corr;
+            this.v_Cel = _cel;
+        }
+        public string Fn_GetInfo()
+        {
+            return "";
+        }
+    }
+    class C_Registro
+    {
+        [JsonProperty("membresia")]
+        string v_folio { get; set; }
+        [JsonProperty("usu")]
+        string v_usuario { get; set; }
+        [JsonProperty("pass")]
+        string v_pass  { get;set; }
+
+        public C_Registro()
+        {
+            v_folio = "";
+            v_usuario = "";
+            v_pass = "";
+        }
+        public C_Registro(string _fol, string _usu, string _pass)
+        {
+            v_folio = _fol;
+            v_usuario = _usu;
+            v_pass = _pass;
+        }
+        public string Fn_GetInfo()
+        {
+            string _valor = "";
+            _valor = v_folio + "  " + v_usuario + "  " + v_pass;
+            return _valor;
+        }
+    }   
     class C_Emp_Empleado
     {
         /// <summary>
@@ -391,31 +382,68 @@ namespace Trato.Personas
         }
 
     }
-
     public class C_Medico
     {
         //get y set para poder que sean binding
         [JsonProperty("nombre")]
         public string v_Nombre { get; set; }
+        /// <summary>
+        /// lo necesito yo para ordenarlo por orden      
+        /// </summary>
         [JsonProperty("ape")]
         public string v_Apellido { get; set; }
         [JsonProperty("espe")]
         public string v_Especialidad { get; set; }
         [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
-        [JsonProperty("info")]
-        public string v_Info { get; set; }
+        /// <summary>
+        /// este lo necesito yo para el filtro
+        /// </summary>
+        [JsonProperty("ciudad")]
+        public string v_Ciudad { get; set; }
+        [JsonProperty("tel")]
+        public string v_Tel { get; set; }
+        [JsonProperty("correo")]
+        public string v_Correo { get; set; }
+        //[JsonProperty("desc")]
+        //public string v_Descuento { get; set; }
+        [JsonProperty("horario")]
+        public string v_horario { get; set; }
+        [JsonProperty("cedula")]
+        public string v_cedula { get; set; }
+        [JsonProperty("descrip")]
+        public string v_descripcion { get; set; }
         [JsonProperty("img")]
         public string v_img { get; set; }
-
     }
     public class C_Servicios
     {
+        //get y set para poder que sean binding
+        [JsonProperty("nombre")]
         public string v_Nombre { get; set; }
+        [JsonProperty("espe")]
         public string v_Especialidad { get; set; }
+        [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
-        public string v_Info { get; set; }
-        public string v_Descuento { get; set; }
+        /// <summary>
+        /// este lo necesito yo para el filtro
+        /// </summary>
+        [JsonProperty("ciudad")]
+        public string v_Ciudad { get; set; }
+        [JsonProperty("tel")]
+        public string v_Tel { get; set; }
+        [JsonProperty("correo")]
+        public string v_Correo { get; set; }
+        //[JsonProperty("desc")]
+        //public string v_Descuento { get; set; }
+        [JsonProperty("horario")]
+        public string v_horario { get; set; }
+        [JsonProperty("descrip")]
+        public string v_descripcion { get; set; }
+        /// <summary>
+        /// imagen para mostrar
+        /// </summary>
+        [JsonProperty("img")]
         public string v_img { get; set; }
     }
 }

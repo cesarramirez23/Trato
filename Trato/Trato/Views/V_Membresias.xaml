@@ -15,8 +15,9 @@
                 <Image Source="ICONOAPP.png" ></Image>
             </Grid>
             <ScrollView >
-                <Label Text="sdadasdasdsadsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\n
-                       sadsadsadsad\n"/>
+                <Label Text="infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo
+                       infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo
+                       infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo"/>
             </ScrollView>
             <Button Text="Comprar" Clicked="Fn_Comprar"  Style="{StaticResource Buton}" ></Button>
         </StackLayout>
@@ -30,8 +31,9 @@
                 <Image Source="ICONOAPP.png" ></Image>
             </Grid>
             <ScrollView >
-                <Label Text="sdadasdasdsadsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\n
-                       sadsadsadsad\n"/>
+                <Label Text="infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo
+                       infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo
+                       infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo"/>
             </ScrollView>
             <Button Text="Comprar" Clicked="Fn_Comprar"  Style="{StaticResource Buton}" ></Button>
         </StackLayout>
@@ -45,8 +47,9 @@
                 <Image Source="ICONOAPP.png" ></Image>
             </Grid>
             <ScrollView >
-                <Label Text="sdadasdasdsadsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\nsadsadsadsad\n
-                       sadsadsadsad\n"/>
+                <Label Text="infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo
+                       infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo
+                       infoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfoinfo"/>
             </ScrollView>
             <Button Text="Comprar" Clicked="Fn_Comprar" Style="{StaticResource Buton}" ></Button>
         </StackLayout>
