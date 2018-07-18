@@ -36,12 +36,11 @@ namespace Trato.Views
         public V_Registro(string _titulo)
         {
             InitializeComponent();
-            DateTime _date = DateTime.Now;
-            //fecha.MaximumDate = _date;
-            //Persona.Text = "Persona Fisica";
-            //fecha.IsEnabled = v_T_Persona;
-            //lugar.IsEnabled = v_T_Persona;
-            //tel.IsEnabled = v_T_Persona;
+            fecha.MaximumDate = DateTime.Now;
+            Persona.Text = "Persona Fisica";
+            fecha.IsEnabled = v_T_Persona;
+            lugar.IsEnabled = v_T_Persona;
+            tel.IsEnabled = v_T_Persona;
 
         }
         /// <summary>
@@ -62,24 +61,22 @@ namespace Trato.Views
             {
                 stackTodo.IsVisible = true;
                 StackFolio.IsVisible = false;
-                DateTime _date = DateTime.Now;
-                //fecha.MaximumDate = _date;
-                //Persona.Text = "Persona Fisica";
-                //fecha.IsEnabled = v_T_Persona;
-                //lugar.IsEnabled = v_T_Persona;
-                //tel.IsEnabled = v_T_Persona;
+                fecha.MaximumDate = DateTime.Now;
+                Persona.Text = "Persona Fisica";
+                fecha.IsEnabled = v_T_Persona;
+                lugar.IsEnabled = v_T_Persona;
+                tel.IsEnabled = v_T_Persona;
             }
         }
         public V_Registro()
         {
             InitializeComponent();
-            DateTime _date = DateTime.Now;
-            //fecha.MaximumDate = _date;
+            fecha.MaximumDate = DateTime.Now;
 
-            //Persona.Text = "Persona Fisica";
-            //fecha.IsEnabled = v_T_Persona;
-            //lugar.IsEnabled = v_T_Persona;
-            //tel.IsEnabled = v_T_Persona;
+            Persona.Text = "Persona Fisica";
+            fecha.IsEnabled = v_T_Persona;
+            lugar.IsEnabled = v_T_Persona;
+            tel.IsEnabled = v_T_Persona;
         }
         /// <summary>
         /// el switch, tru es fisico falso es moral
@@ -89,38 +86,38 @@ namespace Trato.Views
         public void Cambio(object sender, EventArgs args)
         {
             v_T_Persona = !v_T_Persona;
-            //if (v_T_Persona)
-            //{
-            //    giro.Text = "";
-            //    giro.Placeholder = "Ocupacion";
-            //    Persona.Text = "Persona Fisica";
-            //    fecha.IsEnabled = true;
-            //    lugar.IsEnabled = true;
-            //    tel.IsEnabled = true;
-            //    fecha.IsVisible = true;
-            //    lugar.IsVisible = true;
-            //    tel.IsVisible = true;
-            //}
-            //else
-            //{
-            //    fecha.IsEnabled = false;
-            //    lugar.IsEnabled = false;
-            //    tel.IsEnabled = false;
-            //    tel.IsVisible = false;
-            //    fecha.IsVisible = false;
-            //    lugar.IsVisible = false;
-            //    giro.Text = "";
-            //    giro.Placeholder = "Giro de la empresa";
-            //    Persona.Text = "Persona Moral";
-            //}
+            if (v_T_Persona)
+            {
+                giro.Text = "";
+                giro.Placeholder = "Ocupacion";
+                Persona.Text = "Persona Fisica";
+                fecha.IsEnabled = true;
+                lugar.IsEnabled = true;
+                tel.IsEnabled = true;
+                fecha.IsVisible = true;
+                lugar.IsVisible = true;
+                tel.IsVisible = true;
+            }
+            else
+            {
+                fecha.IsEnabled = false;
+                lugar.IsEnabled = false;
+                tel.IsEnabled = false;
+                tel.IsVisible = false;
+                fecha.IsVisible = false;
+                lugar.IsVisible = false;
+                giro.Text = "";
+                giro.Placeholder = "Giro de la empresa";
+                Persona.Text = "Persona Moral";
+            }
 
         }
 
         void Fn_Drop(object sender, EventArgs _args)
         {
-           // mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex];
+            mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex];
         }
-        void Fn_Max(object sender, EventArgs _args)
+        void Fn_Max2(object sender, EventArgs _args)
         {
             Entry _temp = (Entry)sender;
             if (_temp.Text.Length > 2)
@@ -128,89 +125,103 @@ namespace Trato.Views
                 _temp.Text = _temp.Text.Remove(_temp.Text.Length - 1); // remove last char
             }
         }
-       /* public async void Registrar(object sender, EventArgs _args)
+        void Fn_Max18(object sender, EventArgs _args)
         {
+            Entry _temp = (Entry)sender;
+            if (_temp.Text.Length > 18)
+            {
+                _temp.Text = _temp.Text.Remove(_temp.Text.Length - 1); // remove last char
+            }
+        }
+         public async void Registrar(object sender, EventArgs _args)
+         {
             if (Fn_Condiciones())
             {
-                ///construir los datos de la tarkjeta que se va a enviar
-                C_Tarjeta _Tarjeta = new C_Tarjeta(Persona.Text, correo.Text, cel.Text, tipo.SelectedItem.ToString(), v_costo[tipo.SelectedIndex],
-                Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text);
+                 ///construir los datos de la tarkjeta que se va a enviar
+                 C_Tarjeta _Tarjeta = new C_Tarjeta(Persona.Text, correo.Text, Fn_Vacio(tel.Text), tipo.SelectedItem.ToString(), v_costo[tipo.SelectedIndex],
+                 Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text);
 
-                string _jsonTar = JsonConvert.SerializeObject(_Tarjeta,Formatting.Indented);
-                otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO
+                 //para darle formato identado
+                 string _jsonTar = JsonConvert.SerializeObject(_Tarjeta,Formatting.Indented);
+                 otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
 
+                //damos el formato
+                 StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
+                //crea el cliente
+                HttpClient _cli = new HttpClient();
+                //cambiar el url al que se va a enviar
+                //var uri = "http://jsonplaceholder.typicode.com/posts";
+                //se envia y esperamos respuesta
+                //var result = await _cli.PostAsync(uri, _contTar);
                 if (v_T_Persona)
                 {
-                    C_Ind_Fisica _Usuario = new C_Ind_Fisica(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
-                        dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
-                    string _jsonUsu = JsonConvert.SerializeObject(_Usuario,Formatting.Indented);
-                    otroaa.Text += "\n" + _jsonUsu;
+                     C_Ind_Fisica _Usuario = new C_Ind_Fisica(nombre.Text, Fn_Vacio( rfc.Text), fecha.Date,Fn_Vacio(lugar.Text),Fn_Vacio( giro.Text), tel.Text, Fn_Vacio( cel.Text),
+                         dom.Text, ext.Text,Fn_Vacio( inte.Text), col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
+                     string _jsonUsu = JsonConvert.SerializeObject(_Usuario,Formatting.Indented);
+                     otroaa.Text += "\n" + _jsonUsu;
+
+                    //damos el formato
+                    StringContent _contUsu = new StringContent(_jsonUsu, Encoding.UTF8, "application/json");
+                    //crea el cliente
+                    // HttpClient _cliUsu = new HttpClient();
+                    //cambiar el url al que se va a enviar
+                    //var uri = "http://jsonplaceholder.typicode.com/posts";
+                    //se envia y esperamos respuesta
+                    //var result = await _cli.PostAsync(uri, _contTar);
+                    
+                /* descomentar para seguir con las pantalls
+                     * App.Current.MainPage = new V_Master();
+                       App.v_logeado = true;*/
                 }
                 else
                 {
-                    C_Ind_Moral _Usuario = new C_Ind_Moral(nombre.Text, rfc.Text, giro.Text, tel.Text,
-                       dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
-                    string _jsonUsu = JsonConvert.SerializeObject(_Usuario, Formatting.Indented);
-                    otroaa.Text += "\n" + _jsonUsu;
+                     C_Ind_Moral _Usuario = new C_Ind_Moral(nombre.Text, Fn_Vacio(rfc.Text), Fn_Vacio(giro.Text), tel.Text,
+                        dom.Text, ext.Text, Fn_Vacio(inte.Text), col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
+                     string _jsonUsu = JsonConvert.SerializeObject(_Usuario, Formatting.Indented);
+                     otroaa.Text += "\n" + _jsonUsu;
+                    //damos el formato
+                    StringContent _contUsu = new StringContent(_jsonUsu, Encoding.UTF8, "application/json");
+                    //crea el cliente
+                    // HttpClient _cliUsu = new HttpClient();
+                    //cambiar el url al que se va a enviar
+                    //var uri = "http://jsonplaceholder.typicode.com/posts";
+                    //se envia y esperamos respuesta
+                    //var result = await _cli.PostAsync(uri, _contTar);
+                    
+                    /* descomentar para seguir con las pantalls
+                    App.Current.MainPage = new V_Master();
+                    App.v_logeado = true;
+                    */
                 }
-                // ENVIO EN POST
-                //HttpClient _cliente = new HttpClient();
-                //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
-
             }
             else
             {
                 await DisplayAlert("Errores", "errores", "cancel");
-
             }
-            
+         }
 
-            //    HttpClient _cli = new HttpClient();
-            //    string jsonconv = JsonConvert.SerializeObject(_Usuario);
-            //    // create the request content and define Json  
-            //    var content = new StringContent(jsonconv, Encoding.UTF8, "application/json");
-            //    //  send a POST request  
-            //    var uri = "http://jsonplaceholder.typicode.com/posts";
-
-            //    var result = await _cli.PostAsync(uri, content);
-            //    if (result.IsSuccessStatusCode)
-            //    {
-            //        // si se envia todo bien
-            //    }
-            //    // on error throw a exception  
-            //    result.EnsureSuccessStatusCode();
-
-            //    // handling the answer  
-            //    var resultString = await result.Content.ReadAsStringAsync();
-            //    var post = JsonConvert.DeserializeObject(resultString);
-
-        }
-
-     */
+     
         public async void Folio_Registro(object sender, EventArgs _args)
         {
-            //if (Fn_Condiciones(true))
-            //{
-            //    C_Registro _registro = new C_Registro(Fol_folio.Text, Fol_usu.Text, Fol_pass.Text);
-            //    //HttpClient _cliente = new HttpClient();
-            //    //string _json = JsonConvert.SerializeObject(_registro);
-            //    //StringContent _contReg= new StringContent(_json, Encoding.UTF8, "application/json");
-            //    ////enviar el post
-            //    //string url = "http://jsonplaceholder.typicode.com/posts";
-            //    //HttpResponseMessage _response = await _cliente.PostAsync(url, _contReg);
+            if (Fn_Condiciones(true))
+            {
+                C_Registro _registro = new C_Registro(Fol_folio.Text, Fol_usu.Text, Fol_pass.Text);
+                //HttpClient _cliente = new HttpClient();
+                string _json = JsonConvert.SerializeObject(_registro);
+                StringContent _contReg= new StringContent(_json, Encoding.UTF8, "application/json");
+                ////enviar el post
+                //string url = "http://jsonplaceholder.typicode.com/posts";
+                //HttpResponseMessage _response = await _cliente.PostAsync(url, _contReg);
 
 
-            //    await DisplayAlert("TODO BIEN", _registro.Fn_GetInfo(), "cancel");
-            //    await Application.Current.MainPage.Navigation.PopAsync();
-            //     Application.Current.MainPage = new NavigationPage(new V_Master() { Title="REGISTRADO"});
-            //}
-            //else
-            //{
-            //    await DisplayAlert("ERROR", "mensaje de respuesta", "cancel");
-
-            //}
-
-
+                await DisplayAlert("TODO BIEN", _registro.Fn_GetInfo(), "cancel");
+                
+                //Application.Current.MainPage = new NavigationPage(new V_Master() { Title = "REGISTRADO" });
+            }
+            else
+            {
+                await DisplayAlert("ERROR", "mensaje de respuesta", "cancel");
+            }
         }
         
         /// <summary>
@@ -218,10 +229,10 @@ namespace Trato.Views
         /// </summary>
         /// <param name="_folio"></param>
         /// <returns></returns>
-       /* bool Fn_Condiciones(bool _folio)
+        bool Fn_Condiciones(bool _folio)
         {
             int _conta = 0;
-            if (string.IsNullOrEmpty(Fol_folio.Text) )
+            if (string.IsNullOrEmpty(Fol_folio.Text) || string.IsNullOrWhiteSpace(Fol_folio.Text))
             {
                 Fol_folio.BackgroundColor = Color.Red;
                 _conta++;
@@ -231,7 +242,7 @@ namespace Trato.Views
                 Fol_folio.BackgroundColor = Color.Transparent;
             }
 
-            if (string.IsNullOrEmpty(Fol_usu.Text))
+            if (string.IsNullOrEmpty(Fol_usu.Text) || string.IsNullOrWhiteSpace(Fol_usu.Text))
             {
                 Fol_usu.BackgroundColor = Color.Red;
                 _conta++;
@@ -240,7 +251,7 @@ namespace Trato.Views
             {
                 Fol_usu.BackgroundColor = Color.Transparent;
             }
-            if (string.IsNullOrEmpty(Fol_pass.Text))
+            if (string.IsNullOrEmpty(Fol_pass.Text) || string.IsNullOrWhiteSpace(Fol_pass.Text))
             {
                 Fol_pass.BackgroundColor = Color.Red;
                 _conta++;
@@ -260,11 +271,15 @@ namespace Trato.Views
 
         }
 
-
+        /// <summary>
+        /// FORMULARIO COMPLETO CAMBIAR EL COLOR DEL FONDO A LOS QUE SON NECESARIOS
+        /// </summary>
+        /// <returns></returns>
         bool Fn_Condiciones()
         {
             int _contador = 0;
-            if (string.IsNullOrEmpty(nombre.Text))
+            //nombre
+            if (string.IsNullOrEmpty(nombre.Text) ||string.IsNullOrWhiteSpace(nombre.Text))
             {
                 nombre.BackgroundColor = Color.Red;
                 _contador++;
@@ -273,14 +288,7 @@ namespace Trato.Views
             {
                 nombre.BackgroundColor = Color.Transparent;
             }
-            if (string.IsNullOrEmpty(rfc.Text))
-            {
-                rfc.BackgroundColor = Color.Red; _contador++;
-            }
-            else
-            {
-                rfc.BackgroundColor = Color.Transparent;
-            }
+            /* PENDIENTE A PREGUNTAR
             if (string.IsNullOrEmpty(giro.Text))
             {
                 giro.BackgroundColor = Color.Red; _contador++;
@@ -288,17 +296,17 @@ namespace Trato.Views
             else
             {
                 giro.BackgroundColor = Color.Transparent;
-            }
+            }*/
             //calle
-            if (string.IsNullOrEmpty(dom.Text))
+            if (string.IsNullOrEmpty(dom.Text) || string.IsNullOrWhiteSpace(dom.Text))
             {
                 dom.BackgroundColor = Color.Red; _contador++;
             }
             else
             {
                 dom.BackgroundColor = Color.Transparent;
-            }//ext
-            if (string.IsNullOrEmpty(ext.Text))
+            }//exterior
+            if (string.IsNullOrEmpty(ext.Text) || string.IsNullOrWhiteSpace(ext.Text))
             {
                 ext.BackgroundColor = Color.Red; _contador++;
             }
@@ -306,8 +314,8 @@ namespace Trato.Views
             {
                 ext.BackgroundColor = Color.Transparent;
             }
-            //col 
-            if (string.IsNullOrEmpty(col.Text))
+            //colonia
+            if (string.IsNullOrEmpty(col.Text) || string.IsNullOrWhiteSpace(col.Text))
             {
                 col.BackgroundColor = Color.Red; _contador++;
             }
@@ -315,8 +323,8 @@ namespace Trato.Views
             {
                 col.BackgroundColor = Color.Transparent;
             }
-
-            if (string.IsNullOrEmpty(ciu.Text))
+            //ciudad
+            if (string.IsNullOrEmpty(ciu.Text) || string.IsNullOrWhiteSpace(ciu.Text))
             {
                 ciu.BackgroundColor = Color.Red; _contador++;
             }
@@ -324,7 +332,8 @@ namespace Trato.Views
             {
                 ciu.BackgroundColor = Color.Transparent;
             }
-            if (string.IsNullOrEmpty(mun.Text))
+            //municipio
+            if (string.IsNullOrEmpty(mun.Text) || string.IsNullOrWhiteSpace(mun.Text))
             {
                 mun.BackgroundColor = Color.Red; _contador++;
             }
@@ -332,7 +341,8 @@ namespace Trato.Views
             {
                 mun.BackgroundColor = Color.Transparent;
             }
-            if (string.IsNullOrEmpty(est.Text))
+            //estado
+            if (string.IsNullOrEmpty(est.Text) || string.IsNullOrWhiteSpace(est.Text))
             {
                 est.BackgroundColor = Color.Red; _contador++;
             }
@@ -340,8 +350,8 @@ namespace Trato.Views
             {
                 est.BackgroundColor = Color.Transparent;
             }
-            //cp
-            if (string.IsNullOrEmpty(cp.Text))
+            //codigo postal
+            if (string.IsNullOrEmpty(cp.Text) || string.IsNullOrWhiteSpace(cp.Text))
             {
                 cp.BackgroundColor = Color.Red; _contador++;
             }
@@ -349,8 +359,8 @@ namespace Trato.Views
             {
                 cp.BackgroundColor = Color.Transparent;
             }
-            //corr
-            if (string.IsNullOrEmpty(correo.Text))
+            //correo
+            if (string.IsNullOrEmpty(correo.Text) || string.IsNullOrWhiteSpace(correo.Text))
             {
                 correo.BackgroundColor = Color.Red; _contador++;
             }
@@ -358,13 +368,14 @@ namespace Trato.Views
             {
                 correo.BackgroundColor = Color.Transparent;
             }
-            if (string.IsNullOrEmpty(cel.Text))
+            //telefono
+            if (string.IsNullOrEmpty(tel.Text) || string.IsNullOrWhiteSpace(tel.Text))
             {
-                cel.BackgroundColor = Color.Red; _contador++;
+                tel.BackgroundColor = Color.Red; _contador++;
             }
             else
             {
-                cel.BackgroundColor = Color.Transparent;
+                tel.BackgroundColor = Color.Transparent;
             }
             //membresia
             if (tipo.SelectedIndex < 0)
@@ -378,7 +389,7 @@ namespace Trato.Views
 
 
             //tarjeta
-            if (string.IsNullOrEmpty(Tar_Nombre.Text))
+            if (string.IsNullOrEmpty(Tar_Nombre.Text) || string.IsNullOrWhiteSpace(Tar_Nombre.Text))
             {
                 Tar_Nombre.BackgroundColor = Color.Red; _contador++;
             }
@@ -387,7 +398,7 @@ namespace Trato.Views
                 Tar_Nombre.BackgroundColor = Color.Transparent;
             }
 
-            if (string.IsNullOrEmpty(Tar_Numero.Text))
+            if (string.IsNullOrEmpty(Tar_Numero.Text) || string.IsNullOrWhiteSpace(Tar_Numero.Text))
             {
                 Tar_Numero.BackgroundColor = Color.Red; _contador++;
             }
@@ -395,7 +406,7 @@ namespace Trato.Views
             {
                 Tar_Numero.BackgroundColor = Color.Transparent;
             }
-            if (string.IsNullOrEmpty(Tar_Cvc.Text))
+            if (string.IsNullOrEmpty(Tar_Cvc.Text) || string.IsNullOrWhiteSpace(Tar_Cvc.Text))
             {
                 Tar_Cvc.BackgroundColor = Color.Red; _contador++;
             }
@@ -404,7 +415,7 @@ namespace Trato.Views
                 Tar_Cvc.BackgroundColor = Color.Transparent;
             }
 
-            if (string.IsNullOrEmpty(Tar_Mes.Text) || Tar_Mes.Text.Length != 2)
+            if (string.IsNullOrEmpty(Tar_Mes.Text) || string.IsNullOrWhiteSpace(Tar_Mes.Text) || Tar_Mes.Text.Length != 2)
             {
                 Tar_Mes.BackgroundColor = Color.Red; _contador++;
             }
@@ -412,7 +423,7 @@ namespace Trato.Views
             {
                 Tar_Mes.BackgroundColor = Color.Transparent;
             }
-            if (string.IsNullOrEmpty(Tar_Año.Text) || Tar_Año.Text.Length != 2)
+            if (string.IsNullOrEmpty(Tar_Año.Text) || string.IsNullOrWhiteSpace(Tar_Año.Text) || Tar_Año.Text.Length != 2)
             {
                 Tar_Año.BackgroundColor = Color.Red; _contador++;
             }
@@ -433,6 +444,19 @@ namespace Trato.Views
 
 
         }
-        */
+        
+        string Fn_Vacio(string _valor)
+        {
+           
+            if(string.IsNullOrEmpty(_valor) || string.IsNullOrWhiteSpace(_valor))
+            {
+                return "";
+            }
+            else
+            {
+                return _valor;
+            }
+
+        }
     }
 }

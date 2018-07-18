@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.Views.V_Perfil">
+    <ContentPage.Resources>
+        <Style x:Key="Editor" TargetType="Editor">
+            <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+            <Setter Property="AutoSize" Value="TextChanges"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="Nombre" HorizontalOptions="Start"></Label>
+                    <Label Text="Nombre registrado no editar" HorizontalOptions="EndAndExpand"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Label Text="Domicilio" HorizontalOptions="Start"></Label>
+                    <Entry Text="domiclio completo" HorizontalOptions="End"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Label Text="Correo Electronico" HorizontalOptions="Start"></Label>
+                    <Entry Text="Nombre registrado no editar" HorizontalOptions="End"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Label Text="Telefono" HorizontalOptions="Start"></Label>
+                    <Entry Text="1111111" HorizontalOptions="End" Keyboard="Numeric"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Label Text="celular" HorizontalOptions="Start"></Label>
+                    <Entry Text="111111" HorizontalOptions="End" Keyboard="Numeric"></Entry>
+                </StackLayout>
+            
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Label Text="Tipo de Sangre" HorizontalOptions="Start"></Label>
+                    <Entry Text="sangre" HorizontalOptions="End"></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Alergias" HorizontalOptions="Start"></Label>
+                    <Switch IsToggled="True"  HorizontalOptions="EndAndExpand"></Switch>
+                </StackLayout>
+                <Editor Text=" lista de alergias" Style="{StaticResource Editor}" ></Editor>
+                
+                <Label Text="Operaciones" HorizontalOptions="Start"></Label>
+                <Editor Text="lista de operaciones" Style="{StaticResource Editor}"></Editor>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="ENfermedades constantes," HorizontalOptions="Start"></Label>
+                    <Switch IsToggled="True"  HorizontalOptions="EndAndExpand"></Switch>
+                </StackLayout>
+                <Editor Text="Lista de enfermedades" Style="{StaticResource Editor}"></Editor>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Medicamentos" HorizontalOptions="Start"></Label>
+                    <Switch IsToggled="True" HorizontalOptions="EndAndExpand"></Switch>
+                </StackLayout>
+                <Editor Text="Medicamentos actuales" Style="{StaticResource Editor}"></Editor>
+
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
