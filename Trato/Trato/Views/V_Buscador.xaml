@@ -7,7 +7,7 @@
             <!--Orientation="Vertical">-->
             <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                AbsoluteLayout.LayoutFlags="All">
-                <Button Clicked="Fn_Filtro"  Text="texto"></Button>
+                <Button Clicked="Fn_Filtro"  Text="Filtro"></Button>
                 <!--<Picker Title="Filtro"  HorizontalOptions="StartAndExpand" x:Name="v_filtro" SelectedIndexChanged="Fn_Filtro">
                     <Picker.Items>
                         <x:String>Nombre</x:String>
@@ -46,28 +46,27 @@
                            Padding="10, 0">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
-                        <Button Text=" cancel" Clicked="Fn_Cancelar" HorizontalOptions="Start"  ></Button>
-                        <Button Text=" acep" Clicked="Fn_Aceptar" HorizontalOptions="End"></Button>
+                        <Button Text=" cancel" Clicked="Fn_Cancelar" HorizontalOptions="StartAndExpand"  ></Button>
+                        <Button Text=" acep" Clicked="Fn_Aceptar" HorizontalOptions="CenterAndExpand"></Button>
+                        <Button Text="Borrar" Clicked="Fn_Cancelar" HorizontalOptions="EndAndExpand"  ></Button>
                     </StackLayout>
                             <Label HorizontalOptions="Center" Text="Especialidad"></Label>
-                    <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec">
+                    <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
-                                    <Label Text="{Binding v_texto }" BackgroundColor="{Binding v_color}" ></Label>
-                                </ViewCell>
+                                <TextCell Text="{Binding v_texto }" TextColor="{Binding v_color}">
+                                </TextCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                             
                     
                     <Label HorizontalOptions="Center" Text="CIUDAD"></Label>
-                    <ListView x:Name="filCiudad" ItemSelected="Fn_TapCiu">
+                    <ListView x:Name="filCiudad" ItemTapped="Fn_TapCiu">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
-                                    <Label Text="{Binding v_texto }" BackgroundColor="{Binding v_color}" ></Label>
-                                </ViewCell>
+                                <TextCell Text="{Binding v_texto }" TextColor="{Binding v_color}">
+                                </TextCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

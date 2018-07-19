@@ -133,7 +133,7 @@ namespace Trato.Views
                 _temp.Text = _temp.Text.Remove(_temp.Text.Length - 1); // remove last char
             }
         }
-         public async void Registrar(object sender, EventArgs _args)
+        public async void Registrar(object sender, EventArgs _args)
          {
             if (Fn_Condiciones())
             {
@@ -280,6 +280,28 @@ namespace Trato.Views
         bool Fn_Condiciones()
         {
             int _contador = 0;
+
+            //si es persona moral es obligatorio el rfc y giro
+            if (!v_T_Persona)
+            {
+                if (string.IsNullOrEmpty(giro.Text) || string.IsNullOrWhiteSpace(giro.Text))
+                {
+                    giro.BackgroundColor = Color.Red; _contador++;
+                }
+                else
+                {
+                    giro.BackgroundColor = Color.Transparent;
+                }
+                if (string.IsNullOrEmpty(rfc.Text) || string.IsNullOrWhiteSpace(rfc.Text))
+                {
+                    rfc.BackgroundColor = Color.Red; _contador++;
+                }
+                else
+                {
+                    rfc.BackgroundColor = Color.Transparent;
+                }
+            }
+
             //nombre
             if (string.IsNullOrEmpty(nombre.Text) ||string.IsNullOrWhiteSpace(nombre.Text))
             {
@@ -290,6 +312,8 @@ namespace Trato.Views
             {
                 nombre.BackgroundColor = Color.Transparent;
             }
+
+           
             /* PENDIENTE A PREGUNTAR
             if (string.IsNullOrEmpty(giro.Text))
             {

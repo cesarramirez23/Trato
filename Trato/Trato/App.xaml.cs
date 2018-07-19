@@ -25,7 +25,7 @@ namespace Trato
             v_servicios.Add(new C_Servicios { v_Nombre = "inicio2", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio2", v_descripcion = "creado al inicio 2",  v_img = "ICONOAPP.png" });
             v_servicios.Add(new C_Servicios { v_Nombre = "inici3", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio3", v_descripcion = "creado al inicio 3",v_img = "ICONOAPP.png" });
             //v_logeado = false;
-            App.Current.MainPage =    new NavigationPage(new MainPage()); //new V_Master();//
+            App.Current.MainPage =   new V_Master();// new NavigationPage(new MainPage()); //
             //MainPage =new NavigationPage( new V_Master());// new NavigationPage(new pruebas());//// new NavigationPage(new V_Master());
 
         }

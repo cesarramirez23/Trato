@@ -52,14 +52,17 @@ namespace Trato.Views
         } 
         public void Fn_uno(object sender, EventArgs _args)
         {
+            IsPresented = false;
             Detail = new NavigationPage( new V_Buscador(true) { Title = "MEDICOS" });
         }
         public void Fn_dos(object sender, EventArgs _args)
         {
+            IsPresented = false;
             Detail = new NavigationPage( new V_Buscador(false) { Title = "SERVICIOS" });//new V_Buscador() { Title = "Buscador" };
         }
         public void Fn_Perfil(object sender, EventArgs _args)
         {
+            IsPresented = false;
             Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });//new V_Buscador() { Title = "Buscador" };
         }
     }

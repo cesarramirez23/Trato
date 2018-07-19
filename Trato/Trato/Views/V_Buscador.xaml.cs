@@ -18,6 +18,16 @@ namespace Trato.Views
        public string v_texto { get; set; }
        public Color v_color { get; set; }
 
+        public Filtro()
+        {
+            v_texto = "";
+            v_color = Color.Blue;
+        }
+        public Filtro(string _texto)
+        {
+            v_texto = _texto;
+            v_color = Color.Blue;
+        }
     }
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -61,7 +71,7 @@ namespace Trato.Views
         {
             InitializeComponent();
 
-            _especialidades.Add(new Filtro{ v_texto="Espec", v_color = Color.Blue });
+            _especialidades.Add(new Filtro("Espec"));//, v_color = Color.Blue });
             _especialidades.Add(new Filtro{ v_texto="Espec2", v_color = Color.Blue });
             _especialidades.Add(new Filtro{ v_texto="Espe3", v_color = Color.Blue });
             _especialidades.Add(new Filtro{ v_texto="Espe4", v_color = Color.Blue });
@@ -71,12 +81,12 @@ namespace Trato.Views
             _especialidades.Add(new Filtro{ v_texto="Espe8", v_color = Color.Blue });
             filEspc.ItemsSource = _especialidades;
             
-            _ciudades.Add(new Filtro { v_texto = "ciud1", v_color = Color.Pink });
-            _ciudades.Add(new Filtro { v_texto = "ciud2", v_color = Color.Pink });
-            _ciudades.Add(new Filtro { v_texto = "ciud3", v_color = Color.Pink });
-            _ciudades.Add(new Filtro { v_texto = "ciud4", v_color = Color.Pink });
-            _ciudades.Add(new Filtro { v_texto = "ciud5", v_color = Color.Pink });
-            _ciudades.Add(new Filtro { v_texto = "ciud6", v_color = Color.Pink });
+            _ciudades.Add(new Filtro { v_texto = "ciud1", v_color = Color.Blue });
+            _ciudades.Add(new Filtro { v_texto = "ciud2", v_color = Color.Blue });
+            _ciudades.Add(new Filtro { v_texto = "ciud3", v_color = Color.Blue });
+            _ciudades.Add(new Filtro { v_texto = "ciud4", v_color = Color.Blue });
+            _ciudades.Add(new Filtro { v_texto = "ciud5", v_color = Color.Blue });
+            _ciudades.Add(new Filtro { v_texto = "ciud6", v_color = Color.Blue });
             filCiudad.ItemsSource = _ciudades;
 
             overlay.IsVisible = v_filtro;
@@ -102,6 +112,21 @@ namespace Trato.Views
             _filCiud.Clear();
             _filEspec.Clear();
 
+
+            filEspc.ItemsSource = null;
+            for(int i=0; i<_especialidades.Count;i++)
+            {
+                _especialidades[i].v_color = Color.Blue;
+            }
+            filEspc.ItemsSource = _especialidades;
+
+            filCiudad.ItemsSource = null;
+            for (int i = 0; i < _ciudades.Count; i++)
+            {
+                _ciudades[i].v_color = Color.Blue;
+            }
+            filCiudad.ItemsSource = _ciudades;
+
             if (v_medico)
             {
                 v_lista.ItemsSource = App.v_medicos;
@@ -110,11 +135,13 @@ namespace Trato.Views
             {
                 v_lista.ItemsSource = App.v_servicios;
             }
-
-
             Fn_Filtro(sender, _Args);
         }
-        public void Fn_Aceptar(object sender, EventArgs _args)
+        public void Fn_BorrarFiltro(object sender, EventArgs _args)
+        {
+
+        }
+        public async void Fn_Aceptar(object sender, EventArgs _args)
         {
             if(v_medico)
             {
@@ -139,7 +166,14 @@ namespace Trato.Views
                         }
                     }
                 }
-                v_lista.ItemsSource = _filtrada;
+                if(_filtrada.Count>0)
+                {
+                    v_lista.ItemsSource = _filtrada;
+                }
+                else
+                {
+                    await DisplayAlert("Filtro vacio", "No se encontraron resultados", "Aceptar");
+                }
             }
             else
             {
@@ -164,7 +198,15 @@ namespace Trato.Views
                         }
                     }
                 }
-                v_lista.ItemsSource = _filtrada;
+                if (_filtrada.Count > 0)
+                {
+                    v_lista.ItemsSource = _filtrada;
+                }
+
+                else
+                {
+                    await DisplayAlert("Filtro vacio", "No se encontraron resultados", "Aceptar");
+                }
             }
             Fn_Filtro(sender, _args);
         }
@@ -229,8 +271,7 @@ namespace Trato.Views
                 // Manually deselect item.
                 v_lista.SelectedItem = null;
             }
-        }
-        
+        }        
         /// <summary>
         /// agregar o quitar del filtro de especialidad
         /// </summary>
@@ -238,25 +279,34 @@ namespace Trato.Views
         /// <param name="_Args"></param>
         async void Fn_TapEspec(object sender, ItemTappedEventArgs _Args)
         {
-            var _valor =  _Args.Item as Filtro;// este es el texto que trae escrito
+            //para mostrar un cambio en la lista la estoy haciendo null y despues volviendo a llenar
+            var list = (ListView)sender;
+            list.ItemsSource = null;
+
+            var _valor =  _Args.Item as Filtro;//cast al template que ya esta preparado 
             if (!_filEspec.Contains(_valor.v_texto))
             {
                 for(int i=0; i<_especialidades.Count; i++)
                 {
                     if(_especialidades[i].v_texto==_valor.v_texto)
                     {
-                        _especialidades[i].v_color = Color.Red;
-                        await DisplayAlert("titu", "enconttrado en " + i, "nada");
+                        _especialidades[i].v_color=Color.Red;
                     }
                 }
                _filEspec.Add(_valor.v_texto);
-                filEspc.ItemsSource = _especialidades;
+                list.ItemsSource = _especialidades;
             }
             else
             {
-                //_especialidades.Find(x => x.v_texto.Contains(_valor.v_texto)).v_color = Color.Blue;
+                for (int i = 0; i < _especialidades.Count; i++)
+                {
+                    if (_especialidades[i].v_texto == _valor.v_texto)
+                    {
+                        _especialidades[i].v_color = Color.Blue;
+                    }
+                }
                 _filEspec.Remove(_valor.v_texto);
-                filEspc.ItemsSource = _especialidades;
+                list.ItemsSource = _especialidades;
             }
         }
         /// <summary>
@@ -264,19 +314,35 @@ namespace Trato.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="_Args"></param>
-        void Fn_TapCiu(object sender, SelectedItemChangedEventArgs _Args)
+        void Fn_TapCiu(object sender, ItemTappedEventArgs _Args)
         {
-            var _valor = (TextCell)sender;
-
-            if (!_filCiud.Contains(_valor.Text))
+            //para mostrar un cambio en la lista la estoy haciendo null y despues volviendo a llenar
+            var list = (ListView)sender;
+            list.ItemsSource = null;
+            var _valor = _Args.Item as Filtro;//cast al template que ya esta preparado 
+            if (!_filCiud.Contains(_valor.v_texto))
             {
-                _valor.TextColor = Color.Red;
-                _filCiud.Add(_valor.Text);
+                for (int i = 0; i < _ciudades.Count; i++)
+                {
+                    if (_ciudades[i].v_texto == _valor.v_texto)
+                    {
+                        _ciudades[i].v_color = Color.Red;
+                    }
+                }
+                _filCiud.Add(_valor.v_texto);
+                list.ItemsSource = _ciudades;
             }
             else
             {
-                _valor.TextColor = Color.White;
-                _filCiud.Remove(_valor.Text);
+                for (int i = 0; i < _ciudades.Count; i++)
+                {
+                    if (_ciudades[i].v_texto == _valor.v_texto)
+                    {
+                        _ciudades[i].v_color = Color.Blue;
+                    }
+                }
+                _filCiud.Remove(_valor.v_texto);
+                list.ItemsSource = _ciudades;
             }
         }
         async void Fn_Refresh(object sender, EventArgs e)

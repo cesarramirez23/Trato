@@ -19,28 +19,28 @@
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Domicilio" HorizontalOptions="Start"></Label>
-                        <Entry Text="domiclio completo" HorizontalOptions="End"></Entry>
+                        <Entry Text="domiclio completo" HorizontalOptions="CenterAndExpand"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Correo Electronico" HorizontalOptions="Start"></Label>
-                        <Entry Text="Nombre registrado no editar" HorizontalOptions="End"></Entry>
+                        <Entry Text="Nombre registrado no editar" HorizontalOptions="CenterAndExpand"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Telefono" HorizontalOptions="Start"></Label>
-                        <Entry Text="1111111" HorizontalOptions="End" Keyboard="Numeric"></Entry>
+                        <Entry Text="1111111" HorizontalOptions="CenterAndExpand" Keyboard="Numeric"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="celular" HorizontalOptions="Start"></Label>
-                        <Entry Text="111111" HorizontalOptions="End" Keyboard="Numeric"></Entry>
+                        <Entry Text="111111" HorizontalOptions="CenterAndExpand" Keyboard="Numeric"></Entry>
                     </StackLayout>
             
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Tipo de Sangre" HorizontalOptions="Start"></Label>
-                        <Entry Text="sangre" HorizontalOptions="End"></Entry>
+                        <Entry Text="sangre" HorizontalOptions="CenterAndExpand"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Alergias" HorizontalOptions="Start"></Label>
-                        <Switch IsToggled="True"  HorizontalOptions="EndAndExpand"></Switch>
+                        <Switch IsToggled="True"  HorizontalOptions="CenterAndExpand"></Switch>
                     </StackLayout>
                     <Editor Text=" lista de alergias" Style="{StaticResource Editor}" ></Editor>
                 
@@ -49,14 +49,14 @@
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="ENfermedades constantes," HorizontalOptions="Start"></Label>
-                        <Switch IsToggled="True"  HorizontalOptions="EndAndExpand"></Switch>
+                        <Switch IsToggled="True"  HorizontalOptions="CenterAndExpand"></Switch>
                     </StackLayout>
                     <Editor Text="Lista de enfermedades" Style="{StaticResource Editor}"></Editor>
 
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Medicamentos" HorizontalOptions="Start"></Label>
-                        <Switch IsToggled="True" HorizontalOptions="EndAndExpand"></Switch>
+                        <Switch IsToggled="True" HorizontalOptions="CenterAndExpand"></Switch>
                     </StackLayout>
                     <Editor Text="Medicamentos actuales" Style="{StaticResource Editor}"></Editor>
 
