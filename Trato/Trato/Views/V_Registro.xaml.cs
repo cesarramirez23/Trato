@@ -146,9 +146,9 @@ namespace Trato.Views
                  otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
 
                 //damos el formato
-                 StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
+                // StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
                 //crea el cliente
-                HttpClient _cli = new HttpClient();
+               // HttpClient _cli = new HttpClient();
                 //cambiar el url al que se va a enviar
                 //var uri = "http://jsonplaceholder.typicode.com/posts";
                 //se envia y esperamos respuesta
@@ -163,15 +163,17 @@ namespace Trato.Views
                     //damos el formato
                     StringContent _contUsu = new StringContent(_jsonUsu, Encoding.UTF8, "application/json");
                     //crea el cliente
-                    // HttpClient _cliUsu = new HttpClient();
+                     HttpClient _cliUsu = new HttpClient();
                     //cambiar el url al que se va a enviar
-                    //var uri = "http://jsonplaceholder.typicode.com/posts";
+                    var uri = "http://jsonplaceholder.typicode.com/posts";
                     //se envia y esperamos respuesta
-                    //var result = await _cli.PostAsync(uri, _contTar);
-                    
-                /* descomentar para seguir con las pantalls
-                     * App.Current.MainPage = new V_Master();
-                       App.v_logeado = true;*/
+                    HttpResponseMessage regresaphp = await _cliUsu.PostAsync(uri, _contUsu);
+                    string content = await regresaphp.Content.ReadAsStringAsync();
+                    await DisplayAlert("Regresa post", content, "nada");
+
+                    /* descomentar para seguir con las pantalls
+                         * App.Current.MainPage = new V_Master();
+                           App.v_logeado = true;*/
                 }
                 else
                 {
