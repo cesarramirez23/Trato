@@ -197,7 +197,7 @@ namespace Trato.Views
         }
         public async void Registrar(object sender, EventArgs _args)
          {
-           // createCard();
+            // createCard();
             if (Fn_Condiciones())
             {
 
@@ -229,7 +229,7 @@ namespace Trato.Views
                 //_direccion.street1 = App.Fn_Vacio(dom.Text);
 
                 //_tarje.address = _direccion;
-               
+
                 //string _jsonTarjeta = JsonConvert.SerializeObject(_tarje, Formatting.Indented);
                 //_tarje = _tarje.toClass(_jsonTarjeta);
 
@@ -250,13 +250,13 @@ namespace Trato.Views
 
                 //string jsonCustomer = JsonConvert.SerializeObject(v_customer,Formatting.Indented);
 
-              //  _tarje.create(Api.baseUri+ "/key_Bxpq7cLgd6NYtmWmq5d4Lg",_jsonTarjeta);
+                //  _tarje.create(Api.baseUri+ "/key_Bxpq7cLgd6NYtmWmq5d4Lg",_jsonTarjeta);
 
                 // v_customer.CreateCard(_jsonTarjeta);
                 //v_customer.create(jsonCustomer);
 
                 //otroaa.Text = _jsonTarjeta + "\n " + jsonCustomer;
-                
+
 
 
 
@@ -264,25 +264,25 @@ namespace Trato.Views
                 //  otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
 
                 // //damos el formato
-               //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
-               // //crea el cliente
-               //HttpClient _cli = new HttpClient();
-               // //cambiar el url al que se va a enviar
-               //var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
-               // //se envia y esperamos respuesta
-               //var result = await _cli.PostAsync(uri, _contTar);
+                //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
+                // //crea el cliente
+                //HttpClient _cli = new HttpClient();
+                // //cambiar el url al que se va a enviar
+                //var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
+                // //se envia y esperamos respuesta
+                //var result = await _cli.PostAsync(uri, _contTar);
 
-               // HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
-               // string content = await regresaphp.Content.ReadAsStringAsync();
-               // string _Arr = content.Split('<')[0];
-               // await DisplayAlert("Regresa post", _Arr, "nada");
+                // HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
+                // string content = await regresaphp.Content.ReadAsStringAsync();
+                // string _Arr = content.Split('<')[0];
+                // await DisplayAlert("Regresa post", _Arr, "nada");
 
 
                 //nombre de tarjeta numero cvc mes año    
                 ParaTok _Enviar = new ParaTok();
 
                 int _persona;
-                if(v_T_Persona)
+                if (v_T_Persona)
                 {
                     _persona = 0;
                 }
@@ -308,6 +308,12 @@ namespace Trato.Views
                 //llamar id al valor de arr
                 await DisplayAlert("Regresa post", id, "nada");
 
+
+                //_cli = new HttpClient();
+                //uri = "http://192.168.0.121:80/trato_especial/";
+                //regresaphp = await _cli.GetAsync(uri);
+                //content = await regresaphp.Content.ReadAsStringAsync();
+                //await DisplayAlert("Regresa get", content, "nada");
 
                 /*
                 if (v_T_Persona)
