@@ -304,8 +304,9 @@ namespace Trato.Views
                 otroaa.Text = _jsonTok;
                 HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
                 string content = await regresaphp.Content.ReadAsStringAsync();
-                string _Arr = content.Split('@')[1];
-                await DisplayAlert("Regresa post", _Arr, "nada");
+                string id = content.Split('@')[1];
+                //llamar id al valor de arr
+                await DisplayAlert("Regresa post", id, "nada");
 
 
                 /*
