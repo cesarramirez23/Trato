@@ -10,21 +10,21 @@
                         <Label x:Name="Persona" Text="sadsadasdsa" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" BackgroundColor="Green"></Label>
                         <Switch Toggled="Cambio" HorizontalOptions="EndAndExpand" IsToggled="False"></Switch>
                     </StackLayout>
-                    <Entry  Placeholder="Nombre completo"  Keyboard="Default" x:Name="nombre" ></Entry>
-                    <Entry  Placeholder="RFC"  Keyboard="Default" x:Name="rfc" ></Entry>
+                    <Entry  Placeholder="Nombre completo"  Text="sadsad" Keyboard="Default" x:Name="nombre" ></Entry>
+                    <Entry  Placeholder="RFC" Text="sadsad"  Keyboard="Default" x:Name="rfc" ></Entry>
                     <DatePicker  Format="D" x:Name="fecha" MinimumDate="01/01/1900" ></DatePicker>
-                    <Entry  Placeholder="Lugar Nacimiento"  Keyboard="Default" x:Name="lugar" ></Entry>
-                    <Entry  Placeholder="Ocupacion"  Keyboard="Default" x:Name="giro" ></Entry>
-                    <Entry  Placeholder="Domicilio Calle"  Keyboard="Default" x:Name="dom" ></Entry>
-                    <Entry  Placeholder="Numero Exterior"  Keyboard="Numeric" x:Name="ext" ></Entry>
-                    <Entry  Placeholder="Numero Interior"  Keyboard="Numeric" x:Name="inte" ></Entry>
-                    <Entry  Placeholder="Colonia"  Keyboard="Default" x:Name="col" ></Entry>
-                    <Entry  Placeholder="Ciudad"  Keyboard="Default" x:Name="ciu" ></Entry>
-                    <Entry  Placeholder="Municipio"  Keyboard="Default" x:Name="mun" ></Entry>
-                    <Entry  Placeholder="Estado"  Keyboard="Default" x:Name="est" ></Entry>
-                    <Entry  Placeholder="Codigo Postal"  Keyboard="Numeric" x:Name="cp" ></Entry>
-                    <Entry  Placeholder="Correo Electronico"  Keyboard="Default" x:Name="correo" ></Entry>
-                    <Entry  Placeholder="Telefono"  Keyboard="Numeric" x:Name="tel" ></Entry>
+                    <Entry  Placeholder="Lugar Nacimiento"  Text="sadsad" Keyboard="Default" x:Name="lugar" ></Entry>
+                    <Entry  Placeholder="Ocupacion" Text="sadsad"  Keyboard="Default" x:Name="giro" ></Entry>
+                    <Entry  Placeholder="Domicilio Calle" Text="sadsad"  Keyboard="Default" x:Name="dom" ></Entry>
+                    <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="ext" ></Entry>
+                    <Entry  Placeholder="Numero Interior" Text="23452"  Keyboard="Numeric" x:Name="inte" ></Entry>
+                    <Entry  Placeholder="Colonia" Text="sadsad"  Keyboard="Default" x:Name="col" ></Entry>
+                    <Entry  Placeholder="Ciudad" Text="sadsad"  Keyboard="Default" x:Name="ciu" ></Entry>
+                    <Entry  Placeholder="Municipio" Text="sadsad"   Keyboard="Default" x:Name="mun" ></Entry>
+                    <Entry  Placeholder="Estado" Text="sadsad"   Keyboard="Default" x:Name="est" ></Entry>
+                    <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" ></Entry>
+                    <Entry  Placeholder="Correo Electronico"  Text="correo@algo" Keyboard="Default" x:Name="correo" ></Entry>
+                    <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" ></Entry>
                     <Entry  Placeholder="Celular"  Keyboard="Numeric" x:Name="cel" ></Entry>
                     <StackLayout Orientation="Horizontal">
                         <Picker x:Name="tipo" Title="Tipo de Membresia" HorizontalOptions="StartAndExpand" SelectedIndexChanged="Fn_Drop">
@@ -36,12 +36,12 @@
                         </Picker>
                         <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
                     </StackLayout>
-                    <Entry x:Name="Tar_Nombre" Placeholder="Tajeta habiente"></Entry>
-                    <Entry x:Name="Tar_Numero" Placeholder="Numero Tajeta" TextChanged="Fn_Max18" Keyboard="Numeric"></Entry>
+                    <Entry x:Name="Tar_Nombre" Text="nombre de la tarjeta" Placeholder="Tajeta habiente"></Entry>
+                    <Entry x:Name="Tar_Numero" Text="123456789012345678" Placeholder="Numero Tajeta" TextChanged="Fn_Max18" Keyboard="Numeric"></Entry>
                     <StackLayout Orientation="Horizontal">
-                        <Entry x:Name="Tar_Cvc" HorizontalOptions="Start" Placeholder="CVC" Keyboard="Numeric" ></Entry>
-                        <Entry x:Name="Tar_Mes" HorizontalOptions="Center" Placeholder="MES" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
-                        <Entry x:Name="Tar_Año" HorizontalOptions="End" Placeholder="AÑO" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
+                        <Entry x:Name="Tar_Cvc" Text="234" HorizontalOptions="Start" Placeholder="CVC" Keyboard="Numeric" ></Entry>
+                        <Entry x:Name="Tar_Mes" Text="02" HorizontalOptions="Center" Placeholder="MES" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
+                        <Entry x:Name="Tar_Año" Text="20" HorizontalOptions="End" Placeholder="AÑO" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
                     </StackLayout>
                     <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" ></Button>
                     <!--Clicked="Registrar" -->

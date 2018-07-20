@@ -16,5 +16,22 @@ namespace Trato.Views
 		{
 			InitializeComponent ();
 		}
+
+        public async void Fn_Guardar(object sender, EventArgs _args)
+        {
+
+        }
+        public void Fn_SwiMedica(object sender, ToggledEventArgs _args)
+        {
+            v_Medicamentos.IsVisible = _args.Value;
+        }
+        public void Fn_SwiAlergias(object sender, ToggledEventArgs _args)
+        {
+            v_Alergias.IsVisible = _args.Value;
+        }
+        public void Fn_SwiEnfer(object sender, ToggledEventArgs _args)
+        {
+            v_Enferme.IsVisible = _args.Value;
+        }
 	}
 }

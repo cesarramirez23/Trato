@@ -41,7 +41,6 @@ namespace Trato.Views
         /// la pantalla con los filtro esta visible
         /// </summary>
         bool v_filtro = false;
-
         /// <summary>
         /// Lista que el usuario elige
         /// </summary>
@@ -50,8 +49,6 @@ namespace Trato.Views
         /// Lista que el usuario elige
         /// </summary>
         List<string> _filCiud = new List<string>();
-
-
         /// <summary>
         /// textos que se agregan a la lista visible
         /// </summary>
@@ -65,7 +62,6 @@ namespace Trato.Views
         {
             InitializeComponent();
             overlay.IsVisible = v_filtro;
-
         }
         public V_Buscador(bool _valor)
         {
@@ -93,26 +89,21 @@ namespace Trato.Views
             if(_valor)
             {
                 v_medico = true;
-              //  Orden();
+                Orden();
                 v_lista.ItemsSource = App.v_medicos;
                 
             }
             else
             {
                 v_medico = false;
-               // Orden();
+                Orden();
                 v_lista.ItemsSource = App.v_servicios;
             }
-            Orden();
         }
-
-
         public void Fn_Cancelar(object sender, EventArgs _Args)
         {
             _filCiud.Clear();
             _filEspec.Clear();
-
-
             filEspc.ItemsSource = null;
             for(int i=0; i<_especialidades.Count;i++)
             {
@@ -145,7 +136,7 @@ namespace Trato.Views
         {
             if(v_medico)
             {
-                List<C_Medico> _filtrada = new List<C_Medico>();
+                ObservableCollection<C_Medico> _filtrada = new ObservableCollection<C_Medico>();
                 //recorre toda la lista de medicos
                 for(int i=0; i<App.v_medicos.Count; i++)
                 {
@@ -157,6 +148,8 @@ namespace Trato.Views
                             _filtrada.Add(App.v_medicos[i]);
                         }
                     }
+
+
                     //recorre lista de especialidad a filtrar
                     for (int j = 0; j < _filEspec.Count; j++)
                     {
@@ -166,7 +159,11 @@ namespace Trato.Views
                         }
                     }
                 }
-                if(_filtrada.Count>0)
+                IEnumerable<C_Medico> _temp = _filtrada.OrderBy(x => x.v_Apellido);
+                _filtrada = new ObservableCollection<C_Medico>(_temp);
+
+                await Task.Delay(100);
+                if (_filtrada.Count>0)
                 {
                     v_lista.ItemsSource = _filtrada;
                 }
@@ -177,14 +174,14 @@ namespace Trato.Views
             }
             else
             {
-                List<C_Servicios> _filtrada = new List<C_Servicios>();
+                ObservableCollection<C_Servicios> _filtrada = new ObservableCollection<C_Servicios>();
                 //recorre toda la lista de medicos
-                for (int i = 0; i < App.v_medicos.Count; i++)
+                for (int i = 0; i < App.v_servicios.Count; i++)
                 {
                     //recorre lista de ciudad a filtrar
                     for (int j = 0; j < _filCiud.Count; j++)
                     {
-                        if (App.v_medicos[i].v_Ciudad == _filCiud[j] && !_filtrada.Contains(App.v_servicios[i]))
+                        if (App.v_servicios[i].v_Ciudad == _filCiud[j] && !_filtrada.Contains(App.v_servicios[i]))
                         {
                             _filtrada.Add(App.v_servicios[i]);
                         }
@@ -192,7 +189,7 @@ namespace Trato.Views
                     //recorre lista de especialidad a filtrar
                     for (int j = 0; j < _filEspec.Count; j++)
                     {
-                        if (App.v_medicos[i].v_Especialidad == _filEspec[j] && !_filtrada.Contains(App.v_servicios[i]))
+                        if (App.v_servicios[i].v_Especialidad == _filEspec[j] && !_filtrada.Contains(App.v_servicios[i]))
                         {
                             _filtrada.Add(App.v_servicios[i]);
                         }
@@ -202,11 +199,12 @@ namespace Trato.Views
                 {
                     v_lista.ItemsSource = _filtrada;
                 }
-
                 else
                 {
                     await DisplayAlert("Filtro vacio", "No se encontraron resultados", "Aceptar");
                 }
+                IEnumerable<C_Servicios> _temp = _filtrada.OrderBy(x => x.v_Nombre);
+                _filtrada = new ObservableCollection<C_Servicios>(_temp);
             }
             Fn_Filtro(sender, _args);
         }
@@ -217,10 +215,7 @@ namespace Trato.Views
         /// <param name="_Args"></param>
         public void Fn_Filtro(object sender, EventArgs _Args)
         {
-            
-           // var id = (int)((Switch)sender).BindingContext;
             v_filtro = !v_filtro;
-
             overlay.IsVisible = v_filtro;
         }
         async Task Orden()
@@ -240,8 +235,6 @@ namespace Trato.Views
             }
 
         }
-
-
         /// <summary>
         /// seleccionas un elemento de la lista para expandir su informacion
         /// </summary>
@@ -277,12 +270,11 @@ namespace Trato.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="_Args"></param>
-        async void Fn_TapEspec(object sender, ItemTappedEventArgs _Args)
+         void Fn_TapEspec(object sender, ItemTappedEventArgs _Args)
         {
             //para mostrar un cambio en la lista la estoy haciendo null y despues volviendo a llenar
             var list = (ListView)sender;
             list.ItemsSource = null;
-
             var _valor =  _Args.Item as Filtro;//cast al template que ya esta preparado 
             if (!_filEspec.Contains(_valor.v_texto))
             {
@@ -359,8 +351,7 @@ namespace Trato.Views
             string _val = rand.Next(0, 120).ToString();
             App.v_medicos.Add(new C_Medico { v_Nombre = "Aombre nuevo" + _val,v_Ciudad= "ciud4", v_Apellido =" apellido "+_val, v_Especialidad = "Espec2" + _val,
                 v_Domicilio = "dom sdsafsdfdf" + _val, v_descripcion = "infoooooooooo" + _val , v_img="ICONOAPP.png"});
-
-                await Orden();
+            await Orden();
             //darle la nueva lista
             list.ItemsSource = App.v_medicos;
             }
@@ -377,17 +368,12 @@ namespace Trato.Views
                     v_Especialidad = "esec" + _val, v_Domicilio = "dom sdsafsdfdf" + _val, v_descripcion = "infoooooooooo" + _val,
                     v_img = "ICONOAPP.png"
                 });// v_Descuento ="descuento "+ _val+"%",
-
                 await Orden();
                 //darle la nueva lista
                 list.ItemsSource = App.v_servicios;
             }
-
-            
-
             //cancelar la actualizacion
             list.IsRefreshing = false;
         }
-
     }
 }

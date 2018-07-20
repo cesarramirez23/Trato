@@ -138,7 +138,7 @@ namespace Trato.Views
             if (Fn_Condiciones())
             {
                  ///construir los datos de la tarkjeta que se va a enviar
-                 C_Tarjeta _Tarjeta = new C_Tarjeta(Persona.Text, correo.Text, Fn_Vacio(tel.Text), tipo.SelectedItem.ToString(), v_costo[tipo.SelectedIndex],
+                 C_Tarjeta _Tarjeta = new C_Tarjeta(Persona.Text, correo.Text, App.Fn_Vacio(tel.Text), tipo.SelectedItem.ToString(), v_costo[tipo.SelectedIndex],
                  Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text);
 
                  //para darle formato identado
@@ -146,17 +146,23 @@ namespace Trato.Views
                  otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
 
                 //damos el formato
-                // StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
+                StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
                 //crea el cliente
-               // HttpClient _cli = new HttpClient();
+               HttpClient _cli = new HttpClient();
                 //cambiar el url al que se va a enviar
-                //var uri = "http://jsonplaceholder.typicode.com/posts";
+               var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
                 //se envia y esperamos respuesta
-                //var result = await _cli.PostAsync(uri, _contTar);
+               // var result = await _cli.PostAsync(uri, _contTar);
+
+                HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
+                string content = await regresaphp.Content.ReadAsStringAsync();
+                await DisplayAlert("Regresa post", content, "nada");
+
+                /*
                 if (v_T_Persona)
                 {
-                     C_Ind_Fisica _Usuario = new C_Ind_Fisica(nombre.Text, Fn_Vacio( rfc.Text), fecha.Date,Fn_Vacio(lugar.Text),Fn_Vacio( giro.Text), tel.Text, Fn_Vacio( cel.Text),
-                         dom.Text, ext.Text,Fn_Vacio( inte.Text), col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
+                     C_Ind_Fisica _Usuario = new C_Ind_Fisica(nombre.Text, App.Fn_Vacio( rfc.Text), fecha.Date, App.Fn_Vacio(lugar.Text), App.Fn_Vacio( giro.Text), tel.Text, 
+                         App.Fn_Vacio( cel.Text),  dom.Text, ext.Text,App.Fn_Vacio( inte.Text), col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
                      string _jsonUsu = JsonConvert.SerializeObject(_Usuario,Formatting.Indented);
                      otroaa.Text += "\n" + _jsonUsu;
 
@@ -171,14 +177,14 @@ namespace Trato.Views
                     string content = await regresaphp.Content.ReadAsStringAsync();
                     await DisplayAlert("Regresa post", content, "nada");
 
-                    /* descomentar para seguir con las pantalls
-                         * App.Current.MainPage = new V_Master();
-                           App.v_logeado = true;*/
+                    //descomentar para seguir con las pantalls
+                    //     *App.Current.MainPage = new V_Master();
+                    //       App.v_logeado = true;
                 }
                 else
                 {
-                     C_Ind_Moral _Usuario = new C_Ind_Moral(nombre.Text, Fn_Vacio(rfc.Text), Fn_Vacio(giro.Text), tel.Text,
-                        dom.Text, ext.Text, Fn_Vacio(inte.Text), col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
+                     C_Ind_Moral _Usuario = new C_Ind_Moral(nombre.Text, App.Fn_Vacio(rfc.Text), App.Fn_Vacio(giro.Text), tel.Text,
+                        dom.Text, ext.Text, App.Fn_Vacio(inte.Text), col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
                      string _jsonUsu = JsonConvert.SerializeObject(_Usuario, Formatting.Indented);
                      otroaa.Text += "\n" + _jsonUsu;
                     //damos el formato
@@ -190,11 +196,12 @@ namespace Trato.Views
                     //se envia y esperamos respuesta
                     //var result = await _cli.PostAsync(uri, _contTar);
                     
-                    /* descomentar para seguir con las pantalls
-                    App.Current.MainPage = new V_Master();
-                    App.v_logeado = true;
-                    */
+                    //descomentar para seguir con las pantalls
+                    //App.Current.MainPage = new V_Master();
+                    //App.v_logeado = true;
+                    
                 }
+                */
             }
             else
             {
@@ -300,6 +307,11 @@ namespace Trato.Views
                 {
                     rfc.BackgroundColor = Color.Transparent;
                 }
+            }
+            else//vuelve el fondo a normal para que no sea obligatorio
+            {
+                rfc.BackgroundColor = Color.Transparent;
+                giro.BackgroundColor = Color.Transparent;
             }
 
             //nombre
@@ -470,7 +482,7 @@ namespace Trato.Views
 
 
         }
-        
+        /*
         string Fn_Vacio(string _valor)
         {
            
@@ -483,6 +495,6 @@ namespace Trato.Views
                 return _valor;
             }
 
-        }
+        }*/
     }
 }
