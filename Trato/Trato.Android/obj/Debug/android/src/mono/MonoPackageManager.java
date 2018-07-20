@@ -109,6 +109,7 @@ class MonoPackageManager_Resources {
 		"Trato.Android.dll",
 		"FormsViewGroup.dll",
 		"Newtonsoft.Json.dll",
+		"nunit.framework.dll",
 		"Trato.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",

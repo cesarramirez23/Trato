@@ -5,6 +5,10 @@ using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;// pa las listas
 using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
+
+
+
+
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace Trato
 {
@@ -63,5 +67,12 @@ namespace Trato
         {
             // Handle when your app resumes
         }
+
+       
+
+
+
+
+
     }
 }

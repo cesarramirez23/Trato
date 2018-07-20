@@ -4,6 +4,7 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\a
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\Mono.Android.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\mscorlib.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\Newtonsoft.Json.dll
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\nunit.framework.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\System.Core.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\System.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\System.Xml.dll
