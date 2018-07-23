@@ -11,6 +11,54 @@ namespace Trato.Personas
      * EN LA TARJETA CON LOS DATOS DE COBRO ENVIAR EL NOMBRE DE LA MEMBRESIA CON STRING
      * Y TAMBIEN ENVIAR  COMO NUMERO EL TIPO DE MEMBRESiA( DE 0 A 2)
          */
+
+    public class C_Perfil
+    {
+        [JsonProperty("nombre")]
+        string v_Nombre { get; set; }
+        [JsonProperty("correo")]
+        string v_Correo { get; set; }
+        [JsonProperty("domicilio")]
+        string v_Domi { get; set; }
+        [JsonProperty("telefono")]
+        string v_Tel { get; set; }
+        [JsonProperty("celular")]
+        string v_Cel { get; set; }
+        [JsonProperty("sangre")]
+        string v_sangre { get; set; }
+        [JsonProperty("sexo")]
+        string v_sexo { get; set; }
+        [JsonProperty("alergias")]
+        string v_alergias { get; set; }
+        [JsonProperty("operaciones")]
+        string v_operaciones { get; set; }
+        [JsonProperty("enfermedades")]
+        string v_enfer { get; set; }
+        [JsonProperty("medicamentos")]
+        string v_medica { get; set; }
+
+
+
+        public C_Perfil()
+        {
+
+        }
+        public C_Perfil(string _nom, string _corr, string _dom,string _tel, string _cel, string _sangr,
+            string _sexo,string _aler,string _opera,string _enfer, string _medicam)
+        {
+            v_Nombre = _nom;
+            v_Correo = _corr;
+            v_Domi = _dom;
+            v_Tel = _tel;
+            v_Cel = _tel;
+            v_sangre = _sangr;
+            v_sexo = _sexo;
+            v_alergias = _aler;
+            v_operaciones = _opera;
+            v_enfer = _enfer;
+            v_medica = _medicam;
+        }
+    }
     class C_Tarjeta
     {
         [JsonProperty("nombre")]

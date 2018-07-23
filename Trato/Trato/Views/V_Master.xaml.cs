@@ -22,6 +22,7 @@ namespace Trato.Views
 		public V_Master()
 		{
 			InitializeComponent ();
+            Browser.Source = "https://www.alsain.mx/trato_especial/pre_tarjeta_alta.php";
 
             
 
@@ -50,6 +51,12 @@ namespace Trato.Views
             // texto.Text = _jsonTar;
             await Task.Delay(100);
         } 
+        public async void Fn_Enviar(object sender, EventArgs _Args)
+        {
+           string _result= await Browser.EvaluateJavaScriptAsync("submitbutton()");
+
+            await DisplayAlert("regresa","numero "+_result, "nada");
+        }
         public void Fn_uno(object sender, EventArgs _args)
         {
             IsPresented = false;
@@ -66,6 +73,16 @@ namespace Trato.Views
             Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });//new V_Buscador() { Title = "Buscador" };
         }
     }
+    /*
+     07-23 13:10:52.854 I/chromium(25402): [INFO:CONSOLE(0)] "Failed to load https://api.conekta.io/tokens: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://www.alsain.mx' is therefore not allowed access. The response had HTTP status code 504.", source: http://www.alsain.mx/trato_especial/pre_tarjeta_alta.php (0)
+07-23 13:10:52.957 I/ViewRootImpl(25402): ViewRoot's Touch Event : ACTION_DOWN
+07-23 13:10:53.024 I/ViewRootImpl(25402): ViewRoot's Touch Event : ACTION_UP
+07-23 13:10:53.053 I/ViewRootImpl(25402): ViewRoot's Touch Event : ACTION_DOWN
+07-23 13:10:53.095 I/ViewRootImpl(25402): ViewRoot's Touch Event : ACTION_UP
+[INFO:CONSOLE(0)] "Failed to load https://api.conekta.io/tokens: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://www.alsain.mx' is therefore not allowed access. The response had HTTP status code 504.", source: http://www.alsain.mx/trato_especial/pre_tarjeta_alta.php (0)
+07-23 13:10:53.166 I/chromium(25402): [INFO:CONSOLE(0)] "Failed to load https://api.conekta.io/tokens: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://www.alsain.mx' is therefore not allowed access. The response had HTTP status code 504.", source: http://www.alsain.mx/trato_especial/pre_tarjeta_alta.php (0)
+Thread finished: <Thread Pool> #2
+     
+     */
 
-  
 }

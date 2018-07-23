@@ -19,11 +19,19 @@
         <NavigationPage>
             <x:Arguments>
                 <ContentPage Title="Bienvenido" >
+                    <ScrollView>
+                        <StackLayout>
+                            <Button Text="Enviar" Clicked="Fn_Enviar"></Button>
+                            <WebView x:Name="Browser" WidthRequest="1000" HeightRequest="1000" />
+                        </StackLayout>
+                    </ScrollView>
+                    <!--
                     <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                        
                         <Image  Source="ICONOAPP.png" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="All"></Image>
-                        <!--<Image VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Source="LOGOTRATOESPECIAL.png"></Image>-->
+                       
                         <Label x:Name="texto"></Label>
-                    </AbsoluteLayout>
+                    </AbsoluteLayout>-->
                 </ContentPage>
             </x:Arguments>
         </NavigationPage>

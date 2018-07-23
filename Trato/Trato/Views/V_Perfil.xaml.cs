@@ -12,6 +12,7 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Perfil : ContentPage
 	{
+
 		public V_Perfil ()
 		{
 			InitializeComponent ();

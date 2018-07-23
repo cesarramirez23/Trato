@@ -222,7 +222,6 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\nunit.fra
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\nunit.framework.dll.mdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\nunit.framework.dll.mdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.pdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.Android.dll.mdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\nunit.framework.dll.mdb

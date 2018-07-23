@@ -52,7 +52,7 @@ namespace Trato.Views
         {
             conekta.Api.apiKey = "key_Bxpq7cLgd6NYtmWmq5d4Lg";
         }
-
+        
         Customer v_customer;
 
 
@@ -91,6 +91,7 @@ namespace Trato.Views
         public V_Registro(bool _folio)
         {
             InitializeComponent();
+            Browser.Source = "http://www.alsain.mx/trato_especial/pre_tarjeta_alta.php";
             if (_folio)
             {
                 stackTodo.IsVisible = false;
@@ -197,6 +198,17 @@ namespace Trato.Views
         }
         public async void Registrar(object sender, EventArgs _args)
          {
+
+            if(Device.RuntimePlatform ==Device.iOS)
+            { 
+
+            }
+            else if(Device.RuntimePlatform == Device.Android)
+            {
+
+            }
+
+
             // createCard();
             if (Fn_Condiciones())
             {

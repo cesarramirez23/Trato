@@ -7,6 +7,14 @@
             <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
             <Setter Property="AutoSize" Value="TextChanges"></Setter>
         </Style>
+        <Style TargetType="Label" x:Key="lblSty">
+            <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalOptions" Value="Start"></Setter>
+        </Style>
+        <Style x:Key="entry_perfil" TargetType="Entry">
+            <Setter Property="VerticalOptions" Value="Center"></Setter>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
         <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
@@ -14,63 +22,59 @@
             <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,.9" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Label Text="Nombre" HorizontalOptions="Start"></Label>
-                        <Label Text="Nombre registrado no editar" HorizontalOptions="EndAndExpand"></Label>
+                        <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
+                        <Label Text="Nombre registrado no editar"></Label>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Domicilio" HorizontalOptions="Start"></Label>
-                        <Entry Text="domiclio completo" x:Name="v_Domi" HorizontalOptions="CenterAndExpand"></Entry>
+                        <Label Text="Domicilio" Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="domiclio completo" x:Name="v_Domi" Style="{StaticResource entry_perfil}"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Correo Electronico" HorizontalOptions="Start"></Label>
-                        <Entry Text="Correo electronico" x:Name="v_Correo" HorizontalOptions="CenterAndExpand"></Entry>
+                        <Label Text="Correo Electronico"  Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="Correo electronico" x:Name="v_Correo" Style="{StaticResource entry_perfil}"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Telefono" HorizontalOptions="Start"></Label>
-                        <Entry Text="1111111" HorizontalOptions="CenterAndExpand" x:Name="v_Tel" Keyboard="Numeric"></Entry>
+                        <Label Text="Telefono" Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="1111111" Style="{StaticResource entry_perfil}" x:Name="v_Tel" Keyboard="Numeric"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="celular" HorizontalOptions="Start"></Label>
-                        <Entry Text="111111" HorizontalOptions="CenterAndExpand" x:Name="v_Cel" Keyboard="Numeric"></Entry>
+                        <Label Text="celular"  Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="111111" Style="{StaticResource entry_perfil}" x:Name="v_Cel" Keyboard="Numeric"></Entry>
                     </StackLayout>
             
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Tipo de Sangre" HorizontalOptions="Start"></Label>
-                        <Entry Text="sangre" x:Name="v_Sangre" HorizontalOptions="CenterAndExpand"></Entry>
+                        <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="sangre" x:Name="v_Sangre" Style="{StaticResource entry_perfil}"></Entry>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Sexo" HorizontalOptions="Start"></Label>
-                        <Entry x:Name="v_sexo" HorizontalOptions="CenterAndExpand"></Entry>
+                        <Label Text="Sexo" Style="{StaticResource lblSty}"></Label>
+                        <Entry x:Name="v_sexo" Style="{StaticResource entry_perfil}"></Entry>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Alergias" HorizontalOptions="Start"></Label>
-                        <Switch Toggled="Fn_SwiAlergias" HorizontalOptions="CenterAndExpand"></Switch>
+                        <Label Text="Alergias" Style="{StaticResource lblSty}"></Label>
+                        <Switch Toggled="Fn_SwiAlergias" Style="{StaticResource entry_perfil}"></Switch>
                     </StackLayout>
                     <Editor Text=" lista de alergias" IsVisible="False" x:Name="v_Alergias" Style="{StaticResource Editor}" ></Editor>
-                
-                    <Label Text="Operaciones" HorizontalOptions="Start"></Label>
+
+                    <Label Text="Operaciones" Style="{StaticResource lblSty}"></Label>
                     <Editor Text="lista de operaciones" x:Name="v_Operaciones" Style="{StaticResource Editor}"></Editor>
 
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Enfermedades constantes?,¿Qúe esfermedad y que medicamentos toman?" HorizontalOptions="Start"></Label>
+                        <Label Text="Enfermedades constantes?,¿Qúe esfermedad y que medicamentos toman?" Style="{StaticResource lblSty}"></Label>
                         <Switch Toggled="Fn_SwiEnfer" HorizontalOptions="CenterAndExpand"></Switch>
                     </StackLayout>
                     <Editor Text="Lista de enfermedades" IsVisible="False" x:Name="v_Enferme" Style="{StaticResource Editor}"></Editor>
 
-
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Toma algun medicamento?,¿Cúales?" HorizontalOptions="Start"></Label>
+                        <Label Text="Toma algun medicamento?,¿Cúales?"  Style="{StaticResource lblSty}"></Label>
                     </StackLayout>
                     <Editor Text="Medicamentos actuales" x:Name="v_Medicamentos" Style="{StaticResource Editor}"></Editor>
-
-
-
-
+                    
                 </StackLayout>
             </ScrollView>
-            <Button Text=" guardar" Style="{StaticResource Buton}" AbsoluteLayout.LayoutBounds=".25,1,.75,.1" AbsoluteLayout.LayoutFlags="All"></Button>
+            <Button Text="Guardar" Style="{StaticResource Buton}" AbsoluteLayout.LayoutBounds=".25,1,.75,.1" AbsoluteLayout.LayoutFlags="All"></Button>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
