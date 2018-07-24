@@ -10,22 +10,22 @@
                         <Label x:Name="Persona" Text="sadsadasdsa" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" BackgroundColor="Green"></Label>
                         <Switch Toggled="Cambio" HorizontalOptions="EndAndExpand" IsToggled="False"></Switch>
                     </StackLayout>
-                    <Entry  Placeholder="Nombre completo"  Text="sadsad" Keyboard="Default" x:Name="nombre" ></Entry>
-                    <Entry  Placeholder="RFC" Text="sadsad"  Keyboard="Default" x:Name="rfc" ></Entry>
+                    <Entry  Placeholder="Nombre completo"  Text="nombre de la persona" Keyboard="Default" x:Name="nombre" ></Entry>
+                    <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="rfc" ></Entry>
                     <DatePicker  Format="D" x:Name="fecha" MinimumDate="01/01/1900" ></DatePicker>
-                    <Entry  Placeholder="Lugar Nacimiento"  Text="sadsad" Keyboard="Default" x:Name="lugar" ></Entry>
-                    <Entry  Placeholder="Ocupacion" Text="sadsad"  Keyboard="Default" x:Name="giro" ></Entry>
-                    <Entry  Placeholder="Domicilio Calle" Text="sadsad"  Keyboard="Default" x:Name="dom" ></Entry>
+                    <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="lugar" ></Entry>
+                    <Entry  Placeholder="Ocupacion" Text="ocupacion o giro de la empresa"  Keyboard="Default" x:Name="giro" ></Entry>
+                    <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle"  Keyboard="Default" x:Name="dom" ></Entry>
                     <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="ext" ></Entry>
-                    <Entry  Placeholder="Numero Interior" Text="23452"  Keyboard="Numeric" x:Name="inte" ></Entry>
-                    <Entry  Placeholder="Colonia" Text="sadsad"  Keyboard="Default" x:Name="col" ></Entry>
-                    <Entry  Placeholder="Ciudad" Text="sadsad"  Keyboard="Default" x:Name="ciu" ></Entry>
-                    <Entry  Placeholder="Municipio" Text="sadsad"   Keyboard="Default" x:Name="mun" ></Entry>
-                    <Entry  Placeholder="Estado" Text="sadsad"   Keyboard="Default" x:Name="est" ></Entry>
+                    <Entry  Placeholder="Numero Interior" Text="34"  Keyboard="Numeric" x:Name="inte" ></Entry>
+                    <Entry  Placeholder="Colonia" Text="colonia del usuario"  Keyboard="Default" x:Name="col" ></Entry>
+                    <Entry  Placeholder="Ciudad" Text="ciudad donde esta"  Keyboard="Default" x:Name="ciu" ></Entry>
+                    <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="mun" ></Entry>
+                    <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="est" ></Entry>
                     <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" ></Entry>
                     <Entry  Placeholder="Correo Electronico"  Text="correo@algo" Keyboard="Default" x:Name="correo" ></Entry>
                     <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" ></Entry>
-                    <Entry  Placeholder="Celular"  Keyboard="Numeric" x:Name="cel" ></Entry>
+                    <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="cel" ></Entry>
                     <StackLayout Orientation="Horizontal">
                         <Picker x:Name="tipo" Title="Tipo de Membresia" HorizontalOptions="StartAndExpand" SelectedIndexChanged="Fn_Drop">
                             <Picker.Items>
@@ -36,10 +36,8 @@
                         </Picker>
                         <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
                     </StackLayout>
-                    <StackLayout>
-                        <WebView x:Name="Browser" WidthRequest="100" HeightRequest="200" />
-                    </StackLayout>
-
+                   <!-- 
+                    
                     <Entry x:Name="Tar_Nombre" Text="nombre de la tarjeta" Placeholder="Tajeta habiente"></Entry>
                     <Entry x:Name="Tar_Numero" Text="4242424242424242" Placeholder="Numero Tajeta" TextChanged="Fn_Max18" Keyboard="Numeric"></Entry>
                     <StackLayout Orientation="Horizontal">
@@ -47,6 +45,8 @@
                         <Entry x:Name="Tar_Mes" Text="02" HorizontalOptions="Center" Placeholder="MES" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
                         <Entry x:Name="Tar_Año" Text="20" HorizontalOptions="End" Placeholder="AÑO" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
                     </StackLayout>
+                     -->
+                    <WebView x:Name="Browser" WidthRequest="1000" HeightRequest="400" />
                     <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" ></Button>
                     <!--Clicked="Registrar" -->
                     <Label x:Name="otroaa" Text=" aqui mensajes"></Label>

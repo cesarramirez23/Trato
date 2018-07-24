@@ -1,2 +1,2 @@
 android.app.Application
-com.companyname.Trato
+com.alsain.trato
