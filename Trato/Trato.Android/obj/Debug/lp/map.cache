@@ -1,5 +1,6 @@
 FormsViewGroup
 Newtonsoft.Json
+nunit.framework
 System.Runtime
 Trato
 Xamarin.Android.Arch.Core.Common
@@ -32,4 +33,3 @@ Xamarin.GooglePlayServices.Tasks
 Xamarin.GooglePlayServices.Base
 Xamarin.GooglePlayServices.Maps
 netstandard
-nunit.framework

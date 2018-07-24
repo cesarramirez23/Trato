@@ -19,9 +19,15 @@ namespace Trato.Views
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
 
+        bool v_primero = false;
+
+
+
+
 		public V_Master()
 		{
 			InitializeComponent ();
+            v_primero = false;
             Browser.Source = "https://www.alsain.mx/trato_especial/pre_tarjeta_alta.php";
 
             
@@ -53,8 +59,15 @@ namespace Trato.Views
         } 
         public async void Fn_Enviar(object sender, EventArgs _Args)
         {
+            if(!v_primero)
+            {
+                await Browser.EvaluateJavaScriptAsync("submitbutton()");
+                v_primero = true;
+                await Task.Delay(2000);
+            }
            string _result= await Browser.EvaluateJavaScriptAsync("submitbutton()");
 
+                await Task.Delay(1000);
             await DisplayAlert("regresa","numero "+_result, "nada");
         }
         public void Fn_uno(object sender, EventArgs _args)
