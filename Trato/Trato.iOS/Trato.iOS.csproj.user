@@ -3,5 +3,6 @@
   <PropertyGroup>
     <DeveloperId />
     <DevelopmentTeamId />
+    <SelectedDevice>Simulator</SelectedDevice>
   </PropertyGroup>
 </Project>
