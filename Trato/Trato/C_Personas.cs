@@ -59,6 +59,114 @@ namespace Trato.Personas
             v_medica = _medicam;
         }
     }
+
+    class C_RegistroPrinci
+    {
+        #region DAtos del usuario a registrar
+        [JsonProperty("nombre")]
+        string v_Nombre { get; set; }
+        [JsonProperty("rfc")]
+        string v_Rfc { get; set; }
+        /// <summary>
+        /// Fecha de nacimiento, tiene que ser dia mes año
+        /// </summary>
+        [JsonProperty("fechanac")]
+        string v_FecNaci { get; set; }
+        /// <summary>
+        /// lugar de nacimiento
+        /// </summary>
+        [JsonProperty("lugnac")]
+        string v_LugNac { get; set; }
+        [JsonProperty("ocu")]
+        string v_Ocup { get; set; }
+        [JsonProperty("tel")]
+        string v_Tel { get; set; }
+        [JsonProperty("cel")]
+        string v_Cel { get; set; }
+        [JsonProperty("calle")]
+        string v_Calle { get; set; }
+        [JsonProperty("numext")]
+        string v_NumExt { get; set; }
+        [JsonProperty("numint")]
+        string v_NumInt { get; set; }
+        [JsonProperty("colonia")]
+        string v_Colonia { get; set; }
+        [JsonProperty("ciudad")]
+        string v_Ciudad { get; set; }
+        [JsonProperty("municipio")]
+        string v_municipio { get; set; }
+        [JsonProperty("estado")]
+        string v_Estado { get; set; }
+        [JsonProperty("cp")]
+        string v_Cp { get; set; }
+        [JsonProperty("correo")]
+        string v_Correo { get; set; }
+        /// <summary>
+        /// 0 si es fisica, 1 persona moral
+        /// </summary>
+        [JsonProperty("idpersona")]
+        int idPersona = 0;
+        #endregion
+
+        #region DAtos de la membresia elegida   
+        /// <summary>
+        /// el nombre de la membresia, personal, familiar, empresarial
+        /// </summary>
+        [JsonProperty("nombremembresia")]
+        string v_NomMembre { get; set; }
+        ////// <summary>
+        ////// 0 personal, 1 familiar, 2 empresarial
+        ////// </summary>
+        [JsonProperty("idmembre")]
+        int v_idmembre { get; set; }
+        [JsonProperty("costo")]
+        string v_Costo { get; set; }
+        #endregion
+
+        #region Datos de la tarjeta
+        /// <summary>
+        /// el token que se genera desde el web view
+        /// </summary>
+        [JsonProperty("tokenid")]
+        string v_token { get; set; }
+        #endregion
+
+
+
+        public C_RegistroPrinci()
+        {
+
+        }
+        public C_RegistroPrinci(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,string _tel, string _cel,
+            string _calle,string _numExt, string _numInt, string _col, string _ciud,string _mun, string _est, string _cp, 
+            string _corr, int _idPer,string _nomMembre, int _idmembre, string _costo, string _token )
+        {
+            v_Nombre = _nom;
+            v_Rfc = _rfc;
+            v_FecNaci = _fechnac.Year.ToString() + "-" + _fechnac.Month.ToString() + "-" + _fechnac.Day.ToString();
+            v_LugNac = _lugnac;
+            v_Ocup = _ocu;
+            v_Tel = _tel;
+            v_Cel = _cel;
+            v_Calle = _calle;
+            v_NumExt = _numExt;
+            v_NumInt = _numInt;
+            v_Colonia = _col;
+            v_Ciudad = _ciud;
+            v_municipio = _mun;
+            v_Estado = _est;
+            v_Cp = _cp;
+            v_Correo = _corr;
+            idPersona = _idPer;
+            v_NomMembre = _nomMembre;
+            v_idmembre = _idmembre;
+            v_Costo = _costo;
+            v_token = _token;
+
+        }
+    }
+
+
     class C_Tarjeta
     {
         [JsonProperty("nombre")]

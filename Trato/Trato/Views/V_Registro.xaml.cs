@@ -48,15 +48,7 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Registro : ContentPage
     {
-        public static void getApiKey()
-        {
-            conekta.Api.apiKey = "key_Bxpq7cLgd6NYtmWmq5d4Lg";
-        }
-        
-        Customer v_customer;
-
-
-
+        bool v_primero = false;
         string[] v_costo =
         {
             "100", "200", "300"
@@ -91,7 +83,8 @@ namespace Trato.Views
         public V_Registro(bool _folio)
         {
             InitializeComponent();
-            Browser.Source = "http://www.alsain.mx/trato_especial/pre_tarjeta_alta.php";
+            v_primero = false;
+            Browser.Source = "https://www.alsain.mx/trato_especial/pre_tarjeta_alta.php";
             if (_folio)
             {
                 stackTodo.IsVisible = false;
@@ -175,123 +168,10 @@ namespace Trato.Views
                 _temp.Text = _temp.Text.Remove(_temp.Text.Length - 1); // remove last char
             }
         }
-        public void createCard()
-        {
-            getApiKey();
-            conekta.Api.version = "2.0.0";
-
-            Customer customer = new conekta.Customer().create(@"{
-                  ""name"": ""Emiliano Cabrera"",
-                  ""phone"": ""+5215544443333"",
-                  ""email"": ""user@example.com"",
-                  ""corporate"": true,
-                  ""payment_sources"": []
-                  }");
-
-            Card card = (Card)customer.CreateCard(@"{
-                ""token_id"": ""tok_test_card_declined"",
-                ""type"": ""card""
-                }");
-
-            Assert.AreEqual(card.type, "card");
-            Assert.AreEqual(card.name, "Jorge Lopez");
-        }
         public async void Registrar(object sender, EventArgs _args)
          {
-
-            if(Device.RuntimePlatform ==Device.iOS)
-            { 
-
-            }
-            else if(Device.RuntimePlatform == Device.Android)
+            if(Fn_Condiciones())
             {
-
-            }
-
-
-            // createCard();
-            if (Fn_Condiciones())
-            {
-
-                //
-
-                ///construir los datos de la tarkjeta que se va a enviar
-                //C_Tarjeta _Tarjeta = new C_Tarjeta(Persona.Text, correo.Text, App.Fn_Vacio(tel.Text), tipo.SelectedItem.ToString(), v_costo[tipo.SelectedIndex],
-                //Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text);
-
-                //////para darle formato identado
-                //string _jsonTar = JsonConvert.SerializeObject(_Tarjeta,Formatting.Indented);
-
-
-                //conekta.Api.apiKey = "key_Bxpq7cLgd6NYtmWmq5d4Lg";
-                //conekta.Api.locale = "es";
-                //conekta.Api.version = "2.0.0";
-
-                ////_
-                //Card _tarje = new Card( );
-                //_tarje.name = App.Fn_Vacio( Tar_Nombre.Text);
-                //_tarje.number = App.Fn_Vacio(Tar_Numero.Text);
-                //_tarje.exp_month = App.Fn_Vacio(Tar_Mes.Text);
-                //_tarje.exp_year = App.Fn_Vacio(Tar_Año.Text);
-                //_tarje.cvc = App.Fn_Vacio(Tar_Cvc.Text);
-                //Address _direccion = new Address();
-                //_direccion.city = App.Fn_Vacio(ciu.Text);
-                //_direccion.code = App.Fn_Vacio(cp.Text);
-                //_direccion.state = App.Fn_Vacio(est.Text);
-                //_direccion.street1 = App.Fn_Vacio(dom.Text);
-
-                //_tarje.address = _direccion;
-
-                //string _jsonTarjeta = JsonConvert.SerializeObject(_tarje, Formatting.Indented);
-                //_tarje = _tarje.toClass(_jsonTarjeta);
-
-                //await DisplayAlert("sads", _tarje.token_id + "\n "+
-                //    _tarje.number + "\n "+Api.apiKey + "\n "+
-                //    Api.locale+ "\n ", "nada");
-
-                //v_customer = new Customer();
-                //v_customer.name = App.Fn_Vacio(nombre.Text);
-                //v_customer.email = App.Fn_Vacio(correo.Text);
-                //v_customer.phone = App.Fn_Vacio(tel.Text);
-                //PaymentSource _payment = new PaymentSource();
-                //_payment.id = _tarje.token_id;
-                //_payment.type = "card";
-                //v_customer.payment_sources = new PaymentSource[1];
-                //v_customer.payment_sources[0] = _payment;
-
-
-                //string jsonCustomer = JsonConvert.SerializeObject(v_customer,Formatting.Indented);
-
-                //  _tarje.create(Api.baseUri+ "/key_Bxpq7cLgd6NYtmWmq5d4Lg",_jsonTarjeta);
-
-                // v_customer.CreateCard(_jsonTarjeta);
-                //v_customer.create(jsonCustomer);
-
-                //otroaa.Text = _jsonTarjeta + "\n " + jsonCustomer;
-
-
-
-
-
-                //  otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
-
-                // //damos el formato
-                //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
-                // //crea el cliente
-                //HttpClient _cli = new HttpClient();
-                // //cambiar el url al que se va a enviar
-                //var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
-                // //se envia y esperamos respuesta
-                //var result = await _cli.PostAsync(uri, _contTar);
-
-                // HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
-                // string content = await regresaphp.Content.ReadAsStringAsync();
-                // string _Arr = content.Split('<')[0];
-                // await DisplayAlert("Regresa post", _Arr, "nada");
-
-
-                //nombre de tarjeta numero cvc mes año    
-                ParaTok _Enviar = new ParaTok();
 
                 int _persona;
                 if (v_T_Persona)
@@ -302,81 +182,115 @@ namespace Trato.Views
                 {
                     _persona = 1;
                 }
-                _Enviar = new ParaTok(Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text, _persona, tipo.SelectedIndex);
-                var _jsonTok = JsonConvert.SerializeObject(_Enviar, Formatting.Indented);
 
-                StringContent _contTar = new StringContent(_jsonTok, Encoding.UTF8, "application/json");
-                //crea el cliente
-                HttpClient _cli = new HttpClient();
-                //cambiar el url al que se va a enviar
-                var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
-                //se envia y esperamos respuesta
-                //var result = await _cli.PostAsync(uri, _contTar);
-
-                otroaa.Text = _jsonTok;
-                HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
-                string content = await regresaphp.Content.ReadAsStringAsync();
-                string id = content.Split('@')[1];
-                //llamar id al valor de arr
-                await DisplayAlert("Regresa post", id, "nada");
-
-
-                //_cli = new HttpClient();
-                //uri = "http://192.168.0.121:80/trato_especial/";
-                //regresaphp = await _cli.GetAsync(uri);
-                //content = await regresaphp.Content.ReadAsStringAsync();
-                //await DisplayAlert("Regresa get", content, "nada");
-
-                /*
-                if (v_T_Persona)
+                if (!v_primero)
                 {
-                     C_Ind_Fisica _Usuario = new C_Ind_Fisica(nombre.Text, App.Fn_Vacio( rfc.Text), fecha.Date, App.Fn_Vacio(lugar.Text), App.Fn_Vacio( giro.Text), tel.Text, 
-                         App.Fn_Vacio( cel.Text),  dom.Text, ext.Text,App.Fn_Vacio( inte.Text), col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
-                     string _jsonUsu = JsonConvert.SerializeObject(_Usuario,Formatting.Indented);
-                     otroaa.Text += "\n" + _jsonUsu;
+                    await Browser.EvaluateJavaScriptAsync("submitbutton()");
+                    v_primero = true;
+                    await Task.Delay(2000);
+                }
+                string tokenid = await Browser.EvaluateJavaScriptAsync("submitbutton()");
 
-                    //damos el formato
-                    StringContent _contUsu = new StringContent(_jsonUsu, Encoding.UTF8, "application/json");
-                    //crea el cliente
-                     HttpClient _cliUsu = new HttpClient();
-                    //cambiar el url al que se va a enviar
-                    var uri = "http://jsonplaceholder.typicode.com/posts";
-                    //se envia y esperamos respuesta
-                    HttpResponseMessage regresaphp = await _cliUsu.PostAsync(uri, _contUsu);
-                    string content = await regresaphp.Content.ReadAsStringAsync();
-                    await DisplayAlert("Regresa post", content, "nada");
-
-                    //descomentar para seguir con las pantalls
-                    //     *App.Current.MainPage = new V_Master();
-                    //       App.v_logeado = true;
+                await Task.Delay(1000);
+                if(string.IsNullOrEmpty( tokenid) || string.IsNullOrWhiteSpace(tokenid))
+                {
+                    await DisplayAlert("Error", "Error en algun dato tokenid vacio ", "aceptar");
                 }
                 else
                 {
-                     C_Ind_Moral _Usuario = new C_Ind_Moral(nombre.Text, App.Fn_Vacio(rfc.Text), App.Fn_Vacio(giro.Text), tel.Text,
-                        dom.Text, ext.Text, App.Fn_Vacio(inte.Text), col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, tipo.SelectedIndex);
-                     string _jsonUsu = JsonConvert.SerializeObject(_Usuario, Formatting.Indented);
-                     otroaa.Text += "\n" + _jsonUsu;
-                    //damos el formato
-                    StringContent _contUsu = new StringContent(_jsonUsu, Encoding.UTF8, "application/json");
-                    //crea el cliente
-                    // HttpClient _cliUsu = new HttpClient();
-                    //cambiar el url al que se va a enviar
-                    //var uri = "http://jsonplaceholder.typicode.com/posts";
-                    //se envia y esperamos respuesta
-                    //var result = await _cli.PostAsync(uri, _contTar);
-                    
-                    //descomentar para seguir con las pantalls
-                    //App.Current.MainPage = new V_Master();
-                    //App.v_logeado = true;
-                    
+                    C_RegistroPrinci datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
+                        dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
+                        v_costo[tipo.SelectedIndex], tokenid);
+
+
+                    string json_reg = JsonConvert.SerializeObject(datosregistro,Formatting.Indented);
+                    otroaa.Text = json_reg;
+                    StringContent v_content = new StringContent(json_reg,  Encoding.UTF8, "application/json");
+
+                    HttpClient v_cliente = new HttpClient();
+                    Uri url = new Uri("http://www.alsain.mx/trato_especial/tarjeta_alta.php");
+
+                    HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
+                    otroaa.Text = respuestaReg.ToString();
+
+                    await DisplayAlert("Respuesta", respuestaReg.ToString(), "aceptar");
+
                 }
-                */
             }
-            else
-            {
-                await DisplayAlert("Errores", "errores", "cancel");
-            }
-         }
+
+
+            //if (Fn_Condiciones())
+            //{
+
+            //
+
+            ///construir los datos de la tarkjeta que se va a enviar
+            //C_Tarjeta _Tarjeta = new C_Tarjeta(Persona.Text, correo.Text, App.Fn_Vacio(tel.Text), tipo.SelectedItem.ToString(), v_costo[tipo.SelectedIndex],
+            //Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text);
+
+            //////para darle formato identado
+            //string _jsonTar = JsonConvert.SerializeObject(_Tarjeta,Formatting.Indented);
+            //otroaa.Text = _jsonTarjeta + "\n " + jsonCustomer;
+
+            //  otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
+
+            // //damos el formato
+            //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
+            // //crea el cliente
+            //HttpClient _cli = new HttpClient();
+            // //cambiar el url al que se va a enviar
+            //var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
+            // //se envia y esperamos respuesta
+            //var result = await _cli.PostAsync(uri, _contTar);
+
+            // HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
+            // string content = await regresaphp.Content.ReadAsStringAsync();
+            // string _Arr = content.Split('<')[0];
+            // await DisplayAlert("Regresa post", _Arr, "nada");
+
+            ////nombre de tarjeta numero cvc mes año    
+            //ParaTok _Enviar = new ParaTok();
+            //int _persona;
+            //if (v_T_Persona)
+            //{
+            //    _persona = 0;
+            //}
+            //else
+            //{
+            //    _persona = 1;
+            //}
+            //_Enviar = new ParaTok(Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text, _persona, tipo.SelectedIndex);
+            //var _jsonTok = JsonConvert.SerializeObject(_Enviar, Formatting.Indented);
+
+            //StringContent _contTar = new StringContent(_jsonTok, Encoding.UTF8, "application/json");
+            ////crea el cliente
+            //HttpClient _cli = new HttpClient();
+            ////cambiar el url al que se va a enviar
+            //var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
+            ////se envia y esperamos respuesta
+            ////var result = await _cli.PostAsync(uri, _contTar);
+
+            //otroaa.Text = _jsonTok;
+            //HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
+            //string content = await regresaphp.Content.ReadAsStringAsync();
+            //string id = content.Split('@')[1];
+            ////llamar id al valor de arr
+            //    await DisplayAlert("Regresa post", id, "nada");
+
+
+            //    //_cli = new HttpClient();
+            //    //uri = "http://192.168.0.121:80/trato_especial/";
+            //    //regresaphp = await _cli.GetAsync(uri);
+            //    //content = await regresaphp.Content.ReadAsStringAsync();
+            //    //await DisplayAlert("Regresa get", content, "nada");
+
+
+            //}
+            //else
+            //{
+            //    await DisplayAlert("Errores", "errores", "cancel");
+            //}
+        }
 
      
         public async void Folio_Registro(object sender, EventArgs _args)
@@ -596,48 +510,48 @@ namespace Trato.Views
 
 
             //tarjeta
-            if (string.IsNullOrEmpty(Tar_Nombre.Text) || string.IsNullOrWhiteSpace(Tar_Nombre.Text))
-            {
-                Tar_Nombre.BackgroundColor = Color.Red; _contador++;
-            }
-            else
-            {
-                Tar_Nombre.BackgroundColor = Color.Transparent;
-            }
+            //if (string.IsNullOrEmpty(Tar_Nombre.Text) || string.IsNullOrWhiteSpace(Tar_Nombre.Text))
+            //{
+            //    Tar_Nombre.BackgroundColor = Color.Red; _contador++;
+            //}
+            //else
+            //{
+            //    Tar_Nombre.BackgroundColor = Color.Transparent;
+            //}
 
-            if (string.IsNullOrEmpty(Tar_Numero.Text) || string.IsNullOrWhiteSpace(Tar_Numero.Text))
-            {
-                Tar_Numero.BackgroundColor = Color.Red; _contador++;
-            }
-            else
-            {
-                Tar_Numero.BackgroundColor = Color.Transparent;
-            }
-            if (string.IsNullOrEmpty(Tar_Cvc.Text) || string.IsNullOrWhiteSpace(Tar_Cvc.Text))
-            {
-                Tar_Cvc.BackgroundColor = Color.Red; _contador++;
-            }
-            else
-            {
-                Tar_Cvc.BackgroundColor = Color.Transparent;
-            }
+            //if (string.IsNullOrEmpty(Tar_Numero.Text) || string.IsNullOrWhiteSpace(Tar_Numero.Text))
+            //{
+            //    Tar_Numero.BackgroundColor = Color.Red; _contador++;
+            //}
+            //else
+            //{
+            //    Tar_Numero.BackgroundColor = Color.Transparent;
+            //}
+            //if (string.IsNullOrEmpty(Tar_Cvc.Text) || string.IsNullOrWhiteSpace(Tar_Cvc.Text))
+            //{
+            //    Tar_Cvc.BackgroundColor = Color.Red; _contador++;
+            //}
+            //else
+            //{
+            //    Tar_Cvc.BackgroundColor = Color.Transparent;
+            //}
 
-            if (string.IsNullOrEmpty(Tar_Mes.Text) || string.IsNullOrWhiteSpace(Tar_Mes.Text) || Tar_Mes.Text.Length != 2)
-            {
-                Tar_Mes.BackgroundColor = Color.Red; _contador++;
-            }
-            else
-            {
-                Tar_Mes.BackgroundColor = Color.Transparent;
-            }
-            if (string.IsNullOrEmpty(Tar_Año.Text) || string.IsNullOrWhiteSpace(Tar_Año.Text) || Tar_Año.Text.Length != 2)
-            {
-                Tar_Año.BackgroundColor = Color.Red; _contador++;
-            }
-            else
-            {
-                Tar_Año.BackgroundColor = Color.Transparent;
-            }
+            //if (string.IsNullOrEmpty(Tar_Mes.Text) || string.IsNullOrWhiteSpace(Tar_Mes.Text) || Tar_Mes.Text.Length != 2)
+            //{
+            //    Tar_Mes.BackgroundColor = Color.Red; _contador++;
+            //}
+            //else
+            //{
+            //    Tar_Mes.BackgroundColor = Color.Transparent;
+            //}
+            //if (string.IsNullOrEmpty(Tar_Año.Text) || string.IsNullOrWhiteSpace(Tar_Año.Text) || Tar_Año.Text.Length != 2)
+            //{
+            //    Tar_Año.BackgroundColor = Color.Red; _contador++;
+            //}
+            //else
+            //{
+            //    Tar_Año.BackgroundColor = Color.Transparent;
+            //}
 
 
             if (v_T_Persona)
