@@ -201,16 +201,25 @@ namespace Trato.Views
                         dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
                         v_costo[tipo.SelectedIndex], tokenid);
 
-
+                    //se crea el json
                     string json_reg = JsonConvert.SerializeObject(datosregistro,Formatting.Indented);
+                    // lo hacemos visible en la pantall
                     otroaa.Text = json_reg;
+                    //damos el formato
                     StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
+                    //crea el cliente
                     HttpClient v_cliente = new HttpClient();
+                    //url
                     var url = "https://www.alsain.mx/trato_especial/tarjeta_alta.php";
-                    var respuestaReg = await v_cliente.PostAsync(url, v_content);
-                    //string content = await respuestaReg.Content.ReadAsStringAsync();
+                    HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
+                    await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
+                    if(respuestaReg.StatusCode== System.Net.HttpStatusCode.OK)
+                    {
+                    string content = await respuestaReg.Content.ReadAsStringAsync();
+                    await DisplayAlert("Respuesta", "dice que OK"+"\n" +content, "aceptar");
+
+                    }
                     //otroaa.Text = v_content.ToString();
-                    await DisplayAlert("Respuesta", respuestaReg.ToString(), "aceptar");
 
                 }
             }
