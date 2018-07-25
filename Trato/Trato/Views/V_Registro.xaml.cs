@@ -201,18 +201,24 @@ namespace Trato.Views
                         dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
                         v_costo[tipo.SelectedIndex], tokenid);
 
+                    // //damos el formato
+                    //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
+                    // //crea el cliente
+                    //HttpClient _cli = new HttpClient();
+                    // //cambiar el url al que se va a enviar
+                    //var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
+                    // //se envia y esperamos respuesta
+                    //var result = await _cli.PostAsync(uri, _contTar);
 
                     string json_reg = JsonConvert.SerializeObject(datosregistro,Formatting.Indented);
-                    //otroaa.Text = json_reg;
-                    StringContent v_content = new StringContent(json_reg,  Encoding.UTF8, "application/json");
-
+                    otroaa.Text = json_reg;
+                    StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
                     HttpClient v_cliente = new HttpClient();
-                    Uri url = new Uri("http://www.alsain.mx/trato_especial/tarjeta_alta.php");
-
-                    HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                    otroaa.Text = v_content.ToString();
-
-                    await DisplayAlert("Respuesta", respuestaReg.ToString(), "aceptar");
+                    var url ="http://www.alsain.mx/trato_especial/tarjeta_alta";
+                    var respuestaReg = await v_cliente.PostAsync(url, v_content);
+                    string content = await respuestaReg.Content.ReadAsStringAsync();
+                    //otroaa.Text = v_content.ToString();
+                    await DisplayAlert("Respuesta", content, "aceptar");
 
                 }
             }
