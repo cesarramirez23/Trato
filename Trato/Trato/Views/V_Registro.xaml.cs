@@ -107,7 +107,6 @@ namespace Trato.Views
         {
             InitializeComponent();
             fecha.MaximumDate = DateTime.Now;
-
             Persona.Text = "Persona Fisica";
             fecha.IsEnabled = v_T_Persona;
             lugar.IsEnabled = v_T_Persona;

@@ -143,7 +143,25 @@ namespace Trato.Personas
         {
             v_Nombre = _nom;
             v_Rfc = _rfc;
-            v_FecNaci = _fechnac.Year.ToString() + "-" + _fechnac.Month.ToString() + "-" + _fechnac.Day.ToString();
+            string _month = "";
+            if(_fechnac.Month<10)
+            {
+                _month = "0" + _fechnac.Month.ToString();
+            }
+            else
+            {
+                _month = _fechnac.Month.ToString();
+            }
+            string _day = "";
+            if (_fechnac.Day < 10)
+            {
+                _day = "0" + _fechnac.Day.ToString();
+            }
+            else
+            {
+                _day = _fechnac.Day.ToString();
+            }
+            v_FecNaci = _fechnac.Year.ToString() + "-" + _month + "-" + _day;
             v_LugNac = _lugnac;
             v_Ocup = _ocu;
             v_Tel = _tel;
