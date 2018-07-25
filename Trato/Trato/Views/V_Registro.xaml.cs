@@ -211,7 +211,7 @@ namespace Trato.Views
                     Uri url = new Uri("http://www.alsain.mx/trato_especial/tarjeta_alta.php");
 
                     HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                    otroaa.Text = v_content.ToString();
+                    //otroaa.Text = v_content.ToString();
 
                     await DisplayAlert("Respuesta", respuestaReg.ToString(), "aceptar");
 
@@ -232,7 +232,7 @@ namespace Trato.Views
             //string _jsonTar = JsonConvert.SerializeObject(_Tarjeta,Formatting.Indented);
             //otroaa.Text = _jsonTarjeta + "\n " + jsonCustomer;
 
-            //  otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
+            //otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
 
             // //damos el formato
             //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
