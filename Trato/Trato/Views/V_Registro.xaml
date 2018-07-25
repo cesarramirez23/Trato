@@ -36,7 +36,7 @@
                         </Picker>
                         <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
                     </StackLayout>
-                    <!-- 
+                   <!-- 
                     
                     <Entry x:Name="Tar_Nombre" Text="nombre de la tarjeta" Placeholder="Tajeta habiente"></Entry>
                     <Entry x:Name="Tar_Numero" Text="4242424242424242" Placeholder="Numero Tajeta" TextChanged="Fn_Max18" Keyboard="Numeric"></Entry>

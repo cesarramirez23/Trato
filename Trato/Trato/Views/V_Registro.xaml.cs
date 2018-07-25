@@ -211,7 +211,7 @@ namespace Trato.Views
                     Uri url = new Uri("http://www.alsain.mx/trato_especial/tarjeta_alta.php");
 
                     HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                    otroaa.Text = respuestaReg.ToString();
+                    otroaa.Text = v_content.ToString();
 
                     await DisplayAlert("Respuesta", respuestaReg.ToString(), "aceptar");
 

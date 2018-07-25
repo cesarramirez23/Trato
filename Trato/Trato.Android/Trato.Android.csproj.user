@@ -1,12 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-<<<<<<< HEAD
     <SelectedDevice>ZTE Blade V580</SelectedDevice>
     <DefaultDevice>emulador_prueba</DefaultDevice>
-=======
-    <SelectedDevice>Android_Accelerated_x86_Nougat</SelectedDevice>
-    <DefaultDevice>Android_Accelerated_x86_Nougat</DefaultDevice>
->>>>>>> 462be2cac5c7c6f341ef49d7f1cb826a75f4032d
   </PropertyGroup>
 </Project>
