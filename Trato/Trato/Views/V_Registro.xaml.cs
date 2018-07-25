@@ -203,14 +203,14 @@ namespace Trato.Views
 
 
                     string json_reg = JsonConvert.SerializeObject(datosregistro,Formatting.Indented);
-                    otroaa.Text = json_reg;
+                    //otroaa.Text = json_reg;
                     StringContent v_content = new StringContent(json_reg,  Encoding.UTF8, "application/json");
 
                     HttpClient v_cliente = new HttpClient();
                     Uri url = new Uri("http://www.alsain.mx/trato_especial/tarjeta_alta.php");
 
                     HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                    //otroaa.Text = v_content.ToString();
+                    otroaa.Text = v_content.ToString();
 
                     await DisplayAlert("Respuesta", respuestaReg.ToString(), "aceptar");
 
