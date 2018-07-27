@@ -3,38 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Login" Title="Login">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Nombre de usuario"></Label>
-            <Entry Placeholder="Nombre" x:Name="usu"></Entry>
-            <Label Text="Ingresa tu contraseña"></Label>
-            <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña"></Entry>
-            <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login">  </Button>
-            <!--
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Image Source="BOTONDEGRADADO.png" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer  Tapped="Fn_Login"></TapGestureRecognizer>
-                    </Image.GestureRecognizers>
-                </Image>
-                <Label TextColor="White" Font="Arial" Text="Login" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center"/>
-            </Grid>
-            -->
-            <!--
-            <Button Text="Iniciar Sesion" ContentLayout="Left,10" Image="BOTONDEGRADADO.png" Clicked="Fn_Login" HorizontalOptions="Fill"
-            VerticalOptions="Center" >
-            </Button>
-            -->
-            
+        <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Label Text="Nombre de usuario"></Label>
+                <Entry Placeholder="Nombre" x:Name="usu" Text="1807I-0002"></Entry>
+                <Label Text="Ingresa tu contraseña"></Label>
+                <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="a0b35f"></Entry>
+                <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
+
                 <Label Text="¿No tienes cuenta?" FontAttributes="Bold">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
-            <Label x:Name="mensajes" Text=""></Label>
-        </StackLayout>
+                <Label x:Name="mensajes" Text=""></Label>
+            </StackLayout>
+            <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" IsVisible="False" BackgroundColor="LightSlateGray">
+                <StackLayout Margin="20,20" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label x:Name="Mensajes_over" Text="Cargando Formulario de registro" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Button Text="Reintentar" Style="{StaticResource Buton}" x:Name="Reinten" Clicked="Fn_Reintento" HorizontalOptions="Start" IsVisible="False"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
 

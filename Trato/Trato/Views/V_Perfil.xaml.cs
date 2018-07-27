@@ -25,14 +25,34 @@ namespace Trato.Views
         public void Fn_SwiMedica(object sender, ToggledEventArgs _args)
         {
             v_Medicamentos.IsVisible = _args.Value;
+            if (!_args.Value)
+                v_Medicamentos.Text = "";
         }
         public void Fn_SwiAlergias(object sender, ToggledEventArgs _args)
         {
             v_Alergias.IsVisible = _args.Value;
+            if (!_args.Value)
+                v_Alergias.Text = "";
         }
         public void Fn_SwiEnfer(object sender, ToggledEventArgs _args)
         {
             v_Enferme.IsVisible = _args.Value;
+            if (!_args.Value)
+                v_Enferme.Text = "";
+        }
+
+        public void Fn_SwiSexo(object sender, ToggledEventArgs _args)
+        {
+            if(_args.Value)
+            {
+                v_sexolbl.Text = "Mujer, ¿Estas Embarazada?, ¿Tienes hijos? ¿Cuantos?";
+            }
+            else
+            {
+                v_sexolbl.Text = "Hombre";
+                v_sexo.Text = "";
+            }
+            v_sexo.IsVisible = _args.Value;
         }
 	}
 }

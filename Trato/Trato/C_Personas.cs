@@ -60,6 +60,104 @@ namespace Trato.Personas
         }
     }
 
+    class C_RegistroSec
+    {
+        #region datos generales
+        [JsonProperty("nombre")]
+        string v_nombre { get; set; }
+        [JsonProperty("fecha")]
+        string v_fecha { get; set; }
+        [JsonProperty("cel")]
+        string v_celular { get; set; }
+        [JsonProperty("correo")]
+        string v_correo { get; set; }
+        [JsonProperty("pass")]
+        string v_password { get; set; }
+        [JsonProperty("idmembre")]
+        string v_membre { get; set; }
+        [JsonProperty("id")]
+        int v_id { get; set; }
+        #endregion
+        #region Datos de la familiar
+        [JsonProperty("parentesco")]
+        string v_parentesco { get; set; }
+        #endregion
+        #region datos especificos de empresarial
+        [JsonProperty("empresa")]
+        string v_empresa { get; set; }
+        [JsonProperty("folio")]
+        string v_folio { get; set; }
+        #endregion
+
+        public C_RegistroSec ()
+        {
+
+        }
+        public C_RegistroSec(string _nombre,DateTime _fecha, string _cel, string _correo,string _pass,string _membre,  int _id, string _paren)
+        {
+            v_nombre = _nombre;
+            string _month = "";
+            if (_fecha.Month < 10)
+            {
+                _month = "0" + _fecha.Month.ToString();
+            }
+            else
+            {
+                _month = _fecha.Month.ToString();
+            }
+            string _day = "";
+            if (_fecha.Day < 10)
+            {
+                _day = "0" + _fecha.Day.ToString();
+            }
+            else
+            {
+                _day = _fecha.Day.ToString();
+            }
+            v_fecha = _fecha.Year.ToString() + "-" + _month + "-" + _day;
+            v_celular = _cel;
+            v_correo = _correo;
+            v_password = _pass;
+            v_membre = _membre;
+            v_id = _id;
+            v_parentesco = _paren;
+            v_empresa = "";
+            v_folio = "";
+
+        }
+        public C_RegistroSec(string _nombre, DateTime _fecha, string _cel, string _correo, string _pass, string _membre, int _id,string _empr, string _fol)
+        {
+            v_nombre = _nombre;
+            string _month = "";
+            if (_fecha.Month < 10)
+            {
+                _month = "0" + _fecha.Month.ToString();
+            }
+            else
+            {
+                _month = _fecha.Month.ToString();
+            }
+            string _day = "";
+            if (_fecha.Day < 10)
+            {
+                _day = "0" + _fecha.Day.ToString();
+            }
+            else
+            {
+                _day = _fecha.Day.ToString();
+            }
+            v_fecha = _fecha.Year.ToString() + "-" + _month + "-" + _day;
+            v_celular = _cel;
+            v_correo = _correo;
+            v_password = _pass;
+            v_membre = _membre;
+            v_id = _id;
+            v_parentesco = "";
+            v_empresa = _empr;
+            v_folio = _fol;
+        }
+
+    }
     class C_RegistroPrinci
     {
         #region DAtos del usuario a registrar
@@ -183,66 +281,11 @@ namespace Trato.Personas
 
         }
     }
-
-
-    class C_Tarjeta
-    {
-        [JsonProperty("nombre")]
-        string v_Nombre { get; set; }
-        [JsonProperty("correo")]
-        string v_Correo { get; set; }
-        [JsonProperty("tel")]
-        string v_Telefono { get; set; }
-        [JsonProperty("membre")]
-        string v_Membresia { get; set; }///nombre de la membresi
-        [JsonProperty("costo")]
-        string v_Costo { get; set; }
-        [JsonProperty("nombretarjeta")]
-        string v_NombreTar { get; set; }
-        [JsonProperty("numtarjeta")]
-        string v_NumeroTar { get; set; }
-        [JsonProperty("cvc")]
-        string v_CVC { get; set; }
-        [JsonProperty("mes")]
-        string v_Mes { get; set; }
-        [JsonProperty("ano")]
-        string v_Ano { get; set; }
-
-        public C_Tarjeta()
-        {
-            v_Nombre = "";
-            v_Correo = "";
-            v_Telefono = "";
-            v_Membresia = "";
-            v_Costo = "";
-            v_NombreTar = "";
-            v_NumeroTar = "";
-            v_CVC = "";
-            v_Mes = "";
-            v_Ano = "";
-        }
-        public C_Tarjeta(string _nom, string _corr, string _tel, string _memb,
-            string _costo, string _nomTar, string _num, string _cvc, string _mes, string _ano)
-        {
-            v_Nombre = _nom;
-            v_Correo = _corr;
-            v_Telefono = _tel;
-            v_Membresia = _memb;
-            v_Costo = _costo;
-            v_NombreTar = _nomTar;
-            v_NumeroTar = _num;
-            v_CVC = _cvc;
-            v_Mes = _mes;
-            v_Ano = _ano;
-        }
-
-
-    }
     class C_Login
     {
-        [JsonProperty("usu")]
+        [JsonProperty("idmembre")]
         string v_usuario { get; set; }
-        [JsonProperty("pass")]
+        [JsonProperty("password")]
         string v_pass  { get;set;}
 
         public C_Login()
@@ -478,34 +521,7 @@ namespace Trato.Personas
             return "";
         }
     }
-    class C_Registro
-    {
-        [JsonProperty("membresia")]
-        string v_folio { get; set; }
-        [JsonProperty("usu")]
-        string v_usuario { get; set; }
-        [JsonProperty("pass")]
-        string v_pass  { get;set; }
 
-        public C_Registro()
-        {
-            v_folio = "";
-            v_usuario = "";
-            v_pass = "";
-        }
-        public C_Registro(string _fol, string _usu, string _pass)
-        {
-            v_folio = _fol;
-            v_usuario = _usu;
-            v_pass = _pass;
-        }
-        public string Fn_GetInfo()
-        {
-            string _valor = "";
-            _valor = v_folio + "  " + v_usuario + "  " + v_pass;
-            return _valor;
-        }
-    }   
     class C_Emp_Empleado
     {
         /// <summary>

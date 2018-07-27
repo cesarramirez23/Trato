@@ -4,63 +4,95 @@
              x:Class="Trato.Views.V_Registro" Title="Registro" NavigationPage.TitleIcon="Registro">
 
     <ContentPage.Content>
-    <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="Stackreg">
-            <ScrollView x:Name="stackTodo" IsVisible="True">
-                <StackLayout>
-                    <StackLayout Orientation="Horizontal" >
-                        <Label x:Name="Persona" Text="sadsadasdsa" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" BackgroundColor="Green"></Label>
-                        <Switch Toggled="Cambio" HorizontalOptions="EndAndExpand" IsToggled="False"></Switch>
+        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="Stackreg">
+                <ScrollView x:Name="stackTodo" IsVisible="True">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label x:Name="Persona" Text="sadsadasdsa" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" BackgroundColor="Green"></Label>
+                            <Switch Toggled="Cambio" HorizontalOptions="EndAndExpand" IsToggled="False"></Switch>
+                        </StackLayout>
+                        <Entry  Placeholder="Nombre completo"  Text="nombre de la persona" Keyboard="Default" x:Name="nombre" ></Entry>
+                        <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="rfc" ></Entry>
+                        <DatePicker  Format="D" x:Name="fecha" MinimumDate="01/01/1900" ></DatePicker>
+                        <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="lugar" ></Entry>
+                        <Entry  Placeholder="Ocupacion" Text="ocupacion o giro de la empresa"  Keyboard="Default" x:Name="giro" ></Entry>
+                        <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle"  Keyboard="Default" x:Name="dom" ></Entry>
+                        <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="ext" ></Entry>
+                        <Entry  Placeholder="Numero Interior" Text="34"  Keyboard="Numeric" x:Name="inte" ></Entry>
+                        <Entry  Placeholder="Colonia" Text="colonia del usuario"  Keyboard="Default" x:Name="col" ></Entry>
+                        <Entry  Placeholder="Ciudad" Text="ciudad donde esta"  Keyboard="Default" x:Name="ciu" ></Entry>
+                        <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="mun" ></Entry>
+                        <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="est" ></Entry>
+                        <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" ></Entry>
+                        <Entry  Placeholder="Correo Electronico"  Text="correo@algo.com" Keyboard="Default" x:Name="correo" ></Entry>
+                        <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" ></Entry>
+                        <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="cel" ></Entry>
+                            <StackLayout Orientation="Horizontal">
+                                <Picker x:Name="tipo" Title="Tipo de Membresia" HorizontalOptions="StartAndExpand" SelectedIndexChanged="Fn_Drop">
+                                    <Picker.Items>
+                                        <x:String>Individual</x:String>
+                                        <x:String>Familiiaar</x:String>
+                                        <x:String>Empresarial</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                                <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
+                            </StackLayout>
+                            <WebView x:Name="Browser" WidthRequest="1000" HeightRequest="400" Navigated="Cargado" />
+                            <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" ></Button>
+                            <Label x:Name="otroaa" Text=" aqui mensajes"></Label>
                     </StackLayout>
-                    <Entry  Placeholder="Nombre completo"  Text="nombre de la persona" Keyboard="Default" x:Name="nombre" ></Entry>
-                    <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="rfc" ></Entry>
-                    <DatePicker  Format="D" x:Name="fecha" MinimumDate="01/01/1900" ></DatePicker>
-                    <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="lugar" ></Entry>
-                    <Entry  Placeholder="Ocupacion" Text="ocupacion o giro de la empresa"  Keyboard="Default" x:Name="giro" ></Entry>
-                    <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle"  Keyboard="Default" x:Name="dom" ></Entry>
-                    <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="ext" ></Entry>
-                    <Entry  Placeholder="Numero Interior" Text="34"  Keyboard="Numeric" x:Name="inte" ></Entry>
-                    <Entry  Placeholder="Colonia" Text="colonia del usuario"  Keyboard="Default" x:Name="col" ></Entry>
-                    <Entry  Placeholder="Ciudad" Text="ciudad donde esta"  Keyboard="Default" x:Name="ciu" ></Entry>
-                    <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="mun" ></Entry>
-                    <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="est" ></Entry>
-                    <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" ></Entry>
-                    <Entry  Placeholder="Correo Electronico"  Text="correo@algo.com" Keyboard="Default" x:Name="correo" ></Entry>
-                    <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" ></Entry>
-                    <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="cel" ></Entry>
+                </ScrollView>
+
+                <ScrollView x:Name="StackFolio" IsVisible="False">
+                    <StackLayout >
                         <StackLayout Orientation="Horizontal">
-                            <Picker x:Name="tipo" Title="Tipo de Membresia" HorizontalOptions="StartAndExpand" SelectedIndexChanged="Fn_Drop">
+                            <Label HorizontalOptions="StartAndExpand" Text="Elige tu tipo de Membresía"></Label>
+                            <Picker HorizontalOptions="CenterAndExpand" Title="Membresias" SelectedIndexChanged="Fn_FolCambio" x:Name="Fol_DropMembre">
                                 <Picker.Items>
-                                    <x:String>Individual</x:String>
-                                    <x:String>Familiiaar</x:String>
-                                    <x:String>Empresarial</x:String>
+                                    <x:String>Familiar</x:String>
+                                    <x:String >Empresarial</x:String>
                                 </Picker.Items>
                             </Picker>
-                            <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
                         </StackLayout>
-                        <WebView x:Name="Browser" WidthRequest="1000" HeightRequest="400" Navigating="Cargando" Navigated="Cargado" />
-                        <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" ></Button>
-                        <Label x:Name="otroaa" Text=" aqui mensajes"></Label>
-                </StackLayout>
-            </ScrollView>
 
-            <StackLayout x:Name="StackFolio" IsVisible="False">
-                <Label Text="Ingresa tu Numero de Membresía"></Label>
-                <Entry Placeholder="No de Membresía" x:Name="Fol_folio" Margin="0,5"></Entry>
+                        <Label Text="Ingresa tu Numero de Membresía"></Label>
+                        <Entry Placeholder="No de Membresía" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
 
-                <Label Text="Ingresa tu Nombre de usuario "></Label>
-                <Entry Placeholder="Nombre de usuario" x:Name="Fol_usu" Margin="0,5"></Entry>
+                        <Label Text="Ingresa tu Nombre completo"></Label>
+                        <Entry Placeholder="Noombre" x:Name="Fol_Nombre" Margin="0,5"></Entry>
+                        
+                        
+                        <StackLayout x:Name="Stack_Fam" IsVisible="False">
+                            <Label Text="Parentesco con el titular"></Label>
+                            <Entry Placeholder="Parentesco" x:Name="Fol_Parent" Margin="0,5"></Entry>
+                        </StackLayout>
+                        <StackLayout x:Name="Stack_Empre" IsVisible="False">
+                            <Label Text="Ingresa tu Folio"></Label>
+                            <Entry Placeholder="No de Folio" x:Name="Fol_Folio" Margin="0,5"></Entry>
+                            <Label Text="Empresa donde labora"></Label>
+                            <Entry Placeholder="Nombre de la empresa" x:Name="Fol_Empre" Margin="0,5"></Entry>
+                        </StackLayout>
 
-                <Label Text="Ingresa tu contraseña"></Label>
-                <Entry x:Name="Fol_pass" Placeholder="Contraseña" IsPassword="True"></Entry>
+                        <Label Text="Fecha de nacimiento"></Label>
+                        <DatePicker x:Name="Fol_fecha" Format="D" MinimumDate="01/01/1900" ></DatePicker>
+                        
+                        <Label Text="Numero de celular"></Label>
+                        <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="Fol_Cel" ></Entry>
+                        
+                        <Label Text="Dirección de correo electronico"></Label>
+                        <Entry  Placeholder="Correo Electronico"  Text="correo@algo.com" Keyboard="Default" x:Name="Fol_Correo" ></Entry>
 
-                <Button Text="Iniciar Sesion" Clicked="Folio_Registro" Style="{StaticResource Buton}"></Button>
 
-                <ScrollView>
-                    <Label x:Name="mensajes" Text="sadfdfdsgd"></Label>
+                        <Label Text="Ingresa una contraseña" x:Name="confirmar" ></Label>
+                        <Entry x:Name="Fol_pass" Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
 
+                        <Label Text="Confirma contraseña" ></Label>
+                        <Entry x:Name="Fol_pass2" Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
+
+                        <Button Text="Registrar" Clicked="Folio_Registro" Style="{StaticResource Buton}"></Button>
+                    </StackLayout>
                 </ScrollView>
-            </StackLayout>
         </StackLayout>
         <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" BackgroundColor="LightSlateGray">
             <StackLayout Margin="20,20" VerticalOptions="Center" HorizontalOptions="Center" >
@@ -68,6 +100,7 @@
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Button Text="Reintentar" Style="{StaticResource Buton}" x:Name="Reinten" Clicked="Fn_RecargaWeb" HorizontalOptions="Start" IsVisible="False"></Button>
                         <Button Text="Crear Cuenta" Style="{StaticResource Buton}" x:Name="MEnu" Clicked="Fn_IrMenu" HorizontalOptions="Start" IsVisible="False"></Button>
+                        <Button Text="Cerrar" Style="{StaticResource Buton}" x:Name="ReintenSec" Clicked="Fn_ocultar" HorizontalOptions="Start" IsVisible="False"></Button>
                     </StackLayout>
             </StackLayout>
         </ContentView>

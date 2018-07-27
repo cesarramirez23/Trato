@@ -9,42 +9,12 @@ using Xamarin.Forms.Xaml;
 using Trato.Personas;
 using System.Net.Http;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
-using conekta;
-using NUnit.Framework;
+using System.Text.RegularExpressions;
+
+
 namespace Trato.Views
 {
-    public class ParaTok
-    {
-        [JsonProperty("nombretarjeta")]
-        string v_NombreTar { get; set; }
-        [JsonProperty("numtarjeta")]
-        string v_NumeroTar { get; set; }
-        [JsonProperty("cvc")]
-        string v_CVC { get; set; }
-        [JsonProperty("mes")]
-        string v_Mes { get; set; }
-        [JsonProperty("ano")]
-        string v_Ano { get; set; }
-        [JsonProperty("id")]
-        int Id { get; set; }
-        [JsonProperty("Membre")]
-        int v_membre { get; set; }
-        public ParaTok( string _nomTar, string _num, string _cvc, string _mes, string _ano, int _id, int _mem)
-        {
-            
-            v_NombreTar = _nomTar;
-            v_NumeroTar = _num;
-            v_CVC = _cvc;
-            v_Mes = _mes;
-            v_Ano = _ano;
-            Id = _id;
-            v_membre = _mem;
-        }
-        public ParaTok()
-        { }
-    }
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Registro : ContentPage
     {
@@ -70,7 +40,6 @@ namespace Trato.Views
         public V_Registro(string _titulo)
         {
             InitializeComponent();
-            fecha.MaximumDate = DateTime.Now;
             Persona.Text = "Persona Fisica";
             fecha.IsEnabled = v_T_Persona;
             lugar.IsEnabled = v_T_Persona;
@@ -85,19 +54,18 @@ namespace Trato.Views
         {
             InitializeComponent();
             v_primero = false;
-            Browser.Source = v_dirWeb;
             if (_folio)
             {
+                Browser.Source = "";
                 stackTodo.IsVisible = false;
                 StackFolio.IsVisible = true;
                 Fol_pass.Text = "";
-                Fol_usu.Text = "";
             }
             else
             {
+            Browser.Source = v_dirWeb;
                 stackTodo.IsVisible = true;
                 StackFolio.IsVisible = false;
-                fecha.MaximumDate = DateTime.Now;
                 Persona.Text = "Persona Fisica";
                 fecha.IsEnabled = v_T_Persona;
                 lugar.IsEnabled = v_T_Persona;
@@ -141,19 +109,13 @@ namespace Trato.Views
 
         }
 
-        public void Cargando(object sender, WebNavigatingEventArgs _args)
-        {
-            Reinten.IsVisible = false;
-            StackMen.IsVisible = true;
-            Mensajes_over.Text = "Cargando";
-        }
         public void Cargado(object sender, WebNavigatedEventArgs _args)
         {
             Reinten.IsVisible = false;
            StackMen.IsVisible = true;
             if(_args.Result ==WebNavigationResult.Timeout || _args.Result== WebNavigationResult.Failure)
             {
-                Mensajes_over.Text = "Error de Conexion";
+                Mensajes_over.Text = "Error de Conexion, ";
                 Reinten.IsVisible = true;
             }
             else if(_args.Result == WebNavigationResult.Success)
@@ -171,11 +133,10 @@ namespace Trato.Views
             Browser.Source = v_dirWeb;
         }
         public void Fn_IrMenu(object sender, EventArgs _Args)
-        { 
+        {
+            StackMen.IsVisible = false;
             App.Current.MainPage = new NavigationPage(new MainPage());
         }
-
-
         /// <summary>
         /// cambio en el drop de membresias
         /// </summary>
@@ -186,7 +147,7 @@ namespace Trato.Views
             mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex];
         }
         void Fn_Max2(object sender, EventArgs _args)
-        {
+        { 
             Entry _temp = (Entry)sender;
             if (_temp.Text.Length > 2)
             {
@@ -203,7 +164,13 @@ namespace Trato.Views
         }
         public async void Registrar(object sender, EventArgs _args)
          {
-            if(Fn_Condiciones())
+            if(tipo.SelectedIndex<0)
+            {
+                await DisplayAlert("Error", "Selecciona un tipo de membresia", "Aceptar");
+            }
+            else
+            {
+                if(Fn_Condiciones())
             {
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = "Procesando Informacion";
@@ -267,152 +234,14 @@ namespace Trato.Views
                     }
                 }
             }
-
-
-            //if (Fn_Condiciones())
-            //{
-
-            //
-
-            ///construir los datos de la tarkjeta que se va a enviar
-            //C_Tarjeta _Tarjeta = new C_Tarjeta(Persona.Text, correo.Text, App.Fn_Vacio(tel.Text), tipo.SelectedItem.ToString(), v_costo[tipo.SelectedIndex],
-            //Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text);
-
-            //////para darle formato identado
-            //string _jsonTar = JsonConvert.SerializeObject(_Tarjeta,Formatting.Indented);
-            //otroaa.Text = _jsonTarjeta + "\n " + jsonCustomer;
-
-            //otroaa.Text = _jsonTar;//MOSTRAMOS EN JSON QUE SE HIZO, nadamas para que ves que estas enviando
-
-            // //damos el formato
-            //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
-            // //crea el cliente
-            //HttpClient _cli = new HttpClient();
-            // //cambiar el url al que se va a enviar
-            //var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
-            // //se envia y esperamos respuesta
-            //var result = await _cli.PostAsync(uri, _contTar);
-
-            // HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
-            // string content = await regresaphp.Content.ReadAsStringAsync();
-            // string _Arr = content.Split('<')[0];
-            // await DisplayAlert("Regresa post", _Arr, "nada");
-
-            ////nombre de tarjeta numero cvc mes año    
-            //ParaTok _Enviar = new ParaTok();
-            //int _persona;
-            //if (v_T_Persona)
-            //{
-            //    _persona = 0;
-            //}
-            //else
-            //{
-            //    _persona = 1;
-            //}
-            //_Enviar = new ParaTok(Tar_Nombre.Text, Tar_Numero.Text, Tar_Cvc.Text, Tar_Mes.Text, Tar_Año.Text, _persona, tipo.SelectedIndex);
-            //var _jsonTok = JsonConvert.SerializeObject(_Enviar, Formatting.Indented);
-
-            //StringContent _contTar = new StringContent(_jsonTok, Encoding.UTF8, "application/json");
-            ////crea el cliente
-            //HttpClient _cli = new HttpClient();
-            ////cambiar el url al que se va a enviar
-            //var uri = "http://192.168.0.121:80/trato_especial/pre_tarjeta_alta";
-            ////se envia y esperamos respuesta
-            ////var result = await _cli.PostAsync(uri, _contTar);
-
-            //otroaa.Text = _jsonTok;
-            //HttpResponseMessage regresaphp = await _cli.PostAsync(uri, _contTar);
-            //string content = await regresaphp.Content.ReadAsStringAsync();
-            //string id = content.Split('@')[1];
-            ////llamar id al valor de arr
-            //    await DisplayAlert("Regresa post", id, "nada");
-
-
-            //    //_cli = new HttpClient();
-            //    //uri = "http://192.168.0.121:80/trato_especial/";
-            //    //regresaphp = await _cli.GetAsync(uri);
-            //    //content = await regresaphp.Content.ReadAsStringAsync();
-            //    //await DisplayAlert("Regresa get", content, "nada");
-
-
-            //}
-            //else
-            //{
-            //    await DisplayAlert("Errores", "errores", "cancel");
-            //}
+            }
         }
 
-     
-        public async void Folio_Registro(object sender, EventArgs _args)
+        public void Fn_ocultar(object sender, EventArgs _args)
         {
-            if (Fn_Condiciones(true))
-            {
-                C_Registro _registro = new C_Registro(Fol_folio.Text, Fol_usu.Text, Fol_pass.Text);
-                //HttpClient _cliente = new HttpClient();
-                string _json = JsonConvert.SerializeObject(_registro);
-                StringContent _contReg= new StringContent(_json, Encoding.UTF8, "application/json");
-                ////enviar el post
-                //string url = "http://jsonplaceholder.typicode.com/posts";
-                //HttpResponseMessage _response = await _cliente.PostAsync(url, _contReg);
-
-
-                await DisplayAlert("TODO BIEN", _registro.Fn_GetInfo(), "cancel");
-                
-                //Application.Current.MainPage = new NavigationPage(new V_Master() { Title = "REGISTRADO" });
-            }
-            else
-            {
-                await DisplayAlert("ERROR", "mensaje de respuesta", "cancel");
-            }
+            StackMen.IsVisible = false;
+            ReintenSec.IsVisible = false;
         }
-        
-        /// <summary>
-        /// cuando es crear usuario, folio y contraseña
-        /// </summary>
-        /// <param name="_folio"></param>
-        /// <returns></returns>
-        bool Fn_Condiciones(bool _folio)
-        {
-            int _conta = 0;
-            if (string.IsNullOrEmpty(Fol_folio.Text) || string.IsNullOrWhiteSpace(Fol_folio.Text))
-            {
-                Fol_folio.BackgroundColor = Color.Red;
-                _conta++;
-            }
-            else
-            {
-                Fol_folio.BackgroundColor = Color.Transparent;
-            }
-
-            if (string.IsNullOrEmpty(Fol_usu.Text) || string.IsNullOrWhiteSpace(Fol_usu.Text))
-            {
-                Fol_usu.BackgroundColor = Color.Red;
-                _conta++;
-            }
-            else
-            {
-                Fol_usu.BackgroundColor = Color.Transparent;
-            }
-            if (string.IsNullOrEmpty(Fol_pass.Text) || string.IsNullOrWhiteSpace(Fol_pass.Text))
-            {
-                Fol_pass.BackgroundColor = Color.Red;
-                _conta++;
-            }
-            else
-            {
-                Fol_pass.BackgroundColor = Color.Transparent;
-            }
-            if (_conta > 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
-        }
-
         /// <summary>
         /// FORMULARIO COMPLETO CAMBIAR EL COLOR DEL FONDO A LOS QUE SON NECESARIOS
         /// </summary>
@@ -448,7 +277,7 @@ namespace Trato.Views
             }
 
             //nombre
-            if (string.IsNullOrEmpty(nombre.Text) ||string.IsNullOrWhiteSpace(nombre.Text))
+            if (string.IsNullOrEmpty(nombre.Text) || string.IsNullOrWhiteSpace(nombre.Text))
             {
                 nombre.BackgroundColor = Color.Red;
                 _contador++;
@@ -520,7 +349,8 @@ namespace Trato.Views
                 cp.BackgroundColor = Color.Transparent;
             }
             //correo
-            if (string.IsNullOrEmpty(correo.Text) || string.IsNullOrWhiteSpace(correo.Text))
+            Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (string.IsNullOrEmpty(correo.Text) || string.IsNullOrWhiteSpace(correo.Text) || !EmailRegex.IsMatch(correo.Text))
             {
                 correo.BackgroundColor = Color.Red; _contador++;
             }
@@ -559,23 +389,185 @@ namespace Trato.Views
 
         }
 
-        private void Browser_Navigated(object sender, WebNavigatedEventArgs e)
+
+        #region FUNCIONES PARA CREAR TU CUENTA EMPRESARIAL O FAMILIAR
+        /// <summary>
+        /// cuando es crear usuario, folio y contraseña
+        /// </summary>
+        /// <param name="_folio"></param>
+        /// <returns></returns>
+        bool Fn_Condiciones(bool _folio)
         {
+            int _conta = 0;
+            //nombre
+            if (string.IsNullOrEmpty(Fol_Nombre.Text) || string.IsNullOrWhiteSpace(Fol_Nombre.Text))
+            {
+                Fol_Nombre.BackgroundColor = Color.Red;
+                _conta++;
+            }
+            else
+            {
+                Fol_Nombre.BackgroundColor = Color.Transparent;
+            }
+            //numero de emembresia
+            if (string.IsNullOrEmpty(Fol_NumMembre.Text) || string.IsNullOrWhiteSpace(Fol_NumMembre.Text))
+            {
+                Fol_NumMembre.BackgroundColor = Color.Red;
+                _conta++;
+            }
+            else
+            {
+                Fol_NumMembre.BackgroundColor = Color.Transparent;
+            }
+            //0 es familiar   1 empresarial
+            if (Fol_DropMembre.SelectedIndex == 1)
+            {
+                Fol_Parent.BackgroundColor = Color.Transparent;
+                if (string.IsNullOrEmpty(Fol_Folio.Text) || string.IsNullOrWhiteSpace(Fol_Folio.Text))
+                {
+                    Fol_Folio.BackgroundColor = Color.Red;
+                    _conta++;
+                }
+                else
+                {
+                    Fol_Folio.BackgroundColor = Color.Transparent;
+                }
+                if (string.IsNullOrEmpty(Fol_Empre.Text) || string.IsNullOrWhiteSpace(Fol_Empre.Text))
+                {
+                    Fol_Empre.BackgroundColor = Color.Red;
+                    _conta++;
+                }
+                else
+                {
+                    Fol_Empre.BackgroundColor = Color.Transparent;
+                }
+            }
+            else
+            {
+                Fol_Folio.BackgroundColor = Color.Transparent;
+                if (string.IsNullOrEmpty(Fol_Parent.Text) || string.IsNullOrWhiteSpace(Fol_Parent.Text))
+                {
+                    Fol_Parent.BackgroundColor = Color.Red;
+                    _conta++;
+                }
+                else
+                {
+                    Fol_Parent.BackgroundColor = Color.Transparent;
+                }
+            }
+            //password
+            if (string.IsNullOrEmpty(Fol_pass.Text) || string.IsNullOrWhiteSpace(Fol_pass.Text) || (Fol_pass.Text != Fol_pass2.Text))
+            {
+                Fol_pass.BackgroundColor = Color.Red;
+                Fol_pass2.BackgroundColor = Color.Red;
+                _conta++;
+            }
+            else
+            {
+                Fol_pass.BackgroundColor = Color.Transparent;
+                Fol_pass2.BackgroundColor = Color.Transparent;
+            }
+            //celular
+            if (string.IsNullOrEmpty(Fol_Cel.Text) || string.IsNullOrWhiteSpace(Fol_Cel.Text))
+            {
+                Fol_Cel.BackgroundColor = Color.Red;
+                _conta++;
+            }
+            else
+            {
+                Fol_Cel.BackgroundColor = Color.Transparent;
+            }
+            //correo
+            Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (string.IsNullOrEmpty(Fol_Correo.Text) || string.IsNullOrWhiteSpace(Fol_Correo.Text) || !EmailRegex.IsMatch (Fol_Correo.Text))
+            {
+                Fol_Correo.BackgroundColor = Color.Red;
+                _conta++;
+            }
+            else
+            {
+                Fol_Correo.BackgroundColor = Color.Transparent;
+            }
+
+
+            if (_conta > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
 
         }
-        /*
-string Fn_Vacio(string _valor)
-{
+        public async void Folio_Registro(object sender, EventArgs _args)
+        {
+            if(Fol_DropMembre.SelectedIndex<0)
+            {
+                await DisplayAlert("Error", "Selecciona un tipo de Membresia", "Aceptar");          
+            }
+            else
+            {
+                if(Fn_Condiciones(true))
+                {// 0 familiar
+                    StackMen.IsVisible = true;
+                    Mensajes_over.Text = "Enviando informacion";
+                    C_RegistroSec _registro = new C_RegistroSec();
+                    //se crean los datos
+                    if(Fol_DropMembre.SelectedIndex==0)
+                    {
+                        _registro = new C_RegistroSec(Fol_Nombre.Text, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text,Fol_NumMembre.Text, 0, Fol_Parent.Text);
+                    }
+                    else if(Fol_DropMembre.SelectedIndex==1)
+                    {
+                        _registro = new C_RegistroSec(Fol_Nombre.Text, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text,Fol_NumMembre.Text, 1, Fol_Empre.Text, Fol_Folio.Text);
+                    }
+                    //crear json
+                    string _jsonReg = JsonConvert.SerializeObject(_registro, Formatting.Indented);
+                    Mensajes_over.Text += "\n json \n"+ _jsonReg;
+                    //StringContent _content = new StringContent(_jsonReg, Encoding.UTF8, "application/json");
+                    ////crea el cliente
+                    //HttpClient _clien = new HttpClient();
+                    ////direccion a enviar
+                    //string _direc = "";
+                    ////se envia
+                    //HttpResponseMessage _respuestaphp = await _clien.PostAsync(_direc, _content);
+                    ////leer la respuesta
+                    //string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    //Mensajes_over.Text += "\n respuesta  " + _respuesta;
 
-   if(string.IsNullOrEmpty(_valor) || string.IsNullOrWhiteSpace(_valor))
-   {
-       return "";
-   }
-   else
-   {
-       return _valor;
-   }
+                    ReintenSec.IsVisible = true;
 
-}*/
+
+                }
+            }
+
+        }
+        public void Fn_Password(object sender, TextChangedEventArgs _args)
+        {
+            if(Fol_pass2.Text== Fol_pass.Text)
+            {
+                confirmar.Text = "Las contraseñas  coinciden";
+            }
+            else
+            {
+                confirmar.Text = "Las contraseñas no coinciden";
+            }
+        }
+        void Fn_FolCambio(object sender, EventArgs _args)
+        {//revisar en el xml que  familiar sea el 0  emporesarial 1
+            if(Fol_DropMembre.SelectedIndex ==0)
+            {//familiar
+                Stack_Fam.IsVisible = true;
+                Stack_Empre.IsVisible = false;
+                Fol_Folio.Text = "";
+            }
+            else
+            {
+                Stack_Empre.IsVisible = true;
+                Stack_Fam.IsVisible = false;
+            }
+        }
+        #endregion
     }
 }

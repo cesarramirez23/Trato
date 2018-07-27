@@ -25,10 +25,13 @@
                         <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
                         <Label Text="Nombre registrado no editar"></Label>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Domicilio" Style="{StaticResource lblSty}"></Label>
-                        <Entry Text="domiclio completo" x:Name="v_Domi" Style="{StaticResource entry_perfil}"></Entry>
-                    </StackLayout>
+                    
+                    <Label Text="Domicilio" Style="{StaticResource lblSty}"></Label>
+                    <Entry Text="domiclio completo" x:Name="v_Domi" Style="{StaticResource entry_perfil}"></Entry>
+
+                    <Label Text="Ocupacion"></Label>
+                    <Entry Placeholder="Ocupacion" Style="{StaticResource entry_perfil}"></Entry>
+                    
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Correo Electronico"  Style="{StaticResource lblSty}"></Label>
                         <Entry Text="Correo electronico" x:Name="v_Correo" Style="{StaticResource entry_perfil}"></Entry>
@@ -48,9 +51,10 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Sexo" Style="{StaticResource lblSty}"></Label>
-                        <Entry x:Name="v_sexo" Style="{StaticResource entry_perfil}"></Entry>
+                        <Label Text="Hombre" x:Name="v_sexolbl" Style="{StaticResource lblSty}"></Label>
+                        <Switch HorizontalOptions="FillAndExpand" IsToggled="False" Toggled="Fn_SwiSexo"></Switch>
                     </StackLayout>
+                    <Editor x:Name="v_sexo" IsVisible="False"></Editor>
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Alergias" Style="{StaticResource lblSty}"></Label>
