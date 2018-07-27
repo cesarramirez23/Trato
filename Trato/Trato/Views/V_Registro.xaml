@@ -2,8 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Registro" Title="Registro" NavigationPage.TitleIcon="Registro">
+
     <ContentPage.Content>
-        <StackLayout>
+    <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="Stackreg">
             <ScrollView x:Name="stackTodo" IsVisible="True">
                 <StackLayout>
                     <StackLayout Orientation="Horizontal" >
@@ -23,36 +25,25 @@
                     <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="mun" ></Entry>
                     <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="est" ></Entry>
                     <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" ></Entry>
-                    <Entry  Placeholder="Correo Electronico"  Text="correo@algo" Keyboard="Default" x:Name="correo" ></Entry>
+                    <Entry  Placeholder="Correo Electronico"  Text="correo@algo.com" Keyboard="Default" x:Name="correo" ></Entry>
                     <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" ></Entry>
                     <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="cel" ></Entry>
-                    <StackLayout Orientation="Horizontal">
-                        <Picker x:Name="tipo" Title="Tipo de Membresia" HorizontalOptions="StartAndExpand" SelectedIndexChanged="Fn_Drop">
-                            <Picker.Items>
-                                <x:String>Individual</x:String>
-                                <x:String>Familiiaar</x:String>
-                                <x:String>Empresarial</x:String>
-                            </Picker.Items>
-                        </Picker>
-                        <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
-                    </StackLayout>
-                   <!-- 
-                    
-                    <Entry x:Name="Tar_Nombre" Text="nombre de la tarjeta" Placeholder="Tajeta habiente"></Entry>
-                    <Entry x:Name="Tar_Numero" Text="4242424242424242" Placeholder="Numero Tajeta" TextChanged="Fn_Max18" Keyboard="Numeric"></Entry>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry x:Name="Tar_Cvc" Text="234" HorizontalOptions="Start" Placeholder="CVC" Keyboard="Numeric" ></Entry>
-                        <Entry x:Name="Tar_Mes" Text="02" HorizontalOptions="Center" Placeholder="MES" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
-                        <Entry x:Name="Tar_Año" Text="20" HorizontalOptions="End" Placeholder="AÑO" Keyboard="Numeric" TextChanged="Fn_Max2"></Entry>
-                    </StackLayout>
-                     -->
-                    <WebView x:Name="Browser" WidthRequest="1000" HeightRequest="400" />
-                    <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" ></Button>
-                    <!--Clicked="Registrar" -->
-                    <Label x:Name="otroaa" Text=" aqui mensajes"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Picker x:Name="tipo" Title="Tipo de Membresia" HorizontalOptions="StartAndExpand" SelectedIndexChanged="Fn_Drop">
+                                <Picker.Items>
+                                    <x:String>Individual</x:String>
+                                    <x:String>Familiiaar</x:String>
+                                    <x:String>Empresarial</x:String>
+                                </Picker.Items>
+                            </Picker>
+                            <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
+                        </StackLayout>
+                        <WebView x:Name="Browser" WidthRequest="1000" HeightRequest="400" Navigating="Cargando" Navigated="Cargado" />
+                        <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" ></Button>
+                        <Label x:Name="otroaa" Text=" aqui mensajes"></Label>
                 </StackLayout>
             </ScrollView>
-            
+
             <StackLayout x:Name="StackFolio" IsVisible="False">
                 <Label Text="Ingresa tu Numero de Membresía"></Label>
                 <Entry Placeholder="No de Membresía" x:Name="Fol_folio" Margin="0,5"></Entry>
@@ -66,11 +57,21 @@
                 <Button Text="Iniciar Sesion" Clicked="Folio_Registro" Style="{StaticResource Buton}"></Button>
 
                 <ScrollView>
-                <Label x:Name="mensajes" Text="sadfdfdsgd"></Label>
-                    
+                    <Label x:Name="mensajes" Text="sadfdfdsgd"></Label>
+
                 </ScrollView>
             </StackLayout>
         </StackLayout>
+        <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" BackgroundColor="LightSlateGray">
+            <StackLayout Margin="20,20" VerticalOptions="Center" HorizontalOptions="Center" >
+                <Label x:Name="Mensajes_over" Text="Cargando Formulario de registro" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Button Text="Reintentar" Style="{StaticResource Buton}" x:Name="Reinten" Clicked="Fn_RecargaWeb" HorizontalOptions="Start" IsVisible="False"></Button>
+                        <Button Text="Crear Cuenta" Style="{StaticResource Buton}" x:Name="MEnu" Clicked="Fn_IrMenu" HorizontalOptions="Start" IsVisible="False"></Button>
+                    </StackLayout>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
     

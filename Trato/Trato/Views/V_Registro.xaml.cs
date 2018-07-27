@@ -45,9 +45,10 @@ namespace Trato.Views
         public ParaTok()
         { }
     }
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Registro : ContentPage
     {
+        string v_dirWeb= "https://useller.com.mx/trato_especial/pre_tarjeta_alta";
         bool v_primero = false;
         string[] v_costo =
         {
@@ -84,7 +85,7 @@ namespace Trato.Views
         {
             InitializeComponent();
             v_primero = false;
-            Browser.Source = "https://www.alsain.mx/trato_especial/pre_tarjeta_alta.php";
+            Browser.Source = v_dirWeb;
             if (_folio)
             {
                 stackTodo.IsVisible = false;
@@ -103,15 +104,6 @@ namespace Trato.Views
                 tel.IsEnabled = v_T_Persona;
             }
         }
-        public V_Registro()
-        {
-            InitializeComponent();
-            fecha.MaximumDate = DateTime.Now;
-            Persona.Text = "Persona Fisica";
-            fecha.IsEnabled = v_T_Persona;
-            lugar.IsEnabled = v_T_Persona;
-            tel.IsEnabled = v_T_Persona;
-        }
         /// <summary>
         /// el switch, tru es fisico falso es moral
         /// </summary>
@@ -127,26 +119,68 @@ namespace Trato.Views
                 Persona.Text = "Persona Fisica";
                 fecha.IsEnabled = true;
                 lugar.IsEnabled = true;
-                tel.IsEnabled = true;
+                cel.IsEnabled = true;
                 fecha.IsVisible = true;
                 lugar.IsVisible = true;
-                tel.IsVisible = true;
+                cel.IsVisible = true;
             }
             else
             {
                 fecha.IsEnabled = false;
+
                 lugar.IsEnabled = false;
-                tel.IsEnabled = false;
-                tel.IsVisible = false;
+                lugar.Text = "";
+                cel.IsEnabled = false;
+                cel.IsVisible = false;
+                cel.Text = "";
                 fecha.IsVisible = false;
                 lugar.IsVisible = false;
-                giro.Text = "";
-                giro.Placeholder = "Giro de la empresa";
+                lugar.Text = "";
                 Persona.Text = "Persona Moral";
             }
 
         }
 
+        public void Cargando(object sender, WebNavigatingEventArgs _args)
+        {
+            Reinten.IsVisible = false;
+            StackMen.IsVisible = true;
+            Mensajes_over.Text = "Cargando";
+        }
+        public void Cargado(object sender, WebNavigatedEventArgs _args)
+        {
+            Reinten.IsVisible = false;
+           StackMen.IsVisible = true;
+            if(_args.Result ==WebNavigationResult.Timeout || _args.Result== WebNavigationResult.Failure)
+            {
+                Mensajes_over.Text = "Error de Conexion";
+                Reinten.IsVisible = true;
+            }
+            else if(_args.Result == WebNavigationResult.Success)
+            {
+                StackMen.IsVisible = false;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_args"></param>
+        public void Fn_RecargaWeb(object sender, EventArgs _args)
+        {
+            Browser.Source = v_dirWeb;
+        }
+        public void Fn_IrMenu(object sender, EventArgs _Args)
+        { 
+            App.Current.MainPage = new NavigationPage(new MainPage());
+        }
+
+
+        /// <summary>
+        /// cambio en el drop de membresias
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_args"></param>
         void Fn_Drop(object sender, EventArgs _args)
         {
             mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex];
@@ -171,6 +205,8 @@ namespace Trato.Views
          {
             if(Fn_Condiciones())
             {
+                StackMen.IsVisible = true;
+                Mensajes_over.Text = "Procesando Informacion";
 
                 int _persona;
                 if (v_T_Persona)
@@ -188,12 +224,14 @@ namespace Trato.Views
                     v_primero = true;
                     await Task.Delay(2000);
                 }
+                //se genera el token y se guarda
                 string tokenid = await Browser.EvaluateJavaScriptAsync("submitbutton()");
-
+                //delay 
                 await Task.Delay(1000);
                 if(string.IsNullOrEmpty( tokenid) || string.IsNullOrWhiteSpace(tokenid))
                 {
-                    await DisplayAlert("Error", "Error en algun dato tokenid vacio ", "aceptar");
+                    StackMen.IsVisible = false;
+                    await DisplayAlert("Error", "Error en 1 o mas campos de la tarjeta", "aceptar");
                 }
                 else
                 {
@@ -210,17 +248,23 @@ namespace Trato.Views
                     //crea el cliente
                     HttpClient v_cliente = new HttpClient();
                     //url
-                    var url = "https://www.alsain.mx/trato_especial/tarjeta_alta.php";
+                    var url = "https://useller.com.mx/trato_especial/tarjeta_alta";
                     HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                    await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
+                   // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
                     if(respuestaReg.StatusCode== System.Net.HttpStatusCode.OK)
                     {
-                    string content = await respuestaReg.Content.ReadAsStringAsync();
-                    await DisplayAlert("Respuesta", "dice que OK"+"\n" +content, "aceptar");
-
+                        string content = await respuestaReg.Content.ReadAsStringAsync();
+                        if(content=="1")
+                        {
+                            Mensajes_over.Text = "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
+                            MEnu.IsVisible = true;
+                        }
+                        else if(content=="0")
+                        {
+                            StackMen.IsVisible = false;
+                            await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
+                        }
                     }
-                    //otroaa.Text = v_content.ToString();
-
                 }
             }
 
@@ -413,17 +457,6 @@ namespace Trato.Views
             {
                 nombre.BackgroundColor = Color.Transparent;
             }
-
-           
-            /* PENDIENTE A PREGUNTAR
-            if (string.IsNullOrEmpty(giro.Text))
-            {
-                giro.BackgroundColor = Color.Red; _contador++;
-            }
-            else
-            {
-                giro.BackgroundColor = Color.Transparent;
-            }*/
             //calle
             if (string.IsNullOrEmpty(dom.Text) || string.IsNullOrWhiteSpace(dom.Text))
             {
@@ -514,52 +547,6 @@ namespace Trato.Views
                 tipo.BackgroundColor = Color.Transparent;
             }
 
-
-            //tarjeta
-            //if (string.IsNullOrEmpty(Tar_Nombre.Text) || string.IsNullOrWhiteSpace(Tar_Nombre.Text))
-            //{
-            //    Tar_Nombre.BackgroundColor = Color.Red; _contador++;
-            //}
-            //else
-            //{
-            //    Tar_Nombre.BackgroundColor = Color.Transparent;
-            //}
-
-            //if (string.IsNullOrEmpty(Tar_Numero.Text) || string.IsNullOrWhiteSpace(Tar_Numero.Text))
-            //{
-            //    Tar_Numero.BackgroundColor = Color.Red; _contador++;
-            //}
-            //else
-            //{
-            //    Tar_Numero.BackgroundColor = Color.Transparent;
-            //}
-            //if (string.IsNullOrEmpty(Tar_Cvc.Text) || string.IsNullOrWhiteSpace(Tar_Cvc.Text))
-            //{
-            //    Tar_Cvc.BackgroundColor = Color.Red; _contador++;
-            //}
-            //else
-            //{
-            //    Tar_Cvc.BackgroundColor = Color.Transparent;
-            //}
-
-            //if (string.IsNullOrEmpty(Tar_Mes.Text) || string.IsNullOrWhiteSpace(Tar_Mes.Text) || Tar_Mes.Text.Length != 2)
-            //{
-            //    Tar_Mes.BackgroundColor = Color.Red; _contador++;
-            //}
-            //else
-            //{
-            //    Tar_Mes.BackgroundColor = Color.Transparent;
-            //}
-            //if (string.IsNullOrEmpty(Tar_Año.Text) || string.IsNullOrWhiteSpace(Tar_Año.Text) || Tar_Año.Text.Length != 2)
-            //{
-            //    Tar_Año.BackgroundColor = Color.Red; _contador++;
-            //}
-            //else
-            //{
-            //    Tar_Año.BackgroundColor = Color.Transparent;
-            //}
-
-
             if (v_T_Persona)
             {
                 //el lugar de nacimiento y la fecha
@@ -571,19 +558,24 @@ namespace Trato.Views
 
 
         }
-        /*
-        string Fn_Vacio(string _valor)
-        {
-           
-            if(string.IsNullOrEmpty(_valor) || string.IsNullOrWhiteSpace(_valor))
-            {
-                return "";
-            }
-            else
-            {
-                return _valor;
-            }
 
-        }*/
+        private void Browser_Navigated(object sender, WebNavigatedEventArgs e)
+        {
+
+        }
+        /*
+string Fn_Vacio(string _valor)
+{
+
+   if(string.IsNullOrEmpty(_valor) || string.IsNullOrWhiteSpace(_valor))
+   {
+       return "";
+   }
+   else
+   {
+       return _valor;
+   }
+
+}*/
     }
 }

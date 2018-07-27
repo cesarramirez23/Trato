@@ -5,8 +5,7 @@
     <ContentPage.Content>
         <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1">
             <!--Orientation="Vertical">-->
-            <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-               AbsoluteLayout.LayoutFlags="All">
+            <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
                 <Button Clicked="Fn_Filtro"  Text="Filtro"></Button>
                 <!--<Picker Title="Filtro"  HorizontalOptions="StartAndExpand" x:Name="v_filtro" SelectedIndexChanged="Fn_Filtro">
                     <Picker.Items>
