@@ -15,19 +15,19 @@ namespace Trato.Personas
     public class C_Perfil
     {
         [JsonProperty("nombre")]
-        string v_Nombre { get; set; }
-        [JsonProperty("correo")]
-        string v_Correo { get; set; }
+        string v_Nombre { get; set; }        
         [JsonProperty("domicilio")]
         string v_Domi { get; set; }
+        [JsonProperty("correo")]
+        string v_Correo { get; set; }
         [JsonProperty("telefono")]
         string v_Tel { get; set; }
         [JsonProperty("celular")]
         string v_Cel { get; set; }
         [JsonProperty("sangre")]
         string v_sangre { get; set; }
-        [JsonProperty("sexo")]
-        string v_sexo { get; set; }
+        [JsonProperty("infoMuj")]
+        string v_infoMujer { get; set; }
         [JsonProperty("alergias")]
         string v_alergias { get; set; }
         [JsonProperty("operaciones")]
@@ -52,7 +52,7 @@ namespace Trato.Personas
             v_Tel = _tel;
             v_Cel = _tel;
             v_sangre = _sangr;
-            v_sexo = _sexo;
+            v_infoMujer = _sexo;
             v_alergias = _aler;
             v_operaciones = _opera;
             v_enfer = _enfer;
@@ -65,6 +65,8 @@ namespace Trato.Personas
         #region datos generales
         [JsonProperty("nombre")]
         string v_nombre { get; set; }
+        [JsonProperty("sexo")]
+        int v_sexo { get; set; }
         [JsonProperty("fecha")]
         string v_fecha { get; set; }
         [JsonProperty("cel")]
@@ -93,9 +95,10 @@ namespace Trato.Personas
         {
 
         }
-        public C_RegistroSec(string _nombre,DateTime _fecha, string _cel, string _correo,string _pass,string _membre,  int _id, string _paren)
+        public C_RegistroSec(string _nombre,int _sexo, DateTime _fecha, string _cel, string _correo,string _pass,string _membre,  int _id, string _paren)
         {
             v_nombre = _nombre;
+            v_sexo = _sexo;
             string _month = "";
             if (_fecha.Month < 10)
             {
@@ -125,7 +128,7 @@ namespace Trato.Personas
             v_folio = "";
 
         }
-        public C_RegistroSec(string _nombre, DateTime _fecha, string _cel, string _correo, string _pass, string _membre, int _id,string _empr, string _fol)
+        public C_RegistroSec(string _nombre, int _sexo, DateTime _fecha, string _cel, string _correo, string _pass, string _membre, int _id,string _empr, string _fol)
         {
             v_nombre = _nombre;
             string _month = "";
@@ -283,28 +286,35 @@ namespace Trato.Personas
     }
     class C_Login
     {
-        [JsonProperty("idmembre")]
-        string v_usuario { get; set; }
+        [JsonProperty("membre")]
+        string v_membre { get; set; }
+        [JsonProperty("letra")]
+        string v_letra { get; set; }
+        [JsonProperty("consecutivo")]
+        string v_conse { get; set; }
         [JsonProperty("password")]
         string v_pass  { get;set;}
+        [JsonProperty("folio")]
+        string v_fol { get; set; }
+
+
 
         public C_Login()
         {
-            this.v_usuario = "";
+            this.v_membre = "";
+            this.v_letra = "";
+            this.v_conse = "";
             this.v_pass = "";
+            this.v_fol = "";
         }
-        public C_Login(string _usu, string _pass)
+        public C_Login(string _membr,string _letr,string _conse, string _pass,string _fol)
         {
-            this.v_usuario = _usu;
+            this.v_membre = _membr;
+            this.v_letra =_letr;
+            this.v_conse =_conse;
             this.v_pass = _pass;
+            this.v_fol = _fol;
         }
-        public string Fn_GetInfo()
-        {
-            string _info;
-            _info = v_usuario + "  " + v_pass;
-            return _info;
-        }
-
     }    
     class C_Ind_Fisica
     {

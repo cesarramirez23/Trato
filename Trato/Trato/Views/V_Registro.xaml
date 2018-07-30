@@ -25,7 +25,7 @@
                         <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="mun" ></Entry>
                         <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="est" ></Entry>
                         <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" ></Entry>
-                        <Entry  Placeholder="Correo Electronico"  Text="correo@algo.com" Keyboard="Default" x:Name="correo" ></Entry>
+                        <Entry  Placeholder="Correo Electronico"  Text="augusto9623@hotmail.com" Keyboard="Default" x:Name="correo" ></Entry>
                         <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" ></Entry>
                         <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="cel" ></Entry>
                             <StackLayout Orientation="Horizontal">
@@ -61,8 +61,15 @@
 
                         <Label Text="Ingresa tu Nombre completo"></Label>
                         <Entry Placeholder="Noombre" x:Name="Fol_Nombre" Margin="0,5"></Entry>
-                        
-                        
+
+
+                        <Picker x:Name="v_sexoPick" HorizontalOptions="FillAndExpand">
+                            <Picker.Items>
+                                <x:String>Masculino</x:String>
+                                <x:String>Femenino</x:String>
+                            </Picker.Items>
+                        </Picker>
+
                         <StackLayout x:Name="Stack_Fam" IsVisible="False">
                             <Label Text="Parentesco con el titular"></Label>
                             <Entry Placeholder="Parentesco" x:Name="Fol_Parent" Margin="0,5"></Entry>
@@ -99,7 +106,7 @@
                 <Label x:Name="Mensajes_over" Text="Cargando Formulario de registro" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Button Text="Reintentar" Style="{StaticResource Buton}" x:Name="Reinten" Clicked="Fn_RecargaWeb" HorizontalOptions="Start" IsVisible="False"></Button>
-                        <Button Text="Crear Cuenta" Style="{StaticResource Buton}" x:Name="MEnu" Clicked="Fn_IrMenu" HorizontalOptions="Start" IsVisible="False"></Button>
+                        <Button Text="Ir al menu" Style="{StaticResource Buton}" x:Name="MEnu" Clicked="Fn_IrMenu" HorizontalOptions="Start" IsVisible="False"></Button>
                         <Button Text="Cerrar" Style="{StaticResource Buton}" x:Name="ReintenSec" Clicked="Fn_ocultar" HorizontalOptions="Start" IsVisible="False"></Button>
                     </StackLayout>
             </StackLayout>

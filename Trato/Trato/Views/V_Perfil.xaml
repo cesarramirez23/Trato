@@ -23,14 +23,14 @@
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
-                        <Label Text="Nombre registrado no editar"></Label>
+                        <Label Text="Nombre registrado no editar" x:Name="v_Nombre"></Label>
                     </StackLayout>
                     
                     <Label Text="Domicilio" Style="{StaticResource lblSty}"></Label>
                     <Entry Text="domiclio completo" x:Name="v_Domi" Style="{StaticResource entry_perfil}"></Entry>
 
                     <Label Text="Ocupacion"></Label>
-                    <Entry Placeholder="Ocupacion" Style="{StaticResource entry_perfil}"></Entry>
+                    <Entry Placeholder="Ocupacion" Style="{StaticResource entry_perfil}" x:Name="v_Ocu"></Entry>
                     
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Correo Electronico"  Style="{StaticResource lblSty}"></Label>
@@ -50,10 +50,7 @@
                         <Entry Text="sangre" x:Name="v_Sangre" Style="{StaticResource entry_perfil}"></Entry>
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Hombre" x:Name="v_sexolbl" Style="{StaticResource lblSty}"></Label>
-                        <Switch HorizontalOptions="FillAndExpand" IsToggled="False" Toggled="Fn_SwiSexo"></Switch>
-                    </StackLayout>
+                    <Label Text="v_sexolbl" IsVisible="False"></Label>
                     <Editor x:Name="v_sexo" IsVisible="False"></Editor>
 
                     <StackLayout Orientation="Horizontal">
@@ -78,7 +75,7 @@
                     
                 </StackLayout>
             </ScrollView>
-            <Button Text="Guardar" Style="{StaticResource Buton}" AbsoluteLayout.LayoutBounds=".25,1,.75,.1" AbsoluteLayout.LayoutFlags="All"></Button>
+            <Button Text="Guardar" Style="{StaticResource Buton}" Clicked="Fn_Guardar" AbsoluteLayout.LayoutBounds=".25,1,.75,.1" AbsoluteLayout.LayoutFlags="All"></Button>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

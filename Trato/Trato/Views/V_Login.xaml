@@ -5,8 +5,15 @@
     <ContentPage.Content>
         <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                <Label Text="Nombre de usuario"></Label>
-                <Entry Placeholder="Nombre" x:Name="usu" Text="1807I-0002"></Entry>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Nombre de usuario"></Label>
+                    <Label Text="Folio"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="Start" Text="1807I-0002"></Entry>
+                    <Entry Placeholder="Folio" x:Name="fol" HorizontalOptions="End" Text="0"></Entry>
+                </StackLayout>
                 <Label Text="Ingresa tu contraseña"></Label>
                 <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="a0b35f"></Entry>
                 <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>

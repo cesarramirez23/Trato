@@ -33,7 +33,20 @@ namespace Trato.Views
             {
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = " Comprobando informacion\n";
-                C_Login _login = new C_Login(usu.Text, pass.Text);
+                ;
+                string prime = usu.Text.Split('-')[0];
+
+                string _membre = "";
+                for(int i=0; i<prime.Length-1; i++)
+                {
+                    _membre += prime[i];
+                }
+
+
+                string letra = prime[prime.Length - 1].ToString();
+                    string _conse = usu.Text.Split('-')[1];
+
+                C_Login _login = new C_Login(_membre,letra,_conse, pass.Text,fol.Text);
                 //crear el json
                 string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
                 //mostrar la pantalla con mensajes
@@ -44,8 +57,8 @@ namespace Trato.Views
                 string _DirEnviar = "https://useller.com.mx/trato_especial/login.php";
                 StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
                 //mandar el json con el post
-                HttpResponseMessage _respuestaphp=await _client.PostAsync(_DirEnviar, _content);
-                string _respuesta =await _respuestaphp.Content.ReadAsStringAsync();
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                 if (_respuesta == "0")
                 {
                     Mensajes_over.Text += "\n Error en los datos";

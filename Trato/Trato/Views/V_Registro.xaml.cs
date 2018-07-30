@@ -506,6 +506,10 @@ namespace Trato.Views
             {
                 await DisplayAlert("Error", "Selecciona un tipo de Membresia", "Aceptar");          
             }
+            else if(v_sexoPick.SelectedIndex<0)
+            {
+                await DisplayAlert("Error", "Selecciona tu genero", "Aceptar");
+            }
             else
             {
                 if(Fn_Condiciones(true))
@@ -516,11 +520,11 @@ namespace Trato.Views
                     //se crean los datos
                     if(Fol_DropMembre.SelectedIndex==0)
                     {
-                        _registro = new C_RegistroSec(Fol_Nombre.Text, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text,Fol_NumMembre.Text, 0, Fol_Parent.Text);
+                        _registro = new C_RegistroSec(Fol_Nombre.Text,v_sexoPick.SelectedIndex, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text,Fol_NumMembre.Text, 0, Fol_Parent.Text);
                     }
                     else if(Fol_DropMembre.SelectedIndex==1)
                     {
-                        _registro = new C_RegistroSec(Fol_Nombre.Text, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text,Fol_NumMembre.Text, 1, Fol_Empre.Text, Fol_Folio.Text);
+                        _registro = new C_RegistroSec(Fol_Nombre.Text,v_sexoPick.SelectedIndex, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text,Fol_NumMembre.Text, 1, Fol_Empre.Text, Fol_Folio.Text);
                     }
                     //crear json
                     string _jsonReg = JsonConvert.SerializeObject(_registro, Formatting.Indented);

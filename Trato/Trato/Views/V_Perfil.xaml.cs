@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Trato.Personas;
+using Newtonsoft.Json;
+using System.Net.Http;
+
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -21,7 +25,20 @@ namespace Trato.Views
         public async void Fn_Guardar(object sender, EventArgs _args)
         {
 
+            C_Perfil _perfil = new C_Perfil();
+            _perfil = new C_Perfil(App.Fn_Vacio(v_Nombre.Text), App.Fn_Vacio(v_Correo.Text), App.Fn_Vacio(v_Domi.Text), App.Fn_Vacio(v_Tel.Text), App.Fn_Vacio(v_Cel.Text),
+            App.Fn_Vacio(v_sexo.Text),App.Fn_Vacio(v_sexo.Text), App.Fn_Vacio(v_Alergias.Text), App.Fn_Vacio(v_Operaciones.Text),
+            App.Fn_Vacio(v_Enferme.Text), App.Fn_Vacio(v_Medicamentos.Text));
+                
+                string _jsonPerf = JsonConvert.SerializeObject(_perfil);
+                StringContent _content = new StringContent(_jsonPerf, Encoding.UTF8, "application/json");
+                HttpClient _client = new HttpClient();
+                string _url = "";
+
+                await _client.PostAsync(_url, _content);
+
         }
+      
         public void Fn_SwiMedica(object sender, ToggledEventArgs _args)
         {
             v_Medicamentos.IsVisible = _args.Value;
@@ -45,14 +62,14 @@ namespace Trato.Views
         {
             if(_args.Value)
             {
-                v_sexolbl.Text = "Mujer, ¿Estas Embarazada?, ¿Tienes hijos? ¿Cuantos?";
+               
             }
             else
             {
-                v_sexolbl.Text = "Hombre";
-                v_sexo.Text = "";
+               
+                
             }
-            v_sexo.IsVisible = _args.Value;
+            
         }
 	}
 }
