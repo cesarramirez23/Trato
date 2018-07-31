@@ -26,6 +26,8 @@ namespace Trato.Personas
         string v_Cel { get; set; }
         [JsonProperty("sangre")]
         string v_sangre { get; set; }
+        [JsonProperty("sexo")]
+        int v_sexo { get; set; }
         [JsonProperty("infoMuj")]
         string v_infoMujer { get; set; }
         [JsonProperty("alergias")]

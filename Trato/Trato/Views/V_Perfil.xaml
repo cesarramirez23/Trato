@@ -50,7 +50,13 @@
                         <Entry Text="sangre" x:Name="v_Sangre" Style="{StaticResource entry_perfil}"></Entry>
                     </StackLayout>
 
-                    <Label Text="v_sexolbl" IsVisible="False"></Label>
+                    <Picker x:Name="v_sexoPick" HorizontalOptions="FillAndExpand" Title="Elige tu sexo">
+                        <Picker.Items>
+                            <x:String>Masculino</x:String>
+                            <x:String>Femenino</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label x:Name="v_sexolbl" IsVisible="False"></Label>
                     <Editor x:Name="v_sexo" IsVisible="False"></Editor>
 
                     <StackLayout Orientation="Horizontal">

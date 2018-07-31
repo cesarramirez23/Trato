@@ -63,7 +63,7 @@
                         <Entry Placeholder="Noombre" x:Name="Fol_Nombre" Margin="0,5"></Entry>
 
 
-                        <Picker x:Name="v_sexoPick" HorizontalOptions="FillAndExpand">
+                        <Picker x:Name="v_sexoPick" HorizontalOptions="FillAndExpand" Title="Elige tu sexo">
                             <Picker.Items>
                                 <x:String>Masculino</x:String>
                                 <x:String>Femenino</x:String>

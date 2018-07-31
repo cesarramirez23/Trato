@@ -6,11 +6,33 @@
     <MasterDetailPage.Master>
         <ContentPage Padding="10" BackgroundColor="Gray" Title="Master">
             <ContentPage.Content>
-                <StackLayout Margin="5,30,5,5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Buscador de Medicos" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
+                    <Button Text="Lista de Servicio" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
+                    <Button Text="Perfil" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" BackgroundColor="Yellow" Clicked="Fn_Perfil"></Button>
+                    <Image Source="menu_icon" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0"></Image>
+                    <Image Source="menu_icon" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1"></Image>
+                    <Image Source="menu_icon" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2"></Image>
+                </Grid>
+                <!--<StackLayout Margin="5,30,5,5">
+                    
                     <Button Text="Buscador de Medicos" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
                     <Button Text="Lista de Servicio" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
                     <Button Text="Perfil" BackgroundColor="Yellow" Clicked="Fn_Perfil"></Button>
                 </StackLayout>
+                -->
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>

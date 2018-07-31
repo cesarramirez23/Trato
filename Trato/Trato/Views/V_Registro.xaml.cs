@@ -171,70 +171,70 @@ namespace Trato.Views
             else
             {
                 if(Fn_Condiciones())
-            {
-                StackMen.IsVisible = true;
-                Mensajes_over.Text = "Procesando Informacion";
+                {
+                    StackMen.IsVisible = true;
+                    Mensajes_over.Text = "Procesando Informacion";
 
-                int _persona;
-                if (v_T_Persona)
-                {
-                    _persona = 0;
-                }
-                else
-                {
-                    _persona = 1;
-                }
-
-                if (!v_primero)
-                {
-                    await Browser.EvaluateJavaScriptAsync("submitbutton()");
-                    v_primero = true;
-                    await Task.Delay(2000);
-                }
-                //se genera el token y se guarda
-                string tokenid = await Browser.EvaluateJavaScriptAsync("submitbutton()");
-                //delay 
-                await Task.Delay(1000);
-                if(string.IsNullOrEmpty( tokenid) || string.IsNullOrWhiteSpace(tokenid))
-                {
-                    StackMen.IsVisible = false;
-                    await DisplayAlert("Error", "Error en 1 o mas campos de la tarjeta", "aceptar");
-                }
-                else
-                {
-                    C_RegistroPrinci datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
-                        dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
-                        v_costo[tipo.SelectedIndex], tokenid);
-
-                    //se crea el json
-                    string json_reg = JsonConvert.SerializeObject(datosregistro,Formatting.Indented);
-                    // lo hacemos visible en la pantall
-                    otroaa.Text = json_reg;
-                    //damos el formato
-                    StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
-                    //crea el cliente
-                    HttpClient v_cliente = new HttpClient();
-                    //url
-                    var url = "https://useller.com.mx/trato_especial/tarjeta_alta";
-                    HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                   // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
-                    if(respuestaReg.StatusCode== System.Net.HttpStatusCode.OK)
+                    int _persona;
+                    if (v_T_Persona)
                     {
-                        string content = await respuestaReg.Content.ReadAsStringAsync();
-                        if(content=="1")
-                        {
-                            Mensajes_over.Text = "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
-                            MEnu.IsVisible = true;
-                        }
-                        else if(content=="0")
-                        {
-                            StackMen.IsVisible = false;
-                            await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
-                        }
+                        _persona = 0;
                     }
-                }
-            }
-            }
+                    else
+                    {
+                        _persona = 1;
+                    }
+
+                    if (!v_primero)
+                    {
+                        await Browser.EvaluateJavaScriptAsync("submitbutton()");
+                        v_primero = true;
+                        await Task.Delay(2000);
+                    }
+                    //se genera el token y se guarda
+                    string tokenid = await Browser.EvaluateJavaScriptAsync("submitbutton()");
+                    //delay 
+                    await Task.Delay(1000);
+                    if(string.IsNullOrEmpty( tokenid) || string.IsNullOrWhiteSpace(tokenid))
+                    {
+                        StackMen.IsVisible = false;
+                        await DisplayAlert("Error", "Error en 1 o mas campos de la tarjeta", "aceptar");
+                    }
+                    else
+                    {
+                        C_RegistroPrinci datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
+                            dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
+                            v_costo[tipo.SelectedIndex], tokenid);
+
+                        //se crea el json
+                        string json_reg = JsonConvert.SerializeObject(datosregistro,Formatting.Indented);
+                        // lo hacemos visible en la pantall
+                        otroaa.Text = json_reg;
+                        //damos el formato
+                        StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
+                        //crea el cliente
+                        HttpClient v_cliente = new HttpClient();
+                        //url
+                        var url = "https://useller.com.mx/trato_especial/tarjeta_alta";
+                        HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
+                       // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
+                        if(respuestaReg.StatusCode== System.Net.HttpStatusCode.OK)
+                        {
+                            string content = await respuestaReg.Content.ReadAsStringAsync();
+                            if(content=="1")
+                            {
+                                Mensajes_over.Text = "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
+                                MEnu.IsVisible = true;
+                            }
+                            else if(content=="0")
+                            {
+                                StackMen.IsVisible = false;
+                                await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
+                            }
+                        }
+                    }//token vacio
+                }//ifcondiciones
+            }//else tipo selectedindex
         }
 
         public void Fn_ocultar(object sender, EventArgs _args)

@@ -38,7 +38,24 @@ namespace Trato.Views
                 await _client.PostAsync(_url, _content);
 
         }
-      
+        public void Fn_PickSexo(object sender, EventArgs _args)
+        {
+            if(v_sexoPick.SelectedIndex==0)
+            {
+                v_sexo.IsVisible = false;
+                v_sexolbl.IsVisible = false;
+                v_sexolbl.Text = "";
+                v_sexo.Text = "";
+            }
+            else if(v_sexoPick.SelectedIndex==1)
+            {
+                v_sexo.IsVisible = true;
+                v_sexolbl.IsVisible = true;
+                v_sexolbl.Text = "¿estas embarazada?,\n ¿tienes hijos? ¿cuantos?";
+
+            }
+        }
+
         public void Fn_SwiMedica(object sender, ToggledEventArgs _args)
         {
             v_Medicamentos.IsVisible = _args.Value;
@@ -56,20 +73,6 @@ namespace Trato.Views
             v_Enferme.IsVisible = _args.Value;
             if (!_args.Value)
                 v_Enferme.Text = "";
-        }
-
-        public void Fn_SwiSexo(object sender, ToggledEventArgs _args)
-        {
-            if(_args.Value)
-            {
-               
-            }
-            else
-            {
-               
-                
-            }
-            
         }
 	}
 }
