@@ -18,16 +18,12 @@ namespace Trato.Views
 	{/*
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
-
-        bool v_primero = false;
-
-
-
+         
 
 		public V_Master()
 		{
 			InitializeComponent ();
-            v_primero = false;
+            OpcionesPer.IsVisible = false;
            // A();
         }
         public async void A()
@@ -67,6 +63,25 @@ namespace Trato.Views
         {
             IsPresented = false;
             Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });//new V_Buscador() { Title = "Buscador" };
+        }
+        public void Fn_OpcionesStack(object sender, EventArgs _args)
+        {
+            OpcionesPer.IsVisible = !OpcionesPer.IsVisible;
+        }
+        public void Fn_Gen(object _sender, EventArgs _args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Perfil(0) {Title = "Informacion Personal" });
+        }
+        public void Fn_Med(object _sender, EventArgs _args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Perfil(1) {Title = "Informacion Personal" });       
+        }
+        public void Fn_Pass(object _sender, EventArgs _args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Perfil(2) {Title = "Informacion Personal" });
         }
     }
 }

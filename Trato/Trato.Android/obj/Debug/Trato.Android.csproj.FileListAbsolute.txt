@@ -226,6 +226,7 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsai
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato2-Signed.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\bin\com.alsain.trato2.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.Android.dll.mdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\nunit.framework.dll.mdb

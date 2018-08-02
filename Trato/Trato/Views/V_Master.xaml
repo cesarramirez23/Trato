@@ -6,26 +6,34 @@
     <MasterDetailPage.Master>
         <ContentPage Padding="10" BackgroundColor="Gray" Title="Master">
             <ContentPage.Content>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Text="Buscador de Medicos" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
-                    <Button Text="Lista de Servicio" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
-                    <Button Text="Perfil" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" BackgroundColor="Yellow" Clicked="Fn_Perfil"></Button>
-                    <Image Source="menu_icon" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0"></Image>
-                    <Image Source="menu_icon" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1"></Image>
-                    <Image Source="menu_icon" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2"></Image>
-                </Grid>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal" HeightRequest="100">
+                        <Image Source="menu_icon" HorizontalOptions="Start"></Image>
+                        <Button Text="Buscador de Medicos" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HeightRequest="100">
+                        <Image Source="menu_icon" HorizontalOptions="Start"></Image>
+                        <Button Text="Lista de Servicio" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_dos"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HeightRequest="100">
+                        <Image Source="menu_icon" HorizontalOptions="Start"></Image>
+                        <Button Text="Opciones" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_OpcionesStack"></Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" x:Name="OpcionesPer" Margin="30,0">
+                        <StackLayout Orientation="Horizontal" HeightRequest="100">
+                            <Image Source="menu_icon" HorizontalOptions="Start"></Image>
+                            <Button Text="Info Personal" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_Gen"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HeightRequest="100">
+                            <Image Source="menu_icon" HorizontalOptions="Start"></Image>
+                            <Button Text="Info Medica" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_Med"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HeightRequest="100">
+                            <Image Source="menu_icon" HorizontalOptions="Start"></Image>
+                            <Button Text="Cambio contraseña" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_Pass"></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
                 <!--<StackLayout Margin="5,30,5,5">
                     
                     <Button Text="Buscador de Medicos" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
