@@ -115,8 +115,6 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\a
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csprojAssemblyReference.cache
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.pdb
-C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato.apk
-C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato-Signed.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Basement.dll
@@ -128,7 +126,6 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\XamlC.sta
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csproj.CopyComplete
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.pdb
-C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\bin\com.alsain.trato.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\res\layout\tabbar.xml
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\res\layout\toolbar.xml
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\res\values\styles.xml
@@ -225,6 +222,9 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\a
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Trato.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato2.apk
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato2-Signed.apk
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\bin\com.alsain.trato2.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.Android.dll.mdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
