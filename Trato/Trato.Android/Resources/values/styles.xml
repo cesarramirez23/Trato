@@ -11,12 +11,12 @@
     <item name="windowActionBar">false</item>
     <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
     <!-- colorPrimary is used for the default action bar background -->
-    <!--<item name="colorPrimary">#2196F3</item>-->
-    <item name="colorPrimary">#0000FF</item>
+    <item name="colorPrimary">#2896D1</item>
+    <!-- <item name="colorPrimary">#0000FF</item>-->
     
-    <!-- colorPrimaryDark is used for the status bar -->
+    <!-- colorPrimaryDark is used for the status bar, esta es la barra de arriba donde esta el reloj, wifi, notificaciones-->
     <!--<item name="colorPrimaryDark">#1976D2</item>-->
-    <item name="colorPrimaryDark">#0000FF</item>
+    <item name="colorPrimaryDark">#2896D1</item>
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
     <item name="colorAccent">#FF4081</item>

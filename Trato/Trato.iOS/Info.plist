@@ -23,9 +23,9 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Trato</string>
+	<string>Trato Especial</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.Trato</string>
+	<string>com.alsain.trato</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -33,6 +33,6 @@
 	<key>CFBundleName</key>
 	<string>Trato</string>
 	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<string>Resources/Assets.xcassets/AppIcon.appiconset</string>
 </dict>
 </plist>

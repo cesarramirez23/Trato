@@ -18,6 +18,12 @@ namespace Trato
         public static bool v_logeado = false;
         public static C_Perfil v_perfil= new C_Perfil();
         public static string v_membresia="";
+
+
+        public static string v_log;
+
+
+
         public App()
         {
             InitializeComponent();
@@ -30,8 +36,21 @@ namespace Trato
             v_servicios.Add(new C_Servicios { v_Nombre = "inicio2", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio2", v_descripcion = "creado al inicio 2",  v_img = "ICONOAPP.png" });
             v_servicios.Add(new C_Servicios { v_Nombre = "inici3", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio3", v_descripcion = "creado al inicio 3",v_img = "ICONOAPP.png" });
             //v_logeado = false;
-            App.Current.MainPage = new NavigationPage(new MainPage());//new V_Master();//  new NavigationPage(new V_Registro(true));//  new NavigationPage(new V_Registro(false));//       
-            //MainPage =new NavigationPage( new V_Master());// new NavigationPage(new pruebas());//// new NavigationPage(new V_Master());
+            //App.Current.MainPage = new V_Master();// new NavigationPage(new MainPage());//  new NavigationPage(new V_Registro(true));//  new NavigationPage(new V_Registro(false));//       
+                                                  //MainPage =new NavigationPage( new V_Master());// new NavigationPage(new pruebas());//// new NavigationPage(new V_Master());
+
+            if (Application.Current.Properties.ContainsKey("log"))
+            {
+                v_log = Application.Current.Properties["log"] as string;
+                App.Current.MainPage = new V_Master();// new NavigationPage(new MainPage());//  new NavigationPage(new V_Registro(true));//  new NavigationPage(new V_Registro(false));//       
+                                                      //MainPage =new NavigationPage( new V_Master());// new NavigationPage(new pruebas());//// new NavigationPage(new V_Master());
+            }
+            else
+            {
+                v_log = "0";
+                Application.Current.Properties["log"] = v_log;
+                App.Current.MainPage = new NavigationPage(new MainPage());
+            }
 
         }
         async void Fn_Cargar()

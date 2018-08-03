@@ -529,16 +529,49 @@ namespace Trato.Views
                     //crear json
                     string _jsonReg = JsonConvert.SerializeObject(_registro, Formatting.Indented);
                     Mensajes_over.Text += "\n json \n"+ _jsonReg;
-                    //StringContent _content = new StringContent(_jsonReg, Encoding.UTF8, "application/json");
-                    ////crea el cliente
-                    //HttpClient _clien = new HttpClient();
-                    ////direccion a enviar
-                    //string _direc = "";
-                    ////se envia
-                    //HttpResponseMessage _respuestaphp = await _clien.PostAsync(_direc, _content);
-                    ////leer la respuesta
-                    //string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                    //Mensajes_over.Text += "\n respuesta  " + _respuesta;
+                    StringContent _content = new StringContent(_jsonReg, Encoding.UTF8, "application/json");
+                    //crea el cliente
+                    HttpClient _clien = new HttpClient();
+                    //direccion a enviar
+                    string _direc = "https://useller.com.mx/trato_especial/crear_cuenta";
+                    //se envia
+                    HttpResponseMessage _respuestaphp = await _clien.PostAsync(_direc, _content);
+
+                    Mensajes_over.Text = _respuestaphp.StatusCode.ToString();
+
+
+                    //leer la respuesta
+                    string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    Mensajes_over.Text += "\n respuesta  " + _respuesta;
+
+                    //422 error folio
+                    //834 maximo folio fam
+                    //200 no membresia con el nombre de la empresa
+                    if(_respuesta=="422")
+                    {
+                        await DisplayAlert("Error", " error de folio", "Aceptar");
+                    }
+                    else if(_respuesta=="834")
+                    {
+
+                        await DisplayAlert("Error", "Limite de folio Excedido en familiar", "Aceptar");
+                    }
+                    else if(_respuesta=="200")
+                    {
+
+                        await DisplayAlert("Error", "no coincide el numero de folio con el nombre de la empresa", "Aceptar");
+                    }
+                    else if(_respuesta=="0"){
+
+                        await DisplayAlert("Error", "Error por algo", "Aceptar");
+                    }
+                    else if(_respuesta=="1")
+                    {
+                        await DisplayAlert("Error", "Exito todo bien", "Aceptar");
+
+                    }
+
+
 
                     ReintenSec.IsVisible = true;
 

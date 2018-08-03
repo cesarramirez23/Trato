@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.Views.V_Opciones" BarBackgroundColor="{StaticResource NavigationPrimary}"><!-- como es tabbed hay que especificar el color que tambien esta en app xml-->
+    <TabbedPage.Children>
+        <ContentPage Title="Contraseña">
+            <ScrollView>
+                <StackLayout >
+                    <Label Text="Ingresa tu contraseña actual"></Label>
+                    <Entry IsPassword="True" x:Name="P_actual"></Entry>
+                    <Label Text="Ingresa la nueva contraseña"></Label>
+                    <Entry IsPassword="True"  x:Name="P_Nueva" TextChanged="FN_passCambio"></Entry>
+                    <Label Text="" x:Name="P_mensaje"></Label>
+                    <Label Text="Confirma contraseña"></Label>
+                    <Entry IsPassword="True" x:Name="P_Nueva2" TextChanged="FN_passCambio"></Entry>
+                    <Button Text="Guardar" x:Name="P_but" IsEnabled="False" Clicked="Fn_CambioPass" Style="{StaticResource Buton}"></Button>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

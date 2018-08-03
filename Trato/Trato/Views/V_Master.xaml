@@ -3,44 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Master" 
                   MasterBehavior="Popover">
+    <MasterDetailPage.Resources>
+        <Style x:Key="imgBoton" TargetType="Image">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="HeightRequest" Value="100"/>
+            <Setter Property="WidthRequest" Value="100"/>
+            <Setter Property="Margin" Value="2,10,2,5"/>
+        </Style>
+        <Style x:Key="LblBoton" TargetType="Label">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+        </Style>
+    </MasterDetailPage.Resources>
     <MasterDetailPage.Master>
-        <ContentPage Padding="10" BackgroundColor="Gray" Title="Master">
+        <ContentPage  BackgroundColor="LightGray" Title="Master">
             <ContentPage.Content>
-                <StackLayout Orientation="Vertical">
-                    <StackLayout Orientation="Horizontal" HeightRequest="100">
-                        <Image Source="menu_icon" HorizontalOptions="Start"></Image>
-                        <Button Text="Buscador de Medicos" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
+                <ScrollView>
+                    <StackLayout>
+                        <Image Source="Medicos" Style="{StaticResource imgBoton}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Medicos"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="Red Medica" Style="{StaticResource LblBoton}"/>
+                        <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="Servicios de salud" Style="{StaticResource LblBoton}" />
+                        <Image Source="Perfil" Style="{StaticResource imgBoton}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Perfil"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="Perfil" Style="{StaticResource LblBoton}"/>
+                        <Image Source="Opciones" Style="{StaticResource imgBoton}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Opciones"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text=" Opciones" Style="{StaticResource LblBoton}"/>
+                        <Image Source="LogOut" Style="{StaticResource imgBoton}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Salir"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="Salir" Style="{StaticResource LblBoton}"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" HeightRequest="100">
-                        <Image Source="menu_icon" HorizontalOptions="Start"></Image>
-                        <Button Text="Lista de Servicio" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_dos"></Button>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" HeightRequest="100">
-                        <Image Source="menu_icon" HorizontalOptions="Start"></Image>
-                        <Button Text="Opciones" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_OpcionesStack"></Button>
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" x:Name="OpcionesPer" Margin="30,0">
-                        <StackLayout Orientation="Horizontal" HeightRequest="100">
-                            <Image Source="menu_icon" HorizontalOptions="Start"></Image>
-                            <Button Text="Info Personal" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_Gen"></Button>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" HeightRequest="100">
-                            <Image Source="menu_icon" HorizontalOptions="Start"></Image>
-                            <Button Text="Info Medica" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_Med"></Button>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" HeightRequest="100">
-                            <Image Source="menu_icon" HorizontalOptions="Start"></Image>
-                            <Button Text="Cambio contraseña" HorizontalOptions="FillAndExpand" BackgroundColor="Yellow" Clicked="Fn_Pass"></Button>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
-                <!--<StackLayout Margin="5,30,5,5">
-                    
-                    <Button Text="Buscador de Medicos" BackgroundColor="Yellow" Clicked="Fn_uno"></Button>
-                    <Button Text="Lista de Servicio" BackgroundColor="Yellow"  Clicked="Fn_dos"></Button>
-                    <Button Text="Perfil" BackgroundColor="Yellow" Clicked="Fn_Perfil"></Button>
-                </StackLayout>
-                -->
+                </ScrollView>
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>

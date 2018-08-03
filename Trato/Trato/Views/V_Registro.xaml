@@ -57,10 +57,10 @@
                         </StackLayout>
 
                         <Label Text="Ingresa tu Numero de Membresía"></Label>
-                        <Entry Placeholder="No de Membresía" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
+                        <Entry Placeholder="No de Membresía" Text="1807F-0003" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
 
                         <Label Text="Ingresa tu Nombre completo"></Label>
-                        <Entry Placeholder="Noombre" x:Name="Fol_Nombre" Margin="0,5"></Entry>
+                        <Entry Placeholder="Noombre" Text="Nuevo nombre" x:Name="Fol_Nombre" Margin="0,5"></Entry>
 
 
                         <Picker x:Name="v_sexoPick" HorizontalOptions="FillAndExpand" Title="Elige tu sexo">
@@ -72,7 +72,7 @@
 
                         <StackLayout x:Name="Stack_Fam" IsVisible="False">
                             <Label Text="Parentesco con el titular"></Label>
-                            <Entry Placeholder="Parentesco" x:Name="Fol_Parent" Margin="0,5"></Entry>
+                            <Entry Placeholder="Parentesco" Text="Parentesco" x:Name="Fol_Parent" Margin="0,5"></Entry>
                         </StackLayout>
                         <StackLayout x:Name="Stack_Empre" IsVisible="False">
                             <Label Text="Ingresa tu Folio"></Label>
@@ -88,20 +88,20 @@
                         <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="Fol_Cel" ></Entry>
                         
                         <Label Text="Dirección de correo electronico"></Label>
-                        <Entry  Placeholder="Correo Electronico"  Text="correo@algo.com" Keyboard="Default" x:Name="Fol_Correo" ></Entry>
+                        <Entry  Placeholder="Correo Electronico"  Text="augusto9623@hotmail.com" Keyboard="Default" x:Name="Fol_Correo" ></Entry>
 
 
                         <Label Text="Ingresa una contraseña" x:Name="confirmar" ></Label>
-                        <Entry x:Name="Fol_pass" Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
+                        <Entry x:Name="Fol_pass" Text="Cesar123" Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
 
                         <Label Text="Confirma contraseña" ></Label>
-                        <Entry x:Name="Fol_pass2" Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
+                        <Entry x:Name="Fol_pass2" Text="Cesar123" Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
 
                         <Button Text="Registrar" Clicked="Folio_Registro" Style="{StaticResource Buton}"></Button>
                     </StackLayout>
                 </ScrollView>
         </StackLayout>
-        <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" BackgroundColor="LightSlateGray">
+            <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" BackgroundColor="LightGray">
             <StackLayout Margin="20,20" VerticalOptions="Center" HorizontalOptions="Center" >
                 <Label x:Name="Mensajes_over" Text="Cargando Formulario de registro" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">

@@ -28,9 +28,9 @@
                 <Image Source="FONDODEGRADADO.png" Aspect="AspectFill" ></Image>
                 <Image Source="ICONOAPP.png" ></Image>
             </Grid>
-            <Button Text="¿Qué es?" Style="{StaticResource Buton}" Clicked="Fn_Info"  Margin="10,20,10,5" HorizontalOptions="FillAndExpand" ></Button>
-            <Button Text="Membresias" Style="{StaticResource Buton}" Clicked="Fn_Reg"  Margin="10,20,10,5" HorizontalOptions="FillAndExpand" ></Button>
-            <Button Text="Iniciar Sesión"  Style="{StaticResource Buton}" Clicked="Fn_Log"  Margin="10,20,10,5" HorizontalOptions="FillAndExpand" ></Button>
+            <Button Text="¿Qué es?" Style="{StaticResource Buton}" Clicked="Fn_Info" HorizontalOptions="FillAndExpand" ></Button>
+            <Button Text="Membresias" Style="{StaticResource Buton}" Clicked="Fn_Reg" HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="Iniciar Sesión"  Style="{StaticResource Buton}" Clicked="Fn_Log" HorizontalOptions="FillAndExpand" ></Button>
         </StackLayout>
         <!--<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All">
             <Image Source="LOGOTRATOESPECIAL.png" AbsoluteLayout.LayoutBounds="0,0,1,.5"  AbsoluteLayout.LayoutFlags="All"></Image>

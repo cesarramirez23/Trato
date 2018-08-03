@@ -6,7 +6,7 @@
         <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1">
             <!--Orientation="Vertical">-->
             <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                <Button Clicked="Fn_Filtro"  Text="Filtro"></Button>
+                <Button Clicked="Fn_Filtro"  Text="Filtro" Style="{StaticResource Buton}"></Button>
                 <!--<Picker Title="Filtro"  HorizontalOptions="StartAndExpand" x:Name="v_filtro" SelectedIndexChanged="Fn_Filtro">
                     <Picker.Items>
                         <x:String>Nombre</x:String>
@@ -45,9 +45,9 @@
                            Padding="10, 0">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
-                        <Button Text=" cancel" Clicked="Fn_Cancelar" HorizontalOptions="StartAndExpand"  ></Button>
-                        <Button Text=" acep" Clicked="Fn_Aceptar" HorizontalOptions="CenterAndExpand"></Button>
-                        <Button Text="Borrar" Clicked="Fn_Cancelar" HorizontalOptions="EndAndExpand"  ></Button>
+                        <Button Text=" cancel" Clicked="Fn_Cancelar" HorizontalOptions="StartAndExpand" Style="{StaticResource Buton}" ></Button>
+                        <Button Text=" acep" Clicked="Fn_Aceptar" HorizontalOptions="CenterAndExpand" Style="{StaticResource Buton}"></Button>
+                        <Button Text="Borrar" Clicked="Fn_Cancelar" HorizontalOptions="EndAndExpand" Style="{StaticResource Buton}"></Button>
                     </StackLayout>
                             <Label HorizontalOptions="Center" Text="Especialidad"></Label>
                     <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec" >

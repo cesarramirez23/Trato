@@ -12,36 +12,20 @@ using Newtonsoft.Json;
 using System.Net.Http;
 
 using System.Text.RegularExpressions;
+using System.Collections.Specialized;
+
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class V_Perfil : ContentPage
+	public partial class V_Perfil : TabbedPage
 	{
-        string _validar = "";
+       
 
 		public V_Perfil ()
 		{
 			InitializeComponent ();
-		}
-        public V_Perfil(int _valor)
-        {
-            InitializeComponent();
-            switch (_valor)
-            {
-                case 0:
-                    StackGeneral.IsVisible = true;
-                    break;
-                case 1:
-                    StackMedi.IsVisible = true;
-                    break;
-                case 2:
-                    StackPass.IsVisible = true;
-                    break;
-                default:
-                    break;
-            }
-        }
 
+        }
         public async void Fn_Guardar(object sender, EventArgs _args)
         {
 
@@ -98,76 +82,5 @@ namespace Trato.Views
             if (!_args.Value)
                 M_Enferme.Text = "";
         }
-
-        public void FN_passCambio(object sender, TextChangedEventArgs args)
-        {
-            if(string.IsNullOrEmpty( P_Nueva.Text) || string.IsNullOrWhiteSpace(P_Nueva.Text))
-            {
-                P_but.IsEnabled = false;
-                P_mensaje.IsVisible = true;
-                P_mensaje.Text = "Este campo no puede estar vacio o con espacios";
-            }
-            else
-            {
-                if(P_Nueva.Text != P_Nueva2.Text)
-                {
-                    P_but.IsEnabled = false;
-                    P_mensaje.Text = "Contraseña no coincide";
-                }
-                else
-                {
-                    P_but.IsEnabled = true;
-                    P_mensaje.Text = "Contraseña correcta";
-
-                }
-            }
-        }
-        public async void Fn_CambioPass(object sender, EventArgs _args)
-        {
-            if(Fn_validar(P_actual.Text, P_Nueva.Text))
-            {
-                await DisplayAlert("bien", "bien", "bien");
-            }
-            else
-            {
-                await DisplayAlert("Error", _validar, "Aceptar");
-
-            }
-        }
-        public bool Fn_validar(string _actual, string _nueva)
-        {
-            if(_actual == _nueva)
-            {
-                _validar = "La nueva contraseña no puede ser la misma que la actual";
-                return false;
-            }
-            else
-            {
-                Regex regex = new Regex(@"^(?=.*[A-Za-z])(?=.*\w)[A-Za-z\w]{8,}$");
-                if(!regex.IsMatch(_nueva))
-                {
-                    _validar = "DEbe contener al menos una mayuscula,una minuscula y un numero";
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-        }
-        /*PARA CREAR LA CONSTRASEÑA SIN NECESIDAD DE CLASES
-         * 
-         * string json = @"{
-          CPU: 'Intel',
-          Drives: [
-            'DVD read/writer',
-            '500 gigabyte hard drive'
-          ]
-        }";
-
-        JObject o = JObject.Parse(json);
-         
-         
-         */
     }
 }

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_Perfil">
-    <ContentPage.Resources>
+             x:Class="Trato.Views.V_Perfil"
+            BarBackgroundColor="{StaticResource NavigationPrimary}">
+    <TabbedPage.Resources>
         <Style x:Key="Editor" TargetType="Editor">
-            <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
             <Setter Property="AutoSize" Value="TextChanges"></Setter>
         </Style>
         <Style TargetType="Label" x:Key="lblSty">
@@ -15,9 +15,86 @@
             <Setter Property="VerticalOptions" Value="Center"></Setter>
             <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
         </Style>
-    </ContentPage.Resources>
-    <ContentPage.Content>
-        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+    </TabbedPage.Resources>
+    <TabbedPage.Children>
+        
+        <ContentPage Title="Info General" >
+            <ScrollView>
+                <StackLayout x:Name="StackGeneral" Margin="20,0">
+                    
+                    <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
+                    <Entry Text="Nombre registrado no editar" x:Name="G_Nombre" IsEnabled="False"></Entry>
+                    <Label Text="Domicilio" Style="{StaticResource lblSty}"></Label>
+                    <Entry Text="domiclio completo" x:Name="G_Domi" Style="{StaticResource entry_perfil}"></Entry>
+                    <Label Text="Ocupacion"></Label>
+                    <Entry Placeholder="Ocupacion" Style="{StaticResource entry_perfil}" x:Name="G_Ocu"></Entry>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Correo Electronico"  Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="Correo electronico" x:Name="G_Correo" Style="{StaticResource entry_perfil}"></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Telefono" Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="1111111" Style="{StaticResource entry_perfil}" x:Name="G_Tel" Keyboard="Numeric"></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="celular"  Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="111111" Style="{StaticResource entry_perfil}" x:Name="G_Cel" Keyboard="Numeric"></Entry>
+                    </StackLayout>
+                    <Button Text="Guardar" Style="{StaticResource Buton}"></Button>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage>
+        <ContentPage Title="Info Medica">
+            <ScrollView>
+                <StackLayout x:Name="StackMedi" Margin="20,0" >
+                    <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
+                    <Entry Text="sangre" x:Name="M_Sangre" Style="{StaticResource entry_perfil}"></Entry>
+
+                    <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
+                        <Picker.Items>
+                            <x:String>Masculino</x:String>
+                            <x:String>Femenino</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label x:Name="M_sexolbl" IsVisible="False"></Label>
+                    <Editor x:Name="M_sexo" IsVisible="False"></Editor>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Alergias" Style="{StaticResource lblSty}"></Label>
+                        <Switch Toggled="Fn_SwiAlergias" Style="{StaticResource entry_perfil}"></Switch>
+                    </StackLayout>
+                    <Editor Text=" lista de alergias" IsVisible="False" x:Name="M_Alergias" Style="{StaticResource Editor}" ></Editor>
+
+                    <Label Text="Operaciones" Style="{StaticResource lblSty}"></Label>
+                    <Editor Text="lista de operaciones" x:Name="M_Operaciones" Style="{StaticResource Editor}"></Editor>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Enfermedades constantes?,¿Qúe esfermedad y que medicamentos toman?" Style="{StaticResource lblSty}"></Label>
+                        <Switch Toggled="Fn_SwiEnfer" HorizontalOptions="CenterAndExpand"></Switch>
+                    </StackLayout>
+                    <Editor Text="Lista de enfermedades" IsVisible="False" x:Name="M_Enferme" Style="{StaticResource Editor}"></Editor>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Toma algun medicamento?,¿Cúales?"  Style="{StaticResource lblSty}"></Label>
+                    </StackLayout>
+                    <Editor Text="Medicamentos actuales" x:Name="M_Medicamentos" Style="{StaticResource Editor}"></Editor>
+                    
+                    <Button Text="Guardar" Style="{StaticResource Buton}"></Button>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage>
+        <ContentPage Title="Medicamentos">
+            <ScrollView>
+                <StackLayout Margin="0,20">
+                    
+                </StackLayout>
+            </ScrollView>
+        </ContentPage>
+    </TabbedPage.Children>
+    
+
+    <!--
+    <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
          
             <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,.9" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout Orientation="Vertical">
@@ -45,13 +122,13 @@
                         </StackLayout>
                     </StackLayout>
 
+                    <BoxView HeightRequest="10" BackgroundColor="Black"></BoxView>
                     <StackLayout x:Name="StackMedi" IsVisible="False">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                             <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
                             <Entry Text="sangre" x:Name="M_Sangre" Style="{StaticResource entry_perfil}"></Entry>
                         </StackLayout>
 
-                        <!-- IsEnabled="False" para que no lo puedas usar-->
                         <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
                             <Picker.Items>
                                 <x:String>Masculino</x:String>
@@ -82,6 +159,7 @@
                         <Editor Text="Medicamentos actuales" x:Name="M_Medicamentos" Style="{StaticResource Editor}"></Editor>
                     </StackLayout>
 
+                    <BoxView HeightRequest="10" BackgroundColor="Black"></BoxView>
                     <StackLayout x:Name="StackPass" IsVisible="False">
                         <Label Text="Ingresa tu contraseña actual"></Label>
                         <Entry IsPassword="True" x:Name="P_actual"></Entry>
@@ -95,7 +173,7 @@
                    
                 </StackLayout>
             </ScrollView>
-            <!--<Button Text="Guardar" Style="{StaticResource Buton}" Clicked="Fn_Guardar" AbsoluteLayout.LayoutBounds=".25,1,.75,.1" AbsoluteLayout.LayoutFlags="All"></Button>-->
-        </AbsoluteLayout>
-    </ContentPage.Content>
-</ContentPage>
+</AbsoluteLayout>
+    -->
+   
+</TabbedPage>

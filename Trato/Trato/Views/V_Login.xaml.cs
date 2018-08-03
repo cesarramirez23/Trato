@@ -69,6 +69,8 @@ namespace Trato.Views
                     //cambiar a logeado
                     StackMen.IsVisible = false;
                     App.v_logeado = true;
+                    App.v_log = "1";
+                    Application.Current.Properties["log"] = App.v_log;
                     //cargar la nueva pagina de perfil
                     Application.Current.MainPage = new NavigationPage(new V_Master() { Title = "Bienvenido" });
                 }

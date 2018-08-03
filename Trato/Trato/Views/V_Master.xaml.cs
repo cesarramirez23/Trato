@@ -13,17 +13,28 @@ using Trato.Personas;
 
 namespace Trato.Views
 {
+    //public class Menu
+    //{
+    //    public string v_icon { get; set; }
+    //    public string v_titulo { get; set; }
+    //}
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Master : MasterDetailPage
 	{/*
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
-         
+
+        ObservableCollection<Menu> infomenu = new ObservableCollection<Menu>();
 
 		public V_Master()
 		{
+            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
+            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
+            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
+            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
+            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
+
 			InitializeComponent ();
-            OpcionesPer.IsVisible = false;
            // A();
         }
         public async void A()
@@ -49,12 +60,12 @@ namespace Trato.Views
             // texto.Text = _jsonTar;
             await Task.Delay(100);
         } 
-        public void Fn_uno(object sender, EventArgs _args)
+        public void Fn_Medicos(object sender, EventArgs _args)
         {
             IsPresented = false;
             Detail = new NavigationPage( new V_Buscador(true) { Title = "MEDICOS" });
         }
-        public void Fn_dos(object sender, EventArgs _args)
+        public void Fn_Servicios(object sender, EventArgs _args)
         {
             IsPresented = false;
             Detail = new NavigationPage( new V_Buscador(false) { Title = "SERVICIOS" });//new V_Buscador() { Title = "Buscador" };
@@ -64,24 +75,18 @@ namespace Trato.Views
             IsPresented = false;
             Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });//new V_Buscador() { Title = "Buscador" };
         }
-        public void Fn_OpcionesStack(object sender, EventArgs _args)
-        {
-            OpcionesPer.IsVisible = !OpcionesPer.IsVisible;
-        }
-        public void Fn_Gen(object _sender, EventArgs _args)
+        public void Fn_Opciones(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Perfil(0) {Title = "Informacion Personal" });
+            Detail = new NavigationPage(new V_Opciones() { Title = "Opciones" });//new V_Buscador() { Title = "Buscador" };
         }
-        public void Fn_Med(object _sender, EventArgs _args)
+        public void Fn_Salir(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Perfil(1) {Title = "Informacion Personal" });       
-        }
-        public void Fn_Pass(object _sender, EventArgs _args)
-        {
-            IsPresented = false;
-            Detail = new NavigationPage(new V_Perfil(2) {Title = "Informacion Personal" });
+            App.v_logeado = false;
+            App.v_log = "0";
+            Application.Current.Properties["log"] = App.v_log;
+            App.Current.MainPage = new NavigationPage(new MainPage());
         }
     }
 }
