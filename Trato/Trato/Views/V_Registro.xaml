@@ -76,7 +76,7 @@
                         </StackLayout>
                         <StackLayout x:Name="Stack_Empre" IsVisible="False">
                             <Label Text="Ingresa tu Folio"></Label>
-                            <Entry Placeholder="No de Folio" x:Name="Fol_Folio" Margin="0,5"></Entry>
+                            <Entry Placeholder="No de Folio" x:Name="Fol_Folio" Keyboard="Numeric" Margin="0,5"></Entry>
                             <Label Text="Empresa donde labora"></Label>
                             <Entry Placeholder="Nombre de la empresa" x:Name="Fol_Empre" Margin="0,5"></Entry>
                         </StackLayout>

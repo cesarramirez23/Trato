@@ -19,6 +19,7 @@
                 <Setter Property="TextColor" Value="Gray" />
                 <Setter Property="Margin" Value="20,0,20,0"/>
                 <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
             <Style x:Key="StyEntry" TargetType="Entry">
                 <Setter Property="TextColor" Value="Gray"/>

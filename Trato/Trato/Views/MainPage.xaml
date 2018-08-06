@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="Trato.Views.MainPage">
+            x:Class="Trato.Views.MainPage" Title="Bienvenido">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="img" TargetType="Image">
@@ -24,21 +24,16 @@
             <!-- para encimar texto a la imagen https://forums.xamarin.com/discussion/92896/display-an-image-inside-in-a-text-->
     <ContentPage.Content>
         <StackLayout>
-            <Grid HeightRequest="300" VerticalOptions="Start">
+            <!--<Grid HeightRequest="300" VerticalOptions="Start">
                 <Image Source="FONDODEGRADADO.png" Aspect="AspectFill" ></Image>
                 <Image Source="ICONOAPP.png" ></Image>
             </Grid>
             <Button Text="¿Qué es?" Style="{StaticResource Buton}" Clicked="Fn_Info" HorizontalOptions="FillAndExpand" ></Button>
             <Button Text="Membresias" Style="{StaticResource Buton}" Clicked="Fn_Reg" HorizontalOptions="FillAndExpand"></Button>
             <Button Text="Iniciar Sesión"  Style="{StaticResource Buton}" Clicked="Fn_Log" HorizontalOptions="FillAndExpand" ></Button>
+            -->
+            <Image Source="LOGOTRATOESPECIAL.png" ></Image>
         </StackLayout>
-        <!--<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All">
-            <Image Source="LOGOTRATOESPECIAL.png" AbsoluteLayout.LayoutBounds="0,0,1,.5"  AbsoluteLayout.LayoutFlags="All"></Image>
-            <Button Text="¿Qué es?" AbsoluteLayout.LayoutBounds=".45,.55,.5,.1" Style="{StaticResource Buton}" Clicked="Fn_Info"  ></Button>
-            <Button Text="Membresias" AbsoluteLayout.LayoutBounds=".45,.70,.5,.1" Style="{StaticResource Buton}" Clicked="Fn_Reg"  ></Button>
-            <Button Text="Iniciar Sesión" AbsoluteLayout.LayoutBounds=".45,.85,.5,.1" Style="{StaticResource Buton}" Clicked="Fn_Log"  ></Button>
-        </AbsoluteLayout>
-        -->
     </ContentPage.Content>
 </ContentPage>
 <!--    estos son los buenos

@@ -29,14 +29,14 @@ namespace Trato.Views
         /// true es fisico falso es moral
         /// </summary>
         public bool v_T_Persona = true;
-        protected override void OnAppearing()
-        {
-            NavigationPage.SetHasNavigationBar(this, false);
-        }
-        protected override void OnDisappearing()
-        {
-            NavigationPage.SetHasNavigationBar(this, false);
-        }
+        //protected override void OnAppearing()
+        //{
+        //    NavigationPage.SetHasNavigationBar(this, false);
+        //}
+        //protected override void OnDisappearing()
+        //{
+        //    NavigationPage.SetHasNavigationBar(this, false);
+        //}
         public V_Registro(string _titulo)
         {
             InitializeComponent();
@@ -56,6 +56,7 @@ namespace Trato.Views
             v_primero = false;
             if (_folio)
             {
+                NavigationPage.SetHasNavigationBar(this, false);
                 Browser.Source = "";
                 stackTodo.IsVisible = false;
                 StackFolio.IsVisible = true;
@@ -63,6 +64,7 @@ namespace Trato.Views
             }
             else
             {
+                NavigationPage.SetHasNavigationBar(this, false);
             Browser.Source = v_dirWeb;
                 stackTodo.IsVisible = true;
                 StackFolio.IsVisible = false;
@@ -135,7 +137,7 @@ namespace Trato.Views
         public void Fn_IrMenu(object sender, EventArgs _Args)
         {
             StackMen.IsVisible = false;
-            App.Current.MainPage = new NavigationPage(new MainPage());
+            App.Current.MainPage = new V_Master(false);
         }
         /// <summary>
         /// cambio en el drop de membresias

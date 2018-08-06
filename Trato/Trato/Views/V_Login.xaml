@@ -11,11 +11,11 @@
                     <Label Text="Folio"></Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="Start" Text="1807I-0002"></Entry>
-                    <Entry Placeholder="Folio" x:Name="fol" HorizontalOptions="End" Text="0"></Entry>
+                    <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="Start" Text="1807F-0003"></Entry>
+                    <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="End" Text="0"></Entry>
                 </StackLayout>
                 <Label Text="Ingresa tu contraseña"></Label>
-                <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="a0b35f"></Entry>
+                <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="63559e"></Entry>
                 <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
 
                 <Label Text="¿No tienes cuenta?" FontAttributes="Bold">

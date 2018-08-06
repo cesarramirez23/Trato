@@ -12,18 +12,14 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Membresias : CarouselPage
     {
-
-        protected override void OnAppearing()
-        {
-            NavigationPage.SetHasNavigationBar(this, false);
-        }
         public V_Membresias()
         {
             InitializeComponent();
         }
         public async void Fn_Comprar(object _sender, EventArgs _args)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Registro(false)) { Title = "Registro" });
+            //await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Registro(false)) { Title = "Registro" });
+            await Navigation.PushAsync(new V_Registro(false));
         }
     }
 }

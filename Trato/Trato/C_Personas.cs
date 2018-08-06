@@ -12,18 +12,97 @@ namespace Trato.Personas
      * Y TAMBIEN ENVIAR  COMO NUMERO EL TIPO DE MEMBRESiA( DE 0 A 2)
          */
 
-    public class C_Perfil
+    public class C_PerfilGen
     {
         [JsonProperty("nombre")]
-        string v_Nombre { get; set; }        
-        [JsonProperty("domicilio")]
-        string v_Domi { get; set; }
+        string v_Nombre { get; set; }
+        [JsonProperty("rfc")]
+        string v_Rfc { get; set; }
+        /// <summary>
+        /// Fecha de nacimiento, tiene que ser dia mes año
+        /// </summary>
+        [JsonProperty("fechanac")]
+        string v_FecNaci { get; set; }
+        /// <summary>
+        /// lugar de nacimiento
+        /// </summary>
+        [JsonProperty("lugnac")]
+        string v_LugNac { get; set; }
+        [JsonProperty("ocu")]
+        string v_Ocup { get; set; }
+        [JsonProperty("idsexo")]
+        int v_idsexo { get; set; }
+        [JsonProperty("tel")]
+        string v_Tel { get; set; }
+        [JsonProperty("cel")]
+        string v_Cel { get; set; }
+        [JsonProperty("calle")]
+        string v_Calle { get; set; }
+        [JsonProperty("numext")]
+        string v_NumExt { get; set; }
+        [JsonProperty("numint")]
+        string v_NumInt { get; set; }
+        [JsonProperty("colonia")]
+        string v_Colonia { get; set; }
+        [JsonProperty("ciudad")]
+        string v_Ciudad { get; set; }
+        [JsonProperty("municipio")]
+        string v_municipio { get; set; }
+        [JsonProperty("estado")]
+        string v_Estado { get; set; }
+        [JsonProperty("cp")]
+        string v_Cp { get; set; }
         [JsonProperty("correo")]
         string v_Correo { get; set; }
-        [JsonProperty("telefono")]
-        string v_Tel { get; set; }
-        [JsonProperty("celular")]
-        string v_Cel { get; set; }
+
+
+
+        public C_PerfilGen()
+        {
+
+        }
+        public C_PerfilGen(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,int _idsexo,  string _tel, string _cel,
+            string _calle, string _numExt, string _numInt, string _col, string _ciud, string _mun, string _est, string _cp, string _corr)
+        {
+            v_Nombre = _nom;
+            v_Rfc = _rfc;
+            string _month = "";
+            if (_fechnac.Month < 10)
+            {
+                _month = "0" + _fechnac.Month.ToString();
+            }
+            else
+            {
+                _month = _fechnac.Month.ToString();
+            }
+            string _day = "";
+            if (_fechnac.Day < 10)
+            {
+                _day = "0" + _fechnac.Day.ToString();
+            }
+            else
+            {
+                _day = _fechnac.Day.ToString();
+            }
+            v_FecNaci = _fechnac.Year.ToString() + "-" + _month + "-" + _day;
+            v_LugNac = _lugnac;
+            v_Ocup = _ocu;
+            v_idsexo = _idsexo;
+            v_Tel = _tel;
+            v_Cel = _cel;
+            v_Calle = _calle;
+            v_NumExt = _numExt;
+            v_NumInt = _numInt;
+            v_Colonia = _col;
+            v_Ciudad = _ciud;
+            v_municipio = _mun;
+            v_Estado = _est;
+            v_Cp = _cp;
+            v_Correo = _corr;
+        }
+    }
+    public class C_PerfilMed
+    {
         [JsonProperty("sangre")]
         string v_sangre { get; set; }
         [JsonProperty("sexo")]
@@ -41,18 +120,12 @@ namespace Trato.Personas
 
 
 
-        public C_Perfil()
+        public C_PerfilMed()
         {
 
         }
-        public C_Perfil(string _nom, string _corr, string _dom,string _tel, string _cel, string _sangr,
-            string _sexo,string _aler,string _opera,string _enfer, string _medicam)
+        public C_PerfilMed(string _sangr, string _sexo, string _aler, string _opera, string _enfer, string _medicam)
         {
-            v_Nombre = _nom;
-            v_Correo = _corr;
-            v_Domi = _dom;
-            v_Tel = _tel;
-            v_Cel = _tel;
             v_sangre = _sangr;
             v_infoMujer = _sexo;
             v_alergias = _aler;
@@ -498,92 +571,7 @@ namespace Trato.Personas
         }
 
     }
-    class C_Fam
-    {
 
-        string v_Nombre;
-        string v_Parentesco;
-        /// <summary>
-        /// Fecha de nacimiento, tiene que ser dia mes año
-        /// </summary>
-        string v_FecNaci;
-        string v_Correo;
-        string v_Cel;
-        const int Id = 2;
-        public C_Fam()
-        {
-            this.v_Nombre = "";
-            this.v_Parentesco = "";
-            this.v_FecNaci = "0000-00-00";
-            this.v_Correo = "";
-            this.v_Cel = "";
-
-        }
-        public C_Fam(string _nom, string _paren, DateTime _nac,
-           string _cel, string _corr)
-        {
-            this.v_Nombre = _nom;
-            this.v_Parentesco = _paren;
-            this.v_FecNaci = _nac.Year.ToString() + "-" + _nac.Month.ToString() + "-" + _nac.Day.ToString();
-            this.v_Correo = _corr;
-            this.v_Cel = _cel;
-        }
-        public string Fn_GetInfo()
-        {
-            return "";
-        }
-    }
-
-    class C_Emp_Empleado
-    {
-        /// <summary>
-        /// nombre de la emopresa
-        /// </summary>
-        string v_NombreEmp;
-        /// <summary>
-        /// numero de empleado en la empresa
-        /// </summary>
-        string v_NumeroEmp;
-        /// <summary>
-        /// nombre completo del empleado
-        /// </summary>
-        string v_Nombre;
-        /// <summary>
-        /// Fecha de nacimiento, tiene que ser dia mes año
-        /// </summary>
-        string v_FecNaci;
-        string v_Correo;
-        string v_Cel;
-        public C_Emp_Empleado()
-        {
-            this.v_NombreEmp = "";
-            this.v_NumeroEmp = "";
-            this.v_Nombre = "";
-            this.v_FecNaci = "0000-00-00";//
-            this.v_Cel = "";
-            this.v_Correo = "";
-
-        }
-        public C_Emp_Empleado(string _nomEmp, string _num, string _nombre, DateTime _nac,
-           string _cel, string _corr)
-        {
-
-            this.v_NombreEmp = _nomEmp;
-            this.v_NumeroEmp = _num;
-            this.v_Nombre = _nombre;
-            this.v_FecNaci = _nac.Year.ToString() + "-" + _nac.Month.ToString() + "-" + _nac.Day.ToString();
-            this.v_Cel = _cel;
-            this.v_Correo = _corr;
-        }
-
-        public string Fn_GetInfo()
-        {
-            string _mensaje = v_NombreEmp + " " + v_NumeroEmp + " " + v_Nombre + " " +
-                v_FecNaci + " " + v_Correo + v_Cel;
-            return _mensaje;
-        }
-
-    }
     public class C_Medico
     {
         //get y set para poder que sean binding

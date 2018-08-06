@@ -24,10 +24,29 @@
                     
                     <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
                     <Entry Text="Nombre registrado no editar" x:Name="G_Nombre" IsEnabled="False"></Entry>
-                    <Label Text="Domicilio" Style="{StaticResource lblSty}"></Label>
-                    <Entry Text="domiclio completo" x:Name="G_Domi" Style="{StaticResource entry_perfil}"></Entry>
-                    <Label Text="Ocupacion"></Label>
+                    <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="G_rfc" ></Entry>
+                    <DatePicker  Format="D" x:Name="G_fecha" MinimumDate="01/01/1900" IsEnabled="False"></DatePicker>
+                    <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="G_lugar" ></Entry>
+
+                    <Picker x:Name="G_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
+                        <Picker.Items>
+                            <x:String>Masculino</x:String>
+                            <x:String>Femenino</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label Text="Ocupacion" Style="{StaticResource lblSty}"></Label>
                     <Entry Placeholder="Ocupacion" Style="{StaticResource entry_perfil}" x:Name="G_Ocu"></Entry>
+
+                    <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle"  Keyboard="Default" x:Name="G_dom" ></Entry>
+                    <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="G_ext" ></Entry>
+                    <Entry  Placeholder="Numero Interior" Text="34"  Keyboard="Numeric" x:Name="G_inte" ></Entry>
+                    <Entry  Placeholder="Colonia" Text="colonia del usuario"  Keyboard="Default" x:Name="G_col" ></Entry>
+                    <Entry  Placeholder="Ciudad" Text="ciudad donde esta"  Keyboard="Default" x:Name="G_ciu" ></Entry>
+                    <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="G_mun" ></Entry>
+                    <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="G_est" ></Entry>
+                    <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="G_cp" ></Entry>
+                    
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Correo Electronico"  Style="{StaticResource lblSty}"></Label>
                         <Entry Text="Correo electronico" x:Name="G_Correo" Style="{StaticResource entry_perfil}"></Entry>

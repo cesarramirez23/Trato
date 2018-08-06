@@ -29,11 +29,11 @@ namespace Trato.Views
         public async void Fn_Guardar(object sender, EventArgs _args)
         {
 
-            C_Perfil _perfil = new C_Perfil();
-            _perfil = new C_Perfil(App.Fn_Vacio(G_Nombre.Text), App.Fn_Vacio(G_Correo.Text), App.Fn_Vacio(G_Domi.Text), App.Fn_Vacio(G_Tel.Text), App.Fn_Vacio(G_Cel.Text),
-            App.Fn_Vacio(M_Sangre.Text),App.Fn_Vacio(M_sexo.Text), App.Fn_Vacio(M_Alergias.Text), App.Fn_Vacio(M_Operaciones.Text),
-            App.Fn_Vacio(M_Enferme.Text), App.Fn_Vacio(M_Medicamentos.Text));
-
+            C_PerfilGen _perfil = new C_PerfilGen();
+            _perfil = new C_PerfilGen(App.Fn_Vacio( G_Nombre.Text), App.Fn_Vacio(G_rfc.Text), G_fecha.Date, App.Fn_Vacio(G_lugar.Text), 
+                App.Fn_Vacio(G_Ocu.Text),G_sexoPick.SelectedIndex,  App.Fn_Vacio(G_Tel.Text),App.Fn_Vacio(G_Cel.Text), App.Fn_Vacio(G_dom.Text), App.Fn_Vacio(G_ext.Text),
+                App.Fn_Vacio(G_inte.Text), App.Fn_Vacio(G_col.Text), App.Fn_Vacio(G_ciu.Text), App.Fn_Vacio(G_mun.Text), App.Fn_Vacio(G_est.Text),
+                App.Fn_Vacio(G_cp.Text), App.Fn_Vacio(G_Correo.Text));
             string _jsonPerf = JsonConvert.SerializeObject(_perfil);
             StringContent _content = new StringContent(_jsonPerf, Encoding.UTF8, "application/json");
             HttpClient _client = new HttpClient();

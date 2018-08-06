@@ -24,19 +24,28 @@ namespace Trato.Views
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
 
-        ObservableCollection<Menu> infomenu = new ObservableCollection<Menu>();
 
 		public V_Master()
-		{
-            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
-            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
-            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
-            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
-            //infomenu.Add(new Menu { v_icon = "", v_titulo="" });
-
-			InitializeComponent ();
-           // A();
+        {
+            InitializeComponent ();
         }
+        public V_Master(bool _logeado)
+        {
+            InitializeComponent ();
+            if(_logeado)
+            {
+                StackLog.IsVisible = true;
+                StackPrin.IsVisible = false;
+            }
+            else
+            {
+                StackPrin.IsVisible = true;
+                StackLog.IsVisible = false;
+            }
+            IsPresented = false;
+            Detail = new NavigationPage(new MainPage());
+        }
+
         public async void A()
         {
             //C_Ind_Fisica fisi = new C_Ind_Fisica("nombresdsa", "rfcdfsf", new DateTime(2013, 1, 20, 0, 0, 0, DateTimeKind.Utc), "luga naci", "ocupacsdsad",
@@ -63,12 +72,12 @@ namespace Trato.Views
         public void Fn_Medicos(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage( new V_Buscador(true) { Title = "MEDICOS" });
+            Detail = new NavigationPage( new V_Buscador(true) { Title = "RED MEDICA" });
         }
         public void Fn_Servicios(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage( new V_Buscador(false) { Title = "SERVICIOS" });//new V_Buscador() { Title = "Buscador" };
+            Detail = new NavigationPage( new V_Buscador(false) { Title = "SERVICIOS MEDICOS" });//new V_Buscador() { Title = "Buscador" };
         }
         public void Fn_Perfil(object sender, EventArgs _args)
         {
@@ -83,10 +92,31 @@ namespace Trato.Views
         public void Fn_Salir(object sender, EventArgs _args)
         {
             IsPresented = false;
-            App.v_logeado = false;
             App.v_log = "0";
             Application.Current.Properties["log"] = App.v_log;
-            App.Current.MainPage = new NavigationPage(new MainPage());
+            Application.Current.SavePropertiesAsync();
+            App.Current.MainPage =new V_Master(false);
+        }
+        public void Fn_Info(object sender, EventArgs _Args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Informacion());
+
+        }
+        public void Fn_Membre(object sender, EventArgs _Args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Membresias());
+        }
+        public void Fn_Log(object sender, EventArgs _Args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Login());
+        }
+        public void Fn_Inicio(object sender, EventArgs _args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new MainPage()); 
         }
     }
 }

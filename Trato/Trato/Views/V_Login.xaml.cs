@@ -15,17 +15,15 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Login : ContentPage
     {
-        protected override void OnAppearing()
-        {
-            NavigationPage.SetHasNavigationBar(this, false);
-        }
         public V_Login()
         {
             InitializeComponent();
         }
+        //el que muestra la pantalla de registro para familiar o empresarial
         public async void Fn_Registro(object sender, EventArgs _Args)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Registro(true)) );
+            await Navigation.PushAsync(new V_Registro(true));
+            //await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Registro(true)) );
         }
         public async void Fn_Login(object sender, EventArgs _args)
         {
@@ -68,11 +66,11 @@ namespace Trato.Views
                 {
                     //cambiar a logeado
                     StackMen.IsVisible = false;
-                    App.v_logeado = true;
                     App.v_log = "1";
                     Application.Current.Properties["log"] = App.v_log;
                     //cargar la nueva pagina de perfil
-                    Application.Current.MainPage = new NavigationPage(new V_Master() { Title = "Bienvenido" });
+                    Application.Current.MainPage = new V_Master(true);
+                    
                 }
 
 

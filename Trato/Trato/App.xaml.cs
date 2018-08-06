@@ -15,11 +15,21 @@ namespace Trato
     {
         public static ObservableCollection<C_Medico> v_medicos = new ObservableCollection<C_Medico>();
         public static ObservableCollection<C_Servicios> v_servicios = new ObservableCollection<C_Servicios>();
-        public static bool v_logeado = false;
-        public static C_Perfil v_perfil= new C_Perfil();
+        /// <summary>
+        /// 
+        /// </summary>
+        public static C_PerfilGen v_perfil= new C_PerfilGen();
+        /// <summary>
+        /// id membresia
+        /// </summary>
         public static string v_membresia="";
-
-
+        /// <summary>
+        /// folio de la membresia
+        /// </summary>
+        public static string v_folio="";
+        /// <summary>
+        /// 0 no esta logeado 1 logeado
+        /// </summary>
         public static string v_log;
 
 
@@ -39,17 +49,33 @@ namespace Trato
             //App.Current.MainPage = new V_Master();// new NavigationPage(new MainPage());//  new NavigationPage(new V_Registro(true));//  new NavigationPage(new V_Registro(false));//       
                                                   //MainPage =new NavigationPage( new V_Master());// new NavigationPage(new pruebas());//// new NavigationPage(new V_Master());
 
+
+
+            if(Application.Current.Properties.ContainsKey("membre"))
+            {
+
+            }
+
+            //existe la variable guardada
             if (Application.Current.Properties.ContainsKey("log"))
             {
+                //lee el valor guardado
                 v_log = Application.Current.Properties["log"] as string;
-                App.Current.MainPage = new V_Master();// new NavigationPage(new MainPage());//  new NavigationPage(new V_Registro(true));//  new NavigationPage(new V_Registro(false));//       
-                                                      //MainPage =new NavigationPage( new V_Master());// new NavigationPage(new pruebas());//// new NavigationPage(new V_Master());
+                if(v_log=="0")
+                {//no esta logeado
+                    App.Current.MainPage = new V_Master(false);
+                }//si esta logeado
+                else if(v_log=="1")
+                {
+                    App.Current.MainPage = new V_Master(true);
+                }
             }
             else
             {
                 v_log = "0";
-                Application.Current.Properties["log"] = v_log;
-                App.Current.MainPage = new NavigationPage(new MainPage());
+                Application.Current.Properties.Add("log", v_log);
+                App.Current.MainPage = new V_Master(false);
+
             }
 
         }
@@ -75,7 +101,7 @@ namespace Trato
 
         protected override void OnStart()
         {
-            v_logeado = false;
+           // v_logeado = false;
             // Handle when your app starts
         }
 
