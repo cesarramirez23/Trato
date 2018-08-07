@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Xamarin.Forms;
+using Xamarin.Forms; 
 using Xamarin.Forms.Xaml;
 
 using Trato.Personas;
@@ -24,8 +24,14 @@ namespace Trato.Views
 		public V_Perfil ()
 		{
 			InitializeComponent ();
-
+            Init();
         }
+        public async void Init()
+        {
+            await DisplayAlert("dasd", "fdgf", "fdgf");
+        }
+
+
         public async void Fn_Guardar(object sender, EventArgs _args)
         {
 

@@ -35,6 +35,7 @@ namespace Trato.Views
             if(_logeado)
             {
                 StackLog.IsVisible = true;
+                App.Fn_CargarDatos();
                 StackPrin.IsVisible = false;
             }
             else
@@ -48,25 +49,6 @@ namespace Trato.Views
 
         public async void A()
         {
-            //C_Ind_Fisica fisi = new C_Ind_Fisica("nombresdsa", "rfcdfsf", new DateTime(2013, 1, 20, 0, 0, 0, DateTimeKind.Utc), "luga naci", "ocupacsdsad",
-            //    "2134535", "345667", "calle dssads", "23", "23", "colonisadsad", "ciudad dsfdfdf", "muni dsadsdf", "estado dsad", "2345",
-            //    "correro sdfdgf", 0);
-            //C_Ind_Moral fisi = new C_Ind_Moral("nombresdsa", "rfcdfsf", "ocupacsdsad",
-            //   "2134535", "calle dssads", "23", "23", "colonisadsad", "ciudad dsfdfdf", "muni dsadsdf", "estado dsad", "2345",
-            //   "correro sdfdgf", 0);
-
-            //C_Tarjeta fisi = new C_Tarjeta("nombre", "correo sadasd", "2134567", "personal membresia", "2344", "nombre en la tarjeta", "1223456124356567",
-            //    "234", "12", "12");
-            // string _jsonTar = JsonConvert.SerializeObject(fisi, Formatting.Indented);
-
-            //HttpClient _client = new HttpClient();
-            ////HACER ESTO PARA QUE ESTE EN FORMATO PARA ENVIAR
-
-            //StringContent _contTar = new StringContent(_jsonTar, Encoding.UTF8, "application/json");
-            //Uri _uri = new Uri("ww.asf");
-            //await _client.PostAsync(_uri, _contTar);
-
-            // texto.Text = _jsonTar;
             await Task.Delay(100);
         } 
         public void Fn_Medicos(object sender, EventArgs _args)

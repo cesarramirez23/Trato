@@ -18,14 +18,8 @@ namespace Trato.Personas
         string v_Nombre { get; set; }
         [JsonProperty("rfc")]
         string v_Rfc { get; set; }
-        /// <summary>
-        /// Fecha de nacimiento, tiene que ser dia mes año
-        /// </summary>
         [JsonProperty("fechanac")]
         string v_FecNaci { get; set; }
-        /// <summary>
-        /// lugar de nacimiento
-        /// </summary>
         [JsonProperty("lugnac")]
         string v_LugNac { get; set; }
         [JsonProperty("ocu")]
@@ -100,12 +94,24 @@ namespace Trato.Personas
             v_Cp = _cp;
             v_Correo = _corr;
         }
+        public string Fn_GetDatos()
+        {
+            string _ret = "";
+           _ret= "nombre "+v_Nombre + "  rfc  " + v_Rfc + "  fech nac" + v_FecNaci + " lugnac  " + v_LugNac + " ocu " + v_Ocup + "\n" +
+                "id sexo "+ v_idsexo + "  tel " + v_Tel + " cel  " + v_Cel + "  \n" +
+                "  calle  "+v_Calle + " numext " + v_NumExt + "  numint " +  v_NumInt + "  " +
+                "colonia "+v_Colonia + "ciud  " + v_Ciudad + " muni" + v_municipio + "  esta" + v_Estado + " \n" +
+                "cp  "+v_Cp + "  corr " + v_Correo;
+            return _ret;
+
+                  
+        }
     }
     public class C_PerfilMed
     {
         [JsonProperty("sangre")]
         string v_sangre { get; set; }
-        [JsonProperty("sexo")]
+        [JsonProperty("idsexo")]
         int v_sexo { get; set; }
         [JsonProperty("infoMuj")]
         string v_infoMujer { get; set; }

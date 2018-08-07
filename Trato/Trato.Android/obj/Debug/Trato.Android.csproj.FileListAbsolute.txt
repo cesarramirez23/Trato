@@ -118,13 +118,13 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawa
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\serviciosmedicos.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\logo_redondo_512.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\iconoapp.png
-C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csprojAssemblyReference.cache
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato2.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato2-Signed.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.pdb
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csprojAssemblyReference.cache
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Basement.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Base.dll

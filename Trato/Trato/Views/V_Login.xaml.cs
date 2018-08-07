@@ -46,8 +46,6 @@ namespace Trato.Views
                 {
                     _membre += prime[i];
                 }
-
-
                 string letra = prime[prime.Length - 1].ToString();
                     string _conse = usu.Text.Split('-')[1];
 
@@ -55,7 +53,6 @@ namespace Trato.Views
                 //crear el json
                 string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
                 //mostrar la pantalla con mensajes
-                mensajes.Text = _jsonLog;
                 Mensajes_over.Text +=_jsonLog ;
                 //crear el cliente
                 HttpClient _client = new HttpClient();
@@ -75,11 +72,7 @@ namespace Trato.Views
                     //StackMen.IsVisible = false;
                     App.v_log = "1";
 
-                    App.v_folio = fol.Text;
-                    App.v_membresia = usu.Text;
-                    Application.Current.Properties["log"] = App.v_log;
-                    Application.Current.Properties["folio"] = App.v_membresia;
-                    Application.Current.Properties["membre"] = App.v_folio;
+                   // Application.Current.Properties["log"] =App.v_log;
 
 
                     Perf _perf = new Perf();
@@ -89,7 +82,7 @@ namespace Trato.Views
                     //crear el json
                     string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
                     //mostrar la pantalla con mensajes
-                    Mensajes_over.Text = _jsonper;
+                    Mensajes_over.Text +="\n"+ _jsonper+"\n";
                     //crear el cliente
                      _client = new HttpClient();
                     _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
@@ -98,15 +91,24 @@ namespace Trato.Views
                      _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
 
                     _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
 
-                    Mensajes_over.Text += _respuestaphp.StatusCode.ToString();
-                    Mensajes_over.Text += _respuesta;
+                    //Mensajes_over.Text += _respuestaphp.StatusCode.ToString();
+                    Mensajes_over.Text += "\n"+_respuesta;
+                     Mensajes_over.Text += "\n" + _nuePer.Fn_GetDatos();
+
+                    App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
 
                     //await DisplayAlert("algo", "mensaje", "ac");
                     //cargar la nueva pagina de perfil
-                   // Application.Current.MainPage = new V_Master(true);
+                    Application.Current.MainPage = new V_Master(true);
                     
                 }
+                else
+                {
+                    Mensajes_over.Text = "no 0 1  " + _respuesta;
+                }
+                    
 
 
 
