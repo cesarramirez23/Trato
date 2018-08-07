@@ -51,9 +51,21 @@ namespace Trato
 
 
 
-            if(Application.Current.Properties.ContainsKey("membre"))
+            if(!Application.Current.Properties.ContainsKey("membre"))
             {
-
+                Application.Current.Properties.Add("membre", v_membresia);
+            }
+            else
+            {
+                v_membresia = Application.Current.Properties["membre"] as string;
+            }
+            if (!Application.Current.Properties.ContainsKey("folio"))
+            {
+                Application.Current.Properties.Add("folio", v_folio);
+            }
+            else
+            {
+                v_folio = Application.Current.Properties["folio"] as string;
             }
 
             //existe la variable guardada

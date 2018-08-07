@@ -12,6 +12,13 @@ using Newtonsoft.Json;
 
 namespace Trato.Views
 {
+    public class Perf
+    {
+        [JsonProperty("idmembre")]
+        public string v_membre { get; set; }
+        [JsonProperty("idfolio")]
+        public string v_fol { get; set; }
+    }
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Login : ContentPage
     {
@@ -65,11 +72,39 @@ namespace Trato.Views
                 else if (_respuesta == "1")
                 {
                     //cambiar a logeado
-                    StackMen.IsVisible = false;
+                    //StackMen.IsVisible = false;
                     App.v_log = "1";
+
+                    App.v_folio = fol.Text;
+                    App.v_membresia = usu.Text;
                     Application.Current.Properties["log"] = App.v_log;
+                    Application.Current.Properties["folio"] = App.v_membresia;
+                    Application.Current.Properties["membre"] = App.v_folio;
+
+
+                    Perf _perf = new Perf();
+                    _perf.v_fol = fol.Text;
+                    _perf.v_membre = usu.Text;
+                        
+                    //crear el json
+                    string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+                    //mostrar la pantalla con mensajes
+                    Mensajes_over.Text = _jsonper;
+                    //crear el cliente
+                     _client = new HttpClient();
+                    _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+                    _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                    //mandar el json con el post
+                     _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+
+                    _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+
+                    Mensajes_over.Text += _respuestaphp.StatusCode.ToString();
+                    Mensajes_over.Text += _respuesta;
+
+                    //await DisplayAlert("algo", "mensaje", "ac");
                     //cargar la nueva pagina de perfil
-                    Application.Current.MainPage = new V_Master(true);
+                   // Application.Current.MainPage = new V_Master(true);
                     
                 }
 

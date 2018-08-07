@@ -57,7 +57,7 @@
                         </StackLayout>
 
                         <Label Text="Ingresa tu Numero de Membresía"></Label>
-                        <Entry Placeholder="No de Membresía" Text="1807F-0003" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
+                        <Entry Placeholder="No de Membresía" Text="1808F-0006" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
 
                         <Label Text="Ingresa tu Nombre completo"></Label>
                         <Entry Placeholder="Noombre" Text="Nuevo nombre" x:Name="Fol_Nombre" Margin="0,5"></Entry>
