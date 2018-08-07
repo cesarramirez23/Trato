@@ -218,7 +218,7 @@ namespace Trato.Views
             v_filtro = !v_filtro;
             overlay.IsVisible = v_filtro;
         }
-        async Task Orden()
+        async void Orden()
         {
             if(v_medico)
             {
@@ -351,7 +351,7 @@ namespace Trato.Views
             string _val = rand.Next(0, 120).ToString();
             App.v_medicos.Add(new C_Medico { v_Nombre = "Aombre nuevo" + _val,v_Ciudad= "ciud4", v_Apellido =" apellido "+_val, v_Especialidad = "Espec2" + _val,
                 v_Domicilio = "dom sdsafsdfdf" + _val, v_descripcion = "infoooooooooo" + _val , v_img="ICONOAPP.png"});
-            await Orden();
+            Orden();
             //darle la nueva lista
             list.ItemsSource = App.v_medicos;
             }
@@ -368,7 +368,7 @@ namespace Trato.Views
                     v_Especialidad = "esec" + _val, v_Domicilio = "dom sdsafsdfdf" + _val, v_descripcion = "infoooooooooo" + _val,
                     v_img = "ICONOAPP.png"
                 });// v_Descuento ="descuento "+ _val+"%",
-                await Orden();
+                Orden();
                 //darle la nueva lista
                 list.ItemsSource = App.v_servicios;
             }
