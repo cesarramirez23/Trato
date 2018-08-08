@@ -63,14 +63,14 @@ namespace Trato
                     Application.Current.Properties["perfGen"] = v_perfil;
                     Application.Current.Properties["membre"] = v_membresia;
                     Application.Current.Properties["folio"] = v_folio;
-                    App.Current.MainPage = new V_Master(false);
+                    App.Current.MainPage = new V_Master(false,"Bienvenido");
                 }//si esta logeado
                 else if(v_log=="1")
                 {
                     v_perfil = Application.Current.Properties["perfGen"] as C_PerfilGen;
                     v_membresia = Application.Current.Properties["folio"] as string;
                     v_folio = Application.Current.Properties["membre"] as string;
-                    App.Current.MainPage = new V_Master(true);
+                    App.Current.MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre) ;
                 }
             }
             else
@@ -92,7 +92,7 @@ namespace Trato
                 {
                     Application.Current.Properties.Add("perfGen", v_perfil);
                 }
-                App.Current.MainPage = new V_Master(false);
+                App.Current.MainPage = new V_Master(false,"Bienvenido");
             }
         }
         async void Fn_Cargar()
@@ -136,10 +136,13 @@ namespace Trato
         {
             v_perfil = _gen;
             v_folio = _folio;
-           v_membresia = _membre;
+            v_membresia = _membre;
+            Application.Current.Properties["log"] = App.v_log;
             Application.Current.Properties["perfGen"] = v_perfil;
             Application.Current.Properties["membre"] =v_membresia;
             Application.Current.Properties["folio"] =v_folio;
+
+            await Application.Current.SavePropertiesAsync();
             await Task.Delay(100);
         }
         public static async void Fn_CerrarSesion()
@@ -154,7 +157,6 @@ namespace Trato
         }
         public static string Fn_Vacio(string _valor)
         {
-
             if (string.IsNullOrEmpty(_valor) || string.IsNullOrWhiteSpace(_valor))
             {
                 return "";
@@ -163,11 +165,9 @@ namespace Trato
             {
                 return _valor;
             }
-
         }
         protected override void OnStart()
         {
-           // v_logeado = false;
             // Handle when your app starts
         }
         protected override void OnSleep()

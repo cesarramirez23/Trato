@@ -135,7 +135,7 @@ namespace Trato.Views
         public void Fn_IrMenu(object sender, EventArgs _Args)
         {
             StackMen.IsVisible = false;
-            App.Current.MainPage = new V_Master(false);
+            App.Current.MainPage = new V_Master(false,"Bienvenido");
         }
         /// <summary>
         /// cambio en el drop de membresias

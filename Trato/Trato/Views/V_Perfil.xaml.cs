@@ -31,16 +31,18 @@ namespace Trato.Views
         {
             Fn_NullEntry( G_Nombre, App.v_perfil.v_Nombre);
             Fn_NullEntry(G_rfc,App.v_perfil.v_Rfc);
-            //if(string.IsNullOrEmpty( App.v_perfil.v_FecNaci))
-            //{
-            //    G_fecha.Date = DateTime.Now;
-            //}
-            //else
-            //{
-            //    string[] fecha = App.v_perfil.v_FecNaci.Split('-');
-            //    G_fecha.Date = new DateTime(int.Parse(fecha[0]), int.Parse(fecha[1]),int.Parse(fecha[2]));
-            //}
-            if((App.v_perfil.v_idsexo<=0)&& (App.v_perfil.v_idsexo>=1) )
+            if (string.IsNullOrEmpty(App.v_perfil.v_FecNaci))
+            {
+                G_fecha.Date = DateTime.Now;
+                G_fecha.IsEnabled = true;
+            }
+            else
+            {
+                string[] fecha = App.v_perfil.v_FecNaci.Split('-');
+                G_fecha.Date = new DateTime(int.Parse(fecha[0]), int.Parse(fecha[1]), int.Parse(fecha[2]));
+                G_fecha.IsEnabled = false;
+            }
+            if ((App.v_perfil.v_idsexo<=0)&& (App.v_perfil.v_idsexo>=1) )
             {
                 G_sexoPick.IsEnabled = true;
             }

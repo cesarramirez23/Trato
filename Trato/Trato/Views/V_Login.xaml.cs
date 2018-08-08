@@ -101,7 +101,7 @@ namespace Trato.Views
 
                     //await DisplayAlert("algo", "mensaje", "ac");
                     //cargar la nueva pagina de perfil
-                    Application.Current.MainPage = new V_Master(true);
+                    Application.Current.MainPage = new V_Master(true,"Bienvenido "+_nuePer.v_Nombre );
                     
                 }
                 else

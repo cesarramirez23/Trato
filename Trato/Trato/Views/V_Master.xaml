@@ -54,6 +54,7 @@
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Inicio"/>
                                 </Image.GestureRecognizers>
                             </Image>
+                            <Label Text="Inicio" Style="{StaticResource LblBoton}"/>
                             <Image Source="Medicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Medicos"/>

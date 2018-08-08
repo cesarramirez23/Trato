@@ -29,13 +29,14 @@ namespace Trato.Views
         {
             InitializeComponent ();
         }
-        public V_Master(bool _logeado)
+        public V_Master(bool _logeado,string _title)
         {
             InitializeComponent ();
             if(_logeado)
             {
                 StackLog.IsVisible = true;
                 App.Fn_CargarDatos();
+                Detail.Title = _title;
                 StackPrin.IsVisible = false;
             }
             else
@@ -44,7 +45,7 @@ namespace Trato.Views
                 StackLog.IsVisible = false;
             }
             IsPresented = false;
-            Detail = new NavigationPage(new MainPage());
+            Detail = new NavigationPage(new MainPage() {Title=_title });
         }
 
         public async void A()
@@ -77,7 +78,7 @@ namespace Trato.Views
             App.v_log = "0";
             Application.Current.Properties["log"] = App.v_log;
             Application.Current.SavePropertiesAsync();
-            App.Current.MainPage =new V_Master(false);
+            App.Current.MainPage =new V_Master(false,"Bienvenido");
         }
         public void Fn_Info(object sender, EventArgs _Args)
         {

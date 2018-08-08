@@ -372,6 +372,7 @@ namespace Trato.Views
                 //darle la nueva lista
                 list.ItemsSource = App.v_servicios;
             }
+            await Task.Delay(100);
             //cancelar la actualizacion
             list.IsRefreshing = false;
         }
