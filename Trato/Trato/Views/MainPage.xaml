@@ -33,6 +33,11 @@
             <Button Text="Iniciar Sesión"  Style="{StaticResource Buton}" Clicked="Fn_Log" HorizontalOptions="FillAndExpand" ></Button>
             -->
             <Image Source="LOGOTRATOESPECIAL.png" ></Image>
+            <Label Text="" x:Name="fol"></Label>
+            <Label Text="" x:Name="log"></Label>
+            <Label Text="" x:Name="membre"></Label>
+            <Label Text="" x:Name="perfil"></Label>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

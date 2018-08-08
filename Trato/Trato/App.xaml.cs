@@ -50,49 +50,52 @@ namespace Trato
             //MainPage =new NavigationPage( new V_Master());// new NavigationPage(new pruebas());//// new NavigationPage(new V_Master());
 
             //existe la variable guardada
-            if (Application.Current.Properties.ContainsKey("log"))
+            if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado
-                v_log = Application.Current.Properties["log"] as string;
+                v_log = Current.Properties["log"] as string;
                 if(v_log=="0")
                 {//no esta logeado
                     v_perfil = new C_PerfilGen();
                     v_log = "0";
-                    v_membresia = "";
-                    v_folio = "";
-                    Application.Current.Properties["perfGen"] = v_perfil;
-                    Application.Current.Properties["membre"] = v_membresia;
-                    Application.Current.Properties["folio"] = v_folio;
-                    App.Current.MainPage = new V_Master(false,"Bienvenido");
+                    v_membresia = "nada";
+                    v_folio = "nada";
+                    Properties["perfGen"] = v_perfil;
+                    Properties["membre"] = v_membresia;
+                    Properties["folio"] = v_folio;
+                    MainPage = new V_Master(false,"si log 0");
                 }//si esta logeado
                 else if(v_log=="1")
                 {
-                    v_perfil = Application.Current.Properties["perfGen"] as C_PerfilGen;
-                    v_membresia = Application.Current.Properties["folio"] as string;
-                    v_folio = Application.Current.Properties["membre"] as string;
-                    App.Current.MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre) ;
+                    v_perfil = Properties["perfGen"] as C_PerfilGen;
+                    v_membresia =Properties["folio"] as string;
+                    v_folio = Properties["membre"] as string;
+                    MainPage = new V_Master(true, "si log 1" ) ;
                 }
             }
             else
             {
-                v_log = "0";
-                v_membresia = "";
-                v_folio = "";
+                v_log = "-1";
+                v_membresia = "nada";
+                v_folio = "nada";
                 v_perfil = new C_PerfilGen();
-                Application.Current.Properties.Add("log", v_log);
-                if (!Application.Current.Properties.ContainsKey("membre"))
+                if(!Properties.ContainsKey("log"))
                 {
-                    Application.Current.Properties.Add("membre", v_membresia);
+                    Properties.Add("log", v_log);
                 }
-                if (!Application.Current.Properties.ContainsKey("folio"))
+                if (!Properties.ContainsKey("membre"))
                 {
-                    Application.Current.Properties.Add("folio", v_folio);
+                   Properties.Add("membre", v_membresia);
                 }
-                if (!Application.Current.Properties.ContainsKey("perfGen"))
+                if (!Properties.ContainsKey("folio"))
                 {
-                    Application.Current.Properties.Add("perfGen", v_perfil);
+                    Properties.Add("folio", v_folio);
                 }
-                App.Current.MainPage = new V_Master(false,"Bienvenido");
+                if (!Properties.ContainsKey("perfGen"))
+                {
+                    Properties.Add("perfGen", v_perfil);
+                }
+                App.Current.MainPage = new V_Master(false,"no properties");
             }
         }
         async void Fn_Cargar()
@@ -137,10 +140,10 @@ namespace Trato
             v_perfil = _gen;
             v_folio = _folio;
             v_membresia = _membre;
-            Application.Current.Properties["log"] = App.v_log;
-            Application.Current.Properties["perfGen"] = v_perfil;
-            Application.Current.Properties["membre"] =v_membresia;
-            Application.Current.Properties["folio"] =v_folio;
+            Current.Properties["log"] = App.v_log;
+            Current.Properties["perfGen"] = _gen;
+            Current.Properties["membre"] =v_membresia;
+            Current.Properties["folio"] =v_folio;
 
             await Application.Current.SavePropertiesAsync();
             await Task.Delay(100);
@@ -150,9 +153,9 @@ namespace Trato
             v_perfil = new C_PerfilGen();
             v_folio = "";
             v_membresia = "";
-            Application.Current.Properties["perfGen"] = v_perfil;
-            Application.Current.Properties["membre"] = v_membresia;
-            Application.Current.Properties["folio"] = v_folio;
+            Current.Properties["perfGen"] = v_perfil;
+            Current.Properties["membre"] = v_membresia;
+            Current.Properties["folio"] = v_folio;
             await Task.Delay(100);
         }
         public static string Fn_Vacio(string _valor)

@@ -53,7 +53,7 @@ namespace Trato.Personas
 
         public C_PerfilGen()
         {
-
+            v_idsexo = -1;
         }
         public C_PerfilGen(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,int _idsexo,  string _tel, string _cel,
             string _calle, string _numExt, string _numInt, string _col, string _ciud, string _mun, string _est, string _cp, string _corr)
@@ -128,7 +128,7 @@ namespace Trato.Personas
 
         public C_PerfilMed()
         {
-
+            v_sexo = -1;
         }
         public C_PerfilMed(string _sangr, string _sexo, string _aler, string _opera, string _enfer, string _medicam)
         {
@@ -174,7 +174,7 @@ namespace Trato.Personas
 
         public C_RegistroSec ()
         {
-
+            v_sexo = -1;
         }
         public C_RegistroSec(string _nombre,int _sexo, DateTime _fecha, string _cel, string _correo,string _pass,string _membre,  int _id, string _paren)
         {

@@ -29,6 +29,7 @@ namespace Trato.Views
         }
         public async void CargarGen()
         {
+            App.Fn_CargarDatos();
             Fn_NullEntry( G_Nombre, App.v_perfil.v_Nombre);
             Fn_NullEntry(G_rfc,App.v_perfil.v_Rfc);
             if (string.IsNullOrEmpty(App.v_perfil.v_FecNaci))

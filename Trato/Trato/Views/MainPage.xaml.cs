@@ -12,6 +12,19 @@ namespace Trato.Views
         {
             //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            perfil.Text = "Perfil " + App.v_perfil.Fn_GetDatos();
+            fol.Text = "FOlio " +Application.Current.Properties["log"];// App.v_folio;
+            membre.Text = " Membresia " + App.v_membresia;
+            string s_tr = "";
+            s_tr = "count " + Application.Current.Properties.Count ;
+            System.Collections.Generic.List<string> keyList = new System.Collections.Generic.List<string>(Application.Current.Properties.Keys);
+
+            for(int i=0; i< keyList.Count; i++)
+            {
+                s_tr += "\n key " + keyList[i];
+            }
+            log.Text = s_tr;
+
         }
         public async void Fn_Log(object sender, EventArgs _args)
         {

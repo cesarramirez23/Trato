@@ -215,7 +215,7 @@ namespace Trato.Views
                         //crea el cliente
                         HttpClient v_cliente = new HttpClient();
                         //url
-                        var url = "https://useller.com.mx/trato_especial/tarjeta_alta";
+                        var url = "https://useller.com.mx/trato_especial/tarjeta_alta.php";
                         HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
                        // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
                         if(respuestaReg.StatusCode== System.Net.HttpStatusCode.OK)
@@ -231,6 +231,11 @@ namespace Trato.Views
                                 StackMen.IsVisible = false;
                                 await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
                             }
+                        }
+                        else
+                        {
+                            string content = await respuestaReg.Content.ReadAsStringAsync();
+                            Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content ;
                         }
                     }//token vacio
                 }//ifcondiciones
