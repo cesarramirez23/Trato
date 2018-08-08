@@ -141,7 +141,7 @@ namespace Trato
             v_folio = _folio;
             v_membresia = _membre;
             Current.Properties["log"] = App.v_log;
-            Current.Properties["perfGen"] = _gen;
+            Current.Properties["perfGen"] = v_perfil;
             Current.Properties["membre"] =v_membresia;
             Current.Properties["folio"] =v_folio;
 
@@ -175,7 +175,11 @@ namespace Trato
         }
         protected override void OnSleep()
         {
-            // Handle when your app sleeps            
+            // Handle when your app sleeps       
+            Properties["log"] =v_log;
+            Properties["perfGen"] = v_perfil;
+            Properties["membre"] = v_membresia;
+            Properties["folio"] = v_folio;
         }
         protected override void OnResume()
         {

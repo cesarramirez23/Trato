@@ -97,7 +97,18 @@ namespace Trato.Views
                     Mensajes_over.Text += "\n"+_respuesta;
                      Mensajes_over.Text += "\n" + _nuePer.Fn_GetDatos();
 
-                    App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
+                    //App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
+
+
+                    App.v_log = "1";
+                    App.v_folio = fol.Text;
+                    App.v_membresia = usu.Text;
+                    App.v_perfil = _nuePer;
+
+                    Application.Current.Properties["log"] = App.v_log;
+                    Application.Current.Properties["perfGen"] =App.v_perfil;
+                    Application.Current.Properties["membre"] = App.v_membresia;
+                    Application.Current.Properties["folio"] = App.v_folio;
 
                     //await DisplayAlert("algo", "mensaje", "ac");
                     //cargar la nueva pagina de perfil

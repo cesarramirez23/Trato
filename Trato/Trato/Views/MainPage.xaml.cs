@@ -12,11 +12,13 @@ namespace Trato.Views
         {
             //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            perfil.Text = "Perfil " + App.v_perfil.Fn_GetDatos();
-            fol.Text = "FOlio " +Application.Current.Properties["log"];// App.v_folio;
-            membre.Text = " Membresia " + App.v_membresia;
+
+            App.Fn_CargarDatos();
+            perfil.Text = "Perfil " + (Application.Current.Properties["perfGen"] as Personas.C_PerfilGen).Fn_GetDatos();
+            fol.Text = "FOlio " +Application.Current.Properties["folio"];// App.v_folio;
+            membre.Text = " Membresia " + Application.Current.Properties["membre"];
             string s_tr = "";
-            s_tr = "count " + Application.Current.Properties.Count ;
+            s_tr = Application.Current.Properties["log"]+ "  count " + Application.Current.Properties.Count ;
             System.Collections.Generic.List<string> keyList = new System.Collections.Generic.List<string>(Application.Current.Properties.Keys);
 
             for(int i=0; i< keyList.Count; i++)
@@ -24,7 +26,6 @@ namespace Trato.Views
                 s_tr += "\n key " + keyList[i];
             }
             log.Text = s_tr;
-
         }
         public async void Fn_Log(object sender, EventArgs _args)
         {

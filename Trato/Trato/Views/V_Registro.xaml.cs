@@ -146,6 +146,15 @@ namespace Trato.Views
         {
             mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex];
         }
+        void Fn_NoNumeros(object sender, TextChangedEventArgs _args)
+        {
+            Entry _entry = (Entry)sender;
+            char _ultimo = _entry.Text[_entry.Text.Length-1];
+            if(_ultimo>47 && _ultimo<58)
+            {
+                _entry.Text = _entry.Text.Remove(_entry.Text.Length - 1); // remove last char
+            }
+        }
         void Fn_Max2(object sender, EventArgs _args)
         { 
             Entry _temp = (Entry)sender;
@@ -209,7 +218,7 @@ namespace Trato.Views
                         //se crea el json
                         string json_reg = JsonConvert.SerializeObject(datosregistro,Formatting.Indented);
                         // lo hacemos visible en la pantall
-                        otroaa.Text = json_reg;
+                        Mensajes_over.Text += json_reg;
                         //damos el formato
                         StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
                         //crea el cliente
@@ -223,7 +232,7 @@ namespace Trato.Views
                             string content = await respuestaReg.Content.ReadAsStringAsync();
                             if(content=="1")
                             {
-                                Mensajes_over.Text = "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
+                                Mensajes_over.Text += "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
                                 MEnu.IsVisible = true;
                             }
                             else if(content=="0")

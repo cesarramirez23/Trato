@@ -12,7 +12,7 @@
                             <Label x:Name="Persona" Text="sadsadasdsa" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" BackgroundColor="Green"></Label>
                             <Switch Toggled="Cambio" HorizontalOptions="EndAndExpand" IsToggled="False"></Switch>
                         </StackLayout>
-                        <Entry  Placeholder="Nombre completo"  Text="nombre de la persona" Keyboard="Default" x:Name="nombre" ></Entry>
+                        <Entry  Placeholder="Nombre completo" Text="" TextChanged="Fn_NoNumeros" Keyboard="Default" x:Name="nombre" ></Entry>
                         <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="rfc" ></Entry>
                         <DatePicker  Format="D" x:Name="fecha" MinimumDate="01/01/1900" ></DatePicker>
                         <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="lugar" ></Entry>
