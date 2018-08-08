@@ -12,10 +12,10 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="Start" Text="1808F-0006"></Entry>
-                    <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="End" Text="0"></Entry>
+                    <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="End" Text="2"></Entry>
                 </StackLayout>
                 <Label Text="Ingresa tu contraseña"></Label>
-                <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="ec216f"></Entry>
+                <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="Cesar123"></Entry>
                 <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
 
                 <Label Text="¿No tienes cuenta?" FontAttributes="Bold">

@@ -56,7 +56,6 @@ namespace Trato.Views
             v_primero = false;
             if (_folio)
             {
-                NavigationPage.SetHasNavigationBar(this, false);
                 Browser.Source = "";
                 stackTodo.IsVisible = false;
                 StackFolio.IsVisible = true;
@@ -64,7 +63,6 @@ namespace Trato.Views
             }
             else
             {
-                NavigationPage.SetHasNavigationBar(this, false);
             Browser.Source = v_dirWeb;
                 stackTodo.IsVisible = true;
                 StackFolio.IsVisible = false;

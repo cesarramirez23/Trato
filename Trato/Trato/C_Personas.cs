@@ -15,39 +15,39 @@ namespace Trato.Personas
     public class C_PerfilGen
     {
         [JsonProperty("nombre")]
-        string v_Nombre { get; set; }
+        public string v_Nombre { get; set; }
         [JsonProperty("rfc")]
-        string v_Rfc { get; set; }
+        public string v_Rfc { get; set; }
         [JsonProperty("fechanac")]
-        string v_FecNaci { get; set; }
+        public string v_FecNaci { get; set; }
         [JsonProperty("lugnac")]
-        string v_LugNac { get; set; }
+        public string v_LugNac { get; set; }
         [JsonProperty("ocu")]
-        string v_Ocup { get; set; }
+        public string v_Ocup { get; set; }
         [JsonProperty("idsexo")]
-        int v_idsexo { get; set; }
+        public int v_idsexo { get; set; }
         [JsonProperty("tel")]
-        string v_Tel { get; set; }
+        public string v_Tel { get; set; }
         [JsonProperty("cel")]
-        string v_Cel { get; set; }
+        public string v_Cel { get; set; }
         [JsonProperty("calle")]
-        string v_Calle { get; set; }
+        public string v_Calle { get; set; }
         [JsonProperty("numext")]
-        string v_NumExt { get; set; }
+        public string v_NumExt { get; set; }
         [JsonProperty("numint")]
-        string v_NumInt { get; set; }
+        public string v_NumInt { get; set; }
         [JsonProperty("colonia")]
-        string v_Colonia { get; set; }
+        public string v_Colonia { get; set; }
         [JsonProperty("ciudad")]
-        string v_Ciudad { get; set; }
+        public string v_Ciudad { get; set; }
         [JsonProperty("municipio")]
-        string v_municipio { get; set; }
+        public string v_municipio { get; set; }
         [JsonProperty("estado")]
-        string v_Estado { get; set; }
+        public string v_Estado { get; set; }
         [JsonProperty("cp")]
-        string v_Cp { get; set; }
+        public string v_Cp { get; set; }
         [JsonProperty("correo")]
-        string v_Correo { get; set; }
+        public string v_Correo { get; set; }
 
 
 
