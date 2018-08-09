@@ -106,9 +106,11 @@ namespace Trato.Views
                     App.v_perfil = _nuePer;
 
                     Application.Current.Properties["log"] = App.v_log;
-                    Application.Current.Properties["perfGen"] =App.v_perfil;
+                  //  Application.Current.Properties["perfGen"] =App.v_perfil;
                     Application.Current.Properties["membre"] = App.v_membresia;
                     Application.Current.Properties["folio"] = App.v_folio;
+
+                   await Application.Current.SavePropertiesAsync();
 
                     //await DisplayAlert("algo", "mensaje", "ac");
                     //cargar la nueva pagina de perfil

@@ -14,7 +14,7 @@ namespace Trato.Views
             InitializeComponent();
 
             App.Fn_CargarDatos();
-            perfil.Text = "Perfil " + (Application.Current.Properties["perfGen"] as Personas.C_PerfilGen).Fn_GetDatos();
+            perfil.Text = "Perfil ";// + (Application.Current.Properties["perfGen"] as Personas.C_PerfilGen).Fn_GetDatos();
             fol.Text = "FOlio " +Application.Current.Properties["folio"];// App.v_folio;
             membre.Text = " Membresia " + Application.Current.Properties["membre"];
             string s_tr = "";
