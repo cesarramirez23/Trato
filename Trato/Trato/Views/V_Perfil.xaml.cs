@@ -31,7 +31,16 @@ namespace Trato.Views
         {
             App.Fn_CargarDatos();
             Fn_NullEntry( G_Nombre, App.v_perfil.v_Nombre);
-            Fn_NullEntry(G_rfc,App.v_perfil.v_Rfc);
+            // si no es el titular no se muestra el rfc
+            if ( int.Parse(App.v_folio)>0 )
+            {
+                G_rfc.Text = "";
+                G_rfc.IsVisible = false;
+            }
+            else
+            {
+                Fn_NullEntry(G_rfc,App.v_perfil.v_Rfc);
+            }
             if (string.IsNullOrEmpty(App.v_perfil.v_FecNaci))
             {
                 G_fecha.Date = DateTime.Now;
@@ -81,25 +90,14 @@ namespace Trato.Views
                 _entry.Text = _textos;
             }
         }
-
-        public async void Fn_Guardar(object sender, EventArgs _args)
+        public async void Fn_GuardarGen(object sender, EventArgs _args)
         {
             Button _buton = (Button)sender;
             _buton.IsEnabled = false;
-
-            //            string json = @"{
-            //  CPU: 'Intel',
-            //  Drives: [
-            //    'DVD read/writer',
-            //    '500 gigabyte hard drive'
-            //  ]
-            //}";
-
+            //se crea el json con la clase mas lel folio y membresia
             string json = @"{";
-
             json += "idmembre:'" + App.v_membresia+ "',\n";
             json += "idfolio:'" + App.v_folio + "',\n";
-
             json += "nombre:'" + App.Fn_Vacio(G_Nombre.Text) + "',\n";
             json += "rfc:'" + App.Fn_Vacio(G_rfc.Text) + "',\n";
             json += "fechanac:'" + Fn_GetFecha() + "',\n";
@@ -118,38 +116,15 @@ namespace Trato.Views
             json += "cp:'" + App.Fn_Vacio(G_cp.Text) + "',\n";
             json += "correo:'" + App.Fn_Vacio(G_Correo.Text) + "',\n";
             json += "}";
-
-
-
-
-            //C_PerfilGen _perfil = new C_PerfilGen();
-            //_perfil = new C_PerfilGen(App.Fn_Vacio( G_Nombre.Text), App.Fn_Vacio(G_rfc.Text), 
-            //G_fecha.Date, App.Fn_Vacio(G_lugar.Text), 
-            //App.Fn_Vacio(G_Ocu.Text),G_sexoPick.SelectedIndex,  App.Fn_Vacio(G_Tel.Text),
-            //App.Fn_Vacio(G_Cel.Text), App.Fn_Vacio(G_dom.Text), App.Fn_Vacio(G_ext.Text),
-            //App.Fn_Vacio(G_inte.Text), App.Fn_Vacio(G_col.Text), App.Fn_Vacio(G_ciu.Text), 
-            //App.Fn_Vacio(G_mun.Text), App.Fn_Vacio(G_est.Text),
-            //App.Fn_Vacio(G_cp.Text), App.Fn_Vacio(G_Correo.Text));
-            //string _jsonPerf = JsonConvert.SerializeObject(_perfil);
-            //StringContent _content = new StringContent(_jsonPerf, Encoding.UTF8, "application/json");
-
             JObject jsonPer = JObject.Parse(json);
-
-            await DisplayAlert("Json ", jsonPer.ToString(), "Aceptar");
-
             StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
             HttpClient _client = new HttpClient();
             string _url = "https://useller.com.mx/trato_especial/update_perfil.php";
             HttpResponseMessage _respuestphp=  await _client.PostAsync(_url, _content);
             string _result = _respuestphp.Content.ReadAsStringAsync().Result;
             await DisplayAlert(_respuestphp.StatusCode.ToString(),  _result , "Aceptar");
-
-
-
-
             _buton.IsEnabled = true;
         }
-
         public string Fn_GetFecha()
         {
             string v_FecNaci = "";
@@ -174,7 +149,6 @@ namespace Trato.Views
             v_FecNaci = G_fecha.Date.Year.ToString() + "-" + _month + "-" + _day;
             return v_FecNaci;
         }
-
         public void Fn_PickSexo(object sender, EventArgs _args)
         {
             if(M_sexoPick.SelectedIndex==0)
@@ -192,7 +166,6 @@ namespace Trato.Views
 
             }
         }
-
         public void Fn_SwiMedica(object sender, ToggledEventArgs _args)
         {
             M_Medicamentos.IsVisible = _args.Value;

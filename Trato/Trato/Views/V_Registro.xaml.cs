@@ -124,12 +124,12 @@ namespace Trato.Views
             }
         }
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="_args"></param>
         public void Fn_RecargaWeb(object sender, EventArgs _args)
         {
+            Browser.Source = "";            
             Browser.Source = v_dirWeb;
         }
         public void Fn_IrMenu(object sender, EventArgs _Args)
@@ -181,6 +181,10 @@ namespace Trato.Views
             {
                 if(Fn_Condiciones())
                 {
+
+                    NavigationPage.SetHasNavigationBar(this, false);
+                    RegPrin.IsEnabled = false;
+
                     StackMen.IsVisible = true;
                     Mensajes_over.Text = "Procesando Informacion";
 
@@ -208,6 +212,8 @@ namespace Trato.Views
                     {
                         StackMen.IsVisible = false;
                         await DisplayAlert("Error", "Error en 1 o mas campos de la tarjeta", "aceptar");
+                        NavigationPage.SetHasNavigationBar(this, true);
+                        RegPrin.IsEnabled = true;
                     }
                     else
                     {
@@ -225,34 +231,53 @@ namespace Trato.Views
                         HttpClient v_cliente = new HttpClient();
                         //url
                         var url = "https://useller.com.mx/trato_especial/tarjeta_alta.php";
-                        HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                       // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
-                        if(respuestaReg.StatusCode== System.Net.HttpStatusCode.OK)
+
+                        try
                         {
-                            string content = await respuestaReg.Content.ReadAsStringAsync();
-                            if(content=="1")
+                            HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
+                            // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
+                            if (respuestaReg.StatusCode== System.Net.HttpStatusCode.OK)
                             {
-                                Mensajes_over.Text += "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
-                                MEnu.IsVisible = true;
+                                string content = await respuestaReg.Content.ReadAsStringAsync();
+                                if(content=="1")
+                                {
+                                    Mensajes_over.Text += "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
+                                    MEnu.IsVisible = true;
+                                }
+                                else if(content=="0")
+                                {
+                                    StackMen.IsVisible = false;
+                                    await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
+                                    NavigationPage.SetHasNavigationBar(this, true);
+                                    RegPrin.IsEnabled = true;
+                                }
                             }
-                            else if(content=="0")
+                            else
                             {
-                                StackMen.IsVisible = false;
-                                await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
+                                string content = await respuestaReg.Content.ReadAsStringAsync();
+                                Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content ;
                             }
                         }
-                        else
+                        catch(HttpRequestException exception)
                         {
-                            string content = await respuestaReg.Content.ReadAsStringAsync();
-                            Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content ;
+                            Mensajes_over.Text = exception.Message;
+                            ReintenRegPri.IsVisible = true;
+                            NavigationPage.SetHasNavigationBar(this, true);
+                            RegPrin.IsEnabled = true;
                         }
                     }//token vacio
                 }//ifcondiciones
             }//else tipo selectedindex
         }
-
+        public void Fn_OcultarPrin(object sender, EventArgs _args)
+        {
+            StackMen.IsVisible = false;
+            ReintenRegPri.IsVisible = false;
+            Mensajes_over.Text = "";
+        }
         public void Fn_ocultar(object sender, EventArgs _args)
         {
+            Mensajes_over.Text = "";
             StackMen.IsVisible = false;
             ReintenSec.IsVisible = false;
         }

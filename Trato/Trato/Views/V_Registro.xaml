@@ -39,7 +39,7 @@
                                 <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" ></Label>
                             </StackLayout>
                             <WebView x:Name="Browser" WidthRequest="1000" HeightRequest="400" Navigated="Cargado" />
-                            <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" ></Button>
+                            <Button BackgroundColor="Beige"  Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" x:Name="RegPrin" ></Button>
                             <Label x:Name="otroaa" Text=" aqui mensajes"></Label>
                     </StackLayout>
                 </ScrollView>
@@ -106,6 +106,7 @@
                 <Label x:Name="Mensajes_over" Text="Cargando Formulario de registro" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Button Text="Reintentar" Style="{StaticResource Buton}" x:Name="Reinten" Clicked="Fn_RecargaWeb" HorizontalOptions="Start" IsVisible="False"></Button>
+                        <Button Text="Reintentar" Style="{StaticResource Buton}" x:Name="ReintenRegPri" Clicked="Fn_OcultarPrin" HorizontalOptions="Start" IsVisible="False"></Button>
                         <Button Text="Ir al menu" Style="{StaticResource Buton}" x:Name="MEnu" Clicked="Fn_IrMenu" HorizontalOptions="Start" IsVisible="False"></Button>
                         <Button Text="Cerrar" Style="{StaticResource Buton}" x:Name="ReintenSec" Clicked="Fn_ocultar" HorizontalOptions="Start" IsVisible="False"></Button>
                     </StackLayout>

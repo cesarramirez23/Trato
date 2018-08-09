@@ -48,9 +48,7 @@ namespace Trato.Personas
         public string v_Cp { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
-
-
-
+        
         public C_PerfilGen()
         {
             v_idsexo = -1;

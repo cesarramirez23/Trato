@@ -29,6 +29,19 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Inicio" Style="{StaticResource LblBoton}"/>
+                            
+                            <Image Source="Medicos" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Medicos"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Red Medica" Style="{StaticResource LblBoton}"/>
+                            <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Servicios de salud" Style="{StaticResource LblBoton}" />
                             <Image Source="Medicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Info"/>

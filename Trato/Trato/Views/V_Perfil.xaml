@@ -59,7 +59,7 @@
                         <Label Text="celular"  Style="{StaticResource lblSty}"></Label>
                         <Entry Text="111111" Style="{StaticResource entry_perfil}" x:Name="G_Cel" Keyboard="Numeric"></Entry>
                     </StackLayout>
-                    <Button Text="Guardar" Style="{StaticResource Buton}" Clicked="Fn_Guardar"></Button>
+                    <Button Text="Guardar" Style="{StaticResource Buton}" Clicked="Fn_GuardarGen"></Button>
                 </StackLayout>
             </ScrollView>
         </ContentPage>

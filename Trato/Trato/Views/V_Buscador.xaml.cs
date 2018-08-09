@@ -85,6 +85,7 @@ namespace Trato.Views
             _ciudades.Add(new Filtro { v_texto = "ciud6", v_color = Color.Blue });
             filCiudad.ItemsSource = _ciudades;
 
+       
             overlay.IsVisible = v_filtro;
             if(_valor)
             {
