@@ -104,11 +104,24 @@ namespace Trato.Views
 
                                 _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                                App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
+
+
+
+
+                                _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+                                _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                                //mandar el json con el post
+                                _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+
+                                _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                                C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
 
                                 Mensajes_over.Text = _respuesta;
-                                //Mensajes_over.Text += "\n" + _nuePer.Fn_GetDatos();
 
-                                App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
+
+                                App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text);
+
 
                                 //cargar la nueva pagina de perfil
                                 string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);

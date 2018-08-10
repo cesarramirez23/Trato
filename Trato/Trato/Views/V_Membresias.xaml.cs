@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class V_Membresias : CarouselPage
+    public partial class V_Membresias :TabbedPage
     {
         public V_Membresias()
         {

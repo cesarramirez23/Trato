@@ -232,4 +232,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\ServiciosMedicos.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HOME_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\INFO_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\M_Empresarial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\M_Familiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\M_Personal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Membresia_icon.png" />
+  </ItemGroup>
 </Project>

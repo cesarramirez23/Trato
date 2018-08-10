@@ -19,6 +19,7 @@ namespace Trato
         /// Perfil General
         /// </summary>
         public static C_PerfilGen v_perfil= new C_PerfilGen();
+        public static C_PerfilMed v_perfMed = new C_PerfilMed();
         public static string v_membresia="";
         public static string v_folio="";
         /// <summary>
@@ -29,7 +30,7 @@ namespace Trato
         {
             InitializeComponent();
             //existe la variable guardada
-            Properties.Clear();
+            //Properties.Clear();
             if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado
@@ -41,6 +42,7 @@ namespace Trato
                     v_membresia = "";
                     v_folio = "";
                     Properties["perfGen"] = "";
+                    Properties["perfMed"] = "";
                     Properties["membre"] = v_membresia;
                     Properties["folio"] = v_folio;
                     Fn_Cargar();
@@ -49,7 +51,10 @@ namespace Trato
                 else if(v_log=="1")
                 {
                     string _jsonGen = Properties["perfGen"] as string;
-                    v_perfil= JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);                  
+                    v_perfil= JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
+                    string _jsonPerfMed = Properties["perfMed"] as string;
+                    v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonPerfMed);
+
                     v_membresia =Properties["folio"] as string;
                     v_folio = Properties["membre"] as string;
                     string _jsonServ = Current.Properties["servicios"] as string;
@@ -64,6 +69,7 @@ namespace Trato
             {
                 v_log = "-1";
                 v_perfil = new C_PerfilGen();
+                v_perfMed = new C_PerfilMed();
                 v_folio = "";
                 v_membresia = "";
                 Fn_CrearKey();
@@ -89,6 +95,10 @@ namespace Trato
             {
                 Properties.Add("perfGen", "");
             }
+            if (!Properties.ContainsKey("perfMed"))
+            {
+                Properties.Add("perfMed", "");
+            }
             if (!Application.Current.Properties.ContainsKey("medicos"))
             {            //aca cargar los datos de los medicos
                 v_medicos = new ObservableCollection<C_Medico>();
@@ -99,10 +109,10 @@ namespace Trato
                 string _jsonMed = JsonConvert.SerializeObject(v_medicos);
                 Application.Current.Properties.Add("medicos", _jsonMed);
             }
-            if (!Properties.ContainsKey("servicios"))
-            {
-                Properties.Add("servicios", "");
-            }
+            //if (!Properties.ContainsKey("servicios"))
+            //{
+            //    Properties.Add("servicios", "");
+            //}
             if (!Application.Current.Properties.ContainsKey("servicios"))
             {
                 string _jsoServ = "";
@@ -112,7 +122,7 @@ namespace Trato
                 _jsoServ = JsonConvert.SerializeObject(v_servicios);
                 Application.Current.Properties.Add("servicios", _jsoServ);
             }
-             Current.SavePropertiesAsync();
+            Current.SavePropertiesAsync();
         }
         /// <summary>
         /// se cargan las listas
@@ -184,6 +194,17 @@ namespace Trato
                 string _jsonGen =Current.Properties["perfGen"] as string;
                 v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
             }
+            if (!Application.Current.Properties.ContainsKey("perfMed"))
+            {
+                v_perfMed = new C_PerfilMed();
+                Application.Current.Properties.Add("perfMed", "");
+            }
+            else
+            {
+                string _jsonMed = Current.Properties["perfMed"] as string;
+                v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonMed);
+            }
+            
 
             if (!Application.Current.Properties.ContainsKey("medicos"))
             {            //aca cargar los datos de los medicos
@@ -217,7 +238,7 @@ namespace Trato
             }
             await Task.Delay(100);
         }
-        public  static async void Fn_GuardarDatos(C_PerfilGen _gen,string _membre, string _folio )
+        public  static async void Fn_GuardarDatos(C_PerfilGen _gen, string _membre, string _folio )
         {
             v_perfil = _gen;
             v_folio = _folio;
@@ -233,6 +254,26 @@ namespace Trato
             Current.Properties["medicos"] = _jsonMed;
 
             await Current.SavePropertiesAsync();
+            Fn_CargarDatos();
+            await Task.Delay(100);
+        }
+        public static async void Fn_GuardarDatos(C_PerfilMed _med, string _membre, string _folio)
+        {
+            v_perfMed = _med;
+            v_folio = _folio;
+            v_membresia = _membre;
+            string _jsonPerMed = JsonConvert.SerializeObject(v_perfMed);
+            Current.Properties["log"] = v_log;
+            Current.Properties["perfMed"] = _jsonPerMed;
+            Current.Properties["membre"] = v_membresia;
+            Current.Properties["folio"] = v_folio;
+            string _jsoServ = JsonConvert.SerializeObject(v_servicios);
+            Current.Properties["servicios"] = _jsoServ;
+            string _jsonMed = JsonConvert.SerializeObject(v_medicos);
+            Current.Properties["medicos"] = _jsonMed;
+
+            await Current.SavePropertiesAsync();
+            Fn_CargarDatos();
             await Task.Delay(100);
         }
         public static async void Fn_CerrarSesion()
@@ -262,7 +303,7 @@ namespace Trato
         }
         protected override void OnSleep()
         {
-            Fn_GuardarDatos(v_perfil,v_membresia,v_folio);
+            //Fn_GuardarDatos(v_perfil,v_membresia,v_folio);
             // Handle when your app sleeps       
         }
         protected override void OnResume()

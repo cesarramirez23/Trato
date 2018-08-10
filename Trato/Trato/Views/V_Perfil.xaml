@@ -66,6 +66,7 @@
         <ContentPage Title="Info Medica">
             <ScrollView>
                 <StackLayout x:Name="StackMedi" Margin="20,0" >
+                    <Label x:Name="M_Mensajes"></Label>
                     <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
                     <Entry Text="sangre" x:Name="M_Sangre" Style="{StaticResource entry_perfil}"></Entry>
 
@@ -80,7 +81,7 @@
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Alergias" Style="{StaticResource lblSty}"></Label>
-                        <Switch Toggled="Fn_SwiAlergias" Style="{StaticResource entry_perfil}"></Switch>
+                        <Switch x:Name="Tog_Aler" Toggled="Fn_SwiAlergias" Style="{StaticResource entry_perfil}"></Switch>
                     </StackLayout>
                     <Editor Text=" lista de alergias" IsVisible="False" x:Name="M_Alergias" Style="{StaticResource Editor}" ></Editor>
 
@@ -89,7 +90,7 @@
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Enfermedades constantes?,¿Qúe esfermedad y que medicamentos toman?" Style="{StaticResource lblSty}"></Label>
-                        <Switch Toggled="Fn_SwiEnfer" HorizontalOptions="CenterAndExpand"></Switch>
+                        <Switch x:Name="Tog_Enfer" Toggled="Fn_SwiEnfer" HorizontalOptions="CenterAndExpand"></Switch>
                     </StackLayout>
                     <Editor Text="Lista de enfermedades" IsVisible="False" x:Name="M_Enferme" Style="{StaticResource Editor}"></Editor>
 
@@ -98,7 +99,7 @@
                     </StackLayout>
                     <Editor Text="Medicamentos actuales" x:Name="M_Medicamentos" Style="{StaticResource Editor}"></Editor>
                     
-                    <Button Text="Guardar" Style="{StaticResource Buton}"></Button>
+                    <Button Text="Guardar" Style="{StaticResource Buton}" Clicked="Fn_GuardarMed"></Button>
                 </StackLayout>
             </ScrollView>
         </ContentPage>

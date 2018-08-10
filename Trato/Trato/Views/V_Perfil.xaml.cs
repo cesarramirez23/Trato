@@ -26,6 +26,7 @@ namespace Trato.Views
 		{
 			InitializeComponent ();
             CargarGen();
+            CargarMed();
         }
         public async void CargarGen()
         {
@@ -52,7 +53,7 @@ namespace Trato.Views
                 G_fecha.Date = new DateTime(int.Parse(fecha[0]), int.Parse(fecha[1]), int.Parse(fecha[2]));
                 G_fecha.IsEnabled = false;
             }
-            if ((App.v_perfil.v_idsexo<=0)&& (App.v_perfil.v_idsexo>=1) )
+            if ((App.v_perfil.v_idsexo<0) || (App.v_perfil.v_idsexo>1) )
             {
                 G_sexoPick.IsEnabled = true;
             }
@@ -122,9 +123,213 @@ namespace Trato.Views
             string _url = "https://useller.com.mx/trato_especial/update_perfil.php";
             HttpResponseMessage _respuestphp=  await _client.PostAsync(_url, _content);
             string _result = _respuestphp.Content.ReadAsStringAsync().Result;
-            await DisplayAlert(_respuestphp.StatusCode.ToString(),  _result , "Aceptar");
+
+            if(_result=="1")
+            {
+                await DisplayAlert("Actualizado",  _result , "Aceptar");
+                //volver a cargar la informacion
+                Perf _perf = new Perf();
+                _perf.v_fol = App.v_folio;
+                _perf.v_membre = App.v_membresia;
+                //crear el json
+                string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+
+                //HACIENDO EL QUERY para la info del GENERAL
+                _client = new HttpClient();
+                string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+                _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                //mandar el json con el post
+                _respuestphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
+                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+
+                App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
+
+
+
+
+
+
+                //carga la info del PERFIL MEDICO
+                _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+                _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                //mandar el json con el post
+                _respuestphp = await _client.PostAsync(_DirEnviar, _content);
+
+                _respuesta = await _respuestphp.Content.ReadAsStringAsync();
+                C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+
+                App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
+
+
+
+                CargarGen();
+                CargarMed();
+
+            }
+            else if(_result=="0")
+            {
+                await DisplayAlert("Error en actualizar",  _result+"\n"+ jsonPer.ToString(), "Aceptar");                
+            }
+            else
+            {
+                await DisplayAlert("NO 0 NI 1",  _result + "\n" + jsonPer.ToString(), "Aceptar");                
+                
+            }
+
+
+            //
+            
             _buton.IsEnabled = true;
         }
+        public async void Fn_GuardarMed(object sender, EventArgs _Args)
+        {
+            Button _buton = (Button)sender;
+            _buton.IsEnabled = false;
+            //se crea el json con la clase mas lel folio y membresia
+            string json = @"{";
+            json += "idmembre:'" + App.v_membresia + "',\n";
+            json += "idfolio:'" + App.v_folio + "',\n";
+            json += "sangre:'" + App.Fn_Vacio(M_Sangre.Text) + "',\n";
+            json += "idsexo:'" +M_sexoPick.SelectedIndex + "',\n";
+
+            if(M_sexoPick.SelectedIndex==1)
+            {
+                json += "infoMuj:'" +App.Fn_Vacio (M_sexo.Text)+ "',\n";
+            }
+            else
+            {
+                json += "infoMuj:'" +""+ "',\n";
+            }
+
+            if(Tog_Aler.IsToggled)
+            {
+                json += "alergias:'" + App.Fn_Vacio(M_Alergias.Text) + "',\n";
+
+            }
+            else
+            {
+                json += "alergias:'" + ""+ "',\n";
+            }
+
+            json += "operaciones:'" + App.Fn_Vacio(M_Operaciones.Text) + "',\n";
+
+
+            if (Tog_Enfer.IsToggled)
+            {
+                json += "enfermedades:'" + App.Fn_Vacio(M_Enferme.Text) + "',\n";
+
+            }
+            else
+            {
+                json += "enfermedades:'" + "" + "',\n";
+            }
+
+            json += "medicamentos:'" + App.Fn_Vacio(M_Medicamentos.Text) + "',\n";
+            json += "}";
+            JObject jsonPer = JObject.Parse(json);
+            StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
+            HttpClient _client = new HttpClient();
+            string _url = "https://useller.com.mx/trato_especial/update_perfil_medico.php";
+            HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
+            string _result = _respuestphp.Content.ReadAsStringAsync().Result;
+
+
+
+            if(_result=="1")
+            {
+                await DisplayAlert("Actualizado", _result, "Aceptar");
+                //volver a cargar la informacion
+
+                Perf _perf = new Perf();
+                _perf.v_fol = App.v_folio;
+                _perf.v_membre = App.v_membresia;
+                //crear el json
+                string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+
+                //HACIENDO EL QUERY para la info del GENERAL
+                 _client = new HttpClient();
+                string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                //mandar el json con el post
+                 _respuestphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
+                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+
+                App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
+
+
+
+
+
+
+                //carga la info del PERFIL MEDICO
+                _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+                _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                //mandar el json con el post
+                _respuestphp = await _client.PostAsync(_DirEnviar, _content);
+
+                _respuesta = await _respuestphp.Content.ReadAsStringAsync();
+                C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+
+                App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
+
+                CargarGen();
+                CargarMed();
+            }
+            else if (_result == "0")
+            {
+                await DisplayAlert("error 0", _result+"\n"+ jsonPer.ToString(), "Aceptar");
+            }
+            else
+            {
+
+                await DisplayAlert("ERROR ", _result + "\n" + jsonPer.ToString(), "Aceptar");
+            }
+
+            _buton.IsEnabled = true;
+        }
+
+        public async void Fn_CargaQuery()
+        {
+            Perf _perf = new Perf();
+            _perf.v_fol = App.v_folio;
+            _perf.v_membre = App.v_membresia;
+            //crear el json
+            string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+
+            //HACIENDO EL QUERY para la info del GENERAL
+            HttpClient _client = new HttpClient();
+            string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+           StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+            //mandar el json con el post
+            HttpResponseMessage _respuestphp = await _client.PostAsync(_DirEnviar, _content);
+            string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
+            C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+            M_Mensajes.Text += " general"+_respuesta;
+
+            App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
+
+
+
+
+
+
+            //carga la info del PERFIL MEDICO
+            _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+            _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+            //mandar el json con el post
+           HttpResponseMessage v_respuestphp = await _client.PostAsync(_DirEnviar, _content);
+
+            _respuesta = await v_respuestphp.Content.ReadAsStringAsync();
+            C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+            M_Mensajes.Text +="Medico json" +_respuesta;
+
+            App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
+            M_Mensajes.Text +="Medico guardado " +App.v_perfMed.Fn_Info();
+            await Task.Delay(100);
+        }
+
         public string Fn_GetFecha()
         {
             string v_FecNaci = "";
@@ -184,5 +389,96 @@ namespace Trato.Views
             if (!_args.Value)
                 M_Enferme.Text = "";
         }
+        public void Fn_NullEntry(Editor _editor, string _textos)
+        {
+            if (string.IsNullOrEmpty(_textos))
+            {
+                _editor.Text = "";
+            }
+            else
+            {
+                _editor.Text = _textos;
+            }
+        }
+        public async void CargarMed()
+        {
+            App.Fn_CargarDatos();
+            M_Mensajes.Text += "Cargandosssssssssss" + Application.Current.Properties["perfMed"] as string;
+            Fn_NullEntry(M_Sangre, App.v_perfMed.v_sangre);
+            if ((App.v_perfMed.v_sexo < 0) || (App.v_perfMed.v_sexo > 1))
+            {
+                M_sexoPick.IsEnabled = true;
+                if(App.v_perfMed.v_sexo==1)
+                {
+                    M_sexo.IsVisible = true;
+                    M_sexolbl.IsVisible = true;
+                    M_sexolbl.Text = "¿estas embarazada?,\n ¿tienes hijos? ¿cuantos?";
+                    Fn_NullEntry(M_sexo, App.v_perfMed.v_infoMujer);
+                }
+                else
+                {
+                    M_sexo.IsVisible = false;
+                    M_sexolbl.IsVisible = false;
+                    M_sexolbl.Text = "";
+                    Fn_NullEntry(M_sexo, App.v_perfMed.v_infoMujer);
+                }
+            }
+            else
+            {
+                M_sexoPick.SelectedIndex = App.v_perfMed.v_sexo;
+                M_sexoPick.Title = M_sexoPick.SelectedIndex.ToString();
+                M_sexoPick.IsEnabled = false;
+                if (App.v_perfMed.v_sexo == 1)
+                {
+                    M_sexo.IsVisible = true;
+                    M_sexolbl.IsVisible = true;
+                    M_sexolbl.Text = "¿estas embarazada?,\n ¿tienes hijos? ¿cuantos?";
+                    Fn_NullEntry(M_sexo, App.v_perfMed.v_infoMujer);
+                }
+                else
+                {
+                    M_sexo.IsVisible = false;
+                    M_sexolbl.IsVisible = false;
+                    M_sexolbl.Text = "";
+                }
+            }
+
+
+            if(string.IsNullOrEmpty( App.v_perfMed.v_alergias))
+            {
+                Tog_Aler.IsToggled = false;
+                M_Alergias.IsVisible = false;
+                Fn_NullEntry(M_Alergias, App.v_perfMed.v_alergias);
+            }
+            else
+            {
+                M_Alergias.IsVisible = true;
+                Tog_Aler.IsToggled = true;
+                Fn_NullEntry(M_Alergias, App.v_perfMed.v_alergias);
+            }
+
+            Fn_NullEntry(M_Operaciones, App.v_perfMed.v_operaciones);
+
+
+            if (string.IsNullOrEmpty(App.v_perfMed.v_enfer))
+            {
+                Tog_Enfer.IsToggled = false;
+                M_Enferme.IsVisible = false;
+                Fn_NullEntry(M_Enferme, App.v_perfMed.v_enfer);
+            }
+            else
+            {
+                M_Enferme.IsVisible = true;
+                Tog_Enfer.IsToggled = true;
+                Fn_NullEntry(M_Enferme, App.v_perfMed.v_enfer);
+            }
+
+            Fn_NullEntry(M_Medicamentos, App.v_perfMed.v_medica);
+
+            await Task.Delay(100);
+        }
+
+
+
     }
 }

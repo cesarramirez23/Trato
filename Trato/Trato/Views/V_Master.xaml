@@ -23,12 +23,14 @@
                 <ScrollView>
                     <StackLayout>
                         <StackLayout x:Name="StackPrin" IsVisible="True">
-                            <Image Source="Medicos" Style="{StaticResource imgBoton}">
+                            <Image Source="HOME_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Inicio"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Inicio" Style="{StaticResource LblBoton}"/>
+                            
+                            
                             
                             <Image Source="Medicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
@@ -36,24 +38,32 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Red Medica" Style="{StaticResource LblBoton}"/>
+                            
+                            
                             <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Servicios de salud" Style="{StaticResource LblBoton}" />
-                            <Image Source="Medicos" Style="{StaticResource imgBoton}">
+                            
+                            
+                            <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Info"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Informacion" Style="{StaticResource LblBoton}"/>
-                            <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
+                            
+                            
+                            <Image Source="Membresia_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Membre"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Membresias" Style="{StaticResource LblBoton}" />
+                            
+                            
                             <Image Source="Perfil" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Log"/>
@@ -61,37 +71,52 @@
                             </Image>
                             <Label Text="Iniciar Sesión" Style="{StaticResource LblBoton}" />
                         </StackLayout>
+                        
+                        
+                        
+                        
+                        
                         <StackLayout x:Name="StackLog" IsVisible="True">
-                            <Image Source="Medicos" Style="{StaticResource imgBoton}">
+                            <Image Source="HOME_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Inicio"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Inicio" Style="{StaticResource LblBoton}"/>
+                            
+                            
                             <Image Source="Medicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Medicos"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Red Medica" Style="{StaticResource LblBoton}"/>
+                            
+                            
                             <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Servicios de salud" Style="{StaticResource LblBoton}" />
+                            
+                            
                             <Image Source="Perfil" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Perfil"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Perfil" Style="{StaticResource LblBoton}"/>
+                            
+                            
                             <Image Source="Opciones" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Opciones"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text=" Opciones" Style="{StaticResource LblBoton}"/>
+                            
+                            
                             <Image Source="LogOut" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Salir"/>

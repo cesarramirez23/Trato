@@ -8,6 +8,10 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+using System.Net.Http;
+
 
 
 namespace Trato.Views
@@ -38,36 +42,79 @@ JObject o = JObject.Parse(json);
         {
             if (string.IsNullOrEmpty(P_Nueva.Text) || string.IsNullOrWhiteSpace(P_Nueva.Text))
             {
-                P_but.IsEnabled = false;
                 P_mensaje.IsVisible = true;
                 P_mensaje.Text = "Este campo no puede estar vacio o con espacios";
             }
             else
             {
-                if (P_Nueva.Text != P_Nueva2.Text)
-                {
-                    P_but.IsEnabled = false;
-                    P_mensaje.Text = "Contraseña no coincide";
-                }
-                else
-                {
-                    P_but.IsEnabled = true;
-                    P_mensaje.Text = "Contraseña correcta";
-
-                }
+                P_mensaje.IsVisible = false;
             }
         }
         public async void Fn_CambioPass(object sender, EventArgs _args)
         {
-            if (Fn_validar(P_actual.Text, P_Nueva.Text))
+            Button _buton = (Button)sender;
+            _buton.IsEnabled = false;
+            if (string.IsNullOrEmpty(P_Nueva.Text) || string.IsNullOrWhiteSpace(P_Nueva.Text))
             {
-                await DisplayAlert("bien", "bien", "bien");
+                P_actual.BackgroundColor = Color.Red;
             }
             else
             {
-                await DisplayAlert("Error", v_validar, "Aceptar");
+                P_actual.BackgroundColor = Color.Transparent;
 
+                if (string.IsNullOrEmpty(P_Nueva.Text) || string.IsNullOrWhiteSpace(P_Nueva.Text))
+                {
+                    P_mensaje.IsVisible = true;
+                    P_mensaje.Text = "Este campo no puede estar vacio o con espacios";
+                }
+                else
+                {
+                    P_mensaje.IsVisible = false;
+
+                    string prime = App.v_membresia.Split('-')[0];
+                    string _membre = "";
+                    for (int i = 0; i < prime.Length - 1; i++)
+                    {
+                        _membre += prime[i];
+                    }
+                    string letra = prime[prime.Length - 1].ToString();
+                    string _conse = App.v_membresia.Split('-')[1];
+
+
+
+                    string json = @"{";
+                    json += "membre:'" + _membre + "',\n";
+                    json += "folio:'" + App.v_folio + "',\n";
+                    json += "letra:'" + letra + "',\n";
+                    json += "consecutivo:'" + _conse + "',\n";
+                    json += "password:'" + P_actual.Text + "',\n";
+                    json += "newpassword:'" +P_Nueva.Text+ "',\n";
+                    json += "}";
+
+
+                    JObject jsonPer = JObject.Parse(json);
+                    StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
+                    HttpClient _client = new HttpClient();
+                    string _url = "https://useller.com.mx/trato_especial/password_change.php";
+                    HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
+                    string _result = _respuestphp.Content.ReadAsStringAsync().Result;
+                    await DisplayAlert("respuesta", _result + "\n" + jsonPer.ToString(), "Aceptar");
+
+                }
             }
+            _buton.IsEnabled = true;
+
+
+
+            //if (Fn_validar(P_actual.Text, P_Nueva.Text))
+            //{
+            //    await DisplayAlert("bien", "bien", "bien");
+            //}
+            //else
+            //{
+            //    await DisplayAlert("Error", v_validar, "Aceptar");
+
+            //}
         }
 
         public bool Fn_validar(string _actual, string _nueva)

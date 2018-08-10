@@ -108,22 +108,20 @@ namespace Trato.Personas
     public class C_PerfilMed
     {
         [JsonProperty("sangre")]
-        string v_sangre { get; set; }
+        public string v_sangre { get; set; }
         [JsonProperty("idsexo")]
-        int v_sexo { get; set; }
+        public int v_sexo { get; set; }
         [JsonProperty("infoMuj")]
-        string v_infoMujer { get; set; }
+        public string v_infoMujer { get; set; }
         [JsonProperty("alergias")]
-        string v_alergias { get; set; }
+        public string v_alergias { get; set; }
         [JsonProperty("operaciones")]
-        string v_operaciones { get; set; }
+        public string v_operaciones { get; set; }
         [JsonProperty("enfermedades")]
-        string v_enfer { get; set; }
+        public string v_enfer { get; set; }
         [JsonProperty("medicamentos")]
-        string v_medica { get; set; }
-
-
-
+        public string v_medica { get; set; }
+       
         public C_PerfilMed()
         {
             v_sexo = -1;
@@ -136,6 +134,11 @@ namespace Trato.Personas
             v_operaciones = _opera;
             v_enfer = _enfer;
             v_medica = _medicam;
+        }
+        public string Fn_Info()
+        {
+            string ret = v_sangre + "  ---  " + v_sexo + "  ---  " + v_infoMujer + "---" + v_alergias + "----" + v_operaciones + "---" + v_enfer + "---" + v_medica;
+            return ret;
         }
     }
 

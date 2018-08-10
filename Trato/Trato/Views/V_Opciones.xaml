@@ -11,9 +11,7 @@
                     <Label Text="Ingresa la nueva contraseña"></Label>
                     <Entry IsPassword="True"  x:Name="P_Nueva" TextChanged="FN_passCambio"></Entry>
                     <Label Text="" x:Name="P_mensaje"></Label>
-                    <Label Text="Confirma contraseña"></Label>
-                    <Entry IsPassword="True" x:Name="P_Nueva2" TextChanged="FN_passCambio"></Entry>
-                    <Button Text="Guardar" x:Name="P_but" IsEnabled="False" Clicked="Fn_CambioPass" Style="{StaticResource Buton}"></Button>
+                    <Button Text="Guardar" x:Name="P_but"  Clicked="Fn_CambioPass" Style="{StaticResource Buton}"></Button>
                 </StackLayout>
             </ScrollView>
         </ContentPage>
