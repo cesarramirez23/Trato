@@ -7,7 +7,8 @@ using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
 using Newtonsoft.Json;
 
-
+///https://blog.wilsonvargas.com/generando-y-leyendo-codigos-qr-con-xamarin-form/
+//////https://www.youtube.com/watch?v=y7rZbwOqrUk
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace Trato
 {
@@ -306,11 +307,7 @@ namespace Trato
         }
         protected override void OnSleep()
         {
-            if(v_log=="1")
-            {
-                Fn_GuardarDatos(v_perfil,v_membresia,v_folio);
-                Fn_GuardarDatos(v_perfMed, v_membresia, v_folio);
-            }
+           
             // Handle when your app sleeps       
         }
         protected override void OnResume()
