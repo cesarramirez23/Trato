@@ -21,85 +21,144 @@
         <ContentPage Title="Info General" >
             <ScrollView>
                 <StackLayout x:Name="StackGeneral" Margin="20,0">
-                    
-                    <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
-                    <Entry Text="Nombre registrado no editar" x:Name="G_Nombre" IsEnabled="False"></Entry>
-                    <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="G_rfc" ></Entry>
-                    <DatePicker  Format="D" x:Name="G_fecha" MinimumDate="01/01/1900" ></DatePicker>
-                    <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="G_lugar" ></Entry>
 
-                    <Picker x:Name="G_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
-                        <Picker.Items>
-                            <x:String>Masculino</x:String>
-                            <x:String>Femenino</x:String>
-                        </Picker.Items>
-                    </Picker>
-
-                    <Label Text="Ocupacion" Style="{StaticResource lblSty}"></Label>
-                    <Entry Placeholder="Ocupacion" Style="{StaticResource entry_perfil}" x:Name="G_Ocu"></Entry>
-
-                    <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle"  Keyboard="Default" x:Name="G_dom" ></Entry>
-                    <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="G_ext" ></Entry>
-                    <Entry  Placeholder="Numero Interior" Text="34"  Keyboard="Numeric" x:Name="G_inte" ></Entry>
-                    <Entry  Placeholder="Colonia" Text="colonia del usuario"  Keyboard="Default" x:Name="G_col" ></Entry>
-                    <Entry  Placeholder="Ciudad" Text="ciudad donde esta"  Keyboard="Default" x:Name="G_ciu" ></Entry>
-                    <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="G_mun" ></Entry>
-                    <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="G_est" ></Entry>
-                    <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="G_cp" ></Entry>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="Nombre registrado no editar" Style="{StaticResource entry_perfil}" x:Name="G_Nombre" IsEnabled="False"></Entry>
+                    </StackLayout>
                     
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="RFC" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="RFC" Text="rfc1248ys36" Style="{StaticResource entry_perfil}" Keyboard="Default" x:Name="G_rfc" IsEnabled="False" ></Entry>
+                    </StackLayout>
+                    
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Fecha de Nacimiento" Style="{StaticResource lblSty}"></Label>
+                        <DatePicker  Format="D" x:Name="G_fecha" MinimumDate="01/01/1900" ></DatePicker>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Lugar de Nacimiento" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" IsEnabled="False"  Style="{StaticResource entry_perfil}" Keyboard="Default" x:Name="G_lugar" ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Sexo" Style="{StaticResource lblSty}"></Label>
+                        <Picker x:Name="G_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
+                            <Picker.Items>
+                                <x:String>Masculino</x:String>
+                                <x:String>Femenino</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                    
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Ocupacion" Style="{StaticResource lblSty}"></Label>
+                        <Entry Placeholder="Ocupacion" Style="{StaticResource entry_perfil}" IsEnabled="False"  x:Name="G_Ocu"></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Nombre de la calle" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Default" x:Name="G_dom" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Numero Exterior" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Numero Exterior" Text="23452" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Numeric" x:Name="G_ext" ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Numero interior" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Numero Interior" Text="34" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Numeric" x:Name="G_inte" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Colonia" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Colonia" Text="colonia del usuario" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Default" x:Name="G_col" ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Ciudad" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Ciudad" Text="ciudad donde esta" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Default" x:Name="G_ciu" ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Municipio" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Municipio" Text="municipio de donde esta" IsEnabled="False"  Style="{StaticResource entry_perfil}"  Keyboard="Default" x:Name="G_mun" ></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Estado" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Estado" Text="estado del usuario" IsEnabled="False"  Style="{StaticResource entry_perfil}"  Keyboard="Default" x:Name="G_est" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Codigo Postal" Style="{StaticResource lblSty}"></Label>
+                        <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" IsEnabled="False"  x:Name="G_cp" Style="{StaticResource entry_perfil}"></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Correo Electronico"  Style="{StaticResource lblSty}"></Label>
-                        <Entry Text="Correo electronico" x:Name="G_Correo" Style="{StaticResource entry_perfil}"></Entry>
+                        <Entry Text="Correo electronico" x:Name="G_Correo" IsEnabled="False"  Style="{StaticResource entry_perfil}"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Telefono" Style="{StaticResource lblSty}"></Label>
-                        <Entry Text="1111111" Style="{StaticResource entry_perfil}" x:Name="G_Tel" Keyboard="Numeric"></Entry>
+                        <Entry Text="1111111" Style="{StaticResource entry_perfil}" IsEnabled="False"  x:Name="G_Tel" Keyboard="Numeric"></Entry>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="celular"  Style="{StaticResource lblSty}"></Label>
-                        <Entry Text="111111" Style="{StaticResource entry_perfil}" x:Name="G_Cel" Keyboard="Numeric"></Entry>
+                        <Entry Text="111111" Style="{StaticResource entry_perfil}" IsEnabled="False" x:Name="G_Cel" Keyboard="Numeric"></Entry>
                     </StackLayout>
-                    <Button Text="Guardar" Style="{StaticResource Buton}" Clicked="Fn_GuardarGen"></Button>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Button x:Name="G_Editar" Text="Editar" Style="{StaticResource Buton}" HorizontalOptions="Start" Clicked="Fn_EditarGen"></Button>
+                        <Button x:Name="G_Guardar" Text="Guardar" Style="{StaticResource Buton}" HorizontalOptions="End" Clicked="Fn_GuardarGen" IsVisible="False"></Button>
+                    </StackLayout>
                 </StackLayout>
             </ScrollView>
         </ContentPage>
         <ContentPage Title="Info Medica">
             <ScrollView>
                 <StackLayout x:Name="StackMedi" Margin="20,0" >
-                    <Label x:Name="M_Mensajes"></Label>
-                    <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
-                    <Entry Text="sangre" x:Name="M_Sangre" Style="{StaticResource entry_perfil}"></Entry>
-
-                    <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
-                        <Picker.Items>
-                            <x:String>Masculino</x:String>
-                            <x:String>Femenino</x:String>
-                        </Picker.Items>
-                    </Picker>
-                    <Label x:Name="M_sexolbl" IsVisible="False"></Label>
-                    <Editor x:Name="M_sexo" IsVisible="False"></Editor>
-
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Alergias" Style="{StaticResource lblSty}"></Label>
-                        <Switch x:Name="Tog_Aler" Toggled="Fn_SwiAlergias" Style="{StaticResource entry_perfil}"></Switch>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
+                        <Entry Text="sangre" x:Name="M_Sangre" Style="{StaticResource entry_perfil}" IsEnabled="False"></Entry>
                     </StackLayout>
-                    <Editor Text=" lista de alergias" IsVisible="False" x:Name="M_Alergias" Style="{StaticResource Editor}" ></Editor>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Sexo"></Label>
+                        <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
+                            <Picker.Items>
+                                <x:String>Masculino</x:String>
+                                <x:String>Femenino</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                    
+                    <Label x:Name="M_sexolbl" IsVisible="False"></Label>
+                    <Editor x:Name="M_sexo" IsVisible="False" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="Alergias" Style="{StaticResource lblSty}"></Label>
+                        <Switch x:Name="Tog_Aler" Toggled="Fn_SwiAlergias" Style="{StaticResource entry_perfil}" IsEnabled="False"></Switch>
+                    </StackLayout>
+                    <Editor Text=" lista de alergias" IsVisible="False" x:Name="M_Alergias" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
 
                     <Label Text="Operaciones" Style="{StaticResource lblSty}"></Label>
-                    <Editor Text="lista de operaciones" x:Name="M_Operaciones" Style="{StaticResource Editor}"></Editor>
+                    <Editor Text="lista de operaciones" x:Name="M_Operaciones" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
 
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Enfermedades constantes?,¿Qúe esfermedad y que medicamentos toman?" Style="{StaticResource lblSty}"></Label>
-                        <Switch x:Name="Tog_Enfer" Toggled="Fn_SwiEnfer" HorizontalOptions="CenterAndExpand"></Switch>
+                        <Switch x:Name="Tog_Enfer" Toggled="Fn_SwiEnfer" HorizontalOptions="CenterAndExpand" IsEnabled="False"></Switch>
                     </StackLayout>
-                    <Editor Text="Lista de enfermedades" IsVisible="False" x:Name="M_Enferme" Style="{StaticResource Editor}"></Editor>
+                    <Editor Text="Lista de enfermedades" IsVisible="False" x:Name="M_Enferme" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Toma algun medicamento?,¿Cúales?"  Style="{StaticResource lblSty}"></Label>
                     </StackLayout>
-                    <Editor Text="Medicamentos actuales" x:Name="M_Medicamentos" Style="{StaticResource Editor}"></Editor>
-                    
-                    <Button Text="Guardar" Style="{StaticResource Buton}" Clicked="Fn_GuardarMed"></Button>
+                    <Editor Text="Medicamentos actuales" x:Name="M_Medicamentos" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Button x:Name="M_Editar" Text="Editar" Style="{StaticResource Buton}" HorizontalOptions="Start" Clicked="Fn_EditarMed" ></Button>
+                        <Button x:Name="M_Guardar" Text="Guardar" Style="{StaticResource Buton}" HorizontalOptions="End" Clicked="Fn_GuardarMed" IsVisible="False"></Button>
+                    </StackLayout>
                 </StackLayout>
             </ScrollView>
         </ContentPage>

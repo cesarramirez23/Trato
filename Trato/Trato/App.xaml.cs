@@ -38,6 +38,7 @@ namespace Trato
                 if(v_log=="0")
                 {//no esta logeado
                     v_perfil = new C_PerfilGen();
+                    v_perfMed = new C_PerfilMed();
                     v_log = "0";
                     v_membresia = "";
                     v_folio = "";
@@ -279,9 +280,11 @@ namespace Trato
         public static async void Fn_CerrarSesion()
         {
             v_perfil = new C_PerfilGen();
+            v_perfMed = new C_PerfilMed();
             v_folio = "";
             v_membresia = "";
             Current.Properties["perfGen"] = "";
+            Current.Properties["perfMed"] = "";
             Current.Properties["membre"] = v_membresia;
             Current.Properties["folio"] = v_folio;
             await Task.Delay(100);
@@ -303,7 +306,11 @@ namespace Trato
         }
         protected override void OnSleep()
         {
-            //Fn_GuardarDatos(v_perfil,v_membresia,v_folio);
+            if(v_log=="1")
+            {
+                Fn_GuardarDatos(v_perfil,v_membresia,v_folio);
+                Fn_GuardarDatos(v_perfMed, v_membresia, v_folio);
+            }
             // Handle when your app sleeps       
         }
         protected override void OnResume()

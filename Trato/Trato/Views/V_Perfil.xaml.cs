@@ -20,8 +20,8 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Perfil : TabbedPage
 	{
-       
-
+        bool v_editando = false;
+        bool v_editarMed = false;
 		public V_Perfil ()
 		{
 			InitializeComponent ();
@@ -65,6 +65,11 @@ namespace Trato.Views
             }
 
             Fn_NullEntry(G_lugar, App.v_perfil.v_LugNac);
+            if(!string.IsNullOrEmpty(App.v_perfil.v_LugNac))
+            {
+                G_lugar.IsEnabled = false;
+            }
+
             Fn_NullEntry(G_Ocu, App.v_perfil.v_Ocup);
             Fn_NullEntry(G_Tel, App.v_perfil.v_Tel);
             Fn_NullEntry(G_Cel, App.v_perfil.v_Cel);
@@ -79,6 +84,48 @@ namespace Trato.Views
             Fn_NullEntry(G_Correo,App.v_perfil.v_Correo);
 
             await Task.Delay(100);
+        }
+        public void  Fn_EditarGen(object sender, EventArgs _args)
+        {
+            v_editando = !v_editando;
+            if(v_editando)
+            {
+                G_Editar.Text = "Cancelar";
+                G_Guardar.IsVisible = true;
+
+                G_Ocu.IsEnabled = true;
+                G_dom.IsEnabled = true;
+                G_ext.IsEnabled = true;
+                G_inte.IsEnabled = true;
+                G_col.IsEnabled = true;
+                G_ciu.IsEnabled = true;
+                G_mun.IsEnabled = true;
+                G_est.IsEnabled = true;
+                G_cp.IsEnabled = true;
+                G_Correo.IsEnabled = true;
+                G_Tel.IsEnabled = true;
+                G_Cel.IsEnabled = true;
+            }
+            else
+            {
+                G_Editar.Text = "Editar";
+                G_Guardar.IsVisible = false;
+
+                G_Ocu.IsEnabled = false;
+                G_dom.IsEnabled = false;
+                G_ext.IsEnabled = false;
+                G_inte.IsEnabled = false;
+                G_col.IsEnabled = false;
+                G_ciu.IsEnabled = false;
+                G_mun.IsEnabled = false;
+                G_est.IsEnabled = false;
+                G_cp.IsEnabled = false;
+                G_Correo.IsEnabled = false;
+                G_Tel.IsEnabled = false;
+                G_Cel.IsEnabled = false;
+
+                CargarGen();
+            }
         }
         public void Fn_NullEntry(Entry _entry, string _textos)
         {
@@ -126,7 +173,8 @@ namespace Trato.Views
 
             if(_result=="1")
             {
-                await DisplayAlert("Actualizado",  _result , "Aceptar");
+                await DisplayAlert("Actualizado", "Informacion Guardado con éxito", "Aceptar");
+                Fn_EditarGen(sender,_args);
                 //volver a cargar la informacion
                 Perf _perf = new Perf();
                 _perf.v_fol = App.v_folio;
@@ -142,12 +190,7 @@ namespace Trato.Views
                 _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-
                 App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
-
-
-
-
 
 
                 //carga la info del PERFIL MEDICO
@@ -155,17 +198,12 @@ namespace Trato.Views
                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                 //mandar el json con el post
                 _respuestphp = await _client.PostAsync(_DirEnviar, _content);
-
                 _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                 C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-
                 App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
-
-
 
                 CargarGen();
                 CargarMed();
-
             }
             else if(_result=="0")
             {
@@ -176,11 +214,41 @@ namespace Trato.Views
                 await DisplayAlert("NO 0 NI 1",  _result + "\n" + jsonPer.ToString(), "Aceptar");                
                 
             }
-
-
-            //
-            
             _buton.IsEnabled = true;
+        }
+        public void Fn_EditarMed(object sender, EventArgs _args)
+        {
+            v_editarMed = !v_editarMed;
+            if (v_editarMed)
+            {
+                M_Editar.Text = "Cancelar";
+                M_Guardar.IsVisible = true;
+
+                Tog_Aler.IsEnabled = true;
+                Tog_Enfer.IsEnabled = true;
+                M_Sangre.IsEnabled = true;
+                M_sexo.IsEnabled = true;
+                M_Alergias.IsEnabled = true;
+                M_Operaciones.IsEnabled = true;
+                M_Enferme.IsEnabled = true;
+                M_Medicamentos.IsEnabled = true;
+            }
+            else
+            {
+                M_Editar.Text = "Editar";
+                M_Guardar.IsVisible = false;
+
+                Tog_Aler.IsEnabled = false;
+                Tog_Enfer.IsEnabled = false;
+                M_Sangre.IsEnabled = false;
+                M_sexo.IsEnabled = false;
+                M_Alergias.IsEnabled = false;
+                M_Operaciones.IsEnabled = false;
+                M_Enferme.IsEnabled = false;
+                M_Medicamentos.IsEnabled = false;
+
+                CargarMed();
+            }
         }
         public async void Fn_GuardarMed(object sender, EventArgs _Args)
         {
@@ -238,7 +306,8 @@ namespace Trato.Views
 
             if(_result=="1")
             {
-                await DisplayAlert("Actualizado", _result, "Aceptar");
+                await DisplayAlert("Actualizado", "Informacion Guardado con éxito", "Aceptar");
+                Fn_EditarMed(sender, _Args);
                 //volver a cargar la informacion
 
                 Perf _perf = new Perf();
@@ -246,7 +315,6 @@ namespace Trato.Views
                 _perf.v_membre = App.v_membresia;
                 //crear el json
                 string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
-
                 //HACIENDO EL QUERY para la info del GENERAL
                  _client = new HttpClient();
                 string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
@@ -255,25 +323,17 @@ namespace Trato.Views
                  _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-
                 App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
 
-
-
-
-
-
+                
                 //carga la info del PERFIL MEDICO
                 _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                 //mandar el json con el post
                 _respuestphp = await _client.PostAsync(_DirEnviar, _content);
-
                 _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                 C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-
                 App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
-
                 CargarGen();
                 CargarMed();
             }
@@ -283,13 +343,11 @@ namespace Trato.Views
             }
             else
             {
-
                 await DisplayAlert("ERROR ", _result + "\n" + jsonPer.ToString(), "Aceptar");
             }
 
             _buton.IsEnabled = true;
         }
-
         public async void Fn_CargaQuery()
         {
             Perf _perf = new Perf();
@@ -306,14 +364,7 @@ namespace Trato.Views
             HttpResponseMessage _respuestphp = await _client.PostAsync(_DirEnviar, _content);
             string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
             C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-            M_Mensajes.Text += " general"+_respuesta;
-
             App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
-
-
-
-
-
 
             //carga la info del PERFIL MEDICO
             _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
@@ -323,13 +374,10 @@ namespace Trato.Views
 
             _respuesta = await v_respuestphp.Content.ReadAsStringAsync();
             C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-            M_Mensajes.Text +="Medico json" +_respuesta;
 
             App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
-            M_Mensajes.Text +="Medico guardado " +App.v_perfMed.Fn_Info();
             await Task.Delay(100);
         }
-
         public string Fn_GetFecha()
         {
             string v_FecNaci = "";
@@ -403,7 +451,6 @@ namespace Trato.Views
         public async void CargarMed()
         {
             App.Fn_CargarDatos();
-            M_Mensajes.Text += "Cargandosssssssssss" + Application.Current.Properties["perfMed"] as string;
             Fn_NullEntry(M_Sangre, App.v_perfMed.v_sangre);
             if ((App.v_perfMed.v_sexo < 0) || (App.v_perfMed.v_sexo > 1))
             {
@@ -477,8 +524,5 @@ namespace Trato.Views
 
             await Task.Delay(100);
         }
-
-
-
     }
 }

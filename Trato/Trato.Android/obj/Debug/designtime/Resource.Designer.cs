@@ -3738,7 +3738,7 @@ namespace Trato.Droid
 			public const int Medicos = 2130771985;
 			
 			// aapt resource value: 0x7F010012
-			public const int Membresia_icon = 2130771986;
+			public const int Membresia_Icon = 2130771986;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;

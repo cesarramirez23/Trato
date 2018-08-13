@@ -200,12 +200,6 @@
     <BundleResource Include="Resources\menu_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\BOTONDEGRADADO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\FONDODEGRADADO.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ICONOAPP.png" />
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +242,6 @@
     <BundleResource Include="Resources\M_Personal.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Membresia_icon.png" />
+    <BundleResource Include="Resources\Membresia_Icon.png" />
   </ItemGroup>
 </Project>
