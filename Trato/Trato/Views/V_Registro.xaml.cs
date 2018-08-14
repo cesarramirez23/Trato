@@ -22,7 +22,7 @@ namespace Trato.Views
         bool v_primero = false;
         string[] v_costo =
         {
-            "100", "200", "300"
+            "$500 MXN" , "$1500 MNX PARA 5 PERSONAS", "$1500 MNX PARA 5 PERSONAS"
         };
 
         /// <summary>

@@ -56,7 +56,7 @@
                             <Label Text="Informacion" Style="{StaticResource LblBoton}"/>
                             
                             
-                            <Image Source="Membresia_icon" Style="{StaticResource imgBoton}">
+                            <Image Source="Membresia_Icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Membre"/>
                                 </Image.GestureRecognizers>

@@ -106,9 +106,6 @@ namespace Trato.Views
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
                                 App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
 
-
-
-
                                 _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                                 //mandar el json con el post
@@ -118,11 +115,7 @@ namespace Trato.Views
                                 C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
 
                                 Mensajes_over.Text = _respuesta;
-
-
                                 App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text);
-
-
                                 //cargar la nueva pagina de perfil
                                 string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
                                 Application.Current.MainPage = new V_Master(true, "Bienvenido " + _nombre);
@@ -131,10 +124,12 @@ namespace Trato.Views
                             else
                             {
                                 Mensajes_over.Text = "no 0 1  " + _respuesta;
+                                Reinten.IsVisible = true;
                             }
                         }
                         else
                         {
+                            Reinten.IsVisible = true;
                             Mensajes_over.Text = "Error de Conexion";
                         }
                     }
@@ -144,23 +139,6 @@ namespace Trato.Views
                     Mensajes_over.Text = ex.Message.ToString();
                     Reinten.IsVisible = true;
                 }
-
-
-
-
-
-
-
-
-                //revisar el status code
-                //if(_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
-                //{
-                //}
-                //else
-                //{
-                //    Mensajes_over.Text += "\n Error de conexion";
-                //    Reinten.IsVisible = true;
-                //}
             }
         }
         /// <summary>

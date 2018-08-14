@@ -7,7 +7,8 @@ using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
 using Newtonsoft.Json;
 
-
+///https://blog.wilsonvargas.com/generando-y-leyendo-codigos-qr-con-xamarin-form/
+//////https://www.youtube.com/watch?v=y7rZbwOqrUk
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace Trato
 {
@@ -38,6 +39,7 @@ namespace Trato
                 if(v_log=="0")
                 {//no esta logeado
                     v_perfil = new C_PerfilGen();
+                    v_perfMed = new C_PerfilMed();
                     v_log = "0";
                     v_membresia = "";
                     v_folio = "";
@@ -279,9 +281,11 @@ namespace Trato
         public static async void Fn_CerrarSesion()
         {
             v_perfil = new C_PerfilGen();
+            v_perfMed = new C_PerfilMed();
             v_folio = "";
             v_membresia = "";
             Current.Properties["perfGen"] = "";
+            Current.Properties["perfMed"] = "";
             Current.Properties["membre"] = v_membresia;
             Current.Properties["folio"] = v_folio;
             await Task.Delay(100);
@@ -303,7 +307,7 @@ namespace Trato
         }
         protected override void OnSleep()
         {
-            //Fn_GuardarDatos(v_perfil,v_membresia,v_folio);
+           
             // Handle when your app sleeps       
         }
         protected override void OnResume()

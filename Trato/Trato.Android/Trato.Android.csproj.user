@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+<<<<<<< HEAD
     <SelectedDevice>emulador_prueba</SelectedDevice>
     <DefaultDevice>emulador_prueba</DefaultDevice>
+=======
+    <SelectedDevice>ZTE Blade V580</SelectedDevice>
+    <DefaultDevice>my_device</DefaultDevice>
+>>>>>>> 733ade19357d1a6f60bf222b944fc54d103012c8
   </PropertyGroup>
 </Project>
