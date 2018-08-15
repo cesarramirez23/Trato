@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;// para las listas
 using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
 using Newtonsoft.Json;
+using System.Net.Http;//para el las cosas que necesitan web
 
 ///https://blog.wilsonvargas.com/generando-y-leyendo-codigos-qr-con-xamarin-form/
 //////https://www.youtube.com/watch?v=y7rZbwOqrUk
@@ -30,56 +31,10 @@ namespace Trato
         public App()
         {
             InitializeComponent();
-            //existe la variable guardada
-            Properties.Clear();
-            if (Properties.ContainsKey("log"))
-            {
-                //lee el valor guardado
-                v_log = Current.Properties["log"] as string;
-                if(v_log=="0")
-                {//no esta logeado
-                    v_perfil = new C_PerfilGen();
-                    v_perfMed = new C_PerfilMed();
-                    v_log = "0";
-                    v_membresia = "";
-                    v_folio = "";
-                    Properties["perfGen"] = "";
-                    Properties["perfMed"] = "";
-                    Properties["membre"] = v_membresia;
-                    Properties["folio"] = v_folio;
-                    Fn_Cargar();
-                    MainPage = new V_Master(false,"si log 0");
-                }//si esta logeado
-                else if(v_log=="1")
-                {
-                    string _jsonGen = Properties["perfGen"] as string;
-                    v_perfil= JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
-                    string _jsonPerfMed = Properties["perfMed"] as string;
-                    v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonPerfMed);
-
-                    v_membresia =Properties["folio"] as string;
-                    v_folio = Properties["membre"] as string;
-                    string _jsonServ = Current.Properties["servicios"] as string;
-                    v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
-                    string _jsonMed = Current.Properties["medicos"] as string;
-                    v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
-
-                    MainPage = new V_Master(true, "si log 1" ) ;
-                }
-            }
-            else
-            {
-                v_log = "-1";
-                v_perfil = new C_PerfilGen();
-                v_perfMed = new C_PerfilMed();
-                v_folio = "";
-                v_membresia = "";
-                Fn_CrearKey();
-                Fn_Cargar();
-                App.Current.MainPage = new V_Master(false,"no properties");
-            }
+            
+           // App.Current.MainPage = new V_Master(false,"no properties");
         }
-        void Fn_CrearKey()
+        async  void Fn_CrearKey()
         {
             if (!Properties.ContainsKey("log"))
             {
@@ -95,51 +50,45 @@ namespace Trato
             }
             if (!Properties.ContainsKey("perfGen"))
             {
-                Properties.Add("perfGen", "");
+                v_perfil = new C_PerfilGen();
+                string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                Current.Properties.Add("perfGen", "");
+                Current.Properties["perfGen"] = _json;
             }
             if (!Properties.ContainsKey("perfMed"))
             {
-                Properties.Add("perfMed", "");
+                v_perfMed = new C_PerfilMed();
+                string _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+                Current.Properties.Add("perfMed", "");
+                Current.Properties["perfMed"] = _json;
             }
-            if (!Application.Current.Properties.ContainsKey("medicos"))
-            {            //aca cargar los datos de los medicos
-                v_medicos = new ObservableCollection<C_Medico>();
-                v_medicos.Add(new C_Medico { v_Nombre = "Nombre", v_Apellido = "Ariza", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "Río Purificación 1603,Las  Águilas, 45080,Zapopan,Jal", v_descripcion = "creado al inicio 1", v_img = "ICONOAPP.png" });
-                v_medicos.Add(new C_Medico { v_Nombre = "Medico 1", v_Apellido = "Morantes", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "domicillio inicio2", v_descripcion = "creado al inicio 2", v_img = "ICONOAPP.png" });
-                v_medicos.Add(new C_Medico { v_Nombre = "otro nombre Cape", v_Apellido = "Presas", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "domicillio inicio3", v_descripcion = "creado al inicio 3", v_img = "ICONOAPP.png" });
-
-                string _jsonMed = JsonConvert.SerializeObject(v_medicos);
-                Application.Current.Properties.Add("medicos", _jsonMed);
-            }
-            //if (!Properties.ContainsKey("servicios"))
-            //{
-            //    Properties.Add("servicios", "");
-            //}
-            if (!Application.Current.Properties.ContainsKey("servicios"))
+            if (!Properties.ContainsKey("medicos"))
             {
-                string _jsoServ = "";
-                v_servicios.Add(new C_Servicios { v_Nombre = "inicio", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio1", v_descripcion = "creado al inicio 1", v_img = "ICONOAPP.png" });//v_="descuentos %" ,
-                v_servicios.Add(new C_Servicios { v_Nombre = "inicio2", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio2", v_descripcion = "creado al inicio 2", v_img = "ICONOAPP.png" });
-                v_servicios.Add(new C_Servicios { v_Nombre = "inici3", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio3", v_descripcion = "creado al inicio 3", v_img = "ICONOAPP.png" });
-                _jsoServ = JsonConvert.SerializeObject(v_servicios);
-                Application.Current.Properties.Add("servicios", _jsoServ);
+                v_medicos = new ObservableCollection<C_Medico>();
+                string _json = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
+                Current.Properties.Add("medicos", "");
+                Current.Properties["medicos"] = _json;
             }
-            Current.SavePropertiesAsync();
+            if (!Properties.ContainsKey("servicios"))
+            {
+                v_servicios = new ObservableCollection<C_Servicios>();
+                string _json = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
+                Current.Properties.Add("servicios", "");
+                Current.Properties["servicios"] = _json;
+            }
+            await Current.SavePropertiesAsync();
         }
         /// <summary>
         /// se cargan las listas
         /// </summary>
         async void Fn_Cargar()
         {
-            if (!Application.Current.Properties.ContainsKey("medicos"))
-            {            //aca cargar los datos de los medicos
+            if (!Current.Properties.ContainsKey("medicos"))
+            {
                 v_medicos = new ObservableCollection<C_Medico>();
-                v_medicos.Add(new C_Medico { v_Nombre = "Nombre", v_Apellido = "Ariza", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "Río Purificación 1603,Las  Águilas, 45080,Zapopan,Jal", v_descripcion = "creado al inicio 1", v_img = "ICONOAPP.png" });
-                v_medicos.Add(new C_Medico { v_Nombre = "Medico 1", v_Apellido = "Morantes", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "domicillio inicio2", v_descripcion = "creado al inicio 2", v_img = "ICONOAPP.png" });
-                v_medicos.Add(new C_Medico { v_Nombre = "otro nombre Cape", v_Apellido = "Presas", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "domicillio inicio3", v_descripcion = "creado al inicio 3", v_img = "ICONOAPP.png" });
-
-                string _jsonMed = JsonConvert.SerializeObject(v_medicos);
-                Application.Current.Properties.Add("medicos", _jsonMed);
+                string _json = JsonConvert.SerializeObject(v_medicos);
+                Current.Properties.Add("medicos", "");
+                Current.Properties["medicos"] = _json;
             }
             else
             {
@@ -147,14 +96,12 @@ namespace Trato
                 v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
             }
 
-            if (!Application.Current.Properties.ContainsKey("servicios"))
+            if (!Current.Properties.ContainsKey("servicios"))
             {
-                string _jsoServ = "";
-                v_servicios.Add(new C_Servicios { v_Nombre = "inicio", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio1", v_descripcion = "creado al inicio 1", v_img = "ICONOAPP.png" });//v_="descuentos %" ,
-                v_servicios.Add(new C_Servicios { v_Nombre = "inicio2", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio2", v_descripcion = "creado al inicio 2", v_img = "ICONOAPP.png" });
-                v_servicios.Add(new C_Servicios { v_Nombre = "inici3", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio3", v_descripcion = "creado al inicio 3", v_img = "ICONOAPP.png" });
-                _jsoServ = JsonConvert.SerializeObject(v_servicios);
-                Application.Current.Properties.Add("servicios", _jsoServ);
+                v_servicios = new ObservableCollection<C_Servicios>();
+                string _json = JsonConvert.SerializeObject(v_servicios);
+                Current.Properties.Add("servicios", "");
+                Current.Properties["servicios"] = _json;
             }
             else
             {
@@ -167,39 +114,43 @@ namespace Trato
         }
         public static async void Fn_CargarDatos()
         {
-            if (!Application.Current.Properties.ContainsKey("membre"))
+            if (!Current.Properties.ContainsKey("membre"))
             {
                 v_membresia = "";
-                Application.Current.Properties.Add("membre", v_membresia);
+                Current.Properties.Add("membre", v_membresia);
             }
             else
             {
-                v_membresia = Application.Current.Properties["membre"] as string;
+                v_membresia = Current.Properties["membre"] as string;
             }
 
-            if (!Application.Current.Properties.ContainsKey("folio"))
+            if (!Current.Properties.ContainsKey("folio"))
             {
-                v_folio = "";
-                Application.Current.Properties.Add("folio", v_folio);
+                v_folio = " cargar";
+                Current.Properties.Add("folio", v_folio);
             }
             else
             {
-                v_folio = Application.Current.Properties["folio"] as string;
+                v_folio = Current.Properties["folio"] as string;
             }
-            if (!Application.Current.Properties.ContainsKey("perfGen"))
+            if (!Current.Properties.ContainsKey("perfGen"))
             {
                 v_perfil = new C_PerfilGen();
-                Application.Current.Properties.Add("perfGen", "");
+                string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                Current.Properties.Add("perfGen", "");
+                Current.Properties["perfGen"] = _json;
             }
             else
             {
                 string _jsonGen =Current.Properties["perfGen"] as string;
                 v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
             }
-            if (!Application.Current.Properties.ContainsKey("perfMed"))
+            if (!Current.Properties.ContainsKey("perfMed"))
             {
                 v_perfMed = new C_PerfilMed();
-                Application.Current.Properties.Add("perfMed", "");
+                string _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+                Current.Properties.Add("perfMed", "");
+                Current.Properties["perfMed"] = _json;
             }
             else
             {
@@ -208,15 +159,12 @@ namespace Trato
             }
             
 
-            if (!Application.Current.Properties.ContainsKey("medicos"))
-            {            //aca cargar los datos de los medicos
+            if (!Current.Properties.ContainsKey("medicos"))
+            {
                 v_medicos = new ObservableCollection<C_Medico>();
-                v_medicos.Add(new C_Medico { v_Nombre = "Nombre", v_Apellido = "Ariza", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "Río Purificación 1603,Las  Águilas, 45080,Zapopan,Jal", v_descripcion = "creado al inicio 1", v_img = "ICONOAPP.png" });
-                v_medicos.Add(new C_Medico { v_Nombre = "Medico 1", v_Apellido = "Morantes", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "domicillio inicio2", v_descripcion = "creado al inicio 2", v_img = "ICONOAPP.png" });
-                v_medicos.Add(new C_Medico { v_Nombre = "otro nombre Cape", v_Apellido = "Presas", v_Especialidad = "Espec", v_Ciudad = "ciud1", v_Domicilio = "domicillio inicio3", v_descripcion = "creado al inicio 3", v_img = "ICONOAPP.png" });
-
-                string _jsonMed = JsonConvert.SerializeObject(v_medicos);
-                Application.Current.Properties.Add("medicos", _jsonMed);
+                string _json = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
+                Current.Properties.Add("medicos", "");
+                Current.Properties["medicos"] = _json;
             }
             else
             {
@@ -224,14 +172,12 @@ namespace Trato
                 v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
             }
 
-            if (!Application.Current.Properties.ContainsKey("servicios"))
+            if (!Current.Properties.ContainsKey("servicios"))
             {
-                string _jsoServ = "";
-                v_servicios.Add(new C_Servicios { v_Nombre = "inicio", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio1", v_descripcion = "creado al inicio 1", v_img = "ICONOAPP.png" });//v_="descuentos %" ,
-                v_servicios.Add(new C_Servicios { v_Nombre = "inicio2", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio2", v_descripcion = "creado al inicio 2", v_img = "ICONOAPP.png" });
-                v_servicios.Add(new C_Servicios { v_Nombre = "inici3", v_Especialidad = "esps1", v_Domicilio = "domicillio inicio3", v_descripcion = "creado al inicio 3", v_img = "ICONOAPP.png" });
-                _jsoServ = JsonConvert.SerializeObject(v_servicios);
-                Application.Current.Properties.Add("servicios", _jsoServ);
+                v_servicios = new ObservableCollection<C_Servicios>();
+                string _json = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
+                Current.Properties.Add("servicios","");
+                Current.Properties["servicios"] = _json;
             }
             else
             {
@@ -245,14 +191,14 @@ namespace Trato
             v_perfil = _gen;
             v_folio = _folio;
             v_membresia = _membre;
-            string _jsonGen = JsonConvert.SerializeObject(v_perfil);
+            string _jsonGen = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
             Current.Properties["log"] = v_log;
             Current.Properties["perfGen"] = _jsonGen;
-            Current.Properties["membre"] =v_membresia;
-            Current.Properties["folio"] =v_folio;
-            string _jsoServ = JsonConvert.SerializeObject(v_servicios);
+            Current.Properties["membre"] =v_membresia ;
+            Current.Properties["folio"] =v_folio ;
+            string _jsoServ = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
             Current.Properties["servicios"] = _jsoServ;
-            string _jsonMed = JsonConvert.SerializeObject(v_medicos);
+            string _jsonMed = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
             Current.Properties["medicos"] = _jsonMed;
 
             await Current.SavePropertiesAsync();
@@ -264,14 +210,14 @@ namespace Trato
             v_perfMed = _med;
             v_folio = _folio;
             v_membresia = _membre;
-            string _jsonPerMed = JsonConvert.SerializeObject(v_perfMed);
+            string _jsonPerMed = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
             Current.Properties["log"] = v_log;
             Current.Properties["perfMed"] = _jsonPerMed;
             Current.Properties["membre"] = v_membresia;
             Current.Properties["folio"] = v_folio;
-            string _jsoServ = JsonConvert.SerializeObject(v_servicios);
+            string _jsoServ = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
             Current.Properties["servicios"] = _jsoServ;
-            string _jsonMed = JsonConvert.SerializeObject(v_medicos);
+            string _jsonMed = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
             Current.Properties["medicos"] = _jsonMed;
 
             await Current.SavePropertiesAsync();
@@ -284,8 +230,10 @@ namespace Trato
             v_perfMed = new C_PerfilMed();
             v_folio = "";
             v_membresia = "";
-            Current.Properties["perfGen"] = "";
-            Current.Properties["perfMed"] = "";
+            string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+            Current.Properties["perfGen"] = _json;
+            _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+            Current.Properties["perfMed"] = _json;
             Current.Properties["membre"] = v_membresia;
             Current.Properties["folio"] = v_folio;
             await Task.Delay(100);
@@ -304,6 +252,63 @@ namespace Trato
         protected override void OnStart()
         {
             // Handle when your app starts
+            //existe la variable guardada
+            //Properties.Clear();
+            if (Properties.ContainsKey("log"))
+            {
+                //lee el valor guardado
+                v_log = Current.Properties["log"] as string;
+                if (v_log == "0")
+                {//no esta logeado
+                    v_perfil = new C_PerfilGen();
+                    v_perfMed = new C_PerfilMed();
+                    v_log = "0";
+                    v_membresia = "";
+                    v_folio = "";
+                    
+                    string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                    Properties["perfGen"] = _json;
+                    _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+                    Properties["perfMed"] = _json;
+
+                    Properties["membre"] = v_membresia;
+                    Properties["folio"] = v_folio;
+                    Fn_Cargar();
+                    MainPage = new V_Master(false, "si log 0");
+                }//si esta logeado
+                else if (v_log == "1")
+                {
+                    string _jsonGen = Properties["perfGen"] as string;
+                    v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
+                    string _jsonPerfMed = Properties["perfMed"] as string;
+                    v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonPerfMed);
+
+                    v_membresia = Properties["folio"] as string;
+                    v_folio = Properties["membre"] as string;
+                    string _jsonServ = Current.Properties["servicios"] as string;
+                    v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
+                    string _jsonMed = Current.Properties["medicos"] as string;
+                    v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
+
+                    MainPage = new V_Master(true, "si log 1");
+                }
+                else
+                {
+                    MainPage = new V_Master(false, v_log);
+                }
+            }
+            else
+            {
+                v_log = "0";
+                v_perfil = new C_PerfilGen();
+                v_perfMed = new C_PerfilMed();
+                v_folio = "";
+                v_membresia = "";
+                Fn_CrearKey();
+                Fn_Cargar();
+                App.Current.MainPage = new V_Master(false, "no properties");
+            }
+
         }
         protected override void OnSleep()
         {

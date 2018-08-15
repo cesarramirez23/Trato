@@ -52,6 +52,22 @@ namespace Trato.Personas
         public C_PerfilGen()
         {
             v_idsexo = -1;
+            v_Nombre = "";
+            v_Rfc = "";
+            v_FecNaci = "";
+                v_LugNac = "";
+            v_Ocup = "";
+            v_Tel = "";
+            v_Cel = "";
+            v_Calle = "";
+            v_NumExt = "";
+            v_NumInt = "";
+            v_Colonia = "";
+            v_Ciudad = "";
+            v_municipio = "";
+            v_Estado = "";
+            v_Cp = "";
+            v_Correo= "";
         }
         public C_PerfilGen(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,int _idsexo,  string _tel, string _cel,
             string _calle, string _numExt, string _numInt, string _col, string _ciud, string _mun, string _est, string _cp, string _corr)
@@ -124,7 +140,13 @@ namespace Trato.Personas
        
         public C_PerfilMed()
         {
+            v_sangre = "";
             v_sexo = -1;
+            v_infoMujer = "";
+            v_alergias = "";
+            v_operaciones = "";
+            v_enfer = "";
+            v_medica = "";
         }
         public C_PerfilMed(string _sangr, string _sexo, string _aler, string _opera, string _enfer, string _medicam)
         {
@@ -612,6 +634,15 @@ namespace Trato.Personas
         public string v_descripcion { get; set; }
         [JsonProperty("img")]
         public string v_img { get; set; }
+
+        public string FN_GetInfo()
+        {
+            string _ret;
+            _ret = "nom " + v_Nombre + " ape " + v_Apellido + " espe " + v_Especialidad + " dom " + v_Domicilio + " ciu " + v_Ciudad +
+                " tel " + v_Tel + " corr " + v_Correo + " hora " + v_horario + " ced " + v_cedula + " des " + v_descripcion + " im" + v_img;
+            return _ret;
+        }
+
     }
     public class C_Servicios
     {

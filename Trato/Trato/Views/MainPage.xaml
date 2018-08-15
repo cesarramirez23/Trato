@@ -23,7 +23,8 @@
     
             <!-- para encimar texto a la imagen https://forums.xamarin.com/discussion/92896/display-an-image-inside-in-a-text-->
     <ContentPage.Content>
-        <StackLayout>
+            <ScrollView>
+                <StackLayout>
             <!--<Grid HeightRequest="300" VerticalOptions="Start">
                 <Image Source="FONDODEGRADADO.png" Aspect="AspectFill" ></Image>
                 <Image Source="ICONOAPP.png" ></Image>
@@ -32,13 +33,15 @@
             <Button Text="Membresias" Style="{StaticResource Buton}" Clicked="Fn_Reg" HorizontalOptions="FillAndExpand"></Button>
             <Button Text="Iniciar Sesión"  Style="{StaticResource Buton}" Clicked="Fn_Log" HorizontalOptions="FillAndExpand" ></Button>
             -->
-            <Image Source="LOGOTRATOESPECIAL.png" ></Image>
-            <Label Text="" x:Name="fol"></Label>
-            <Label Text="" x:Name="log"></Label>
-            <Label Text="" x:Name="membre"></Label>
-            <Label Text="" x:Name="perfil"></Label>
+                
+                    <Image Source="LOGOTRATOESPECIAL.png" ></Image>
+                    <Label Text="" x:Name="fol"></Label>
+                    <Label Text="" x:Name="log"></Label>
+                    <Label Text="" x:Name="membre"></Label>
+                    <Label Text="" x:Name="perfil" FontSize="Large"></Label>
             
-        </StackLayout>
+                </StackLayout>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>
 <!--    estos son los buenos

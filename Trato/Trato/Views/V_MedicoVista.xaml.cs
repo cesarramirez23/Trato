@@ -13,15 +13,22 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_MedicoVista : ContentPage
 	{
+        C_Medico v_medico;
+        C_Servicios v_servi;
+
+        bool _personaa =false;
+
         public V_MedicoVista (C_Medico _medico)
 		{
 			InitializeComponent ();
+            v_medico = _medico;
             nombre.Text = _medico.v_Nombre + _medico.v_Apellido;
             especial.Text = _medico.v_Especialidad;
-            domicilio.Text = _medico.v_Domicilio;
+            domicilio.Text = _medico.v_Domicilio+","+ v_medico.v_Ciudad;
             info.Text = _medico.v_descripcion;
             img.Source = _medico.v_img;
             descuento.IsVisible = false;
+            _personaa = true;
             if(App.v_log=="1")
             {
                 boton.IsVisible = true;
@@ -34,6 +41,8 @@ namespace Trato.Views
         public V_MedicoVista(C_Servicios _servicios)
         {
             InitializeComponent();
+            v_servi = _servicios;
+            _personaa = false;
             nombre.Text = _servicios.v_Nombre;
             especial.Text = _servicios.v_Especialidad;
             domicilio.Text = _servicios.v_Domicilio;
@@ -57,12 +66,30 @@ namespace Trato.Views
         {
             if(Device.RuntimePlatform == Device.Android)
             {
-                Uri _direc = new Uri("https://www.google.com.mx/maps/place/Río+Purificación+1603,+Las+Águilas,+45080+Zapopan,+Jal");
+                string _dir = "https://www.google.com.mx/maps/place/" + v_medico.v_Domicilio+"," ;
+                if( _personaa)
+                {
+                    _dir += v_medico.v_Ciudad;
+                }
+                else
+                {
+                    _dir += v_servi.v_Ciudad;
+                }
+                Uri _direc = new Uri(_dir);
                 Device.OpenUri(_direc);
             }
             else if(Device.RuntimePlatform== Device.iOS)
             {
-                Uri _direc = new Uri("http://maps.apple.com/?q=Río+Purificación+1603,+Las+Águilas,+45080+Zapopan,+Jal");
+                string _dir = "http://maps.apple.com/?q=" + domicilio.Text + ",";
+                if (_personaa)
+                {
+                    _dir += v_medico.v_Ciudad;
+                }
+                else
+                {
+                    _dir += v_servi.v_Ciudad;
+                }
+                Uri _direc = new Uri(_dir);
                 Device.OpenUri(_direc);
             }
         }

@@ -10,6 +10,10 @@ using Xamarin.Forms.Xaml;
 using Trato.Personas;
 using System.Collections.ObjectModel;//listas observa
 using System.Collections;//para el sorte list
+using System.Net.Http;
+using Newtonsoft.Json;
+
+
 
 namespace Trato.Views
 {
@@ -100,6 +104,7 @@ namespace Trato.Views
                 Orden();
                 v_lista.ItemsSource = App.v_servicios;
             }
+            Fn_CargarDAtos();
         }
         public void Fn_Cancelar(object sender, EventArgs _Args)
         {
@@ -338,23 +343,56 @@ namespace Trato.Views
                 list.ItemsSource = _ciudades;
             }
         }
-        async void Fn_Refresh(object sender, EventArgs e)
+        public async void Fn_CargarDAtos()
         {
-            var list = (ListView)sender;
-            if(v_medico)
+            if (v_medico)
             {
-            //hacer una conversion de la lista que esta siendo actualizada
-            //pedir los datos y hacerlos nuevos
-            // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
+                //hacer una conversion de la lista que esta siendo actualizada
+                //pedir los datos y hacerlos nuevos
+                // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
+                HttpClient _cliente = new HttpClient();
+                string url = "https://useller.com.mx/trato_especial/prueba_json.php";
+                try
+                {
+                    HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
+                    string _respu = await _respuestphp.Content.ReadAsStringAsync();
+                    ObservableCollection<C_Medico> _med = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_respu);
+                    App.v_medicos = _med;
+                    await App.Current.SavePropertiesAsync();
+                    Orden();
+                    L_Error.IsVisible = false;
+                    B_Filtrar.IsEnabled = true;
+                }
+                catch (HttpRequestException _ex)
+                {
+                    if (Application.Current.Properties.ContainsKey("medicos"))
+                    {
+                        string _json = App.Current.Properties["medicos"] as string;
+                        App.v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_json);
+                        Orden();
+                        v_lista.ItemsSource = App.v_medicos;
+                        if(App.v_medicos.Count>0)
+                        {
+                            L_Error.IsVisible = false;
+                            B_Filtrar.IsEnabled = true;
+                        }
+                        else
+                        {
+                            L_Error.Text = "Error de Conexion";
+                            L_Error.IsVisible = true;
+                            B_Filtrar.IsEnabled = false;
+                        }
+                    }
+                    else
+                    {
+                        L_Error.Text = "Error de Conexion";
+                        L_Error.IsVisible = true;
+                        B_Filtrar.IsEnabled = false;
+                        v_lista.ItemsSource = null;
+                    }
+                }
 
-            //por ahora esta creando nuevoos
-            Random rand = new Random();
-            string _val = rand.Next(0, 120).ToString();
-            App.v_medicos.Add(new C_Medico { v_Nombre = "Aombre nuevo" + _val,v_Ciudad= "ciud4", v_Apellido =" apellido "+_val, v_Especialidad = "Espec2" + _val,
-                v_Domicilio = "dom sdsafsdfdf" + _val, v_descripcion = "infoooooooooo" + _val , v_img="ICONOAPP.png"});
-            Orden();
-            //darle la nueva lista
-            list.ItemsSource = App.v_medicos;
+                //darle la nueva lista
             }
             else
             {
@@ -365,14 +403,23 @@ namespace Trato.Views
                 //por ahora esta creando nuevoos
                 Random rand = new Random();
                 string _val = rand.Next(0, 120).ToString();
-                App.v_servicios.Add(new C_Servicios { v_Nombre = "Nombre lugar  nuevo" + _val ,
-                    v_Especialidad = "esec" + _val, v_Domicilio = "dom sdsafsdfdf" + _val, v_descripcion = "infoooooooooo" + _val,
+                App.v_servicios.Add(new C_Servicios
+                {
+                    v_Nombre = "Nombre lugar  nuevo" + _val,
+                    v_Especialidad = "esec" + _val,
+                    v_Domicilio = "dom sdsafsdfdf" + _val,
+                    v_descripcion = "infoooooooooo" + _val,
                     v_img = "ICONOAPP.png"
                 });// v_Descuento ="descuento "+ _val+"%",
                 Orden();
                 //darle la nueva lista
-                list.ItemsSource = App.v_servicios;
+                v_lista.ItemsSource = App.v_servicios;
             }
+        }
+        async void Fn_Refresh(object sender, EventArgs e)
+        {
+            var list = (ListView)sender;
+            Fn_CargarDAtos();
             await Task.Delay(100);
             //cancelar la actualizacion
             list.IsRefreshing = false;

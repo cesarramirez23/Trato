@@ -6,16 +6,8 @@
         <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1">
             <!--Orientation="Vertical">-->
             <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                <Button Clicked="Fn_Filtro"  Text="Filtro" Style="{StaticResource Buton}"></Button>
-                <!--<Picker Title="Filtro"  HorizontalOptions="StartAndExpand" x:Name="v_filtro" SelectedIndexChanged="Fn_Filtro">
-                    <Picker.Items>
-                        <x:String>Nombre</x:String>
-                        <x:String>Especialidad</x:String>
-                        <x:String>Ciudad</x:String>
-                        <x:String>Todos</x:String>
-                    </Picker.Items>
-                </Picker>-->
-
+                <Button Clicked="Fn_Filtro"  Text="Filtro" Style="{StaticResource Buton}" x:Name="B_Filtrar"></Button>
+                <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
                 <ListView  x:Name="v_lista" RowHeight="150" SeparatorColor="Gray" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh">                
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -37,12 +29,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 </StackLayout>
-            <ContentView x:Name="overlay"
-                           AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                           AbsoluteLayout.LayoutFlags="All"
-                           IsVisible="False"
-                           BackgroundColor="#C0808080"
-                           Padding="10, 0">
+            <ContentView x:Name="overlay"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  IsVisible="False" BackgroundColor="LightGray" Padding="10, 0">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
                         <Button Text=" cancel" Clicked="Fn_Cancelar" HorizontalOptions="StartAndExpand" Style="{StaticResource Buton}" ></Button>
