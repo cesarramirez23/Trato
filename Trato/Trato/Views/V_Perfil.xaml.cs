@@ -15,11 +15,16 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Collections.Specialized;
 
+using ZXing.Net.Mobile.Forms;
+
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Perfil : TabbedPage
 	{
+        private ZXingBarcodeImageView barcode;
+
+
         bool v_editando = false;
         bool v_editarMed = false;
 		public V_Perfil ()
@@ -27,6 +32,31 @@ namespace Trato.Views
 			InitializeComponent ();
             CargarGen();
             CargarMed();
+           // Scan();
+        }
+
+        private ZXingDefaultOverlay overlay;
+        private ZXingScannerView zxing;
+
+        private async void Scan()
+        {
+            var scanPage = new ZXingScannerPage();
+
+            scanPage.OnScanResult += (result) =>
+            {
+                // Stop scanning
+                scanPage.IsScanning = false;
+
+                // Pop the page and show the result
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Navigation.PopAsync();
+                    await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                });
+            };
+
+            // Navigate to our scanner page
+            await Navigation.PushAsync(scanPage);
         }
         public async void CargarGen()
         {
@@ -524,5 +554,27 @@ namespace Trato.Views
 
             await Task.Delay(100);
         }
+
+        public void FN_CrearQR(object sender, EventArgs _args)
+        {
+            barcode = new ZXingBarcodeImageView
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
+            barcode.BarcodeFormat = ZXing.BarcodeFormat.AZTEC;
+            barcode.BarcodeOptions.Width = 700;
+            barcode.BarcodeOptions.Height = 700;
+            //barcode.BarcodeValue = qrTexto.Text.Trim();
+            //string _json = "[";
+            string _json = "";
+             //_json=   JsonConvert.SerializeObject( App.v_perfil);
+               _json=   JsonConvert.SerializeObject( App.v_perfMed);
+
+            qrTexto.Text = _json;
+            barcode.BarcodeValue = _json;
+            qr_content.Content = barcode;
+        }
+
     }
 }

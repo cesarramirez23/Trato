@@ -4,7 +4,6 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
-using Xamarin.Forms.Maps;
 
 namespace Trato.iOS
 {
@@ -25,6 +24,7 @@ namespace Trato.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

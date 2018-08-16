@@ -170,6 +170,11 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Deb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Maps.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Maps.iOS.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ZXing.Net.Mobile.Core.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ZXingNetMobile.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zxing.portable.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ZXing.Net.Mobile.Forms.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ZXing.Net.Mobile.Forms.iOS.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Trato.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Trato.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items

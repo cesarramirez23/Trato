@@ -123,13 +123,13 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawa
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\m_familiar.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\m_personal.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\membresia_icon.png
-C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csprojAssemblyReference.cache
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato2.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato2-Signed.apk
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.pdb
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csprojAssemblyReference.cache
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Basement.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Base.dll
@@ -248,6 +248,7 @@ C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\a
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
+C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.pdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.Android.dll.mdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\CesarAugusto\source\repos\Trato\Trato\Trato.Android\obj\Debug\linksrc\nunit.framework.dll.mdb
