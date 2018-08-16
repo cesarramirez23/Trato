@@ -2,6 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Registro" Title="Registro" NavigationPage.TitleIcon="Registro">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout" x:Key="StackSty">
+            <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Margin" Value="10,0"/>
+        </Style>
+        <Style TargetType="Label" x:Key="RegSty">
+            <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            <Setter Property="FontSize" Value="Medium"/>
+        </Style>
+        <Style x:Key="RegEnSty" TargetType="Entry">
+            <Setter Property="VerticalOptions" Value="Center"></Setter>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        </Style>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
@@ -12,81 +28,83 @@
                             <Label x:Name="Persona" Text="sadsadasdsa" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" BackgroundColor="Green"></Label>
                             <Switch Toggled="Cambio" HorizontalOptions="EndAndExpand" IsToggled="False"></Switch>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Nombre Completo"></Label>
-                            <Entry  Placeholder="Nombre completo" Text="" TextChanged="Fn_NoNumeros" Keyboard="Default" x:Name="nombre" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Nombre Completo" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Nombre completo" Text="" TextChanged="Fn_NoNumeros" Keyboard="Default" x:Name="nombre"  Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="RFC"></Label>
-                            <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="rfc" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="RFC" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="rfc" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
 
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Fecha de naacimiento"></Label>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Fecha de naacimiento" Style="{StaticResource RegSty}"></Label>
                             <DatePicker  Format="D" x:Name="fecha" MinimumDate="01/01/1900" ></DatePicker>
                         </StackLayout>
-
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Lugar de nacimiento"></Label>
-                            <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="lugar" ></Entry>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Ocupacion"></Label>
-                            <Entry  Placeholder="Ocupacion" Text="ocupacion o giro de la empresa"  Keyboard="Default" x:Name="giro" ></Entry>
+                        
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Lugar de nacimiento" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="lugar" Style="{StaticResource RegEnSty}" ></Entry>
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Nombre de la calle"></Label>
-                            <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle"  Keyboard="Default" x:Name="dom" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Ocupacion" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Ocupacion" Text="ocupacion o giro de la empresa"  Keyboard="Default" x:Name="giro" Style="{StaticResource RegEnSty}" ></Entry>
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Numero Exterior"></Label>
-                            <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="ext" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Nombre de la calle" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle"  Keyboard="Default" x:Name="dom" Style="{StaticResource RegEnSty}"></Entry>
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Numero Exterior" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="ext" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
 
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Numero Interior"></Label>
-                            <Entry  Placeholder="Numero Interior" Text="34"  Keyboard="Numeric" x:Name="inte" ></Entry>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Colonia"></Label>
-                            <Entry  Placeholder="Colonia" Text="colonia del usuario"  Keyboard="Default" x:Name="col" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Numero Interior" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Numero Interior" Text="34"  Keyboard="Numeric" x:Name="inte" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Ciudad"></Label>
-                            <Entry  Placeholder="Ciudad" Text="ciudad donde esta"  Keyboard="Default" x:Name="ciu" ></Entry>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Municipio"></Label>
-                            <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="mun" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Colonia" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Colonia" Text="colonia del usuario"  Keyboard="Default" x:Name="col" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Estado"></Label>
-                            <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="est" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Ciudad" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Ciudad" Text="ciudad donde esta"  Keyboard="Default" x:Name="ciu" Style="{StaticResource RegEnSty}"></Entry>
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Municipio" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="mun" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Codigo Postal"></Label>
-                            <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Estado" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="est" Style="{StaticResource RegEnSty}" ></Entry>
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Correo Electronico"></Label>
-                            <Entry  Placeholder="Correo Electronico"  Text="augusto9623@hotmail.com" Keyboard="Default" x:Name="correo" ></Entry>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Telefono"></Label>
-                            <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Codigo Postal" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
 
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text="Celular"></Label>
-                            <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="cel" ></Entry>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Correo Electronico" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Correo Electronico"  Text="augusto9623@hotmail.com" Keyboard="Default" x:Name="correo" Style="{StaticResource RegEnSty}"></Entry>
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Telefono" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" Style="{StaticResource RegEnSty}"></Entry>
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource StackSty}">
+                            <Label Text="Celular" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="cel" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
                         
                         <StackLayout Orientation="Horizontal">

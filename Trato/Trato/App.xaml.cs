@@ -81,7 +81,7 @@ namespace Trato
         /// <summary>
         /// se cargan las listas
         /// </summary>
-        async void Fn_Cargar()
+        async void Fn_CargarListas()
         {
             if (!Current.Properties.ContainsKey("medicos"))
             {
@@ -224,6 +224,34 @@ namespace Trato
             Fn_CargarDatos();
             await Task.Delay(100);
         }
+        public static async void Fn_GuardarRed(ObservableCollection<C_Medico> _medicos)
+        {
+            string _json = JsonConvert.SerializeObject(_medicos, Formatting.Indented);
+            if(Current.Properties.ContainsKey("medicos"))
+            {
+                Current.Properties["medicos"] = _json;
+            }
+            else
+            {
+                Current.Properties.Add("medicos", "");
+                Current.Properties["medicos"] = _json;
+            }
+            await Current.SavePropertiesAsync();
+        }
+        public static async void Fn_GuardarServcios(ObservableCollection<C_Servicios> _servicios)
+        {
+            string _json = JsonConvert.SerializeObject(_servicios, Formatting.Indented);
+            if (Current.Properties.ContainsKey("servicios"))
+            {
+                Current.Properties["servicios"] = _json;
+            }
+            else
+            {
+                Current.Properties.Add("servicios", "");
+                Current.Properties["servicios"] = _json;
+            }
+            await Current.SavePropertiesAsync();
+        }
         public static async void Fn_CerrarSesion()
         {
             v_perfil = new C_PerfilGen();
@@ -253,7 +281,7 @@ namespace Trato
         {
             // Handle when your app starts
             //existe la variable guardada
-            //Properties.Clear();
+           // Properties.Clear();
             if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado
@@ -273,7 +301,7 @@ namespace Trato
 
                     Properties["membre"] = v_membresia;
                     Properties["folio"] = v_folio;
-                    Fn_Cargar();
+                    Fn_CargarListas();
                     MainPage = new V_Master(false, "si log 0");
                 }//si esta logeado
                 else if (v_log == "1")
@@ -305,7 +333,7 @@ namespace Trato
                 v_folio = "";
                 v_membresia = "";
                 Fn_CrearKey();
-                Fn_Cargar();
+                Fn_CargarListas();
                 App.Current.MainPage = new V_Master(false, "no properties");
             }
 

@@ -21,22 +21,45 @@ namespace Trato.Views
         public V_MedicoVista (C_Medico _medico)
 		{
 			InitializeComponent ();
+            string _hora = "";
+            string[] _horas;
             v_medico = _medico;
-            nombre.Text = _medico.v_Nombre + _medico.v_Apellido;
-            especial.Text = _medico.v_Especialidad;
-            domicilio.Text = _medico.v_Domicilio+","+ v_medico.v_Ciudad;
-            info.Text = _medico.v_descripcion;
-            img.Source = _medico.v_img;
-            descuento.IsVisible = false;
-            _personaa = true;
-            if(App.v_log=="1")
+            //hh: mm: ss
+            if(!string.IsNullOrEmpty( v_medico.v_horAper))
             {
-                boton.IsVisible = true;
+                _horas = v_medico.v_horAper.Split(':');
+                _hora = _horas[0] + ":" + _horas[1];
+            }else
+            {
+                _hora = "N/A";
+            }
+            if (!string.IsNullOrEmpty(v_medico.v_horCierra))
+            {
+                _horas = v_medico.v_horCierra.Split(':');
+                _hora += "  -  " + _horas[0] + ":" + _horas[1];
             }
             else
             {
-                boton.IsVisible = false;
+                _hora += "  -  N/A";
             }
+
+            nombre.Text = v_medico.v_titulo+" "+ v_medico.v_Nombre +"  "+ v_medico.v_Apellido;
+            especial.Text ="Especialista en "+ v_medico.v_Especialidad;
+            domicilio.Text = v_medico.v_Domicilio+","+ v_medico.v_Ciudad;
+            info.Text ="Telefono: "+ v_medico.v_Tel+"\n Correo: "+ v_medico.v_Correo+
+            "\nHorario: "+ _hora+
+            "\nCedula Profesional: "+v_medico.v_cedula;
+            img.Source = v_medico.v_img;
+            descrip.Text=" " +v_medico.v_descripcion;
+            _personaa = true;
+            //if(App.v_log=="1")
+            //{
+            //    boton.IsVisible = true;
+            //}
+            //else
+            //{
+            //    boton.IsVisible = false;
+            //}
         }
         public V_MedicoVista(C_Servicios _servicios)
         {
@@ -48,55 +71,61 @@ namespace Trato.Views
             domicilio.Text = _servicios.v_Domicilio;
             info.Text = _servicios.v_descripcion;
             img.Source = _servicios.v_img;
-            descuento.IsVisible = true;
+            descrip.IsVisible = true;
            // descuento.Text = _servicios.v_Descuento;
             //"Río + Purificación + 1603,+Las + Águilas,+45080 + Zapopan,+Jal"
 
                 
-            if (App.v_log=="1")
-            {
-                boton.IsVisible = true;
-            }
-            else
-            {
-                boton.IsVisible = false;
-            }
+            //if (App.v_log=="1")
+            //{
+            //    boton.IsVisible = true;
+            //}
+            //else
+            //{
+            //    boton.IsVisible = false;
+            //}
         }
-        public void Fn_AbrirMapa(object sender, EventArgs _args)
+        public async  void Fn_AbrirMapa(object sender, EventArgs _args)
         {
+            string direcMapa = "";
             if(Device.RuntimePlatform == Device.Android)
             {
-                string _dir = "https://www.google.com.mx/maps/place/" + v_medico.v_Domicilio+"," ;
-                if( _personaa)
-                {
-                    _dir += v_medico.v_Ciudad;
-                }
-                else
-                {
-                    _dir += v_servi.v_Ciudad;
-                }
-                Uri _direc = new Uri(_dir);
-                Device.OpenUri(_direc);
+                direcMapa= "http://maps.google.com/?daddr=";
+               
             }
             else if(Device.RuntimePlatform== Device.iOS)
             {
-                string _dir = "http://maps.apple.com/?q=" + domicilio.Text + ",";
-                if (_personaa)
-                {
-                    _dir += v_medico.v_Ciudad;
-                }
-                else
-                {
-                    _dir += v_servi.v_Ciudad;
-                }
-                Uri _direc = new Uri(_dir);
-                Device.OpenUri(_direc);
+                direcMapa = "http://maps.apple.com/?q=";                
             }
+            if (_personaa)
+            {
+                string _nuevo = "";
+                for (int i = 0; i < v_medico.v_Domicilio.Length; i++)
+                {
+                    if (v_medico.v_Domicilio[i] != '#')
+                    {
+                        _nuevo += v_medico.v_Domicilio[i];
+                    }
+                }
+                direcMapa += _nuevo + ",";
+                direcMapa += v_medico.v_Ciudad;
+            }
+            else
+            {
+                string _nuevo = "";
+                for (int i = 0; i < v_servi.v_Domicilio.Length; i++)
+                {
+                    if (v_servi.v_Domicilio[i] != '#')
+                    {
+                        _nuevo += v_servi.v_Domicilio[i];
+                    }
+                }
+                direcMapa += _nuevo + ",";
+                direcMapa += v_servi.v_Ciudad;
+            }
+            Uri _direc = new Uri(direcMapa);
+            await DisplayAlert("Enviar ", direcMapa + "\n" + _direc, "aceptar");
+            Device.OpenUri(_direc);
         }
-        public void Fn_Click(object sender, EventArgs _args)
-        {
-
-        }
-
     }
 }

@@ -91,6 +91,8 @@ namespace Trato.Views
                 fecha.IsVisible = true;
                 lugar.IsVisible = true;
                 cel.IsVisible = true;
+                rfc.IsVisible = false;
+                rfc.Text = "";
             }
             else
             {
@@ -104,6 +106,7 @@ namespace Trato.Views
                 fecha.IsVisible = false;
                 lugar.IsVisible = false;
                 lugar.Text = "";
+                rfc.IsVisible = false;
                 Persona.Text = "Persona Moral";
             }
 

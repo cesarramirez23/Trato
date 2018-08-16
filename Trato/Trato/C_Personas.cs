@@ -604,6 +604,8 @@ namespace Trato.Personas
     public class C_Medico
     {
         //get y set para poder que sean binding
+        [JsonProperty("titulo")]
+        public string v_titulo { get; set; }
         [JsonProperty("nombre")]
         public string v_Nombre { get; set; }
         /// <summary>
@@ -624,10 +626,10 @@ namespace Trato.Personas
         public string v_Tel { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
-        //[JsonProperty("desc")]
-        //public string v_Descuento { get; set; }
-        [JsonProperty("horario")]
-        public string v_horario { get; set; }
+        [JsonProperty("horario_apertura")]
+        public string v_horAper { get; set;}
+        [JsonProperty("horario_cierre")]
+        public string v_horCierra { get; set; }
         [JsonProperty("cedula")]
         public string v_cedula { get; set; }
         [JsonProperty("descrip")]
@@ -638,8 +640,8 @@ namespace Trato.Personas
         public string FN_GetInfo()
         {
             string _ret;
-            _ret = "nom " + v_Nombre + " ape " + v_Apellido + " espe " + v_Especialidad + " dom " + v_Domicilio + " ciu " + v_Ciudad +
-                " tel " + v_Tel + " corr " + v_Correo + " hora " + v_horario + " ced " + v_cedula + " des " + v_descripcion + " im" + v_img;
+            _ret = "tit "+ v_titulo+"nom " + v_Nombre + " ape " + v_Apellido + " espe " + v_Especialidad + " dom " + v_Domicilio + " ciu " + v_Ciudad +
+                " tel " + v_Tel + " corr " + v_Correo + " horainicio " + v_horAper +"hora salida" + v_horCierra + " ced " + v_cedula + " des " + v_descripcion ;
             return _ret;
         }
 
