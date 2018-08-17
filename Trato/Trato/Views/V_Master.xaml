@@ -70,6 +70,15 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Iniciar Sesión" Style="{StaticResource LblBoton}" />
+
+
+                            <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Contacto"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Contacto" Style="{StaticResource LblBoton}" />
+                            
                         </StackLayout>
                         
                         
@@ -115,8 +124,14 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text=" Opciones" Style="{StaticResource LblBoton}"/>
-                            
-                            
+
+                            <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Contacto"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Contacto" Style="{StaticResource LblBoton}" />
+
                             <Image Source="LogOut" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Salir"/>

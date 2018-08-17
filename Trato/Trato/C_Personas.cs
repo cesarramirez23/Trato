@@ -326,6 +326,9 @@ namespace Trato.Personas
         int v_idmembre { get; set; }
         [JsonProperty("costo")]
         string v_Costo { get; set; }
+        [JsonProperty("nummple")]
+        int v_numEmple { get; set; }
+
         #endregion
 
         #region Datos de la tarjeta
@@ -344,7 +347,7 @@ namespace Trato.Personas
         }
         public C_RegistroPrinci(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,string _tel, string _cel,
             string _calle,string _numExt, string _numInt, string _col, string _ciud,string _mun, string _est, string _cp, 
-            string _corr, int _idPer,string _nomMembre, int _idmembre, string _costo, string _token )
+            string _corr, int _idPer,string _nomMembre, int _idmembre, string _costo,int _numEmple, string _token )
         {
             v_Nombre = _nom;
             v_Rfc = _rfc;
@@ -384,6 +387,7 @@ namespace Trato.Personas
             v_NomMembre = _nomMembre;
             v_idmembre = _idmembre;
             v_Costo = _costo;
+            v_numEmple = _numEmple;
             v_token = _token;
 
         }
@@ -636,12 +640,17 @@ namespace Trato.Personas
         public string v_descripcion { get; set; }
         [JsonProperty("img")]
         public string v_img { get; set; }
+        [JsonProperty("idsexo")]
+        public int v_idsexo { get; set; }
+
+        
 
         public string FN_GetInfo()
         {
             string _ret;
             _ret = "tit "+ v_titulo+"nom " + v_Nombre + " ape " + v_Apellido + " espe " + v_Especialidad + " dom " + v_Domicilio + " ciu " + v_Ciudad +
-                " tel " + v_Tel + " corr " + v_Correo + " horainicio " + v_horAper +"hora salida" + v_horCierra + " ced " + v_cedula + " des " + v_descripcion ;
+                " tel " + v_Tel + " corr " + v_Correo + " horainicio " + v_horAper +"hora salida" + v_horCierra + " ced " + v_cedula + " des " + v_descripcion+
+                " sexo " + v_idsexo;
             return _ret;
         }
 

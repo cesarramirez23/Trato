@@ -15,7 +15,7 @@
                     <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="End" Text="0"></Entry>
                 </StackLayout>
                 <Label Text="Ingresa tu contraseña"></Label>
-                <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="b4048f"></Entry>
+                <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="cesar1234"></Entry>
                 <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
 
                 <Label Text="¿No tienes cuenta?" FontAttributes="Bold">

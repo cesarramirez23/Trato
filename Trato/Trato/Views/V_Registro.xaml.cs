@@ -22,8 +22,10 @@ namespace Trato.Views
         bool v_primero = false;
         string[] v_costo =
         {
-            "$500 MXN" , "$1500 MNX PARA 5 PERSONAS", "$1500 MNX PARA 5 PERSONAS"
+            "580" , "1740", "464"
         };
+
+        //familiar 1740   indi  580    empre por persona  464
 
         /// <summary>
         /// true es fisico falso es moral
@@ -82,32 +84,63 @@ namespace Trato.Views
             v_T_Persona = !v_T_Persona;
             if (v_T_Persona)
             {
+                Persona.Text = "Persona Fisica";
+
+
+                //entry
                 giro.Text = "";
                 giro.Placeholder = "Ocupacion";
-                Persona.Text = "Persona Fisica";
-                fecha.IsEnabled = true;
-                lugar.IsEnabled = true;
-                cel.IsEnabled = true;
-                fecha.IsVisible = true;
-                lugar.IsVisible = true;
-                cel.IsVisible = true;
-                rfc.IsVisible = false;
+                //label ocupacion
+                LblOcu.Text = "Ocupacion";
+
+
+                StackFecha.IsVisible = true;
+                //fecha.IsEnabled = true;
+                //fecha.IsVisible = true;
+
+                StackLugar.IsVisible = true;
+                //lugar.IsEnabled = true;
+                //lugar.IsVisible = true;
+
+
+                StackCel.IsVisible = true;
+                //cel.IsEnabled = true;
+                //cel.IsVisible = true;
+
+
+                StackRfc.IsVisible = false;
+                //rfc.IsVisible = false;
                 rfc.Text = "";
+
+
             }
             else
             {
-                fecha.IsEnabled = false;
-
-                lugar.IsEnabled = false;
-                lugar.Text = "";
-                cel.IsEnabled = false;
-                cel.IsVisible = false;
-                cel.Text = "";
-                fecha.IsVisible = false;
-                lugar.IsVisible = false;
-                lugar.Text = "";
-                rfc.IsVisible = false;
                 Persona.Text = "Persona Moral";
+                
+                //giro es entry
+                giro.Text = "";
+                giro.Placeholder = "Giro de la empresa";
+                //label de ocupacuon/giro
+                LblOcu.Text = "Giro";
+
+
+                StackFecha.IsVisible = false;
+                //fecha.IsEnabled = false;
+                //fecha.IsVisible = false;
+
+                StackLugar.IsVisible = false;
+                //lugar.IsEnabled = false;
+                //lugar.Text = "";
+
+
+                StackCel.IsVisible = false;
+                //cel.IsEnabled = false;
+                //cel.IsVisible = false;
+                cel.Text = "";
+
+                StackRfc.IsVisible = true;
+               // rfc.IsVisible = false;
             }
 
         }
@@ -147,7 +180,14 @@ namespace Trato.Views
         /// <param name="_args"></param>
         void Fn_Drop(object sender, EventArgs _args)
         {
-            mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex];
+            mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex]+" MXN";
+        }
+        void Fn_DropEmple(object sender, EventArgs _args)
+        {
+            int _cosFinal = 0;
+            _cosFinal = int.Parse(v_costo[tipo.SelectedIndex]);
+            _cosFinal *= int.Parse( PickEmple.SelectedItem.ToString());
+            mensaje.Text = tipo.SelectedItem.ToString() + "  " + _cosFinal+ " MXN";
         }
         void Fn_NoNumeros(object sender, TextChangedEventArgs _args)
         {
@@ -182,94 +222,117 @@ namespace Trato.Views
             }
             else
             {
-                if(Fn_Condiciones())
+                if(tipo.SelectedIndex==2 && PickEmple.SelectedIndex<0)
                 {
-
-                    NavigationPage.SetHasNavigationBar(this, false);
-                    RegPrin.IsEnabled = false;
-
-                    StackMen.IsVisible = true;
-                    Mensajes_over.Text = "Procesando Informacion";
-
-                    int _persona;
-                    if (v_T_Persona)
+                    await DisplayAlert("Error", "Como mínimo 1 empleado, maximo 20", "Aceptar");
+                }
+                else
+                {
+                    if (Fn_Condiciones())
                     {
-                        _persona = 0;
-                    }
-                    else
-                    {
-                        _persona = 1;
-                    }
 
-                    if (!v_primero)
-                    {
-                        await Browser.EvaluateJavaScriptAsync("submitbutton()");
-                        v_primero = true;
-                        await Task.Delay(2000);
-                    }
-                    //se genera el token y se guarda
-                    string tokenid = await Browser.EvaluateJavaScriptAsync("submitbutton()");
-                    //delay 
-                    await Task.Delay(1000);
-                    if(string.IsNullOrEmpty( tokenid) || string.IsNullOrWhiteSpace(tokenid))
-                    {
-                        StackMen.IsVisible = false;
-                        await DisplayAlert("Error", "Error en 1 o mas campos de la tarjeta", "aceptar");
-                        NavigationPage.SetHasNavigationBar(this, true);
-                        RegPrin.IsEnabled = true;
-                    }
-                    else
-                    {
-                        C_RegistroPrinci datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
-                            dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
-                            v_costo[tipo.SelectedIndex], tokenid);
+                        NavigationPage.SetHasNavigationBar(this, false);
+                        RegPrin.IsEnabled = false;
+                        StackMen.IsVisible = true;
+                        Mensajes_over.Text = "Procesando Informacion";
 
-                        //se crea el json
-                        string json_reg = JsonConvert.SerializeObject(datosregistro,Formatting.Indented);
-                        // lo hacemos visible en la pantall
-                        Mensajes_over.Text += json_reg;
-                        //damos el formato
-                        StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
-                        //crea el cliente
-                        HttpClient v_cliente = new HttpClient();
-                        //url
-                        var url = "https://useller.com.mx/trato_especial/tarjeta_alta.php";
-
-                        try
+                        int _persona;
+                        if (v_T_Persona)
                         {
-                            HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                            // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
-                            if (respuestaReg.StatusCode== System.Net.HttpStatusCode.OK)
-                            {
-                                string content = await respuestaReg.Content.ReadAsStringAsync();
-                                if(content=="1")
-                                {
-                                    Mensajes_over.Text += "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
-                                    MEnu.IsVisible = true;
-                                }
-                                else if(content=="0")
-                                {
-                                    StackMen.IsVisible = false;
-                                    await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
-                                    NavigationPage.SetHasNavigationBar(this, true);
-                                    RegPrin.IsEnabled = true;
-                                }
-                            }
-                            else
-                            {
-                                string content = await respuestaReg.Content.ReadAsStringAsync();
-                                Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content ;
-                            }
+                            _persona = 0;
                         }
-                        catch(HttpRequestException exception)
+                        else
                         {
-                            Mensajes_over.Text = exception.Message;
-                            ReintenRegPri.IsVisible = true;
+                            _persona = 1;
+                        }
+
+                        if (!v_primero)
+                        {
+                            await Browser.EvaluateJavaScriptAsync("submitbutton()");
+                            v_primero = true;
+                            await Task.Delay(2000);
+                        }
+                        //se genera el token y se guarda
+                        string tokenid = await Browser.EvaluateJavaScriptAsync("submitbutton()");
+                        //delay 
+                        await Task.Delay(1000);
+                        if (string.IsNullOrEmpty(tokenid) || string.IsNullOrWhiteSpace(tokenid))
+                        {
+                            StackMen.IsVisible = false;
+                            await DisplayAlert("Error", "Error en 1 o mas campos de la tarjeta", "aceptar");
                             NavigationPage.SetHasNavigationBar(this, true);
                             RegPrin.IsEnabled = true;
                         }
-                    }//token vacio
-                }//ifcondiciones
+                        else
+                        {
+                            int _precioFinal = -1;
+                            C_RegistroPrinci datosregistro= new C_RegistroPrinci();
+
+                            if (tipo.SelectedIndex == 2)
+                            {
+                                _precioFinal = int.Parse(v_costo[tipo.SelectedIndex])* int.Parse(PickEmple.SelectedItem.ToString());
+                                 datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
+                                  dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
+                                  _precioFinal.ToString(), int.Parse(PickEmple.SelectedItem.ToString()),  tokenid);
+                            }
+                            else
+                            {
+                                 datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
+                                   dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
+                                   v_costo[tipo.SelectedIndex],0,tokenid);
+                            }
+
+
+                            
+
+                            //se crea el json
+                            string json_reg = JsonConvert.SerializeObject(datosregistro, Formatting.Indented);
+                            // lo hacemos visible en la pantall
+                            Mensajes_over.Text += json_reg;
+                            //damos el formato
+                            StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
+                            //crea el cliente
+                            HttpClient v_cliente = new HttpClient();
+                            //url
+                            var url = "https://useller.com.mx/trato_especial/tarjeta_alta.php";
+
+                            try
+                            {
+                                HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
+                                // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
+                                if (respuestaReg.StatusCode == System.Net.HttpStatusCode.OK)
+                                {
+                                    string content = await respuestaReg.Content.ReadAsStringAsync();
+                                    if (content == "1")
+                                    {
+                                        Mensajes_over.Text += "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
+                                        MEnu.IsVisible = true;
+                                    }
+                                    else if (content == "0")
+                                    {
+                                        StackMen.IsVisible = false;
+                                        await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
+                                        NavigationPage.SetHasNavigationBar(this, true);
+                                        RegPrin.IsEnabled = true;
+                                    }
+                                }
+                                else
+                                {
+                                    string content = await respuestaReg.Content.ReadAsStringAsync();
+                                    Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content;
+                                    ReintenRegPri.IsVisible = true;
+                                }
+                            }
+                            catch (HttpRequestException exception)
+                            {
+                                Mensajes_over.Text = exception.Message;
+                                ReintenRegPri.IsVisible = true;
+                                NavigationPage.SetHasNavigationBar(this, true);
+                                RegPrin.IsEnabled = true;
+                            }
+                        }//token vacio
+                    }//ifcondiciones
+                }// sio es empresarial que elija numero de empleados
             }//else tipo selectedindex
         }
         public void Fn_OcultarPrin(object sender, EventArgs _args)

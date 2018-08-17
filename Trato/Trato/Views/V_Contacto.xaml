@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.Views.V_Contacto">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Enviar Correo" FontSize="Large"></Label>
+                <Label Text="Nombre: " FontSize="Medium"></Label>
+                <Entry x:Name="v_nombre"></Entry>
+                <Label Text="Correo Electronico: " FontSize="Medium"></Label>
+                <Entry x:Name="v_correo"></Entry>
+                <Label Text="Escribe aquí tu comentario: " FontSize="Medium"></Label>
+                <Editor AutoSize="TextChanges" x:Name="v_mensaje"></Editor>
+                <Button Text="Enviar" Style="{StaticResource Buton}" Clicked="Fn_Enviar"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

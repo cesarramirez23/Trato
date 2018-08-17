@@ -266,6 +266,20 @@ namespace Trato
             Current.Properties["folio"] = v_folio;
             await Task.Delay(100);
         }
+        public static void Fn_ImgSexo()
+        {
+            for (int i = 0; i<v_medicos.Count;i++)
+            {
+                if(v_medicos[i].v_idsexo==0)
+                {
+                    v_medicos[i].v_img = "doctor.png";
+                }
+                else
+                {
+                    v_medicos[i].v_img = "doctora.png";
+                }
+            }
+        }
         public static string Fn_Vacio(string _valor)
         {
             if (string.IsNullOrEmpty(_valor) || string.IsNullOrWhiteSpace(_valor))

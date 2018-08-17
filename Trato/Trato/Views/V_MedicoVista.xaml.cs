@@ -51,6 +51,7 @@ namespace Trato.Views
             "\nCedula Profesional: "+v_medico.v_cedula;
             img.Source = v_medico.v_img;
             descrip.Text=" " +v_medico.v_descripcion;
+            img.Source = v_medico.v_img;
             _personaa = true;
             //if(App.v_log=="1")
             //{
@@ -85,7 +86,7 @@ namespace Trato.Views
             //    boton.IsVisible = false;
             //}
         }
-        public async  void Fn_AbrirMapa(object sender, EventArgs _args)
+        public void Fn_AbrirMapa(object sender, EventArgs _args)
         {
             string direcMapa = "";
             if(Device.RuntimePlatform == Device.Android)
@@ -124,7 +125,6 @@ namespace Trato.Views
                 direcMapa += v_servi.v_Ciudad;
             }
             Uri _direc = new Uri(direcMapa);
-            await DisplayAlert("Enviar ", direcMapa + "\n" + _direc, "aceptar");
             Device.OpenUri(_direc);
         }
     }

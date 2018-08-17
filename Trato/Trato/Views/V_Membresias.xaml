@@ -15,13 +15,12 @@
                     <Image Source="M_Personal.png" HeightRequest="200" WidthRequest="200"></Image>
                     <Label FontSize="Large" Text="MEMBRESIA INDIVIDUAL:" HorizontalOptions="Center" FontAttributes="Bold"/>
                     <Label x:Name="M_Ind" />
-                    <Label FontSize="Medium" HorizontalOptions="Center" Text=" COSTO: MEMBRESÍA ANUAL $500 MNX PARA 1 PERSONA "></Label>
+                    <Label FontSize="Medium" HorizontalOptions="Center" Text=" COSTO: MEMBRESÍA ANUAL $500 MNX + IVA PARA 1 PERSONA "></Label>
                     <Button Text="Comprar" Clicked="Fn_Comprar"  Style="{StaticResource Buton}" ></Button>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
     </ContentPage>
-    
     
     <ContentPage Title="Familiar">
         <StackLayout Style="{StaticResource Key=Stack}">
@@ -30,7 +29,7 @@
                     <Image Source="M_Familiar.png" HeightRequest="200" WidthRequest="200" ></Image>
                     <Label FontSize="Large" Text="MEMBRESIA FAMILIAR:" HorizontalOptions="Center" FontAttributes="Bold"/>
                     <Label x:Name="M_Fam" ></Label>
-                    <Label FontSize="Medium" HorizontalOptions="Center" Text="COSTO: MEMBRESÍA ANUAL $1500 MNX PARA 5 PERSONAS"></Label>
+                    <Label FontSize="Medium" HorizontalOptions="Center" Text="COSTO: MEMBRESÍA ANUAL $1500 MNX  + IVA PARA 5 PERSONAS"></Label>
                     <Button Text="Comprar" Clicked="Fn_Comprar"  Style="{StaticResource Buton}" ></Button>
                 </StackLayout>
             </ScrollView>
@@ -45,7 +44,7 @@
                     <Image Source="M_Empresarial.png" HeightRequest="200" WidthRequest="200"></Image>
                     <Label FontSize="Large" Text="MEMBRESIA EMPRESARIAL:" HorizontalOptions="Center" FontAttributes="Bold"/>
                     <Label x:Name="M_Emp" />
-                    <Label FontSize="Medium" HorizontalOptions="Center" Text="COSTO: MEMBRESÍA ANUAL $400 MNX POR TRABAJADOR"></Label>
+                    <Label FontSize="Medium" HorizontalOptions="Center" Text="COSTO: MEMBRESÍA ANUAL $400 MNX + IVA POR TRABAJADOR"></Label>
                 <Button Text="Comprar" Clicked="Fn_Comprar" Style="{StaticResource Buton}" ></Button>
                 </StackLayout>
             </ScrollView>

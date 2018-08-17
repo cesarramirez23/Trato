@@ -8,12 +8,14 @@
             <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
                 <Button Clicked="Fn_Filtro"  Text="Filtro" Style="{StaticResource Buton}" x:Name="B_Filtrar"></Button>
                 <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
-                <ListView  x:Name="v_lista" SeparatorColor="Gray" RowHeight="150" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh">                
+                <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" SelectionMode="Single" RowHeight="150" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh">                
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <!--https://stackoverflow.com/questions/49373982/access-views-inside-a-datatemplate-at-runtime-in-xamarin-forms -->
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                    
+                                    <Image x:Name="imgSexo" Source="{Binding v_img}" HorizontalOptions="Start"></Image>
                                     <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center">
                                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                             <Label Text="{Binding v_titulo}"/>
@@ -24,19 +26,18 @@
                                         <Label Text="{Binding v_Domicilio}" />
                                         <Label Text="{Binding v_Ciudad}" />
                                     </StackLayout>
-                                    <!--  <Image HorizontalOptions="End" Source="{Binding v_img}" />-->
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                </StackLayout>
+            </StackLayout>
             <ContentView x:Name="overlay"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  IsVisible="False" BackgroundColor="LightGray" Padding="10, 0">
                 <StackLayout Orientation="Vertical">
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text=" cancel" Clicked="Fn_Cancelar" HorizontalOptions="StartAndExpand" Style="{StaticResource Buton}" ></Button>
-                        <Button Text=" acep" Clicked="Fn_Aceptar" HorizontalOptions="CenterAndExpand" Style="{StaticResource Buton}"></Button>
-                        <Button Text="Borrar" Clicked="Fn_BorrarFiltro" HorizontalOptions="EndAndExpand" Style="{StaticResource Buton}"></Button>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Button Text="Cancelar" Clicked="Fn_Cancelar" Style="{StaticResource Buton}" ></Button>
+                        <Button Text="Aceptar" Clicked="Fn_Aceptar" Style="{StaticResource Buton}"></Button>
+                        <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Buton}"></Button>
                     </StackLayout>
                             <Label HorizontalOptions="Center" Text="Especialidad"></Label>
                     <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec" >

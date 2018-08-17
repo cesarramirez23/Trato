@@ -32,7 +32,7 @@ namespace Trato.Views
 			InitializeComponent ();
             CargarGen();
             CargarMed();
-           // Scan();
+            // Scan();
         }
 
         private ZXingDefaultOverlay overlay;
@@ -557,6 +557,7 @@ namespace Trato.Views
 
         public void FN_CrearQR(object sender, EventArgs _args)
         {
+            Button _but = (Button)sender;
             barcode = new ZXingBarcodeImageView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -567,13 +568,21 @@ namespace Trato.Views
             barcode.BarcodeOptions.Height = 700;
             //barcode.BarcodeValue = qrTexto.Text.Trim();
             //string _json = "[";
-            string _json = "";
-             //_json=   JsonConvert.SerializeObject( App.v_perfil);
-               _json=   JsonConvert.SerializeObject( App.v_perfMed);
+            //string _json = "";
+            //_json=   JsonConvert.SerializeObject( App.v_perfil);
+            //_json =   JsonConvert.SerializeObject( App.v_perfMed);
 
-            qrTexto.Text = _json;
-            barcode.BarcodeValue = _json;
+            string json = @"{";
+            json += "idmembre:'" + App.v_membresia + "',\n";
+            json += "idfolio:'" + App.v_folio + "',\n";
+            json += "}";
+
+            JObject jsonEnviar = JObject.Parse(json);
+
+           // qrTexto.Text = jsonEnviar.ToString() ;
+            barcode.BarcodeValue = jsonEnviar.ToString() ;
             qr_content.Content = barcode;
+            _but.IsEnabled = false;
         }
 
     }

@@ -22,8 +22,8 @@
         <ContentPage Title="Tarjeta Virtual">
             <ScrollView >
                 <StackLayout>
-                    <Entry Text="cosa a leer" x:Name="qrTexto" ></Entry>
-                    <Button Text="qr" Clicked="FN_CrearQR"></Button>
+                    <!--<Entry Text="cosa a leer" x:Name="qrTexto" ></Entry>-->
+                    <Button Text="Mostrar Codigo" Clicked="FN_CrearQR" Style="{StaticResource Buton}"></Button>
                     <ContentView x:Name="qr_content">
 
                     </ContentView>
@@ -31,13 +31,13 @@
             </ScrollView>
         </ContentPage>
 
-        <ContentPage Title="Reader">
+   <!--     <ContentPage Title="Reader">
             <ContentView x:Name="reader">
 
             </ContentView>
 
         </ContentPage>
-
+-->
         <ContentPage Title="Info General" >
             <ScrollView>
                 <StackLayout x:Name="StackGeneral" Margin="20,0">

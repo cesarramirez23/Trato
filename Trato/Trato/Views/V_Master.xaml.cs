@@ -52,6 +52,12 @@ namespace Trato.Views
         {
             await Task.Delay(100);
         } 
+        public void Fn_Contacto(object sender, EventArgs _args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Contacto() { Title = "Contacto" });
+        }
+
         public void Fn_Medicos(object sender, EventArgs _args)
         {
             IsPresented = false;
