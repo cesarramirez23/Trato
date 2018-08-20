@@ -278,6 +278,7 @@ namespace Trato
                 {
                     v_medicos[i].v_img = "doctora.png";
                 }
+                v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " + v_medicos[i].v_Apellido;
             }
         }
         public static string Fn_Vacio(string _valor)

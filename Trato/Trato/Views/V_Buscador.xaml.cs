@@ -87,14 +87,17 @@ namespace Trato.Views
             {
                 v_medico = true;
                 Orden();
+                v_lista.Header = "Medico,Desliza hacia arriba o abajo para ver mas sugerencias";
                 v_lista.ItemsSource = App.v_medicos;
             }
             else
             {
                 v_medico = false;
+                v_lista.Header = "Servicios,Desliza hacia arriba o abajo para ver mas sugerencias";
                 Orden();
                 v_lista.ItemsSource = App.v_servicios;
             }
+            Buscador.IsVisible = false;
             Fn_CargarDAtos();
         }
         public async void Fn_CrearCiud()
@@ -559,6 +562,61 @@ namespace Trato.Views
             await Task.Delay(100);
             //cancelar la actualizacion
             list.IsRefreshing = false;
+            List<string> _da = new List<string>();
+        }
+
+        public void Fn_Buscar(object sender, TextChangedEventArgs e)
+        {
+            SearchBar _search = (SearchBar)sender;
+            string _abuscar = _search.Text.ToLower(); //.StartsWith()
+
+            if (string.IsNullOrEmpty(_abuscar) ||  string.IsNullOrWhiteSpace(_abuscar))
+            {
+                Buscador.ItemsSource = null;
+                Buscador.IsVisible = false;
+            }
+            else
+            {
+                Buscador.ItemsSource = null;
+                Buscador.IsVisible = true;
+                ObservableCollection<string> _lista = new ObservableCollection<string>();
+                if (v_medico)
+                {
+                    for(int i=0; i<App.v_medicos.Count; i++)
+                    {
+                        if (App.v_medicos[i].v_Nombre.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_medicos[i].v_Nombre) )
+                        {
+                            _lista.Add(App.v_medicos[i].v_Nombre);
+                        }
+                        else if( App.v_medicos[i].v_Apellido.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_medicos[i].v_Apellido))
+                        {
+                            _lista.Add(App.v_medicos[i].v_Apellido);
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < App.v_servicios.Count; i++)
+                    {
+
+                    }
+                }
+                for (int i = 0; i <_especialidades.Count; i++)
+                {
+                    if (_especialidades[i].v_texto.ToLower().StartsWith(_abuscar))
+                    {
+                        _lista.Add(_especialidades[i].v_texto);
+                    }
+                }
+                if(_lista.Count>0)
+                {
+                    Buscador.ItemsSource = _lista;
+                }
+                else
+                {
+                    Buscador.IsVisible = false;
+                }
+            }
         }
     }
 }

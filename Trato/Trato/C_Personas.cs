@@ -643,6 +643,7 @@ namespace Trato.Personas
         [JsonProperty("idsexo")]
         public int v_idsexo { get; set; }
 
+        public string v_completo { get; set; }
         
 
         public string FN_GetInfo()
@@ -679,6 +680,12 @@ namespace Trato.Personas
         public string v_horario { get; set; }
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
+        [JsonProperty("horario_apertura")]
+        public string v_horAper { get; set; }
+        [JsonProperty("horario_cierre")]
+        public string v_horCierra { get; set; }
+        [JsonProperty("sitio")]
+        public string v_sitio;
         /// <summary>
         /// imagen para mostrar
         /// </summary>

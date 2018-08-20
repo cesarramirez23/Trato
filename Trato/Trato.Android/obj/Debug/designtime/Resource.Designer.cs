@@ -2672,9 +2672,6 @@ namespace Trato.Droid
 		public partial class Drawable
 		{
 			
-			// aapt resource value: 0x7F010002
-			public const int 1 = 2130771970;
-			
 			// aapt resource value: 0x7F090001
 			public const int abc_ab_share_pack_mtrl_alpha = 2131296257;
 			
@@ -3167,8 +3164,11 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F09005B
 			public const int design_snackbar_background = 2131296347;
 			
+			// aapt resource value: 0x7F010002
+			public const int doctor = 2130771970;
+			
 			// aapt resource value: 0x7F010003
-			public const int doc = 2130771971;
+			public const int doctora = 2130771971;
 			
 			// aapt resource value: 0x1
 			public const int googleg_disabled_color_18 = 1;
