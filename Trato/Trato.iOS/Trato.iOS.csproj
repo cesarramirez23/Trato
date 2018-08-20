@@ -256,4 +256,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\doctora.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Filtro.png" />
+  </ItemGroup>
 </Project>

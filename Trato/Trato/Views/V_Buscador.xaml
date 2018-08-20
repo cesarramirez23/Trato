@@ -5,15 +5,29 @@
     <ContentPage.Content>
         <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1">
             <!--Orientation="Vertical">-->
-            <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" Margin="10,0">
-                <StackLayout Orientation="Horizontal">
-                    <SearchBar Placeholder="Buscar algo" TextChanged="Fn_Buscar" HorizontalOptions="FillAndExpand"></SearchBar>
-                    <Button Clicked="Fn_Filtro"  Text="Filtro" Style="{StaticResource Buton}" x:Name="B_Filtrar" HorizontalOptions="End"></Button>
-                </StackLayout>
+            <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  Margin="10,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+                    <SearchBar Placeholder="Buscar algo" TextChanged="Fn_Buscar" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="3" x:Name="v_Search"></SearchBar>
+                    <Image Source="Filtro" HorizontalOptions="Fill"  x:Name="B_Filtrar" WidthRequest="50" HeightRequest="50" Grid.Column="3" Grid.ColumnSpan="1">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Fn_Filtro" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
                 <ScrollView BackgroundColor="LightGray">
                     <StackLayout>
                         
-                        <ListView  x:Name="Buscador" SeparatorColor="{StaticResource NavigationPrimary}" Header="Desliza hacia arriba o abajo, para ver mas sugerencias">
+                        <ListView  x:Name="Buscador" SeparatorColor="{StaticResource NavigationPrimary}" Header="Desliza hacia arriba o abajo, para ver mas sugerencias" 
+                                   IsPullToRefreshEnabled="False" ItemTapped="Fn_TapFiltro">
                             <ListView.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                 </x:Array>
@@ -21,8 +35,9 @@
                         </ListView>
                        
                         <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
-                        
-                        <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" SelectionMode="Single" RowHeight="150" IsPullToRefreshEnabled="True" ItemSelected="Fn_Select" Refreshing="Fn_Refresh">                
+
+                        <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" Margin="10,0" SelectionMode="Single" RowHeight="150" ItemSelected="Fn_Select" Refreshing="Fn_Refresh">
+                            <!--IsPullToRefreshEnabled="True" -->               
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

@@ -499,7 +499,7 @@ namespace Trato.Views
                     App.Fn_ImgSexo();
                     v_lista.ItemsSource = App.v_medicos;
                 }
-                catch (HttpRequestException _ex)
+                catch 
                 {
                     if (Application.Current.Properties.ContainsKey("medicos"))
                     {
@@ -537,20 +537,53 @@ namespace Trato.Views
                 //pedir los datos y hacerlos nuevos
                 // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
 
-                //por ahora esta creando nuevoos
-                Random rand = new Random();
-                string _val = rand.Next(0, 120).ToString();
-                App.v_servicios.Add(new C_Servicios
+                HttpClient _cliente = new HttpClient();
+                string url = "https://useller.com.mx/trato_especial/prueba_json.php";
+                L_Error.IsVisible = true;
+                L_Error.Text = "Procesando Informacion";
+                try
                 {
-                    v_Nombre = "Nombre lugar  nuevo" + _val,
-                    v_Especialidad = "esec" + _val,
-                    v_Domicilio = "dom sdsafsdfdf" + _val,
-                    v_descripcion = "infoooooooooo" + _val,
-                    v_img = "ICONOAPP.png"
-                });// v_Descuento ="descuento "+ _val+"%",
-                Orden();
-                //darle la nueva lista
-                v_lista.ItemsSource = App.v_servicios;
+                    HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
+                    string _respu = await _respuestphp.Content.ReadAsStringAsync();
+                    ObservableCollection<C_Servicios> _med = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_respu);
+                    L_Error.IsVisible = false;
+                    B_Filtrar.IsEnabled = true;
+                    App.v_servicios = _med;
+                    App.Fn_GuardarServcios(App.v_servicios);
+                    Orden();
+
+                    App.Fn_ImgSexo();
+                    v_lista.ItemsSource = App.v_medicos;
+                }
+                catch 
+                {
+                    if (Application.Current.Properties.ContainsKey("servicios"))
+                    {
+                        string _json = App.Current.Properties["servicios"] as string;
+                        App.v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_json);
+                        Orden();
+                        App.Fn_ImgSexo();
+                        if (App.v_servicios.Count > 0)
+                        {
+                            L_Error.IsVisible = false;
+                            B_Filtrar.IsEnabled = true;
+                        }
+                        else
+                        {
+                            L_Error.Text = "Error de Conexion";
+                            L_Error.IsVisible = true;
+                            B_Filtrar.IsEnabled = false;
+                        }
+                        v_lista.ItemsSource = App.v_servicios;
+                    }
+                    else
+                    {
+                        L_Error.Text = "Error de Conexion";
+                        L_Error.IsVisible = true;
+                        B_Filtrar.IsEnabled = false;
+                        v_lista.ItemsSource = null;
+                    }
+                }
             }
             Fn_CrearCiud();
             Fn_CrearEspec();
@@ -564,19 +597,29 @@ namespace Trato.Views
             list.IsRefreshing = false;
             List<string> _da = new List<string>();
         }
-
         public void Fn_Buscar(object sender, TextChangedEventArgs e)
         {
             SearchBar _search = (SearchBar)sender;
             string _abuscar = _search.Text.ToLower(); //.StartsWith()
 
-            if (string.IsNullOrEmpty(_abuscar) ||  string.IsNullOrWhiteSpace(_abuscar))
+            if (string.IsNullOrEmpty(_abuscar) || string.IsNullOrWhiteSpace(_abuscar))
             {
+                v_lista.IsVisible = false;
                 Buscador.ItemsSource = null;
                 Buscador.IsVisible = false;
+                v_lista.IsVisible = true;
+                if(v_medico)
+                {
+                    v_lista.ItemsSource = App.v_medicos;
+                }
+                else
+                {
+                    v_lista.ItemsSource = App.v_servicios;
+                }
             }
             else
             {
+                v_lista.IsVisible = false;
                 Buscador.ItemsSource = null;
                 Buscador.IsVisible = true;
                 ObservableCollection<string> _lista = new ObservableCollection<string>();
@@ -618,5 +661,39 @@ namespace Trato.Views
                 }
             }
         }
+
+        public void Fn_TapFiltro(object sender, ItemTappedEventArgs _args)
+        {
+            string _nuevoFiltro =_args.Item as string;
+            v_Search.Text = _nuevoFiltro;
+            if(v_medico)
+            {
+                ObservableCollection<C_Medico> _medicosTemp = new ObservableCollection<C_Medico>();
+                for(int i=0; i<App.v_medicos.Count; i++)
+                {
+                    if( (App.v_medicos[i].v_Nombre== _nuevoFiltro) ||
+                       (App.v_medicos[i].v_Apellido == _nuevoFiltro) || (App.v_medicos[i].v_Especialidad == _nuevoFiltro) )
+                    {
+                        _medicosTemp.Add(App.v_medicos[i]);
+                    }
+                }
+                v_lista.ItemsSource = _medicosTemp;
+            }
+            else
+            {
+                ObservableCollection<C_Servicios> _serTemp = new ObservableCollection<C_Servicios>();
+                for (int i = 0; i < App.v_servicios.Count; i++)
+                {
+                    if ((App.v_servicios[i].v_Nombre == _nuevoFiltro) || (App.v_servicios[i].v_Especialidad == _nuevoFiltro))
+                    {
+                        _serTemp.Add(App.v_servicios[i]);
+                    }
+                }
+                v_lista.ItemsSource = _serTemp;
+            }
+            v_lista.IsVisible = true;
+            Buscador.IsVisible = false;
+        }
+
     }
 }

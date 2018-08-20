@@ -675,9 +675,9 @@ namespace Trato.Personas
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
         //[JsonProperty("desc")]
-        //public string v_Descuento { get; set; }
-        [JsonProperty("horario")]
-        public string v_horario { get; set; }
+        ////public string v_Descuento { get; set; }
+        //[JsonProperty("horario")]
+        //public string v_horario { get; set; }
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
         [JsonProperty("horario_apertura")]
