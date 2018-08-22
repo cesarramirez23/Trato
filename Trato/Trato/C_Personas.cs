@@ -660,7 +660,7 @@ namespace Trato.Personas
     {
         //get y set para poder que sean binding
         [JsonProperty("nombre")]
-        public string v_Nombre { get; set; }
+        public string v_completo { get; set; }
         [JsonProperty("espe")]
         public string v_Especialidad { get; set; }
         [JsonProperty("dom")]

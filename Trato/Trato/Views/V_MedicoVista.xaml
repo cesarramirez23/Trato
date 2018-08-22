@@ -5,20 +5,25 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Margin="10,0,10,30">
             <ScrollView>
-                <StackLayout Orientation="Vertical" Margin="0,5,0,5">
+                <StackLayout Orientation="Vertical" Margin="20,5,20,5">
                     <Image x:Name="img" WidthRequest="200" HeightRequest="200"></Image>
-                    <Label FontSize="Medium" Text="Información" TextColor="{StaticResource NavigationPrimary}"/>
-                    <Label x:Name="nombre"></Label>
-                    <Label x:Name="especial"></Label>
-                    <Label FontSize="Medium" Text="Información de contacto:" TextColor="{StaticResource NavigationPrimary}"></Label>
-                    <Label x:Name="info"></Label>
-                    <Label x:Name="domicilio" FontAttributes="Italic">
+                    <Label FontSize="Large" FontAttributes="Bold" Text="Información" TextColor="{StaticResource NavigationPrimary}"/>
+                    <Label FontSize="Medium" x:Name="nombre"></Label>
+                    <Label FontSize="Medium" x:Name="especial"></Label>
+                    <Label FontSize="Large" FontAttributes="Bold" Text="Información de contacto:" TextColor="{StaticResource NavigationPrimary}"></Label>
+                    <Label FontSize="Medium" x:Name="info"></Label>
+                    <Label x:Name="domicilio" FontAttributes="Italic" FontSize="Medium">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirMapa"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
-                    <Label FontSize="Medium" Text="Información extra" TextColor="{StaticResource NavigationPrimary}"/>
-                    <Label x:Name="descrip" ></Label>
+                    <Label x:Name="sitio" FontAttributes="Italic" FontSize="Medium">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirSitio"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label FontSize="Large" FontAttributes="Bold" Text="Información extra" TextColor="{StaticResource NavigationPrimary}"/>
+                    <Label FontSize="Medium" x:Name="descrip" ></Label>
                 </StackLayout>
             </ScrollView>
             <Button   x:Name="boton" Text="Cita" Margin="0,5,0,5" IsVisible="False" Style="{StaticResource Buton}"></Button>

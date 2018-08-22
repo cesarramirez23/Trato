@@ -4,7 +4,7 @@
              x:Class="Trato.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!--Global Styles-->
+            <!--Global Styles              rgb 40,150,209 -->
             <Color x:Key="NavigationPrimary">#2896D1</Color>
             <Color x:Key="LetrCol" >#000000</Color>
             <Style  TargetType="NavigationPage">
@@ -21,6 +21,12 @@
                 <Setter Property="Margin" Value="20,0,20,0"/>
                 <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="Boton2" TargetType="Button">
+                <Setter Property="CornerRadius" Value="10"></Setter>
+                <Setter Property="BackgroundColor" Value="White"></Setter>
+                <Setter Property="BorderColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="BorderWidth" Value="1"/>
             </Style>
             <Style x:Key="StyEntry" TargetType="Entry">
                 <Setter Property="TextColor" Value="Gray"/>

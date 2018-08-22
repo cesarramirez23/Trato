@@ -46,12 +46,11 @@ namespace Trato.Views
             nombre.Text = v_medico.v_titulo+" "+ v_medico.v_Nombre +"  "+ v_medico.v_Apellido;
             especial.Text ="Especialista en "+ v_medico.v_Especialidad;
             domicilio.Text = v_medico.v_Domicilio+","+ v_medico.v_Ciudad;
-            info.Text ="Telefono: "+ v_medico.v_Tel+"\n Correo: "+ v_medico.v_Correo+
+            info.Text ="Telefono: "+ v_medico.v_Tel+"\nCorreo: "+ v_medico.v_Correo+
             "\nHorario: "+ _hora+
             "\nCedula Profesional: "+v_medico.v_cedula;
             img.Source = v_medico.v_img;
             descrip.Text=" " +v_medico.v_descripcion;
-            img.Source = v_medico.v_img;
             _personaa = true;
             //if(App.v_log=="1")
             //{
@@ -65,18 +64,38 @@ namespace Trato.Views
         public V_MedicoVista(C_Servicios _servicios)
         {
             InitializeComponent();
+            string _hora = "";
+            string[] _horas;
             v_servi = _servicios;
+            //hh: mm: ss
+            if (!string.IsNullOrEmpty(v_servi.v_horAper))
+            {
+                _horas = v_servi.v_horAper.Split(':');
+                _hora = _horas[0] + ":" + _horas[1];
+            }
+            else
+            {
+                _hora = "N/A";
+            }
+            if (!string.IsNullOrEmpty(v_servi.v_horCierra))
+            {
+                _horas = v_servi.v_horCierra.Split(':');
+                _hora += "  -  " + _horas[0] + ":" + _horas[1];
+            }
+            else
+            {
+                _hora += "  -  N/A";
+            }
+            nombre.Text = v_servi.v_completo;
+            especial.Text = "Especialista en " + v_servi.v_Especialidad;
+            domicilio.Text = v_servi.v_Domicilio + "," + v_servi.v_Ciudad;
+            info.Text = "Telefono: " + v_servi.v_Tel + "\nCorreo: " + v_servi.v_Correo +
+            "\nHorario: " + _hora;
+            sitio.Text="Sitio Web: " + v_servi.v_sitio;
+            img.Source = v_servi.v_img;
+            descrip.Text = " " + v_servi.v_descripcion;
             _personaa = false;
-            nombre.Text = _servicios.v_Nombre;
-            especial.Text = _servicios.v_Especialidad;
-            domicilio.Text = _servicios.v_Domicilio;
-            info.Text = _servicios.v_descripcion;
-            img.Source = _servicios.v_img;
-            descrip.IsVisible = true;
-           // descuento.Text = _servicios.v_Descuento;
-            //"Río + Purificación + 1603,+Las + Águilas,+45080 + Zapopan,+Jal"
 
-                
             //if (App.v_log=="1")
             //{
             //    boton.IsVisible = true;
@@ -85,6 +104,11 @@ namespace Trato.Views
             //{
             //    boton.IsVisible = false;
             //}
+        }
+        public void Fn_AbrirSitio(object sender, EventArgs _args)
+        {
+            Uri _direc = new Uri(v_servi.v_sitio);
+            Device.OpenUri(_direc);
         }
         public void Fn_AbrirMapa(object sender, EventArgs _args)
         {
