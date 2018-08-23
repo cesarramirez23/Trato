@@ -33,6 +33,10 @@
                 <Setter Property="PlaceholderColor" Value="Gray"></Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
             </Style>
+            <Style x:Key="AzulMedLbl" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
+            </Style>
             <Style x:Key="StyLbl" TargetType="Label">
                 <Setter Property="TextColor" Value="Gray"/>
                 <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>

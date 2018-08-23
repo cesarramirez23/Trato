@@ -69,6 +69,7 @@ namespace Trato.Views
                 stackTodo.IsVisible = true;
                 StackFolio.IsVisible = false;
                 Persona.Text = "Persona Fisica";
+                StackRfc.IsVisible = false;
                 fecha.IsEnabled = v_T_Persona;
                 lugar.IsEnabled = v_T_Persona;
                 tel.IsEnabled = v_T_Persona;
@@ -180,6 +181,14 @@ namespace Trato.Views
         /// <param name="_args"></param>
         void Fn_Drop(object sender, EventArgs _args)
         {
+            if (tipo.SelectedIndex==2)
+            {
+                StackEmple.IsVisible = true;
+            }
+            else
+            {
+                StackEmple.IsVisible = false;
+            }
             mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex]+" MXN";
         }
         void Fn_DropEmple(object sender, EventArgs _args)

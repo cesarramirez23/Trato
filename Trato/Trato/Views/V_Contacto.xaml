@@ -4,13 +4,13 @@
              x:Class="Trato.Views.V_Contacto">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <Label Text="Enviar Correo" FontSize="Large"></Label>
-                <Label Text="Nombre: " FontSize="Medium"></Label>
+            <StackLayout Margin="20,0">
+                <Label Text="Enviar Correo a Trato Especial" FontSize="Large"></Label>
+                <Label Text="Nombre: " Style="{StaticResource AzulMedLbl}"></Label>
                 <Entry x:Name="v_nombre"></Entry>
-                <Label Text="Correo Electronico: " FontSize="Medium"></Label>
+                <Label Text="Correo Electronico: " Style="{StaticResource AzulMedLbl}"></Label>
                 <Entry x:Name="v_correo"></Entry>
-                <Label Text="Escribe aquí tu comentario: " FontSize="Medium"></Label>
+                <Label Text="Escribe aquí tu comentario: " Style="{StaticResource AzulMedLbl}"></Label>
                 <Editor AutoSize="TextChanges" x:Name="v_mensaje"></Editor>
                 <Button Text="Enviar" Style="{StaticResource Buton}" Clicked="Fn_Enviar"></Button>
             </StackLayout>

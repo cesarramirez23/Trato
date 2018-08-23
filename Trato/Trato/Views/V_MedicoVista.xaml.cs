@@ -23,6 +23,7 @@ namespace Trato.Views
 			InitializeComponent ();
             string _hora = "";
             string[] _horas;
+            sitio.IsVisible = false;
             v_medico = _medico;
             //hh: mm: ss
             if(!string.IsNullOrEmpty( v_medico.v_horAper))
@@ -64,6 +65,7 @@ namespace Trato.Views
         public V_MedicoVista(C_Servicios _servicios)
         {
             InitializeComponent();
+            sitio.IsVisible = true;
             string _hora = "";
             string[] _horas;
             v_servi = _servicios;

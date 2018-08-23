@@ -66,11 +66,30 @@
             </StackLayout>
             <ContentView x:Name="overlay"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  IsVisible="False" BackgroundColor="LightGray" Padding="10, 0">
                 <StackLayout Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Button Text="Cancelar" Clicked="Fn_Cancelar" Style="{StaticResource Boton2}" 
+                                Grid.Column="0" Grid.ColumnSpan="1"></Button>
+                        <Button Text="Aceptar" Clicked="Fn_Aceptar" Style="{StaticResource Boton2}"
+                                Grid.Column="1" Grid.ColumnSpan="1"></Button>
+                        <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Boton2}"
+                                Grid.Column="2" Grid.ColumnSpan="1"></Button>
+
+                    </Grid>
+                    <!--
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Margin="40,0">
                         <Button Text="Cancelar" Clicked="Fn_Cancelar" Style="{StaticResource Boton2}" HorizontalOptions="Start"></Button>
                         <Button Text="Aceptar" Clicked="Fn_Aceptar" Style="{StaticResource Boton2}" HorizontalOptions="Center"></Button>
                         <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Boton2}" HorizontalOptions="End"></Button>
-                    </StackLayout>
+                    </StackLayout>-->
                             <Label HorizontalOptions="Center" Text="Especialidad"></Label>
                     <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec" >
                         <ListView.ItemTemplate>

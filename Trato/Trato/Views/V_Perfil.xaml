@@ -10,6 +10,8 @@
         <Style TargetType="Label" x:Key="lblSty">
             <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
             <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
         </Style>
         <Style x:Key="entry_perfil" TargetType="Entry">
             <Setter Property="VerticalOptions" Value="Center"></Setter>

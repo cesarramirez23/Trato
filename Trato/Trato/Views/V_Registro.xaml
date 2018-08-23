@@ -5,13 +5,13 @@
     <ContentPage.Resources>
         <Style TargetType="StackLayout" x:Key="StackSty">
             <Setter Property="HorizontalOptions" Value="Fill"></Setter>
-            <Setter Property="Orientation" Value="Horizontal"/>
-            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="Margin" Value="20,0"/>
         </Style>
         <Style TargetType="Label" x:Key="RegSty">
             <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
             <Setter Property="HorizontalOptions" Value="Start"></Setter>
             <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
         </Style>
         <Style x:Key="RegEnSty" TargetType="Entry">
             <Setter Property="VerticalOptions" Value="Center"></Setter>
@@ -23,103 +23,89 @@
         <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="Stackreg">
                 <ScrollView x:Name="stackTodo" IsVisible="True">
-                    <StackLayout>
+                    <StackLayout Style="{StaticResource StackSty}">
                         <StackLayout Orientation="Horizontal" >
-                            <Label x:Name="Persona" Text="sadsadasdsa" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center" BackgroundColor="Green"></Label>
+                            <Label x:Name="Persona" Text="sadsadasdsa" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" 
+                                   HorizontalTextAlignment="Center" TextColor="{x:StaticResource NavigationPrimary}" FontSize="Medium"></Label>
                             <Switch Toggled="Cambio" HorizontalOptions="EndAndExpand" IsToggled="False"></Switch>
                         </StackLayout>
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Nombre Completo" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
-                            <Entry  Placeholder="Nombre completo" Text="" TextChanged="Fn_NoNumeros" Keyboard="Default" x:Name="nombre"  Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
-                        <StackLayout Style="{StaticResource StackSty}" x:Name="StackRfc">
-                            <Label Text="RFC" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                        
+                        <Label Text="Nombre Completo" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Nombre Completo" Text="" TextChanged="Fn_NoNumeros" Keyboard="Default" x:Name="nombre"  Style="{StaticResource RegEnSty}"></Entry>
+                        
+                        
+                        <StackLayout  x:Name="StackRfc">
+                            <Label Text="RFC" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="rfc" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
 
 
-                        <StackLayout Style="{StaticResource StackSty}" x:Name="StackFecha">
-                            <Label Text="Fecha de naacimiento" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                        <StackLayout x:Name="StackFecha">
+                            <Label Text="Fecha de Nacimiento" Style="{StaticResource RegSty}"></Label>
                             <DatePicker  Format="D" x:Name="fecha" MinimumDate="01/01/1900" ></DatePicker>
                         </StackLayout>
                         
-                        <StackLayout Style="{StaticResource StackSty}" x:Name="StackLugar">
-                            <Label Text="Lugar de nacimiento" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                        <StackLayout  x:Name="StackLugar">
+                            <Label Text="Lugar de nacimiento" Style="{StaticResource RegSty}" ></Label>
                             <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" Keyboard="Default" x:Name="lugar" Style="{StaticResource RegEnSty}" ></Entry>
                         </StackLayout>
 
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label x:Name="LblOcu" Text="Ocupacion" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                        
+                            <Label x:Name="LblOcu" Text="Ocupación" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Ocupacion" Text="ocupacion o giro de la empresa"  Keyboard="Default" x:Name="giro" Style="{StaticResource RegEnSty}" ></Entry>
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Nombre de la calle" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                        
+                            <Label Text="Nombre de la Calle" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Domicilio Calle" Text="nombre de la calle"  Keyboard="Default" x:Name="dom" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
+                     
 
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Numero Exterior" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                            <Label Text="Número Exterior" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Numero Exterior" Text="23452"  Keyboard="Numeric" x:Name="ext" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
-
-
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Numero Interior" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                       
+                            <Label Text="Número Interior" Style="{StaticResource RegSty}" ></Label>
                             <Entry  Placeholder="Numero Interior" Text="34"  Keyboard="Numeric" x:Name="inte" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Colonia" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                       
+                            <Label Text="Colonia" Style="{StaticResource RegSty}" ></Label>
                             <Entry  Placeholder="Colonia" Text="colonia del usuario"  Keyboard="Default" x:Name="col" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Ciudad" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                       
+                            <Label Text="Ciudad" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Ciudad" Text="ciudad donde esta"  Keyboard="Default" x:Name="ciu" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Municipio" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                        
+                            <Label Text="Municipio" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Municipio" Text="municipio de donde esta"   Keyboard="Default" x:Name="mun" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Estado" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                       
+                            <Label Text="Estado" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Estado" Text="estado del usuario"   Keyboard="Default" x:Name="est" Style="{StaticResource RegEnSty}" ></Entry>
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Codigo Postal" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                       
+                            <Label Text="Código Postal" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Codigo Postal" Text="3456"  Keyboard="Numeric" x:Name="cp" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Correo Electronico" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                       
+                            <Label Text="Correo Electrónico" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Correo Electronico"  Text="augusto9623@hotmail.com" Keyboard="Default" x:Name="correo" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
-                        <StackLayout Style="{StaticResource StackSty}">
-                            <Label Text="Telefono" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
-                            <Entry  Placeholder="Telefono" Text="12345677"  Keyboard="Numeric" x:Name="tel" Style="{StaticResource RegEnSty}"></Entry>
-                        </StackLayout>
+                       
+                        
+                            <Label Text="Telefono" Style="{StaticResource RegSty}"></Label>
+                            <Entry  Placeholder="Teléfono" Text="12345677"  Keyboard="Numeric" x:Name="tel" Style="{StaticResource RegEnSty}"></Entry>
+                        
 
-                        <StackLayout Style="{StaticResource StackSty}" x:Name="StackCel">
-                            <Label Text="Celular" Style="{StaticResource RegSty}" TextColor="{StaticResource NavigationPrimary}"></Label>
+                        <StackLayout  x:Name="StackCel">
+                            <Label Text="Celular" Style="{StaticResource RegSty}"></Label>
                             <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="cel" Style="{StaticResource RegEnSty}"></Entry>
                         </StackLayout>
                         
-                        <StackLayout Orientation="Horizontal">
-                                <Picker x:Name="tipo" Title="Tipo de Membresia" HorizontalOptions="StartAndExpand" SelectedIndexChanged="Fn_Drop">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                                <Picker x:Name="tipo" Title="Tipo de Membresía" HorizontalOptions="StartAndExpand" TextColor="{StaticResource NavigationPrimary}"
+                                        SelectedIndexChanged="Fn_Drop" >
                                     <Picker.Items>
                                         <x:String>Individual</x:String>
                                         <x:String>Familiar</x:String>
                                         <x:String>Empresarial</x:String>
                                     </Picker.Items>
                                 </Picker>
-                                <Label x:Name="mensaje" Text="" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" ></Label>
+                                <Label x:Name="mensaje" Text="" FontSize="Medium" BackgroundColor="Gold" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" ></Label>
                             </StackLayout>
-                        <StackLayout x:Name="StackEmple">
-                            <Label Text="Numero de Empleados" TextColor="{StaticResource NavigationPrimary}"></Label>
-                            <Picker x:Name="PickEmple" Title="Numero de empleados" SelectedIndexChanged="Fn_DropEmple">
+                        <StackLayout x:Name="StackEmple" IsVisible="False" Style="{StaticResource StackSty}">
+                            <Label Text="Número de Empleados" Style="{StaticResource RegSty}"></Label>
+                            <Picker x:Name="PickEmple" Title="Numero de empleados" TextColor="{StaticResource NavigationPrimary}" SelectedIndexChanged="Fn_DropEmple">
                                 <Picker.Items>
                                     <x:String>1</x:String>
                                     <x:String>2</x:String>
@@ -153,10 +139,11 @@
                 </ScrollView>
 
                 <ScrollView x:Name="StackFolio" IsVisible="False">
-                    <StackLayout >
+                    <StackLayout Style="{StaticResource StackSty}" >
                         <StackLayout Orientation="Horizontal">
-                            <Label HorizontalOptions="StartAndExpand" Text="Elige tu tipo de Membresía"></Label>
-                            <Picker HorizontalOptions="CenterAndExpand" Title="Membresias" SelectedIndexChanged="Fn_FolCambio" x:Name="Fol_DropMembre">
+                            <Label HorizontalOptions="StartAndExpand" Text="Elige tu tipo de Membresía" Style="{StaticResource RegSty}"></Label>
+                            <Picker HorizontalOptions="CenterAndExpand" Title="Membresias" SelectedIndexChanged="Fn_FolCambio" x:Name="Fol_DropMembre"
+                                    TextColor="{StaticResource NavigationPrimary}">
                                 <Picker.Items>
                                     <x:String>Familiar</x:String>
                                     <x:String >Empresarial</x:String>
@@ -164,12 +151,11 @@
                             </Picker>
                         </StackLayout>
 
-                        <Label Text="Ingresa tu Numero de Membresía"></Label>
+                        <Label Text="Ingresa tu Número de Membresía" Style="{StaticResource RegSty}"></Label>
                         <Entry Placeholder="No de Membresía" Text="1808F-0006" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
 
-                        <Label Text="Ingresa tu Nombre completo"></Label>
+                        <Label Text="Ingresa tu Nombre Completo" Style="{StaticResource RegSty}"></Label>
                         <Entry Placeholder="Noombre" Text="Nuevo nombre" x:Name="Fol_Nombre" Margin="0,5"></Entry>
-
 
                         <Picker x:Name="v_sexoPick" HorizontalOptions="FillAndExpand" Title="Elige tu sexo">
                             <Picker.Items>
@@ -179,30 +165,30 @@
                         </Picker>
 
                         <StackLayout x:Name="Stack_Fam" IsVisible="False">
-                            <Label Text="Parentesco con el titular"></Label>
+                            <Label Text="Parentesco con el titular" Style="{StaticResource RegSty}"></Label>
                             <Entry Placeholder="Parentesco" Text="Parentesco" x:Name="Fol_Parent" Margin="0,5"></Entry>
                         </StackLayout>
                         <StackLayout x:Name="Stack_Empre" IsVisible="False">
-                            <Label Text="Ingresa tu Folio"></Label>
+                            <Label Text="Ingresa tu Folio" Style="{StaticResource RegSty}"></Label>
                             <Entry Placeholder="No de Folio" x:Name="Fol_Folio" Keyboard="Numeric" Margin="0,5"></Entry>
-                            <Label Text="Empresa donde labora"></Label>
+                            <Label Text="Empresa donde labora" Style="{StaticResource RegSty}"></Label>
                             <Entry Placeholder="Nombre de la empresa" x:Name="Fol_Empre" Margin="0,5"></Entry>
                         </StackLayout>
 
-                        <Label Text="Fecha de nacimiento"></Label>
+                        <Label Text="Fecha de Nacimiento" Style="{StaticResource RegSty}"></Label>
                         <DatePicker x:Name="Fol_fecha" Format="D" MinimumDate="01/01/1900" ></DatePicker>
-                        
-                        <Label Text="Numero de celular"></Label>
+
+                        <Label Text="Número de Celular" Style="{StaticResource RegSty}"></Label>
                         <Entry  Placeholder="Celular" Text="123578953134"  Keyboard="Numeric" x:Name="Fol_Cel" ></Entry>
-                        
-                        <Label Text="Dirección de correo electronico"></Label>
+
+                        <Label Text="Dirección de Correo Electrónico" Style="{StaticResource RegSty}"></Label>
                         <Entry  Placeholder="Correo Electronico"  Text="augusto9623@hotmail.com" Keyboard="Default" x:Name="Fol_Correo" ></Entry>
 
 
-                        <Label Text="Ingresa una contraseña" x:Name="confirmar" ></Label>
+                        <Label Text="Ingresa una contraseña" x:Name="confirmar" Style="{StaticResource RegSty}"></Label>
                         <Entry x:Name="Fol_pass" Text="Cesar123" Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
 
-                        <Label Text="Confirma contraseña" ></Label>
+                        <Label Text="Confirma contraseña" Style="{StaticResource RegSty}"></Label>
                         <Entry x:Name="Fol_pass2" Text="Cesar123" Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
 
                         <Button Text="Registrar" Clicked="Folio_Registro" Style="{StaticResource Buton}"></Button>

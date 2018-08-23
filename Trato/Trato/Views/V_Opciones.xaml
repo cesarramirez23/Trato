@@ -6,11 +6,11 @@
         <ContentPage Title="Contraseña">
             <ScrollView>
                 <StackLayout >
-                    <Label Text="Ingresa tu contraseña actual"></Label>
+                    <Label Text="Ingresa tu contraseña actual" Style="{StaticResource AzulMedLbl}"></Label>
                     <Entry IsPassword="True" x:Name="P_actual"></Entry>
-                    <Label Text="Ingresa la nueva contraseña"></Label>
+                    <Label Text="Ingresa la nueva contraseña" Style="{StaticResource AzulMedLbl}"></Label>
                     <Entry IsPassword="True"  x:Name="P_Nueva" TextChanged="FN_passCambio"></Entry>
-                    <Label Text="" x:Name="P_mensaje"></Label>
+                    <Label Text="" x:Name="P_mensaje" Style="{StaticResource AzulMedLbl}"></Label>
                     <Button Text="Guardar" x:Name="P_but"  Clicked="Fn_CambioPass" Style="{StaticResource Buton}"></Button>
                 </StackLayout>
             </ScrollView>

@@ -5,25 +5,46 @@
     <ContentPage.Content>
         <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Nombre de usuario"></Label>
-                    <Label Text="Folio"></Label>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="Start" Text="1808F-0002"></Entry>
-                    <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="End" Text="0"></Entry>
-                </StackLayout>
-                <Label Text="Ingresa tu contraseña"></Label>
-                <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="cesar1234"></Entry>
-                <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
 
-                <Label Text="¿No tienes cuenta?" FontAttributes="Bold">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
-                    </Label.GestureRecognizers>
-                </Label>
-                <Label x:Name="mensajes" Text=""></Label>
+                <StackLayout Margin="40,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Nombre de usuario" HorizontalOptions="Center" Style="{StaticResource AzulMedLbl}"
+                               Grid.Column="0" Grid.Row="0" VerticalOptions="End" VerticalTextAlignment="End"></Label>
+                        <Label Text="Folio" HorizontalOptions="Center" Style="{StaticResource AzulMedLbl}"
+                               Grid.Column="1" Grid.Row="0" VerticalOptions="End" VerticalTextAlignment="End"></Label>
+                        
+                        <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="FillAndExpand" Text="1808F-0002"
+                               Grid.Column="0" Grid.Row="1"></Entry>
+                        <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="FillAndExpand" Text="0"
+                               Grid.Column="1" Grid.Row="1"></Entry>
+                    </Grid>
+                    <!--<StackLayout Orientation="Horizontal">
+                        <Label Text="Nombre de usuario" FontSize="Medium" TextColor="{StaticResource NavigationPrimary}"></Label>
+                        <Label Text="Folio" FontSize="Medium" TextColor="{StaticResource NavigationPrimary}"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="Start" Text="1808F-0002"></Entry>
+                        <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="End" Text="0"></Entry>
+                    </StackLayout>-->
+                    <Label Text="Ingresa tu contraseña" Style="{StaticResource AzulMedLbl}"></Label>
+                    <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="cesar1234"></Entry>
+                    <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
+
+                    <Label Text="¿No tienes cuenta?" Style="{StaticResource AzulMedLbl}" FontAttributes="Bold" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label x:Name="mensajes" Text=""></Label>
+                </StackLayout>
             </StackLayout>
             <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" IsVisible="False" BackgroundColor="LightGray">
                 <StackLayout Margin="20,20" VerticalOptions="Center" HorizontalOptions="Center">
