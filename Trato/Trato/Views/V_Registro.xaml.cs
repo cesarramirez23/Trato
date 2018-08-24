@@ -55,6 +55,10 @@ namespace Trato.Views
         public V_Registro(bool _folio)
         {
             InitializeComponent();
+            
+            Fol_fecha.MaximumDate = DateTime.Now;
+            fecha.MaximumDate= DateTime.Now; 
+
             v_primero = false;
             if (_folio)
             {

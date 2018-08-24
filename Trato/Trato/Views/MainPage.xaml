@@ -23,25 +23,24 @@
     
             <!-- para encimar texto a la imagen https://forums.xamarin.com/discussion/92896/display-an-image-inside-in-a-text-->
     <ContentPage.Content>
-            <ScrollView>
-                <StackLayout>
-            <!--<Grid HeightRequest="300" VerticalOptions="Start">
-                <Image Source="FONDODEGRADADO.png" Aspect="AspectFill" ></Image>
-                <Image Source="ICONOAPP.png" ></Image>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="400"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Source="LOGOTRATOESPECIAL.png" Grid.Column="0" Grid.Row="0"></Image>
+                <Image x:Name="MainBanner" Source="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Grid.Column="0" Grid.Row="1" Aspect="AspectFit" Margin="0,20">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Fn_AbrirSitio"   NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
-            <Button Text="¿Qué es?" Style="{StaticResource Buton}" Clicked="Fn_Info" HorizontalOptions="FillAndExpand" ></Button>
-            <Button Text="Membresias" Style="{StaticResource Buton}" Clicked="Fn_Reg" HorizontalOptions="FillAndExpand"></Button>
-            <Button Text="Iniciar Sesión"  Style="{StaticResource Buton}" Clicked="Fn_Log" HorizontalOptions="FillAndExpand" ></Button>
-            -->
-                
-                    <Image Source="LOGOTRATOESPECIAL.png" ></Image>
-                    <Label Text="" x:Name="fol"></Label>
-                    <Label Text="" x:Name="log"></Label>
-                    <Label Text="" x:Name="membre"></Label>
-                    <Label Text="" x:Name="perfil" FontSize="Large"></Label>
-            
-                </StackLayout>
-            </ScrollView>
+
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>
 <!--    estos son los buenos

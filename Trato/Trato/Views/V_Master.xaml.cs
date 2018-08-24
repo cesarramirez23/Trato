@@ -61,29 +61,34 @@ namespace Trato.Views
         public void Fn_Medicos(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage( new V_Buscador(true) { Title = "RED MEDICA" });
+            Detail = new NavigationPage( new V_Buscador(0) { Title = "RED MEDICA" });
         }
         public void Fn_Servicios(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage( new V_Buscador(false) { Title = "SERVICIOS MEDICOS" });//new V_Buscador() { Title = "Buscador" };
+            Detail = new NavigationPage( new V_Buscador(1) { Title = "SERVICIOS MEDICOS" });
+        }
+        public void Fn_ServGen(object sender, EventArgs _args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Buscador(2) { Title = "SERVICIOS Generales" });
         }
         public void Fn_Perfil(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });//new V_Buscador() { Title = "Buscador" };
+            Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });
         }
         public void Fn_Opciones(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Opciones() { Title = "Opciones" });//new V_Buscador() { Title = "Buscador" };
+            Detail = new NavigationPage(new V_Opciones() { Title = "Opciones" });
         }
         public void Fn_Salir(object sender, EventArgs _args)
         {
             IsPresented = false;
             App.v_log = "0";
             Application.Current.Properties["log"] = App.v_log;
-            Application.Current.SavePropertiesAsync();
+            App.Fn_CerrarSesion();
             App.Current.MainPage =new V_Master(false,"Bienvenido");
         }
         public void Fn_Info(object sender, EventArgs _Args)
@@ -104,8 +109,15 @@ namespace Trato.Views
         }
         public void Fn_Inicio(object sender, EventArgs _args)
         {
+            if (App.v_log=="0")
+            {
+                Detail = new NavigationPage(new MainPage() {Title ="Bienvenido a Trato Especial" }); 
+            }
+            else if(App.v_log=="1")
+            {
+                Detail = new NavigationPage(new MainPage() {Title="Bienvenido "+App.v_perfil.v_Nombre  }); 
+            }
             IsPresented = false;
-            Detail = new NavigationPage(new MainPage()); 
         }
     }
 }

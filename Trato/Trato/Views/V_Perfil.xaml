@@ -21,17 +21,7 @@
     <TabbedPage.Children>
 
         
-        <ContentPage Title="Tarjeta Virtual">
-            <ScrollView >
-                <StackLayout>
-                    <!--<Entry Text="cosa a leer" x:Name="qrTexto" ></Entry>-->
-                    <Button Text="Mostrar Codigo" Clicked="FN_CrearQR" Style="{StaticResource Buton}"></Button>
-                    <ContentView x:Name="qr_content">
-
-                    </ContentView>
-                </StackLayout>
-            </ScrollView>
-        </ContentPage>
+       
 
    <!--     <ContentPage Title="Reader">
             <ContentView x:Name="reader">
@@ -145,7 +135,7 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Sexo"></Label>
+                        <Label Text="Sexo" Style="{StaticResource lblSty}"></Label>
                         <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
                             <Picker.Items>
                                 <x:String>Masculino</x:String>
@@ -153,8 +143,8 @@
                             </Picker.Items>
                         </Picker>
                     </StackLayout>
-                    
-                    <Label x:Name="M_sexolbl" IsVisible="False"></Label>
+
+                    <Label x:Name="M_sexolbl" IsVisible="False" Style="{StaticResource lblSty}"></Label>
                     <Editor x:Name="M_sexo" IsVisible="False" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
@@ -186,8 +176,20 @@
         </ContentPage>
         <ContentPage Title="Medicamentos">
             <ScrollView>
-                <StackLayout Margin="0,20">
-                    
+                <StackLayout Margin="20,20">
+                    <Label Text="Proximamente" FontSize="Large" TextColor="{StaticResource NavigationPrimary}"></Label>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage>
+
+
+        <ContentPage Title="Tarjeta Virtual">
+            <ScrollView >
+                <StackLayout>
+                    <Button Text="cosa a leer" Clicked="FN_CrearQR" Style="{StaticResource Buton}" VerticalOptions="Center">
+                        </Button>
+                        <ContentView x:Name="qr_content" BackgroundColor="Green">
+                    </ContentView>
                 </StackLayout>
             </ScrollView>
         </ContentPage>

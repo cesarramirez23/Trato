@@ -163,7 +163,9 @@ namespace Trato.Personas
             return ret;
         }
     }
-
+    /// <summary>
+    /// el regustro para familiares y empleados
+    /// </summary>
     class C_RegistroSec
     {
         #region datos generales
@@ -265,6 +267,9 @@ namespace Trato.Personas
         }
 
     }
+    /// <summary>
+    /// registro total del principal, vienen los datos para pagar
+    /// </summary>
     class C_RegistroPrinci
     {
         #region DAtos del usuario a registrar
@@ -392,6 +397,9 @@ namespace Trato.Personas
 
         }
     }
+    /// <summary>
+    /// enviar la info de iniciar sesion
+    /// </summary>
     class C_Login
     {
         [JsonProperty("membre")]
@@ -423,7 +431,8 @@ namespace Trato.Personas
             this.v_pass = _pass;
             this.v_fol = _fol;
         }
-    }    
+    }
+    /*
     class C_Ind_Fisica
     {
         [JsonProperty("nombre")]
@@ -604,9 +613,14 @@ namespace Trato.Personas
         }
 
     }
-
+    */
+    /// <summary>
+    /// informacion a mostrar en el buscador, para solicitar citas 
+    /// </summary>
     public class C_Medico
     {
+        [JsonProperty("Consecutivo")]
+        public string v_id { get; set; }
         //get y set para poder que sean binding
         [JsonProperty("titulo")]
         public string v_titulo { get; set; }
@@ -621,6 +635,8 @@ namespace Trato.Personas
         public string v_Especialidad { get; set; }
         [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
+        [JsonProperty("horario")]
+        public string v_horario;
         /// <summary>
         /// este lo necesito yo para el filtro
         /// </summary>
@@ -630,19 +646,15 @@ namespace Trato.Personas
         public string v_Tel { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
-        [JsonProperty("horario_apertura")]
-        public string v_horAper { get; set;}
-        [JsonProperty("horario_cierre")]
-        public string v_horCierra { get; set; }
         [JsonProperty("cedula")]
         public string v_cedula { get; set; }
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
-        [JsonProperty("img")]
-        public string v_img { get; set; }
         [JsonProperty("idsexo")]
         public int v_idsexo { get; set; }
+     
 
+        public string v_img { get; set; }
         public string v_completo { get; set; }
         
 
@@ -650,21 +662,26 @@ namespace Trato.Personas
         {
             string _ret;
             _ret = "tit "+ v_titulo+"nom " + v_Nombre + " ape " + v_Apellido + " espe " + v_Especialidad + " dom " + v_Domicilio + " ciu " + v_Ciudad +
-                " tel " + v_Tel + " corr " + v_Correo + " horainicio " + v_horAper +"hora salida" + v_horCierra + " ced " + v_cedula + " des " + v_descripcion+
+                " tel " + v_Tel + " corr " + v_Correo + " horario"+v_horario+ " ced " + v_cedula + " des " + v_descripcion+
                 " sexo " + v_idsexo;
             return _ret;
         }
 
     }
+    /// <summary>
+    /// informacion a mostrar en el buscador, para solicitar citas 
+    /// </summary>
     public class C_Servicios
     {
-        //get y set para poder que sean binding
+        //cambio del nombre de la variable para que en el buscador con el binding no de espacios es blanco
         [JsonProperty("nombre")]
         public string v_completo { get; set; }
         [JsonProperty("espe")]
         public string v_Especialidad { get; set; }
         [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
+        [JsonProperty("horario")]
+        public string v_horario;
         /// <summary>
         /// este lo necesito yo para el filtro
         /// </summary>
@@ -674,22 +691,58 @@ namespace Trato.Personas
         public string v_Tel { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
-        //[JsonProperty("desc")]
-        ////public string v_Descuento { get; set; }
-        //[JsonProperty("horario")]
-        //public string v_horario { get; set; }
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
-        [JsonProperty("horario_apertura")]
-        public string v_horAper { get; set; }
-        [JsonProperty("horario_cierre")]
-        public string v_horCierra { get; set; }
         [JsonProperty("sitio")]
         public string v_sitio;
         /// <summary>
         /// imagen para mostrar
         /// </summary>
-        [JsonProperty("img")]
+      
+        public string v_img { get; set; }
+    }
+    /// <summary>
+    /// informacion a mostrar en el buscador, para solicitar citas 
+    /// </summary>
+    public class C_ServGenerales
+    {
+        //cambio del nombre de la variable para que en el buscador con el binding no de espacios es blanco
+        [JsonProperty("nombre")]
+        public string v_completo { get; set; }
+        /// <summary>
+        /// la especialidad a lo que se dedica
+        /// </summary>
+        [JsonProperty("espe")]     
+        public string v_Especialidad { get; set; }
+
+        [JsonProperty("descrip")]
+        public string v_descripcion { get; set; }
+
+        [JsonProperty("dom")]
+        public string v_Domicilio { get; set; }
+        /// <summary>
+        /// este lo necesito yo para el filtro
+        /// </summary>
+        [JsonProperty("ciudad")]
+        public string v_Ciudad { get; set; }
+
+        [JsonProperty("horario")]
+        public string v_horario;
+
+        [JsonProperty("tel")]
+        public string v_Tel { get; set; }
+
+
+        [JsonProperty("correo")]
+        public string v_Correo { get; set; }
+       
+
+
+        [JsonProperty("sitio")]
+        public string v_sitio;
+        /// <summary>
+        /// imagen para mostrar
+        /// </summary>
         public string v_img { get; set; }
     }
 }

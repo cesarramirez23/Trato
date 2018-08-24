@@ -15,44 +15,31 @@ namespace Trato.Views
 	{
         C_Medico v_medico;
         C_Servicios v_servi;
-
-        bool _personaa =false;
+        C_ServGenerales v_gene;
+        /// <summary>
+        /// 0 medico,    1 servicios medicos,   2 servicios generales
+        /// </summary>
+        int v_tipo = -1;
+      //  bool _personaa =false;
 
         public V_MedicoVista (C_Medico _medico)
 		{
 			InitializeComponent ();
-            string _hora = "";
-            string[] _horas;
             sitio.IsVisible = false;
             v_medico = _medico;
-            //hh: mm: ss
-            if(!string.IsNullOrEmpty( v_medico.v_horAper))
-            {
-                _horas = v_medico.v_horAper.Split(':');
-                _hora = _horas[0] + ":" + _horas[1];
-            }else
-            {
-                _hora = "N/A";
-            }
-            if (!string.IsNullOrEmpty(v_medico.v_horCierra))
-            {
-                _horas = v_medico.v_horCierra.Split(':');
-                _hora += "  -  " + _horas[0] + ":" + _horas[1];
-            }
-            else
-            {
-                _hora += "  -  N/A";
-            }
 
             nombre.Text = v_medico.v_titulo+" "+ v_medico.v_Nombre +"  "+ v_medico.v_Apellido;
             especial.Text ="Especialista en "+ v_medico.v_Especialidad;
             domicilio.Text = v_medico.v_Domicilio+","+ v_medico.v_Ciudad;
             info.Text ="Telefono: "+ v_medico.v_Tel+"\nCorreo: "+ v_medico.v_Correo+
-            "\nHorario: "+ _hora+
+            "\nHorario: "+ v_medico.v_horario+
             "\nCedula Profesional: "+v_medico.v_cedula;
             img.Source = v_medico.v_img;
             descrip.Text=" " +v_medico.v_descripcion;
-            _personaa = true;
+            //_personaa = true;
+            v_tipo = 0;
+
+
             //if(App.v_log=="1")
             //{
             //    boton.IsVisible = true;
@@ -66,37 +53,43 @@ namespace Trato.Views
         {
             InitializeComponent();
             sitio.IsVisible = true;
-            string _hora = "";
-            string[] _horas;
             v_servi = _servicios;
-            //hh: mm: ss
-            if (!string.IsNullOrEmpty(v_servi.v_horAper))
-            {
-                _horas = v_servi.v_horAper.Split(':');
-                _hora = _horas[0] + ":" + _horas[1];
-            }
-            else
-            {
-                _hora = "N/A";
-            }
-            if (!string.IsNullOrEmpty(v_servi.v_horCierra))
-            {
-                _horas = v_servi.v_horCierra.Split(':');
-                _hora += "  -  " + _horas[0] + ":" + _horas[1];
-            }
-            else
-            {
-                _hora += "  -  N/A";
-            }
+
             nombre.Text = v_servi.v_completo;
             especial.Text = "Especialista en " + v_servi.v_Especialidad;
             domicilio.Text = v_servi.v_Domicilio + "," + v_servi.v_Ciudad;
             info.Text = "Telefono: " + v_servi.v_Tel + "\nCorreo: " + v_servi.v_Correo +
-            "\nHorario: " + _hora;
+            "\nHorario: " + v_servi.v_horario;
             sitio.Text="Sitio Web: " + v_servi.v_sitio;
             img.Source = v_servi.v_img;
             descrip.Text = " " + v_servi.v_descripcion;
-            _personaa = false;
+            //_personaa = false;
+            v_tipo = 1;
+
+            //if (App.v_log=="1")
+            //{
+            //    boton.IsVisible = true;
+            //}
+            //else
+            //{
+            //    boton.IsVisible = false;
+            //}
+        }
+        public V_MedicoVista(C_ServGenerales _gene)
+        {
+            InitializeComponent();
+            sitio.IsVisible = true;
+            v_gene = _gene;
+            nombre.Text = v_gene.v_completo;
+            especial.Text = "Especialista en " + v_gene.v_Especialidad;
+            domicilio.Text = v_gene.v_Domicilio + "," + v_gene.v_Ciudad;
+            info.Text = "Telefono: " + v_gene.v_Tel + "\nCorreo: " + v_gene.v_Correo +
+            "\nHorario: " + v_gene.v_horario;
+            sitio.Text = "Sitio Web: " + v_gene.v_sitio;
+            img.Source = v_gene.v_img;
+            descrip.Text = " " + v_gene.v_descripcion;
+            //_personaa = false;
+            v_tipo = 2;
 
             //if (App.v_log=="1")
             //{
@@ -109,7 +102,14 @@ namespace Trato.Views
         }
         public void Fn_AbrirSitio(object sender, EventArgs _args)
         {
-            Uri _direc = new Uri(v_servi.v_sitio);
+            Uri _direc = new Uri("") ;
+            if (v_tipo==1)
+            {
+                _direc= new Uri(v_servi.v_sitio);
+            }else if(v_tipo==2)
+            {
+                _direc= new Uri(v_gene.v_sitio);
+            }
             Device.OpenUri(_direc);
         }
         public void Fn_AbrirMapa(object sender, EventArgs _args)
@@ -124,7 +124,8 @@ namespace Trato.Views
             {
                 direcMapa = "http://maps.apple.com/?q=";                
             }
-            if (_personaa)
+            //if (_personaa)
+            if(v_tipo==0)
             {
                 string _nuevo = "";
                 for (int i = 0; i < v_medico.v_Domicilio.Length; i++)
@@ -137,7 +138,7 @@ namespace Trato.Views
                 direcMapa += _nuevo + ",";
                 direcMapa += v_medico.v_Ciudad;
             }
-            else
+            else if(v_tipo==1)
             {
                 string _nuevo = "";
                 for (int i = 0; i < v_servi.v_Domicilio.Length; i++)
@@ -149,6 +150,19 @@ namespace Trato.Views
                 }
                 direcMapa += _nuevo + ",";
                 direcMapa += v_servi.v_Ciudad;
+            }
+            else if(v_tipo==2)
+            {
+                string _nuevo = "";
+                for (int i = 0; i < v_gene.v_Domicilio.Length; i++)
+                {
+                    if (v_gene.v_Domicilio[i] != '#')
+                    {
+                        _nuevo += v_gene.v_Domicilio[i];
+                    }
+                }
+                direcMapa += _nuevo + ",";
+                direcMapa += v_gene.v_Ciudad;
             }
             Uri _direc = new Uri(direcMapa);
             Device.OpenUri(_direc);

@@ -8,17 +8,12 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Trato.Personas;
 using System.Net.Http;
+using Trato.Varios;
 using Newtonsoft.Json;
 
 namespace Trato.Views
 {
-    public class Perf
-    {
-        [JsonProperty("idmembre")]
-        public string v_membre { get; set; }
-        [JsonProperty("idfolio")]
-        public string v_fol { get; set; }
-    }
+   
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Login : ContentPage
     {

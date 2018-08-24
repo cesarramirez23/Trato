@@ -34,7 +34,7 @@ namespace Trato.Views
                 JObject jsonObj = JObject.Parse(json);
                 StringContent _content = new StringContent(jsonObj.ToString(), Encoding.UTF8, "application/json");
                 HttpClient _client = new HttpClient();
-                string _url = "https://useller.com.mx/trato_especial/update_perfil.php";
+               // string _url = "https://useller.com.mx/trato_especial/update_perfil.php";
                 try
                 {
                     await DisplayAlert("Enviado", jsonObj.ToString(), "Aceptar");

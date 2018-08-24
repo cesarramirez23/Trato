@@ -6,56 +6,72 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using Trato.Personas;
+using Trato.Varios;
 
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        public List<Banner> v_mostrar = new List<Banner>();
+        int v_actual = 0;
         public MainPage()
         {
-            //NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-             //FN_Red();
-            //List<string> keyList = new List<string>(Application.Current.Properties.Keys);
-            //for(int i=0; i<keyList.Count; i++)
-            //{
-            //    perfil.Text += "\n" + keyList[i] ;
-            //}
-            //perfil.Text = Application.Current.Properties["log"] as string;
-            //perfil.Text +="\n"+ Application.Current.Properties["membre"] as string;
-            //perfil.Text += "\n" + Application.Current.Properties["folio"] as string;
-            //perfil.Text += "\n" + Application.Current.Properties["perfGen"] as string;
-            //perfil.Text += "\n" + Application.Current.Properties["perfMed"] as string;
-            //perfil.Text += "\n" + Application.Current.Properties["servicios"] as string;
-            //perfil.Text += "\n" + Application.Current.Properties["medicos"] as string;
-            //// log    membre   folio   perfGen  perMed   servicios  medicos
+            FN_Red();
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
         }
         public async void FN_Red()
         {
             HttpClient _cliente= new HttpClient();
-            string url = "https://useller.com.mx/trato_especial/prueba_json.php";
+            string url = " s";
             try
             {
                 HttpResponseMessage _respuestphp=  await _cliente.PostAsync(url,null);
-                perfil.Text = "enviado";
                 string _respu =await  _respuestphp.Content.ReadAsStringAsync();
-                ObservableCollection<C_Medico> _med = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_respu);
-                 App.v_medicos = _med;
-                perfil.Text +="\n\n\n llega "+ _respu;
-                //C_Medico _med = JsonConvert.DeserializeObject<C_Medico>(_respu);
-                //perfil.Text = _med.FN_GetInfo();
-            }
-            catch(HttpRequestException _ex)
-            {
-                perfil.Text = _ex.Message;
-                if (Application.Current.Properties.ContainsKey("medicos"))
+                List<Banner> _banner = JsonConvert.DeserializeObject<List<Banner>>(_respu);
+                v_mostrar = _banner;
+                Device.StartTimer(TimeSpan.FromSeconds(10), () =>
                 {
-                }
+                    v_actual++;
+                    if (v_actual == v_mostrar.Count) v_actual = 0;
+
+                    MainBanner.Source = v_mostrar[v_actual].v_img;
+                
+                    return true;
+                });
             }
+            catch
+            {
+                v_mostrar.Clear();
+                v_mostrar.Add(new Banner("HOME_icon.png", "https://forums.xamarin.com/discussion/82989/implementation-of-auto-slider-for-carousal-view-xamarin-forms"));
+                v_mostrar.Add(new Banner("Medicos.png", "https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.carouselpage?view=xamarin-forms"));
+                v_mostrar.Add(new Banner("Services_icon.png", "https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.multipage-1.oncurrentpagechanged?view=xamarin-forms#Xamarin_Forms_MultiPage_1_OnCurrentPageChanged"));
+                v_mostrar.Add(new Banner("Membresia_Icon.png", "https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.device.starttimer?view=xamarin-forms"));
+                v_mostrar.Add(new Banner("LOGOTRATOESPECIAL.png", "https://tratoespecial.com/"));
 
+                v_actual = 0;
+                MainBanner.Source = v_mostrar[v_actual].v_img;
+
+                Device.StartTimer(TimeSpan.FromSeconds(10), () =>
+                {
+                    v_actual++;
+                    if (v_actual == v_mostrar.Count) v_actual = 0;
+
+                    MainBanner.Source = v_mostrar[v_actual].v_img;
+                
+                    return true;
+                });
+            }
+            
         }
-
+        public void Fn_AbrirSitio(object sender, EventArgs _args)
+        {
+            Uri _url= new Uri(v_mostrar[v_actual].v_sitio);
+            Device.OpenUri(_url);
+        }
     }
 }

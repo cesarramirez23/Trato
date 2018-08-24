@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Trato.Personas;
+using Trato.Varios;
 using Newtonsoft.Json;//json normal
 using Newtonsoft.Json.Linq;// parse de string a jobject
 using System.Net.Http;
@@ -22,7 +23,7 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Perfil : TabbedPage
 	{
-        private ZXingBarcodeImageView barcode;
+        private ZXingBarcodeImageView barcode ;
 
 
         bool v_editando = false;
@@ -30,6 +31,7 @@ namespace Trato.Views
 		public V_Perfil ()
 		{
 			InitializeComponent ();
+
             CargarGen();
             CargarMed();
             // Scan();
@@ -554,10 +556,11 @@ namespace Trato.Views
 
             await Task.Delay(100);
         }
-
-        public void FN_CrearQR(object sender, EventArgs _args)
+        public  void FN_CrearQR(object sender, EventArgs _Args)
         {
             Button _but = (Button)sender;
+            _but.IsVisible = false;
+
             barcode = new ZXingBarcodeImageView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -578,11 +581,9 @@ namespace Trato.Views
             json += "}";
 
             JObject jsonEnviar = JObject.Parse(json);
-
            // qrTexto.Text = jsonEnviar.ToString() ;
             barcode.BarcodeValue = jsonEnviar.ToString() ;
             qr_content.Content = barcode;
-            _but.IsEnabled = false;
         }
 
     }

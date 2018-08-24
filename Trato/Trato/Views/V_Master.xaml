@@ -38,14 +38,21 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Red Médica" Style="{StaticResource LblBoton}"/>
-                            
-                            
+
+
                             <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Servicios de salud" Style="{StaticResource LblBoton}" />
+
+                            <Image Source="Services_icon" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Servicios Generales" Style="{StaticResource LblBoton}" />
                             
                             
                             <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
@@ -72,7 +79,7 @@
                             <Label Text="Iniciar Sesión" Style="{StaticResource LblBoton}" />
 
 
-                            <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
+                            <Image Source="mail_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Contacto"/>
                                 </Image.GestureRecognizers>
@@ -100,16 +107,23 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Red Médica" Style="{StaticResource LblBoton}"/>
-                            
-                            
+
+
                             <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Servicios de salud" Style="{StaticResource LblBoton}" />
-                            
-                            
+
+                            <Image Source="Services_icon" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Servicios Generales" Style="{StaticResource LblBoton}" />
+
+
                             <Image Source="Perfil" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Perfil"/>
@@ -125,7 +139,7 @@
                             </Image>
                             <Label Text=" Opciones" Style="{StaticResource LblBoton}"/>
 
-                            <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
+                            <Image Source="mail_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Contacto"/>
                                 </Image.GestureRecognizers>

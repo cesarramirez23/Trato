@@ -17,6 +17,7 @@ namespace Trato
     {
         public static ObservableCollection<C_Medico> v_medicos = new ObservableCollection<C_Medico>();
         public static ObservableCollection<C_Servicios> v_servicios = new ObservableCollection<C_Servicios>();
+        public static ObservableCollection<C_ServGenerales> v_generales = new ObservableCollection<C_ServGenerales>();
         /// <summary>
         /// Perfil General
         /// </summary>
@@ -107,6 +108,19 @@ namespace Trato
             {
                 string _jsonServ = Current.Properties["servicios"] as string;
                 v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
+            }
+            //servicios generales no medicos
+            if (!Current.Properties.ContainsKey("generales"))
+            {
+                v_generales = new ObservableCollection<C_ServGenerales>();
+                string _json = JsonConvert.SerializeObject(v_servicios);
+                Current.Properties.Add("generales", "");
+                Current.Properties["generales"] = _json;
+            }
+            else
+            {
+                string _jsonServ = Current.Properties["generales"] as string;
+                v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonServ);
             }
             await Current.SavePropertiesAsync();
             await Task.Delay(100);
@@ -224,6 +238,7 @@ namespace Trato
             Fn_CargarDatos();
             await Task.Delay(100);
         }
+
         public static async void Fn_GuardarRed(ObservableCollection<C_Medico> _medicos)
         {
             string _json = JsonConvert.SerializeObject(_medicos, Formatting.Indented);
@@ -252,6 +267,21 @@ namespace Trato
             }
             await Current.SavePropertiesAsync();
         }
+        public static async void Fn_GuardarGenerales(ObservableCollection<C_ServGenerales> _general)
+        {
+            string _json = JsonConvert.SerializeObject(_general, Formatting.Indented);
+            if (Current.Properties.ContainsKey("generales"))
+            {
+                Current.Properties["generales"] = _json;
+            }
+            else
+            {
+                Current.Properties.Add("generales", "");
+                Current.Properties["generales"] = _json;
+            }
+            await Current.SavePropertiesAsync();
+        }
+
         public static async void Fn_CerrarSesion()
         {
             v_perfil = new C_PerfilGen();
@@ -264,20 +294,37 @@ namespace Trato
             Current.Properties["perfMed"] = _json;
             Current.Properties["membre"] = v_membresia;
             Current.Properties["folio"] = v_folio;
+            await Current.SavePropertiesAsync();
             await Task.Delay(100);
         }
         public static void Fn_ImgSexo()
         {
             for (int i = 0; i<v_medicos.Count;i++)
             {
-                if(v_medicos[i].v_idsexo==0)
+                if (int.Parse(v_medicos[i].v_id) < 1)
                 {
-                    v_medicos[i].v_img = "doctor.png";
+                    if (v_medicos[i].v_idsexo == 0)
+                    {
+                        v_medicos[i].v_img = "doctor.png";
+                    }
+                    else
+                    {
+                        v_medicos[i].v_img = "doctora.png";
+                    }
                 }
                 else
                 {
-                    v_medicos[i].v_img = "doctora.png";
+                    //v_medicos[i].v_img = "" + v_medicos[i].v_id;
+                    v_medicos[i].v_img= "https://useller.com.mx/product_img/Doux%20Moda.jpg";
                 }
+                //if (v_medicos[i].v_idsexo == 0)
+                //{
+                //    v_medicos[i].v_img = "doctor.png";
+                //}
+                //else
+                //{
+                //    v_medicos[i].v_img = "doctora.png";
+                //}
                 v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " + v_medicos[i].v_Apellido;
             }
         }
@@ -314,10 +361,11 @@ namespace Trato
                     _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
                     Properties["perfMed"] = _json;
 
+
                     Properties["membre"] = v_membresia;
                     Properties["folio"] = v_folio;
                     Fn_CargarListas();
-                    MainPage = new V_Master(false, "si log 0");
+                    MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                 }//si esta logeado
                 else if (v_log == "1")
                 {
@@ -332,8 +380,10 @@ namespace Trato
                     v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
                     string _jsonMed = Current.Properties["medicos"] as string;
                     v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
+                    string _jsonGenerales = Current.Properties["generales"] as string;
+                    v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonGenerales);
 
-                    MainPage = new V_Master(true, "si log 1");
+                    MainPage = new V_Master(true, "Bienvenido "+v_perfil.v_Nombre);
                 }
                 else
                 {

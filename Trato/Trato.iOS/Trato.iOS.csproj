@@ -230,9 +230,6 @@
     <BundleResource Include="Resources\Perfil.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ServiciosMedicos.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\HOME_icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -258,5 +255,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Filtro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mail_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Services_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ServiciosMedicos.png" />
   </ItemGroup>
 </Project>
