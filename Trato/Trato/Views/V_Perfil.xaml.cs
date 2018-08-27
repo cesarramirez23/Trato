@@ -23,8 +23,7 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Perfil : TabbedPage
 	{
-        private ZXingBarcodeImageView barcode ;
-
+        private ZXingBarcodeImageView barcode;
 
         bool v_editando = false;
         bool v_editarMed = false;
@@ -558,9 +557,6 @@ namespace Trato.Views
         }
         public  void FN_CrearQR(object sender, EventArgs _Args)
         {
-            Button _but = (Button)sender;
-            _but.IsVisible = false;
-
             barcode = new ZXingBarcodeImageView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -569,21 +565,17 @@ namespace Trato.Views
             barcode.BarcodeFormat = ZXing.BarcodeFormat.AZTEC;
             barcode.BarcodeOptions.Width = 700;
             barcode.BarcodeOptions.Height = 700;
-            //barcode.BarcodeValue = qrTexto.Text.Trim();
-            //string _json = "[";
-            //string _json = "";
-            //_json=   JsonConvert.SerializeObject( App.v_perfil);
-            //_json =   JsonConvert.SerializeObject( App.v_perfMed);
 
             string json = @"{";
             json += "idmembre:'" + App.v_membresia + "',\n";
             json += "idfolio:'" + App.v_folio + "',\n";
             json += "}";
 
-            JObject jsonEnviar = JObject.Parse(json);
-           // qrTexto.Text = jsonEnviar.ToString() ;
-            barcode.BarcodeValue = jsonEnviar.ToString() ;
+           // barcode.BarcodeValue = qrTexto.Text;
+            barcode.BarcodeValue = json;// "hola a todos"; //jsonEnviar.ToString() ;
+            //qrTexto.Text = barcode.BarcodeValue;
             qr_content.Content = barcode;
+            qr_but.IsEnabled = false;
         }
 
     }

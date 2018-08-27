@@ -469,7 +469,7 @@ namespace Trato.Views
                 if (item == null)
                     return;
 
-                await Navigation.PushAsync(new V_MedicoVista(item) { Title = " Medico " + item.v_Nombre });
+                await Navigation.PushAsync(new V_MedicoVista(item) { Title = item.v_titulo+" " +item.v_Nombre });
 
                 // Manually deselect item.
                 v_lista.SelectedItem = null;
@@ -480,7 +480,7 @@ namespace Trato.Views
                 if (item == null)
                     return;
 
-                await Navigation.PushAsync(new V_MedicoVista(item) { Title = "Lugar " + item.v_completo });
+                await Navigation.PushAsync(new V_MedicoVista(item) { Title =  item.v_completo });
 
                 // Manually deselect item.
                 v_lista.SelectedItem = null;
@@ -491,7 +491,7 @@ namespace Trato.Views
                 if (item == null)
                     return;
 
-                await Navigation.PushAsync(new V_MedicoVista(item) { Title = "Lugar " + item.v_completo });
+                await Navigation.PushAsync(new V_MedicoVista(item) { Title =  item.v_completo });
 
                 // Manually deselect item.
                 v_lista.SelectedItem = null;

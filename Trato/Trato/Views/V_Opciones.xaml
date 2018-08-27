@@ -5,7 +5,7 @@
     <TabbedPage.Children>
         <ContentPage Title="Contraseña">
             <ScrollView>
-                <StackLayout >
+                <StackLayout Margin="20,0">
                     <Label Text="Ingresa tu contraseña actual" Style="{StaticResource AzulMedLbl}"></Label>
                     <Entry IsPassword="True" x:Name="P_actual"></Entry>
                     

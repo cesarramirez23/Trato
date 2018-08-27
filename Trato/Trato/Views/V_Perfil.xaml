@@ -186,9 +186,9 @@
         <ContentPage Title="Tarjeta Virtual">
             <ScrollView >
                 <StackLayout>
-                    <Button Text="cosa a leer" Clicked="FN_CrearQR" Style="{StaticResource Buton}" VerticalOptions="Center">
-                        </Button>
-                        <ContentView x:Name="qr_content" BackgroundColor="Green">
+                    <Button Text="Motrar Tarjeta Virtual" Clicked="FN_CrearQR" x:Name="qr_but" HorizontalOptions="Center" Style="{StaticResource Buton}" Margin="20,0"></Button>
+                    <ContentView x:Name="qr_content">
+
                     </ContentView>
                 </StackLayout>
             </ScrollView>

@@ -45,7 +45,7 @@
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Label Text="Servicios de salud" Style="{StaticResource LblBoton}" />
+                            <Label Text="Servicios de Salud" Style="{StaticResource LblBoton}" />
 
                             <Image Source="Services_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
@@ -114,7 +114,7 @@
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Label Text="Servicios de salud" Style="{StaticResource LblBoton}" />
+                            <Label Text="Servicios de Salud" Style="{StaticResource LblBoton}" />
 
                             <Image Source="Services_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>

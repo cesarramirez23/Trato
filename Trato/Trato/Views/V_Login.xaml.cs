@@ -113,7 +113,7 @@ namespace Trato.Views
                                 App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text);
                                 //cargar la nueva pagina de perfil
                                 string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
-                                Application.Current.MainPage = new V_Master(true, "Bienvenido " + _nombre);
+                                Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
 
                             }
                             else
