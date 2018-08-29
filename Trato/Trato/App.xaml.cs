@@ -374,8 +374,8 @@ namespace Trato
                     string _jsonPerfMed = Properties["perfMed"] as string;
                     v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonPerfMed);
 
-                    v_membresia = Properties["folio"] as string;
-                    v_folio = Properties["membre"] as string;
+                    v_folio = Properties["folio"] as string;
+                    v_membresia = Properties["membre"] as string;
                     string _jsonServ = Current.Properties["servicios"] as string;
                     v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
                     string _jsonMed = Current.Properties["medicos"] as string;
