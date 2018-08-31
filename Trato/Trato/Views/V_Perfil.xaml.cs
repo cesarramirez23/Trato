@@ -33,32 +33,8 @@ namespace Trato.Views
 
             CargarGen();
             CargarMed();
-            // Scan();
         }
-
-        private ZXingDefaultOverlay overlay;
-        private ZXingScannerView zxing;
-
-        private async void Scan()
-        {
-            var scanPage = new ZXingScannerPage();
-
-            scanPage.OnScanResult += (result) =>
-            {
-                // Stop scanning
-                scanPage.IsScanning = false;
-
-                // Pop the page and show the result
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Navigation.PopAsync();
-                    await DisplayAlert("Scanned Barcode", result.Text, "OK");
-                });
-            };
-
-            // Navigate to our scanner page
-            await Navigation.PushAsync(scanPage);
-        }
+        
         public async void CargarGen()
         {
             App.Fn_CargarDatos();
