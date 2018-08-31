@@ -22,6 +22,10 @@ namespace Trato.Views
         int v_tipo = -1;
       //  bool _personaa =false;
 
+            /*
+             
+             mailto para correo
+             */
         public V_MedicoVista (C_Medico _medico)
 		{
 			InitializeComponent ();

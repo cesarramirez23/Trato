@@ -547,8 +547,11 @@ namespace Trato.Views
             json += "idfolio:'" + App.v_folio + "',\n";
             json += "}";
 
-           // barcode.BarcodeValue = qrTexto.Text;
-            barcode.BarcodeValue = json;// "hola a todos"; //jsonEnviar.ToString() ;
+            // barcode.BarcodeValue = qrTexto.Text;
+
+            JObject jsonper = JObject.Parse(json);
+
+            barcode.BarcodeValue = jsonper.ToString();// "hola a todos"; //jsonEnviar.ToString() ;
             //qrTexto.Text = barcode.BarcodeValue;
             qr_content.Content = barcode;
             qr_but.IsEnabled = false;
