@@ -265,7 +265,7 @@ namespace Trato.Views
             string json = @"{";
             json += "idmembre:'" + App.v_membresia + "',\n";
             json += "idfolio:'" + App.v_folio + "',\n";
-            json += "sangre:'" + App.Fn_Vacio(M_Sangre.Text) + "',\n";
+            json += "sangre:'" + App.Fn_Vacio(M_Sangre.SelectedItem.ToString()) + "',\n";
             json += "idsexo:'" +M_sexoPick.SelectedIndex + "',\n";
 
             if(M_sexoPick.SelectedIndex==1)
@@ -458,7 +458,22 @@ namespace Trato.Views
         public async void CargarMed()
         {
             App.Fn_CargarDatos();
-            Fn_NullEntry(M_Sangre, App.v_perfMed.v_sangre);
+
+            if(!string.IsNullOrEmpty( App.v_perfMed.v_sangre))
+            {
+                for(int i=0; i<M_Sangre.Items.Count; i++)
+                {
+                    if(App.v_perfMed.v_sangre== M_Sangre.Items[i])
+                    {
+                        M_Sangre.SelectedIndex = i;
+                    }
+
+                }
+               // M_Sangre.SelectedIndex = App.v_perfMed.v_sangre;
+                //M_Sangre.Title = M_Sangre.SelectedItem.ToString();
+            }
+            M_Sangre.IsEnabled = false;
+
             if ((App.v_perfMed.v_sexo < 0) || (App.v_perfMed.v_sexo > 1))
             {
                 M_sexoPick.IsEnabled = true;

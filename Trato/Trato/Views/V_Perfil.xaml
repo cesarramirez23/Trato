@@ -131,7 +131,18 @@
                 <StackLayout x:Name="StackMedi" Margin="20,0" >
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
-                        <Entry Text="sangre" x:Name="M_Sangre" Style="{StaticResource entry_perfil}" IsEnabled="False"></Entry>
+                        <Picker  x:Name="M_Sangre" IsEnabled="False" HorizontalOptions="FillAndExpand" Title="Elige tipo de sangre">
+                            <Picker.Items>
+                                <x:String>O-</x:String>
+                                <x:String>O+</x:String>
+                                <x:String>A-</x:String>
+                                <x:String>A+</x:String>
+                                <x:String>B-</x:String>
+                                <x:String>B+</x:String>
+                                <x:String>AB-</x:String>
+                                <x:String>AB+</x:String>
+                            </Picker.Items>
+                        </Picker>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
