@@ -68,7 +68,7 @@ JObject o = JObject.Parse(json);
             }
             else
             {
-                if(Fn_validar(P_actual.Text, P_mensaje.Text))
+                if(Fn_validar(P_actual.Text, P_Nueva.Text))
                 {
                     P_actual.BackgroundColor = Color.Transparent;
 
@@ -80,7 +80,6 @@ JObject o = JObject.Parse(json);
                     else
                     {
                         P_mensaje.IsVisible = false;
-
                         string prime = App.v_membresia.Split('-')[0];
                         string _membre = "";
                         for (int i = 0; i < prime.Length - 1; i++)
@@ -89,8 +88,6 @@ JObject o = JObject.Parse(json);
                         }
                         string letra = prime[prime.Length - 1].ToString();
                         string _conse = App.v_membresia.Split('-')[1];
-
-
 
                         string json = @"{";
                         json += "membre:'" + _membre + "',\n";
@@ -101,36 +98,28 @@ JObject o = JObject.Parse(json);
                         json += "newpassword:'" + P_Nueva.Text + "',\n";
                         json += "}";
 
-
                         JObject jsonPer = JObject.Parse(json);
                         StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
                         HttpClient _client = new HttpClient();
                         string _url = "https://useller.com.mx/trato_especial/password_change.php";
-                        HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
-                        string _result = _respuestphp.Content.ReadAsStringAsync().Result;
-                        await DisplayAlert("respuesta", _result + "\n" + jsonPer.ToString(), "Aceptar");
-
+                        try
+                        {
+                            HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
+                            string _result = _respuestphp.Content.ReadAsStringAsync().Result;
+                            await DisplayAlert("respuesta", _result + "\n" + jsonPer.ToString(), "Aceptar");
+                        }
+                        catch (HttpRequestException exception)
+                        {
+                            await DisplayAlert("Error", exception.Message, "Aceptar");
+                        }
                     }
                 }
                 else
                 {
                     P_mensaje.IsVisible = true;
                 }
-               
             }
             _buton.IsEnabled = true;
-
-
-
-            //if (Fn_validar(P_actual.Text, P_Nueva.Text))
-            //{
-            //    await DisplayAlert("bien", "bien", "bien");
-            //}
-            //else
-            //{
-            //    await DisplayAlert("Error", v_validar, "Aceptar");
-
-            //}
         }
 
         public bool Fn_validar(string _actual, string _nueva)
@@ -142,7 +131,6 @@ JObject o = JObject.Parse(json);
             }
             else
             {
-                
                 if (!regex.IsMatch(_nueva))
                 {
                     P_mensaje.Text = "Debe contener al menos una mayuscula,una minuscula y un numero";
@@ -155,5 +143,4 @@ JObject o = JObject.Parse(json);
             }
         }
     }
-    
 }

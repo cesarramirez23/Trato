@@ -54,78 +54,68 @@ namespace Trato.Views
                 //mandar el json con el post
 
                 try
-                {
-
-                    //getting exception in the following line
-                    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
+                {  //getting exception in the following line    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
                     HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-
-                    if (_respuestaphp == null)
+                    if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        Mensajes_over.Text = "sadsad";
-                    }
-                    else
-                    {
-                        if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
+                        string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                        if (_respuesta == "0")
                         {
-                            Mensajes_over.Text = "sadsad";
+                            Mensajes_over.Text += "\n Error en los datos";
+                            Reinten.IsVisible = true;
                         }
-                        else if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                        else if (_respuesta == "1")
                         {
-                            string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                            if (_respuesta == "0")
+                            //cambiar a logeado
+                            //StackMen.IsVisible = false;
+                            App.v_log = "1";
+                            Perf _perf = new Perf();
+                            _perf.v_fol = fol.Text;
+                            _perf.v_membre = usu.Text;
+                            //crear el json
+                            string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+                            //mostrar la pantalla con mensajes
+                            Mensajes_over.Text += "\n" + _jsonper + "\n";
+                            //crear el cliente
+                            _client = new HttpClient();
+                            _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+                            _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+
+                            try
                             {
-                                Mensajes_over.Text += "\n Error en los datos";
-                                Reinten.IsVisible = true;
-                            }
-                            else if (_respuesta == "1")
-                            {
-                                //cambiar a logeado
-                                //StackMen.IsVisible = false;
-                                App.v_log = "1";
-                                Perf _perf = new Perf();
-                                _perf.v_fol = fol.Text;
-                                _perf.v_membre = usu.Text;
-                                //crear el json
-                                string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
-                                //mostrar la pantalla con mensajes
-                                Mensajes_over.Text += "\n" + _jsonper + "\n";
-                                //crear el cliente
-                                _client = new HttpClient();
-                                _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
-                                _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                                 //mandar el json con el post
                                 _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-
                                 _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
                                 App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
-
                                 _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
-                                //mandar el json con el post
-                                _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-
-                                _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-
-                                Mensajes_over.Text = _respuesta;
-                                App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text);
-                                //cargar la nueva pagina de perfil
-                                string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
-                                Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
-
+                                try
+                                {
+                                    //mandar el json con el post
+                                    _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                                    _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                                    C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+                                    Mensajes_over.Text = _respuesta;
+                                    App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text);
+                                    //cargar la nueva pagina de perfil
+                                    string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
+                                    Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
+                                }
+                                catch (HttpRequestException exception)
+                                {
+                                    await DisplayAlert("Error", exception.Message, "Aceptar");
+                                }
                             }
-                            else
+                            catch (HttpRequestException exception)
                             {
-                                Mensajes_over.Text = "no 0 1  " + _respuesta;
-                                Reinten.IsVisible = true;
+                                await DisplayAlert("Error", exception.Message, "Aceptar");
                             }
                         }
                         else
                         {
+                            Mensajes_over.Text = "no 0 1  " + _respuesta;
                             Reinten.IsVisible = true;
-                            Mensajes_over.Text = "Error de Conexion";
                         }
                     }
                 }

@@ -25,6 +25,31 @@ namespace Trato.Varios
             v_sitio = _sitio;
         }
     }
+    public class Medicamentos
+    {
+        [JsonProperty("nombre")]
+        public string v_nombre { get; set; }
+        [JsonProperty("periodo")]
+        /// <summary>
+        /// por cuantos dias 
+        /// </summary>
+        public int v_periodo { get; set; }
+        [JsonProperty("tiempo")]
+        /// <summary>
+        /// cada cuantas horas
+        /// </summary>
+        public int v_tiempo { get; set; }
+
+        [JsonProperty("extra")]
+        public string v_extra { get; set; }
+
+        public string Fn_Info()
+        {
+            string _info = "";
+            _info = "nombre " + v_nombre + "\n periodo " + v_periodo + "\n tiempo " + v_tiempo + "\n extra " + v_extra;
+            return _info;
+        }
+    }
     public class Perf
     {
         [JsonProperty("idmembre")]

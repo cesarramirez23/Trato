@@ -272,7 +272,7 @@ namespace Trato.Views
             {
                 _filEspec.Clear();
                 _filCiud.Clear();
-                v_lista.ItemsSource = App.v_servicios;
+                v_lista.ItemsSource = App.v_generales;
             }
             Fn_Filtro(sender, _args);
 
@@ -332,6 +332,8 @@ namespace Trato.Views
                 }
                 IEnumerable<C_Medico> _temp = _filtrada.OrderBy(x => x.v_Apellido);
                 _filtrada = new ObservableCollection<C_Medico>(_temp);
+               
+
 
                 await Task.Delay(100);
                 if (_filtrada.Count>0)
@@ -367,6 +369,8 @@ namespace Trato.Views
                         }
                     }
                 }
+                IEnumerable<C_Servicios> _temp = _filtrada.OrderBy(x => x.v_completo);
+                _filtrada = new ObservableCollection<C_Servicios>(_temp);
                 if (_filtrada.Count > 0)
                 {
                     v_lista.ItemsSource = _filtrada;
@@ -376,8 +380,6 @@ namespace Trato.Views
                     await DisplayAlert("Filtro vacio", "No se encontraron resultados", "Aceptar");
                     v_lista.ItemsSource = App.v_servicios;
                 }
-                IEnumerable<C_Servicios> _temp = _filtrada.OrderBy(x => x.v_completo);
-                _filtrada = new ObservableCollection<C_Servicios>(_temp);
             }
             else if (v_tipo == 2)
             {
@@ -402,6 +404,8 @@ namespace Trato.Views
                         }
                     }
                 }
+                IEnumerable<C_ServGenerales> _temp = _filtrada.OrderBy(x => x.v_completo);
+                _filtrada = new ObservableCollection<C_ServGenerales>(_temp);
                 if (_filtrada.Count > 0)
                 {
                     v_lista.ItemsSource = _filtrada;
@@ -411,8 +415,6 @@ namespace Trato.Views
                     await DisplayAlert("Filtro vacio", "No se encontraron resultados", "Aceptar");
                     v_lista.ItemsSource = App.v_servicios;
                 }
-                IEnumerable<C_ServGenerales> _temp = _filtrada.OrderBy(x => x.v_completo);
-                _filtrada = new ObservableCollection<C_ServGenerales>(_temp);
             }
             Fn_Filtro(sender, _args);
         }
@@ -439,7 +441,7 @@ namespace Trato.Views
                 //  List<C_Medico> temp = App.v_medicos.OrderBy(x => x.v_Nombre).ToList(); ;
                 IEnumerable<C_Medico> _temp=      App.v_medicos.OrderBy(x => x.v_Apellido);
                 App.v_medicos = new ObservableCollection<C_Medico>(_temp);
-               await Task.Delay(100);
+                await Task.Delay(100);
             }
             else if(v_tipo==1)
             {
@@ -884,8 +886,6 @@ namespace Trato.Views
                 }
                 v_lista.ItemsSource = _serTemp;
             }
-
-
             v_lista.IsVisible = true;
             Buscador.IsVisible = false;
         }

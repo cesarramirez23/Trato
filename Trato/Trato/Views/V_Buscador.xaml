@@ -46,14 +46,14 @@
                                 <ViewCell >
                                     <!--https://stackoverflow.com/questions/49373982/access-views-inside-a-datatemplate-at-runtime-in-xamarin-forms -->
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                                    
-                                        <Image x:Name="imgSexo" Source="{Binding v_img}" HorizontalOptions="Start"
+
+                                            <Image x:Name="imgSexo" Source="{Binding v_img}" HorizontalOptions="Start"
                                                HeightRequest="100" WidthRequest="100" VerticalOptions="Center"></Image>
-                                        <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center">
+                                            <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center">
                                                 <Label Text="{Binding v_completo}" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource NavigationPrimary}"/>
                                                 <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource LetrCol}" />
                                                 <Label Text="{Binding v_Domicilio}" TextColor="{StaticResource LetrCol}"/>
-                                                <Label Text="{Binding v_Ciudad}" TextColor="{StaticResource LetrCol}"/>  
+                                                <Label Text="{Binding v_Ciudad}" TextColor="{StaticResource LetrCol}"/>                                                
                                         </StackLayout>
                                     </StackLayout>
                                 </ViewCell>

@@ -53,11 +53,7 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\bin\Debug\netstandard2.0\Tr
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\bin\Debug\netstandard2.0\Trato.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\bin\Debug\netstandard2.0\Trato.pdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\App.xaml.g.cs
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\ItemsPage.xaml.g.cs
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_Buscador.xaml.g.cs
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_Contacto.xaml.g.cs
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_Informacion.xaml.g.cs
@@ -71,6 +67,6 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Vi
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.csproj.CoreCompileInputs.cache
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.AssemblyInfoInputs.cache
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.AssemblyInfo.cs
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.pdb
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp

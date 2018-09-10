@@ -286,14 +286,10 @@ namespace Trato.Views
             {
                 json += "alergias:'" + ""+ "',\n";
             }
-
             json += "operaciones:'" + App.Fn_Vacio(M_Operaciones.Text) + "',\n";
-
-
             if (Tog_Enfer.IsToggled)
             {
                 json += "enfermedades:'" + App.Fn_Vacio(M_Enferme.Text) + "',\n";
-
             }
             else
             {
@@ -306,53 +302,67 @@ namespace Trato.Views
             StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
             HttpClient _client = new HttpClient();
             string _url = "https://useller.com.mx/trato_especial/update_perfil_medico.php";
-            HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
-            string _result = _respuestphp.Content.ReadAsStringAsync().Result;
-
-
-
-            if(_result=="1")
+            try
             {
-                await DisplayAlert("Actualizado", "Informacion Guardado con éxito", "Aceptar");
-                Fn_EditarMed(sender, _Args);
-                //volver a cargar la informacion
-
-                Perf _perf = new Perf();
-                _perf.v_fol = App.v_folio;
-                _perf.v_membre = App.v_membresia;
-                //crear el json
-                string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
-                //HACIENDO EL QUERY para la info del GENERAL
-                 _client = new HttpClient();
-                string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
-                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
-                //mandar el json con el post
-                 _respuestphp = await _client.PostAsync(_DirEnviar, _content);
-                string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
-                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
-
-                
-                //carga la info del PERFIL MEDICO
-                _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
-                _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
-                //mandar el json con el post
-                _respuestphp = await _client.PostAsync(_DirEnviar, _content);
-                _respuesta = await _respuestphp.Content.ReadAsStringAsync();
-                C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-                App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
-                CargarGen();
-                CargarMed();
+                HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
+                string _result = _respuestphp.Content.ReadAsStringAsync().Result;
+                if (_result == "1")
+                {
+                    await DisplayAlert("Actualizado", "Informacion Guardado con éxito", "Aceptar");
+                    Fn_EditarMed(sender, _Args);
+                    //volver a cargar la informacion
+                    Perf _perf = new Perf();
+                    _perf.v_fol = App.v_folio;
+                    _perf.v_membre = App.v_membresia;
+                    //crear el json
+                    string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+                    //HACIENDO EL QUERY para la info del GENERAL
+                    _client = new HttpClient();
+                    string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+                    _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                    //mandar el json con el post
+                    try
+                    {
+                        _respuestphp = await _client.PostAsync(_DirEnviar, _content);
+                        string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
+                        C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                        App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
+                        //carga la info del PERFIL MEDICO
+                        _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+                        _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                        try
+                        {
+                            //mandar el json con el post
+                            _respuestphp = await _client.PostAsync(_DirEnviar, _content);
+                            _respuesta = await _respuestphp.Content.ReadAsStringAsync();
+                            C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+                            App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
+                            CargarGen();
+                            CargarMed();
+                        }
+                        catch (HttpRequestException exception)
+                        {
+                            await DisplayAlert("Error", exception.Message, "Aceptar");
+                        }
+                    }
+                    catch (HttpRequestException exception)
+                    {
+                        await DisplayAlert("Error", exception.Message, "Aceptar");
+                    }
+                }
+                else if (_result == "0")
+                {
+                    await DisplayAlert("error 0", _result + "\n" + jsonPer.ToString(), "Aceptar");
+                }
+                else
+                {
+                    await DisplayAlert("ERROR ", _result + "\n" + jsonPer.ToString(), "Aceptar");
+                }
             }
-            else if (_result == "0")
+            catch (HttpRequestException exception)
             {
-                await DisplayAlert("error 0", _result+"\n"+ jsonPer.ToString(), "Aceptar");
+                await DisplayAlert("Error",  exception.Message,"Aceptar");                
             }
-            else
-            {
-                await DisplayAlert("ERROR ", _result + "\n" + jsonPer.ToString(), "Aceptar");
-            }
-
             _buton.IsEnabled = true;
         }
         public async void Fn_CargaQuery()

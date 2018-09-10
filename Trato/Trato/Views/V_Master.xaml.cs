@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using Newtonsoft.Json;
-using System.Collections.ObjectModel;
-using System.Net.Http;
-using Trato.Personas;
 
 namespace Trato.Views
 {

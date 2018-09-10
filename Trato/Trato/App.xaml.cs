@@ -301,30 +301,30 @@ namespace Trato
         {
             for (int i = 0; i<v_medicos.Count;i++)
             {
-                if (int.Parse(v_medicos[i].v_id) < 1)
-                {
-                    if (v_medicos[i].v_idsexo == 0)
-                    {
-                        v_medicos[i].v_img = "doctor.png";
-                    }
-                    else
-                    {
-                        v_medicos[i].v_img = "doctora.png";
-                    }
-                }
-                else
-                {
-                    //v_medicos[i].v_img = "" + v_medicos[i].v_id;
-                    v_medicos[i].v_img= "https://useller.com.mx/product_img/Doux%20Moda.jpg";
-                }
-                //if (v_medicos[i].v_idsexo == 0)
+                //if (int.Parse(v_medicos[i].v_id) < 1)
                 //{
-                //    v_medicos[i].v_img = "doctor.png";
+                //    if (v_medicos[i].v_idsexo == 0)
+                //    {
+                //        v_medicos[i].v_img = "doctor.png";
+                //    }
+                //    else
+                //    {
+                //        v_medicos[i].v_img = "doctora.png";
+                //    }
                 //}
                 //else
                 //{
-                //    v_medicos[i].v_img = "doctora.png";
+                //    //v_medicos[i].v_img = "" + v_medicos[i].v_id;
+                //    v_medicos[i].v_img= "https://useller.com.mx/product_img/Doux%20Moda.jpg";
                 //}
+                if (v_medicos[i].v_idsexo == 0)
+                {
+                    v_medicos[i].v_img = "doctor.png";
+                }
+                else
+                {
+                    v_medicos[i].v_img = "doctora.png";
+                }
                 v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " + v_medicos[i].v_Apellido;
             }
         }
@@ -343,7 +343,7 @@ namespace Trato
         {
             // Handle when your app starts
             //existe la variable guardada
-            //Properties.Clear();
+            Properties.Clear();
             if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado

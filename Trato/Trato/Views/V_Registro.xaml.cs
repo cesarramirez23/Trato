@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 using Trato.Personas;
 using System.Net.Http;
 using Newtonsoft.Json;
-
+using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 
 
@@ -18,7 +18,7 @@ namespace Trato.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Registro : ContentPage
     {
-        string v_dirWeb= "https://useller.com.mx/trato_especial/pre_tarjeta_alta";
+        string v_dirWeb= "https://useller.com.mx/trato_especial/paypal_test.html";
         bool v_primero = false;
         string[] v_costo =
         {
@@ -31,6 +31,7 @@ namespace Trato.Views
         /// true es fisico falso es moral
         /// </summary>
         public bool v_T_Persona = true;
+        JObject v_jsonInfo;
         //protected override void OnAppearing()
         //{
         //    NavigationPage.SetHasNavigationBar(this, false);
@@ -46,7 +47,6 @@ namespace Trato.Views
             fecha.IsEnabled = v_T_Persona;
             lugar.IsEnabled = v_T_Persona;
             tel.IsEnabled = v_T_Persona;
-
         }
         /// <summary>
         /// true activa el registro con folio
@@ -62,16 +62,17 @@ namespace Trato.Views
             v_primero = false;
             if (_folio)
             {
-                Browser.Source = "";
                 stackTodo.IsVisible = false;
                 StackFolio.IsVisible = true;
                 Fol_pass.Text = "";
             }
             else
             {
-            Browser.Source = v_dirWeb;
+                Browser.Source = v_dirWeb;
+                StackMen.IsVisible = false;
                 stackTodo.IsVisible = true;
                 StackFolio.IsVisible = false;
+                StackPagos.IsVisible = false;
                 Persona.Text = "Persona Fisica";
                 StackRfc.IsVisible = false;
                 fecha.IsEnabled = v_T_Persona;
@@ -149,14 +150,19 @@ namespace Trato.Views
             }
 
         }
-
+        public void Fn_IrPagar(object sender, EventArgs _args)
+        {
+            StackInfo.IsVisible = false;
+            StackPagos.IsVisible = true;
+            stackTodo.ScrollToAsync(Browser, ScrollToPosition.Start, true);
+        }
         public void Cargado(object sender, WebNavigatedEventArgs _args)
         {
             Reinten.IsVisible = false;
-           StackMen.IsVisible = true;
+            StackMen.IsVisible = true;
             if(_args.Result ==WebNavigationResult.Timeout || _args.Result== WebNavigationResult.Failure)
             {
-                Mensajes_over.Text = "Error de Conexion, ";
+                Mensajes_over.Text = "Error de Conexion";
                 Reinten.IsVisible = true;
             }
             else if(_args.Result == WebNavigationResult.Success)
@@ -243,7 +249,12 @@ namespace Trato.Views
                 {
                     if (Fn_Condiciones())
                     {
+                        string json = @"{";
+                        json += "folio:'" + App.v_folio + "',\n";
+                        json += "}";
+                        v_jsonInfo = JObject.Parse(json);
 
+                        /*
                         NavigationPage.SetHasNavigationBar(this, false);
                         RegPrin.IsEnabled = false;
                         StackMen.IsVisible = true;
@@ -258,6 +269,8 @@ namespace Trato.Views
                         {
                             _persona = 1;
                         }
+
+
 
                         if (!v_primero)
                         {
@@ -294,10 +307,6 @@ namespace Trato.Views
                                    dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
                                    v_costo[tipo.SelectedIndex],0,tokenid);
                             }
-
-
-                            
-
                             //se crea el json
                             string json_reg = JsonConvert.SerializeObject(datosregistro, Formatting.Indented);
                             // lo hacemos visible en la pantall
@@ -344,6 +353,8 @@ namespace Trato.Views
                                 RegPrin.IsEnabled = true;
                             }
                         }//token vacio
+                        */
+
                     }//ifcondiciones
                 }// sio es empresarial que elija numero de empleados
             }//else tipo selectedindex
@@ -652,48 +663,45 @@ namespace Trato.Views
                     HttpClient _clien = new HttpClient();
                     //direccion a enviar
                     string _direc = "https://useller.com.mx/trato_especial/crear_cuenta";
-                    //se envia
-                    HttpResponseMessage _respuestaphp = await _clien.PostAsync(_direc, _content);
-
-                    Mensajes_over.Text = _respuestaphp.StatusCode.ToString();
-
-
-                    //leer la respuesta
-                    string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                    Mensajes_over.Text += "\n respuesta  " + _respuesta;
-
-                    //422 error folio
-                    //834 maximo folio fam
-                    //200 no membresia con el nombre de la empresa
-                    if(_respuesta=="422")
+                    try
                     {
-                        await DisplayAlert("Error", " error de folio", "Aceptar");
+                        //se envia
+                        HttpResponseMessage _respuestaphp = await _clien.PostAsync(_direc, _content);
+                        Mensajes_over.Text = _respuestaphp.StatusCode.ToString();
+                        //leer la respuesta
+                        string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                        Mensajes_over.Text += "\n respuesta  " + _respuesta;
+                        //422 error folio    834 maximo folio fam    200 no membresia con el nombre de la empresa
+                        if (_respuesta == "422")
+                        {
+                            await DisplayAlert("Error", " error de folio", "Aceptar");
+                        }
+                        else if (_respuesta == "834")
+                        {
+
+                            await DisplayAlert("Error", "Limite de folio Excedido en familiar", "Aceptar");
+                        }
+                        else if (_respuesta == "200")
+                        {
+                            await DisplayAlert("Error", "no coincide el numero de folio con el nombre de la empresa", "Aceptar");
+                        }
+                        else if (_respuesta == "0")
+                        {
+
+                            await DisplayAlert("Error", "Error por algo", "Aceptar");
+                        }
+                        else if (_respuesta == "1")
+                        {
+                            await DisplayAlert("Bien", "Exito todo bien", "Aceptar");
+
+                        }
+                        ReintenSec.IsVisible = true;
                     }
-                    else if(_respuesta=="834")
+                    catch (HttpRequestException exception)
                     {
-
-                        await DisplayAlert("Error", "Limite de folio Excedido en familiar", "Aceptar");
+                        Mensajes_over.Text = exception.Message;
+                        ReintenSec.IsVisible = true;
                     }
-                    else if(_respuesta=="200")
-                    {
-
-                        await DisplayAlert("Error", "no coincide el numero de folio con el nombre de la empresa", "Aceptar");
-                    }
-                    else if(_respuesta=="0"){
-
-                        await DisplayAlert("Error", "Error por algo", "Aceptar");
-                    }
-                    else if(_respuesta=="1")
-                    {
-                        await DisplayAlert("Error", "Exito todo bien", "Aceptar");
-
-                    }
-
-
-
-                    ReintenSec.IsVisible = true;
-
-
                 }
             }
 

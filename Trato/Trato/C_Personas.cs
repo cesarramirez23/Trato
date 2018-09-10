@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 namespace Trato.Personas
 {
     /* https://forums.xamarin.com/discussion/100135/json-response-parsing-in-xamarin-froms
@@ -652,21 +653,19 @@ namespace Trato.Personas
         public string v_descripcion { get; set; }
         [JsonProperty("idsexo")]
         public int v_idsexo { get; set; }
-     
+
 
         public string v_img { get; set; }
         public string v_completo { get; set; }
-        
 
         public string FN_GetInfo()
         {
             string _ret;
-            _ret = "tit "+ v_titulo+"nom " + v_Nombre + " ape " + v_Apellido + " espe " + v_Especialidad + " dom " + v_Domicilio + " ciu " + v_Ciudad +
-                " tel " + v_Tel + " corr " + v_Correo + " horario"+v_horario+ " ced " + v_cedula + " des " + v_descripcion+
+            _ret = "tit " + v_titulo + "nom " + v_Nombre + " ape " + v_Apellido + " espe " + v_Especialidad + " dom " + v_Domicilio + " ciu " + v_Ciudad +
+                " tel " + v_Tel + " corr " + v_Correo + " horario" + v_horario + " ced " + v_cedula + " des " + v_descripcion +
                 " sexo " + v_idsexo;
             return _ret;
         }
-
     }
     /// <summary>
     /// informacion a mostrar en el buscador, para solicitar citas 
@@ -700,6 +699,7 @@ namespace Trato.Personas
         /// </summary>
       
         public string v_img { get; set; }
+        
     }
     /// <summary>
     /// informacion a mostrar en el buscador, para solicitar citas 
@@ -744,5 +744,6 @@ namespace Trato.Personas
         /// imagen para mostrar
         /// </summary>
         public string v_img { get; set; }
+       
     }
 }
