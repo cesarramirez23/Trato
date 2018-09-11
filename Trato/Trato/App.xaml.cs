@@ -8,6 +8,34 @@ using System.Threading.Tasks; // delay
 using Newtonsoft.Json;
 using System.Net.Http;//para el las cosas que necesitan web
 
+
+//precio costpo final
+// como se llama la membresia tipo
+//cuenta
+
+
+/*
+ * 
+ * >C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\Properties\AndroidManifest.xml : warning XA4211: AndroidManifest.xml //uses-sdk/@android:targetSdkVersion '26' is less than $(TargetFrameworkVersion) ''. Using API-27 for ACW compilation.
+1>C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\FirebaseNotificationService.cs(49,49,49,76): error CS0117: 'Resource.Drawable' no contiene una definición para 'cast_ic_notification_rewind'
+ * 
+ membre     
+ letra 
+ consecutivo
+ costo
+ nombre   que membresia
+
+ */
+/*
+ * 
+Error		
+El paquete Xamarin.Firebase.Messaging 60.1142.1 no es compatible con netstandard2.0 (.NETStandard,Version=v2.0). 
+El paquete Xamarin.Firebase.Messaging 60.1142.1 admite: monoandroid80 (MonoAndroid,Version=v8.0)			
+	
+
+     */
+//legacy server key    AIzaSyBJShtMkJ22N0ksY4KGivhAwelFDFwFWfQ
+
 ///https://blog.wilsonvargas.com/generando-y-leyendo-codigos-qr-con-xamarin-form/
 //////https://www.youtube.com/watch?v=y7rZbwOqrUk
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
@@ -32,8 +60,7 @@ namespace Trato
         public App()
         {
             InitializeComponent();
-            
-           // App.Current.MainPage = new V_Master(false,"no properties");
+            // App.Current.MainPage = new V_Master(false,"no properties");
         }
         async  void Fn_CrearKey()
         {

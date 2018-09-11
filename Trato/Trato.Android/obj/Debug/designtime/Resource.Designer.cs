@@ -26,6 +26,16 @@ namespace Trato.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Xamarin.Auth._MobileServices.Resource.Animation.slide_in_right = global::Trato.Droid.Resource.Animation.slide_in_right;
+			global::Xamarin.Auth._MobileServices.Resource.Animation.slide_out_left = global::Trato.Droid.Resource.Animation.slide_out_left;
+			global::Xamarin.Auth._MobileServices.Resource.Drawable.ic_arrow_back = global::Trato.Droid.Resource.Drawable.ic_arrow_back;
+			global::Xamarin.Auth._MobileServices.Resource.Id.webview = global::Trato.Droid.Resource.Id.webview;
+			global::Xamarin.Auth._MobileServices.Resource.Layout.activity_webview = global::Trato.Droid.Resource.Layout.activity_webview;
+			global::Xamarin.Auth._MobileServices.Resource.String.ApplicationName = global::Trato.Droid.Resource.String.ApplicationName;
+			global::Xamarin.Auth._MobileServices.Resource.String.Hello = global::Trato.Droid.Resource.String.Hello;
+			global::Xamarin.Auth._MobileServices.Resource.String.title_activity_webview = global::Trato.Droid.Resource.String.title_activity_webview;
+			global::PCLCrypto.Resource.String.ApplicationName = global::Trato.Droid.Resource.String.ApplicationName;
+			global::PCLCrypto.Resource.String.Hello = global::Trato.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Trato.Droid.Resource.Attribute.actionBarSize;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::Trato.Droid.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::Trato.Droid.Resource.Layout.zxingscannerfragmentlayout;
@@ -79,6 +89,12 @@ namespace Trato.Droid
 			
 			// aapt resource value: 0x7F01000E
 			public const int design_snackbar_out = 2130771982;
+			
+			// aapt resource value: 0x7F070002
+			public const int slide_in_right = 2131165186;
+			
+			// aapt resource value: 0x7F070003
+			public const int slide_out_left = 2131165187;
 			
 			// aapt resource value: 0x7F01000F
 			public const int tooltip_enter = 2130771983;
@@ -346,8 +362,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F040047
 			public const int buttonPanelSideLayout = 2130968647;
 			
-			// aapt resource value: 0x1
-			public const int buttonSize = 1;
+			// aapt resource value: 0x7F100376
+			public const int buttonSize = 2131755894;
 			
 			// aapt resource value: 0x7F040048
 			public const int buttonStyle = 2130968648;
@@ -508,8 +524,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F04004D
 			public const int checkedTextViewStyle = 2130968653;
 			
-			// aapt resource value: 0x1
-			public const int circleCrop = 1;
+			// aapt resource value: 0x7F100375
+			public const int circleCrop = 2131755893;
 			
 			// aapt resource value: 0x7F04004E
 			public const int closeIcon = 2130968654;
@@ -559,8 +575,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F04005D
 			public const int colorPrimaryDark = 2130968669;
 			
-			// aapt resource value: 0x1
-			public const int colorScheme = 1;
+			// aapt resource value: 0x7F100377
+			public const int colorScheme = 2131755895;
 			
 			// aapt resource value: 0x7F04005E
 			public const int colorSwitchThumbNormal = 2130968670;
@@ -835,11 +851,11 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F0400A6
 			public const int iconTintMode = 2130968742;
 			
-			// aapt resource value: 0x1
-			public const int imageAspectRatio = 1;
+			// aapt resource value: 0x7F100374
+			public const int imageAspectRatio = 2131755892;
 			
-			// aapt resource value: 0x1
-			public const int imageAspectRatioAdjust = 1;
+			// aapt resource value: 0x7F100373
+			public const int imageAspectRatioAdjust = 2131755891;
 			
 			// aapt resource value: 0x7F0400A8
 			public const int imageButtonStyle = 2130968744;
@@ -1162,8 +1178,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int schemaOrgType = 1;
 			
-			// aapt resource value: 0x1
-			public const int scopeUris = 1;
+			// aapt resource value: 0x7F100378
+			public const int scopeUris = 2131755896;
 			
 			// aapt resource value: 0x7F0400F1
 			public const int scrimAnimationDuration = 2130968817;
@@ -1773,38 +1789,38 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F050004
 			public const int colorPrimaryDark = 2131034116;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark = 1;
+			// aapt resource value: 0x7F050105
+			public const int common_google_signin_btn_text_dark = 2131034373;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark_default = 1;
+			// aapt resource value: 0x7F050108
+			public const int common_google_signin_btn_text_dark_default = 2131034376;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark_disabled = 1;
+			// aapt resource value: 0x7F050109
+			public const int common_google_signin_btn_text_dark_disabled = 2131034377;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark_focused = 1;
+			// aapt resource value: 0x7F050110
+			public const int common_google_signin_btn_text_dark_focused = 2131034384;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark_pressed = 1;
+			// aapt resource value: 0x7F050111
+			public const int common_google_signin_btn_text_dark_pressed = 2131034385;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light = 1;
+			// aapt resource value: 0x7F050106
+			public const int common_google_signin_btn_text_light = 2131034374;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light_default = 1;
+			// aapt resource value: 0x7F050112
+			public const int common_google_signin_btn_text_light_default = 2131034386;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light_disabled = 1;
+			// aapt resource value: 0x7F050113
+			public const int common_google_signin_btn_text_light_disabled = 2131034387;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light_focused = 1;
+			// aapt resource value: 0x7F050114
+			public const int common_google_signin_btn_text_light_focused = 2131034388;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light_pressed = 1;
+			// aapt resource value: 0x7F050115
+			public const int common_google_signin_btn_text_light_pressed = 2131034389;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_tint = 1;
+			// aapt resource value: 0x7F050107
+			public const int common_google_signin_btn_tint = 2131034375;
 			
 			// aapt resource value: 0x7F060027
 			public const int design_bottom_navigation_shadow_color = 2131099687;
@@ -3089,62 +3105,62 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int cast_skip_ad_label_border = 1;
 			
-			// aapt resource value: 0x1
-			public const int common_full_open_on_phone = 1;
+			// aapt resource value: 0x7F010343
+			public const int common_full_open_on_phone = 2130772803;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_dark = 1;
+			// aapt resource value: 0x7F010329
+			public const int common_google_signin_btn_icon_dark = 2130772777;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_dark_focused = 1;
+			// aapt resource value: 0x7F010330
+			public const int common_google_signin_btn_icon_dark_focused = 2130772784;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_dark_normal = 1;
+			// aapt resource value: 0x7F010331
+			public const int common_google_signin_btn_icon_dark_normal = 2130772785;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_dark_normal_background = 1;
+			// aapt resource value: 0x7F010344
+			public const int common_google_signin_btn_icon_dark_normal_background = 2130772804;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_disabled = 1;
+			// aapt resource value: 0x7F010332
+			public const int common_google_signin_btn_icon_disabled = 2130772786;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_light = 1;
+			// aapt resource value: 0x7F010333
+			public const int common_google_signin_btn_icon_light = 2130772787;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_light_focused = 1;
+			// aapt resource value: 0x7F010334
+			public const int common_google_signin_btn_icon_light_focused = 2130772788;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_light_normal = 1;
+			// aapt resource value: 0x7F010335
+			public const int common_google_signin_btn_icon_light_normal = 2130772789;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_icon_light_normal_background = 1;
+			// aapt resource value: 0x7F010345
+			public const int common_google_signin_btn_icon_light_normal_background = 2130772805;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark = 1;
+			// aapt resource value: 0x7F010336
+			public const int common_google_signin_btn_text_dark = 2130772790;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark_focused = 1;
+			// aapt resource value: 0x7F010337
+			public const int common_google_signin_btn_text_dark_focused = 2130772791;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark_normal = 1;
+			// aapt resource value: 0x7F010338
+			public const int common_google_signin_btn_text_dark_normal = 2130772792;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_dark_normal_background = 1;
+			// aapt resource value: 0x7F010346
+			public const int common_google_signin_btn_text_dark_normal_background = 2130772806;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_disabled = 1;
+			// aapt resource value: 0x7F010339
+			public const int common_google_signin_btn_text_disabled = 2130772793;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light = 1;
+			// aapt resource value: 0x7F010340
+			public const int common_google_signin_btn_text_light = 2130772800;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light_focused = 1;
+			// aapt resource value: 0x7F010341
+			public const int common_google_signin_btn_text_light_focused = 2130772801;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light_normal = 1;
+			// aapt resource value: 0x7F010342
+			public const int common_google_signin_btn_text_light_normal = 2130772802;
 			
-			// aapt resource value: 0x1
-			public const int common_google_signin_btn_text_light_normal_background = 1;
+			// aapt resource value: 0x7F010347
+			public const int common_google_signin_btn_text_light_normal_background = 2130772807;
 			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
@@ -3173,17 +3189,20 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F010004
 			public const int Filtro = 2130771972;
 			
-			// aapt resource value: 0x1
-			public const int googleg_disabled_color_18 = 1;
+			// aapt resource value: 0x7F010348
+			public const int googleg_disabled_color_18 = 2130772808;
 			
-			// aapt resource value: 0x1
-			public const int googleg_standard_color_18 = 1;
+			// aapt resource value: 0x7F010349
+			public const int googleg_standard_color_18 = 2130772809;
 			
 			// aapt resource value: 0x7F010005
 			public const int HOME_icon = 2130771973;
 			
 			// aapt resource value: 0x7F010006
 			public const int ICONOAPP = 2130771974;
+			
+			// aapt resource value: 0x7F010025
+			public const int ic_arrow_back = 2130772005;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -4098,11 +4117,11 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F0C0015
 			public const int add = 2131492885;
 			
-			// aapt resource value: 0x1
-			public const int adjust_height = 1;
+			// aapt resource value: 0x7F020177
+			public const int adjust_height = 2130837879;
 			
-			// aapt resource value: 0x1
-			public const int adjust_width = 1;
+			// aapt resource value: 0x7F020176
+			public const int adjust_width = 2130837878;
 			
 			// aapt resource value: 0x1
 			public const int ad_container = 1;
@@ -4131,14 +4150,11 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int android_pay_light_with_border = 1;
 			
-			// aapt resource value: 0x7F020292
-			public const int app_name = 2130838162;
+			// aapt resource value: 0x7F020175
+			public const int app_name = 2130837877;
 			
 			// aapt resource value: 0x7F0C0006
 			public const int async = 2131492870;
-			
-			// aapt resource value: 0x1
-			public const int audio_empty_message = 1;
 			
 			// aapt resource value: 0x1
 			public const int audio_list_view = 1;
@@ -4263,8 +4279,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int container_current = 1;
 			
-			// aapt resource value: 0x7F020174
-			public const int contentFrame = 2130837876;
+			// aapt resource value: 0x7F020296
+			public const int contentFrame = 2130838166;
 			
 			// aapt resource value: 0x7F0C0021
 			public const int contentPanel = 2131492897;
@@ -4284,8 +4300,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F0C0024
 			public const int customPanel = 2131492900;
 			
-			// aapt resource value: 0x1
-			public const int dark = 1;
+			// aapt resource value: 0x7F020181
+			public const int dark = 2130837889;
 			
 			// aapt resource value: 0x1
 			public const int date = 1;
@@ -4392,8 +4408,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F0C000B
 			public const int icon_group = 2131492875;
 			
-			// aapt resource value: 0x1
-			public const int icon_only = 1;
+			// aapt resource value: 0x7F020180
+			public const int icon_only = 2130837888;
 			
 			// aapt resource value: 0x1
 			public const int icon_uri = 1;
@@ -4444,7 +4460,19 @@ namespace Trato.Droid
 			public const int left = 2131492925;
 			
 			// aapt resource value: 0x1
-			public const int light = 1;
+			public const int license = 1;
+			
+			// aapt resource value: 0x1
+			public const int license_activity_scrollview = 1;
+			
+			// aapt resource value: 0x1
+			public const int license_activity_textview = 1;
+			
+			// aapt resource value: 0x1
+			public const int license_list = 1;
+			
+			// aapt resource value: 0x7F020182
+			public const int light = 2130837890;
 			
 			// aapt resource value: 0x7F0C000E
 			public const int line1 = 2131492878;
@@ -4586,6 +4614,9 @@ namespace Trato.Droid
 			
 			// aapt resource value: 0x7F0C0013
 			public const int notification_main_column_container = 2131492883;
+			
+			// aapt resource value: 0x1
+			public const int no_licenses_text = 1;
 			
 			// aapt resource value: 0x1
 			public const int omnibox_title_section = 1;
@@ -4764,8 +4795,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F0C0072
 			public const int src_over = 2131492978;
 			
-			// aapt resource value: 0x1
-			public const int standard = 1;
+			// aapt resource value: 0x7F020178
+			public const int standard = 2130837880;
 			
 			// aapt resource value: 0x7F0C0073
 			public const int start = 2131492979;
@@ -4829,9 +4860,6 @@ namespace Trato.Droid
 			
 			// aapt resource value: 0x1
 			public const int textTitle = 1;
-			
-			// aapt resource value: 0x1
-			public const int text_empty_message = 1;
 			
 			// aapt resource value: 0x7F0C007D
 			public const int text_input_password_toggle = 2131492989;
@@ -4902,8 +4930,11 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F0C007D
 			public const int volume_item_container = 2131492989;
 			
-			// aapt resource value: 0x1
-			public const int wide = 1;
+			// aapt resource value: 0x7F020004
+			public const int webview = 2130837508;
+			
+			// aapt resource value: 0x7F020179
+			public const int wide = 2130837881;
 			
 			// aapt resource value: 0x7F0C0090
 			public const int wrap_content = 2131493008;
@@ -5076,6 +5107,9 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F0F001A
 			public const int abc_select_dialog_material = 2131689498;
 			
+			// aapt resource value: 0x7F030004
+			public const int activity_webview = 2130903044;
+			
 			// aapt resource value: 0x1
 			public const int cast_expanded_controller_activity = 1;
 			
@@ -5135,6 +5169,18 @@ namespace Trato.Droid
 			
 			// aapt resource value: 0x7F0F0028
 			public const int design_text_input_password_icon = 2131689512;
+			
+			// aapt resource value: 0x1
+			public const int libraries_social_licenses_license = 1;
+			
+			// aapt resource value: 0x1
+			public const int libraries_social_licenses_license_activity = 1;
+			
+			// aapt resource value: 0x1
+			public const int libraries_social_licenses_license_menu_activity = 1;
+			
+			// aapt resource value: 0x1
+			public const int license_menu_activity_no_licenses = 1;
 			
 			// aapt resource value: 0x7F0F001B
 			public const int mr_chooser_dialog = 2131689499;
@@ -5232,11 +5278,14 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F0F003C
 			public const int tooltip = 2131689532;
 			
-			// aapt resource value: 0x7F030070
-			public const int zxingscanneractivitylayout = 2130903152;
+			// aapt resource value: 0x1
+			public const int wallet_test_layout = 1;
 			
-			// aapt resource value: 0x7F030071
-			public const int zxingscannerfragmentlayout = 2130903153;
+			// aapt resource value: 0x7F030086
+			public const int zxingscanneractivitylayout = 2130903174;
+			
+			// aapt resource value: 0x7F030087
+			public const int zxingscannerfragmentlayout = 2130903175;
 			
 			static Layout()
 			{
@@ -5360,11 +5409,11 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F15001D
 			public const int abc_toolbar_collapse_description = 2132082717;
 			
-			// aapt resource value: 0x1
-			public const int accept = 1;
-			
 			// aapt resource value: 0x7F15001E
 			public const int appbar_scrolling_view_behavior = 2132082718;
+			
+			// aapt resource value: 0x7F080004
+			public const int ApplicationName = 2131230724;
 			
 			// aapt resource value: 0x7F15001F
 			public const int bottom_sheet_behavior = 2132082719;
@@ -5380,6 +5429,9 @@ namespace Trato.Droid
 			
 			// aapt resource value: 0x1
 			public const int cast_closed_captions_unavailable = 1;
+			
+			// aapt resource value: 0x1
+			public const int cast_connecting_to_device = 1;
 			
 			// aapt resource value: 0x1
 			public const int cast_disconnect = 1;
@@ -5478,12 +5530,6 @@ namespace Trato.Droid
 			public const int cast_tracks_chooser_dialog_none = 1;
 			
 			// aapt resource value: 0x1
-			public const int cast_tracks_chooser_dialog_no_audio_tracks = 1;
-			
-			// aapt resource value: 0x1
-			public const int cast_tracks_chooser_dialog_no_text_tracks = 1;
-			
-			// aapt resource value: 0x1
 			public const int cast_tracks_chooser_dialog_ok = 1;
 			
 			// aapt resource value: 0x1
@@ -5495,80 +5541,71 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F150020
 			public const int character_counter_pattern = 2132082720;
 			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_enable_button = 1;
+			// aapt resource value: 0x7F080066
+			public const int common_google_play_services_enable_button = 2131230822;
 			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_enable_text = 1;
+			// aapt resource value: 0x7F080067
+			public const int common_google_play_services_enable_text = 2131230823;
 			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_enable_title = 1;
+			// aapt resource value: 0x7F080068
+			public const int common_google_play_services_enable_title = 2131230824;
 			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_install_button = 1;
+			// aapt resource value: 0x7F080069
+			public const int common_google_play_services_install_button = 2131230825;
 			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_install_text = 1;
+			// aapt resource value: 0x7F080070
+			public const int common_google_play_services_install_text = 2131230832;
 			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_install_title = 1;
+			// aapt resource value: 0x7F080071
+			public const int common_google_play_services_install_title = 2131230833;
 			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_notification_ticker = 1;
+			// aapt resource value: 0x7F080072
+			public const int common_google_play_services_notification_ticker = 2131230834;
 			
 			// aapt resource value: 0x1
 			public const int common_google_play_services_unknown_issue = 1;
 			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_unsupported_text = 1;
+			// aapt resource value: 0x7F080073
+			public const int common_google_play_services_unsupported_text = 2131230835;
+			
+			// aapt resource value: 0x7F080074
+			public const int common_google_play_services_update_button = 2131230836;
+			
+			// aapt resource value: 0x7F080075
+			public const int common_google_play_services_update_text = 2131230837;
+			
+			// aapt resource value: 0x7F080076
+			public const int common_google_play_services_update_title = 2131230838;
+			
+			// aapt resource value: 0x7F080077
+			public const int common_google_play_services_updating_text = 2131230839;
+			
+			// aapt resource value: 0x7F080078
+			public const int common_google_play_services_wear_update_text = 2131230840;
+			
+			// aapt resource value: 0x7F080079
+			public const int common_open_on_phone = 2131230841;
+			
+			// aapt resource value: 0x7F080080
+			public const int common_signin_button_text = 2131230848;
+			
+			// aapt resource value: 0x7F080081
+			public const int common_signin_button_text_long = 2131230849;
+			
+			// aapt resource value: 0x7F080065
+			public const int fcm_fallback_notification_channel_label = 2131230821;
 			
 			// aapt resource value: 0x1
-			public const int common_google_play_services_update_button = 1;
+			public const int gcm_fallback_notification_channel_label = 1;
+			
+			// aapt resource value: 0x7F080003
+			public const int Hello = 2131230723;
+			
+			// aapt resource value: 0x7F080140
+			public const int library_name = 2131231040;
 			
 			// aapt resource value: 0x1
-			public const int common_google_play_services_update_text = 1;
-			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_update_title = 1;
-			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_updating_text = 1;
-			
-			// aapt resource value: 0x1
-			public const int common_google_play_services_wear_update_text = 1;
-			
-			// aapt resource value: 0x1
-			public const int common_open_on_phone = 1;
-			
-			// aapt resource value: 0x1
-			public const int common_signin_button_text = 1;
-			
-			// aapt resource value: 0x1
-			public const int common_signin_button_text_long = 1;
-			
-			// aapt resource value: 0x1
-			public const int create_calendar_message = 1;
-			
-			// aapt resource value: 0x1
-			public const int create_calendar_title = 1;
-			
-			// aapt resource value: 0x1
-			public const int debug_menu_ad_information = 1;
-			
-			// aapt resource value: 0x1
-			public const int debug_menu_creative_preview = 1;
-			
-			// aapt resource value: 0x1
-			public const int debug_menu_title = 1;
-			
-			// aapt resource value: 0x1
-			public const int debug_menu_troubleshooting = 1;
-			
-			// aapt resource value: 0x1
-			public const int decline = 1;
-			
-			// aapt resource value: 0x7F080062
-			public const int library_name = 2131230818;
+			public const int license_content_error = 1;
 			
 			// aapt resource value: 0x7F15001E
 			public const int mr_button_content_description = 2132082718;
@@ -5633,6 +5670,12 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F150032
 			public const int mr_user_route_category_name = 2132082738;
 			
+			// aapt resource value: 0x1
+			public const int no_licenses_available = 1;
+			
+			// aapt resource value: 0x1
+			public const int oss_license_title = 1;
+			
 			// aapt resource value: 0x7F150021
 			public const int password_toggle_content_description = 2132082721;
 			
@@ -5654,17 +5697,32 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int place_autocomplete_search_hint = 1;
 			
+			// aapt resource value: 0x1
+			public const int preferences_license_summary = 1;
+			
+			// aapt resource value: 0x1
+			public const int s1 = 1;
+			
+			// aapt resource value: 0x1
+			public const int s2 = 1;
+			
+			// aapt resource value: 0x1
+			public const int s3 = 1;
+			
+			// aapt resource value: 0x1
+			public const int s4 = 1;
+			
+			// aapt resource value: 0x1
+			public const int s5 = 1;
+			
+			// aapt resource value: 0x1
+			public const int s6 = 1;
+			
 			// aapt resource value: 0x7F150026
 			public const int search_menu_title = 2132082726;
 			
 			// aapt resource value: 0x7F150001
 			public const int status_bar_notification_info_overflow = 2132082689;
-			
-			// aapt resource value: 0x1
-			public const int store_picture_message = 1;
-			
-			// aapt resource value: 0x1
-			public const int store_picture_title = 1;
 			
 			// aapt resource value: 0x1
 			public const int tagmanager_preview_dialog_button = 1;
@@ -5674,6 +5732,9 @@ namespace Trato.Droid
 			
 			// aapt resource value: 0x1
 			public const int tagmanager_preview_dialog_title = 1;
+			
+			// aapt resource value: 0x7F080002
+			public const int title_activity_webview = 2131230722;
 			
 			// aapt resource value: 0x1
 			public const int wallet_buy_button_place_holder = 1;
@@ -6989,11 +7050,11 @@ namespace Trato.Droid
 			public static int[] ActionBarLayout = new int[] {
 					16842931};
 			
-			// aapt resource value: 0x7F070047
-			public const int ActionBarLayout_android_layout_gravity = 2131165255;
+			// aapt resource value: 0x7F090047
+			public const int ActionBarLayout_android_layout_gravity = 2131296327;
 			
-			// aapt resource value: 0x7F070017
-			public const int ActionBar_background = 2131165207;
+			// aapt resource value: 0x7F090017
+			public const int ActionBar_background = 2131296279;
 			
 			// aapt resource value: 0x1
 			public const int ActionBar_backgroundSplit = 1;
@@ -7082,8 +7143,8 @@ namespace Trato.Droid
 			public static int[] ActionMenuItemView = new int[] {
 					16843071};
 			
-			// aapt resource value: 0x7F070049
-			public const int ActionMenuItemView_android_minWidth = 2131165257;
+			// aapt resource value: 0x7F090049
+			public const int ActionMenuItemView_android_minWidth = 2131296329;
 			
 			public static int[] ActionMode = new int[] {
 					2130968626,
@@ -7093,8 +7154,8 @@ namespace Trato.Droid
 					2130968847,
 					2130968901};
 			
-			// aapt resource value: 0x7F070051
-			public const int ActionMode_background = 2131165265;
+			// aapt resource value: 0x7F090051
+			public const int ActionMode_background = 2131296337;
 			
 			// aapt resource value: 0x1
 			public const int ActionMode_backgroundSplit = 1;
@@ -7115,8 +7176,8 @@ namespace Trato.Droid
 					2130968704,
 					2130968746};
 			
-			// aapt resource value: 0x7F070058
-			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 2131165272;
+			// aapt resource value: 0x7F090058
+			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 2131296344;
 			
 			// aapt resource value: 0x1
 			public const int ActivityChooserView_initialActivityCount = 1;
@@ -7126,8 +7187,8 @@ namespace Trato.Droid
 					1,
 					1};
 			
-			// aapt resource value: 0x7F070560
-			public const int AdsAttrs_adSize = 2131166560;
+			// aapt resource value: 0x7F090568
+			public const int AdsAttrs_adSize = 2131297640;
 			
 			// aapt resource value: 0x1
 			public const int AdsAttrs_adSizes = 1;
@@ -7144,8 +7205,8 @@ namespace Trato.Droid
 					2130968828,
 					2130968829};
 			
-			// aapt resource value: 0x7F070061
-			public const int AlertDialog_android_layout = 2131165281;
+			// aapt resource value: 0x7F090061
+			public const int AlertDialog_android_layout = 2131296353;
 			
 			// aapt resource value: 0x1
 			public const int AlertDialog_buttonPanelSideLayout = 1;
@@ -7176,14 +7237,14 @@ namespace Trato.Droid
 					2130968838,
 					2130968839};
 			
-			// aapt resource value: 0x7F070075
-			public const int AppBarLayoutStates_state_collapsed = 2131165301;
+			// aapt resource value: 0x7F090075
+			public const int AppBarLayoutStates_state_collapsed = 2131296373;
 			
 			// aapt resource value: 0x1
 			public const int AppBarLayoutStates_state_collapsible = 1;
 			
-			// aapt resource value: 0x7F070069
-			public const int AppBarLayout_android_background = 2131165289;
+			// aapt resource value: 0x7F090069
+			public const int AppBarLayout_android_background = 2131296361;
 			
 			// aapt resource value: 0x1
 			public const int AppBarLayout_android_keyboardNavigationCluster = 1;
@@ -7201,8 +7262,8 @@ namespace Trato.Droid
 					2130968765,
 					2130968766};
 			
-			// aapt resource value: 0x7F070078
-			public const int AppBarLayout_Layout_layout_scrollFlags = 2131165304;
+			// aapt resource value: 0x7F090078
+			public const int AppBarLayout_Layout_layout_scrollFlags = 2131296376;
 			
 			// aapt resource value: 0x1
 			public const int AppBarLayout_Layout_layout_scrollInterpolator = 1;
@@ -7213,8 +7274,8 @@ namespace Trato.Droid
 					2130968889,
 					2130968890};
 			
-			// aapt resource value: 0x7F070081
-			public const int AppCompatImageView_android_src = 2131165313;
+			// aapt resource value: 0x7F090081
+			public const int AppCompatImageView_android_src = 2131296385;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatImageView_srcCompat = 1;
@@ -7231,8 +7292,8 @@ namespace Trato.Droid
 					2130968887,
 					2130968888};
 			
-			// aapt resource value: 0x7F070086
-			public const int AppCompatSeekBar_android_thumb = 2131165318;
+			// aapt resource value: 0x7F090086
+			public const int AppCompatSeekBar_android_thumb = 2131296390;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatSeekBar_tickMark = 1;
@@ -7252,8 +7313,8 @@ namespace Trato.Droid
 					16843117,
 					16842804};
 			
-			// aapt resource value: 0x7F070091
-			public const int AppCompatTextHelper_android_drawableBottom = 2131165329;
+			// aapt resource value: 0x7F090091
+			public const int AppCompatTextHelper_android_drawableBottom = 2131296401;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatTextHelper_android_drawableEnd = 1;
@@ -7283,8 +7344,8 @@ namespace Trato.Droid
 					2130968720,
 					2130968869};
 			
-			// aapt resource value: 0x7F070099
-			public const int AppCompatTextView_android_textAppearance = 2131165337;
+			// aapt resource value: 0x7F090099
+			public const int AppCompatTextView_android_textAppearance = 2131296409;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatTextView_autoSizeMaxTextSize = 1;
@@ -7428,8 +7489,8 @@ namespace Trato.Droid
 					2130968921,
 					2130968922};
 			
-			// aapt resource value: 0x7F070108
-			public const int AppCompatTheme_actionBarDivider = 2131165448;
+			// aapt resource value: 0x7F090108
+			public const int AppCompatTheme_actionBarDivider = 2131296520;
 			
 			// aapt resource value: 0x1
 			public const int AppCompatTheme_actionBarItemBackground = 1;
@@ -7795,8 +7856,8 @@ namespace Trato.Droid
 					2130968753,
 					2130968783};
 			
-			// aapt resource value: 0x7F070228
-			public const int BottomNavigationView_elevation = 2131165736;
+			// aapt resource value: 0x7F090228
+			public const int BottomNavigationView_elevation = 2131296808;
 			
 			// aapt resource value: 0x1
 			public const int BottomNavigationView_itemBackground = 1;
@@ -7815,8 +7876,8 @@ namespace Trato.Droid
 					2130968635,
 					2130968636};
 			
-			// aapt resource value: 0x7F070234
-			public const int BottomSheetBehavior_Layout_behavior_hideable = 2131165748;
+			// aapt resource value: 0x7F090234
+			public const int BottomSheetBehavior_Layout_behavior_hideable = 2131296820;
 			
 			// aapt resource value: 0x1
 			public const int BottomSheetBehavior_Layout_behavior_peekHeight = 1;
@@ -7827,8 +7888,8 @@ namespace Trato.Droid
 			public static int[] ButtonBarLayout = new int[] {
 					2130968615};
 			
-			// aapt resource value: 0x7F070238
-			public const int ButtonBarLayout_allowStacking = 2131165752;
+			// aapt resource value: 0x7F090238
+			public const int ButtonBarLayout_allowStacking = 2131296824;
 			
 			public static int[] CardView = new int[] {
 					16843072,
@@ -7845,8 +7906,8 @@ namespace Trato.Droid
 					2130968586,
 					2130968587};
 			
-			// aapt resource value: 0x7F070541
-			public const int CardView_android_minHeight = 2131166529;
+			// aapt resource value: 0x7F090541
+			public const int CardView_android_minHeight = 2131297601;
 			
 			// aapt resource value: 0x1
 			public const int CardView_android_minWidth = 1;
@@ -7923,8 +7984,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x9
 			public const int CastExpandedController_castRewind30ButtonDrawable = 9;
 			
-			// aapt resource value: 0x7F070573
-			public const int CastExpandedController_castSeekBarProgressDrawable = 2131166579;
+			// aapt resource value: 0x7F090581
+			public const int CastExpandedController_castSeekBarProgressDrawable = 2131297665;
 			
 			// aapt resource value: 0x1
 			public const int CastExpandedController_castSeekBarThumbDrawable = 1;
@@ -7946,8 +8007,8 @@ namespace Trato.Droid
 					1,
 					1};
 			
-			// aapt resource value: 0x7F070579
-			public const int CastIntroOverlay_castBackgroundColor = 2131166585;
+			// aapt resource value: 0x7F090587
+			public const int CastIntroOverlay_castBackgroundColor = 2131297671;
 			
 			// aapt resource value: 0x1
 			public const int CastIntroOverlay_castButtonBackgroundColor = 1;
@@ -8039,8 +8100,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x2
 			public const int CastMiniController_castSubtitleTextAppearance = 2;
 			
-			// aapt resource value: 0x7F070604
-			public const int CastMiniController_castTitleTextAppearance = 2131166724;
+			// aapt resource value: 0x7F090612
+			public const int CastMiniController_castTitleTextAppearance = 2131297810;
 			
 			public static int[] CollapsingToolbarLayout = new int[] {
 					2130968658,
@@ -8060,8 +8121,8 @@ namespace Trato.Droid
 					2130968892,
 					2130968902};
 			
-			// aapt resource value: 0x7F070240
-			public const int CollapsingToolbarLayout_collapsedTitleGravity = 2131165760;
+			// aapt resource value: 0x7F090240
+			public const int CollapsingToolbarLayout_collapsedTitleGravity = 2131296832;
 			
 			// aapt resource value: 0x1
 			public const int CollapsingToolbarLayout_collapsedTitleTextAppearance = 1;
@@ -8094,8 +8155,8 @@ namespace Trato.Droid
 					2130968760,
 					2130968761};
 			
-			// aapt resource value: 0x7F070257
-			public const int CollapsingToolbarLayout_Layout_layout_collapseMode = 2131165783;
+			// aapt resource value: 0x7F090257
+			public const int CollapsingToolbarLayout_Layout_layout_collapseMode = 2131296855;
 			
 			// aapt resource value: 0x1
 			public const int CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = 1;
@@ -8123,8 +8184,8 @@ namespace Trato.Droid
 					16843551,
 					16843173};
 			
-			// aapt resource value: 0x7F070260
-			public const int ColorStateListItem_alpha = 2131165792;
+			// aapt resource value: 0x7F090260
+			public const int ColorStateListItem_alpha = 2131296864;
 			
 			// aapt resource value: 0x1
 			public const int ColorStateListItem_android_alpha = 1;
@@ -8137,8 +8198,8 @@ namespace Trato.Droid
 					2130968650,
 					2130968651};
 			
-			// aapt resource value: 0x7F070264
-			public const int CompoundButton_android_button = 2131165796;
+			// aapt resource value: 0x7F090264
+			public const int CompoundButton_android_button = 2131296868;
 			
 			// aapt resource value: 0x1
 			public const int CompoundButton_buttonTint = 1;
@@ -8150,8 +8211,8 @@ namespace Trato.Droid
 					2130968754,
 					2130968840};
 			
-			// aapt resource value: 0x7F070268
-			public const int CoordinatorLayout_keylines = 2131165800;
+			// aapt resource value: 0x7F090268
+			public const int CoordinatorLayout_keylines = 2131296872;
 			
 			public static int[] CoordinatorLayout_Layout = new int[] {
 					16842931,
@@ -8162,8 +8223,8 @@ namespace Trato.Droid
 					2130968763,
 					2130968764};
 			
-			// aapt resource value: 0x7F070271
-			public const int CoordinatorLayout_Layout_android_layout_gravity = 2131165809;
+			// aapt resource value: 0x7F090271
+			public const int CoordinatorLayout_Layout_android_layout_gravity = 2131296881;
 			
 			// aapt resource value: 0x1
 			public const int CoordinatorLayout_Layout_layout_anchor = 1;
@@ -8199,8 +8260,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x2
 			public const int Corpus_contentProviderUri = 2;
 			
-			// aapt resource value: 0x7F070607
-			public const int Corpus_corpusId = 2131166727;
+			// aapt resource value: 0x7F090615
+			public const int Corpus_corpusId = 2131297813;
 			
 			// aapt resource value: 0x1
 			public const int Corpus_corpusVersion = 1;
@@ -8228,8 +8289,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x2
 			public const int CustomCastTheme_castExpandedControllerStyle = 2;
 			
-			// aapt resource value: 0x7F070616
-			public const int CustomCastTheme_castIntroOverlayStyle = 2131166742;
+			// aapt resource value: 0x7F090624
+			public const int CustomCastTheme_castIntroOverlayStyle = 2131297828;
 			
 			// aapt resource value: 0x1
 			public const int CustomCastTheme_castMiniControllerStyle = 1;
@@ -8241,16 +8302,16 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int CustomWalletTheme_toolbarTextColorStyle = 1;
 			
-			// aapt resource value: 0x7F070620
-			public const int CustomWalletTheme_windowTransitionStyle = 2131166752;
+			// aapt resource value: 0x7F090628
+			public const int CustomWalletTheme_windowTransitionStyle = 2131297832;
 			
 			public static int[] DesignTheme = new int[] {
 					2130968639,
 					2130968640,
 					2130968879};
 			
-			// aapt resource value: 0x7F070279
-			public const int DesignTheme_bottomSheetDialogTheme = 2131165817;
+			// aapt resource value: 0x7F090279
+			public const int DesignTheme_bottomSheetDialogTheme = 2131296889;
 			
 			// aapt resource value: 0x1
 			public const int DesignTheme_bottomSheetStyle = 1;
@@ -8268,8 +8329,8 @@ namespace Trato.Droid
 					2130968831,
 					2130968882};
 			
-			// aapt resource value: 0x7F070283
-			public const int DrawerArrowToggle_arrowHeadLength = 2131165827;
+			// aapt resource value: 0x7F090283
+			public const int DrawerArrowToggle_arrowHeadLength = 2131296899;
 			
 			// aapt resource value: 0x1
 			public const int DrawerArrowToggle_arrowShaftLength = 1;
@@ -8296,8 +8357,8 @@ namespace Trato.Droid
 					1,
 					1};
 			
-			// aapt resource value: 0x7F070622
-			public const int FeatureParam_paramName = 2131166754;
+			// aapt resource value: 0x7F090630
+			public const int FeatureParam_paramName = 2131297840;
 			
 			// aapt resource value: 0x1
 			public const int FeatureParam_paramValue = 1;
@@ -8312,8 +8373,8 @@ namespace Trato.Droid
 					2130968816,
 					2130968911};
 			
-			// aapt resource value: 0x7F070292
-			public const int FloatingActionButton_backgroundTint = 2131165842;
+			// aapt resource value: 0x7F090292
+			public const int FloatingActionButton_backgroundTint = 2131296914;
 			
 			// aapt resource value: 0x1
 			public const int FloatingActionButton_backgroundTintMode = 1;
@@ -8321,8 +8382,8 @@ namespace Trato.Droid
 			public static int[] FloatingActionButton_Behavior_Layout = new int[] {
 					2130968632};
 			
-			// aapt resource value: 0x7F070301
-			public const int FloatingActionButton_Behavior_Layout_behavior_autoHide = 2131165953;
+			// aapt resource value: 0x7F090301
+			public const int FloatingActionButton_Behavior_Layout_behavior_autoHide = 2131297025;
 			
 			// aapt resource value: 0x2
 			public const int FloatingActionButton_borderWidth = 2;
@@ -8358,8 +8419,8 @@ namespace Trato.Droid
 					2130968584,
 					2130968585};
 			
-			// aapt resource value: 0x7F070010
-			public const int FontFamilyFont_android_font = 2131165200;
+			// aapt resource value: 0x7F090010
+			public const int FontFamilyFont_android_font = 2131296272;
 			
 			// aapt resource value: 0x1
 			public const int FontFamilyFont_android_fontStyle = 1;
@@ -8376,8 +8437,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x5
 			public const int FontFamilyFont_fontWeight = 5;
 			
-			// aapt resource value: 0x7F070003
-			public const int FontFamily_fontProviderAuthority = 2131165187;
+			// aapt resource value: 0x7F090003
+			public const int FontFamily_fontProviderAuthority = 2131296259;
 			
 			// aapt resource value: 0x1
 			public const int FontFamily_fontProviderCerts = 1;
@@ -8399,8 +8460,8 @@ namespace Trato.Droid
 					16843264,
 					2130968729};
 			
-			// aapt resource value: 0x7F070303
-			public const int ForegroundLinearLayout_android_foreground = 2131165955;
+			// aapt resource value: 0x7F090303
+			public const int ForegroundLinearLayout_android_foreground = 2131297027;
 			
 			// aapt resource value: 0x1
 			public const int ForegroundLinearLayout_android_foregroundGravity = 1;
@@ -8419,8 +8480,8 @@ namespace Trato.Droid
 			public static int[] GlobalSearchCorpus = new int[] {
 					1};
 			
-			// aapt resource value: 0x7F070632
-			public const int GlobalSearchCorpus_allowShortcuts = 2131166770;
+			// aapt resource value: 0x7F090640
+			public const int GlobalSearchCorpus_allowShortcuts = 2131297856;
 			
 			public static int[] GlobalSearchSection = new int[] {
 					1,
@@ -8429,8 +8490,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int GlobalSearchSection_sectionContent = 1;
 			
-			// aapt resource value: 0x7F070635
-			public const int GlobalSearchSection_sectionType = 2131166773;
+			// aapt resource value: 0x7F090643
+			public const int GlobalSearchSection_sectionType = 2131297859;
 			
 			// aapt resource value: 0x3
 			public const int GlobalSearch_defaultIntentAction = 3;
@@ -8441,8 +8502,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x4
 			public const int GlobalSearch_defaultIntentData = 4;
 			
-			// aapt resource value: 0x7F070628
-			public const int GlobalSearch_searchEnabled = 2131166760;
+			// aapt resource value: 0x7F090636
+			public const int GlobalSearch_searchEnabled = 2131297846;
 			
 			// aapt resource value: 0x1
 			public const int GlobalSearch_searchLabel = 1;
@@ -8458,8 +8519,8 @@ namespace Trato.Droid
 					1,
 					1};
 			
-			// aapt resource value: 0x7F070637
-			public const int IMECorpus_inputEnabled = 2131166775;
+			// aapt resource value: 0x7F090645
+			public const int IMECorpus_inputEnabled = 2131297861;
 			
 			// aapt resource value: 0x1
 			public const int IMECorpus_sourceClass = 1;
@@ -8487,8 +8548,8 @@ namespace Trato.Droid
 					2130968782,
 					2130968826};
 			
-			// aapt resource value: 0x7F070307
-			public const int LinearLayoutCompat_android_baselineAligned = 2131165959;
+			// aapt resource value: 0x7F090307
+			public const int LinearLayoutCompat_android_baselineAligned = 2131297031;
 			
 			// aapt resource value: 0x1
 			public const int LinearLayoutCompat_android_baselineAlignedChildIndex = 1;
@@ -8514,8 +8575,8 @@ namespace Trato.Droid
 					16843137,
 					16842996};
 			
-			// aapt resource value: 0x7F070317
-			public const int LinearLayoutCompat_Layout_android_layout_gravity = 2131165975;
+			// aapt resource value: 0x7F090317
+			public const int LinearLayoutCompat_Layout_android_layout_gravity = 2131297047;
 			
 			// aapt resource value: 0x1
 			public const int LinearLayoutCompat_Layout_android_layout_height = 1;
@@ -8536,25 +8597,25 @@ namespace Trato.Droid
 					16843436,
 					16843437};
 			
-			// aapt resource value: 0x7F070322
-			public const int ListPopupWindow_android_dropDownHorizontalOffset = 2131165986;
+			// aapt resource value: 0x7F090322
+			public const int ListPopupWindow_android_dropDownHorizontalOffset = 2131297058;
 			
 			// aapt resource value: 0x1
 			public const int ListPopupWindow_android_dropDownVerticalOffset = 1;
 			
 			public static int[] LoadingImageView = new int[] {
-					1,
-					1,
-					1};
+					0,
+					0,
+					0};
 			
-			// aapt resource value: 0x2
-			public const int LoadingImageView_circleCrop = 2;
+			// aapt resource value: 0x7F090561
+			public const int LoadingImageView_circleCrop = 2131297633;
 			
-			// aapt resource value: 0x1
-			public const int LoadingImageView_imageAspectRatio = 1;
+			// aapt resource value: 0x7F090560
+			public const int LoadingImageView_imageAspectRatio = 2131297632;
 			
-			// aapt resource value: 0x7F070646
-			public const int LoadingImageView_imageAspectRatioAdjust = 2131166790;
+			// aapt resource value: 0x7F090559
+			public const int LoadingImageView_imageAspectRatioAdjust = 2131297625;
 			
 			public static int[] MapAttrs = new int[] {
 					1,
@@ -8620,8 +8681,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x6
 			public const int MapAttrs_liteMode = 6;
 			
-			// aapt resource value: 0x7F070661
-			public const int MapAttrs_mapType = 2131166817;
+			// aapt resource value: 0x7F090665
+			public const int MapAttrs_mapType = 2131297893;
 			
 			// aapt resource value: 0x7
 			public const int MapAttrs_uiCompass = 7;
@@ -8656,8 +8717,8 @@ namespace Trato.Droid
 					2130968688,
 					2130968732};
 			
-			// aapt resource value: 0x7F070555
-			public const int MediaRouteButton_android_minHeight = 2131166549;
+			// aapt resource value: 0x7F090555
+			public const int MediaRouteButton_android_minHeight = 2131297621;
 			
 			// aapt resource value: 0x1
 			public const int MediaRouteButton_android_minWidth = 1;
@@ -8676,8 +8737,8 @@ namespace Trato.Droid
 					16843231,
 					16843156};
 			
-			// aapt resource value: 0x7F070325
-			public const int MenuGroup_android_checkableBehavior = 2131165989;
+			// aapt resource value: 0x7F090325
+			public const int MenuGroup_android_checkableBehavior = 2131297061;
 			
 			// aapt resource value: 0x1
 			public const int MenuGroup_android_enabled = 1;
@@ -8719,8 +8780,8 @@ namespace Trato.Droid
 					2130968825,
 					2130968907};
 			
-			// aapt resource value: 0x7F070332
-			public const int MenuItem_actionLayout = 2131166002;
+			// aapt resource value: 0x7F090332
+			public const int MenuItem_actionLayout = 2131297074;
 			
 			// aapt resource value: 0x1
 			public const int MenuItem_actionProviderClass = 1;
@@ -8799,8 +8860,8 @@ namespace Trato.Droid
 					2130968805,
 					2130968842};
 			
-			// aapt resource value: 0x7F070356
-			public const int MenuView_android_headerBackground = 2131166038;
+			// aapt resource value: 0x7F090356
+			public const int MenuView_android_headerBackground = 2131297110;
 			
 			// aapt resource value: 0x1
 			public const int MenuView_android_horizontalDivider = 1;
@@ -8838,8 +8899,8 @@ namespace Trato.Droid
 					2130968753,
 					2130968783};
 			
-			// aapt resource value: 0x7F070366
-			public const int NavigationView_android_background = 2131166054;
+			// aapt resource value: 0x7F090366
+			public const int NavigationView_android_background = 2131297126;
 			
 			// aapt resource value: 0x1
 			public const int NavigationView_android_fitsSystemWindows = 1;
@@ -8876,11 +8937,11 @@ namespace Trato.Droid
 			public static int[] PopupWindowBackgroundState = new int[] {
 					2130968837};
 			
-			// aapt resource value: 0x7F070381
-			public const int PopupWindowBackgroundState_state_above_anchor = 2131166081;
+			// aapt resource value: 0x7F090381
+			public const int PopupWindowBackgroundState_state_above_anchor = 2131297153;
 			
-			// aapt resource value: 0x7F070377
-			public const int PopupWindow_android_popupAnimationStyle = 2131166071;
+			// aapt resource value: 0x7F090377
+			public const int PopupWindow_android_popupAnimationStyle = 2131297143;
 			
 			// aapt resource value: 0x1
 			public const int PopupWindow_android_popupBackground = 1;
@@ -8892,8 +8953,8 @@ namespace Trato.Droid
 					2130968790,
 					2130968793};
 			
-			// aapt resource value: 0x7F070383
-			public const int RecycleListView_paddingBottomNoButtons = 2131166083;
+			// aapt resource value: 0x7F090383
+			public const int RecycleListView_paddingBottomNoButtons = 2131297155;
 			
 			// aapt resource value: 0x1
 			public const int RecycleListView_paddingTopNoTitle = 1;
@@ -8911,8 +8972,8 @@ namespace Trato.Droid
 					2130968830,
 					2130968836};
 			
-			// aapt resource value: 0x7F070386
-			public const int RecyclerView_android_descendantFocusability = 2131166086;
+			// aapt resource value: 0x7F090386
+			public const int RecyclerView_android_descendantFocusability = 2131297158;
 			
 			// aapt resource value: 0x1
 			public const int RecyclerView_android_orientation = 1;
@@ -8947,14 +9008,14 @@ namespace Trato.Droid
 			public static int[] ScrimInsetsFrameLayout = new int[] {
 					2130968747};
 			
-			// aapt resource value: 0x7F070398
-			public const int ScrimInsetsFrameLayout_insetForeground = 2131166104;
+			// aapt resource value: 0x7F090398
+			public const int ScrimInsetsFrameLayout_insetForeground = 2131297176;
 			
 			public static int[] ScrollingViewBehavior_Layout = new int[] {
 					2130968634};
 			
-			// aapt resource value: 0x7F070400
-			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 2131166208;
+			// aapt resource value: 0x7F090400
+			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 2131297280;
 			
 			public static int[] SearchView = new int[] {
 					16842970,
@@ -8975,8 +9036,8 @@ namespace Trato.Droid
 					2130968848,
 					2130968912};
 			
-			// aapt resource value: 0x7F070402
-			public const int SearchView_android_focusable = 2131166210;
+			// aapt resource value: 0x7F090402
+			public const int SearchView_android_focusable = 2131297282;
 			
 			// aapt resource value: 0x1
 			public const int SearchView_android_imeOptions = 1;
@@ -9038,8 +9099,8 @@ namespace Trato.Droid
 			public static int[] SectionFeature = new int[] {
 					1};
 			
-			// aapt resource value: 0x7F070680
-			public const int SectionFeature_featureType = 2131166848;
+			// aapt resource value: 0x7F090684
+			public const int SectionFeature_featureType = 2131297924;
 			
 			// aapt resource value: 0x4
 			public const int Section_indexPrefixes = 4;
@@ -9053,8 +9114,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int Section_sectionFormat = 1;
 			
-			// aapt resource value: 0x7F070676
-			public const int Section_sectionId = 2131166838;
+			// aapt resource value: 0x7F090680
+			public const int Section_sectionId = 2131297920;
 			
 			// aapt resource value: 0x3
 			public const int Section_sectionWeight = 3;
@@ -9063,26 +9124,26 @@ namespace Trato.Droid
 			public const int Section_subsectionSeparator = 5;
 			
 			public static int[] SignInButton = new int[] {
-					1,
-					1,
-					1};
+					0,
+					0,
+					0};
 			
-			// aapt resource value: 0x7F070682
-			public const int SignInButton_buttonSize = 2131166850;
+			// aapt resource value: 0x7F090563
+			public const int SignInButton_buttonSize = 2131297635;
 			
-			// aapt resource value: 0x1
-			public const int SignInButton_colorScheme = 1;
+			// aapt resource value: 0x7F090564
+			public const int SignInButton_colorScheme = 2131297636;
 			
-			// aapt resource value: 0x2
-			public const int SignInButton_scopeUris = 2;
+			// aapt resource value: 0x7F090565
+			public const int SignInButton_scopeUris = 2131297637;
 			
 			public static int[] SnackbarLayout = new int[] {
 					16843039,
 					2130968701,
 					2130968780};
 			
-			// aapt resource value: 0x7F070420
-			public const int SnackbarLayout_android_maxWidth = 2131166240;
+			// aapt resource value: 0x7F090420
+			public const int SnackbarLayout_android_maxWidth = 2131297312;
 			
 			// aapt resource value: 0x1
 			public const int SnackbarLayout_elevation = 1;
@@ -9097,8 +9158,8 @@ namespace Trato.Droid
 					16843131,
 					2130968803};
 			
-			// aapt resource value: 0x7F070424
-			public const int Spinner_android_dropDownWidth = 2131166244;
+			// aapt resource value: 0x7F090424
+			public const int Spinner_android_dropDownWidth = 2131297316;
 			
 			// aapt resource value: 0x1
 			public const int Spinner_android_entries = 1;
@@ -9128,8 +9189,8 @@ namespace Trato.Droid
 					2130968909,
 					2130968910};
 			
-			// aapt resource value: 0x7F070430
-			public const int SwitchCompat_android_textOff = 2131166256;
+			// aapt resource value: 0x7F090430
+			public const int SwitchCompat_android_textOff = 2131297328;
 			
 			// aapt resource value: 0x1
 			public const int SwitchCompat_android_textOn = 1;
@@ -9175,8 +9236,8 @@ namespace Trato.Droid
 					16842994,
 					16843087};
 			
-			// aapt resource value: 0x7F070445
-			public const int TabItem_android_icon = 2131166277;
+			// aapt resource value: 0x7F090445
+			public const int TabItem_android_icon = 2131297349;
 			
 			// aapt resource value: 0x1
 			public const int TabItem_android_layout = 1;
@@ -9202,8 +9263,8 @@ namespace Trato.Droid
 					2130968867,
 					2130968868};
 			
-			// aapt resource value: 0x7F070449
-			public const int TabLayout_tabBackground = 2131166281;
+			// aapt resource value: 0x7F090449
+			public const int TabLayout_tabBackground = 2131297353;
 			
 			// aapt resource value: 0x1
 			public const int TabLayout_tabContentStart = 1;
@@ -9265,8 +9326,8 @@ namespace Trato.Droid
 					2130968720,
 					2130968869};
 			
-			// aapt resource value: 0x7F070466
-			public const int TextAppearance_android_fontFamily = 2131166310;
+			// aapt resource value: 0x7F090466
+			public const int TextAppearance_android_fontFamily = 2131297382;
 			
 			// aapt resource value: 0x1
 			public const int TextAppearance_android_shadowColor = 1;
@@ -9322,8 +9383,8 @@ namespace Trato.Droid
 					2130968800,
 					2130968801};
 			
-			// aapt resource value: 0x7F070480
-			public const int TextInputLayout_android_hint = 2131166336;
+			// aapt resource value: 0x7F090480
+			public const int TextInputLayout_android_hint = 2131297408;
 			
 			// aapt resource value: 0x1
 			public const int TextInputLayout_android_textColorHint = 1;
@@ -9401,8 +9462,8 @@ namespace Trato.Droid
 					2130968899,
 					2130968900};
 			
-			// aapt resource value: 0x7F070497
-			public const int Toolbar_android_gravity = 2131166359;
+			// aapt resource value: 0x7F090497
+			public const int Toolbar_android_gravity = 2131297431;
 			
 			// aapt resource value: 0x1
 			public const int Toolbar_android_minHeight = 1;
@@ -9500,8 +9561,8 @@ namespace Trato.Droid
 					2130968629,
 					2130968630};
 			
-			// aapt resource value: 0x7F070533
-			public const int ViewBackgroundHelper_android_background = 2131166515;
+			// aapt resource value: 0x7F090533
+			public const int ViewBackgroundHelper_android_background = 2131297587;
 			
 			// aapt resource value: 0x1
 			public const int ViewBackgroundHelper_backgroundTint = 1;
@@ -9514,8 +9575,8 @@ namespace Trato.Droid
 					16842995,
 					16842994};
 			
-			// aapt resource value: 0x7F070537
-			public const int ViewStubCompat_android_id = 2131166519;
+			// aapt resource value: 0x7F090537
+			public const int ViewStubCompat_android_id = 2131297591;
 			
 			// aapt resource value: 0x1
 			public const int ViewStubCompat_android_inflatedId = 1;
@@ -9523,8 +9584,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x2
 			public const int ViewStubCompat_android_layout = 2;
 			
-			// aapt resource value: 0x7F070527
-			public const int View_android_focusable = 2131166503;
+			// aapt resource value: 0x7F090527
+			public const int View_android_focusable = 2131297575;
 			
 			// aapt resource value: 0x1
 			public const int View_android_theme = 1;
@@ -9544,8 +9605,8 @@ namespace Trato.Droid
 					1,
 					1};
 			
-			// aapt resource value: 0x7F070686
-			public const int WalletFragmentOptions_appTheme = 2131166854;
+			// aapt resource value: 0x7F090686
+			public const int WalletFragmentOptions_appTheme = 2131297926;
 			
 			// aapt resource value: 0x1
 			public const int WalletFragmentOptions_environment = 1;
@@ -9572,8 +9633,8 @@ namespace Trato.Droid
 			// aapt resource value: 0x3
 			public const int WalletFragmentStyle_buyButtonAppearance = 3;
 			
-			// aapt resource value: 0x7F070692
-			public const int WalletFragmentStyle_buyButtonHeight = 2131166866;
+			// aapt resource value: 0x7F090692
+			public const int WalletFragmentStyle_buyButtonHeight = 2131297938;
 			
 			// aapt resource value: 0x2
 			public const int WalletFragmentStyle_buyButtonText = 2;

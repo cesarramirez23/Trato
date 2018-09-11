@@ -11,15 +11,18 @@ using System.Net.Http;
 using Trato.Varios;
 using Newtonsoft.Json;
 
+using Microsoft.WindowsAzure.MobileServices;
+
+
 namespace Trato.Views
 {
-   
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Login : ContentPage
     {
         public V_Login()
         {
             InitializeComponent();
+            
         }
         //el que muestra la pantalla de registro para familiar o empresarial
         public async void Fn_Registro(object sender, EventArgs _Args)
@@ -31,6 +34,10 @@ namespace Trato.Views
         {
             if (Fn_Condiciones())
             {
+                
+                
+
+
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = " Comprobando informacion\n";
                 string prime = usu.Text.Split('-')[0];

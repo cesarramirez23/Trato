@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+///las cosas del push
+///
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace Trato.Views
 {
