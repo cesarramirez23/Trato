@@ -28,6 +28,13 @@ namespace Trato.Droid
         {
             var refreshedToken = FirebaseInstanceId.Instance.Token;
             Log.Debug(TAG, "Refreshed token: " + refreshedToken);
+            Looper.Prepare();
+            Toast.MakeText(this, refreshedToken, ToastLength.Long);
+            /*
+            guardar este token, al hacer la cita mandar a base mi propio toke y los datos del doctor,
+            el doctor debe tenr su propio token , entonces mandarle la notif al doctor junto con el json del paciente y su token
+            aceptar o no se reenvia el mensaje al topke delpaciente
+             */
             SendRegistrationTokenToAzureNotificationHub(refreshedToken);
         }
 

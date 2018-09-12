@@ -22,32 +22,41 @@ namespace Trato.Droid
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
     public class FirebaseNotificationService : FirebaseMessagingService
     {
-       
+      
 
         const string TAG = "FirebaseNotificationService";
 
         public override void OnMessageReceived(RemoteMessage message)
         {
-            Log.Debug(TAG, "From: " + message.From);
+           // Log.Debug(TAG, "From: " + message.From);
 
+
+            /*
+       en firebase copnsole,   al enviar el mensaje, hasta abajo en adavanced option->
+       custom data->key de message   es para recibir esta info de abajo
+       */
             // Pull message body out of the template
             var messageBody = message.Data["message"];
             if (string.IsNullOrWhiteSpace(messageBody))
                 return;
 
-            Log.Debug(TAG, "Notification message body: " + messageBody);
-            SendNotification(messageBody);
+            var messageTitle = message.Data["titulo"];
+            if (string.IsNullOrWhiteSpace(messageBody))
+                return;
+
+           // Log.Debug(TAG, "Notification message body: " + messageBody);
+            SendNotification(messageBody, messageTitle);
         }
 
-        void SendNotification(string messageBody)
+        void SendNotification(string messageBody,string _titulo)
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
             var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
             var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
-                .SetSmallIcon(Resource.Drawable.Services_icon)
-                .SetContentTitle("New Todo Item")
+                .SetSmallIcon(Resource.Drawable.Ambulancia)
+                .SetContentTitle(_titulo)
                 .SetContentText(messageBody)
                 .SetContentIntent(pendingIntent)
                 .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))

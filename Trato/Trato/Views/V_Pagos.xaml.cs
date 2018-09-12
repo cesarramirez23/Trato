@@ -28,7 +28,6 @@ namespace Trato
                 v_infoPago = _pagar;
                 P_paypal.Source = v_dirWeb;
             }
-
         }
 
         public void Cargado(object sender, WebNavigatedEventArgs _args)
@@ -43,8 +42,7 @@ namespace Trato
                 P_mensajes.IsVisible = false;
                 P_paypal.IsVisible = true;
                 string _json = JsonConvert.SerializeObject(v_infoPago, Formatting.Indented);
-                P_paypal.EvaluateJavaScriptAsync("asadasd()");
-               
+                P_paypal.EvaluateJavaScriptAsync("asdasd(" + _json + ")");
             }
         }
     }

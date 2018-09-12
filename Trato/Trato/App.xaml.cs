@@ -9,6 +9,8 @@ using Newtonsoft.Json;
 using System.Net.Http;//para el las cosas que necesitan web
 
 /*
+ * https://firebase.google.com/docs/cloud-messaging/send-with-console
+ * http://www.tothenew.com/blog/push-notifications-using-firebase-cloud-messaging/
  * 
  * >C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\Properties\AndroidManifest.xml : warning XA4211: AndroidManifest.xml //uses-sdk/@android:targetSdkVersion '26' is less than $(TargetFrameworkVersion) ''. Using API-27 for ACW compilation.
 1>C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\FirebaseNotificationService.cs(49,49,49,76): error CS0117: 'Resource.Drawable' no contiene una definición para 'cast_ic_notification_rewind'

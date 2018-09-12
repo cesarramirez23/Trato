@@ -38,6 +38,15 @@ namespace Trato.Views
             CargarMed();
             Fn_Activo();
         }
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    InitializeComponent();
+
+        //    CargarGen();
+        //    CargarMed();
+        //    Fn_Activo();
+        //}
         public async void Fn_Activo()
         {
             //1 es ya
