@@ -1558,20 +1558,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {}
+    "C:\\Users\\CesarAugusto\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
+      "projectUniqueName": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
       "projectName": "Trato.Android",
-      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
-      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\obj\\",
+      "projectPath": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
+      "packagesPath": "C:\\Users\\CesarAugusto\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\CesarAugusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1584,8 +1584,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
+            "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato\\Trato.csproj": {
+              "projectPath": "C:\\Users\\CesarAugusto\\source\\repos\\Trato\\Trato\\Trato\\Trato.csproj"
             }
           }
         }
@@ -1655,7 +1655,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Se detectó una versión del paquete fuera de la restricción de dependencia: Xamarin.Android.Support.CustomTabs 23.3.0 requiere Xamarin.Android.Support.v4 (= 23.3.0), pero la versión Xamarin.Android.Support.v4 27.0.2.1 ya se resolvió.",
+      "message": "Detected package version outside of dependency constraint: Xamarin.Android.Support.CustomTabs 23.3.0 requires Xamarin.Android.Support.v4 (= 23.3.0) but version Xamarin.Android.Support.v4 27.0.2.1 was resolved.",
       "libraryId": "Xamarin.Android.Support.v4",
       "targetGraphs": [
         "MonoAndroid,Version=v8.1"

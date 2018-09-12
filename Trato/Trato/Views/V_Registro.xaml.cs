@@ -18,8 +18,8 @@ namespace Trato.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Registro : ContentPage
     {
-        string v_dirWeb= "https://useller.com.mx/trato_especial/paypal_test.html";
-        bool v_primero = false;
+       
+       // bool v_primero = false;
         string[] v_costo =
         {
             "580" , "1740", "464"
@@ -59,7 +59,7 @@ namespace Trato.Views
             Fol_fecha.MaximumDate = DateTime.Now;
             fecha.MaximumDate= DateTime.Now; 
 
-            v_primero = false;
+           // v_primero = false;
             if (_folio)
             {
                 stackTodo.IsVisible = false;
@@ -68,11 +68,9 @@ namespace Trato.Views
             }
             else
             {
-                Browser.Source = v_dirWeb;
                 StackMen.IsVisible = false;
                 stackTodo.IsVisible = true;
                 StackFolio.IsVisible = false;
-                StackPagos.IsVisible = false;
                 Persona.Text = "Persona Fisica";
                 StackRfc.IsVisible = false;
                 fecha.IsEnabled = v_T_Persona;
@@ -149,35 +147,6 @@ namespace Trato.Views
                // rfc.IsVisible = false;
             }
 
-        }
-        public void Fn_IrPagar(object sender, EventArgs _args)
-        {
-            StackInfo.IsVisible = false;
-            StackPagos.IsVisible = true;
-            stackTodo.ScrollToAsync(Browser, ScrollToPosition.Start, true);
-        }
-        public void Cargado(object sender, WebNavigatedEventArgs _args)
-        {
-            Reinten.IsVisible = false;
-            StackMen.IsVisible = true;
-            if(_args.Result ==WebNavigationResult.Timeout || _args.Result== WebNavigationResult.Failure)
-            {
-                Mensajes_over.Text = "Error de Conexion";
-                Reinten.IsVisible = true;
-            }
-            else if(_args.Result == WebNavigationResult.Success)
-            {
-                StackMen.IsVisible = false;
-            }
-        }
-        /// <summary>
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="_args"></param>
-        public void Fn_RecargaWeb(object sender, EventArgs _args)
-        {
-            Browser.Source = "";            
-            Browser.Source = v_dirWeb;
         }
         public void Fn_IrMenu(object sender, EventArgs _Args)
         {

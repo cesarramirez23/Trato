@@ -7,6 +7,42 @@ using Newtonsoft.Json;
 
 namespace Trato.Varios
 {
+    public class Pagar
+    {
+        /*membre
+letra
+ consecutivo
+ costo
+ nombre que membresia*/
+
+       [JsonProperty("membre")]
+       public string v_membresia { get; set; }
+        [JsonProperty("letra")]
+       public string v_letra { get; set; }
+       [JsonProperty("consecutivo")]
+       public string v_conse { get; set; }
+        [JsonProperty("folio")]
+        public string v_folio { get; set; }
+       [JsonProperty("costo")]
+       public string v_costo { get; set; }
+       [JsonProperty("nombre")]
+       public string v_nombre { get; set; }
+
+        public Pagar()
+        {
+
+        }
+        public Pagar(string _membre, string _letra, string _conse, string _folio, string _costo, string _nombre)
+        {
+            v_membresia = _membre;
+            v_letra = _letra;
+            v_folio = _folio;
+            v_conse = _conse;
+            v_costo = _costo;
+            v_nombre = _nombre;
+        }
+
+    }
     public class Banner
     {
         [JsonProperty("img")]

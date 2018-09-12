@@ -8,12 +8,6 @@ using System.Threading.Tasks; // delay
 using Newtonsoft.Json;
 using System.Net.Http;//para el las cosas que necesitan web
 
-
-//precio costpo final
-// como se llama la membresia tipo
-//cuenta
-
-
 /*
  * 
  * >C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\Properties\AndroidManifest.xml : warning XA4211: AndroidManifest.xml //uses-sdk/@android:targetSdkVersion '26' is less than $(TargetFrameworkVersion) ''. Using API-27 for ACW compilation.
@@ -26,15 +20,11 @@ using System.Net.Http;//para el las cosas que necesitan web
  nombre   que membresia
 
  */
-/*
- * 
-Error		
-El paquete Xamarin.Firebase.Messaging 60.1142.1 no es compatible con netstandard2.0 (.NETStandard,Version=v2.0). 
-El paquete Xamarin.Firebase.Messaging 60.1142.1 admite: monoandroid80 (MonoAndroid,Version=v8.0)			
-	
-
-     */
 //legacy server key    AIzaSyBJShtMkJ22N0ksY4KGivhAwelFDFwFWfQ
+
+//com.alsain.trato4 en la oficina
+//com.alsain.trato5 en casa
+
 
 ///https://blog.wilsonvargas.com/generando-y-leyendo-codigos-qr-con-xamarin-form/
 //////https://www.youtube.com/watch?v=y7rZbwOqrUk
@@ -51,7 +41,13 @@ namespace Trato
         /// </summary>
         public static C_PerfilGen v_perfil= new C_PerfilGen();
         public static C_PerfilMed v_perfMed = new C_PerfilMed();
+        /// <summary>
+        /// ya trae la letra, hacer el split con -
+        /// </summary>
         public static string v_membresia="";
+        /// <summary>
+        /// es solo el numero consecutivo
+        /// </summary>
         public static string v_folio="";
         /// <summary>
         /// 0 no esta logeado 1 logeado
@@ -370,7 +366,7 @@ namespace Trato
         {
             // Handle when your app starts
             //existe la variable guardada
-            Properties.Clear();
+           // Properties.Clear();
             if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado

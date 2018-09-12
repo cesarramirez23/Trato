@@ -49,6 +49,9 @@ namespace Trato.Personas
         public string v_Cp { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
+        [JsonProperty("activo")]
+        public string v_activo { get; set; }
+
         
         public C_PerfilGen()
         {
@@ -69,6 +72,7 @@ namespace Trato.Personas
             v_Estado = "";
             v_Cp = "";
             v_Correo= "";
+            v_activo = "0";
         }
         public C_PerfilGen(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,int _idsexo,  string _tel, string _cel,
             string _calle, string _numExt, string _numInt, string _col, string _ciud, string _mun, string _est, string _cp, string _corr)
@@ -108,6 +112,7 @@ namespace Trato.Personas
             v_Estado = _est;
             v_Cp = _cp;
             v_Correo = _corr;
+            v_activo = "0";
         }
         public string Fn_GetDatos()
         {
@@ -116,9 +121,8 @@ namespace Trato.Personas
                 "id sexo "+ v_idsexo + "  tel " + v_Tel + " cel  " + v_Cel + "  \n" +
                 "  calle  "+v_Calle + " numext " + v_NumExt + "  numint " +  v_NumInt + "  " +
                 "colonia "+v_Colonia + "ciud  " + v_Ciudad + " muni" + v_municipio + "  esta" + v_Estado + " \n" +
-                "cp  "+v_Cp + "  corr " + v_Correo;
+                "cp  "+v_Cp + "  corr " + v_Correo+"   activado  "+ v_activo;
             return _ret;
-
                   
         }
     }

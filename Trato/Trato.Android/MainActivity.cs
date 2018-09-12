@@ -11,7 +11,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using Firebase.Messaging;
 using Firebase.Iid;
 using Android.Util;
-
+using Android.Gms.Common;
 
 namespace Trato.Droid
 {
@@ -34,13 +34,31 @@ namespace Trato.Droid
             CurrentPlatform.Init();
             TodoItem item = new TodoItem { Name= "Awesome item" };
              MobileService.GetTable<TodoItem>().InsertAsync(item);
+            CheckForGoogleServices();
         }
        
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-        
+        public bool CheckForGoogleServices()
+        {
+            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+            if (resultCode != ConnectionResult.Success)
+            {
+                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                {
+                    Toast.MakeText(this, GoogleApiAvailability.Instance.GetErrorString(resultCode), ToastLength.Long);
+                }
+                else
+                {
+                    Toast.MakeText(this, "This device does not support Google Play Services", ToastLength.Long);
+                }
+                return false;
+            }
+            return true;
+        }
+
     }
 }
 

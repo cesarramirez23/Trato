@@ -34,10 +34,6 @@ namespace Trato.Views
         {
             if (Fn_Condiciones())
             {
-                
-                
-
-
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = " Comprobando informacion\n";
                 string prime = usu.Text.Split('-')[0];

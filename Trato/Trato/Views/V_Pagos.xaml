@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.V_Pagos">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Style="{StaticResource AzulMedLbl}" x:Name="P_mensajes"></Label>
+                <WebView x:Name="P_paypal" Navigated="Cargado" HeightRequest="500" IsVisible="False"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

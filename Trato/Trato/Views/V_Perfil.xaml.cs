@@ -27,14 +27,83 @@ namespace Trato.Views
 
         bool v_editando = false;
         bool v_editarMed = false;
-		public V_Perfil ()
+        Pagar v_pagar;
+
+
+		public  V_Perfil ()
 		{
 			InitializeComponent ();
 
             CargarGen();
             CargarMed();
+            Fn_Activo();
         }
-        
+        public async void Fn_Activo()
+        {
+            //1 es ya
+            if (App.v_perfil.v_activo == "1")
+            {
+                G_Editar.IsVisible = true;
+                G_Pagar.IsVisible = false;
+                M_Editar.IsVisible = true;
+                qr_but.IsVisible = true;
+                await Task.Delay(10);
+
+            }//no esta activado falta pagar
+            else if(App.v_perfil.v_activo=="0")
+            {
+                string prime = App.v_membresia.Split('-')[0];
+                string _membre = "";
+                for (int i = 0; i < prime.Length - 1; i++)
+                {
+                    _membre += prime[i];
+                }
+                string letra = prime[prime.Length - 1].ToString();
+                string _conse = App.v_membresia.Split('-')[1];
+                string _folio = App.v_folio;
+                string _nombre = "";
+                string _costo = "";
+                //familiar 1740   indi  580    empre por persona  464
+                if (letra=="F")
+                {
+                    _nombre = "Pago membresia Familiar de Trato Especial";
+                    _costo = "1740";
+                }
+                else if(letra=="I")
+                {
+                    _nombre = "Pago membresia Indiviual de Trato Especial";
+                    _costo = "580";
+                }
+                else if(letra=="E")
+                {
+                    _nombre = "Pago membresia Empresarial de Trato Especial";
+                    _costo = "464";
+                }
+                else
+                {
+                    await DisplayAlert("Error", "error en letra", "aceptar");
+                }
+                v_pagar = new Pagar(_membre, letra, _conse,_folio, _costo, _nombre);
+
+                G_Editar.IsVisible = false;
+                M_Editar.IsVisible = false;
+                qr_but.IsVisible = false;
+                G_Pagar.IsVisible = true;
+                await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Cancelar");
+                await DisplayAlert("Info actual", App.v_perfil.Fn_GetDatos(), "Aceptar");
+                
+            }
+        }
+        public async void Fn_PagarEfec(object sender, EventArgs _args)
+        {
+            await Navigation.PushAsync(new V_Pagos(true, v_pagar) { });
+
+        }
+        public async void Fn_PagarPay(object sender, EventArgs _args)
+        {
+            await Navigation.PushAsync(new V_Pagos(false, v_pagar) { });
+
+        }
         public async void CargarGen()
         {
             App.Fn_CargarDatos();
