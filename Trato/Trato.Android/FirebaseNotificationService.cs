@@ -59,6 +59,7 @@ namespace Trato.Droid
                 .SetContentTitle(_titulo)
                 .SetContentText(messageBody)
                 .SetContentIntent(pendingIntent)
+                .SetColor(40150209)                
                 .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
                 .SetAutoCancel(true);
 

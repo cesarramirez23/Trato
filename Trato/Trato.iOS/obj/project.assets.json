@@ -1743,20 +1743,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {}
+    "C:\\Users\\CesarAugusto\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
       "projectName": "Trato.iOS",
-      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
-      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\obj\\",
+      "projectPath": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "packagesPath": "C:\\Users\\CesarAugusto\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\CesarAugusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1769,8 +1769,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
+            "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
+              "projectPath": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
             }
           }
         }
