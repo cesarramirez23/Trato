@@ -16,6 +16,8 @@ using Android.Support.V7.App;
 using Android.Util;
 using Firebase.Messaging;
 
+
+
 namespace Trato.Droid
 {
     [Service]
