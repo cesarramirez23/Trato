@@ -116,7 +116,7 @@ namespace Trato.Views
             }
             Device.OpenUri(_direc);
         }
-        public void Fn_AbrirMapa(object sender, EventArgs _args)
+        public async void Fn_AbrirMapa(object sender, EventArgs _args)
         {
             string direcMapa = "";
             if(Device.RuntimePlatform == Device.Android)
@@ -169,6 +169,8 @@ namespace Trato.Views
                 direcMapa += v_gene.v_Ciudad;
             }
             Uri _direc = new Uri(direcMapa);
+
+            await DisplayAlert("sadasd", _direc.ToString(), "sadsa"); 
             Device.OpenUri(_direc);
         }
     }

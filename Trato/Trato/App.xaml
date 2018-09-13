@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.App">
@@ -7,6 +7,7 @@
             <!--Global Styles              rgb 40,150,209 -->
             <Color x:Key="NavigationPrimary">#2896D1</Color>
             <Color x:Key="LetrCol" >#000000</Color>
+            <Color x:Key="Lightgray"> #FFD3D3D3</Color>
             <Style  TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />

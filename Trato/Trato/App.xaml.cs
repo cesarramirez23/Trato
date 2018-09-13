@@ -368,7 +368,7 @@ namespace Trato
         {
             // Handle when your app starts
             //existe la variable guardada
-           // Properties.Clear();
+          // Properties.Clear();
             if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado
@@ -377,7 +377,7 @@ namespace Trato
                 {//no esta logeado
                     v_perfil = new C_PerfilGen();
                     v_perfMed = new C_PerfilMed();
-                    v_log = "0";
+                    v_log = "0"; 
                     v_membresia = "";
                     v_folio = "";
                     

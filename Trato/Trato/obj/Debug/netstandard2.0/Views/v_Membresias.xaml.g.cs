@@ -13,7 +13,7 @@
 namespace Trato.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\V_Membresias.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/V_Membresias.xaml")]
     public partial class V_Membresias : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

@@ -13,7 +13,7 @@
 namespace Trato.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\V_Registro.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/V_Registro.xaml")]
     public partial class V_Registro : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

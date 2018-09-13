@@ -170,6 +170,7 @@
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -198,7 +199,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Trato\Trato.csproj">
-      <Project>{EA5AA8E6-50D2-4FD6-AD0F-4027CB6F6A02}</Project>
+      <Project>{836A9D76-73EE-400C-91EE-81D95837F9F2}</Project>
       <Name>Trato</Name>
     </ProjectReference>
   </ItemGroup>
