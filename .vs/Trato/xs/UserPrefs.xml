@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{8A4AA535-184E-4983-89ED-D201A4B95059}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato.iOS/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato.iOS/AppDelegate.cs">
     <Files>
-      <File FileName="Trato/Trato/Views/V_Perfil.xaml" Line="23" Column="35" />
+      <File FileName="Trato/Trato/Views/V_Perfil.xaml" Line="8" Column="49" />
       <File FileName="Trato/Trato.iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="33" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
