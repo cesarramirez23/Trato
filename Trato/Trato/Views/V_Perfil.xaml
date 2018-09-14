@@ -2,7 +2,7 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Perfil"
-            BarBackgroundColor="{StaticResource NavigationPrimary}">
+            BarBackgroundColor="White" BarTextColor="{StaticResource NavigationPrimary}">
     <TabbedPage.Resources>
         <Style x:Key="Editor" TargetType="Editor">
             <Setter Property="AutoSize" Value="TextChanges"></Setter>
@@ -19,13 +19,10 @@
         </Style>
     </TabbedPage.Resources>
     <TabbedPage.Children>
-    <OnPlatform x:TypeArguments="Color">
-        <On Platform="iOS">#FFFFFF</On>    
-        </OnPlatform>
-        
-       
 
-   <!--     <ContentPage Title="Reader">
+
+
+        <!--     <ContentPage Title="Reader">
             <ContentView x:Name="reader">
 
             </ContentView>
