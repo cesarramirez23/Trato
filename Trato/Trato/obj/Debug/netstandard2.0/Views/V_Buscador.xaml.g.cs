@@ -13,7 +13,7 @@
 namespace Trato.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/V_Buscador.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\V_Buscador.xaml")]
     public partial class V_Buscador : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

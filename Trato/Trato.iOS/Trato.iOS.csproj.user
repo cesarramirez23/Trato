@@ -3,6 +3,7 @@
   <PropertyGroup>
     <DeveloperId />
     <DevelopmentTeamId />
-    <SelectedDevice>Simulador</SelectedDevice>
+    <SelectedDevice>iPhone 8 iOS 11.4</SelectedDevice>
+    <DefaultDevice>iPhone 8 iOS 11.4</DefaultDevice>
   </PropertyGroup>
 </Project>
