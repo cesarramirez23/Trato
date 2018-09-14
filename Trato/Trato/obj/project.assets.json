@@ -37,7 +37,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "NETStandard.Library/2.0.1": {
+      "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -74,6 +74,18 @@
         },
         "build": {
           "build/NUnit.props": {}
+        }
+      },
+      "PayPal/1.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "7.0.1"
+        },
+        "compile": {
+          "lib/net451/PayPal.dll": {}
+        },
+        "runtime": {
+          "lib/net451/PayPal.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -770,14 +782,13 @@
         "runtime.json"
       ]
     },
-    "NETStandard.Library/2.0.1": {
-      "sha512": "oA6nwv9MhEKYvLpjZ0ggSpb1g4CQViDVQjLUcDWg598jtvJbpfeP2reqwI1GLW2TbxC/Ml7xL6BBR1HmKPXlTg==",
+    "NETStandard.Library/2.0.3": {
+      "sha512": "st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "type": "package",
-      "path": "netstandard.library/2.0.1",
+      "path": "netstandard.library/2.0.3",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "build/NETStandard.Library.targets",
         "build/netstandard2.0/NETStandard.Library.targets",
         "build/netstandard2.0/ref/Microsoft.Win32.Primitives.dll",
         "build/netstandard2.0/ref/System.AppContext.dll",
@@ -894,7 +905,7 @@
         "build/netstandard2.0/ref/netstandard.dll",
         "build/netstandard2.0/ref/netstandard.xml",
         "lib/netstandard1.0/_._",
-        "netstandard.library.2.0.1.nupkg.sha512",
+        "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
     },
@@ -957,6 +968,21 @@
         "lib/netstandard2.0/nunit.framework.xml",
         "nunit.3.10.1.nupkg.sha512",
         "nunit.nuspec"
+      ]
+    },
+    "PayPal/1.9.1": {
+      "sha512": "b3vq6Lc9CwSooCX2tsZ02zb7E/K/cA6EILCoMynue+ZeVuitJNqt0YwxPnp7uN0Pccob02oDlpAjRLH+GRCRxA==",
+      "type": "package",
+      "path": "paypal/1.9.1",
+      "files": [
+        "lib/net40/PayPal.dll",
+        "lib/net40/PayPal.xml",
+        "lib/net45/PayPal.dll",
+        "lib/net45/PayPal.xml",
+        "lib/net451/PayPal.dll",
+        "lib/net451/PayPal.xml",
+        "paypal.1.9.1.nupkg.sha512",
+        "paypal.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -3163,39 +3189,38 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Microsoft.Azure.Mobile.Client >= 4.0.2",
-      "NETStandard.Library >= 2.0.1",
+      "NETStandard.Library >= 2.0.3",
       "NUnit >= 3.10.1",
       "Newtonsoft.Json >= 11.0.2",
+      "PayPal >= 1.9.1",
       "Xamarin.Forms >= 3.1.0.697729",
       "ZXing.Net.Mobile >= 2.4.1",
       "ZXing.Net.Mobile.Forms >= 2.4.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/saullopez/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
+      "projectUniqueName": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj",
       "projectName": "Trato",
-      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
-      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\obj\\",
+      "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj",
+      "packagesPath": "/Users/saullopez/.nuget/packages/",
+      "outputPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/saullopez/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3214,33 +3239,37 @@
         "dependencies": {
           "Microsoft.Azure.Mobile.Client": {
             "target": "Package",
-            "version": "[4.0.2, )"
+            "version": "4.0.2"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "11.0.2"
+          },
+          "NUnit": {
+            "target": "Package",
+            "version": "3.10.1"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "3.1.0.697729"
+          },
+          "ZXing.Net.Mobile": {
+            "target": "Package",
+            "version": "2.4.1"
+          },
+          "ZXing.Net.Mobile.Forms": {
+            "target": "Package",
+            "version": "2.4.1"
+          },
+          "PayPal": {
+            "target": "Package",
+            "version": "1.9.1"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.1, )",
+            "version": "2.0.3",
             "autoReferenced": true
-          },
-          "NUnit": {
-            "target": "Package",
-            "version": "[3.10.1, )"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "[11.0.2, )"
-          },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "[3.1.0.697729, )"
-          },
-          "ZXing.Net.Mobile": {
-            "target": "Package",
-            "version": "[2.4.1, )"
-          },
-          "ZXing.Net.Mobile.Forms": {
-            "target": "Package",
-            "version": "[2.4.1, )"
           }
         },
         "imports": [
@@ -3250,5 +3279,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PayPal 1.9.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PayPal",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

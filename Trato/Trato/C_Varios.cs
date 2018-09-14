@@ -4,6 +4,8 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
+using PayPal.Api;
+
 
 namespace Trato.Varios
 {
