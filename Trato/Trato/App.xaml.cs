@@ -7,7 +7,6 @@ using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
 using Newtonsoft.Json;
 using System.Net.Http;//para el las cosas que necesitan web
-using PayPal.Api;
 
 /*
  * https://firebase.google.com/docs/cloud-messaging/send-with-console

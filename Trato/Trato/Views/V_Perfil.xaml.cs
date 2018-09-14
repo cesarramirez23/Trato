@@ -55,7 +55,7 @@ namespace Trato.Views
                 G_Editar.IsVisible = true;
                 G_Pagar.IsVisible = false;
                 M_Editar.IsVisible = true;
-                qr_but.IsVisible = true;
+               // qr_but.IsVisible = true;
                 await Task.Delay(10);
 
             }//no esta activado falta pagar
@@ -96,7 +96,7 @@ namespace Trato.Views
 
                 G_Editar.IsVisible = false;
                 M_Editar.IsVisible = false;
-                qr_but.IsVisible = false;
+              //  qr_but.IsVisible = false;
                 G_Pagar.IsVisible = true;
                 await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Cancelar");
                 await DisplayAlert("Info actual", App.v_perfil.Fn_GetDatos(), "Aceptar");
