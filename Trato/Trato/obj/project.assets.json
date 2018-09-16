@@ -76,6 +76,18 @@
           "build/NUnit.props": {}
         }
       },
+      "PayPal/1.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "7.0.1"
+        },
+        "compile": {
+          "lib/net451/PayPal.dll": {}
+        },
+        "runtime": {
+          "lib/net451/PayPal.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -957,6 +969,21 @@
         "lib/netstandard2.0/nunit.framework.xml",
         "nunit.3.10.1.nupkg.sha512",
         "nunit.nuspec"
+      ]
+    },
+    "PayPal/1.9.1": {
+      "sha512": "b3vq6Lc9CwSooCX2tsZ02zb7E/K/cA6EILCoMynue+ZeVuitJNqt0YwxPnp7uN0Pccob02oDlpAjRLH+GRCRxA==",
+      "type": "package",
+      "path": "paypal/1.9.1",
+      "files": [
+        "lib/net40/PayPal.dll",
+        "lib/net40/PayPal.xml",
+        "lib/net45/PayPal.dll",
+        "lib/net45/PayPal.xml",
+        "lib/net451/PayPal.dll",
+        "lib/net451/PayPal.xml",
+        "paypal.1.9.1.nupkg.sha512",
+        "paypal.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -3166,29 +3193,30 @@
       "NETStandard.Library >= 2.0.1",
       "NUnit >= 3.10.1",
       "Newtonsoft.Json >= 11.0.2",
+      "PayPal >= 1.9.1",
       "Xamarin.Forms >= 3.1.0.697729",
       "ZXing.Net.Mobile >= 2.4.1",
       "ZXing.Net.Mobile.Forms >= 2.4.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {},
+    "C:\\Users\\CesarAugusto\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
+      "projectUniqueName": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
       "projectName": "Trato",
-      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
-      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\obj\\",
+      "projectPath": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
+      "packagesPath": "C:\\Users\\CesarAugusto\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\CesarAugusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3230,6 +3258,10 @@
             "target": "Package",
             "version": "[11.0.2, )"
           },
+          "PayPal": {
+            "target": "Package",
+            "version": "[1.9.1, )"
+          },
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[3.1.0.697729, )"
@@ -3250,5 +3282,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PayPal 1.9.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PayPal",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

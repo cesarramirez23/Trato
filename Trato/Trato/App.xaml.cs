@@ -12,6 +12,38 @@ using System.Net.Http;//para el las cosas que necesitan web
  * https://firebase.google.com/docs/cloud-messaging/send-with-console
  * http://www.tothenew.com/blog/push-notifications-using-firebase-cloud-messaging/
  * 
+ * https://www.microsoft.com/net/download/thank-you/net452-developer-pack
+ * NU1202: Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0). Package PayPal 1.9.1 supports:
+  - net40 (.NETFramework,Version=v4.0)
+  - net45 (.NETFramework,Version=v4.5)
+  - net451 (.NETFramework,Version=v4.5.1)
+NU1202: Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Package PayPal 1.9.1 supports:
+  - net40 (.NETFramework,Version=v4.0)
+  - net45 (.NETFramework,Version=v4.5)
+  - net451 (.NETFramework,Version=v4.5.1)
+NU1202: Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Package PayPal 1.9.1 supports:
+  - net40 (.NETFramework,Version=v4.0)
+  - net45 (.NETFramework,Version=v4.5)
+  - net451 (.NETFramework,Version=v4.5.1)
+NU1202: Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Package PayPal 1.9.1 supports:
+  - net40 (.NETFramework,Version=v4.0)
+  - net45 (.NETFramework,Version=v4.5)
+  - net451 (.NETFramework,Version=v4.5.1)
+Restoring packages for C:\Users\CesarAugusto\Documents\GitHub\Trato\Trato\Trato.Android\Trato.Android.csproj...
+NU1608: Detected package version outside of dependency constraint: Xamarin.Android.Support.CustomTabs 23.3.0 requires Xamarin.Android.Support.v4 (= 23.3.0) but version Xamarin.Android.Support.v4 27.0.2.1 was resolved.
+NU1202: Package PayPal 1.9.1 is not compatible with monoandroid81 (MonoAndroid,Version=v8.1). Package PayPal 1.9.1 supports:
+  - net40 (.NETFramework,Version=v4.0)
+  - net45 (.NETFramework,Version=v4.5)
+  - net451 (.NETFramework,Version=v4.5.1)
+Package restore failed. Rolling back package changes for 'Trato.iOS'.
+
+    
+Warning	NU1701	Package 'PayPal 1.9.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'.
+This package may not be fully compatible with your project
+
+
+
+
  * >C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\Properties\AndroidManifest.xml : warning XA4211: AndroidManifest.xml //uses-sdk/@android:targetSdkVersion '26' is less than $(TargetFrameworkVersion) ''. Using API-27 for ACW compilation.
 1>C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\FirebaseNotificationService.cs(49,49,49,76): error CS0117: 'Resource.Drawable' no contiene una definición para 'cast_ic_notification_rewind'
  * 
