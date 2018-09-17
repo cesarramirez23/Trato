@@ -3,7 +3,7 @@
   <PropertyGroup>
     <DeveloperId />
     <DevelopmentTeamId />
-    <SelectedDevice>iPhone 6 iOS 11.4</SelectedDevice>
+    <SelectedDevice>Dispositivo</SelectedDevice>
     <DefaultDevice>iPhone 6 iOS 11.4</DefaultDevice>
   </PropertyGroup>
 </Project>

@@ -8,33 +8,44 @@ using System.Threading.Tasks; // delay
 using Newtonsoft.Json;
 using System.Net.Http;//para el las cosas que necesitan web
 
-/*
+/*https://xamarinhelp.com/visual-studio-2017-net-standard-xamarin/ 
+ * El archivo de recursos no ha cambiado, así que se omitirá su escritura. Ruta de acceso: C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\project.assets.json
+Ejecutando restauración...
+Error de restauración en 40.16 ms para C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\Trato.Android.csproj.
+El archivo de recursos no ha cambiado, así que se omitirá su escritura. Ruta de acceso: C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.iOS\obj\project.assets.json
+Error de restauración en 47.57 ms para C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.iOS\Trato.iOS.csproj.
  * https://firebase.google.com/docs/cloud-messaging/send-with-console
  * http://www.tothenew.com/blog/push-notifications-using-firebase-cloud-messaging/
  * 
  * https://www.microsoft.com/net/download/thank-you/net452-developer-pack
+ * 
+ * Error	NU1202	El paquete PayPal 1.9.1 no es compatible con xamarinios10 (Xamarin.iOS,Version=v1.0). El paquete PayPal 1.9.1 admite:
+  - net40 (.NETFramework,Version=v4.0)
+  - net45 (.NETFramework,Version=v4.5)
+  - net451 (.NETFramework,Version=v4.5.1)		
  * NU1202: Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0). Package PayPal 1.9.1 supports:
   - net40 (.NETFramework,Version=v4.0)
   - net45 (.NETFramework,Version=v4.5)
   - net451 (.NETFramework,Version=v4.5.1)
-NU1202: Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Package PayPal 1.9.1 supports:
+
+    U1608: Se detectó una versión del paquete fuera de la restricción de dependencia: Xamarin.Android.Support.CustomTabs 23.3.0 requiere Xamarin.Android.Support.v4 (= 23.3.0), pero la versión Xamarin.Android.Support.v4 27.0.2.1 ya se resolvió.
+Install-Package : NU1202: El paquete PayPal 1.9.1 no es compatible con monoandroid81 (MonoAndroid,Version=v8.1). El paquete PayPal 1.9.1 admite:
   - net40 (.NETFramework,Version=v4.0)
   - net45 (.NETFramework,Version=v4.5)
   - net451 (.NETFramework,Version=v4.5.1)
-NU1202: Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Package PayPal 1.9.1 supports:
-  - net40 (.NETFramework,Version=v4.0)
-  - net45 (.NETFramework,Version=v4.5)
-  - net451 (.NETFramework,Version=v4.5.1)
-NU1202: Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Package PayPal 1.9.1 supports:
-  - net40 (.NETFramework,Version=v4.0)
-  - net45 (.NETFramework,Version=v4.5)
-  - net451 (.NETFramework,Version=v4.5.1)
-Restoring packages for C:\Users\CesarAugusto\Documents\GitHub\Trato\Trato\Trato.Android\Trato.Android.csproj...
-NU1608: Detected package version outside of dependency constraint: Xamarin.Android.Support.CustomTabs 23.3.0 requires Xamarin.Android.Support.v4 (= 23.3.0) but version Xamarin.Android.Support.v4 27.0.2.1 was resolved.
-NU1202: Package PayPal 1.9.1 is not compatible with monoandroid81 (MonoAndroid,Version=v8.1). Package PayPal 1.9.1 supports:
-  - net40 (.NETFramework,Version=v4.0)
-  - net45 (.NETFramework,Version=v4.5)
-  - net451 (.NETFramework,Version=v4.5.1)
+En línea: 1 Carácter: 1
++ Install-Package PayPal -Version 1.9.1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Install-Package], Exception
+    + FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PackageManagement.PowerShellCmdlets.InstallPackageCommand
+ 
+Install-Package : Error al restaurar el paquete. Revirtiendo los cambios del paquete para 'Trato.Android'.
+En línea: 1 Carácter: 1
++ Install-Package PayPal -Version 1.9.1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Install-Package], Exception
+    + FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PackageManagement.PowerShellCmdlets.InstallPackageCommand
+ 
 Package restore failed. Rolling back package changes for 'Trato.iOS'.
 
     

@@ -63,12 +63,6 @@
           "build/NUnit.props": {}
         }
       },
-      "PayPal/1.9.1": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        }
-      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -296,7 +290,6 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
-          "PayPal": "1.9.1",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -371,12 +364,6 @@
           "build/NUnit.props": {}
         }
       },
-      "PayPal/1.9.1": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        }
-      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -604,7 +591,6 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
-          "PayPal": "1.9.1",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -679,12 +665,6 @@
           "build/NUnit.props": {}
         }
       },
-      "PayPal/1.9.1": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        }
-      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -912,7 +892,6 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
-          "PayPal": "1.9.1",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -987,12 +966,6 @@
           "build/NUnit.props": {}
         }
       },
-      "PayPal/1.9.1": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "7.0.1"
-        }
-      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -1220,7 +1193,6 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
-          "PayPal": "1.9.1",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -1459,21 +1431,6 @@
         "nunit.nuspec"
       ]
     },
-    "PayPal/1.9.1": {
-      "sha512": "b3vq6Lc9CwSooCX2tsZ02zb7E/K/cA6EILCoMynue+ZeVuitJNqt0YwxPnp7uN0Pccob02oDlpAjRLH+GRCRxA==",
-      "type": "package",
-      "path": "paypal/1.9.1",
-      "files": [
-        "lib/net40/PayPal.dll",
-        "lib/net40/PayPal.xml",
-        "lib/net45/PayPal.dll",
-        "lib/net45/PayPal.xml",
-        "lib/net451/PayPal.dll",
-        "lib/net451/PayPal.xml",
-        "paypal.1.9.1.nupkg.sha512",
-        "paypal.nuspec"
-      ]
-    },
     "PCLCrypto/2.0.147": {
       "sha512": "OFNDBjhP+qPukqB8PiGbWDo70gHsEzSKupL47JisjYFQaGwlPPCnN8ah59QCzIvsg9IUr2AecGKXF3ONpyFL9g==",
       "type": "package",
@@ -1635,6 +1592,7 @@
         "lib/Xamarin.iOS10/Xamarin.Forms.Core.xml",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll.mdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.pdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.pdb",
@@ -1786,20 +1744,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CesarAugusto\\.nuget\\packages\\": {}
+    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
       "projectName": "Trato.iOS",
-      "projectPath": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
-      "packagesPath": "C:\\Users\\CesarAugusto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\obj\\",
+      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\CesarAugusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1812,8 +1770,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "C:\\Users\\CesarAugusto\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
+            "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
+              "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
             }
           }
         }
@@ -1860,43 +1818,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0). Package PayPal 1.9.1 supports:\r\n  - net40 (.NETFramework,Version=v4.0)\r\n  - net45 (.NETFramework,Version=v4.5)\r\n  - net451 (.NETFramework,Version=v4.5.1)",
-      "libraryId": "PayPal",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Package PayPal 1.9.1 supports:\r\n  - net40 (.NETFramework,Version=v4.0)\r\n  - net45 (.NETFramework,Version=v4.5)\r\n  - net451 (.NETFramework,Version=v4.5.1)",
-      "libraryId": "PayPal",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Package PayPal 1.9.1 supports:\r\n  - net40 (.NETFramework,Version=v4.0)\r\n  - net45 (.NETFramework,Version=v4.5)\r\n  - net451 (.NETFramework,Version=v4.5.1)",
-      "libraryId": "PayPal",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win-x64"
-      ]
-    },
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Package PayPal 1.9.1 is not compatible with xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Package PayPal 1.9.1 supports:\r\n  - net40 (.NETFramework,Version=v4.0)\r\n  - net45 (.NETFramework,Version=v4.5)\r\n  - net451 (.NETFramework,Version=v4.5.1)",
-      "libraryId": "PayPal",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    }
-  ]
+  }
 }
