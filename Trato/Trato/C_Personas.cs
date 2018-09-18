@@ -74,8 +74,8 @@ namespace Trato.Personas
             v_Estado = "";
             v_Cp = "";
             v_Correo= "";
-            v_activo = "0";
-            v_vig = "12/3/2021";
+            v_activo = "-23";
+            v_vig = "-1241";
         }
         public C_PerfilGen(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,int _idsexo,  string _tel, string _cel,
             string _calle, string _numExt, string _numInt, string _col, string _ciud, string _mun, string _est, string _cp, string _corr)
@@ -115,7 +115,7 @@ namespace Trato.Personas
             v_Estado = _est;
             v_Cp = _cp;
             v_Correo = _corr;
-            v_activo = "0";
+            v_activo = "-23";
         }
         public string Fn_GetDatos()
         {
