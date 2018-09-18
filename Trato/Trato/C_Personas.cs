@@ -49,8 +49,10 @@ namespace Trato.Personas
         public string v_Cp { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
-        [JsonProperty("activo")]
+        [JsonProperty("activado")]
         public string v_activo { get; set; }
+        [JsonProperty("fecha_vig")]
+        public string v_vig;
 
         
         public C_PerfilGen()
@@ -73,6 +75,7 @@ namespace Trato.Personas
             v_Cp = "";
             v_Correo= "";
             v_activo = "0";
+            v_vig = "12/3/2021";
         }
         public C_PerfilGen(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,int _idsexo,  string _tel, string _cel,
             string _calle, string _numExt, string _numInt, string _col, string _ciud, string _mun, string _est, string _cp, string _corr)

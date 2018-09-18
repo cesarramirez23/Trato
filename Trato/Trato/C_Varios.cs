@@ -22,8 +22,6 @@ letra
        public string v_letra { get; set; }
        [JsonProperty("consecutivo")]
        public string v_conse { get; set; }
-        [JsonProperty("folio")]
-        public string v_folio { get; set; }
        [JsonProperty("costo")]
        public string v_costo { get; set; }
        [JsonProperty("nombre")]
@@ -33,11 +31,10 @@ letra
         {
 
         }
-        public Pagar(string _membre, string _letra, string _conse, string _folio, string _costo, string _nombre)
+        public Pagar(string _membre, string _letra, string _conse,  string _costo, string _nombre)
         {
             v_membresia = _membre;
             v_letra = _letra;
-            v_folio = _folio;
             v_conse = _conse;
             v_costo = _costo;
             v_nombre = _nombre;
@@ -93,6 +90,8 @@ letra
         public string v_membre { get; set; }
         [JsonProperty("idfolio")]
         public string v_fol { get; set; }
+        [JsonProperty("letra")]
+        public string v_letra { get; set; }
     }
     public class Filtro
     {

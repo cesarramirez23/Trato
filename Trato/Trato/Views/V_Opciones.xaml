@@ -16,5 +16,13 @@
                 </StackLayout>
             </ScrollView>
         </ContentPage>
+        <ContentPage Title="Cuenta" x:Name="ContentCuenta">
+            <StackLayout>
+                <Label Style="{StaticResource AzulMedLbl}" Text="Vigencia"/>
+                <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_fecha"/>
+                <Label Text="En tu perfil, en la pestaña de perfi general encontrarás opciones de pago para reactivar tu cuenta" 
+                       IsVisible="False" Style="{StaticResource AzulMedLbl}"/>
+            </StackLayout>
+        </ContentPage>
     </TabbedPage.Children>
 </TabbedPage>

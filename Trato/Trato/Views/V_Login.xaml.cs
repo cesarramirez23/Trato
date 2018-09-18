@@ -75,6 +75,7 @@ namespace Trato.Views
                             Perf _perf = new Perf();
                             _perf.v_fol = fol.Text;
                             _perf.v_membre = usu.Text;
+                            _perf.v_letra = letra;
                             //crear el json
                             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
                             //mostrar la pantalla con mensajes
@@ -90,6 +91,7 @@ namespace Trato.Views
                                 _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                                 _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                                await DisplayAlert("perfil", _respuesta, "sad");
                                 App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
                                 _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");

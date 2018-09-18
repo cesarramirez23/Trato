@@ -12,7 +12,9 @@ using Firebase.Messaging;
 using Firebase.Iid;
 using Android.Util;
 using Android.Gms.Common;
-
+using PayPal.Forms.Abstractions;
+using PayPal.Forms;
+using Android.Content;
 
 namespace Trato.Droid
 {
@@ -29,6 +31,26 @@ namespace Trato.Droid
           
             base.OnCreate(bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            //paypal
+            var config = new PayPalConfiguration(PayPalEnvironment.Sandbox, "AVART2W6j2cnNhmWej6EcQjx_ytsVpl1hmnArzHtVWSsZFRVAWOlZq6y3EjPFM0FHUhG_yrvkftXAAtN")
+            {
+                //If you want to accept credit cards
+                AcceptCreditCards = false,
+                //Your business name
+                MerchantName = "Tienda",
+                //Your privacy policy Url
+                MerchantPrivacyPolicyUri = "https://www.useller.com.mx/aviso_privacidad",
+                //Your user agreement Url
+                MerchantUserAgreementUri = "https://www.useller.com.mx/terminos",
+                // OPTIONAL - ShippingAddressOption (Both, None, PayPal, Provided)
+                ShippingAddressOption = ShippingAddressOption.Both,
+                // OPTIONAL - Language: Default languege for PayPal Plug-In
+                Language = "es",
+                // OPTIONAL - PhoneCountryCode: Default phone country code for PayPal Plug-In
+                PhoneCountryCode = "52",
+            };
+            CrossPayPalManager.Init(config, this);
+
 
             global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             LoadApplication(new App());
@@ -59,7 +81,17 @@ namespace Trato.Droid
             }
             return true;
         }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            PayPalManagerImplementation.Manager.OnActivityResult(requestCode, resultCode, data);
+        }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            PayPalManagerImplementation.Manager.Destroy();
+        }
     }
 }
 

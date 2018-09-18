@@ -63,6 +63,22 @@
           "build/NUnit.props": {}
         }
       },
+      "PayPal.Forms/2.18.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3",
+          "Xamarin.Forms": "2.5.0.121934",
+          "Xamarin.PayPal.iOS": "2.18.0"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
+        }
+      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -255,6 +271,15 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.PayPal.iOS/2.18.0": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
+        }
+      },
       "ZXing.Net.Mobile/2.4.1": {
         "type": "package",
         "compile": {
@@ -290,6 +315,7 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
+          "PayPal.Forms": "2.18.3",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -364,6 +390,22 @@
           "build/NUnit.props": {}
         }
       },
+      "PayPal.Forms/2.18.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3",
+          "Xamarin.Forms": "2.5.0.121934",
+          "Xamarin.PayPal.iOS": "2.18.0"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
+        }
+      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -556,6 +598,15 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.PayPal.iOS/2.18.0": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
+        }
+      },
       "ZXing.Net.Mobile/2.4.1": {
         "type": "package",
         "compile": {
@@ -591,6 +642,7 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
+          "PayPal.Forms": "2.18.3",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -665,6 +717,22 @@
           "build/NUnit.props": {}
         }
       },
+      "PayPal.Forms/2.18.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3",
+          "Xamarin.Forms": "2.5.0.121934",
+          "Xamarin.PayPal.iOS": "2.18.0"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
+        }
+      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -857,6 +925,15 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.PayPal.iOS/2.18.0": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
+        }
+      },
       "ZXing.Net.Mobile/2.4.1": {
         "type": "package",
         "compile": {
@@ -892,6 +969,7 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
+          "PayPal.Forms": "2.18.3",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -966,6 +1044,22 @@
           "build/NUnit.props": {}
         }
       },
+      "PayPal.Forms/2.18.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3",
+          "Xamarin.Forms": "2.5.0.121934",
+          "Xamarin.PayPal.iOS": "2.18.0"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
+        }
+      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -1158,6 +1252,15 @@
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.PayPal.iOS/2.18.0": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
+        }
+      },
       "ZXing.Net.Mobile/2.4.1": {
         "type": "package",
         "compile": {
@@ -1193,6 +1296,7 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
+          "PayPal.Forms": "2.18.3",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -1429,6 +1533,23 @@
         "lib/netstandard2.0/nunit.framework.xml",
         "nunit.3.10.1.nupkg.sha512",
         "nunit.nuspec"
+      ]
+    },
+    "PayPal.Forms/2.18.3": {
+      "sha512": "STghNkZDa7HbZd1tdn73pZLeX9fUdFZK3ruzmqjlS8AretnQr6PtQpRx5n2Rd3dNIQO7vev2wN3q7enV7eRBtA==",
+      "type": "package",
+      "path": "paypal.forms/2.18.3",
+      "files": [
+        "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll",
+        "lib/MonoAndroid10/PayPal.Forms.dll",
+        "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll",
+        "lib/Xamarin.iOS10/PayPal.Forms.dll",
+        "lib/netstandard1.0/PayPal.Forms.Abstractions.dll",
+        "lib/netstandard1.0/PayPal.Forms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.Abstractions.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.dll",
+        "paypal.forms.2.18.3.nupkg.sha512",
+        "paypal.forms.nuspec"
       ]
     },
     "PCLCrypto/2.0.147": {
@@ -1686,6 +1807,16 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "Xamarin.PayPal.iOS/2.18.0": {
+      "sha512": "DrPpN+Oa87t7h/MtE3k7ge88MaZIlpsMOqclFR82+BUtOFz4S8kwsC/QOWOc6E+C1BCpFdeJzbcUNN771bArlg==",
+      "type": "package",
+      "path": "xamarin.paypal.ios/2.18.0",
+      "files": [
+        "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll",
+        "xamarin.paypal.ios.2.18.0.nupkg.sha512",
+        "xamarin.paypal.ios.nuspec"
+      ]
+    },
     "ZXing.Net.Mobile/2.4.1": {
       "sha512": "iCL2WcqOyUnC1iFFdzXijk0EXfoLMDqW88MyhoTZigSyhJZM2C5hKgSZVyfx9E35tgkde/IZwHkk8cVDnbQlYg==",
       "type": "package",
@@ -1737,6 +1868,7 @@
       "Microsoft.Azure.Mobile.Client >= 4.0.2",
       "NUnit >= 3.10.1",
       "Newtonsoft.Json >= 11.0.2",
+      "PayPal.Forms >= 2.18.3",
       "Trato >= 1.0.0",
       "Xamarin.Forms >= 3.1.0.697729",
       "ZXing.Net.Mobile >= 2.4.1",
@@ -1791,6 +1923,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[11.0.2, )"
+          },
+          "PayPal.Forms": {
+            "target": "Package",
+            "version": "[2.18.3, )"
           },
           "Xamarin.Forms": {
             "target": "Package",

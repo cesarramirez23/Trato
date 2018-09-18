@@ -37,6 +37,15 @@ JObject o = JObject.Parse(json);
         public V_Opciones ()
 		{
 			InitializeComponent ();
+            if(int.Parse( App.v_folio) >0)
+            {
+                ContentCuenta.IsEnabled = false;
+            }
+            else
+            {
+                C_fecha.Text = App.v_perfil.v_vig;
+                ContentCuenta.IsEnabled = true;
+            }
 		}
         public void FN_passCambio(object sender, TextChangedEventArgs args)
         {

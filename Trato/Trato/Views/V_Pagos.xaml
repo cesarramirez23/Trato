@@ -5,8 +5,9 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Style="{StaticResource AzulMedLbl}" x:Name="P_mensajes"></Label>
-                <WebView x:Name="P_paypal" Navigated="Cargado" HeightRequest="500" IsVisible="False"/>
+                <Label Style="{StaticResource AzulMedLbl}" x:Name="P_mensajes" Text="desde paypal"></Label>
+                <Button Text="cobrar " Clicked="Fn_pagarPay" x:Name="P_PayBut"></Button>
+                <!--<WebView x:Name="P_paypal" Navigated="Cargado" HeightRequest="500" IsVisible="False"/>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

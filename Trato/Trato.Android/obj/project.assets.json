@@ -73,6 +73,22 @@
           "build/NUnit.props": {}
         }
       },
+      "PayPal.Forms/2.18.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3",
+          "Xamarin.Forms": "2.5.0.121934",
+          "Xamarin.PayPal.Android": "2.18.0"
+        },
+        "compile": {
+          "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll": {},
+          "lib/MonoAndroid10/PayPal.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll": {},
+          "lib/MonoAndroid10/PayPal.Forms.dll": {}
+        }
+      },
       "PCLCrypto/2.0.147": {
         "type": "package",
         "dependencies": {
@@ -131,6 +147,27 @@
         },
         "runtime": {
           "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll": {}
+        }
+      },
+      "Square.OkHttp3/3.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Square.OkIO": "1.11.0"
+        },
+        "compile": {
+          "lib/MonoAndroid/Square.OkHttp3.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/Square.OkHttp3.dll": {}
+        }
+      },
+      "Square.OkIO/1.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid/Square.OkIO.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/Square.OkIO.dll": {}
         }
       },
       "Validation/2.2.8": {
@@ -600,6 +637,28 @@
           "build/MonoAndroid80/Xamarin.GooglePlayServices.Tasks.targets": {}
         }
       },
+      "Xamarin.PayPal.Android/2.18.0": {
+        "type": "package",
+        "dependencies": {
+          "Square.OkHttp3": "3.5.0",
+          "Xamarin.PayPal.Android.CardIO": "2.0.0"
+        },
+        "compile": {
+          "lib/MonoAndroid10/Xamarin.PayPal.Android.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Xamarin.PayPal.Android.dll": {}
+        }
+      },
+      "Xamarin.PayPal.Android.CardIO/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll": {}
+        }
+      },
       "ZXing.Net.Mobile/2.4.1": {
         "type": "package",
         "dependencies": {
@@ -639,6 +698,7 @@
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
+          "PayPal.Forms": "2.18.3",
           "Xamarin.Forms": "3.1.0.697729",
           "ZXing.Net.Mobile": "2.4.1",
           "ZXing.Net.Mobile.Forms": "2.4.1"
@@ -891,6 +951,23 @@
         "nunit.nuspec"
       ]
     },
+    "PayPal.Forms/2.18.3": {
+      "sha512": "STghNkZDa7HbZd1tdn73pZLeX9fUdFZK3ruzmqjlS8AretnQr6PtQpRx5n2Rd3dNIQO7vev2wN3q7enV7eRBtA==",
+      "type": "package",
+      "path": "paypal.forms/2.18.3",
+      "files": [
+        "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll",
+        "lib/MonoAndroid10/PayPal.Forms.dll",
+        "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll",
+        "lib/Xamarin.iOS10/PayPal.Forms.dll",
+        "lib/netstandard1.0/PayPal.Forms.Abstractions.dll",
+        "lib/netstandard1.0/PayPal.Forms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.Abstractions.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.dll",
+        "paypal.forms.2.18.3.nupkg.sha512",
+        "paypal.forms.nuspec"
+      ]
+    },
     "PCLCrypto/2.0.147": {
       "sha512": "OFNDBjhP+qPukqB8PiGbWDo70gHsEzSKupL47JisjYFQaGwlPPCnN8ah59QCzIvsg9IUr2AecGKXF3ONpyFL9g==",
       "type": "package",
@@ -970,6 +1047,30 @@
         "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.xml",
         "pinvoke.windows.core.0.3.2.nupkg.sha512",
         "pinvoke.windows.core.nuspec"
+      ]
+    },
+    "Square.OkHttp3/3.5.0": {
+      "sha512": "3oy8Gqf2drckI22TrGPLqzkXzAc1n4CaHO0/SFDjLhfgRS8GmaoD2YddmtCt9nSMZ2SWgvKruJvS/OTTb8ssnQ==",
+      "type": "package",
+      "path": "square.okhttp3/3.5.0",
+      "files": [
+        "LICENSE.txt",
+        "README.md",
+        "lib/MonoAndroid/Square.OkHttp3.dll",
+        "square.okhttp3.3.5.0.nupkg.sha512",
+        "square.okhttp3.nuspec"
+      ]
+    },
+    "Square.OkIO/1.11.0": {
+      "sha512": "RY+E9Lqvf79hsBWQKepC1dqSJ27Ig6VyHHE+82cojnUsAT/JmyIKJR+SreU0IDqStzteuJnlmz/LqcPunzPYOQ==",
+      "type": "package",
+      "path": "square.okio/1.11.0",
+      "files": [
+        "LICENSE.txt",
+        "README.md",
+        "lib/MonoAndroid/Square.OkIO.dll",
+        "square.okio.1.11.0.nupkg.sha512",
+        "square.okio.nuspec"
       ]
     },
     "Validation/2.2.8": {
@@ -1494,6 +1595,26 @@
         "xamarin.googleplayservices.tasks.nuspec"
       ]
     },
+    "Xamarin.PayPal.Android/2.18.0": {
+      "sha512": "6bZ1/HYfDu9+7NoYlP7Iw8baauUhSCPuvv0Og2SbggskRozJSTDgb0/9x/4m3E5UI48TV+memub8voPCp7ctzQ==",
+      "type": "package",
+      "path": "xamarin.paypal.android/2.18.0",
+      "files": [
+        "lib/MonoAndroid10/Xamarin.PayPal.Android.dll",
+        "xamarin.paypal.android.2.18.0.nupkg.sha512",
+        "xamarin.paypal.android.nuspec"
+      ]
+    },
+    "Xamarin.PayPal.Android.CardIO/2.0.0": {
+      "sha512": "vsSt66v5tL4pVvHg9v60OPNOsuydH+JObElIxsLfy3/tiYydZAdNG+NHUeZmklAYmJn8rbeClRKhqF0ZgfCkhA==",
+      "type": "package",
+      "path": "xamarin.paypal.android.cardio/2.0.0",
+      "files": [
+        "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll",
+        "xamarin.paypal.android.cardio.2.0.0.nupkg.sha512",
+        "xamarin.paypal.android.cardio.nuspec"
+      ]
+    },
     "ZXing.Net.Mobile/2.4.1": {
       "sha512": "iCL2WcqOyUnC1iFFdzXijk0EXfoLMDqW88MyhoTZigSyhJZM2C5hKgSZVyfx9E35tgkde/IZwHkk8cVDnbQlYg==",
       "type": "package",
@@ -1545,6 +1666,7 @@
       "Microsoft.Azure.Mobile.Client >= 4.0.2",
       "NUnit >= 3.10.1",
       "Newtonsoft.Json >= 11.0.2",
+      "PayPal.Forms >= 2.18.3",
       "Trato >= 1.0.0",
       "Xamarin.Android.Support.Design >= 27.0.2.1",
       "Xamarin.Android.Support.v4 >= 27.0.2.1",
@@ -1606,6 +1728,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[11.0.2, )"
+          },
+          "PayPal.Forms": {
+            "target": "Package",
+            "version": "[2.18.3, )"
           },
           "Xamarin.Android.Support.Design": {
             "target": "Package",

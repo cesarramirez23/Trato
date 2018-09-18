@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using PayPal.Forms;
+using PayPal.Forms.Abstractions;
 using UIKit;
 
 namespace Trato.iOS
@@ -24,6 +26,24 @@ namespace Trato.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
+            var config = new PayPalConfiguration(PayPalEnvironment.Sandbox, "AVART2W6j2cnNhmWej6EcQjx_ytsVpl1hmnArzHtVWSsZFRVAWOlZq6y3EjPFM0FHUhG_yrvkftXAAtN")
+            {
+                //If you want to accept credit cards
+                AcceptCreditCards = false,
+                //Your business name
+                MerchantName = "Test Store",
+                //Your privacy policy Url
+                MerchantPrivacyPolicyUri = "https://www.useller.com.mx/aviso_privacidad",
+                //Your user agreement Url
+                MerchantUserAgreementUri = "https://www.useller.com.mx/terminos",
+                // OPTIONAL - ShippingAddressOption (Both, None, PayPal, Provided)
+                ShippingAddressOption = ShippingAddressOption.Both, 
+                // OPTIONAL - Language: Default languege for PayPal Plug-In
+                Language = "es",
+                // OPTIONAL - PhoneCountryCode: Default phone country code for PayPal Plug-In
+                PhoneCountryCode = "52",
+            };
+            CrossPayPalManager.Init(config);
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

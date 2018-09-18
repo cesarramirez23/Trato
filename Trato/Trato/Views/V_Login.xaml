@@ -21,8 +21,9 @@
                         <Label Text="Folio" HorizontalOptions="Center" Style="{StaticResource AzulMedLbl}"
                                Grid.Column="1" Grid.Row="0" VerticalOptions="End" VerticalTextAlignment="End"></Label>
                         
-                        <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="FillAndExpand" Text="1808F-0002"
+                        <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="FillAndExpand" Text="1808E-0002"
                                Grid.Column="0" Grid.Row="1"></Entry>
+                               <!--Text="1808F-0002"-->
                         <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="FillAndExpand" Text="0"
                                Grid.Column="1" Grid.Row="1"></Entry>
                     </Grid>
@@ -35,7 +36,9 @@
                         <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="End" Text="0"></Entry>
                     </StackLayout>-->
                     <Label Text="Ingresa tu contraseña" Style="{StaticResource AzulMedLbl}"></Label>
-                    <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" Text="cesar1234"></Entry>
+                    <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" 
+                           Text="ac1602"></Entry>
+                           <!--="cesar1234"-->
                     <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
 
                     <Label Text="¿No tienes cuenta?" Style="{StaticResource AzulMedLbl}" FontAttributes="Bold" >
