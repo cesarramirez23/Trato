@@ -107,7 +107,7 @@
                                 <RowDefinition Height="50"/>
                                 <RowDefinition Height="80"/>
                             </Grid.RowDefinitions>
-                            <Button Text="Pagar con efectivo" Clicked="Fn_PagarEfec" Style="{StaticResource Boton2}" 
+                            <Button Text="Pagar vía OXXO" Clicked="Fn_PagarEfec" Style="{StaticResource Boton2}" 
                                 Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1"></Button>
                             <Button Text="Pagar con PayPal" Clicked="Fn_PagarPay" Style="{StaticResource Boton2}"
                                 Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1"></Button>

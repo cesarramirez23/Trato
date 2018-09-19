@@ -6,7 +6,8 @@
         <ScrollView>
             <StackLayout>
                 <Label Style="{StaticResource AzulMedLbl}" x:Name="P_mensajes" Text="desde paypal"></Label>
-                <Button Text="cobrar " Clicked="Fn_pagarPay" x:Name="P_PayBut"></Button>
+                <Button Text="Pagar ahora" Clicked="Fn_pagarPay" x:Name="P_PayBut"></Button>
+                <Button Text="Generar ficha" Clicked="Fn_PagoOxxo" x:Name="P_OxxoBut"></Button>
                 <!--<WebView x:Name="P_paypal" Navigated="Cargado" HeightRequest="500" IsVisible="False"/>-->
             </StackLayout>
         </ScrollView>

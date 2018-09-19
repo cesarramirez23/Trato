@@ -26,20 +26,51 @@ namespace Trato
         public V_Pagos (bool _efectivo, Pagar _pagar)
 		{
 			InitializeComponent ();
-                if(!_efectivo)
+            v_infoPago = _pagar;
+            if(_efectivo)
             {
-                v_infoPago = _pagar;
-              //  P_paypal.Source = v_dirWeb;
+                P_OxxoBut.IsVisible = true;
+                P_mensajes.Text = "Se enviará un correo con la información necesaria";
+                P_PayBut.IsVisible = false;
             }
-            if (CrossPayPalManager.IsInitialized)
-            {
-                P_PayBut.IsEnabled = true;
-                P_mensajes.Text = "";//fecha_vig
+            else{
+                P_OxxoBut.IsVisible = false;
+                if (CrossPayPalManager.IsInitialized)
+                {
+                    P_PayBut.IsEnabled = true;
+                    P_mensajes.Text = "";//fecha_vig
+                }
+                else
+                {
+                    P_mensajes.Text = "Hubo un error, intentarlo mas tarde";
+                    P_PayBut.IsEnabled = false;
+                }
             }
-            else
+        }
+        public async void Fn_PagoOxxo(object sender, EventArgs _args)
+        { 
+            string json = @"{";
+            json += "producto:'" + v_infoPago.v_nombre + "',\n";
+            json += "costo:'" + v_infoPago.v_costo + "',\n";
+            json += "nombre:'" + App.v_perfil.v_Nombre + "',\n";
+            json += "correo:'" + App.v_perfil.v_Correo + "',\n";
+            json += "tel:'" + App.v_perfil.v_Tel + "',\n";
+            json += "}";
+            JObject v_jsonInfo = JObject.Parse(json);
+            StringContent _content = new StringContent(v_jsonInfo.ToString(), Encoding.UTF8, "application/json");
+
+            HttpClient _clien = new HttpClient();
+            string _direc = "https://useller.com.mx/trato_especial/prueba_conekta.php";
+            try
             {
-                P_mensajes.Text = "Hubo un error, intentarlo mas tarde";
-                P_PayBut.IsEnabled = false;
+                HttpResponseMessage _responphp = await _clien.PostAsync(_direc, _content);
+                string _resp = await _responphp.Content.ReadAsStringAsync();
+                await DisplayAlert("mensaje ", _resp, "aceptar");
+                await Navigation.PopAsync();
+            }
+            catch (HttpRequestException exception)
+            {
+                await DisplayAlert("Error", exception.Message, "Aceptar");
             }
         }
         public async void Fn_pagarPay(object sender, EventArgs _args)
@@ -92,6 +123,7 @@ namespace Trato
                             Personas.C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<Personas.C_PerfilMed>(_resp);
                             await DisplayAlert("perfil", _resp, "sad");
                             App.Fn_GuardarDatos(_nuePerMEd, v_infoPago.v_membresia, v_infoPago.v_conse);
+                            await Navigation.PopAsync();                    
                         }
                         catch (HttpRequestException exception)
                         {
@@ -107,7 +139,6 @@ namespace Trato
                 {
                     await DisplayAlert("Error", exception.Message, "Aceptar");
                 }
-                await Navigation.PopAsync();                    
             }
         }
         public async void Cargado(object sender, WebNavigatedEventArgs _args)

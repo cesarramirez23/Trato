@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Trato.Varios;
+using System.Threading.Tasks;
 
 namespace Trato.Views
 {
@@ -15,13 +16,20 @@ namespace Trato.Views
     {
         public List<Banner> v_mostrar = new List<Banner>();
         int v_actual = 0;
+        bool v_cambioban = false;
         public MainPage()
         {
             InitializeComponent();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            v_cambioban = true;
             FN_Red();
         }
         protected override void OnDisappearing()
         {
+            v_cambioban = false;
             base.OnDisappearing();
         }
         public async void FN_Red()
@@ -34,15 +42,19 @@ namespace Trato.Views
                 string _respu =await  _respuestphp.Content.ReadAsStringAsync();
                 List<Banner> _banner = JsonConvert.DeserializeObject<List<Banner>>(_respu);
                 v_mostrar = _banner;
-                Device.StartTimer(TimeSpan.FromSeconds(10), () =>
-                {
-                    v_actual++;
-                    if (v_actual == v_mostrar.Count) v_actual = 0;
+                //Device.StartTimer(TimeSpan.FromSeconds(10), () =>
+                //{
 
-                    MainBanner.Source = v_mostrar[v_actual].v_img;
-                
-                    return true;
-                });
+                //    return true;
+                //});
+                //while(v_cambioban)
+                //{
+                //    v_actual++;
+                //    if (v_actual == v_mostrar.Count) v_actual = 0;
+
+                //    MainBanner.Source = v_mostrar[v_actual].v_img;
+                //    await Task.Delay(10000);
+                //}
             }
             catch
             {
@@ -56,15 +68,19 @@ namespace Trato.Views
                 v_actual = 0;
                 MainBanner.Source = v_mostrar[v_actual].v_img;
 
-                Device.StartTimer(TimeSpan.FromSeconds(10), () =>
+                //Device.StartTimer(TimeSpan.FromSeconds(10), () =>
+                //{
+
+                //    return true;
+                //});
+                while (v_cambioban)
                 {
                     v_actual++;
                     if (v_actual == v_mostrar.Count) v_actual = 0;
 
                     MainBanner.Source = v_mostrar[v_actual].v_img;
-                
-                    return true;
-                });
+                    await Task.Delay(1000);
+                }
             }
             
         }

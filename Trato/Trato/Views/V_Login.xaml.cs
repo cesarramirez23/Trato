@@ -67,7 +67,7 @@ namespace Trato.Views
                             Mensajes_over.Text += "\n Error en los datos";
                             Reinten.IsVisible = true;
                         }
-                        else if (_respuesta == "1")
+                        else if (_respuesta == "1" || _respuesta == "2")
                         {
                             //cambiar a logeado
                             //StackMen.IsVisible = false;
@@ -91,7 +91,6 @@ namespace Trato.Views
                                 _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                                 _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                                await DisplayAlert("perfil", _respuesta, "sad");
                                 App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
                                 _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
@@ -105,21 +104,27 @@ namespace Trato.Views
                                     App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text);
                                     //cargar la nueva pagina de perfil
                                     string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
+                                    if(_respuesta == "2")
+                                    {
+                                        await DisplayAlert("Aviso", "Tu cuenta no está activada, revisa tu perfil para mas información", "Aceptar");
+                                    }
                                     Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
                                 }
                                 catch (HttpRequestException exception)
                                 {
                                     await DisplayAlert("Error", exception.Message, "Aceptar");
+                                    Reinten.IsVisible = true;
                                 }
                             }
                             catch (HttpRequestException exception)
                             {
                                 await DisplayAlert("Error", exception.Message, "Aceptar");
+                                Reinten.IsVisible = true;
                             }
                         }
                         else
                         {
-                            Mensajes_over.Text = "no 0 1  " + _respuesta;
+                            Mensajes_over.Text = "otra cosa que no entra en el if " + _respuesta;
                             Reinten.IsVisible = true;
                         }
                     }

@@ -102,35 +102,6 @@ namespace Trato.Views
         public async void Fn_PagarEfec(object sender, EventArgs _args)
         {
             await Navigation.PushAsync(new V_Pagos(true, v_pagar) { });
-            //prueba_conekta
-            //Nombre del producto
- //Precio del producto
- //Nombre cliente
- //    Email cliente
- //       Telefono cliente
-            string json = @"{";
-            json += "producto:'" +v_pagar.v_nombre + "',\n";
-            json += "costo:'" + v_pagar.v_costo + "',\n";
-            json += "nombre:'" + App.v_perfil.v_Nombre + "',\n";
-            json += "correo:'" + App.v_perfil.v_Correo+ "',\n";
-            json += "tel:'" + App.v_perfil.v_Tel + "',\n";
-            json += "}";
-            
-            HttpClient _clien = new HttpClient();
-            string _direc = "https://useller.com.mx/trato_especial/prueba_conekta.php";
-
-            JObject v_jsonInfo = JObject.Parse(json);
-            StringContent _content = new StringContent(v_jsonInfo.ToString(), Encoding.UTF8, "application/json");
-            try
-            {
-                HttpResponseMessage _responphp = await _clien.PostAsync(_direc, _content);
-                string _resp = await _responphp.Content.ReadAsStringAsync();
-                await DisplayAlert("mensaje ", _resp, "aceptar");
-            }
-            catch (HttpRequestException exception)
-            {
-                await DisplayAlert("Error", exception.Message, "Aceptar");
-            }
         }
         public async void Fn_PagarPay(object sender, EventArgs _args)
         {
