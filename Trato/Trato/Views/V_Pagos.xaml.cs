@@ -86,7 +86,6 @@ namespace Trato
             }
             else if (result.Status == PayPalStatus.Successful)
             {
-                P_mensajes.Text = result.ServerResponse.Response.Id;
                 HttpClient _clien = new HttpClient();
                 string _direc = "https://useller.com.mx/trato_especial/activacion.php";
                 string _json = JsonConvert.SerializeObject(v_infoPago, Formatting.Indented);
@@ -94,11 +93,9 @@ namespace Trato
                 try
                 {
                     HttpResponseMessage _responphp = await _clien.PostAsync(_direc, _content);
-                    string _resp = await _responphp.Content.ReadAsStringAsync();
-                    await DisplayAlert("mensaje ", _resp, "aceptar");
                     Perf _perf = new Perf();
-                    _perf.v_fol = v_infoPago.v_conse;
-                    _perf.v_membre =v_infoPago.v_membresia;
+                    _perf.v_fol = App.v_folio;
+                    _perf.v_membre =App.v_membresia;
                     _perf.v_letra = v_infoPago.v_letra;
                     //crear el json
                     string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
@@ -110,7 +107,8 @@ namespace Trato
                     {
                         //mandar el json con el post
                         _responphp = await _clien.PostAsync(_DirEnviar, _content);
-                        _resp = await _responphp.Content.ReadAsStringAsync();
+                        string _resp = await _responphp.Content.ReadAsStringAsync();
+                        await DisplayAlert("llega ",_perf.Fn_GetDatos() +" "+ _resp, "aceptar");
                         Personas.C_PerfilGen _nuePer = JsonConvert.DeserializeObject<Personas.C_PerfilGen>(_resp);
                         App.Fn_GuardarDatos(_nuePer, v_infoPago.v_membresia, v_infoPago.v_conse);
                         _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
@@ -121,7 +119,7 @@ namespace Trato
                             _responphp = await _clien.PostAsync(_DirEnviar, _content);
                             _resp = await _responphp.Content.ReadAsStringAsync();
                             Personas.C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<Personas.C_PerfilMed>(_resp);
-                            await DisplayAlert("perfil", _resp, "sad");
+                            await DisplayAlert("perfil medico", _resp, "sad");
                             App.Fn_GuardarDatos(_nuePerMEd, v_infoPago.v_membresia, v_infoPago.v_conse);
                             await Navigation.PopAsync();                    
                         }

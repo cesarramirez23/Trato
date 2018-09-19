@@ -53,8 +53,10 @@ namespace Trato.Personas
         public string v_activo { get; set; }
         [JsonProperty("fecha_vig")]
         public string v_vig;
+        [JsonProperty("total_usuarios")]
+        public string v_numEmple { get; set; }
 
-        
+
         public C_PerfilGen()
         {
             v_idsexo = -1;
@@ -124,7 +126,7 @@ namespace Trato.Personas
                 "id sexo "+ v_idsexo + "  tel " + v_Tel + " cel  " + v_Cel + "  \n" +
                 "  calle  "+v_Calle + " numext " + v_NumExt + "  numint " +  v_NumInt + "  " +
                 "colonia "+v_Colonia + "ciud  " + v_Ciudad + " muni" + v_municipio + "  esta" + v_Estado + " \n" +
-                "cp  "+v_Cp + "  corr " + v_Correo+"   activado  "+ v_activo;
+                "cp  "+v_Cp + "  corr " + v_Correo+"   activado  "+ v_activo+"  numemple"+v_numEmple;
             return _ret;
                   
         }
@@ -339,7 +341,7 @@ namespace Trato.Personas
         int v_idmembre { get; set; }
         [JsonProperty("costo")]
         string v_Costo { get; set; }
-        [JsonProperty("nummple")]
+        [JsonProperty("numemple")]
         int v_numEmple { get; set; }
 
         #endregion
@@ -348,8 +350,8 @@ namespace Trato.Personas
         /// <summary>
         /// el token que se genera desde el web view
         /// </summary>
-        [JsonProperty("tokenid")]
-        string v_token { get; set; }
+        //[JsonProperty("tokenid")]
+        //string v_token { get; set; }
         #endregion
 
 
@@ -360,7 +362,7 @@ namespace Trato.Personas
         }
         public C_RegistroPrinci(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,string _tel, string _cel,
             string _calle,string _numExt, string _numInt, string _col, string _ciud,string _mun, string _est, string _cp, 
-            string _corr, int _idPer,string _nomMembre, int _idmembre, string _costo,int _numEmple, string _token )
+            string _corr, int _idPer,string _nomMembre, int _idmembre, string _costo,int _numEmple)//, string _token )
         {
             v_Nombre = _nom;
             v_Rfc = _rfc;
@@ -401,7 +403,7 @@ namespace Trato.Personas
             v_idmembre = _idmembre;
             v_Costo = _costo;
             v_numEmple = _numEmple;
-            v_token = _token;
+           // v_token = _token;
 
         }
     }

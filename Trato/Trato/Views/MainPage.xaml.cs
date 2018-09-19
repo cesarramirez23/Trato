@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
@@ -24,9 +23,18 @@ namespace Trato.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            if(App.v_log=="1"&&  App.v_perfil.v_activo!="1")
+            {
+                M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+            }
+            else
+            {
+                M_mensaje.IsVisible = false;
+            }
             v_cambioban = true;
             FN_Red();
-        }
+        }//1809I-0006    39f8cf
+        //1809E-0003    64abe9
         protected override void OnDisappearing()
         {
             v_cambioban = false;
@@ -79,7 +87,7 @@ namespace Trato.Views
                     if (v_actual == v_mostrar.Count) v_actual = 0;
 
                     MainBanner.Source = v_mostrar[v_actual].v_img;
-                    await Task.Delay(1000);
+                    await Task.Delay(10000);
                 }
             }
             

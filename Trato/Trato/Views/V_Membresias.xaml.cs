@@ -15,7 +15,7 @@ namespace Trato.Views
         public V_Membresias()
         {
             InitializeComponent();
-            M_Ind.Text= "IDEAL PARA EMPRENDEDORES, PERSONAS SOLTERAS, JÓVENES Y ADULTOS QUE GUSTEN DE UN ESTILO INDEPENDIENTE \n"
+            M_Ind.Text= "Ésta es la membresía ideal para una persona independiente como tu. \n"
                         +"* Asistencia Telefónica.\n"
                         +"* Acceso a Red Médica.\n"
                         +"* Consultas ilimitadas con Médicos Especialistas a $250 MNX.\n"
@@ -24,8 +24,7 @@ namespace Trato.Views
                          +"* Centros de Rehabilitación y Terapias Físicas descuentos del 10 % al 35 %\n"
                           +"* Precios preferenciales y descuentos en muchos servicios más.\n";
 
-            M_Fam.Text = "HASTA 5 FAMILIARES NO IMPORTA QUE NO VIVAN EN EL MISMO DOMICILIO, SIEMPRE Y CUANDO TENGAN PARENTESCO \n"
-                   + " IDEAL PARA CUBRIR TODAS LAS NECESIDADES DE SALUD Y BIENESTAR DE TUS SERES QUERIDOS\n"
+            M_Fam.Text = "La membresía familiar es ideal para cubrir todas las necesidades de salud y bienestar de tus seres queridos.\n"
                         + "* Asistencia Telefónica.\n"
                         + "* Acceso a Red Médica.\n"
                         + "* Consultas ilimitadas con Médicos Especialistas a $250 MNX.\n"
@@ -34,9 +33,9 @@ namespace Trato.Views
                         + "* Centros de  Rehabilitación y Terapias Físicas descuentos del 10% al 35%\n"
                         + "* Precios preferenciales y descuentos en muchos servicios más.\n";
 
-            M_Emp.Text = "CUBRE LAS NECESIDADES DE SALUD Y BIENESTAR DEL CAPITAL MÁS IMPORTANTE DE TU NEGOCIO, TU EQUIPO DE TRABAJO. \n" +
-                          "* Asistencia Telefónica.\n" +
-                          "* Acceso a Red Médica.\n"
+            M_Emp.Text = "Cubre las necesidades de salud y bienestar del capital mas importante de tu negocio, tu Equipo de trabajo. \n" 
+                        + "* Asistencia Telefónica.\n" 
+                        + "* Acceso a Red Médica.\n"
                         + "* Consultas ilimitadas con Médicos Especialistas a $250 MNX.\n"
                         + "* Consultas ilimitadas con Médicos Generales a $100 MNX.\n"
                         + "* Hospitales y  Laboratorios descuentos del 5% al 35%\n"

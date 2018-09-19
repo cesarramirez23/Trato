@@ -223,7 +223,7 @@ namespace Trato.Views
                         json += "}";
                         v_jsonInfo = JObject.Parse(json);
 
-                        /*
+                        
                         NavigationPage.SetHasNavigationBar(this, false);
                         RegPrin.IsEnabled = false;
                         StackMen.IsVisible = true;
@@ -241,40 +241,40 @@ namespace Trato.Views
 
 
 
-                        if (!v_primero)
-                        {
-                            await Browser.EvaluateJavaScriptAsync("submitbutton()");
-                            v_primero = true;
-                            await Task.Delay(2000);
-                        }
+                        //if (!v_primero)
+                        //{
+                        //    await Browser.EvaluateJavaScriptAsync("submitbutton()");
+                        //    v_primero = true;
+                        //    await Task.Delay(2000);
+                        //}
                         //se genera el token y se guarda
-                        string tokenid = await Browser.EvaluateJavaScriptAsync("submitbutton()");
+                        //string tokenid = await Browser.EvaluateJavaScriptAsync("submitbutton()");
                         //delay 
-                        await Task.Delay(1000);
-                        if (string.IsNullOrEmpty(tokenid) || string.IsNullOrWhiteSpace(tokenid))
-                        {
-                            StackMen.IsVisible = false;
-                            await DisplayAlert("Error", "Error en 1 o mas campos de la tarjeta", "aceptar");
-                            NavigationPage.SetHasNavigationBar(this, true);
-                            RegPrin.IsEnabled = true;
-                        }
-                        else
-                        {
+                        //await Task.Delay(1000);
+                        //if (string.IsNullOrEmpty(tokenid) || string.IsNullOrWhiteSpace(tokenid))
+                        //{
+                        //    StackMen.IsVisible = false;
+                        //    await DisplayAlert("Error", "Error en 1 o mas campos de la tarjeta", "aceptar");
+                        //    NavigationPage.SetHasNavigationBar(this, true);
+                        //    RegPrin.IsEnabled = true;
+                        //}
+                        //else
+                        //{
                             int _precioFinal = -1;
                             C_RegistroPrinci datosregistro= new C_RegistroPrinci();
-
+                            //tipo de membresia
                             if (tipo.SelectedIndex == 2)
                             {
                                 _precioFinal = int.Parse(v_costo[tipo.SelectedIndex])* int.Parse(PickEmple.SelectedItem.ToString());
-                                 datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
-                                  dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
-                                  _precioFinal.ToString(), int.Parse(PickEmple.SelectedItem.ToString()),  tokenid);
+                            datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
+                             dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
+                             _precioFinal.ToString(), int.Parse(PickEmple.SelectedItem.ToString()));//,  tokenid);
                             }
                             else
                             {
-                                 datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
-                                   dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
-                                   v_costo[tipo.SelectedIndex],0,tokenid);
+                            datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
+                              dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
+                              v_costo[tipo.SelectedIndex], 0);//,tokenid);
                             }
                             //se crea el json
                             string json_reg = JsonConvert.SerializeObject(datosregistro, Formatting.Indented);
@@ -321,8 +321,8 @@ namespace Trato.Views
                                 NavigationPage.SetHasNavigationBar(this, true);
                                 RegPrin.IsEnabled = true;
                             }
-                        }//token vacio
-                        */
+                       // }//token vacio
+                        
 
                     }//ifcondiciones
                 }// sio es empresarial que elija numero de empleados

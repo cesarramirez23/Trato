@@ -92,6 +92,14 @@ letra
         public string v_fol { get; set; }
         [JsonProperty("letra")]
         public string v_letra { get; set; }
+        public string Fn_GetDatos()
+        {
+            string _sa;
+            _sa = "membre " + v_membre + "\n" +
+                "folio" + v_fol + "\n" +
+                "letra" + v_letra+"\n";
+            return _sa;
+        }
     }
     public class Filtro
     {

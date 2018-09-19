@@ -368,7 +368,7 @@ namespace Trato
             }
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
             // Handle when your app starts
             //existe la variable guardada
@@ -411,7 +411,6 @@ namespace Trato
                     v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
                     string _jsonGenerales = Current.Properties["generales"] as string;
                     v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonGenerales);
-
                     MainPage = new V_Master(true, "Bienvenido "+v_perfil.v_Nombre);
                 }
                 else

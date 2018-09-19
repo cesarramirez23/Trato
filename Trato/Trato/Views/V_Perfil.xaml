@@ -29,9 +29,9 @@
         </ContentPage>
 -->
         <ContentPage Title="Info General" >
-          
-            <ScrollView>
-                <StackLayout x:Name="StackGeneral" Margin="20,10">
+
+            <ScrollView Margin="20,10">
+                <StackLayout x:Name="StackGeneral" >
                 
                     
                         <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
@@ -48,7 +48,7 @@
                         <Entry  Placeholder="Lugar Nacimiento"  Text="lugar donde nacio la gente" IsEnabled="False"  Style="{StaticResource entry_perfil}" Keyboard="Default" x:Name="G_lugar" ></Entry>
                   
                         <Label Text="Sexo" Style="{StaticResource lblSty}"></Label>
-                        <Picker x:Name="G_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
+                        <Picker x:Name="G_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo" IsEnabled="False">
                             <Picker.Items>
                                 <x:String>Masculino</x:String>
                                 <x:String>Femenino</x:String>
@@ -97,7 +97,7 @@
                         <Entry Text="111111" Style="{StaticResource entry_perfil}" IsEnabled="False" x:Name="G_Cel" Keyboard="Numeric"></Entry>
                   
 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" x:Name="G_Pagar" >
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" x:Name="G_Pagar" IsVisible="False">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -146,7 +146,7 @@
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Sexo" Style="{StaticResource lblSty}"></Label>
-                        <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo"  Title="Elige tu sexo">
+                        <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo" IsEnabled="False"  Title="Elige tu sexo">
                             <Picker.Items>
                                 <x:String>Masculino</x:String>
                                 <x:String>Femenino</x:String>

@@ -79,7 +79,7 @@ namespace Trato.Views
                             //crear el json
                             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
                             //mostrar la pantalla con mensajes
-                            Mensajes_over.Text += "\n" + _jsonper + "\n";
+                            Mensajes_over.Text += "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
                             //crear el cliente
                             _client = new HttpClient();
                             _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
@@ -91,6 +91,7 @@ namespace Trato.Views
                                 _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                                 _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                                await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
                                 App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
                                 _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
@@ -104,10 +105,6 @@ namespace Trato.Views
                                     App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text);
                                     //cargar la nueva pagina de perfil
                                     string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
-                                    if(_respuesta == "2")
-                                    {
-                                        await DisplayAlert("Aviso", "Tu cuenta no está activada, revisa tu perfil para mas información", "Aceptar");
-                                    }
                                     Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
                                 }
                                 catch (HttpRequestException exception)

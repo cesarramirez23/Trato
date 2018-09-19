@@ -38,9 +38,9 @@ namespace Trato.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-             CargarGen();
-             CargarMed();
-             Fn_Activo();
+            CargarGen();
+            CargarMed();
+            Fn_Activo();
            await Task.Delay(100);
         }
         public async void Fn_Activo()
@@ -55,7 +55,8 @@ namespace Trato.Views
                 await Task.Delay(10);
 
             }//no esta activado falta pagar
-            else if(App.v_perfil.v_activo=="0")
+             //else if(App.v_perfil.v_activo=="0")
+             else
             {
                 string prime = App.v_membresia.Split('-')[0];
                 string _membre = "";
@@ -81,7 +82,8 @@ namespace Trato.Views
                 else if(letra=="E")
                 {
                     _nombre = "Pago membresia Empresarial de Trato Especial";
-                    _costo = "464";
+
+                    _costo = (int.Parse("464")* int.Parse(App.v_perfil.v_numEmple)).ToString();
                 }
                 else
                 {
@@ -91,11 +93,11 @@ namespace Trato.Views
 
                 G_Editar.IsVisible = false;
                 M_Editar.IsVisible = false;
-              //  qr_but.IsVisible = false;
-                if(int.Parse(App.v_folio)==0)
-                {
-                    G_Pagar.IsVisible = true;
-                }
+                //  qr_but.IsVisible = false;
+                G_Pagar.IsVisible = true;
+                //if(int.Parse(App.v_folio)==0)
+                //{
+                //}
                 await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Cancelar");
             }
         }

@@ -19,8 +19,6 @@
                 <Setter Property="BorderRadius" Value="10"/>
                 <Setter Property="BorderColor" Value="{StaticResource NavigationPrimary}"/>
                 <Setter Property="TextColor" Value="Gray" />
-                <Setter Property="Margin" Value="20,0,20,0"/>
-                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
             <Style x:Key="Boton2" TargetType="Button">
