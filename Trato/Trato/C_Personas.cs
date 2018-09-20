@@ -126,7 +126,7 @@ namespace Trato.Personas
                 "id sexo "+ v_idsexo + "  tel " + v_Tel + " cel  " + v_Cel + "  \n" +
                 "  calle  "+v_Calle + " numext " + v_NumExt + "  numint " +  v_NumInt + "  " +
                 "colonia "+v_Colonia + "ciud  " + v_Ciudad + " muni" + v_municipio + "  esta" + v_Estado + " \n" +
-                "cp  "+v_Cp + "  corr " + v_Correo+"   activado  "+ v_activo+"  numemple"+v_numEmple;
+                "cp  "+v_Cp + "  corr " + v_Correo+"   activado  "+ v_activo+"  numemple"+v_numEmple + "vigencia " + v_vig;
             return _ret;
                   
         }

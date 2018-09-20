@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Trato.Varios;
 using System.Threading.Tasks;
+using Trato.Personas;
 
 namespace Trato.Views
 {
@@ -19,26 +20,74 @@ namespace Trato.Views
         public MainPage()
         {
             InitializeComponent();
-        }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            if(App.v_log=="1"&&  App.v_perfil.v_activo!="1")
+            if (App.v_log == "1")
             {
-                M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+                Fn_Fecha();
+                if (App.v_perfil.v_activo != "1")
+                {
+                    M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+                }
             }
             else
             {
                 M_mensaje.IsVisible = false;
             }
+            //FN_Red();
+        }
+        protected override  void OnAppearing()
+        {
+            base.OnAppearing();
             v_cambioban = true;
-            FN_Red();
         }//1809I-0006    39f8cf
         //1809E-0003    64abe9
         protected override void OnDisappearing()
         {
             v_cambioban = false;
             base.OnDisappearing();
+        }
+        /// <summary>
+        /// hace la consulta a la fecha de vigencia para descativarla o no
+        /// </summary>
+        async void Fn_Fecha()
+        {
+            Perf _perf = new Perf();
+            _perf.v_fol = App.v_folio ;
+            _perf.v_membre = App.v_membresia;
+            _perf.v_letra = App.v_letra;
+            //crear el json
+            string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+            //crear el cliente
+            HttpClient _client = new HttpClient();
+            string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+            StringContent _content = new StringContent(_jsonper,System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage _respuestaphp;
+            try
+            {
+                //mandar el json con el post
+                _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                //await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
+                App.Fn_GuardarDatos(_nuePer, App.v_membresia,App.v_folio, App.v_letra);
+                _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+                _content = new StringContent(_jsonper, System.Text.Encoding.UTF8, "application/json");
+                try
+                {
+                    //mandar el json con el post
+                    _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                    _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+                    App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
+                }
+                catch (HttpRequestException exception)
+                {
+                    await DisplayAlert("Error", exception.Message, "Aceptar");
+                }
+            }
+            catch (HttpRequestException exception)
+            {
+                await DisplayAlert("Error", exception.Message, "Aceptar");
+            }
         }
         public async void FN_Red()
         {

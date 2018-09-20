@@ -51,12 +51,11 @@ namespace Trato.Views
                 G_Editar.IsVisible = true;
                 G_Pagar.IsVisible = false;
                 M_Editar.IsVisible = true;
-               // qr_but.IsVisible = true;
+                qr_but.IsVisible = true;
                 await Task.Delay(10);
 
-            }//no esta activado falta pagar
-             //else if(App.v_perfil.v_activo=="0")
-             else
+            }//no esta activado falta pagar  //else if(App.v_perfil.v_activo=="0")
+            else
             {
                 string prime = App.v_membresia.Split('-')[0];
                 string _membre = "";
@@ -93,12 +92,9 @@ namespace Trato.Views
 
                 G_Editar.IsVisible = false;
                 M_Editar.IsVisible = false;
-                //  qr_but.IsVisible = false;
+                qr_but.IsEnabled = false;
                 G_Pagar.IsVisible = true;
-                //if(int.Parse(App.v_folio)==0)
-                //{
-                //}
-                await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Cancelar");
+                await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Aceptar");
             }
         }
         public async void Fn_PagarEfec(object sender, EventArgs _args)
@@ -275,7 +271,7 @@ namespace Trato.Views
                     _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                     string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                     C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                    App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
+                    App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
 
                     //carga la info del PERFIL MEDICO
                     _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
@@ -284,7 +280,7 @@ namespace Trato.Views
                     _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                     _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                     C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-                    App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
+                    App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
 
                     CargarGen();
                     CargarMed();
@@ -407,7 +403,7 @@ namespace Trato.Views
                         _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                         string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                         C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                        App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
+                        App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
                         //carga la info del PERFIL MEDICO
                         _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                         _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
@@ -417,7 +413,7 @@ namespace Trato.Views
                             _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                             _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                             C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-                            App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
+                            App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
                             CargarGen();
                             CargarMed();
                         }
@@ -464,7 +460,7 @@ namespace Trato.Views
                 HttpResponseMessage _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio);
+                App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
                 try
                 {
                     //carga la info del PERFIL MEDICO
@@ -476,7 +472,7 @@ namespace Trato.Views
                     _respuesta = await v_respuestphp.Content.ReadAsStringAsync();
                     C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
 
-                    App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio);
+                    App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
                 }
                 catch (HttpRequestException exception)
                 {
@@ -656,6 +652,7 @@ namespace Trato.Views
             string json = @"{";
             json += "idmembre:'" + App.v_membresia + "',\n";
             json += "idfolio:'" + App.v_folio + "',\n";
+            json += "letra:'" + App.v_letra + "',\n";
             json += "}";
 
             // barcode.BarcodeValue = qrTexto.Text;

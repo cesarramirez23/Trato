@@ -91,8 +91,8 @@ namespace Trato.Views
                                 _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                                 _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                                await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
-                                App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text);
+                               // await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
+                                App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text, letra);
                                 _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                                 try
@@ -102,7 +102,7 @@ namespace Trato.Views
                                     _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                     C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
                                     Mensajes_over.Text = _respuesta;
-                                    App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text);
+                                    App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text,letra);
                                     //cargar la nueva pagina de perfil
                                     string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
                                     Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);

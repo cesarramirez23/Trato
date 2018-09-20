@@ -64,6 +64,7 @@ namespace Trato.Views
             {
                 stackTodo.IsVisible = false;
                 StackFolio.IsVisible = true;
+                StackMen.IsVisible = false;
                 Fol_pass.Text = "";
             }
             else
@@ -654,15 +655,18 @@ namespace Trato.Views
                         {
                             await DisplayAlert("Error", "no coincide el numero de folio con el nombre de la empresa", "Aceptar");
                         }
+                        else if(_respuesta=="2")
+                        {
+                            await DisplayAlert("Error", "La cuenta del titular no está activa, contacta al titular para mas información", "Aceptar");
+                        }
                         else if (_respuesta == "0")
                         {
-
                             await DisplayAlert("Error", "Error por algo", "Aceptar");
                         }
                         else if (_respuesta == "1")
                         {
                             await DisplayAlert("Bien", "Exito todo bien", "Aceptar");
-
+                            await Navigation.PopAsync();
                         }
                         ReintenSec.IsVisible = true;
                     }

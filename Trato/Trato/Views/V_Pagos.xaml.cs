@@ -58,14 +58,22 @@ namespace Trato
             json += "}";
             JObject v_jsonInfo = JObject.Parse(json);
             StringContent _content = new StringContent(v_jsonInfo.ToString(), Encoding.UTF8, "application/json");
-
+              
+            await DisplayAlert("Envia", v_jsonInfo.ToString(), "Aceptar");
             HttpClient _clien = new HttpClient();
             string _direc = "https://useller.com.mx/trato_especial/prueba_conekta.php";
             try
             {
                 HttpResponseMessage _responphp = await _clien.PostAsync(_direc, _content);
                 string _resp = await _responphp.Content.ReadAsStringAsync();
-                await DisplayAlert("mensaje ", _resp, "aceptar");
+                if(_resp=="1")
+                {
+                    await DisplayAlert("Aviso", "Ficha generada con éxito, cuando pagues se activará tu cuenta y sus servicios", "aceptar");    
+                }
+                else
+                {
+                    await DisplayAlert("Aviso", _resp, "Aceptar");
+                }
                 await Navigation.PopAsync();
             }
             catch (HttpRequestException exception)
@@ -108,9 +116,9 @@ namespace Trato
                         //mandar el json con el post
                         _responphp = await _clien.PostAsync(_DirEnviar, _content);
                         string _resp = await _responphp.Content.ReadAsStringAsync();
-                        await DisplayAlert("llega ",_perf.Fn_GetDatos() +" "+ _resp, "aceptar");
+                        //await DisplayAlert("llega ",_perf.Fn_GetDatos() +" "+ _resp, "aceptar");
                         Personas.C_PerfilGen _nuePer = JsonConvert.DeserializeObject<Personas.C_PerfilGen>(_resp);
-                        App.Fn_GuardarDatos(_nuePer, v_infoPago.v_membresia, v_infoPago.v_conse);
+                        App.Fn_GuardarDatos(_nuePer, v_infoPago.v_membresia, v_infoPago.v_conse, App.v_letra);
                         _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
                         _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                         try
@@ -119,8 +127,8 @@ namespace Trato
                             _responphp = await _clien.PostAsync(_DirEnviar, _content);
                             _resp = await _responphp.Content.ReadAsStringAsync();
                             Personas.C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<Personas.C_PerfilMed>(_resp);
-                            await DisplayAlert("perfil medico", _resp, "sad");
-                            App.Fn_GuardarDatos(_nuePerMEd, v_infoPago.v_membresia, v_infoPago.v_conse);
+                            //await DisplayAlert("perfil medico", _resp, "sad");
+                            App.Fn_GuardarDatos(_nuePerMEd, v_infoPago.v_membresia, v_infoPago.v_conse, App.v_letra);
                             await Navigation.PopAsync();                    
                         }
                         catch (HttpRequestException exception)

@@ -43,6 +43,15 @@ JObject o = JObject.Parse(json);
             }
             else
             {
+                C_Membre.Text = App.v_membresia+ "  folio: "+ App.v_folio;
+
+                if (App.v_letra == "I")
+                { C_Tipo.Text = "Membresia Individual"; }
+                else if (App.v_letra == "F")
+                { C_Tipo.Text = "Membresia Familiar"; }
+                else if (App.v_letra == "E")
+                { C_Tipo.Text = "Membresia Empresarial"; }
+                    
                 C_fecha.Text = App.v_perfil.v_vig;
                 ContentCuenta.IsEnabled = true;
             }
@@ -115,7 +124,27 @@ JObject o = JObject.Parse(json);
                         {
                             HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
                             string _result = _respuestphp.Content.ReadAsStringAsync().Result;
-                            await DisplayAlert("respuesta", _result + "\n" + jsonPer.ToString(), "Aceptar");
+                            if(_result=="1")
+                            {
+                                await DisplayAlert("Exito", "Cambio de contraseña exitoso", "Aceptar");
+                                P_actual.Text = "";
+                                P_Nueva.Text = "";
+                                P_mensaje.Text = "";
+                                P_mensaje.IsVisible = false;
+                            }
+                            else if(_result=="8")
+                            {
+                                await DisplayAlert("Error", "No se pudo actualizar, por favor intentalo mas tarde", "Aceptar");
+                            }
+                            else if(_result=="9")
+                            {
+                                await DisplayAlert("Error", "La información proporcionada como contraseña actual, no coincide con la información del usuario", 
+                                    "Aceptar");
+                            }
+                            else if (_result=="10")
+                            {
+                                await DisplayAlert("respuesta", "Usuario no encontrado, por favor intentalo mas tarde ", "Aceptar");
+                            }
                         }
                         catch (HttpRequestException exception)
                         {
