@@ -158,6 +158,16 @@ namespace Trato.Personas
             v_enfer = "";
             v_medica = "";
         }
+        public C_PerfilMed(int _idsex)
+        {
+            v_sangre = "";
+            v_sexo = _idsex;
+            v_infoMujer = "";
+            v_alergias = "";
+            v_operaciones = "";
+            v_enfer = "";
+            v_medica = "";
+        }
         public C_PerfilMed(string _sangr, string _sexo, string _aler, string _opera, string _enfer, string _medicam)
         {
             v_sangre = _sangr;

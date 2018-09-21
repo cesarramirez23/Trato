@@ -38,8 +38,8 @@ namespace Trato.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            CargarGen();
             CargarMed();
+            CargarGen();
             Fn_Activo();
            await Task.Delay(100);
         }

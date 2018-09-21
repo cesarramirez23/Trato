@@ -395,7 +395,7 @@ namespace Trato
         {
             // Handle when your app starts
             //existe la variable guardada
-           //Properties.Clear();
+            //Properties.Clear();
             if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado
@@ -408,7 +408,6 @@ namespace Trato
                     v_membresia = "";
                     v_folio = "";
                     v_letra = "";
-                    
                     string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
                     Properties["perfGen"] = _json;
                     _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);

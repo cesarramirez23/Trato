@@ -100,8 +100,16 @@ namespace Trato.Views
                                     //mandar el json con el post
                                     _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                                     _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                    C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-                                    Mensajes_over.Text = _respuesta;
+                                    C_PerfilMed _nuePerMEd = new C_PerfilMed();
+                                    if(string.IsNullOrEmpty( _respuesta) )
+                                    {
+                                        _nuePerMEd = new C_PerfilMed(App.v_perfil.v_idsexo);
+                                    }
+                                    else
+                                    {
+                                        _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+                                    }
+                                    Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
                                     App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text,letra);
                                     //cargar la nueva pagina de perfil
                                     string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);

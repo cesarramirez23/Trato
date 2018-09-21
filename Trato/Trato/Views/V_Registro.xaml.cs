@@ -79,139 +79,17 @@ namespace Trato.Views
                 tel.IsEnabled = v_T_Persona;
             }
         }
-        /// <summary>
-        /// el switch, tru es fisico falso es moral
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        public void Cambio(object sender, EventArgs args)
-        {
-            v_T_Persona = !v_T_Persona;
-            if (v_T_Persona)
-            {
-                Persona.Text = "Persona Fisica";
 
-
-                //entry
-                giro.Text = "";
-                giro.Placeholder = "Ocupacion";
-                //label ocupacion
-                LblOcu.Text = "Ocupacion";
-
-
-                StackFecha.IsVisible = true;
-                //fecha.IsEnabled = true;
-                //fecha.IsVisible = true;
-
-                StackLugar.IsVisible = true;
-                //lugar.IsEnabled = true;
-                //lugar.IsVisible = true;
-
-
-                StackCel.IsVisible = true;
-                //cel.IsEnabled = true;
-                //cel.IsVisible = true;
-
-
-                StackRfc.IsVisible = false;
-                //rfc.IsVisible = false;
-                rfc.Text = "";
-
-
-            }
-            else
-            {
-                Persona.Text = "Persona Moral";
-                
-                //giro es entry
-                giro.Text = "";
-                giro.Placeholder = "Giro de la empresa";
-                //label de ocupacuon/giro
-                LblOcu.Text = "Giro";
-
-
-                StackFecha.IsVisible = false;
-                //fecha.IsEnabled = false;
-                //fecha.IsVisible = false;
-
-                StackLugar.IsVisible = false;
-                //lugar.IsEnabled = false;
-                //lugar.Text = "";
-
-
-                StackCel.IsVisible = false;
-                //cel.IsEnabled = false;
-                //cel.IsVisible = false;
-                cel.Text = "";
-
-                StackRfc.IsVisible = true;
-               // rfc.IsVisible = false;
-            }
-
-        }
-        public void Fn_IrMenu(object sender, EventArgs _Args)
-        {
-            StackMen.IsVisible = false;
-            App.Current.MainPage = new V_Master(false,"Bienvenido");
-        }
-        /// <summary>
-        /// cambio en el drop de membresias
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="_args"></param>
-        void Fn_Drop(object sender, EventArgs _args)
-        {
-            if (tipo.SelectedIndex==2)
-            {
-                StackEmple.IsVisible = true;
-            }
-            else
-            {
-                StackEmple.IsVisible = false;
-            }
-            mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex]+" MXN";
-        }
-        void Fn_DropEmple(object sender, EventArgs _args)
-        {
-            int _cosFinal = 0;
-            _cosFinal = int.Parse(v_costo[tipo.SelectedIndex]);
-            _cosFinal *= int.Parse( PickEmple.SelectedItem.ToString());
-            mensaje.Text = tipo.SelectedItem.ToString() + "  " + _cosFinal+ " MXN";
-        }
-        void Fn_NoNumeros(object sender, TextChangedEventArgs _args)
-        {
-            Entry _entry = (Entry)sender;
-            char _ultimo = _entry.Text[_entry.Text.Length-1];
-            if(_ultimo>47 && _ultimo<58)
-            {
-                _entry.Text = _entry.Text.Remove(_entry.Text.Length - 1); // remove last char
-            }
-        }
-        void Fn_Max2(object sender, EventArgs _args)
-        { 
-            Entry _temp = (Entry)sender;
-            if (_temp.Text.Length > 2)
-            {
-                _temp.Text = _temp.Text.Remove(_temp.Text.Length - 1); // remove last char
-            }
-        }
-        void Fn_Max18(object sender, EventArgs _args)
-        {
-            Entry _temp = (Entry)sender;
-            if (_temp.Text.Length > 18)
-            {
-                _temp.Text = _temp.Text.Remove(_temp.Text.Length - 1); // remove last char
-            }
-        }
+        #region LAS FUNCIONES DE CREAR CUENTA
         public async void Registrar(object sender, EventArgs _args)
-         {
-            if(tipo.SelectedIndex<0)
+        {
+            if (tipo.SelectedIndex < 0)
             {
                 await DisplayAlert("Error", "Selecciona un tipo de membresia", "Aceptar");
             }
             else
             {
-                if(tipo.SelectedIndex==2 && PickEmple.SelectedIndex<0)
+                if (tipo.SelectedIndex == 2 && PickEmple.SelectedIndex < 0)
                 {
                     await DisplayAlert("Error", "Como mínimo 1 empleado, maximo 20", "Aceptar");
                 }
@@ -224,7 +102,7 @@ namespace Trato.Views
                         json += "}";
                         v_jsonInfo = JObject.Parse(json);
 
-                        
+
                         NavigationPage.SetHasNavigationBar(this, false);
                         RegPrin.IsEnabled = false;
                         StackMen.IsVisible = true;
@@ -261,86 +139,156 @@ namespace Trato.Views
                         //}
                         //else
                         //{
-                            int _precioFinal = -1;
-                            C_RegistroPrinci datosregistro= new C_RegistroPrinci();
-                            //tipo de membresia
-                            if (tipo.SelectedIndex == 2)
-                            {
-                                _precioFinal = int.Parse(v_costo[tipo.SelectedIndex])* int.Parse(PickEmple.SelectedItem.ToString());
+                        int _precioFinal = -1;
+                        C_RegistroPrinci datosregistro = new C_RegistroPrinci();
+                        //tipo de membresia
+                        if (tipo.SelectedIndex == 2)
+                        {
+                            _precioFinal = int.Parse(v_costo[tipo.SelectedIndex]) * int.Parse(PickEmple.SelectedItem.ToString());
                             datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
                              dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
                              _precioFinal.ToString(), int.Parse(PickEmple.SelectedItem.ToString()));//,  tokenid);
-                            }
-                            else
-                            {
+                        }
+                        else
+                        {
                             datosregistro = new C_RegistroPrinci(nombre.Text, rfc.Text, fecha.Date, lugar.Text, giro.Text, tel.Text, cel.Text,
                               dom.Text, ext.Text, inte.Text, col.Text, ciu.Text, mun.Text, est.Text, cp.Text, correo.Text, _persona, tipo.SelectedItem.ToString(), tipo.SelectedIndex,
                               v_costo[tipo.SelectedIndex], 0);//,tokenid);
-                            }
-                            //se crea el json
-                            string json_reg = JsonConvert.SerializeObject(datosregistro, Formatting.Indented);
-                            // lo hacemos visible en la pantall
-                            Mensajes_over.Text += json_reg;
-                            //damos el formato
-                            StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
-                            //crea el cliente
-                            HttpClient v_cliente = new HttpClient();
-                            //url
-                            var url = "https://useller.com.mx/trato_especial/tarjeta_alta.php";
+                        }
+                        //se crea el json
+                        string json_reg = JsonConvert.SerializeObject(datosregistro, Formatting.Indented);
+                        // lo hacemos visible en la pantall
+                        Mensajes_over.Text += json_reg;
+                        //damos el formato
+                        StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
+                        //crea el cliente
+                        HttpClient v_cliente = new HttpClient();
+                        //url
+                        var url = "https://useller.com.mx/trato_especial/tarjeta_alta.php";
 
-                            try
+                        try
+                        {
+                            HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
+                            // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
+                            if (respuestaReg.StatusCode == System.Net.HttpStatusCode.OK)
                             {
-                                HttpResponseMessage respuestaReg = await v_cliente.PostAsync(url, v_content);
-                                // await DisplayAlert("statusCode", respuestaReg.StatusCode.ToString(), "Aceptar");
-                                if (respuestaReg.StatusCode == System.Net.HttpStatusCode.OK)
+                                string content = await respuestaReg.Content.ReadAsStringAsync();
+                                if (content == "1")
                                 {
-                                    string content = await respuestaReg.Content.ReadAsStringAsync();
-                                    if (content == "1")
-                                    {
-                                        Mensajes_over.Text += "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
-                                        MEnu.IsVisible = true;
-                                    }
-                                    else if (content == "0")
-                                    {
-                                        StackMen.IsVisible = false;
-                                        await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
-                                        NavigationPage.SetHasNavigationBar(this, true);
-                                        RegPrin.IsEnabled = true;
-                                    }
+                                    Mensajes_over.Text += "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
+                                    MEnu.IsVisible = true;
                                 }
-                                else
+                                else if (content == "0")
                                 {
-                                    string content = await respuestaReg.Content.ReadAsStringAsync();
-                                    Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content;
-                                    ReintenRegPri.IsVisible = true;
+                                    StackMen.IsVisible = false;
+                                    await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
+                                    NavigationPage.SetHasNavigationBar(this, true);
+                                    RegPrin.IsEnabled = true;
                                 }
                             }
-                            catch (HttpRequestException exception)
+                            else
                             {
-                                Mensajes_over.Text = exception.Message;
+                                string content = await respuestaReg.Content.ReadAsStringAsync();
+                                Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content;
                                 ReintenRegPri.IsVisible = true;
-                                NavigationPage.SetHasNavigationBar(this, true);
-                                RegPrin.IsEnabled = true;
                             }
-                       // }//token vacio
-                        
-
+                        }
+                        catch (HttpRequestException exception)
+                        {
+                            Mensajes_over.Text = exception.Message;
+                            ReintenRegPri.IsVisible = true;
+                            NavigationPage.SetHasNavigationBar(this, true);
+                            RegPrin.IsEnabled = true;
+                        }
+                        // }//token vacio
                     }//ifcondiciones
                 }// sio es empresarial que elija numero de empleados
             }//else tipo selectedindex
         }
-        public void Fn_OcultarPrin(object sender, EventArgs _args)
+        public async void Folio_Registro(object sender, EventArgs _args)
         {
-            StackMen.IsVisible = false;
-            ReintenRegPri.IsVisible = false;
-            Mensajes_over.Text = "";
+            if (Fol_DropMembre.SelectedIndex < 0)
+            {
+                await DisplayAlert("Error", "Selecciona un tipo de Membresia", "Aceptar");
+            }
+            else if (v_sexoPick.SelectedIndex < 0)
+            {
+                await DisplayAlert("Error", "Selecciona tu genero", "Aceptar");
+            }
+            else
+            {
+                if (Fn_Condiciones(true))
+                {// 0 familiar
+                    StackMen.IsVisible = true;
+                    Mensajes_over.Text = "Enviando informacion";
+                    C_RegistroSec _registro = new C_RegistroSec();
+                    //se crean los datos
+                    if (Fol_DropMembre.SelectedIndex == 0)
+                    {
+                        _registro = new C_RegistroSec(Fol_Nombre.Text, v_sexoPick.SelectedIndex, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text, Fol_NumMembre.Text, 0, Fol_Parent.Text);
+                    }
+                    else if (Fol_DropMembre.SelectedIndex == 1)
+                    {
+                        _registro = new C_RegistroSec(Fol_Nombre.Text, v_sexoPick.SelectedIndex, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text, Fol_NumMembre.Text, 1, Fol_Empre.Text, Fol_Folio.Text);
+                    }
+                    //crear json
+                    string _jsonReg = JsonConvert.SerializeObject(_registro, Formatting.Indented);
+                    Mensajes_over.Text += "\n json \n" + _jsonReg;
+                    StringContent _content = new StringContent(_jsonReg, Encoding.UTF8, "application/json");
+                    //crea el cliente
+                    HttpClient _clien = new HttpClient();
+                    await DisplayAlert("Manda", _jsonReg, "A");
+                    //direccion a enviar
+                    string _direc = "https://useller.com.mx/trato_especial/crear_cuenta";
+                    try
+                    {
+                        //se envia
+                        HttpResponseMessage _respuestaphp = await _clien.PostAsync(_direc, _content);
+                        Mensajes_over.Text = _respuestaphp.StatusCode.ToString();
+                        //leer la respuesta
+                        string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                        Mensajes_over.Text += "\n respuesta  " + _respuesta;
+                        //422 error folio    834 maximo folio fam    200 no membresia con el nombre de la empresa
+                        if (_respuesta == "422")
+                        {
+                            await DisplayAlert("Error", " error de folio", "Aceptar");
+                        }
+                        else if (_respuesta == "834")
+                        {
+
+                            await DisplayAlert("Error", "Limite de folio Excedido", "Aceptar");
+                        }
+                        else if (_respuesta == "200")
+                        {
+                            await DisplayAlert("Error", "no coincide el numero de folio con el nombre de la empresa", "Aceptar");
+                        }
+                        else if (_respuesta == "2")
+                        {
+                            await DisplayAlert("Error", "La cuenta del titular no está activa, contacta al titular para mas información", "Aceptar");
+                        }
+                        else if (_respuesta == "0")
+                        {
+                            await DisplayAlert("Error", "Error por algo", "Aceptar");
+                        }
+                        else if (_respuesta == "1")
+                        {
+                            await DisplayAlert("Bien", "Exito todo bien", "Aceptar");
+                            await Navigation.PopAsync();
+                        }
+                        ReintenSec.IsVisible = true;
+                    }
+                    catch (HttpRequestException exception)
+                    {
+                        Mensajes_over.Text = exception.Message;
+                        ReintenSec.IsVisible = true;
+                    }
+                }
+            }
+
         }
-        public void Fn_ocultar(object sender, EventArgs _args)
-        {
-            Mensajes_over.Text = "";
-            StackMen.IsVisible = false;
-            ReintenSec.IsVisible = false;
-        }
+        #endregion
+
+        #region LAS FUNCIONES DE CONDICIONALES
         /// <summary>
         /// FORMULARIO COMPLETO CAMBIAR EL COLOR DEL FONDO A LOS QUE SON NECESARIOS
         /// </summary>
@@ -487,9 +435,6 @@ namespace Trato.Views
 
 
         }
-
-
-        #region FUNCIONES PARA CREAR TU CUENTA EMPRESARIAL O FAMILIAR
         /// <summary>
         /// cuando es crear usuario, folio y contraseña
         /// </summary>
@@ -578,7 +523,7 @@ namespace Trato.Views
             }
             //correo
             Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            if (string.IsNullOrEmpty(Fol_Correo.Text) || string.IsNullOrWhiteSpace(Fol_Correo.Text) || !EmailRegex.IsMatch (Fol_Correo.Text))
+            if (string.IsNullOrEmpty(Fol_Correo.Text) || string.IsNullOrWhiteSpace(Fol_Correo.Text) || !EmailRegex.IsMatch(Fol_Correo.Text))
             {
                 Fol_Correo.BackgroundColor = Color.Red;
                 _conta++;
@@ -599,86 +544,154 @@ namespace Trato.Views
             }
 
         }
-        public async void Folio_Registro(object sender, EventArgs _args)
+        #endregion
+
+        /// <summary>
+        /// el switch, tru es fisico falso es moral
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void Cambio(object sender, EventArgs args)
         {
-            if(Fol_DropMembre.SelectedIndex<0)
+            v_T_Persona = !v_T_Persona;
+            if (v_T_Persona)
             {
-                await DisplayAlert("Error", "Selecciona un tipo de Membresia", "Aceptar");          
-            }
-            else if(v_sexoPick.SelectedIndex<0)
-            {
-                await DisplayAlert("Error", "Selecciona tu genero", "Aceptar");
+                Persona.Text = "Persona Fisica";
+
+
+                //entry
+                giro.Text = "";
+                giro.Placeholder = "Ocupacion";
+                //label ocupacion
+                LblOcu.Text = "Ocupacion";
+
+
+                StackFecha.IsVisible = true;
+                //fecha.IsEnabled = true;
+                //fecha.IsVisible = true;
+
+                StackLugar.IsVisible = true;
+                //lugar.IsEnabled = true;
+                //lugar.IsVisible = true;
+
+
+                StackCel.IsVisible = true;
+                //cel.IsEnabled = true;
+                //cel.IsVisible = true;
+
+
+                StackRfc.IsVisible = false;
+                //rfc.IsVisible = false;
+                rfc.Text = "";
+
+
             }
             else
             {
-                if(Fn_Condiciones(true))
-                {// 0 familiar
-                    StackMen.IsVisible = true;
-                    Mensajes_over.Text = "Enviando informacion";
-                    C_RegistroSec _registro = new C_RegistroSec();
-                    //se crean los datos
-                    if(Fol_DropMembre.SelectedIndex==0)
-                    {
-                        _registro = new C_RegistroSec(Fol_Nombre.Text,v_sexoPick.SelectedIndex, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text,Fol_NumMembre.Text, 0, Fol_Parent.Text);
-                    }
-                    else if(Fol_DropMembre.SelectedIndex==1)
-                    {
-                        _registro = new C_RegistroSec(Fol_Nombre.Text,v_sexoPick.SelectedIndex, Fol_fecha.Date, Fol_Cel.Text, Fol_Correo.Text, Fol_pass.Text,Fol_NumMembre.Text, 1, Fol_Empre.Text, Fol_Folio.Text);
-                    }
-                    //crear json
-                    string _jsonReg = JsonConvert.SerializeObject(_registro, Formatting.Indented);
-                    Mensajes_over.Text += "\n json \n"+ _jsonReg;
-                    StringContent _content = new StringContent(_jsonReg, Encoding.UTF8, "application/json");
-                    //crea el cliente
-                    HttpClient _clien = new HttpClient();
-                    //direccion a enviar
-                    string _direc = "https://useller.com.mx/trato_especial/crear_cuenta";
-                    try
-                    {
-                        //se envia
-                        HttpResponseMessage _respuestaphp = await _clien.PostAsync(_direc, _content);
-                        Mensajes_over.Text = _respuestaphp.StatusCode.ToString();
-                        //leer la respuesta
-                        string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                        Mensajes_over.Text += "\n respuesta  " + _respuesta;
-                        //422 error folio    834 maximo folio fam    200 no membresia con el nombre de la empresa
-                        if (_respuesta == "422")
-                        {
-                            await DisplayAlert("Error", " error de folio", "Aceptar");
-                        }
-                        else if (_respuesta == "834")
-                        {
+                Persona.Text = "Persona Moral";
+                
+                //giro es entry
+                giro.Text = "";
+                giro.Placeholder = "Giro de la empresa";
+                //label de ocupacuon/giro
+                LblOcu.Text = "Giro";
 
-                            await DisplayAlert("Error", "Limite de folio Excedido en familiar", "Aceptar");
-                        }
-                        else if (_respuesta == "200")
-                        {
-                            await DisplayAlert("Error", "no coincide el numero de folio con el nombre de la empresa", "Aceptar");
-                        }
-                        else if(_respuesta=="2")
-                        {
-                            await DisplayAlert("Error", "La cuenta del titular no está activa, contacta al titular para mas información", "Aceptar");
-                        }
-                        else if (_respuesta == "0")
-                        {
-                            await DisplayAlert("Error", "Error por algo", "Aceptar");
-                        }
-                        else if (_respuesta == "1")
-                        {
-                            await DisplayAlert("Bien", "Exito todo bien", "Aceptar");
-                            await Navigation.PopAsync();
-                        }
-                        ReintenSec.IsVisible = true;
-                    }
-                    catch (HttpRequestException exception)
-                    {
-                        Mensajes_over.Text = exception.Message;
-                        ReintenSec.IsVisible = true;
-                    }
-                }
+
+                StackFecha.IsVisible = false;
+                //fecha.IsEnabled = false;
+                //fecha.IsVisible = false;
+
+                StackLugar.IsVisible = false;
+                //lugar.IsEnabled = false;
+                //lugar.Text = "";
+
+
+                StackCel.IsVisible = false;
+                //cel.IsEnabled = false;
+                //cel.IsVisible = false;
+                cel.Text = "";
+
+                StackRfc.IsVisible = true;
+               // rfc.IsVisible = false;
             }
 
         }
+        public void Fn_IrMenu(object sender, EventArgs _Args)
+        {
+            StackMen.IsVisible = false;
+            App.Current.MainPage = new V_Master(false,"Bienvenido");
+        }
+        /// <summary>
+        /// cambio en el drop de membresias
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_args"></param>
+        void Fn_Drop(object sender, EventArgs _args)
+        {
+            if (tipo.SelectedIndex==2)
+            {
+                StackEmple.IsVisible = true;
+            }
+            else
+            {
+                StackEmple.IsVisible = false;
+            }
+            mensaje.Text = tipo.SelectedItem.ToString() + "  " + v_costo[tipo.SelectedIndex]+" MXN";
+        }
+        void Fn_DropEmple(object sender, EventArgs _args)
+        {
+            int _cosFinal = 0;
+            _cosFinal = int.Parse(v_costo[tipo.SelectedIndex]);
+            _cosFinal *= int.Parse( PickEmple.SelectedItem.ToString());
+            mensaje.Text = tipo.SelectedItem.ToString() + "  " + _cosFinal+ " MXN";
+        }
+        void Fn_NoNumeros(object sender, TextChangedEventArgs _args)
+        {
+            Entry _entry = (Entry)sender;
+            if (_entry.Text.Length > 0)
+            {
+                char _ultimo = _entry.Text[_entry.Text.Length-1];
+                if(_ultimo>47 && _ultimo<58)
+                {
+                    _entry.Text = _entry.Text.Remove(_entry.Text.Length - 1); // remove last char
+                }
+            }
+        }
+        void Fn_Max2(object sender, EventArgs _args)
+        { 
+            Entry _temp = (Entry)sender;
+            if (_temp.Text.Length > 2)
+            {
+                _temp.Text = _temp.Text.Remove(_temp.Text.Length - 1); // remove last char
+            }
+        }
+        void Fn_Max18(object sender, EventArgs _args)
+        {
+            Entry _temp = (Entry)sender;
+            if (_temp.Text.Length > 18)
+            {
+                _temp.Text = _temp.Text.Remove(_temp.Text.Length - 1); // remove last char
+            }
+        }
+        public void Fn_OcultarPrin(object sender, EventArgs _args)
+        {
+            StackMen.IsVisible = false;
+            ReintenRegPri.IsVisible = false;
+            Mensajes_over.Text = "";
+        }
+        public void Fn_ocultar(object sender, EventArgs _args)
+        {
+            Mensajes_over.Text = "";
+            StackMen.IsVisible = false;
+            ReintenSec.IsVisible = false;
+        }
+
+       
+
+
+        #region FUNCIONES PARA CREAR TU CUENTA EMPRESARIAL O FAMILIAR
+
+ 
         public void Fn_Password(object sender, TextChangedEventArgs _args)
         {
             if(Fol_pass2.Text== Fol_pass.Text)

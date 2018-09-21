@@ -48,7 +48,9 @@ namespace Trato
             }
         }
         public async void Fn_PagoOxxo(object sender, EventArgs _args)
-        { 
+        {
+            Button _but = (Button)sender;
+            _but.IsEnabled = false;
             string json = @"{";
             json += "producto:'" + v_infoPago.v_nombre + "',\n";
             json += "costo:'" + v_infoPago.v_costo + "',\n";
@@ -68,21 +70,25 @@ namespace Trato
                 string _resp = await _responphp.Content.ReadAsStringAsync();
                 if(_resp=="1")
                 {
+                    await Navigation.PopAsync();
                     await DisplayAlert("Aviso", "Ficha generada con éxito, cuando pagues se activará tu cuenta y sus servicios", "aceptar");    
                 }
                 else
                 {
+                    _but.IsEnabled = true;
                     await DisplayAlert("Aviso", _resp, "Aceptar");
                 }
-                await Navigation.PopAsync();
             }
             catch (HttpRequestException exception)
             {
+                _but.IsEnabled = true;
                 await DisplayAlert("Error", exception.Message, "Aceptar");
             }
         }
         public async void Fn_pagarPay(object sender, EventArgs _args)
         {
+            Button _but = (Button)sender;
+            _but.IsEnabled = false;
             var result = await CrossPayPalManager.Current.Buy(new PayPalItem(v_infoPago.v_nombre,int.Parse(v_infoPago.v_costo), "MXN"), new Decimal(0),null,PaymentIntent.Sale);
             if (result.Status == PayPalStatus.Cancelled)
             {
@@ -133,16 +139,19 @@ namespace Trato
                         }
                         catch (HttpRequestException exception)
                         {
+                            _but.IsEnabled = true;
                             await DisplayAlert("Error", exception.Message, "Aceptar");
                         }
                     }
                     catch (HttpRequestException exception)
                     {
+                            _but.IsEnabled = true;
                         await DisplayAlert("Error", exception.Message, "Aceptar");
                     }
                 }
                 catch (HttpRequestException exception)
                 {
+                            _but.IsEnabled = true;
                     await DisplayAlert("Error", exception.Message, "Aceptar");
                 }
             }

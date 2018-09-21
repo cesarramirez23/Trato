@@ -87,6 +87,7 @@ namespace Trato.Views
             catch (HttpRequestException exception)
             {
                 await DisplayAlert("Error", exception.Message, "Aceptar");
+                App.Fn_CargarDatos();
             }
         }
         public async void FN_Red()

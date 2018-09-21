@@ -152,7 +152,7 @@
                         </StackLayout>
 
                         <Label Text="Ingresa tu Número de Membresía" Style="{StaticResource RegSty}"></Label>
-                        <Entry Placeholder="No de Membresía" Text="1808F-0006" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
+                        <Entry Placeholder="No de Membresía" Text="1809E-0004" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
 
                         <Label Text="Ingresa tu Nombre Completo" Style="{StaticResource RegSty}"></Label>
                         <Entry Placeholder="Noombre" Text="Nuevo nombre" x:Name="Fol_Nombre" Margin="0,5"></Entry>
@@ -170,7 +170,7 @@
                         </StackLayout>
                         <StackLayout x:Name="Stack_Empre" IsVisible="False">
                             <Label Text="Ingresa tu Folio" Style="{StaticResource RegSty}"></Label>
-                            <Entry Placeholder="No de Folio" x:Name="Fol_Folio" Keyboard="Numeric" Margin="0,5"></Entry>
+                            <Entry Placeholder="No de Folio" x:Name="Fol_Folio" Keyboard="Numeric" Text="1" Margin="0,5"></Entry>
                             <Label Text="Empresa donde labora" Style="{StaticResource RegSty}"></Label>
                             <Entry Placeholder="Nombre de la empresa" x:Name="Fol_Empre" Margin="0,5"></Entry>
                         </StackLayout>
@@ -185,7 +185,7 @@
                         <Entry  Placeholder="Correo Electronico"  Text="augusto9623@hotmail.com" Keyboard="Default" x:Name="Fol_Correo" ></Entry>
 
 
-                        <Label Text="La contrañsea debe tener, mínimo una letra mayuscula, una letra minuscula, un numero y ser mayor a 8 caracteres"
+                        <Label Text="La contraseña debe tener, mínimo una letra mayuscula, una letra minuscula, un numero y ser mayor a 8 caracteres"
                                Style="{StaticResource AzulMedLbl}"></Label>
                             
                         <Label Text="Ingresa una contraseña" x:Name="confirmar" Style="{StaticResource RegSty}"></Label>

@@ -50,7 +50,10 @@ JObject o = JObject.Parse(json);
                 else if (App.v_letra == "F")
                 { C_Tipo.Text = "Membresia Familiar"; }
                 else if (App.v_letra == "E")
-                { C_Tipo.Text = "Membresia Empresarial"; }
+                { C_Tipo.Text = "Membresia Empresarial";
+                    C_T_usu.IsVisible = true;
+                    C_T_usu.Text = "Total de usuarios: " + App.v_perfil.v_numEmple;
+                }
                     
                 C_fecha.Text = App.v_perfil.v_vig;
                 ContentCuenta.IsEnabled = true;
