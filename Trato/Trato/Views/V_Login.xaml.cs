@@ -24,6 +24,9 @@ namespace Trato.Views
             InitializeComponent();
             
         }
+        public async void Fn_Reenviar(object sender, EventArgs _args)
+        {
+        }
         //el que muestra la pantalla de registro para familiar o empresarial
         public async void Fn_Registro(object sender, EventArgs _Args)
         {

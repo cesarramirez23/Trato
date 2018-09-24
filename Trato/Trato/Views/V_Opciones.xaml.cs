@@ -37,27 +37,23 @@ JObject o = JObject.Parse(json);
         public V_Opciones ()
 		{
 			InitializeComponent ();
-            if(int.Parse( App.v_folio) >0)
-            {
-                ContentCuenta.IsEnabled = false;
-            }
-            else
-            {
-                C_Membre.Text = App.v_membresia+ "  folio: "+ App.v_folio;
+            C_Membre.Text = App.v_membresia+ "  folio: "+ App.v_folio;
 
-                if (App.v_letra == "I")
-                { C_Tipo.Text = "Membresia Individual"; }
-                else if (App.v_letra == "F")
-                { C_Tipo.Text = "Membresia Familiar"; }
-                else if (App.v_letra == "E")
-                { C_Tipo.Text = "Membresia Empresarial";
+            if (App.v_letra == "I")
+            { C_Tipo.Text = "Membresia Individual"; }
+            else if (App.v_letra == "F")
+            { C_Tipo.Text = "Membresia Familiar"; }
+            else if (App.v_letra == "E"  )
+            { C_Tipo.Text = "Membresia Empresarial";
+                if( int.Parse(App.v_folio) == 0)
+                {
                     C_T_usu.IsVisible = true;
                     C_T_usu.Text = "Total de usuarios: " + App.v_perfil.v_numEmple;
                 }
-                    
-                C_fecha.Text = App.v_perfil.v_vig;
-                ContentCuenta.IsEnabled = true;
             }
+            string[] _Arr = App.v_perfil.v_vig.Split('-');
+            C_fecha.Text = _Arr[2] + " - " + _Arr[1] + " - " + _Arr[0];
+           
 		}
         public void FN_passCambio(object sender, TextChangedEventArgs args)
         {

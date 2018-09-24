@@ -11,7 +11,7 @@
                 <Label Style="{StaticResource AzulMedLbl}" Text="Membresia"/>
                 <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_Membre"/>
 
-                <Label Style="{StaticResource AzulMedLbl}" Text="Vigencia"/>
+                <Label Style="{StaticResource AzulMedLbl}" Text="Vigencia (Dia/Mes/Año)"/>
                 <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_fecha"/>
 
                 <Label Style="{StaticResource AzulMedLbl}" Text="Total de usuarios" x:Name="C_T_usu" IsVisible="False"/>

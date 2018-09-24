@@ -112,6 +112,7 @@ namespace Trato.Views
                         if (v_T_Persona)
                         {
                             _persona = 0;
+                            rfc.Text = "";
                         }
                         else
                         {

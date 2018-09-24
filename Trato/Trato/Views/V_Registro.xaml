@@ -37,7 +37,7 @@
                         
                             <StackLayout  x:Name="StackRfc">
                                 <Label Text="RFC" Style="{StaticResource RegSty}"></Label>
-                                <Entry  Placeholder="RFC" Text="rfc1248ys36"  Keyboard="Default" x:Name="rfc" Style="{StaticResource RegEnSty}"></Entry>
+                                <Entry  Placeholder="RFC" Text=""  Keyboard="Default" x:Name="rfc" Style="{StaticResource RegEnSty}"></Entry>
                             </StackLayout>
 
 

@@ -109,31 +109,70 @@ namespace Trato.Views
         public async void CargarGen()
         {
             App.Fn_CargarDatos();
-            Fn_NullEntry( G_Nombre, App.v_perfil.v_Nombre);
-            // si no es el titular no se muestra el rfc
-            if ( int.Parse(App.v_folio)>0 )
+
+            //si es el titular
+            //si el rfc esta vacio  es persona fisica,  mostrar lugar fecha de nacimiento
+            // no esta vacio moral,  quitar fecha y lugar
+            if ( int.Parse(App.v_folio)==0 )//titular
             {
-                G_rfc.Text = "";
-                G_rfc.IsVisible = false;
+                if(string.IsNullOrEmpty( App.v_perfil.v_Rfc))// null es persona fisica
+                {
+                    G_Stack_rf.IsVisible = false;
+                    G_Stack_naci.IsVisible = true;
+                    Fn_NullEntry(G_lugar, App.v_perfil.v_LugNac);
+                    if (!string.IsNullOrEmpty(App.v_perfil.v_LugNac))
+                    {
+                        G_lugar.IsEnabled = false;
+                    }
+                    if (string.IsNullOrEmpty(App.v_perfil.v_FecNaci))
+                    {
+                        G_fecha.Date = DateTime.Now;
+                        G_fecha.MaximumDate = DateTime.Now;
+                    }
+                    else
+                    {
+                        string[] fecha = App.v_perfil.v_FecNaci.Split('-');
+                        G_fecha.Date = new DateTime(int.Parse(fecha[0]), int.Parse(fecha[1]), int.Parse(fecha[2]));
+                    }
+                    G_fecha.IsEnabled = false;
+                }
+                else{//moral
+                    G_Stack_rf.IsVisible = true;
+                    G_Stack_naci.IsVisible = false;
+                }
             }
             else
             {
-                Fn_NullEntry(G_rfc,App.v_perfil.v_Rfc);
-            }
-            if (string.IsNullOrEmpty(App.v_perfil.v_FecNaci))
-            {
-                G_fecha.Date = DateTime.Now;
-                G_fecha.IsEnabled = true;
-            }
-            else
-            {
-                string[] fecha = App.v_perfil.v_FecNaci.Split('-');
-                G_fecha.Date = new DateTime(int.Parse(fecha[0]), int.Parse(fecha[1]), int.Parse(fecha[2]));
+                G_Stack_rf.IsVisible = false;
+                G_Stack_naci.IsVisible = true;
+                Fn_NullEntry(G_lugar, App.v_perfil.v_LugNac);
+                if (!string.IsNullOrEmpty(App.v_perfil.v_LugNac))
+                {
+                    G_lugar.IsEnabled = false;
+                }
+                if (string.IsNullOrEmpty(App.v_perfil.v_FecNaci))
+                {
+                    G_fecha.Date = DateTime.Now;
+                    G_fecha.MaximumDate = DateTime.Now;
+                }
+                else
+                {
+                    string[] fecha = App.v_perfil.v_FecNaci.Split('-');
+                    G_fecha.Date = new DateTime(int.Parse(fecha[0]), int.Parse(fecha[1]), int.Parse(fecha[2]));
+                }
                 G_fecha.IsEnabled = false;
             }
+
+
+
+
+
+
+            Fn_NullEntry( G_Nombre, App.v_perfil.v_Nombre);
+            
             if ((App.v_perfil.v_idsexo<0) || (App.v_perfil.v_idsexo>1) )
             {
-                G_sexoPick.IsEnabled = true;
+                G_sexoPick.IsEnabled = false;
             }
             else
             {
@@ -141,13 +180,7 @@ namespace Trato.Views
                 G_sexoPick.Title = G_sexoPick.SelectedIndex.ToString();
                 G_sexoPick.IsEnabled = false;
             }
-
-            Fn_NullEntry(G_lugar, App.v_perfil.v_LugNac);
-            if(!string.IsNullOrEmpty(App.v_perfil.v_LugNac))
-            {
-                G_lugar.IsEnabled = false;
-            }
-
+            
             Fn_NullEntry(G_Ocu, App.v_perfil.v_Ocup);
             Fn_NullEntry(G_Tel, App.v_perfil.v_Tel);
             Fn_NullEntry(G_Cel, App.v_perfil.v_Cel);
@@ -183,6 +216,21 @@ namespace Trato.Views
                 G_Correo.IsEnabled = true;
                 G_Tel.IsEnabled = true;
                 G_Cel.IsEnabled = true;
+
+                if ((App.v_perfil.v_idsexo < 0) || (App.v_perfil.v_idsexo > 1))
+                {
+                    G_sexoPick.IsEnabled = true;
+                }
+
+                if (string.IsNullOrEmpty( App.v_perfil.v_FecNaci))
+                {
+                    G_fecha.IsEnabled = true;
+                }
+                else
+                {
+                    G_fecha.IsEnabled = false;
+                }
+
             }
             else
             {
@@ -201,7 +249,9 @@ namespace Trato.Views
                 G_Correo.IsEnabled = false;
                 G_Tel.IsEnabled = false;
                 G_Cel.IsEnabled = false;
+                G_fecha.IsEnabled = false;
 
+                G_sexoPick.IsEnabled = false;
                 CargarGen();
             }
         }
@@ -254,7 +304,6 @@ namespace Trato.Views
 
                 if(_result=="1")
                 {
-                    await DisplayAlert("Actualizado", "Informacion Guardado con éxito", "Aceptar");
                     Fn_EditarGen(sender,_args);
                     //volver a cargar la informacion
                     Perf _perf = new Perf();
@@ -284,6 +333,7 @@ namespace Trato.Views
 
                     CargarGen();
                     CargarMed();
+                    await DisplayAlert("Actualizado", "Informacion Guardado con éxito", "Aceptar");
                 }
                 else if(_result=="0")
                 {

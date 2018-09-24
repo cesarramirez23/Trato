@@ -23,7 +23,7 @@
 
                         <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="FillAndExpand" Text="1809F-0007"
                                Grid.Column="0" Grid.Row="1"></Entry>
-                        <!--Text="1808F-0002"
+                        <!--Text="1808F-0002"  cesar1234
                         1809F-0007    3eb868
                         1809F-0007 folio 1    pass   Cesar123
                         
@@ -51,6 +51,12 @@
                     <Label Text="¿No tienes cuenta?" Style="{StaticResource AzulMedLbl}" FontAttributes="Bold" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Text="Reenviar correo" Style="{StaticResource AzulMedLbl}" FontAttributes="Bold" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Fn_Reenviar" NumberOfTapsRequired="1"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
                     <Label x:Name="mensajes" Text=""></Label>
