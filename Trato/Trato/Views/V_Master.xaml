@@ -49,7 +49,7 @@
 
                             <Image Source="Services_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_ServGen"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Servicios Generales" Style="{StaticResource LblBoton}" />
@@ -118,7 +118,7 @@
 
                             <Image Source="Services_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Servicios"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_ServGen"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Servicios Generales" Style="{StaticResource LblBoton}" />

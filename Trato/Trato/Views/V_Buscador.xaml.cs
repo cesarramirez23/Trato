@@ -53,7 +53,7 @@ namespace Trato.Views
         /// </summary>
         int v_tipo = -1;
 
-
+        //quitar useller hasta trato especial,   dejar solo    tratoespecial.com
         public V_Buscador()
         {
             InitializeComponent();
@@ -572,21 +572,23 @@ namespace Trato.Views
                 list.ItemsSource = _ciudades;
             }
         }
+        /// <summary>
+        /// camabiar las direcciones
+        /// </summary>
         public async void Fn_CargarDAtos()
         {
-            //if (v_medico)
+            string url = "";
             if(v_tipo==0)
             {
-
                 //hacer una conversion de la lista que esta siendo actualizada
                 //pedir los datos y hacerlos nuevos
                 // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
                 HttpClient _cliente = new HttpClient();
-                string url = "https://useller.com.mx/trato_especial/prueba_json.php";
                 L_Error.IsVisible = true;
                 L_Error.Text = "Procesando Informacion";
                 try
                 {
+                    url="https://useller.com.mx/trato_especial/prueba_json.php";
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
                     string _respu = await _respuestphp.Content.ReadAsStringAsync();
                     ObservableCollection<C_Medico> _med = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_respu);
@@ -595,7 +597,7 @@ namespace Trato.Views
                     App.v_medicos = _med;
                     Orden();
 
-                    App.Fn_ImgSexo();
+                    App.Fn_ImgSexo(v_tipo);
                     v_lista.ItemsSource = App.v_medicos;
                     App.Fn_GuardarRed(App.v_medicos);
                 }
@@ -606,7 +608,7 @@ namespace Trato.Views
                         string _json = App.Current.Properties["medicos"] as string;
                         App.v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_json);
                         Orden();
-                        App.Fn_ImgSexo();
+                        App.Fn_ImgSexo(v_tipo);
                         if(App.v_medicos.Count>0)
                         {
                             L_Error.IsVisible = false;
@@ -636,9 +638,8 @@ namespace Trato.Views
                 //hacer una conversion de la lista que esta siendo actualizada
                 //pedir los datos y hacerlos nuevos
                 // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
-
+                url = "https://useller.com.mx/trato_especial/query_servicios_medicos";
                 HttpClient _cliente = new HttpClient();
-                string url = "https://useller.com.mx/trato_especial/prueba_json.php";
                 L_Error.IsVisible = true;
                 L_Error.Text = "Procesando Informacion";
                 try
@@ -646,14 +647,24 @@ namespace Trato.Views
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
                     string _respu = await _respuestphp.Content.ReadAsStringAsync();
                     ObservableCollection<C_Servicios> _med = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_respu);
+
+                    if(_med.Count<1)
+                    {
+                        L_Error.Text = "Llega vacio";
+                    }
+                    else
+                    {
                     L_Error.IsVisible = false;
                     B_Filtrar.IsEnabled = true;
+                    }
+
+
                     App.v_servicios = _med;
                     App.Fn_GuardarServcios(App.v_servicios);
                     Orden();
 
-                    App.Fn_ImgSexo();
-                    v_lista.ItemsSource = App.v_medicos;
+                   // App.Fn_ImgSexo();
+                    v_lista.ItemsSource = App.v_servicios;
                 }
                 catch 
                 {
@@ -662,7 +673,7 @@ namespace Trato.Views
                         string _json = App.Current.Properties["servicios"] as string;
                         App.v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_json);
                         Orden();
-                        App.Fn_ImgSexo();
+                        App.Fn_ImgSexo(v_tipo);
                         if (App.v_servicios.Count > 0)
                         {
                             L_Error.IsVisible = false;
@@ -690,9 +701,10 @@ namespace Trato.Views
                 //hacer una conversion de la lista que esta siendo actualizada
                 //pedir los datos y hacerlos nuevos
                 // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
-
+                
                 HttpClient _cliente = new HttpClient();
-                string url = "https://useller.com.mx/trato_especial/prueba_json.php";
+                url = "https://useller.com.mx/trato_especial/query_servicios_generales.php";
+              
                 L_Error.IsVisible = true;
                 L_Error.Text = "Procesando Informacion";
                 try
@@ -700,8 +712,15 @@ namespace Trato.Views
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
                     string _respu = await _respuestphp.Content.ReadAsStringAsync();
                     ObservableCollection<C_ServGenerales> _med = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_respu);
-                    L_Error.IsVisible = false;
-                    B_Filtrar.IsEnabled = true;
+                    if (_med.Count < 1)
+                    {
+                        L_Error.Text = "Llega vacio";
+                    }
+                    else
+                    {
+                        L_Error.IsVisible = false;
+                        B_Filtrar.IsEnabled = true;
+                    }
                     App.v_generales = _med;
                     App.Fn_GuardarGenerales(App.v_generales);
                     Orden();

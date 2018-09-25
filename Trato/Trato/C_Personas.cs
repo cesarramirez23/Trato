@@ -687,7 +687,7 @@ namespace Trato.Personas
         }
     }
     /// <summary>
-    /// informacion a mostrar en el buscador, para solicitar citas 
+    /// lugares, hospitales
     /// </summary>
     public class C_Servicios
     {
@@ -721,7 +721,7 @@ namespace Trato.Personas
         
     }
     /// <summary>
-    /// informacion a mostrar en el buscador, para solicitar citas 
+    /// lugares diferentes
     /// </summary>
     public class C_ServGenerales
     {
@@ -750,19 +750,13 @@ namespace Trato.Personas
 
         [JsonProperty("tel")]
         public string v_Tel { get; set; }
-
-
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
-       
-
-
         [JsonProperty("sitio")]
         public string v_sitio;
         /// <summary>
         /// imagen para mostrar
         /// </summary>
         public string v_img { get; set; }
-       
     }
 }

@@ -19,15 +19,19 @@
         </ContentPage>
         <ContentPage Title="Contraseña">
             <ScrollView>
-                <StackLayout Margin="20,0">
-                    <Label Text="Ingresa tu contraseña actual" Style="{StaticResource AzulMedLbl}"></Label>
-                    <Entry IsPassword="True" x:Name="P_actual"></Entry>
+                <Frame>
+                    <StackLayout >
+                        
+                        <Label Text="Cambio de Contraseña" Style="{StaticResource AzulMedLbl}" FontSize="Large"/>
+                        <Label Text="Ingresa tu contraseña actual" Style="{StaticResource AzulMedLbl}"/>
+                        <Entry IsPassword="True" x:Name="P_actual"></Entry>
                     
-                    <Label Text="" x:Name="P_mensaje" Style="{StaticResource AzulMedLbl}"></Label>
-                    <Label Text="Ingresa la nueva contraseña" Style="{StaticResource AzulMedLbl}"></Label>
-                    <Entry IsPassword="True"  x:Name="P_Nueva" TextChanged="FN_passCambio"></Entry>
-                    <Button Text="Guardar" x:Name="P_but"  Clicked="Fn_CambioPass" Style="{StaticResource Buton}"></Button>
-                </StackLayout>
+                        <Label Text="" x:Name="P_mensaje" Style="{StaticResource AzulMedLbl}"></Label>
+                        <Label Text="Ingresa la nueva contraseña" Style="{StaticResource AzulMedLbl}"></Label>
+                        <Entry IsPassword="True"  x:Name="P_Nueva" TextChanged="FN_passCambio"></Entry>
+                        <Button Text="Guardar" x:Name="P_but"  Clicked="Fn_CambioPass" Style="{StaticResource Buton}"></Button>
+                    </StackLayout>
+                </Frame>
             </ScrollView>
         </ContentPage>
        

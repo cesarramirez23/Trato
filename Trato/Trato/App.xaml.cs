@@ -348,35 +348,44 @@ namespace Trato
             await Current.SavePropertiesAsync();
             await Task.Delay(100);
         }
-        public static void Fn_ImgSexo()
-        {
-            for (int i = 0; i<v_medicos.Count;i++)
+        public static void Fn_ImgSexo(int _valor)
+        {/// 0 MEDICOS,   1 SERVICIOS MEDICOS,    2 SERVICIOS GENERALES
+            switch (_valor)
             {
-                //if (int.Parse(v_medicos[i].v_id) < 1)
-                //{
-                //    if (v_medicos[i].v_idsexo == 0)
-                //    {
-                //        v_medicos[i].v_img = "doctor.png";
-                //    }
-                //    else
-                //    {
-                //        v_medicos[i].v_img = "doctora.png";
-                //    }
-                //}
-                //else
-                //{
-                //    //v_medicos[i].v_img = "" + v_medicos[i].v_id;
-                //    v_medicos[i].v_img= "https://useller.com.mx/product_img/Doux%20Moda.jpg";
-                //}
-                if (v_medicos[i].v_idsexo == 0)
+                case 0:
                 {
-                    v_medicos[i].v_img = "doctor.png";
+                    for (int i = 0; i<v_medicos.Count;i++)
+                    {
+                        if (v_medicos[i].v_idsexo == 0)
+                        {
+                            v_medicos[i].v_img = "doctor.png";
+                        }
+                        else
+                        {
+                            v_medicos[i].v_img = "doctora.png";
+                        }
+                        v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " + v_medicos[i].v_Apellido;
+                    }
                 }
-                else
-                {
-                    v_medicos[i].v_img = "doctora.png";
-                }
-                v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " + v_medicos[i].v_Apellido;
+                    break;
+                case 1:
+                    {
+                        for (int i = 0; i < v_servicios.Count; i++)
+                        {
+                            //v_servicios[i].v_img= "https://useller.com.mx/product_img/Doux%20Moda.jpg";
+                        }
+                    }
+                    break;
+                case 2:
+                    {
+                        for (int i = 0; i < v_generales.Count; i++)
+                        {
+                            //v_generales[i].v_img= "https://useller.com.mx/product_img/Doux%20Moda.jpg";
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
         }
         public static string Fn_Vacio(string _valor)

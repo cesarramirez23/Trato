@@ -7,7 +7,19 @@
             <!--Global Styles              rgb 40,150,209 -->
             <Color x:Key="NavigationPrimary">#2896D1</Color>
             <Color x:Key="LetrCol" >#000000</Color>
-            <Color x:Key="Lightgray"> #FFD3D3D3</Color>
+            <Color x:Key="Lightgray">#FFD3D3D3</Color>
+
+            <Style TargetType="Frame">
+                <Setter  Property="BackgroundColor" Value="White"/>
+                <Setter Property="Margin" Value="20,2"/>
+                <Setter Property="BorderColor" Value="White"/>
+            </Style>
+            <Style TargetType="ContentPage">
+                <Setter  Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabbedPage">
+                <Setter  Property="BackgroundColor" Value="White"/>
+            </Style>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Trato.Personas;
+using System.Net;
 
 namespace Trato.Views
 {
@@ -104,17 +105,52 @@ namespace Trato.Views
             //    boton.IsVisible = false;
             //}
         }
-        public void Fn_AbrirSitio(object sender, EventArgs _args)
+        public async void Fn_AbrirSitio(object sender, EventArgs _args)
         {
-            Uri _direc = new Uri("") ;
-            if (v_tipo==1)
+
+
+            string _valor = "";
+            Uri uri ;
+
+            if (v_tipo==1 && !string.IsNullOrEmpty( v_servi.v_sitio))
             {
-                _direc= new Uri(v_servi.v_sitio);
-            }else if(v_tipo==2)
-            {
-                _direc= new Uri(v_gene.v_sitio);
+                _valor = v_servi.v_sitio;
+ // uri=new Uri(" https://www.google.com.mx/search?rlz=1C1CHFX_enMX782MX782&ei=oWiqW7iHCYaytQWn2JroAQ&q=open+web+direction+xamarin+forms&oq=open+web+direction+xamarin&gs_l=psy-ab.3.0.33i22i29i30k1l3.206506.214130.0.215289.30.28.2.0.0.0.178.2423.22j4.26.0....0...1c.1.64.psy-ab..2.27.2338...0j35i39k1j0i67k1j0i203k1j0i10k1j0i10i203k1j0i22i30k1j0i22i10i30k1j33i21k1j33i160k1j33i22i10i29i30k1.0.5zwAtwR6kng");
+                if (Uri.TryCreate(_valor, UriKind.RelativeOrAbsolute, out uri))//se crea correctamente
+                {
+                    Device.OpenUri(uri);
+                }
+                else//un error por falta de https
+                {
+                    if (!Uri.TryCreate("https://" + _valor, UriKind.RelativeOrAbsolute, out uri))
+                    {
+                        await DisplayAlert("Aviso","No se pudo abrir el sitio web seleccionado", "Aceptar");
+                    }
+                    else
+                    {
+                        Device.OpenUri(uri);
+                    }
+                }
             }
-            Device.OpenUri(_direc);
+            else if(v_tipo==2 && !string.IsNullOrEmpty(v_gene.v_sitio))
+            {
+                _valor = v_gene.v_sitio;
+                if (Uri.TryCreate(_valor, UriKind.RelativeOrAbsolute, out uri))//se crea correctamente
+                {
+                    Device.OpenUri(uri);
+                }
+                else//un error por falta de https
+                {
+                    if (!Uri.TryCreate("https://" + _valor, UriKind.RelativeOrAbsolute, out uri))
+                    {
+                        await DisplayAlert("Aviso", "No se pudo abrir el sitio web seleccionado", "Aceptar");
+                    }
+                    else
+                    {
+                        Device.OpenUri(uri);
+                    }
+                }
+            }
         }
         public async void Fn_AbrirMapa(object sender, EventArgs _args)
         {
@@ -170,7 +206,7 @@ namespace Trato.Views
             }
             Uri _direc = new Uri(direcMapa);
 
-            await DisplayAlert("sadasd", _direc.ToString(), "sadsa"); 
+            //await DisplayAlert("sadasd", _direc.ToString(), "sadsa"); 
             Device.OpenUri(_direc);
         }
     }

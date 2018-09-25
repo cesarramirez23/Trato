@@ -46,11 +46,11 @@ namespace Trato.iOS
                 PhoneCountryCode = "52",
             };
             CrossPayPalManager.Init(config);
-            LoadApplication(new App());
-            Firebase.Core.App.Configure();
             //https://github.com/codercampos/FirebaseXF-XamarinLatino/blob/master/src/FirebaseXL/FirebaseXL.iOS/AppDelegate.cs
-            LoadApplication(application: new Trato.App());
+            
+            Firebase.Core.App.Configure();
 
+            LoadApplication(new App());
             // Register your app for remote notifications.
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
@@ -61,10 +61,10 @@ namespace Trato.iOS
                 });
 
                 // For iOS 10 display notification (sent via APNS)
-                UNUserNotificationCenter.Current.Delegate = this;
+                UNUserNotificationCenter.Current.Delegate = new UNUserNotificationCenterDelegate() ;
 
                 // For iOS 10 data message (sent via FCM)
-                Messaging.SharedInstance.RemoteMessageDelegate = this;
+                //Messaging.SharedInstance.RemoteMessageDelegate = this;
             }
             else
             {
@@ -80,6 +80,8 @@ namespace Trato.iOS
 
             return base.FinishedLaunching(app, options);
         }
+
+
         public void DidRefreshRegistrationToken(Messaging messaging, string fcmToken)
         {
             System.Diagnostics.Debug.WriteLine($"FCM Token: {fcmToken}");

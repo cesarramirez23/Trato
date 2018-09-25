@@ -89,7 +89,7 @@ namespace Trato.Droid
 
         protected override void OnDestroy()
         { 
-            PayPalManagerImplementation.Manager.Destroy();
+            //PayPalManagerImplementation.Manager.Destroy();
             base.OnDestroy();
         }
     }
