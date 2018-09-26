@@ -87,7 +87,7 @@ namespace Trato.Views
             App.v_log = "0";
             Application.Current.Properties["log"] = App.v_log;
             App.Fn_CerrarSesion();
-            App.Current.MainPage =new V_Master(false,"Bienvenido");
+            App.Current.MainPage =new V_Master(false, "Bienvenido a Trato Especial");
         }
         public void Fn_Info(object sender, EventArgs _Args)
         {

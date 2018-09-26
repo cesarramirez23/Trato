@@ -31,7 +31,7 @@ namespace Trato.Droid
           
             base.OnCreate(bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            //paypal
+            //paypal AQrrFs8D-iSCYiAEEmO9ni3CcQ7GjgjPqSBBVhxNTmRKOnLR_Ol_qRcy2Pr4yxhwcQ2BK1BoZbzl0Hka
             var config = new PayPalConfiguration(PayPalEnvironment.Sandbox, "AVART2W6j2cnNhmWej6EcQjx_ytsVpl1hmnArzHtVWSsZFRVAWOlZq6y3EjPFM0FHUhG_yrvkftXAAtN")
             {
                 //If you want to accept credit cards

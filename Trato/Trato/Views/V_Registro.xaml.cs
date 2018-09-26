@@ -159,13 +159,13 @@ namespace Trato.Views
                         //se crea el json
                         string json_reg = JsonConvert.SerializeObject(datosregistro, Formatting.Indented);
                         // lo hacemos visible en la pantall
-                        Mensajes_over.Text += json_reg;
+                        //Mensajes_over.Text += json_reg;
                         //damos el formato
                         StringContent v_content = new StringContent(json_reg, Encoding.UTF8, "application/json");
                         //crea el cliente
                         HttpClient v_cliente = new HttpClient();
                         //url
-                        var url = "https://useller.com.mx/trato_especial/tarjeta_alta.php";
+                        var url = "http://tratoespecial.com/tarjeta_alta.php";
 
                         try
                         {
@@ -190,7 +190,7 @@ namespace Trato.Views
                             else
                             {
                                 string content = await respuestaReg.Content.ReadAsStringAsync();
-                                Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content;
+                                //Mensajes_over.Text += respuestaReg.StatusCode.ToString() + "---" + content;
                                 ReintenRegPri.IsVisible = true;
                             }
                         }
@@ -234,21 +234,21 @@ namespace Trato.Views
                     }
                     //crear json
                     string _jsonReg = JsonConvert.SerializeObject(_registro, Formatting.Indented);
-                    Mensajes_over.Text += "\n json \n" + _jsonReg;
+                   // Mensajes_over.Text += "\n json \n" + _jsonReg;
                     StringContent _content = new StringContent(_jsonReg, Encoding.UTF8, "application/json");
                     //crea el cliente
                     HttpClient _clien = new HttpClient();
                     await DisplayAlert("Manda", _jsonReg, "A");
                     //direccion a enviar
-                    string _direc = "https://useller.com.mx/trato_especial/crear_cuenta";
+                    string _direc = "https://tratoespecial.com/crear_cuenta";
                     try
                     {
                         //se envia
                         HttpResponseMessage _respuestaphp = await _clien.PostAsync(_direc, _content);
-                        Mensajes_over.Text = _respuestaphp.StatusCode.ToString();
+                       // Mensajes_over.Text = _respuestaphp.StatusCode.ToString();
                         //leer la respuesta
                         string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                        Mensajes_over.Text += "\n respuesta  " + _respuesta;
+                        //Mensajes_over.Text += "\n respuesta  " + _respuesta;
                         //422 error folio    834 maximo folio fam    200 no membresia con el nombre de la empresa
                         if (_respuesta == "422")
                         {

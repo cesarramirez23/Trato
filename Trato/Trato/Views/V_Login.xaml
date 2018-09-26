@@ -44,7 +44,7 @@
                     </Grid>
                     <Label Text="Ingresa tu contraseña" Style="{StaticResource AzulMedLbl}"></Label>
                     <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" 
-                           Text="Cesar123"></Entry>
+                           Text="Cesar1234"></Entry>
                     <!--="ac1602"   cesar1234   3eb868-->
                     <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
 
@@ -53,13 +53,14 @@
                             <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
-
+<!--
                     <Label Text="Reenviar correo" Style="{StaticResource AzulMedLbl}" FontAttributes="Bold" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Fn_Reenviar" NumberOfTapsRequired="1"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
                     <Label x:Name="mensajes" Text=""></Label>
+                    -->
                 </StackLayout>
             </StackLayout>
             <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" IsVisible="False" BackgroundColor="LightGray">

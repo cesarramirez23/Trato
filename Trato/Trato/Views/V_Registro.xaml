@@ -132,7 +132,6 @@
                                 </Picker>
                             </StackLayout>
                             <Button Text="Registrar" Style="{StaticResource Buton}" Clicked="Registrar" x:Name="RegPrin" ></Button>
-                            <Label x:Name="otroaa" Text=" aqui mensajes"></Label>
                         </StackLayout>
                         
                     </StackLayout>

@@ -6,7 +6,11 @@
         <StackLayout Orientation="Vertical" Margin="10,0,10,30">
             <ScrollView>
                 <StackLayout Orientation="Vertical" Margin="20,5,20,5">
-                    <Image x:Name="img" WidthRequest="200" HeightRequest="200"></Image>
+                    <Image x:Name="img" WidthRequest="200" HeightRequest="200" BackgroundColor="Green">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirImg"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
                     <Label FontSize="Large" FontAttributes="Bold" Text="Información" TextColor="{StaticResource NavigationPrimary}"/>
                     <Label FontSize="Medium" x:Name="nombre"></Label>
                     <Label FontSize="Medium" x:Name="especial"></Label>

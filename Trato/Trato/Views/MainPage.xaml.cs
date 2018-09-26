@@ -58,7 +58,7 @@ namespace Trato.Views
             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
             //crear el cliente
             HttpClient _client = new HttpClient();
-            string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+            string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
             StringContent _content = new StringContent(_jsonper,System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage _respuestaphp;
             try
@@ -69,7 +69,7 @@ namespace Trato.Views
                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
                 //await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
                 App.Fn_GuardarDatos(_nuePer, App.v_membresia,App.v_folio, App.v_letra);
-                _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+                _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
                 _content = new StringContent(_jsonper, System.Text.Encoding.UTF8, "application/json");
                 try
                 {
@@ -117,11 +117,11 @@ namespace Trato.Views
             catch
             {
                 v_mostrar.Clear();
-                v_mostrar.Add(new Banner("HOME_icon.png", "https://forums.xamarin.com/discussion/82989/implementation-of-auto-slider-for-carousal-view-xamarin-forms"));
-                v_mostrar.Add(new Banner("Medicos.png", "https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.carouselpage?view=xamarin-forms"));
-                v_mostrar.Add(new Banner("Services_icon.png", "https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.multipage-1.oncurrentpagechanged?view=xamarin-forms#Xamarin_Forms_MultiPage_1_OnCurrentPageChanged"));
-                v_mostrar.Add(new Banner("Membresia_Icon.png", "https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.device.starttimer?view=xamarin-forms"));
-                v_mostrar.Add(new Banner("LOGOTRATOESPECIAL.png", "https://tratoespecial.com/"));
+                v_mostrar.Add(new Banner("HOME_icon.png", "http://forums.xamarin.com/discussion/82989/implementation-of-auto-slider-for-carousal-view-xamarin-forms"));
+                v_mostrar.Add(new Banner("Medicos.png", "http://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.carouselpage?view=xamarin-forms"));
+                v_mostrar.Add(new Banner("Services_icon.png", "http://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.multipage-1.oncurrentpagechanged?view=xamarin-forms#Xamarin_Forms_MultiPage_1_OnCurrentPageChanged"));
+                v_mostrar.Add(new Banner("Membresia_Icon.png", "http://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.device.starttimer?view=xamarin-forms"));
+                v_mostrar.Add(new Banner("LOGOTRATOESPECIAL.png", "http://tratoespecial.com/"));
 
                 v_actual = 0;
                 MainBanner.Source = v_mostrar[v_actual].v_img;

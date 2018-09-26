@@ -404,7 +404,7 @@ namespace Trato
         {
             // Handle when your app starts
             //existe la variable guardada
-            //Properties.Clear();
+            Properties.Clear();
             if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado
@@ -461,7 +461,7 @@ namespace Trato
                 v_membresia = "";
                 Fn_CrearKey();
                 Fn_CargarListas();
-                App.Current.MainPage = new V_Master(false, "no properties");
+                App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
             }
 
         }

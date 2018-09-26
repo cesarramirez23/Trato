@@ -262,12 +262,6 @@
     <BundleResource Include="Resources\M_Familiar.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\doctor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\doctora.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Filtro.png" />
   </ItemGroup>
   <ItemGroup>
@@ -278,5 +272,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ServiciosMedicos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\doctor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\doctora.png" />
   </ItemGroup>
 </Project>

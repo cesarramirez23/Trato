@@ -24,9 +24,6 @@ namespace Trato.Views
             InitializeComponent();
             
         }
-        public async void Fn_Reenviar(object sender, EventArgs _args)
-        {
-        }
         //el que muestra la pantalla de registro para familiar o empresarial
         public async void Fn_Registro(object sender, EventArgs _Args)
         {
@@ -52,10 +49,10 @@ namespace Trato.Views
                 //crear el json
                 string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
                 //mostrar la pantalla con mensajes
-                Mensajes_over.Text +=_jsonLog ;
+               // Mensajes_over.Text +=_jsonLog ;
                 //crear el cliente
                 HttpClient _client = new HttpClient();
-                string _DirEnviar = "https://useller.com.mx/trato_especial/login.php";
+                string _DirEnviar = "http://tratoespecial.com/login.php";
                 StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
                 //mandar el json con el post
 
@@ -82,10 +79,10 @@ namespace Trato.Views
                             //crear el json
                             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
                             //mostrar la pantalla con mensajes
-                            Mensajes_over.Text += "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
+                            //Mensajes_over.Text += "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
                             //crear el cliente
                             _client = new HttpClient();
-                            _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+                            _DirEnviar = "http://tratoespecial.com/query_perfil.php";
                             _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
 
                             try
@@ -96,7 +93,7 @@ namespace Trato.Views
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
                                // await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
                                 App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text, letra);
-                                _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+                                _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                                 try
                                 {
@@ -112,7 +109,7 @@ namespace Trato.Views
                                     {
                                         _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
                                     }
-                                    Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
+                                  //  Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
                                     App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text,letra);
                                     //cargar la nueva pagina de perfil
                                     string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
@@ -132,7 +129,9 @@ namespace Trato.Views
                         }
                         else
                         {
-                            Mensajes_over.Text = "otra cosa que no entra en el if " + _respuesta;
+                            //Mensajes_over.Text = "otra cosa que no entra en el if " + _respuesta;
+                            Mensajes_over.Text = "Error";
+
                             Reinten.IsVisible = true;
                         }
                     }

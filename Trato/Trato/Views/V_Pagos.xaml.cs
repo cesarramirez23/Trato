@@ -21,7 +21,7 @@ namespace Trato
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Pagos : ContentPage
 	{
-       // string v_dirWeb = "https://useller.com.mx/trato_especial/paypal_test.php";
+       // string v_dirWeb = "https://tratoespecial.com/paypal_test.php";
         Pagar v_infoPago;
         public V_Pagos (bool _efectivo, Pagar _pagar)
 		{
@@ -63,7 +63,7 @@ namespace Trato
               
             await DisplayAlert("Envia", v_jsonInfo.ToString(), "Aceptar");
             HttpClient _clien = new HttpClient();
-            string _direc = "https://useller.com.mx/trato_especial/prueba_conekta.php";
+            string _direc = "http://tratoespecial.com/prueba_conekta.php";
             try
             {
                 HttpResponseMessage _responphp = await _clien.PostAsync(_direc, _content);
@@ -101,7 +101,7 @@ namespace Trato
             else if (result.Status == PayPalStatus.Successful)
             {
                 HttpClient _clien = new HttpClient();
-                string _direc = "https://useller.com.mx/trato_especial/activacion.php";
+                string _direc = "http://tratoespecial.com/activacion.php";
                 string _json = JsonConvert.SerializeObject(v_infoPago, Formatting.Indented);
                 StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
                 try
@@ -115,7 +115,7 @@ namespace Trato
                     string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
                     //crear el cliente
                     _clien = new HttpClient();
-                    string _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil.php";
+                    string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
                     _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                     try
                     {
@@ -125,7 +125,7 @@ namespace Trato
                         //await DisplayAlert("llega ",_perf.Fn_GetDatos() +" "+ _resp, "aceptar");
                         Personas.C_PerfilGen _nuePer = JsonConvert.DeserializeObject<Personas.C_PerfilGen>(_resp);
                         App.Fn_GuardarDatos(_nuePer, v_infoPago.v_membresia, v_infoPago.v_conse, App.v_letra);
-                        _DirEnviar = "https://useller.com.mx/trato_especial/query_perfil_medico.php";
+                        _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
                         _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                         try
                         {

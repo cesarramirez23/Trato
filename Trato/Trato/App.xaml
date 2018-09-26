@@ -11,8 +11,9 @@
 
             <Style TargetType="Frame">
                 <Setter  Property="BackgroundColor" Value="White"/>
-                <Setter Property="Margin" Value="20,2"/>
-                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="Margin" Value="20,6"/>
+                <Setter Property="CornerRadius" Value="4"/>
+                <Setter Property="BorderColor" Value="{StaticResource Lightgray}"/>
             </Style>
             <Style TargetType="ContentPage">
                 <Setter  Property="BackgroundColor" Value="White"/>

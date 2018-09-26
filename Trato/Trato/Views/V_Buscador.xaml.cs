@@ -588,7 +588,7 @@ namespace Trato.Views
                 L_Error.Text = "Procesando Informacion";
                 try
                 {
-                    url="https://useller.com.mx/trato_especial/prueba_json.php";
+                    url="http://tratoespecial.com/prueba_json.php";
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
                     string _respu = await _respuestphp.Content.ReadAsStringAsync();
                     ObservableCollection<C_Medico> _med = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_respu);
@@ -638,7 +638,7 @@ namespace Trato.Views
                 //hacer una conversion de la lista que esta siendo actualizada
                 //pedir los datos y hacerlos nuevos
                 // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
-                url = "https://useller.com.mx/trato_especial/query_servicios_medicos";
+                url = "http://tratoespecial.com/query_servicios_medicos.php";
                 HttpClient _cliente = new HttpClient();
                 L_Error.IsVisible = true;
                 L_Error.Text = "Procesando Informacion";
@@ -673,7 +673,7 @@ namespace Trato.Views
                         string _json = App.Current.Properties["servicios"] as string;
                         App.v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_json);
                         Orden();
-                        App.Fn_ImgSexo(v_tipo);
+                        //App.Fn_ImgSexo(v_tipo);
                         if (App.v_servicios.Count > 0)
                         {
                             L_Error.IsVisible = false;
@@ -703,7 +703,7 @@ namespace Trato.Views
                 // hacer clear a la lsta que se esta modificando, darle los nuevos valores agregar y listview darle todo la lista creada
                 
                 HttpClient _cliente = new HttpClient();
-                url = "https://useller.com.mx/trato_especial/query_servicios_generales.php";
+                url = "http://tratoespecial.com/query_servicios_generales.php";
               
                 L_Error.IsVisible = true;
                 L_Error.Text = "Procesando Informacion";

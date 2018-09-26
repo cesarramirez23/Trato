@@ -716,7 +716,8 @@ namespace Trato.Personas
         /// <summary>
         /// imagen para mostrar
         /// </summary>
-      
+
+        [JsonProperty("img")]
         public string v_img { get; set; }
         
     }
@@ -757,6 +758,7 @@ namespace Trato.Personas
         /// <summary>
         /// imagen para mostrar
         /// </summary>
+        [JsonProperty("img")]
         public string v_img { get; set; }
     }
 }

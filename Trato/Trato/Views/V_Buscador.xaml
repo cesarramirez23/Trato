@@ -48,8 +48,9 @@
                                     <!--https://stackoverflow.com/questions/49373982/access-views-inside-a-datatemplate-at-runtime-in-xamarin-forms -->
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource Lightgray}">
 
-                                            <Image x:Name="imgSexo" Source="{Binding v_img}" HorizontalOptions="Start"
-                                               HeightRequest="100" WidthRequest="100" VerticalOptions="Center"></Image>
+                                            <Image x:Name="imgSexo" HorizontalOptions="Start" Source="{Binding v_img}"
+                                               HeightRequest="100" WidthRequest="100" VerticalOptions="Center">
+                                            </Image>
                                             <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" BackgroundColor="{StaticResource Lightgray}">
                                                 <Label Text="{Binding v_completo}" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource NavigationPrimary}"/>
                                                 <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource LetrCol}" />

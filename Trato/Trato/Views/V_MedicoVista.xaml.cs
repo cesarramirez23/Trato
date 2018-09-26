@@ -57,7 +57,7 @@ namespace Trato.Views
         public V_MedicoVista(C_Servicios _servicios)
         {
             InitializeComponent();
-            sitio.IsVisible = true;
+            sitio.IsVisible = true;// ImageLoaderSourceHandler: Could not retrieve image or image data was invalid: Uri: http://tratoespecial.com/imgs/LOGOS SERVICIOS GENERALES/400X400/8.jpg
             v_servi = _servicios;
 
             nombre.Text = v_servi.v_completo;
@@ -152,6 +152,27 @@ namespace Trato.Views
                 }
             }
         }
+        public async void Fn_AbrirImg(object sender, EventArgs _args)
+        {
+            await DisplayAlert("Img", v_gene.v_img, "Aceptar");
+            Uri uri;
+            if (Uri.TryCreate(v_gene.v_img, UriKind.RelativeOrAbsolute, out uri))//se crea correctamente
+            {
+                Device.OpenUri(uri);
+            }
+            else//un error por falta de https
+            {
+                if (!Uri.TryCreate("https://" + v_gene.v_img, UriKind.RelativeOrAbsolute, out uri))
+                {
+                    await DisplayAlert("Aviso", "No se pudo abrir el sitio web seleccionado", "Aceptar");
+                }
+                else
+                {
+                    Device.OpenUri(uri);
+                }
+            }
+        }
+
         public async void Fn_AbrirMapa(object sender, EventArgs _args)
         {
             string direcMapa = "";

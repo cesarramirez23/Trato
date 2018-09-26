@@ -118,7 +118,7 @@ JObject o = JObject.Parse(json);
                         JObject jsonPer = JObject.Parse(json);
                         StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
                         HttpClient _client = new HttpClient();
-                        string _url = "https://useller.com.mx/trato_especial/password_change.php";
+                        string _url = "http://tratoespecial.com/password_change.php";
                         try
                         {
                             HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
