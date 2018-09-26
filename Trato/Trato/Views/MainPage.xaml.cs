@@ -3,15 +3,13 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
 using System.Net.Http;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Trato.Varios;
 using System.Threading.Tasks;
 using Trato.Personas;
-
 namespace Trato.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
         public List<Banner> v_mostrar = new List<Banner>();
@@ -23,6 +21,7 @@ namespace Trato.Views
             if (App.v_log == "1")
             {
                 Fn_Fecha();
+                M_mensaje.IsVisible = true;
                 if (App.v_perfil.v_activo != "1")
                 {
                     M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
@@ -32,6 +31,8 @@ namespace Trato.Views
             {
                 M_mensaje.IsVisible = false;
             }
+            M_mensaje.IsVisible = true;
+                M_mensaje.Text += "token " + App.Fn_GEtToken();
             //FN_Red();
         }
         protected override  void OnAppearing()

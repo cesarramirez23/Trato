@@ -46,8 +46,17 @@ namespace Trato.Droid
             if (string.IsNullOrWhiteSpace(messageBody))
                 return;
 
-           // Log.Debug(TAG, "Notification message body: " + messageBody);
-            SendNotification(messageBody, messageTitle);
+            var extra1 = message.Data["extra"];
+            if (string.IsNullOrWhiteSpace(extra1))
+                return;
+
+            var extra2 = message.Data["extra2"];
+            if (string.IsNullOrWhiteSpace(extra1))
+                return;
+
+            // Log.Debug(TAG, "Notification message body: " + messageBody);
+            //SendNotification(messageBody, extra1);
+            SendNotification(extra1, extra2);
         }
 
         void SendNotification(string messageBody,string _titulo)

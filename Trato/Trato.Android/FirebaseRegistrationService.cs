@@ -27,7 +27,8 @@ namespace Trato.Droid
         public override void OnTokenRefresh()
         {
             var refreshedToken = FirebaseInstanceId.Instance.Token;
-            Log.Debug(TAG, "Refreshed token: " + refreshedToken);
+            Console.WriteLine( "Refreshed token: " + refreshedToken);
+            App.Fn_SetToken(refreshedToken);
             Looper.Prepare();
             Toast.MakeText(this, refreshedToken, ToastLength.Long);
             /*
@@ -35,7 +36,7 @@ namespace Trato.Droid
             el doctor debe tenr su propio token , entonces mandarle la notif al doctor junto con el json del paciente y su token
             aceptar o no se reenvia el mensaje al topke delpaciente
              */
-            SendRegistrationTokenToAzureNotificationHub(refreshedToken);
+            //SendRegistrationTokenToAzureNotificationHub(refreshedToken);
         }
 
         void SendRegistrationTokenToAzureNotificationHub(string token)

@@ -55,7 +55,8 @@ namespace Trato.Personas
         public string v_vig;
         [JsonProperty("total_usuarios")]
         public string v_numEmple { get; set; }
-
+        [JsonProperty("token")]
+        public string v_token  { get; set; }
 
         public C_PerfilGen()
         {
@@ -755,10 +756,11 @@ namespace Trato.Personas
         public string v_Correo { get; set; }
         [JsonProperty("sitio")]
         public string v_sitio;
+               // return "http://tratoespecial.com//imgs//LOGOS%20SERVICIOS%20GENERALES//400X400//7.jpg";
         /// <summary>
         /// imagen para mostrar
         /// </summary>
         [JsonProperty("img")]
-        public string v_img { get; set; }
+        public string v_img { get; set ; }
     }
 }

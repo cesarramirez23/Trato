@@ -46,12 +46,12 @@ namespace Trato
         /// <summary>
         /// Perfil General
         /// </summary>
-        public static C_PerfilGen v_perfil= new C_PerfilGen();
+        public static C_PerfilGen v_perfil = new C_PerfilGen();
         public static C_PerfilMed v_perfMed = new C_PerfilMed();
         /// <summary>
         /// ya trae la letra, hacer el split con -
         /// </summary>
-        public static string v_membresia="";
+        public static string v_membresia = "";
         /// <summary>
         /// la letra de la membresia
         /// </summary>
@@ -59,7 +59,7 @@ namespace Trato
         /// <summary>
         /// es solo el numero consecutivo
         /// </summary>
-        public static string v_folio="";
+        public static string v_folio = "";
         /// <summary>
         /// 0 no esta logeado 1 logeado
         /// </summary>
@@ -69,7 +69,7 @@ namespace Trato
             InitializeComponent();
             // App.Current.MainPage = new V_Master(false,"no properties");
         }
-        async  void Fn_CrearKey()
+        async void Fn_CrearKey()
         {
             if (!Properties.ContainsKey("log"))
             {
@@ -203,7 +203,7 @@ namespace Trato
             }
             else
             {
-                string _jsonGen =Current.Properties["perfGen"] as string;
+                string _jsonGen = Current.Properties["perfGen"] as string;
                 v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
             }
             if (!Current.Properties.ContainsKey("perfMed"))
@@ -235,17 +235,17 @@ namespace Trato
             {
                 v_servicios = new ObservableCollection<C_Servicios>();
                 string _json = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
-                Current.Properties.Add("servicios","");
+                Current.Properties.Add("servicios", "");
                 Current.Properties["servicios"] = _json;
             }
             else
             {
-                string _jsonServ = Current.Properties["servicios"] as string;                
+                string _jsonServ = Current.Properties["servicios"] as string;
                 v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
             }
             await Task.Delay(100);
         }
-        public  static async void Fn_GuardarDatos(C_PerfilGen _gen, string _membre, string _folio,string _letra )
+        public static async void Fn_GuardarDatos(C_PerfilGen _gen, string _membre, string _folio, string _letra)
         {
             v_perfil = _gen;
             v_folio = _folio;
@@ -254,9 +254,9 @@ namespace Trato
             string _jsonGen = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
             Current.Properties["log"] = v_log;
             Current.Properties["perfGen"] = _jsonGen;
-            Current.Properties["membre"] =v_membresia ;
-            Current.Properties["folio"] =v_folio ;
-            Current.Properties["letra"] =v_letra ;
+            Current.Properties["membre"] = v_membresia;
+            Current.Properties["folio"] = v_folio;
+            Current.Properties["letra"] = v_letra;
             string _jsoServ = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
             Current.Properties["servicios"] = _jsoServ;
             string _jsonMed = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
@@ -266,7 +266,7 @@ namespace Trato
             Fn_CargarDatos();
             await Task.Delay(100);
         }
-        public static async void Fn_GuardarDatos(C_PerfilMed _med, string _membre, string _folio,string _letra)
+        public static async void Fn_GuardarDatos(C_PerfilMed _med, string _membre, string _folio, string _letra)
         {
             v_perfMed = _med;
             v_folio = _folio;
@@ -291,7 +291,7 @@ namespace Trato
         public static async void Fn_GuardarRed(ObservableCollection<C_Medico> _medicos)
         {
             string _json = JsonConvert.SerializeObject(_medicos, Formatting.Indented);
-            if(Current.Properties.ContainsKey("medicos"))
+            if (Current.Properties.ContainsKey("medicos"))
             {
                 Current.Properties["medicos"] = _json;
             }
@@ -353,20 +353,20 @@ namespace Trato
             switch (_valor)
             {
                 case 0:
-                {
-                    for (int i = 0; i<v_medicos.Count;i++)
                     {
-                        if (v_medicos[i].v_idsexo == 0)
+                        for (int i = 0; i < v_medicos.Count; i++)
                         {
-                            v_medicos[i].v_img = "doctor.png";
+                            if (v_medicos[i].v_idsexo == 0)
+                            {
+                                v_medicos[i].v_img = "doctor.png";
+                            }
+                            else
+                            {
+                                v_medicos[i].v_img = "doctora.png";
+                            }
+                            v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " + v_medicos[i].v_Apellido;
                         }
-                        else
-                        {
-                            v_medicos[i].v_img = "doctora.png";
-                        }
-                        v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " + v_medicos[i].v_Apellido;
                     }
-                }
                     break;
                 case 1:
                     {
@@ -400,7 +400,7 @@ namespace Trato
             }
         }
 
-        protected override  void OnStart()
+        protected override void OnStart()
         {
             // Handle when your app starts
             //existe la variable guardada
@@ -413,7 +413,7 @@ namespace Trato
                 {//no esta logeado
                     v_perfil = new C_PerfilGen();
                     v_perfMed = new C_PerfilMed();
-                    v_log = "0"; 
+                    v_log = "0";
                     v_membresia = "";
                     v_folio = "";
                     v_letra = "";
@@ -444,7 +444,7 @@ namespace Trato
                     v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
                     string _jsonGenerales = Current.Properties["generales"] as string;
                     v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonGenerales);
-                    MainPage = new V_Master(true, "Bienvenido "+v_perfil.v_Nombre);
+                    MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
                 }
                 else
                 {
@@ -467,12 +467,36 @@ namespace Trato
         }
         protected override void OnSleep()
         {
-           
+
             // Handle when your app sleeps       
         }
         protected override void OnResume()
         {
             // Handle when your app resumes
-        }        
+        }
+        public static void Fn_SetToken(string _token)
+        {
+            if (Current.Properties.ContainsKey("token"))
+            {
+                Current.Properties["token"] = _token;
+            }
+            else
+            {
+                Current.Properties.Add("token", "");
+                Current.Properties["token"] = _token;
+            }
+        }
+        public static string Fn_GEtToken()
+        {
+            if (Current.Properties.ContainsKey("token"))
+            {
+                return Current.Properties["token"].ToString();
+            }
+            else
+            {
+                return "aaa";
+            }
+        }
     }
+
 }

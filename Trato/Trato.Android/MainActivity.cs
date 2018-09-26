@@ -10,6 +10,7 @@ using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
 using Firebase.Messaging;
 using Firebase.Iid;
+using Firebase;
 using Android.Util;
 using Android.Gms.Common;
 using PayPal.Forms.Abstractions;
@@ -56,8 +57,14 @@ namespace Trato.Droid
             LoadApplication(new App());
             CurrentPlatform.Init();
             TodoItem item = new TodoItem { Name= "Awesome item" };
-             MobileService.GetTable<TodoItem>().InsertAsync(item);
+            MobileService.GetTable<TodoItem>().InsertAsync(item);
             CheckForGoogleServices();
+
+            //FirebaseApp.InitializeApp(this.ApplicationContext);
+            //Java.Lang.IllegalStateException: Default FirebaseApp 
+            //is not initialized in this process com.alsain.trato4.
+            //Make sure to call FirebaseApp.initializeApp(Context) first.
+            //App.Fn_SetToken(FirebaseInstanceId.Instance.Token);
         }
        
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
