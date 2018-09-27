@@ -281,12 +281,10 @@ namespace Trato.Views
         {
             v_lista.ItemsSource = null;
             //if(v_medico)
-            if(v_tipo==0)
+            if (v_tipo == 0)
             {
                 ObservableCollection<C_Medico> _filtrada = new ObservableCollection<C_Medico>();
-
-
-                if(_filCiud.Count>0 && _filEspec.Count>0 )
+                if (_filCiud.Count > 0 && _filEspec.Count > 0)
                 {
                     //recorre toda la lista de medicos
                     for (int i = 0; i < App.v_medicos.Count; i++)
@@ -294,9 +292,9 @@ namespace Trato.Views
                         //recorre lista de ciudad a filtrar
                         for (int j = 0; j < _filCiud.Count; j++)
                         {//recorre lista de especialidad a filtrar
-                            for (int k=0;k<_filEspec.Count; k++)
+                            for (int k = 0; k < _filEspec.Count; k++)
                             {
-                                if ((App.v_medicos[i].v_Ciudad == _filCiud[j]  && App.v_medicos[i].v_Especialidad== _filEspec[k] )&& !_filtrada.Contains(App.v_medicos[i]))
+                                if ((App.v_medicos[i].v_Ciudad == _filCiud[j] && App.v_medicos[i].v_Especialidad == _filEspec[k]) && !_filtrada.Contains(App.v_medicos[i]))
                                 {
                                     _filtrada.Add(App.v_medicos[i]);
                                 }
@@ -316,7 +314,6 @@ namespace Trato.Views
                             }
                         }
                     }
-
                     //recorre lista de especialidad a filtrar
                     for (int j = 0; j < _filEspec.Count; j++)
                     {
@@ -332,11 +329,11 @@ namespace Trato.Views
                 }
                 IEnumerable<C_Medico> _temp = _filtrada.OrderBy(x => x.v_Apellido);
                 _filtrada = new ObservableCollection<C_Medico>(_temp);
-               
+
 
 
                 await Task.Delay(100);
-                if (_filtrada.Count>0)
+                if (_filtrada.Count > 0)
                 {
                     v_lista.ItemsSource = _filtrada;
                 }
@@ -346,26 +343,50 @@ namespace Trato.Views
                     v_lista.ItemsSource = App.v_medicos;
                 }
             }
-            else if(v_tipo==1)
+            else if (v_tipo == 1)
             {
                 ObservableCollection<C_Servicios> _filtrada = new ObservableCollection<C_Servicios>();
-                //recorre toda la lista de medicos
-                for (int i = 0; i < App.v_servicios.Count; i++)
+                if (_filCiud.Count > 0 && _filEspec.Count > 0)
                 {
-                    //recorre lista de ciudad a filtrar
-                    for (int j = 0; j < _filCiud.Count; j++)
+                    //recorre toda la lista de medicos
+                    for (int i = 0; i < App.v_servicios.Count; i++)
                     {
-                        if (App.v_servicios[i].v_Ciudad == _filCiud[j] && !_filtrada.Contains(App.v_servicios[i]))
-                        {
-                            _filtrada.Add(App.v_servicios[i]);
+                        //recorre lista de ciudad a filtrar
+                        for (int j = 0; j < _filCiud.Count; j++)
+                        {//recorre lista de especialidad a filtrar
+                            for (int k = 0; k < _filEspec.Count; k++)
+                            {
+                                if ((App.v_servicios[i].v_Ciudad == _filCiud[j] && App.v_servicios[i].v_Especialidad == _filEspec[k]) && !_filtrada.Contains(App.v_servicios[i]))
+                                {
+                                    _filtrada.Add(App.v_servicios[i]);
+                                }
+                            }
                         }
                     }
+                }
+                else
+                {
+                    for (int j = 0; j < _filCiud.Count; j++)
+                    {//recorre toda la lista de medicos
+                        for (int i = 0; i < App.v_servicios.Count; i++)
+                        { //recorre lista de ciudad a filtrar
+                            if (App.v_servicios[i].v_Ciudad == _filCiud[j] && !_filtrada.Contains(App.v_servicios[i]))
+                            {
+                                _filtrada.Add(App.v_servicios[i]);
+                            }
+                        }
+                    }
+
                     //recorre lista de especialidad a filtrar
                     for (int j = 0; j < _filEspec.Count; j++)
                     {
-                        if (App.v_servicios[i].v_Especialidad == _filEspec[j] && !_filtrada.Contains(App.v_servicios[i]))
+                        //recorre toda la lista de medicos
+                        for (int i = 0; i < App.v_servicios.Count; i++)
                         {
-                            _filtrada.Add(App.v_servicios[i]);
+                            if (App.v_servicios[i].v_Especialidad == _filEspec[j] && !_filtrada.Contains(App.v_servicios[i]))
+                            {
+                                _filtrada.Add(App.v_servicios[i]);
+                            }
                         }
                     }
                 }
@@ -384,28 +405,53 @@ namespace Trato.Views
             else if (v_tipo == 2)
             {
                 ObservableCollection<C_ServGenerales> _filtrada = new ObservableCollection<C_ServGenerales>();
-                //recorre toda la lista de medicos
-                for (int i = 0; i < App.v_generales.Count; i++)
+                if (_filCiud.Count > 0 && _filEspec.Count > 0)
                 {
-                    //recorre lista de ciudad a filtrar
-                    for (int j = 0; j < _filCiud.Count; j++)
+                    //recorre toda la lista de medicos
+                    for (int i = 0; i < App.v_generales.Count; i++)
                     {
-                        if (App.v_generales[i].v_Ciudad == _filCiud[j] && !_filtrada.Contains(App.v_generales[i]))
-                        {
-                            _filtrada.Add(App.v_generales[i]);
-                        }
-                    }
-                    //recorre lista de especialidad a filtrar
-                    for (int j = 0; j < _filEspec.Count; j++)
-                    {
-                        if (App.v_servicios[i].v_Especialidad == _filEspec[j] && !_filtrada.Contains(App.v_generales[i]))
-                        {
-                            _filtrada.Add(App.v_generales[i]);
+                        //recorre lista de ciudad a filtrar
+                        for (int j = 0; j < _filCiud.Count; j++)
+                        {//recorre lista de especialidad a filtrar
+                            for (int k = 0; k < _filEspec.Count; k++)
+                            {
+                                if ((App.v_generales[i].v_Ciudad == _filCiud[j] && App.v_generales[i].v_Especialidad == _filEspec[k]) && !_filtrada.Contains(App.v_generales[i]))
+                                {
+                                    _filtrada.Add(App.v_generales[i]);
+                                }
+                            }
                         }
                     }
                 }
-                IEnumerable<C_ServGenerales> _temp = _filtrada.OrderBy(x => x.v_completo);
+                else
+                {
+                    for (int j = 0; j < _filCiud.Count; j++)
+                    {//recorre toda la lista de medicos
+                        for (int i = 0; i < App.v_generales.Count; i++)
+                        { //recorre lista de ciudad a filtrar
+                            if (App.v_generales[i].v_Ciudad == _filCiud[j] && !_filtrada.Contains(App.v_generales[i]))
+                            {
+                                _filtrada.Add(App.v_generales[i]);
+                            }
+                        }
+                    }
+
+                    //recorre lista de especialidad a filtrar
+                    for (int j = 0; j < _filEspec.Count; j++)
+                    {
+                        //recorre toda la lista de medicos
+                        for (int i = 0; i < App.v_generales.Count; i++)
+                        {
+                            if (App.v_generales[i].v_Especialidad == _filEspec[j] && !_filtrada.Contains(App.v_generales[i]))
+                            {
+                                _filtrada.Add(App.v_generales[i]);
+                            }
+                        }
+                    }
+                }
+                IEnumerable < C_ServGenerales> _temp = _filtrada.OrderBy(x => x.v_completo);
                 _filtrada = new ObservableCollection<C_ServGenerales>(_temp);
+
                 if (_filtrada.Count > 0)
                 {
                     v_lista.ItemsSource = _filtrada;
@@ -413,7 +459,7 @@ namespace Trato.Views
                 else
                 {
                     await DisplayAlert("Filtro vacio", "No se encontraron resultados", "Aceptar");
-                    v_lista.ItemsSource = App.v_servicios;
+                    v_lista.ItemsSource = App.v_generales;
                 }
             }
             Fn_Filtro(sender, _args);
@@ -896,7 +942,7 @@ namespace Trato.Views
             else if(v_tipo==2)
             {
                 ObservableCollection<C_ServGenerales> _serTemp = new ObservableCollection<C_ServGenerales>();
-                for (int i = 0; i < App.v_servicios.Count; i++)
+                for (int i = 0; i < App.v_generales.Count; i++)
                 {
                     if ((App.v_generales[i].v_completo == _nuevoFiltro.v_texto) || (App.v_generales[i].v_Especialidad == _nuevoFiltro.v_texto))
                     {

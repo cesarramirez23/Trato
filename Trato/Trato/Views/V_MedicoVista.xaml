@@ -2,35 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_MedicoVista">
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Margin="10,0,10,30">
-            <ScrollView>
-                <StackLayout Orientation="Vertical" Margin="20,5,20,5">
-                    <Image x:Name="img" WidthRequest="200" HeightRequest="200" BackgroundColor="Green">
+    <StackLayout Orientation="Vertical" Margin="10,0,10,30">
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="20,5,20,5">
+                <Image x:Name="img" WidthRequest="200" HeightRequest="200">
+                    <!--BackgroundColor="Green">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirImg"></TapGestureRecognizer>
-                        </Image.GestureRecognizers>
-                    </Image>
-                    <Label FontSize="Large" FontAttributes="Bold" Text="Información" TextColor="{StaticResource NavigationPrimary}"/>
-                    <Label FontSize="Medium" x:Name="nombre"></Label>
-                    <Label FontSize="Medium" x:Name="especial"></Label>
-                    <Label FontSize="Large" FontAttributes="Bold" Text="Información de contacto:" TextColor="{StaticResource NavigationPrimary}"></Label>
-                    <Label FontSize="Medium" x:Name="info"></Label>
-                    <Label x:Name="domicilio" FontAttributes="Italic" FontSize="Medium">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirMapa"></TapGestureRecognizer>
-                        </Label.GestureRecognizers>
-                    </Label>
+                        </Image.GestureRecognizers>-->
+                </Image>
+                <Label FontSize="Large" FontAttributes="Bold" Text="Información" TextColor="{StaticResource NavigationPrimary}"/>
+                <Label FontSize="Medium" x:Name="nombre"></Label>
+                <Label FontSize="Medium" x:Name="especial"></Label>
+                <Label FontSize="Large" FontAttributes="Bold" Text="Información de contacto:" TextColor="{StaticResource NavigationPrimary}"></Label>
+                <Label FontSize="Medium" x:Name="info"></Label>
+                <Label Text="Domicilio: " FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource NavigationPrimary}"></Label>
+                <Label x:Name="domicilio" FontAttributes="Italic" FontSize="Medium">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirMapa"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout x:Name="StackSitio" IsVisible="False">
+                    <Label Text="Sitio Web: " FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource NavigationPrimary}" />
                     <Label x:Name="sitio" FontAttributes="Italic" FontSize="Medium">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirSitio"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
-                    <Label FontSize="Large" FontAttributes="Bold" Text="Información extra" TextColor="{StaticResource NavigationPrimary}"/>
-                    <Label FontSize="Medium" x:Name="descrip" ></Label>
                 </StackLayout>
-            </ScrollView>
-            <Button   x:Name="boton" Text="Cita" Margin="0,5,0,5" IsVisible="False" Style="{StaticResource Buton}"></Button>
-        </StackLayout>
-    </ContentPage.Content>
+                <Label FontSize="Large" FontAttributes="Bold" Text="Información extra" TextColor="{StaticResource NavigationPrimary}"/>
+                <Label FontSize="Medium" x:Name="descrip" ></Label>
+            </StackLayout>
+        </ScrollView>
+        <Button   x:Name="boton" Text="Cita" Margin="0,5,0,5" IsVisible="False" Style="{StaticResource Buton}"></Button>
+    </StackLayout>
 </ContentPage>

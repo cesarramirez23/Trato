@@ -404,7 +404,7 @@ namespace Trato
         {
             // Handle when your app starts
             //existe la variable guardada
-            Properties.Clear();
+            //Properties.Clear();
             if (Properties.ContainsKey("log"))
             {
                 //lee el valor guardado

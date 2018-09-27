@@ -16,12 +16,12 @@
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Label Text="Nombre de usuario" HorizontalOptions="Center" Style="{StaticResource AzulMedLbl}"
+                        <Label HorizontalOptions="Center" Style="{StaticResource AzulMedLbl}" Text="Membresía"
                                Grid.Column="0" Grid.Row="0" VerticalOptions="End" VerticalTextAlignment="End"></Label>
-                        <Label Text="Folio" HorizontalOptions="Center" Style="{StaticResource AzulMedLbl}"
+                        <Label HorizontalOptions="Center" Style="{StaticResource AzulMedLbl}" Text="Folio"
                                Grid.Column="1" Grid.Row="0" VerticalOptions="End" VerticalTextAlignment="End"></Label>
 
-                        <Entry Placeholder="Nombre" x:Name="usu" HorizontalOptions="FillAndExpand" Text="1809F-0007"
+                        <Entry Placeholder="Número de Membresía" x:Name="usu" HorizontalOptions="FillAndExpand"
                                Grid.Column="0" Grid.Row="1"></Entry>
                         <!--Text="1808F-0002"  cesar1234
                         1809F-0007    3eb868
@@ -39,12 +39,11 @@
                         
                         
                         -->
-                        <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="FillAndExpand" Text="1"
+                        <Entry Placeholder="Folio" x:Name="fol" Keyboard="Numeric" HorizontalOptions="FillAndExpand"
                                Grid.Column="1" Grid.Row="1"></Entry>
                     </Grid>
                     <Label Text="Ingresa tu contraseña" Style="{StaticResource AzulMedLbl}"></Label>
-                    <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" 
-                           Text="Cesar1234"></Entry>
+                    <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" ></Entry>
                     <!--="ac1602"   cesar1234   3eb868-->
                     <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
 

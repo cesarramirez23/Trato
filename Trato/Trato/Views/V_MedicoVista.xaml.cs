@@ -57,7 +57,8 @@ namespace Trato.Views
         public V_MedicoVista(C_Servicios _servicios)
         {
             InitializeComponent();
-            sitio.IsVisible = true;// ImageLoaderSourceHandler: Could not retrieve image or image data was invalid: Uri: http://tratoespecial.com/imgs/LOGOS SERVICIOS GENERALES/400X400/8.jpg
+            StackSitio.IsVisible = true;
+            sitio.IsVisible = true;
             v_servi = _servicios;
 
             nombre.Text = v_servi.v_completo;
@@ -65,7 +66,7 @@ namespace Trato.Views
             domicilio.Text = v_servi.v_Domicilio + "," + v_servi.v_Ciudad;
             info.Text = "Telefono: " + v_servi.v_Tel + "\nCorreo: " + v_servi.v_Correo +
             "\nHorario: " + v_servi.v_horario;
-            sitio.Text="Sitio Web: " + v_servi.v_sitio;
+            sitio.Text= v_servi.v_sitio;
             img.Source = v_servi.v_img;
             descrip.Text = " " + v_servi.v_descripcion;
             //_personaa = false;
@@ -83,6 +84,7 @@ namespace Trato.Views
         public V_MedicoVista(C_ServGenerales _gene)
         {
             InitializeComponent();
+            StackSitio.IsVisible = true;
             sitio.IsVisible = true;
             v_gene = _gene;
             nombre.Text = v_gene.v_completo;
@@ -90,7 +92,7 @@ namespace Trato.Views
             domicilio.Text = v_gene.v_Domicilio + "," + v_gene.v_Ciudad;
             info.Text = "Telefono: " + v_gene.v_Tel + "\nCorreo: " + v_gene.v_Correo +
             "\nHorario: " + v_gene.v_horario;
-            sitio.Text = "Sitio Web: " + v_gene.v_sitio;
+            sitio.Text =  v_gene.v_sitio;
             img.Source = v_gene.v_img;
             descrip.Text = " " + v_gene.v_descripcion;
             //_personaa = false;

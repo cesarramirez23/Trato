@@ -8,7 +8,14 @@
             <Color x:Key="NavigationPrimary">#2896D1</Color>
             <Color x:Key="LetrCol" >#000000</Color>
             <Color x:Key="Lightgray">#FFD3D3D3</Color>
+            <Color x:Key="White" >#FFFFFF </Color>
 
+            <Style TargetType="ScrollView">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+            <Style TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
             <Style TargetType="Frame">
                 <Setter  Property="BackgroundColor" Value="White"/>
                 <Setter Property="Margin" Value="20,6"/>
@@ -16,10 +23,10 @@
                 <Setter Property="BorderColor" Value="{StaticResource Lightgray}"/>
             </Style>
             <Style TargetType="ContentPage">
-                <Setter  Property="BackgroundColor" Value="White"/>
+                <Setter  Property="BackgroundColor" Value="{StaticResource White}"/>
             </Style>
             <Style TargetType="TabbedPage">
-                <Setter  Property="BackgroundColor" Value="White"/>
+                <Setter  Property="BackgroundColor" Value="{StaticResource White}"/>
             </Style>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
