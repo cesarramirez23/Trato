@@ -90,6 +90,7 @@ namespace Trato
             Button _but = (Button)sender;
             _but.IsEnabled = false;
             var result = await CrossPayPalManager.Current.Buy(new PayPalItem(v_infoPago.v_nombre,int.Parse(v_infoPago.v_costo), "MXN"), new Decimal(0),null,PaymentIntent.Sale);
+            //var result = await CrossPayPalManager.Current.Buy(new PayPalItem(v_infoPago.v_nombre,1, "MXN"), new Decimal(0),null,PaymentIntent.Sale);
             if (result.Status == PayPalStatus.Cancelled)
             {
                 P_mensajes.Text="Cancelled";

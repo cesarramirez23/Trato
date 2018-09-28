@@ -51,6 +51,7 @@ JObject o = JObject.Parse(json);
                     C_T_usu.Text = "Total de usuarios: " + App.v_perfil.v_numEmple;
                 }
             }
+            string _ARDSG=App.v_perfil.Fn_GetDatos() ;
             string[] _Arr = App.v_perfil.v_vig.Split('-');
             C_fecha.Text = _Arr[2] + " - " + _Arr[1] + " - " + _Arr[0];
            

@@ -17,6 +17,12 @@ using PayPal.Forms.Abstractions;
 using PayPal.Forms;
 using Android.Content;
 
+/*
+ empre   1809E-0005     58de8a    nom
+         1809F-0014     44d2fa      nom fami
+         1809I-0015     ef02e3      Indivi
+     
+     */
 namespace Trato.Droid
 {
     //label es el nombre que se va a ver en pantalla de aplicaciones 
@@ -57,9 +63,9 @@ namespace Trato.Droid
             global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             LoadApplication(new App());
             CurrentPlatform.Init();
-            TodoItem item = new TodoItem { Name= "Awesome item" };
-            MobileService.GetTable<TodoItem>().InsertAsync(item);
             CheckForGoogleServices();
+            //TodoItem item = new TodoItem { Name= "Awesome item" };
+            //MobileService.GetTable<TodoItem>().InsertAsync(item);
 
             //FirebaseApp.InitializeApp(this.ApplicationContext);
             //Java.Lang.IllegalStateException: Default FirebaseApp 

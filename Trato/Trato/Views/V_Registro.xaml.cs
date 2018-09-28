@@ -176,12 +176,13 @@ namespace Trato.Views
                                 string content = await respuestaReg.Content.ReadAsStringAsync();
                                 if (content == "1")
                                 {
-                                    Mensajes_over.Text += "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
+                                    Mensajes_over.Text = "Registrado correctamente, por favor revisa tu correo electronico \n para mas información";
                                     MEnu.IsVisible = true;
                                 }
                                 else if (content == "0")
                                 {
                                     StackMen.IsVisible = false;
+                                    Mensajes_over.Text = "";
                                     await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
                                     NavigationPage.SetHasNavigationBar(this, true);
                                     RegPrin.IsEnabled = true;

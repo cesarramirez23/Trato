@@ -21,11 +21,6 @@ namespace Trato.Views
             if (App.v_log == "1")
             {
                 Fn_Fecha();
-                M_mensaje.IsVisible = true;
-                if (App.v_perfil.v_activo != "1")
-                {
-                    M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
-                }
             }
             else
             {
@@ -59,36 +54,68 @@ namespace Trato.Views
             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
             //crear el cliente
             HttpClient _client = new HttpClient();
-            string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
-            StringContent _content = new StringContent(_jsonper,System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage _respuestaphp;
+            string _DirEnviar="" ;
+            _DirEnviar = "http://tratoespecial.com/validacion.php";
+            StringContent _content = new StringContent(_jsonper, System.Text.Encoding.UTF8, "application/json");
             try
             {
                 //mandar el json con el post
-                _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                //await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
-                App.Fn_GuardarDatos(_nuePer, App.v_membresia,App.v_folio, App.v_letra);
-                _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
-                _content = new StringContent(_jsonper, System.Text.Encoding.UTF8, "application/json");
                 try
                 {
+                    _DirEnviar = "http://tratoespecial.com/query_perfil.php";
                     //mandar el json con el post
                     _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                    _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                    C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-                    App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
+                     _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                    //await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
+                    App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
+                    _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                    _content = new StringContent(_jsonper, System.Text.Encoding.UTF8, "application/json");
+                    try
+                    {
+                        //mandar el json con el post
+                        _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                        _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                        C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+                        App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
+                        if (App.v_perfil.v_activo != "1")
+                        {
+                            M_mensaje.IsVisible = true;
+                            M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+                        }
+                    }
+                    catch (HttpRequestException exception)
+                    {
+                        await DisplayAlert("Error", exception.Message, "Aceptar");
+                        App.Fn_CargarDatos();
+                        if (App.v_perfil.v_activo != "1")
+                        {
+                            M_mensaje.IsVisible = true;
+                            M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+                        }
+                    }
                 }
                 catch (HttpRequestException exception)
                 {
                     await DisplayAlert("Error", exception.Message, "Aceptar");
+                    App.Fn_CargarDatos();
+                    if (App.v_perfil.v_activo != "1")
+                    {
+                        M_mensaje.IsVisible = true;
+                        M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+                    }
                 }
             }
-            catch (HttpRequestException exception)
+            catch
             {
-                await DisplayAlert("Error", exception.Message, "Aceptar");
                 App.Fn_CargarDatos();
+                if (App.v_perfil.v_activo != "1")
+                {
+                    M_mensaje.IsVisible = true;
+                    M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+                }
             }
         }
         public async void FN_Red()
