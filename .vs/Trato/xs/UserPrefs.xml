@@ -1,15 +1,22 @@
 ﻿<Properties StartupConfiguration="{8A4AA535-184E-4983-89ED-D201A4B95059}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato.iOS/Info.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato.Android/FirebaseRegistrationService.cs">
     <Files>
       <File FileName="Trato/Trato.iOS/Main.cs" Line="7" Column="7" />
-      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="67" Column="42" />
-      <File FileName="Trato/Trato/App.xaml.cs" Line="421" Column="51" />
+      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="82" Column="1" />
+      <File FileName="Trato/Trato/App.xaml.cs" Line="407" Column="13" />
       <File FileName="Trato/Trato.iOS/Info.plist" />
+      <File FileName="Trato/Trato.iOS/GoogleService-Info (1).plist" />
+      <File FileName="Trato/Trato.Android/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="Trato/Trato.Android/FirebaseNotificationService.cs" Line="1" Column="1" />
+      <File FileName="Trato/Trato.Android/FirebaseRegistrationService.cs" Line="31" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="85" column="1" />
+      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="55" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.568AEB56-384C-4BBF-A517-9D368DDDA85F" automaticSigning="False" />

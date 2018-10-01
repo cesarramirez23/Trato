@@ -9,6 +9,7 @@ using UIKit;
 
 using Firebase.CloudMessaging;
 using UserNotifications;
+using Firebase.Core;
 namespace Trato.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -47,9 +48,8 @@ namespace Trato.iOS
             };
             CrossPayPalManager.Init(config);
             //https://github.com/codercampos/FirebaseXF-XamarinLatino/blob/master/src/FirebaseXL/FirebaseXL.iOS/AppDelegate.cs
+    
             
-            Firebase.Core.App.Configure();
-
             LoadApplication(application: new Trato.App());
             // Register your app for remote notifications.
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
@@ -64,7 +64,7 @@ namespace Trato.iOS
                 UNUserNotificationCenter.Current.Delegate = this;
 
                 // For iOS 10 data message (sent via FCM)
-                //Messaging.SharedInstance.RemoteMessageDelegate = this;
+                Messaging.SharedInstance.Delegate = this;
             }
             else
             {
@@ -76,6 +76,12 @@ namespace Trato.iOS
 
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
+            Firebase.InstanceID.InstanceId.Notifications.ObserveTokenRefresh((sender,e)=>{
+                var newtoken = Firebase.InstanceID.InstanceId.SharedInstance.Token;
+                //if you want to send notification per user, use this token
+                System.Diagnostics.Debug.WriteLine(newtoken);
+            });
+            // blog.xamarians.com/blog/2017/9/18/firebase-cloud-messaging
 
 
             return base.FinishedLaunching(app, options);
@@ -85,6 +91,7 @@ namespace Trato.iOS
         public void DidRefreshRegistrationToken(Messaging messaging, string fcmToken)
         {
             System.Diagnostics.Debug.WriteLine($"FCM Token: {fcmToken}");
+            App.Fn_SetToken(fcmToken);
         }
     }
 }
