@@ -15,6 +15,7 @@ using Android.Media;
 using Android.Support.V7.App;
 using Android.Util;
 using Firebase.Messaging;
+using Android.Graphics;
 
 
 
@@ -38,13 +39,13 @@ namespace Trato.Droid
        custom data->key de message   es para recibir esta info de abajo
        */
             // Pull message body out of the template
-            var messageBody = message.Data["message"];
-            if (string.IsNullOrWhiteSpace(messageBody))
-                return;
+            //var messageBody = message.Data["message"];
+            //if (string.IsNullOrWhiteSpace(messageBody))
+            //    return;
 
-            var messageTitle = message.Data["titulo"];
-            if (string.IsNullOrWhiteSpace(messageBody))
-                return;
+            //var messageTitle = message.Data["titulo"];
+            //if (string.IsNullOrWhiteSpace(messageBody))
+            //    return;
 
             var extra1 = message.Data["extra"];
             if (string.IsNullOrWhiteSpace(extra1))
@@ -63,6 +64,7 @@ namespace Trato.Droid
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
+            
             var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
             var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
@@ -72,6 +74,7 @@ namespace Trato.Droid
                 .SetContentIntent(pendingIntent)
                 .SetColor(40150209)                
                 .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
+                .SetPriority(1)
                 .SetAutoCancel(true);
 
             var notificationManager = NotificationManager.FromContext(this);

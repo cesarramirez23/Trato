@@ -7,7 +7,6 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 //para las notificaciones
-using Microsoft.WindowsAzure.MobileServices;
 using Firebase.Messaging;
 using Firebase.Iid;
 using Firebase;
@@ -29,7 +28,6 @@ namespace Trato.Droid
     [Activity(Label = "Trato Especial", Icon = "@drawable/Logo_Redondo_512", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        public static MobileServiceClient MobileService = new MobileServiceClient( "https://tratoespecial2.azurewebsites.net" );
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -62,10 +60,7 @@ namespace Trato.Droid
 
             global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             LoadApplication(new App());
-            CurrentPlatform.Init();
             CheckForGoogleServices();
-            //TodoItem item = new TodoItem { Name= "Awesome item" };
-            //MobileService.GetTable<TodoItem>().InsertAsync(item);
 
             //FirebaseApp.InitializeApp(this.ApplicationContext);
             //Java.Lang.IllegalStateException: Default FirebaseApp 

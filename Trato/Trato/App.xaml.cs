@@ -474,7 +474,7 @@ namespace Trato
         {
             // Handle when your app resumes
         }
-        public static void Fn_SetToken(string _token)
+        public static async void Fn_SetToken(string _token)
         {
             if (Current.Properties.ContainsKey("token"))
             {
@@ -485,6 +485,7 @@ namespace Trato
                 Current.Properties.Add("token", "");
                 Current.Properties["token"] = _token;
             }
+            await Current.SavePropertiesAsync();
         }
         public static string Fn_GEtToken()
         {

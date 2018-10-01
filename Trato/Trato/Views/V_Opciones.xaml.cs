@@ -28,7 +28,7 @@ namespace Trato.Views
 
 JObject o = JObject.Parse(json);
 
-
+        1809I-0015
  */
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Opciones : TabbedPage
@@ -37,7 +37,7 @@ JObject o = JObject.Parse(json);
         public V_Opciones ()
 		{
 			InitializeComponent ();
-            C_Membre.Text = App.v_membresia+ "  folio: "+ App.v_folio;
+            C_Membre.Text = App.v_membresia + "  folio: " + App.v_folio + "  token " + App.Fn_GEtToken()+"   --aaaaa" ;
 
             if (App.v_letra == "I")
             { C_Tipo.Text = "Membresia Individual"; }
@@ -51,11 +51,16 @@ JObject o = JObject.Parse(json);
                     C_T_usu.Text = "Total de usuarios: " + App.v_perfil.v_numEmple;
                 }
             }
-            string _ARDSG=App.v_perfil.Fn_GetDatos() ;
+
             string[] _Arr = App.v_perfil.v_vig.Split('-');
             C_fecha.Text = _Arr[2] + " - " + _Arr[1] + " - " + _Arr[0];
            
 		}
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            DisplayAlert("TOoken", App.Fn_GEtToken(), "asdsa");
+        }
         public void FN_passCambio(object sender, TextChangedEventArgs args)
         {
             if (string.IsNullOrEmpty(P_Nueva.Text) || string.IsNullOrWhiteSpace(P_Nueva.Text))

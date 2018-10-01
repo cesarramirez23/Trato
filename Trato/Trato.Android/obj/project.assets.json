@@ -11,20 +11,6 @@
           "lib/MonoAndroid403/FastAndroidCamera.dll": {}
         }
       },
-      "Microsoft.Azure.Mobile.Client/4.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "9.0.1",
-          "PCLCrypto": "2.0.147",
-          "Xamarin.Android.Support.CustomTabs": "23.3.0"
-        },
-        "compile": {
-          "lib/monoandroid70/Microsoft.Azure.Mobile.Client.dll": {}
-        },
-        "runtime": {
-          "lib/monoandroid70/Microsoft.Azure.Mobile.Client.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -89,66 +75,6 @@
           "lib/MonoAndroid10/PayPal.Forms.dll": {}
         }
       },
-      "PCLCrypto/2.0.147": {
-        "type": "package",
-        "dependencies": {
-          "PInvoke.NCrypt": "0.3.2",
-          "Validation": "2.2.8"
-        },
-        "compile": {
-          "lib/MonoAndroid23/PCLCrypto.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid23/PCLCrypto.dll": {}
-        }
-      },
-      "PInvoke.BCrypt/0.3.2": {
-        "type": "package",
-        "dependencies": {
-          "PInvoke.Kernel32": "0.3.2",
-          "PInvoke.Windows.Core": "0.3.2"
-        },
-        "compile": {
-          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.BCrypt.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.BCrypt.dll": {}
-        }
-      },
-      "PInvoke.Kernel32/0.3.2": {
-        "type": "package",
-        "dependencies": {
-          "PInvoke.Windows.Core": "0.3.2"
-        },
-        "compile": {
-          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Kernel32.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Kernel32.dll": {}
-        }
-      },
-      "PInvoke.NCrypt/0.3.2": {
-        "type": "package",
-        "dependencies": {
-          "PInvoke.BCrypt": "0.3.2",
-          "PInvoke.Windows.Core": "0.3.2"
-        },
-        "compile": {
-          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.NCrypt.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.NCrypt.dll": {}
-        }
-      },
-      "PInvoke.Windows.Core/0.3.2": {
-        "type": "package",
-        "compile": {
-          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll": {}
-        }
-      },
       "Square.OkHttp3/3.5.0": {
         "type": "package",
         "dependencies": {
@@ -168,15 +94,6 @@
         },
         "runtime": {
           "lib/MonoAndroid/Square.OkIO.dll": {}
-        }
-      },
-      "Validation/2.2.8": {
-        "type": "package",
-        "compile": {
-          "lib/dotnet/Validation.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/Validation.dll": {}
         }
       },
       "Xamarin.Android.Arch.Core.Common/1.0.0.1": {
@@ -297,18 +214,6 @@
         },
         "build": {
           "build/MonoAndroid81/Xamarin.Android.Support.Core.Utils.targets": {}
-        }
-      },
-      "Xamarin.Android.Support.CustomTabs/23.3.0": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Android.Support.v4": "[23.3.0]"
-        },
-        "compile": {
-          "lib/MonoAndroid403/Xamarin.Android.Support.CustomTabs.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid403/Xamarin.Android.Support.CustomTabs.dll": {}
         }
       },
       "Xamarin.Android.Support.Design/27.0.2.1": {
@@ -695,7 +600,6 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Microsoft.Azure.Mobile.Client": "4.0.2",
           "NUnit": "3.10.1",
           "Newtonsoft.Json": "11.0.2",
           "PayPal.Forms": "2.18.3",
@@ -725,28 +629,6 @@
         "src/CameraExtensions.cs",
         "src/FastJavaByteArray.cs",
         "src/FastJavaByteArrayEnumerator.cs"
-      ]
-    },
-    "Microsoft.Azure.Mobile.Client/4.0.2": {
-      "sha512": "FFHBqESmv/wKOz6rJh1cCT+jByny56nQ3u1LA8TEc21L1DxYga/CR7b/yx7100+4EQXTdkzLc0E5ScLcYNKhTQ==",
-      "type": "package",
-      "path": "microsoft.azure.mobile.client/4.0.2",
-      "files": [
-        "lib/monoandroid70/Microsoft.Azure.Mobile.Client.dll",
-        "lib/monoandroid70/Microsoft.Azure.Mobile.Client.xml",
-        "lib/net45/Microsoft.Azure.Mobile.Client.dll",
-        "lib/net45/Microsoft.Azure.Mobile.Client.xml",
-        "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.dll",
-        "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Microsoft.Azure.Mobile.Client.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Microsoft.Azure.Mobile.Client.xml",
-        "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll",
-        "lib/uap10.0/Microsoft.Azure.Mobile.Client.pri",
-        "lib/uap10.0/Microsoft.Azure.Mobile.Client.xml",
-        "lib/xamarinios10/Microsoft.Azure.Mobile.Client.dll",
-        "lib/xamarinios10/Microsoft.Azure.Mobile.Client.xml",
-        "microsoft.azure.mobile.client.4.0.2.nupkg.sha512",
-        "microsoft.azure.mobile.client.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -968,87 +850,6 @@
         "paypal.forms.nuspec"
       ]
     },
-    "PCLCrypto/2.0.147": {
-      "sha512": "OFNDBjhP+qPukqB8PiGbWDo70gHsEzSKupL47JisjYFQaGwlPPCnN8ah59QCzIvsg9IUr2AecGKXF3ONpyFL9g==",
-      "type": "package",
-      "path": "pclcrypto/2.0.147",
-      "files": [
-        "lib/MonoAndroid23/PCLCrypto.dll",
-        "lib/MonoAndroid23/PCLCrypto.xml",
-        "lib/MonoTouch10/PCLCrypto.dll",
-        "lib/MonoTouch10/PCLCrypto.xml",
-        "lib/net45/PCLCrypto.dll",
-        "lib/net45/PCLCrypto.xml",
-        "lib/portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/PCLCrypto.dll",
-        "lib/portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/PCLCrypto.xml",
-        "lib/portable-win81+wpa81/PCLCrypto.dll",
-        "lib/portable-win81+wpa81/PCLCrypto.xml",
-        "lib/wp80/PCLCrypto.dll",
-        "lib/wp80/PCLCrypto.xml",
-        "lib/xamarinios10/PCLCrypto.dll",
-        "lib/xamarinios10/PCLCrypto.xml",
-        "pclcrypto.2.0.147.nupkg.sha512",
-        "pclcrypto.nuspec"
-      ]
-    },
-    "PInvoke.BCrypt/0.3.2": {
-      "sha512": "6nSjPx88F+dcQgxfbM/lkYhi/zQWxwBcGAS3de/Q7YmPr5QdLNv5ZMk2UEFpMQhlFNya4TdUy5i3HKA12uMa7Q==",
-      "type": "package",
-      "path": "pinvoke.bcrypt/0.3.2",
-      "files": [
-        "lib/net40/PInvoke.BCrypt.dll",
-        "lib/net40/PInvoke.BCrypt.xml",
-        "lib/portable-net40+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.BCrypt.dll",
-        "lib/portable-net40+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.BCrypt.xml",
-        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.BCrypt.dll",
-        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.BCrypt.xml",
-        "pinvoke.bcrypt.0.3.2.nupkg.sha512",
-        "pinvoke.bcrypt.nuspec"
-      ]
-    },
-    "PInvoke.Kernel32/0.3.2": {
-      "sha512": "zkd5Vc5AQ9B489GMNlmd0wdKnRoLl1B/TnouwcjtaqWbDJ17TQSvBRnV7xjVEpBHQtL/248EaUTcDprJe9bZMA==",
-      "type": "package",
-      "path": "pinvoke.kernel32/0.3.2",
-      "files": [
-        "lib/net40/PInvoke.Kernel32.dll",
-        "lib/net40/PInvoke.Kernel32.xml",
-        "lib/portable-net40+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Kernel32.dll",
-        "lib/portable-net40+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Kernel32.xml",
-        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Kernel32.dll",
-        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Kernel32.xml",
-        "pinvoke.kernel32.0.3.2.nupkg.sha512",
-        "pinvoke.kernel32.nuspec"
-      ]
-    },
-    "PInvoke.NCrypt/0.3.2": {
-      "sha512": "s7SIBXlr3qolZaM5mGEXG2sKBY4yFVHTWBlwhRC93le08Aj+n/IaFVnB9LBFv6mpCCivXdzad+9EX6HHds4PyQ==",
-      "type": "package",
-      "path": "pinvoke.ncrypt/0.3.2",
-      "files": [
-        "lib/net40/PInvoke.NCrypt.dll",
-        "lib/net40/PInvoke.NCrypt.xml",
-        "lib/portable-net40+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.NCrypt.dll",
-        "lib/portable-net40+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.NCrypt.xml",
-        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.NCrypt.dll",
-        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.NCrypt.xml",
-        "pinvoke.ncrypt.0.3.2.nupkg.sha512",
-        "pinvoke.ncrypt.nuspec"
-      ]
-    },
-    "PInvoke.Windows.Core/0.3.2": {
-      "sha512": "cLG8L2mBqeM6mwKxYg34uZnW5A4cAqyWY4nh+ogxon6BOPLcuQ2QSK/b1IKduUIQg6mDgf06rZUVbuVVPi9+fg==",
-      "type": "package",
-      "path": "pinvoke.windows.core/0.3.2",
-      "files": [
-        "lib/portable-net40+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll",
-        "lib/portable-net40+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.xml",
-        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.dll",
-        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/PInvoke.Windows.Core.xml",
-        "pinvoke.windows.core.0.3.2.nupkg.sha512",
-        "pinvoke.windows.core.nuspec"
-      ]
-    },
     "Square.OkHttp3/3.5.0": {
       "sha512": "3oy8Gqf2drckI22TrGPLqzkXzAc1n4CaHO0/SFDjLhfgRS8GmaoD2YddmtCt9nSMZ2SWgvKruJvS/OTTb8ssnQ==",
       "type": "package",
@@ -1071,28 +872,6 @@
         "lib/MonoAndroid/Square.OkIO.dll",
         "square.okio.1.11.0.nupkg.sha512",
         "square.okio.nuspec"
-      ]
-    },
-    "Validation/2.2.8": {
-      "sha512": "DMNc7JhPlgRwnR+NNb+ldoluObL+RBw96aMoiZae/Looa4vgaAnIysmle/bV2OKqDNW9oUBDckPyfa2+sX6JdA==",
-      "type": "package",
-      "path": "validation/2.2.8",
-      "files": [
-        "README.md",
-        "lib/dotnet/Validation.dll",
-        "lib/dotnet/Validation.xml",
-        "lib/portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/Validation.dll",
-        "lib/portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/Validation.xml",
-        "lib/portable-net45+dnxcore50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/Validation.dll",
-        "lib/portable-net45+dnxcore50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/Validation.xml",
-        "tools/2013/RequiresNotNull.snippet",
-        "tools/2013/RequiresNotNullOrEmpty.snippet",
-        "tools/2015/RequiresNotNull.snippet",
-        "tools/2015/RequiresNotNullOrEmpty.snippet",
-        "tools/install_snippets.cmd",
-        "tools/uninstall_snippets.cmd",
-        "validation.2.2.8.nupkg.sha512",
-        "validation.nuspec"
       ]
     },
     "Xamarin.Android.Arch.Core.Common/1.0.0.1": {
@@ -1200,16 +979,6 @@
         "lib/MonoAndroid81/Xamarin.Android.Support.Core.Utils.dll",
         "xamarin.android.support.core.utils.27.0.2.1.nupkg.sha512",
         "xamarin.android.support.core.utils.nuspec"
-      ]
-    },
-    "Xamarin.Android.Support.CustomTabs/23.3.0": {
-      "sha512": "OQ/Uj2FDEWi8CD2AXXeNOOvy47z2QHywdGsMnGtf5n+nXATZvpg9+Xx/p1JLefccDM4Q0KRC0gO4QpQkDyuZ8A==",
-      "type": "package",
-      "path": "xamarin.android.support.customtabs/23.3.0",
-      "files": [
-        "lib/MonoAndroid403/Xamarin.Android.Support.CustomTabs.dll",
-        "xamarin.android.support.customtabs.23.3.0.nupkg.sha512",
-        "xamarin.android.support.customtabs.nuspec"
       ]
     },
     "Xamarin.Android.Support.Design/27.0.2.1": {
@@ -1663,7 +1432,6 @@
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
-      "Microsoft.Azure.Mobile.Client >= 4.0.2",
       "NUnit >= 3.10.1",
       "Newtonsoft.Json >= 11.0.2",
       "PayPal.Forms >= 2.18.3",
@@ -1717,10 +1485,6 @@
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
-          "Microsoft.Azure.Mobile.Client": {
-            "target": "Package",
-            "version": "[4.0.2, )"
-          },
           "NUnit": {
             "target": "Package",
             "version": "[3.10.1, )"
@@ -1776,17 +1540,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Se detectó una versión del paquete fuera de la restricción de dependencia: Xamarin.Android.Support.CustomTabs 23.3.0 requiere Xamarin.Android.Support.v4 (= 23.3.0), pero la versión Xamarin.Android.Support.v4 27.0.2.1 ya se resolvió.",
-      "libraryId": "Xamarin.Android.Support.v4",
-      "targetGraphs": [
-        "MonoAndroid,Version=v8.1"
-      ]
-    }
-  ]
+  }
 }

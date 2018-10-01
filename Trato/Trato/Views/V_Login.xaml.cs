@@ -11,8 +11,6 @@ using System.Net.Http;
 using Trato.Varios;
 using Newtonsoft.Json;
 
-using Microsoft.WindowsAzure.MobileServices;
-
 
 namespace Trato.Views
 {
