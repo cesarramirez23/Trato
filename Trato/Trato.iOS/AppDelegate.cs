@@ -15,7 +15,7 @@ namespace Trato.iOS
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
     {
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
@@ -50,7 +50,7 @@ namespace Trato.iOS
             
             Firebase.Core.App.Configure();
 
-            LoadApplication(new App());
+            LoadApplication(application: new Trato.App());
             // Register your app for remote notifications.
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
@@ -61,7 +61,7 @@ namespace Trato.iOS
                 });
 
                 // For iOS 10 display notification (sent via APNS)
-                UNUserNotificationCenter.Current.Delegate = new UNUserNotificationCenterDelegate() ;
+                UNUserNotificationCenter.Current.Delegate = this;
 
                 // For iOS 10 data message (sent via FCM)
                 //Messaging.SharedInstance.RemoteMessageDelegate = this;
