@@ -177,7 +177,7 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="GoogleService-Info %281%29.plist" />
+    <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -198,12 +198,15 @@
     <PackageReference Include="Xamarin.Firebase.iOS.CloudMessaging">
       <Version>3.0.3</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
     <PackageReference Include="ZXing.Net.Mobile">
       <Version>2.4.1</Version>
     </PackageReference>
     <PackageReference Include="ZXing.Net.Mobile.Forms">
       <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Analytics">
+      <Version>5.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

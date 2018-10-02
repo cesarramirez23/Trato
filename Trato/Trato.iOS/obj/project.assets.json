@@ -73,6 +73,23 @@
           "build/Xamarin.Build.Download.targets": {}
         }
       },
+      "Xamarin.Firebase.iOS.Analytics/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.11",
+          "Xamarin.Firebase.iOS.Core": "5.0.5",
+          "Xamarin.Firebase.iOS.InstanceID": "3.1.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
+        }
+      },
       "Xamarin.Firebase.iOS.CloudMessaging/3.0.3": {
         "type": "package",
         "dependencies": {
@@ -115,7 +132,7 @@
           "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
-      "Xamarin.Forms/3.1.0.697729": {
+      "Xamarin.Forms/3.2.0.839982": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -366,6 +383,23 @@
           "build/Xamarin.Build.Download.targets": {}
         }
       },
+      "Xamarin.Firebase.iOS.Analytics/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.11",
+          "Xamarin.Firebase.iOS.Core": "5.0.5",
+          "Xamarin.Firebase.iOS.InstanceID": "3.1.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
+        }
+      },
       "Xamarin.Firebase.iOS.CloudMessaging/3.0.3": {
         "type": "package",
         "dependencies": {
@@ -408,7 +442,7 @@
           "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
-      "Xamarin.Forms/3.1.0.697729": {
+      "Xamarin.Forms/3.2.0.839982": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -659,6 +693,23 @@
           "build/Xamarin.Build.Download.targets": {}
         }
       },
+      "Xamarin.Firebase.iOS.Analytics/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.11",
+          "Xamarin.Firebase.iOS.Core": "5.0.5",
+          "Xamarin.Firebase.iOS.InstanceID": "3.1.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
+        }
+      },
       "Xamarin.Firebase.iOS.CloudMessaging/3.0.3": {
         "type": "package",
         "dependencies": {
@@ -701,7 +752,7 @@
           "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
-      "Xamarin.Forms/3.1.0.697729": {
+      "Xamarin.Forms/3.2.0.839982": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -952,6 +1003,23 @@
           "build/Xamarin.Build.Download.targets": {}
         }
       },
+      "Xamarin.Firebase.iOS.Analytics/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.4.11",
+          "Xamarin.Firebase.iOS.Core": "5.0.5",
+          "Xamarin.Firebase.iOS.InstanceID": "3.1.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
+        },
+        "build": {
+          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
+        }
+      },
       "Xamarin.Firebase.iOS.CloudMessaging/3.0.3": {
         "type": "package",
         "dependencies": {
@@ -994,7 +1062,7 @@
           "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
-      "Xamarin.Forms/3.1.0.697729": {
+      "Xamarin.Forms/3.2.0.839982": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -1410,6 +1478,18 @@
         "xamarin.build.download.nuspec"
       ]
     },
+    "Xamarin.Firebase.iOS.Analytics/5.0.1": {
+      "sha512": "Lvc6tYBI9z3e8XydlqUvh2Nncl4SExtv7iF+VIbZORESdanfEoBQbwPezYu2SSWDB1C+cqH23MXejTAISn9gAQ==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.analytics/5.0.1",
+      "files": [
+        ".signature.p7s",
+        "build/Xamarin.Firebase.iOS.Analytics.targets",
+        "lib/Xamarin.iOS10/Firebase.Analytics.dll",
+        "xamarin.firebase.ios.analytics.5.0.1.nupkg.sha512",
+        "xamarin.firebase.ios.analytics.nuspec"
+      ]
+    },
     "Xamarin.Firebase.iOS.CloudMessaging/3.0.3": {
       "sha512": "gm4ZPnTEMtzOg8xOQJN6Sm7vyL5o7ZbkkkHQB49y6ZIoUpNneqHn+99f9uKG55LIFZHrnstzqYUy5Kwj4QvUow==",
       "type": "package",
@@ -1446,10 +1526,10 @@
         "xamarin.firebase.ios.instanceid.nuspec"
       ]
     },
-    "Xamarin.Forms/3.1.0.697729": {
-      "sha512": "YlFOM9u8onIRxJwYJ3l+O0wFKqzzrDjDrgnoBr1rct+eaQKU77vFydxvTP+WxYlYzR14hYvyLNC65L84+6ke6w==",
+    "Xamarin.Forms/3.2.0.839982": {
+      "sha512": "BtiTMpmTqkzPPlGvQEVrO51kC1e/vieOaGHB+bKUULER0ruf2EQ92zVRwuvLop60g0WQQJ0Arj45TNCu6qCINQ==",
       "type": "package",
-      "path": "xamarin.forms/3.1.0.697729",
+      "path": "xamarin.forms/3.2.0.839982",
       "files": [
         ".signature.p7s",
         "build/netstandard1.0/Mono.Cecil.Mdb.dll",
@@ -1479,13 +1559,11 @@
         "lib/MonoAndroid10/Design/Xamarin.Forms.Core.Design.dll",
         "lib/MonoAndroid10/Design/Xamarin.Forms.Xaml.Design.dll",
         "lib/MonoAndroid10/FormsViewGroup.dll",
-        "lib/MonoAndroid10/FormsViewGroup.dll.mdb",
         "lib/MonoAndroid10/FormsViewGroup.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Core.dll",
         "lib/MonoAndroid10/Xamarin.Forms.Core.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Core.xml",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll",
-        "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll.mdb",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.pdb",
         "lib/MonoAndroid10/Xamarin.Forms.Platform.dll",
         "lib/MonoAndroid10/Xamarin.Forms.Xaml.dll",
@@ -1504,7 +1582,6 @@
         "lib/Xamarin.iOS10/Xamarin.Forms.Core.xml",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll",
-        "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll.mdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.pdb",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.pdb",
@@ -1594,7 +1671,7 @@
         "lib/uap10.0/Xamarin.Forms.Platform.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.3.1.0.697729.nupkg.sha512",
+        "xamarin.forms.3.2.0.839982.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -1660,76 +1737,80 @@
       "Newtonsoft.Json >= 11.0.2",
       "PayPal.Forms >= 2.18.3",
       "Trato >= 1.0.0",
+      "Xamarin.Firebase.iOS.Analytics >= 5.0.1",
       "Xamarin.Firebase.iOS.CloudMessaging >= 3.0.3",
-      "Xamarin.Forms >= 3.1.0.697729",
+      "Xamarin.Forms >= 3.2.0.839982",
       "ZXing.Net.Mobile >= 2.4.1",
       "ZXing.Net.Mobile.Forms >= 2.4.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {}
+    "/Users/saullopez/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "projectUniqueName": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
       "projectName": "Trato.iOS",
-      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
-      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\obj\\",
+      "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
+      "packagesPath": "/Users/saullopez/.nuget/packages/",
+      "outputPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/obj",
       "projectStyle": "PackageReference",
-      "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/saullopez/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
+            "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj": {
+              "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj"
             }
           }
         }
       }
     },
+    "dependencies": {
+      "Xamarin.Firebase.iOS.Analytics": {
+        "target": "Package",
+        "version": "[5.0.1, )"
+      }
+    },
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
-          "NUnit": {
-            "target": "Package",
-            "version": "[3.10.1, )"
-          },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "[11.0.2, )"
+            "version": "11.0.2"
+          },
+          "NUnit": {
+            "target": "Package",
+            "version": "3.10.1"
           },
           "PayPal.Forms": {
             "target": "Package",
-            "version": "[2.18.3, )"
+            "version": "2.18.3"
           },
           "Xamarin.Firebase.iOS.CloudMessaging": {
             "target": "Package",
-            "version": "[3.0.3, )"
+            "version": "3.0.3"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[3.1.0.697729, )"
+            "version": "3.2.0.839982"
           },
           "ZXing.Net.Mobile": {
             "target": "Package",
-            "version": "[2.4.1, )"
+            "version": "2.4.1"
           },
           "ZXing.Net.Mobile.Forms": {
             "target": "Package",
-            "version": "[2.4.1, )"
+            "version": "2.4.1"
           }
         }
       }
