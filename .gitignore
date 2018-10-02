@@ -184,3 +184,7 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 project.lock.json
+.vs/Trato/xs/sqlite3/storage.ide
+.vs/Trato/xs/sqlite3/storage.ide-shm
+.vs/Trato/xs/sqlite3/storage.ide-wal
+.vs/Trato/xs/UserPrefs.xml
