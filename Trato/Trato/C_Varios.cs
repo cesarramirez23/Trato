@@ -8,6 +8,13 @@ using Newtonsoft.Json;
 
 namespace Trato.Varios
 {
+    public class Notifi
+    {
+        [JsonProperty("extra")]
+        string v_extra { get; set; }
+        [JsonProperty("extra2")]
+        string v_extra2 { set; get; }
+    }
     public class Pagar
     {
         /*membre

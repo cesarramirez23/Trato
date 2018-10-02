@@ -27,7 +27,7 @@ namespace Trato.Droid
         {
             var refreshedToken = FirebaseInstanceId.Instance.Token;
             Log.Debug(TAG, "Refreshed token: " + refreshedToken);
-            Console.WriteLine( "Refreshed token: " + refreshedToken);
+            Console.WriteLine("Refreshed token: " + refreshedToken);
             App.Fn_SetToken(refreshedToken);
             /*
             guardar este token, al hacer la cita mandar a base mi propio toke y los datos del doctor,

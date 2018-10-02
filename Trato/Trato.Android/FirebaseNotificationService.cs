@@ -18,25 +18,25 @@ using Firebase.Messaging;
 using Android.Graphics;
 
 
-
 namespace Trato.Droid
 {
     [Service]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
     public class FirebaseNotificationService : FirebaseMessagingService
     {
-      
+
 
         const string TAG = "FirebaseNotificationService";
 
         public override void OnMessageReceived(RemoteMessage message)
         {
-           // Log.Debug(TAG, "From: " + message.From);
+            // Log.Debug(TAG, "From: " + message.From);
 
 
             /*
        en firebase copnsole,   al enviar el mensaje, hasta abajo en adavanced option->
        custom data->key de message   es para recibir esta info de abajo
+       se envia como data
        */
             // Pull message body out of the template
             //var messageBody = message.Data["message"];
@@ -55,16 +55,21 @@ namespace Trato.Droid
             if (string.IsNullOrWhiteSpace(extra1))
                 return;
 
+            /*
+            adrianqa rodrigues de bañuelos radiologos
+                transferncia para discos
+                saber si lo recibioo y para pedir factura e iniciar elpedido*/
+
             // Log.Debug(TAG, "Notification message body: " + messageBody);
             //SendNotification(messageBody, extra1);
             SendNotification(extra1, extra2);
         }
 
-        void SendNotification(string messageBody,string _titulo)
+        void SendNotification(string messageBody, string _titulo)
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
-            
+
             var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
             var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
@@ -72,7 +77,7 @@ namespace Trato.Droid
                 .SetContentTitle(_titulo)
                 .SetContentText(messageBody)
                 .SetContentIntent(pendingIntent)
-                .SetColor(40150209)                
+                .SetColor(40150209)
                 .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
                 .SetPriority(1)
                 .SetAutoCancel(true);
