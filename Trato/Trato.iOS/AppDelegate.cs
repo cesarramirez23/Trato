@@ -142,8 +142,8 @@ namespace Trato.iOS
         {
             UIAlertView alert = new UIAlertView()
             {
-                Title = "Network error",
-                Message = "Please check your internert connection"
+                Title = title,
+                Message = message
             };
             alert.AddButton("Cancel");
             alert.AddButton("OK");
