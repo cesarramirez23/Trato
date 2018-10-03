@@ -11,9 +11,9 @@ namespace Trato.Varios
     public class Notifi
     {
         [JsonProperty("extra")]
-        string v_extra { get; set; }
+        public string v_titulo { get; set; }
         [JsonProperty("extra2")]
-        string v_extra2 { set; get; }
+        public string v_cuerpo { set; get; }
     }
     public class Pagar
     {

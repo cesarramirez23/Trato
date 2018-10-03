@@ -17,6 +17,10 @@ using Android.Util;
 using Firebase.Messaging;
 using Android.Graphics;
 
+using Newtonsoft.Json;
+using Trato.Varios;
+
+
 
 namespace Trato.Droid
 {
@@ -30,39 +34,74 @@ namespace Trato.Droid
 
         public override void OnMessageReceived(RemoteMessage message)
         {
-            // Log.Debug(TAG, "From: " + message.From);
+            /* en firebase copnsole,   al enviar el mensaje, hasta abajo en adavanced option-> custom data->key de message   
+             es para recibir esta info de abajo   se envia como data   en el archivo /firebase/index.php */
 
 
-            /*
-       en firebase copnsole,   al enviar el mensaje, hasta abajo en adavanced option->
-       custom data->key de message   es para recibir esta info de abajo
-       se envia como data
-       */
-            // Pull message body out of the template
-            //var messageBody = message.Data["message"];
-            //if (string.IsNullOrWhiteSpace(messageBody))
-            //    return;
+            foreach (string key in message.Data.Keys)
+            {
+                Console.WriteLine("keysessss " + key);
+            }
+            Console.WriteLine("total keysssss " + message.Data.Keys.Count);
+               
 
-            //var messageTitle = message.Data["titulo"];
-            //if (string.IsNullOrWhiteSpace(messageBody))
-            //    return;
+            if (message.Data.ContainsKey("data"))
+            {
+                string json = message.Data["data"];
+                if(string.IsNullOrEmpty( json))
+                {
+                    string _title = "";
+                    string _mess = "";
 
-            var extra1 = message.Data["extra"];
-            if (string.IsNullOrWhiteSpace(extra1))
-                return;
+                    if (string.IsNullOrEmpty(message.Data["title"]))
+                    {
+                        _title = "Titulo vacio";
+                    }
+                    else
+                    {
+                        _title = message.Data["title"];
+                    }
+                    if (string.IsNullOrEmpty(message.Data["message"]))
+                    {
+                        _mess = "Mensaje vacio";
+                    }
+                    else
+                    {
+                        _mess = message.Data["message"];
+                    }
 
-            var extra2 = message.Data["extra2"];
-            if (string.IsNullOrWhiteSpace(extra1))
-                return;
+                    SendNotification(_title, _mess);
+                }
+                else
+                {
+                    Notifi _notif = JsonConvert.DeserializeObject<Notifi>(json);
+                    SendNotification(_notif.v_titulo, _notif.v_cuerpo);
+                }
+            }
+            else
+            {//siempre trae esto
+                string _title = "";
+                string _mess = "";
 
-            /*
-            adrianqa rodrigues de bañuelos radiologos
-                transferncia para discos
-                saber si lo recibioo y para pedir factura e iniciar elpedido*/
+                if (string.IsNullOrEmpty( message.Data["title"]))
+                {
+                    _title = "Titulo vacio";
+                }
+                else
+                {
+                    _title = message.Data["title"];
+                }
+                if (string.IsNullOrEmpty(message.Data["message"]))
+                {
+                    _mess = "Mensaje vacio";
+                }
+                else
+                {
+                    _mess = message.Data["message"];
+                }
 
-            // Log.Debug(TAG, "Notification message body: " + messageBody);
-            //SendNotification(messageBody, extra1);
-            SendNotification(extra1, extra2);
+                SendNotification(_title,_mess);
+            }
         }
 
         void SendNotification(string messageBody, string _titulo)
@@ -72,8 +111,11 @@ namespace Trato.Droid
 
             var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
+            Bitmap largeIcon = BitmapFactory.DecodeResource(Resources, Resource.Drawable.Ambulancia);
+
             var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.Ambulancia)
+                .SetLargeIcon(largeIcon)
                 .SetContentTitle(_titulo)
                 .SetContentText(messageBody)
                 .SetContentIntent(pendingIntent)

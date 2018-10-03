@@ -235,6 +235,7 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\1f4fd9cc.proguard.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\d9f2c52f.proguard.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\04db0838.proguard.stamp
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\googsvcsjson\values\goog_svcs_json.xml
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csproj.CoreCompileInputs.cache
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XamlC.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csproj.CopyComplete

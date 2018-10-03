@@ -364,23 +364,8 @@ namespace Trato
                             {
                                 v_medicos[i].v_img = "doctora.png";
                             }
-                            v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " + v_medicos[i].v_Apellido;
-                        }
-                    }
-                    break;
-                case 1:
-                    {
-                        for (int i = 0; i < v_servicios.Count; i++)
-                        {
-                            //v_servicios[i].v_img= "https://useller.com.mx/product_img/Doux%20Moda.jpg";
-                        }
-                    }
-                    break;
-                case 2:
-                    {
-                        for (int i = 0; i < v_generales.Count; i++)
-                        {
-                            //v_generales[i].v_img= "https://useller.com.mx/product_img/Doux%20Moda.jpg";
+                            v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " +
+                                v_medicos[i].v_Apellido+ " "+v_medicos[i].v_membre;
                         }
                     }
                     break;
@@ -495,7 +480,7 @@ namespace Trato
             }
             else
             {
-                return "aaa";
+                return "a";
             }
         }
     }

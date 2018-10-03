@@ -175,7 +175,7 @@ namespace Trato.Views
             }
         }
 
-        public async void Fn_AbrirMapa(object sender, EventArgs _args)
+        public  void Fn_AbrirMapa(object sender, EventArgs _args)
         {
             string direcMapa = "";
             if(Device.RuntimePlatform == Device.Android)
