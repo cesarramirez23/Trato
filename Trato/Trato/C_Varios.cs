@@ -8,8 +8,19 @@ using Newtonsoft.Json;
 
 namespace Trato.Varios
 {
-    public class Notifi
+    public class C_Notificacion
     {
+        public C_Notificacion()
+        { }
+        public C_Notificacion(string _titulo, string _body)
+        {
+
+        }
+        public C_Notificacion(string _titulo, string _body,string _)
+        {
+
+        }
+
         [JsonProperty("extra")]
         public string v_titulo { get; set; }
         [JsonProperty("extra2")]
