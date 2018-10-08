@@ -280,8 +280,6 @@ C:/Users/AlsainVR/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/android/a
 C:/Users/AlsainVR/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/drawable/ambulancia_large.png
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/bin/Debug/Trato.Android.dll
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/bin/Debug/Trato.Android.pdb
-/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/bin/Debug/com.alsain.trato4.apk
-/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/bin/Debug/com.alsain.trato4-Signed.apk
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/bin/Debug/Trato.dll
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/bin/Debug/Trato.pdb
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/Trato.Android.csprojAssemblyReference.cache
@@ -305,7 +303,6 @@ C:/Users/AlsainVR/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/drawa
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/Trato.Android.csproj.CopyComplete
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/Trato.Android.dll
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/Trato.Android.pdb
-/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/android/bin/com.alsain.trato4.apk
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/layout/tabbar.xml
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/layout/toolbar.xml
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/values/styles.xml
@@ -349,6 +346,9 @@ C:/Users/AlsainVR/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/drawa
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/R.cs.flag
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/R.txt
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/uploadflags.txt
+/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/bin/Debug/com.alsain.trato4.apk
+/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/bin/Debug/com.alsain.trato4-Signed.apk
+/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/android/bin/com.alsain.trato4.apk
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/linksrc/Trato.Android.pdb
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/linksrc/Mono.Android.pdb
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/linksrc/Trato.pdb

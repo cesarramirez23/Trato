@@ -1,18 +1,12 @@
-﻿<Properties StartupConfiguration="{8A4AA535-184E-4983-89ED-D201A4B95059}|Default">
+﻿<Properties StartupConfiguration="{8DE49955-7AF5-4E9F-A074-CC42E424770F}|Default">
   <MonoDevelop.Ide.ItemProperties.Trato PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato.iOS/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato/Views/V_Buscador.xaml">
     <Files>
       <File FileName="Trato/Trato/Views/V_Perfil.xaml" Line="205" Column="136" />
-      <File FileName="Trato/Trato/App.xaml" Line="41" Column="78" />
+      <File FileName="Trato/Trato/App.xaml" Line="53" Column="77" />
       <File FileName="Trato/Trato/Views/V_Pagos.xaml" Line="9" Column="107" />
-      <File FileName="Trato/Trato/obj/Debug/netstandard2.0/Views/V_Buscador.xaml.g.cs" Line="1" Column="1" />
-      <File FileName="Trato/Trato/Views/V_Membresias.xaml" Line="48" Column="89" />
-      <File FileName="Trato/Trato/Views/V_Login.xaml" Line="18" Column="47" />
-      <File FileName="Trato/Trato/obj/Debug/netstandard2.0/Views/V_Perfil.xaml.g.cs" Line="1" Column="1" />
-      <File FileName="Trato/Trato/Views/V_Buscador.xaml" Line="79" Column="97" />
-      <File FileName="Trato/Trato/Views/V_Registro.xaml" Line="211" Column="23" />
-      <File FileName="Trato/Trato/Views/V_Login.xaml.cs" Line="47" Column="32" />
-      <File FileName="Trato/Trato.iOS/Main.cs" Line="16" Column="1" />
+      <File FileName="Trato/Trato.iOS/Main.cs" Line="14" Column="14" />
+      <File FileName="Trato/Trato/Views/V_Buscador.xaml" Line="110" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
