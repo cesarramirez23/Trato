@@ -107,9 +107,9 @@
                                 <RowDefinition Height="50"/>
                                 <RowDefinition Height="80"/>
                             </Grid.RowDefinitions>
-                            <Button Text="Pagar vía OXXO" Clicked="Fn_PagarEfec" IsVisible="False" Style="{StaticResource Boton2}" 
+                            <Button Text="Pagar vía OXXO" Clicked="Fn_PagarEfec" IsVisible="False" Style="{StaticResource Buton}" 
                                 Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1"></Button>
-                            <Button Text="Pagar con PayPal" Clicked="Fn_PagarPay" Style="{StaticResource Boton2}"
+                            <Button Text="Pagar con PayPal" Clicked="Fn_PagarPay" Style="{StaticResource Buton}"
                                 Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1"></Button>
                             <Label Text ="Tu cuenta no está activada, es posible que tengas acceso limitado" 
                                    TextColor="{StaticResource NavigationPrimary}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="1"/>
@@ -117,10 +117,24 @@
                         </Grid>
                     </StackLayout>
                    
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Button x:Name="G_Editar" Text="Editar" Style="{StaticResource Buton}" Grid.Column="0" Clicked="Fn_EditarGen"></Button>
+                        <Button x:Name="G_Guardar" Text="Guardar" Style="{StaticResource Buton}" Grid.Column="1" Clicked="Fn_GuardarGen" IsVisible="False"></Button>
+                        
+                     </Grid>
+                    <!--  
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Button x:Name="G_Editar" Text="Editar" Style="{StaticResource Buton}" HorizontalOptions="Start" Clicked="Fn_EditarGen"></Button>
                         <Button x:Name="G_Guardar" Text="Guardar" Style="{StaticResource Buton}" HorizontalOptions="End" Clicked="Fn_GuardarGen" IsVisible="False"></Button>
-                    </StackLayout>
+                    </StackLayout> -->
                 </StackLayout>
             </ScrollView>
         </ContentPage>
@@ -176,11 +190,28 @@
                         <Label Text="Toma algun medicamento?,¿Cúales?"  Style="{StaticResource lblSty}"></Label>
                     </StackLayout>
                     <Editor  x:Name="M_Medicamentos" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    
+                    
+                     <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Button x:Name="M_Editar" Text="Editar" Style="{StaticResource Buton}" Grid.Column="0" Clicked="Fn_EditarMed"></Button>
+                        <Button x:Name="M_Guardar" Text="Guardar" Style="{StaticResource Buton}" Grid.Column="1" Clicked="Fn_GuardarMed" IsVisible="False"></Button>
+                        
+                     </Grid>
+                    
+                    
+                    <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Button x:Name="M_Editar" Text="Editar" Style="{StaticResource Buton}" HorizontalOptions="Start" Clicked="Fn_EditarMed" ></Button>
-                        <Button x:Name="M_Guardar" Text="Guardar" Style="{StaticResource Buton}" HorizontalOptions="End" Clicked="Fn_GuardarMed" IsVisible="False"></Button>
+                        <Button x:Name="M_Guardar" Text="Guardar" Style="{StaticResource Buton}" HorizontalOptions="End" Clicked="Fn_EditarMed" IsVisible="False"></Button>
                     </StackLayout>
+                    -->
                 </StackLayout>
             </ScrollView>
         </ContentPage>
@@ -196,7 +227,7 @@
         <ContentPage Title="Tarjeta Virtual">
             <ScrollView >
                 <StackLayout>
-                    <Button Text="Motrar Tarjeta Virtual" Clicked="FN_CrearQR" x:Name="qr_but" HorizontalOptions="Center" Style="{StaticResource Buton}" Margin="20,0"></Button>
+                    <Button Text="Motrar Tarjeta Virtual" Clicked="FN_CrearQR" x:Name="qr_but"  Style="{StaticResource Buton}" ></Button>
                     <ContentView x:Name="qr_content">
                     </ContentView>
                 </StackLayout>

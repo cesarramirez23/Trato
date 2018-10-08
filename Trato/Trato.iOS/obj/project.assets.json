@@ -1775,12 +1775,6 @@
         }
       }
     },
-    "dependencies": {
-      "Xamarin.Forms": {
-        "target": "Package",
-        "version": "[3.2.0.871581, )"
-      }
-    },
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
@@ -1799,6 +1793,10 @@
           "Xamarin.Firebase.iOS.CloudMessaging": {
             "target": "Package",
             "version": "3.0.3"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "3.2.0.871581"
           },
           "ZXing.Net.Mobile": {
             "target": "Package",

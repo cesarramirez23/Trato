@@ -72,11 +72,11 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
-                    <Button Text="Cancelar" Clicked="Fn_Cancelar" Style="{StaticResource Boton2}" 
+                    <Button Text="Cancelar" Clicked="Fn_Cancelar" Style="{StaticResource Buton}" 
                                 Grid.Column="0" Grid.ColumnSpan="1"></Button>
-                    <Button Text="Aceptar" Clicked="Fn_Aceptar" Style="{StaticResource Boton2}"
+                    <Button Text="Aceptar" Clicked="Fn_Aceptar" Style="{StaticResource Buton}"
                                 Grid.Column="1" Grid.ColumnSpan="1"></Button>
-                    <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Boton2}"
+                    <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Buton}"
                                 Grid.Column="2" Grid.ColumnSpan="1"></Button>
                 </Grid>
                 <!--
