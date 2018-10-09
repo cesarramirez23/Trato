@@ -1,24 +1,23 @@
-﻿<Properties StartupConfiguration="{8DE49955-7AF5-4E9F-A074-CC42E424770F}|Default">
+﻿<Properties StartupConfiguration="{8DE49955-7AF5-4E9F-A074-CC42E424770F}|Pruebas unitarias">
   <MonoDevelop.Ide.ItemProperties.Trato PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato/Views/V_Buscador.xaml">
     <Files>
-      <File FileName="Trato/Trato/Views/V_Perfil.xaml" Line="205" Column="136" />
-      <File FileName="Trato/Trato/App.xaml" Line="53" Column="77" />
-      <File FileName="Trato/Trato/Views/V_Pagos.xaml" Line="9" Column="107" />
-      <File FileName="Trato/Trato.iOS/Main.cs" Line="14" Column="14" />
-      <File FileName="Trato/Trato/Views/V_Buscador.xaml" Line="110" Column="15" />
+      <File FileName="Trato/Trato/Views/V_Perfil.xaml" Line="24" Column="46" />
+      <File FileName="Trato/Trato/App.xaml" Line="72" Column="15" />
+      <File FileName="Trato/Trato/Views/V_Pagos.xaml" Line="15" Column="15" />
+      <File FileName="Trato/Trato/Views/V_Buscador.xaml" Line="48" Column="98" />
+      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="30" Column="9" />
+      <File FileName="Trato/Trato/LetrasAux.cs" Line="16" Column="6" />
+      <File FileName="Trato/Trato/App.xaml.cs" Line="400" Column="15" NotebookId="1" />
+      <File FileName="Trato/Trato/Views/V_MedicoVista.xaml" Line="39" Column="15" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="135" column="1" />
-      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="161" column="1" />
-      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="182" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.4889cc5e97c97465e9e5dea521718c6f54d6da64" automaticSigning="False" />
-  <MonoDevelop.Ide.ItemProperties.Trato.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.0123456789ABCDEF" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.28E71A89-C227-4627-ABF7-010A3CD8B8BB" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.Trato.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MultiItemStartupConfigurations />
 </Properties>
