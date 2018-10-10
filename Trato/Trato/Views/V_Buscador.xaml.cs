@@ -330,8 +330,6 @@ namespace Trato.Views
                 IEnumerable<C_Medico> _temp = _filtrada.OrderBy(x => x.v_Apellido);
                 _filtrada = new ObservableCollection<C_Medico>(_temp);
 
-
-
                 await Task.Delay(100);
                 if (_filtrada.Count > 0)
                 {
@@ -376,7 +374,6 @@ namespace Trato.Views
                             }
                         }
                     }
-
                     //recorre lista de especialidad a filtrar
                     for (int j = 0; j < _filEspec.Count; j++)
                     {
@@ -908,7 +905,6 @@ namespace Trato.Views
                 }
             }
         }
-
         public void Fn_TapFiltro(object sender, ItemTappedEventArgs _args)
         {
             PrefFil _nuevoFiltro =_args.Item as PrefFil;
@@ -954,6 +950,5 @@ namespace Trato.Views
             v_lista.IsVisible = true;
             Buscador.IsVisible = false;
         }
-
     }
 }

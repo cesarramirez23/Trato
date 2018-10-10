@@ -34,7 +34,7 @@ namespace Trato.Views
             v_medico = _medico;
 
             nombre.Text = v_medico.v_titulo+" "+ v_medico.v_Nombre +"  "+ v_medico.v_Apellido;
-            especial.Text ="Especialista en "+ v_medico.v_Especialidad;
+            especial.Text =v_medico.v_Especialidad;
             domicilio.Text = v_medico.v_Domicilio+","+ v_medico.v_Ciudad;
             info.Text ="Telefono: "+ v_medico.v_Tel+"\nCorreo: "+ v_medico.v_Correo+
             "\nHorario: "+ v_medico.v_horario+
@@ -62,7 +62,7 @@ namespace Trato.Views
             v_servi = _servicios;
 
             nombre.Text = v_servi.v_completo;
-            especial.Text = "Especialista en " + v_servi.v_Especialidad;
+            especial.Text = v_servi.v_Especialidad;
             domicilio.Text = v_servi.v_Domicilio + "," + v_servi.v_Ciudad;
             info.Text = "Telefono: " + v_servi.v_Tel + "\nCorreo: " + v_servi.v_Correo +
             "\nHorario: " + v_servi.v_horario;
@@ -88,7 +88,7 @@ namespace Trato.Views
             sitio.IsVisible = true;
             v_gene = _gene;
             nombre.Text = v_gene.v_completo;
-            especial.Text = "Especialista en " + v_gene.v_Especialidad;
+            especial.Text = v_gene.v_Especialidad;
             domicilio.Text = v_gene.v_Domicilio + "," + v_gene.v_Ciudad;
             info.Text = "Telefono: " + v_gene.v_Tel + "\nCorreo: " + v_gene.v_Correo +
             "\nHorario: " + v_gene.v_horario;

@@ -37,7 +37,7 @@ JObject o = JObject.Parse(json);
         public V_Opciones ()
 		{
 			InitializeComponent ();
-            C_Membre.Text = App.v_membresia + "  folio: " + App.v_folio + "  token " + App.Fn_GEtToken()+"   --aaaaa" ;
+            C_Membre.Text = App.v_membresia + "  folio: " + App.v_folio;// + "  token " + App.Fn_GEtToken()+"   --aaaaa" ;
 
             if (App.v_letra == "I")
             { C_Tipo.Text = "Membresia Individual"; }
@@ -59,7 +59,7 @@ JObject o = JObject.Parse(json);
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            DisplayAlert("TOoken", App.Fn_GEtToken(), "asdsa");
+            //DisplayAlert("TOoken", App.Fn_GEtToken(), "asdsa");
         }
         public void FN_passCambio(object sender, TextChangedEventArgs args)
         {
@@ -67,6 +67,7 @@ JObject o = JObject.Parse(json);
             {
                 P_mensaje.IsVisible = true;
                 P_mensaje.Text = "Este campo no puede estar vacio o con espacios";
+                P_but.IsEnabled = false;
             }
             else
             {
@@ -74,10 +75,12 @@ JObject o = JObject.Parse(json);
                 {
                     P_mensaje.IsVisible = true;
                     P_mensaje.Text = "Debe contener al menos una mayuscula,una minuscula y un numero";                                   
+                    P_but.IsEnabled = false;
                 }
                 else
                 {
                     P_mensaje.IsVisible = false;                    
+                    P_but.IsEnabled = true;
                 }
             }
         }

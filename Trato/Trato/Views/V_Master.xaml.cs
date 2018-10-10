@@ -58,17 +58,17 @@ namespace Trato.Views
         public void Fn_Medicos(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage( new V_Buscador(0) { Title = "RED MEDICA" });
+            Detail = new NavigationPage( new V_Buscador(0) { Title = "RED MÉDICA" });
         }
         public void Fn_Servicios(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage( new V_Buscador(1) { Title = "SERVICIOS MEDICOS" });
+            Detail = new NavigationPage( new V_Buscador(1) { Title = "SERVICIOS DE SALUD" });
         }
         public void Fn_ServGen(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Buscador(2) { Title = "SERVICIOS Generales" });
+            Detail = new NavigationPage(new V_Buscador(2) { Title = "SERVICIOS GENERALES" });
         }
         public void Fn_Perfil(object sender, EventArgs _args)
         {

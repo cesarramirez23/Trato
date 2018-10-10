@@ -239,9 +239,8 @@ namespace Trato.Views
                     StringContent _content = new StringContent(_jsonReg, Encoding.UTF8, "application/json");
                     //crea el cliente
                     HttpClient _clien = new HttpClient();
-                    await DisplayAlert("Manda", _jsonReg, "A");
                     //direccion a enviar
-                    string _direc = "https://tratoespecial.com/crear_cuenta";
+                    string _direc = "http://tratoespecial.com/crear_cuenta.php";
                     try
                     {
                         //se envia
@@ -271,6 +270,7 @@ namespace Trato.Views
                         else if (_respuesta == "0")
                         {
                             await DisplayAlert("Error", "Error por algo", "Aceptar");
+                            Mensajes_over.Text = "Reintentar";
                         }
                         else if (_respuesta == "1")
                         {
@@ -621,7 +621,7 @@ namespace Trato.Views
         public void Fn_IrMenu(object sender, EventArgs _Args)
         {
             StackMen.IsVisible = false;
-            App.Current.MainPage = new V_Master(false,"Bienvenido");
+            App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
         }
         /// <summary>
         /// cambio en el drop de membresias

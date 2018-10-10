@@ -300,6 +300,7 @@ namespace Trato
             string _json = JsonConvert.SerializeObject(_medicos, Formatting.Indented);
             if (Current.Properties.ContainsKey(NombresAux.v_redmedica))
             {
+                Current.Properties[NombresAux.v_redmedica] = "";
                 Current.Properties[NombresAux.v_redmedica] = _json;
             }
             else
@@ -314,6 +315,7 @@ namespace Trato
             string _json = JsonConvert.SerializeObject(_servicios, Formatting.Indented);
             if (Current.Properties.ContainsKey(NombresAux.v_serviciosmedicos))
             {
+                Current.Properties[NombresAux.v_serviciosmedicos] = "";
                 Current.Properties[NombresAux.v_serviciosmedicos] = _json;
             }
             else
@@ -328,6 +330,7 @@ namespace Trato
             string _json = JsonConvert.SerializeObject(_general, Formatting.Indented);
             if (Current.Properties.ContainsKey(NombresAux.v_serviciosgenereales))
             {
+                Current.Properties[NombresAux.v_serviciosgenereales] = "";
                 Current.Properties[NombresAux.v_serviciosgenereales] = _json;
             }
             else
@@ -397,7 +400,7 @@ namespace Trato
         {
             // Handle when your app starts
             //existe la variable guardada
-            //Properties.Clear();
+           // Properties.Clear();
             if (Properties.ContainsKey(NombresAux.v_log))
             {
                 //lee el valor guardado

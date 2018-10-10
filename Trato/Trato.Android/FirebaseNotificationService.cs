@@ -76,6 +76,8 @@ namespace Trato.Droid
             //954999819863          1538664774942      2419200
             //   message.From+"   "+ message.SentTime+"   " +message.To+"   "+message.Ttl);
 
+
+            /*
             C_Notificacion _minotif;
             if (message.GetNotification() == null)//LLEGA DESDE EL PHP
             {
@@ -145,7 +147,9 @@ namespace Trato.Droid
                 }
 
                 SendNotification(_title,_mess);
-            }
+        }
+            */
+
         }
 
         void SendNotification(string messageBody, string _titulo)
