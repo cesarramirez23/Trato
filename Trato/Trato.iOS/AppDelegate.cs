@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Firebase.CloudMessaging;
+using Firebase.Core;
 using Foundation;
 using PayPal.Forms;
 using PayPal.Forms.Abstractions;
 using UIKit;
-
-using Firebase.CloudMessaging;
 using UserNotifications;
-using Firebase.Core;
 /*
 Objective-C exception thrown.  Name: com.firebase.core Reason: Configuration fails. 
 It may be caused by an invalid GOOGLE_APP_ID in GoogleService-Info.plist or set in the customized options.

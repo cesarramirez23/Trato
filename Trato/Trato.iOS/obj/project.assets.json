@@ -35,7 +35,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NUnit/3.10.1": {
+      "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -345,7 +345,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NUnit/3.10.1": {
+      "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -655,7 +655,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NUnit/3.10.1": {
+      "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -965,7 +965,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NUnit/3.10.1": {
+      "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -1412,11 +1412,12 @@
         "newtonsoft.json.nuspec"
       ]
     },
-    "NUnit/3.10.1": {
-      "sha512": "E3ii6+VLdeIxTQ5gPjk/7g/xl+aCifbfcIkiGayZCuos+22FEdtKGrxMe6SzoXCQCcL7gdqhfNIFTaZ1+dS18g==",
+    "NUnit/3.11.0": {
+      "sha512": "zecrYxUA5p5w8AZ2bvbBbiUIcrQnZAVPrziNMSWMdcOi0D2Oe7yKUNivWPIQMcUwQDHmWtS/ijnD48ubU/eHZQ==",
       "type": "package",
-      "path": "nunit/3.10.1",
+      "path": "nunit/3.11.0",
       "files": [
+        ".signature.p7s",
         "CHANGES.md",
         "LICENSE.txt",
         "NOTICES.txt",
@@ -1434,14 +1435,13 @@
         "lib/net45/nunit.framework.dll",
         "lib/net45/nunit.framework.pdb",
         "lib/net45/nunit.framework.xml",
-        "lib/netstandard1.6/nunit.framework.dll",
-        "lib/netstandard1.6/nunit.framework.pdb",
-        "lib/netstandard1.6/nunit.framework.xml",
+        "lib/netstandard1.4/nunit.framework.dll",
+        "lib/netstandard1.4/nunit.framework.pdb",
+        "lib/netstandard1.4/nunit.framework.xml",
         "lib/netstandard2.0/nunit.framework.dll",
-        "lib/netstandard2.0/nunit.framework.dll.mdb",
         "lib/netstandard2.0/nunit.framework.pdb",
         "lib/netstandard2.0/nunit.framework.xml",
-        "nunit.3.10.1.nupkg.sha512",
+        "nunit.3.11.0.nupkg.sha512",
         "nunit.nuspec"
       ]
     },
@@ -1733,7 +1733,7 @@
   },
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
-      "NUnit >= 3.10.1",
+      "NUnit >= 3.11.0",
       "Newtonsoft.Json >= 11.0.2",
       "PayPal.Forms >= 2.18.3",
       "Trato >= 1.0.0",
@@ -1745,34 +1745,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {}
+    "/Users/saullopez/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "projectUniqueName": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
       "projectName": "Trato.iOS",
-      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
-      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\obj\\",
+      "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
+      "packagesPath": "/Users/saullopez/.nuget/packages/",
+      "outputPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/obj",
       "projectStyle": "PackageReference",
-      "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/saullopez/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
+            "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj": {
+              "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj"
             }
           }
         }
@@ -1781,37 +1778,37 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
-          "NUnit": {
-            "target": "Package",
-            "version": "[3.10.1, )"
-          },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "[11.0.2, )"
+            "version": "11.0.2"
+          },
+          "NUnit": {
+            "target": "Package",
+            "version": "3.11.0"
           },
           "PayPal.Forms": {
             "target": "Package",
-            "version": "[2.18.3, )"
-          },
-          "Xamarin.Firebase.iOS.Analytics": {
-            "target": "Package",
-            "version": "[5.0.1, )"
+            "version": "2.18.3"
           },
           "Xamarin.Firebase.iOS.CloudMessaging": {
             "target": "Package",
-            "version": "[3.0.3, )"
+            "version": "3.0.3"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[3.2.0.871581, )"
+            "version": "3.2.0.871581"
           },
           "ZXing.Net.Mobile": {
             "target": "Package",
-            "version": "[2.4.1, )"
+            "version": "2.4.1"
           },
           "ZXing.Net.Mobile.Forms": {
             "target": "Package",
-            "version": "[2.4.1, )"
+            "version": "2.4.1"
+          },
+          "Xamarin.Firebase.iOS.Analytics": {
+            "target": "Package",
+            "version": "5.0.1"
           }
         }
       }

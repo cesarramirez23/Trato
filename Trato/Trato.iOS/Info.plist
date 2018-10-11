@@ -48,5 +48,9 @@
 	</dict>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1</string>
+	<key>MinimumOSVersion</key>
+	<string>7.0</string>
 </dict>
 </plist>
