@@ -38,7 +38,7 @@
                 <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="BorderRadius" Value="10"/>
                 <Setter Property="BorderColor" Value="{StaticResource Lightgray}"/>
-                <Setter Property="TextColor" Value="{StaticResource Lightgray}" />
+                <Setter Property="TextColor" Value="White"/>
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="Margin" Value="30,0"/>
@@ -49,7 +49,7 @@
                 <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="BorderRadius" Value="10"/>
                 <Setter Property="BorderColor" Value="{StaticResource Lightgray}"/>
-                <Setter Property="TextColor" Value="{StaticResource Lightgray}" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="Margin" Value="2,0"/>
             </Style>

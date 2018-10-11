@@ -25,7 +25,7 @@ namespace Trato.Views
         //el que muestra la pantalla de registro para familiar o empresarial
         public async void Fn_Registro(object sender, EventArgs _Args)
         {
-            await Navigation.PushAsync(new V_Registro(true));
+            await Navigation.PushAsync(new V_Registro(true,0));
             //await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Registro(true)) );
         }
         public async void Fn_Login(object sender, EventArgs _args)
@@ -53,7 +53,6 @@ namespace Trato.Views
                 string _DirEnviar = "http://tratoespecial.com/login.php";
                 StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
                 //mandar el json con el post
-
                 try
                 {  //getting exception in the following line    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
                     HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);

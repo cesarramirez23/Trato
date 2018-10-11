@@ -45,7 +45,19 @@ namespace Trato.Views
         public async void Fn_Comprar(object _sender, EventArgs _args)
         {
             //await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Registro(false)) { Title = "Registro" });
-            await Navigation.PushAsync(new V_Registro(false));
+            await Navigation.PushAsync(new V_Registro(false,0));
+        }
+        public async void Fn_CompraInd(object sender, EventArgs _Args)
+        {
+            await Navigation.PushAsync(new V_Registro(false,0));
+        }
+        public async void Fn_CompraFam(object sender, EventArgs _Args)
+        {
+            await Navigation.PushAsync(new V_Registro(false,1));
+        }
+        public async void Fn_CompraEmpre(object sender, EventArgs _args)
+        {
+            await Navigation.PushAsync(new V_Registro(false,2));
         }
     }
 }

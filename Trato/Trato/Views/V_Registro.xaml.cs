@@ -52,10 +52,9 @@ namespace Trato.Views
         /// true activa el registro con folio
         /// </summary>
         /// <param name="_folio"></param>
-        public V_Registro(bool _folio)
+        public V_Registro(bool _folio, int _index)
         {
             InitializeComponent();
-            
             Fol_fecha.MaximumDate = DateTime.Now;
             fecha.MaximumDate= DateTime.Now; 
 
@@ -74,6 +73,7 @@ namespace Trato.Views
                 StackFolio.IsVisible = false;
                 Persona.Text = "Persona Fisica";
                 StackRfc.IsVisible = false;
+                tipo.SelectedIndex = _index;
                 fecha.IsEnabled = v_T_Persona;
                 lugar.IsEnabled = v_T_Persona;
                 tel.IsEnabled = v_T_Persona;

@@ -5,7 +5,6 @@
     <ContentPage.Content>
         <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-
                 <StackLayout Margin="20,0">
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -22,28 +21,12 @@
                                Grid.Column="1" Grid.Row="0" VerticalOptions="End" VerticalTextAlignment="End"></Label>
 
                         <Entry Placeholder="4444I-0000" x:Name="usu" HorizontalOptions="FillAndExpand"
-                               Grid.Column="0" Grid.Row="1"></Entry>
-                        <!--Text="1808F-0002"  cesar1234
-                        1809F-0007    3eb868
-                        1809F-0007 folio 1    pass   Cesar123
-                        
-                        1809E-0003    64abe9    cesar empresarial sempti
-                        
-                        
-                        
-                        1809I-0006    39f8cf
-                        
-                        //morales
-                        indi   1809I-0008    3c967d
-                        
-                        
-                        
-                        -->
+                               Grid.Column="0" Grid.Row="1" ></Entry>
                         <Entry Placeholder="0" x:Name="fol" Keyboard="Numeric" HorizontalOptions="FillAndExpand"
-                               Grid.Column="1" Grid.Row="1"></Entry>
+                               Grid.Column="1" Grid.Row="1" ></Entry>
                     </Grid>
                     <Label Text="Ingresa tu contraseña" Style="{StaticResource AzulMedLbl}"></Label>
-                    <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña" ></Entry>
+                    <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña"></Entry>
                     <!--="ac1602"   cesar1234   3eb868-->
                     <Button Style="{StaticResource Buton}"  Text="Login" Clicked="Fn_Login"></Button>
 
@@ -52,7 +35,7 @@
                             <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
-<!--
+                    <!--
                     <Label Text="Reenviar correo" Style="{StaticResource AzulMedLbl}" FontAttributes="Bold" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Fn_Reenviar" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -73,35 +56,3 @@
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
-
-<!--
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:pruebaXamarin.ViewModels"
-             x:Class="pruebaXamarin.Views.V_Login"
-             >
-
-        <ScrollView>
-            <StackLayout>
-                <Label x:Name="Mensaje" BackgroundColor="Black" TextColor="White" Text="Texto label"></Label>
-                <Entry IsPassword="True" Placeholder="place"  Keyboard="Numeric"></Entry>
-                <DatePicker x:Uid="picker" x:Name="picker" IsEnabled="False"></DatePicker>
-                <Button x:Name="_boton"  BackgroundColor="Beige"  Text="Botons aca"  Clicked="Click"></Button>
-            <Entry x:Name="Nombre" Placeholder="Nombre" ></Entry>
-
-            <Picker x:Name="Drop" Title="Elige Ciudad">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}" >
-
-                        <x:String>Uno</x:String>
-                        <x:String>dos</x:String>
-                        <x:String>tres</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-            
-        </StackLayout>
-        </ScrollView>
-</ContentPage>
-    -->
-    

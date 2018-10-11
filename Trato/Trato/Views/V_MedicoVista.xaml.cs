@@ -40,7 +40,8 @@ namespace Trato.Views
             "\nHorario: "+ v_medico.v_horario+
             "\nCedula Profesional: "+v_medico.v_cedula;
             img.Source = v_medico.v_img;
-            descrip.Text=" " +v_medico.v_descripcion;
+            string conespacio = v_medico.v_descripcion.Replace("/n", Environment.NewLine);
+            descrip.Text = " " + conespacio;
             //_personaa = true;
             v_tipo = 0;
 
@@ -60,7 +61,6 @@ namespace Trato.Views
             StackSitio.IsVisible = true;
             sitio.IsVisible = true;
             v_servi = _servicios;
-
             nombre.Text = v_servi.v_completo;
             especial.Text = v_servi.v_Especialidad;
             domicilio.Text = v_servi.v_Domicilio + "," + v_servi.v_Ciudad;
@@ -68,7 +68,8 @@ namespace Trato.Views
             "\nHorario: " + v_servi.v_horario;
             sitio.Text= v_servi.v_sitio;
             img.Source = v_servi.v_img;
-            descrip.Text = " " + v_servi.v_descripcion;
+            string conespacio = v_servi.v_descripcion.Replace("/n",Environment.NewLine);
+            descrip.Text = " " + conespacio;
             //_personaa = false;
             v_tipo = 1;
 
@@ -94,7 +95,9 @@ namespace Trato.Views
             "\nHorario: " + v_gene.v_horario;
             sitio.Text =  v_gene.v_sitio;
             img.Source = v_gene.v_img;
-            descrip.Text = " " + v_gene.v_descripcion;
+            string conespacio = v_gene.v_descripcion.Replace("/n",Environment.NewLine);
+            descrip.Text = conespacio;
+            //descrip.Text = " " + v_gene.v_descripcion;
             //_personaa = false;
             v_tipo = 2;
 
@@ -109,11 +112,8 @@ namespace Trato.Views
         }
         public async void Fn_AbrirSitio(object sender, EventArgs _args)
         {
-
-
             string _valor = "";
             Uri uri ;
-
             if (v_tipo==1 && !string.IsNullOrEmpty( v_servi.v_sitio))
             {
                 _valor = v_servi.v_sitio;

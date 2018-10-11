@@ -187,7 +187,7 @@
 
 
                         <Label Text="La contraseña debe tener, mínimo una letra mayuscula, una letra minuscula, un numero y ser mayor a 8 caracteres"
-                               Style="{StaticResource AzulMedLbl}"></Label>
+                               Style="{StaticResource AzulMedLbl}" TextColor="Red"></Label>
                             
                         <Label Text="Ingresa una contraseña" x:Name="confirmar" Style="{StaticResource RegSty}"></Label>
                         <Entry x:Name="Fol_pass"  Placeholder="Contraseña" TextChanged="Fn_Password" IsPassword="True"></Entry>
