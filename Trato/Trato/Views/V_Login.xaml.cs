@@ -152,6 +152,32 @@ namespace Trato.Views
             Reinten.IsVisible = false;
         }
         /// <summary>
+        /// para no enviar basura solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_args"></param>
+        void Fn_SoloNumero(object sender, TextChangedEventArgs _args)
+        {
+            //-  ,  _  .
+            Entry _entry = (Entry)sender;
+            if (_entry.Text.Length > 0)
+            {
+                char _ultimo = _entry.Text[_entry.Text.Length - 1];
+                if (_ultimo == '-' || _ultimo == ',' || _ultimo == '_' || _ultimo == '.')
+                {
+                    if (_entry.Text.Length == 1)
+                    {
+                        _entry.Text = "";
+                    }
+                    else
+                    {
+                        _entry.Text = _entry.Text.Remove(_entry.Text.Length - 1); // remove last char
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// si es false, hay algun dato mal y no puedes continuar
         /// </summary>
         /// <returns></returns>
@@ -175,6 +201,15 @@ namespace Trato.Views
             else
             {
                 pass.BackgroundColor = Color.Transparent;
+            }
+            if (string.IsNullOrEmpty(fol.Text) || string.IsNullOrWhiteSpace(fol.Text))
+            {
+                fol.BackgroundColor = Color.Red;
+                _conta++;
+            }
+            else
+            {
+                fol.BackgroundColor = Color.Transparent;
             }
 
             if (_conta > 0)

@@ -5,10 +5,10 @@
     <TabbedPage.Children>
         <ContentPage Title="Cuenta" x:Name="ContentCuenta">
             <StackLayout Margin="20,0">
-                <Label Style="{StaticResource AzulMedLbl}" Text="Tipo de Membresia"/>
+                <Label Style="{StaticResource AzulMedLbl}" Text="Tipo de Membresía"/>
                 <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_Tipo"/>
 
-                <Label Style="{StaticResource AzulMedLbl}" Text="Membresia"/>
+                <Label Style="{StaticResource AzulMedLbl}" Text="Membresía"/>
                 <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_Membre"/>
 
                 <Label Style="{StaticResource AzulMedLbl}" Text="Vigencia (Dia/Mes/Año)"/>

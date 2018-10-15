@@ -32,7 +32,7 @@
 
             <ScrollView Margin="20,10">
                 <StackLayout x:Name="StackGeneral" >
-                    <Label Text="Nombre" Style="{StaticResource lblSty}"></Label>
+                    <Label Text="Nombre completo" Style="{StaticResource lblSty}"></Label>
                     <Entry Style="{StaticResource entry_perfil}" x:Name="G_Nombre" IsEnabled="False"></Entry>
 
                     <StackLayout x:Name="G_Stack_rf">
@@ -56,30 +56,26 @@
                         </Picker.Items>
                     </Picker>
 
-                    <Label Text="Ocupacion/Giro" Style="{StaticResource lblSty}"></Label>
+                    <Label Text="Ocupación/Giro" Style="{StaticResource lblSty}"></Label>
                     <Entry Placeholder="Ocupacion/Giro" Style="{StaticResource entry_perfil}" IsEnabled="False"  x:Name="G_Ocu"></Entry>
 
                     <Label Text="Nombre de la calle" Style="{StaticResource lblSty}"></Label>
                     <Entry  Placeholder="Domicilio Calle" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Default" x:Name="G_dom" ></Entry>
 
-                    <Label Text="Numero Exterior" Style="{StaticResource lblSty}"></Label>
+                    <Label Text="Número Exterior" Style="{StaticResource lblSty}"></Label>
                     <Entry  Placeholder="Numero Exterior" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Numeric" x:Name="G_ext" ></Entry>
 
-                    <Label Text="Numero interior" Style="{StaticResource lblSty}"></Label>
+                    <Label Text="Número interior" Style="{StaticResource lblSty}"></Label>
                     <Entry  Placeholder="Numero Interior" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Numeric" x:Name="G_inte" ></Entry>
-
 
                     <Label Text="Colonia" Style="{StaticResource lblSty}"></Label>
                     <Entry  Placeholder="Colonia" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Default" x:Name="G_col" ></Entry>
 
-
                     <Label Text="Ciudad" Style="{StaticResource lblSty}"></Label>
                     <Entry  Placeholder="Ciudad" Style="{StaticResource entry_perfil}" IsEnabled="False"  Keyboard="Default" x:Name="G_ciu" ></Entry>
 
-
                     <Label Text="Municipio" Style="{StaticResource lblSty}"></Label>
                     <Entry  Placeholder="Municipio" IsEnabled="False"  Style="{StaticResource entry_perfil}"  Keyboard="Default" x:Name="G_mun" ></Entry>
-
 
                     <Label Text="Estado" Style="{StaticResource lblSty}"></Label>
                     <Entry  Placeholder="Estado" IsEnabled="False"  Style="{StaticResource entry_perfil}"  Keyboard="Default" x:Name="G_est" ></Entry>
@@ -87,12 +83,11 @@
                     <Label Text="Codigo Postal" Style="{StaticResource lblSty}"></Label>
                     <Entry  Placeholder="Codigo Postal" Keyboard="Numeric" IsEnabled="False"  x:Name="G_cp" Style="{StaticResource entry_perfil}"></Entry>
 
-                    <Label Text="Correo Electronico"  Style="{StaticResource lblSty}"></Label>
+                    <Label Text="Correo Electrónico"  Style="{StaticResource lblSty}"></Label>
                     <Entry x:Name="G_Correo" IsEnabled="False"  Style="{StaticResource entry_perfil}"></Entry>
 
-                    <Label Text="Telefono" Style="{StaticResource lblSty}"></Label>
+                    <Label Text="Teléfono" Style="{StaticResource lblSty}"></Label>
                     <Entry Style="{StaticResource entry_perfil}" IsEnabled="False"  x:Name="G_Tel" Keyboard="Numeric"></Entry>
-
 
                     <Label Text="celular"  Style="{StaticResource lblSty}"></Label>
                     <Entry Style="{StaticResource entry_perfil}" IsEnabled="False" x:Name="G_Cel" Keyboard="Numeric"></Entry>
@@ -181,13 +176,13 @@
                     <Editor  x:Name="M_Operaciones" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Enfermedades constantes?,¿Qúe esfermedad y que medicamentos toman?" Style="{StaticResource lblSty}"></Label>
+                        <Label Text="Enfermedades constantes?. ¿Qúe esfermedad y que medicamentos toman?" Style="{StaticResource lblSty}"></Label>
                         <Switch x:Name="Tog_Enfer" Toggled="Fn_SwiEnfer" HorizontalOptions="CenterAndExpand" IsEnabled="False"></Switch>
                     </StackLayout>
                     <Editor  IsVisible="False" x:Name="M_Enferme" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
 
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Toma algun medicamento?,¿Cúales?"  Style="{StaticResource lblSty}"></Label>
+                        <Label Text="Toma algun medicamento?. ¿Cúales?"  Style="{StaticResource lblSty}"></Label>
                     </StackLayout>
                     <Editor  x:Name="M_Medicamentos" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
                     
@@ -201,8 +196,8 @@
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
                         
-                        <Button x:Name="M_Editar" Text="Editar" Style="{StaticResource Buton}" Grid.Column="0" Clicked="Fn_EditarMed"></Button>
-                        <Button x:Name="M_Guardar" Text="Guardar" Style="{StaticResource Buton}" Grid.Column="1" Clicked="Fn_GuardarMed" IsVisible="False"></Button>
+                        <Button x:Name="M_Editar" Text="Editar" Style="{StaticResource Buton2}" Grid.Column="0" Clicked="Fn_EditarMed"></Button>
+                        <Button x:Name="M_Guardar" Text="Guardar" Style="{StaticResource Buton2}" Grid.Column="1" Clicked="Fn_GuardarMed" IsVisible="False"></Button>
                         
                      </Grid>
                     

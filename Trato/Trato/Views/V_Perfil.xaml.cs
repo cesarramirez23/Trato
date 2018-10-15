@@ -616,7 +616,6 @@ namespace Trato.Views
                     {
                         M_Sangre.SelectedIndex = i;
                     }
-
                 }
                // M_Sangre.SelectedIndex = App.v_perfMed.v_sangre;
                 //M_Sangre.Title = M_Sangre.SelectedItem.ToString();

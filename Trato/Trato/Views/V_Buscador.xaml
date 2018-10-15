@@ -38,7 +38,7 @@
                     </ListView>
                     <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
                     <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" BackgroundColor="{StaticResource White}"
-                    SelectionMode="Single" RowHeight="150" ItemSelected="Fn_Select" Refreshing="Fn_Refresh" IsPullToRefreshEnabled="True" Margin="20,5">
+                    SelectionMode="Single" RowHeight="150" ItemSelected="Fn_Select" IsPullToRefreshEnabled="False" Margin="20,5">
                         <ListView.ItemTemplate>
                             <DataTemplate >
                                 <ViewCell>
@@ -86,7 +86,7 @@
                         <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Boton2}" HorizontalOptions="End"></Button>
                     </StackLayout>-->
                 <Label HorizontalOptions="Center" Text="Especialidad"></Label>
-                <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec"  BackgroundColor="{StaticResource White}" HasUnevenRows="True">
+                <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec" IsPullToRefreshEnabled="False" BackgroundColor="{StaticResource White}" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell Text="{Binding v_texto }" TextColor="{Binding v_color}">
@@ -95,7 +95,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label HorizontalOptions="Center" Text="Ciudad"></Label>
-                <ListView x:Name="filCiudad" ItemTapped="Fn_TapCiu" BackgroundColor="{StaticResource White}" HasUnevenRows="True">
+                <ListView x:Name="filCiudad" ItemTapped="Fn_TapCiu" IsPullToRefreshEnabled="False" BackgroundColor="{StaticResource White}" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell Text="{Binding v_texto }" TextColor="{Binding v_color}">

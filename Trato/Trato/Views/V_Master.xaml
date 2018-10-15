@@ -68,7 +68,7 @@
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Membre"/>
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Label Text="Membresias" Style="{StaticResource LblBoton}" />
+                            <Label Text="Membresías" Style="{StaticResource LblBoton}" />
                             
                             
                             <Image Source="Perfil" Style="{StaticResource imgBoton}">
@@ -88,9 +88,6 @@
                             -->
                             
                         </StackLayout>
-                        
-                        
-                        
                         
                         
                         <StackLayout x:Name="StackLog" IsVisible="True">

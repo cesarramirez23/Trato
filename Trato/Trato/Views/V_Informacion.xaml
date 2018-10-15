@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_Informacion"  NavigationPage.TitleIcon="Informacion" Title="Informacion">
+             x:Class="Trato.Views.V_Informacion"  NavigationPage.TitleIcon="Informacion" Title="Información">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="img" TargetType="Image">

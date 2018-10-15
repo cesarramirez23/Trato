@@ -878,7 +878,7 @@ namespace Trato.Views
                         }
                     }
                 }
-
+                
                 //recorre solamente las especialidades que ya se guardaron antes
                 for (int i = 0; i <_especialidades.Count; i++)
                 {
