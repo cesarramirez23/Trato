@@ -27,8 +27,9 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer: alsain.games@gmail.com (3DM6NJF47M)</CodesignKey>
+    <CodesignKey>iPhone Developer: Saul Lopez (Z7G3Y24M78)</CodesignKey>
     <CodesignProvision />
+    <CodesignEntitlements>Info.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -39,7 +40,8 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Saul Lopez (Z7G3Y24M78)</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,10 +53,9 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Saul Lopez (Z7G3Y24M78)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignEntitlements>
-    </CodesignEntitlements>
+    <CodesignEntitlements>Info.plist</CodesignEntitlements>
     <CodesignProvision />
     <CodesignExtraArgs />
     <CodesignResourceRules />
@@ -67,8 +68,7 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer: Saul Lopez (Z7G3Y24M78)</CodesignKey>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignKey>iPhone Distribution: Alsain Soluciones Audiovisuales, S.A. de C.V. (7W483QRYYP)</CodesignKey>
     <MtouchFloat32>true</MtouchFloat32>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>

@@ -20,7 +20,7 @@ namespace Trato.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
     {
-        //
+        //resturar paquetes,   actualizar    limpiar compilar   revisar que el infop.list este en 8
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
         // visible

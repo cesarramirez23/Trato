@@ -5,6 +5,7 @@
     <TabbedPage.Resources>
         <Style x:Key="Editor" TargetType="Editor">
             <Setter Property="AutoSize" Value="TextChanges"></Setter>
+            <Setter Property="BackgroundColor" Value="{StaticResource Lightgray}"></Setter>
         </Style>
         <Style TargetType="Label" x:Key="lblSty">
             <Setter Property="VerticalTextAlignment" Value="Center"></Setter>

@@ -2,20 +2,15 @@
   <MonoDevelop.Ide.ItemProperties.Trato PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato.iOS/Info.plist">
     <Files>
-      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="4" Column="7" />
-      <File FileName="Trato/Trato.iOS/Main.cs" Line="16" Column="1" />
-      <File FileName="Trato/Trato.iOS/Properties/AssemblyInfo.cs" Line="1" Column="1" />
       <File FileName="Trato/Trato.iOS/Info.plist" />
-      <File FileName="Trato/Trato.iOS/Entitlements.plist" />
-      <File FileName="Trato/Trato.iOS/GoogleService-Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.28E71A89-C227-4627-ABF7-010A3CD8B8BB" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" automaticSigning="False" />
   <MonoDevelop.Ide.ItemProperties.Trato.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MultiItemStartupConfigurations />
 </Properties>
