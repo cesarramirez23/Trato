@@ -68,8 +68,19 @@ namespace Trato.Views
             "\nHorario: " + v_servi.v_horario;
             sitio.Text= v_servi.v_sitio;
             img.Source = v_servi.v_img;
-            string conespacio = v_servi.v_descripcion.Replace("/n",Environment.NewLine);
-            descrip.Text = " " + conespacio;
+            string _benef = v_servi.v_beneficio.Replace("/n", Environment.NewLine);
+            beneficios.Text = _benef;
+            if (string.IsNullOrEmpty(v_servi.v_descripcion) || string.IsNullOrWhiteSpace(v_servi.v_descripcion))
+            {
+                StackDescrip.IsVisible = false;
+            }
+            else
+            {
+                StackDescrip.IsVisible = true;
+                string conespacio = v_servi.v_descripcion.Replace("/n",Environment.NewLine);
+                descrip.Text = " " + conespacio;
+
+            }
             //_personaa = false;
             v_tipo = 1;
 
@@ -95,8 +106,18 @@ namespace Trato.Views
             "\nHorario: " + v_gene.v_horario;
             sitio.Text =  v_gene.v_sitio;
             img.Source = v_gene.v_img;
-            string conespacio = v_gene.v_descripcion.Replace("/n",Environment.NewLine);
-            descrip.Text = conespacio;
+
+            string _benef= v_gene.v_beneficio.Replace("/n", Environment.NewLine);            
+            beneficios.Text = _benef;
+            if (string.IsNullOrEmpty(v_gene.v_descripcion) || string.IsNullOrWhiteSpace(v_gene.v_descripcion))
+            {
+                StackDescrip.IsVisible = false;
+            }
+            else
+            {
+                string conespacio = v_gene.v_descripcion.Replace("/n", Environment.NewLine);
+                descrip.Text = conespacio;
+            }
             //descrip.Text = " " + v_gene.v_descripcion;
             //_personaa = false;
             v_tipo = 2;

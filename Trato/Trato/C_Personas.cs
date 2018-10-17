@@ -495,7 +495,6 @@ namespace Trato.Personas
         [JsonProperty("idsexo")]
         public int v_idsexo { get; set; }
 
-
         public string v_img { get; set; }
         public string v_completo { get; set; }
 
@@ -533,6 +532,9 @@ namespace Trato.Personas
         public string v_Correo { get; set; }
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
+
+        [JsonProperty("beneficios")]
+        public string v_beneficio { get; set; }
         [JsonProperty("sitio")]
         public string v_sitio;
         /// <summary>
@@ -560,6 +562,8 @@ namespace Trato.Personas
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
 
+        [JsonProperty("beneficios")]
+        public string v_beneficio { get; set; }
         [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
         /// <summary>

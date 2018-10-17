@@ -14,6 +14,10 @@
                 <Label FontSize="Large" FontAttributes="Bold" Text="Información" TextColor="{StaticResource NavigationPrimary}"/>
                 <Label FontSize="Medium" x:Name="nombre"></Label>
                 <Label FontSize="Medium" x:Name="especial"></Label>
+                <StackLayout x:Name="StackDescrip">
+                    <Label FontSize="Large" FontAttributes="Bold" Text="Descripcion" TextColor="{StaticResource NavigationPrimary}"/>
+                    <Label FontSize="Medium" x:Name="descrip" ></Label>
+                </StackLayout>
                 <Label FontSize="Large" FontAttributes="Bold" Text="Información de contacto:" TextColor="{StaticResource NavigationPrimary}"></Label>
                 <Label FontSize="Medium" x:Name="info"></Label>
                 <Label Text="Domicilio: " FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource NavigationPrimary}"></Label>
@@ -30,8 +34,14 @@
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-                <Label FontSize="Large" FontAttributes="Bold" Text="Información extra" TextColor="{StaticResource NavigationPrimary}"/>
-                <Label FontSize="Medium" x:Name="descrip" ></Label>
+
+
+                <StackLayout x:Name="StackBenef">
+                    <Label Text="Beneficios:" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource NavigationPrimary}"></Label>
+                    <Label x:Name="beneficios" FontSize="Medium"/>
+                </StackLayout>
+
+                
             </StackLayout>
         </ScrollView>
         <Button   x:Name="boton" Text="Cita" Margin="0,5,0,5" IsVisible="False" Style="{StaticResource Buton}"></Button>
