@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Android.Support.V4.App;
 
+
+   //android.support.v4.app.NotificationCompat.Builder
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -77,8 +80,8 @@ namespace Trato.Droid
             //   message.From+"   "+ message.SentTime+"   " +message.To+"   "+message.Ttl);
 
 
-            /*
-            C_Notificacion _minotif;
+
+            C_Notificacion _minotif = new C_Notificacion();
             if (message.GetNotification() == null)//LLEGA DESDE EL PHP
             {
                 _minotif = new C_Notificacion(message.Data["title"], message.Data["message"]);
@@ -88,67 +91,79 @@ namespace Trato.Droid
                 _minotif = new C_Notificacion(message.GetNotification().Title, message.GetNotification().Body);
             }
 
-
-
-
-            if (message.Data.ContainsKey("data"))//este data es un arreglo extra de loos keys que se manda desde el php que hice
+            if (message.Data.ContainsKey("estado"))//tiene la info para la cita
             {
-                string json = message.Data["data"];
-                if(string.IsNullOrEmpty( json))
-                {
-                    string _title = "";
-                    string _mess = "";
+                //_minotif.v_titulo += "--  " + (EstadoCita)int.Parse(message.Data["estado"]);
+                //SendNotification(_minotif.v_cuerpo, _minotif.v_titulo);
 
-                    if (string.IsNullOrEmpty(message.GetNotification().Title))
-                    {
-                        _title = "Titulo vacio";
-                    }
-                    else
-                    {
-                        _title = message.GetNotification().Title;
-                    }
-                    if (string.IsNullOrEmpty(message.GetNotification().Body))
-                    {
-                        _mess = "Mensaje vacio";
-                    }
-                    else
-                    {
-                        _mess = message.GetNotification().Body;
-                    }
-
-                    SendNotification(_title, _mess);
-                }
-                else
-                {
-                    C_Notificacion _notif = JsonConvert.DeserializeObject<C_Notificacion>(json);
-                    SendNotification(_notif.v_titulo, _notif.v_cuerpo);
-                }
             }
-            else
-            {//siempre trae esto
-                string _title = "";
-                string _mess = "";
+            else//es una nootif normal, solo mensaje y titulo
+            {
+                SendNotification(_minotif.v_cuerpo, _minotif.v_titulo);
+            }
 
-                if (string.IsNullOrEmpty( message.GetNotification().Title))
-                {
-                    _title = "";
-                }
-                else
-                {
-                    _title = message.GetNotification().Title;
-                }
-                if (string.IsNullOrEmpty(message.GetNotification().Body))
-                {
-                    _mess = "Mensaje vacio";
-                }
-                else
-                {
-                    _mess = message.GetNotification().Body;
-                }
 
-                SendNotification(_title,_mess);
-        }
-            */
+
+
+
+
+            //    if (message.Data.ContainsKey("data"))//este data es un arreglo extra de loos keys que se manda desde el php que hice
+            //    {
+            //        string json = message.Data["data"];
+            //        if(string.IsNullOrEmpty( json))
+            //        {
+            //            string _title = "";
+            //            string _mess = "";
+
+            //            if (string.IsNullOrEmpty(message.GetNotification().Title))
+            //            {
+            //                _title = "Titulo vacio";
+            //            }
+            //            else
+            //            {
+            //                _title = message.GetNotification().Title;
+            //            }
+            //            if (string.IsNullOrEmpty(message.GetNotification().Body))
+            //            {
+            //                _mess = "Mensaje vacio";
+            //            }
+            //            else
+            //            {
+            //                _mess = message.GetNotification().Body;
+            //            }
+
+            //            SendNotification(_title, _mess);
+            //        }
+            //        else
+            //        {
+            //            C_Notificacion _notif = JsonConvert.DeserializeObject<C_Notificacion>(json);
+            //            SendNotification(_notif.v_titulo, _notif.v_cuerpo);
+            //        }
+            //    }
+            //    else
+            //    {//siempre trae esto
+            //        string _title = "";
+            //        string _mess = "";
+
+            //        if (string.IsNullOrEmpty( message.GetNotification().Title))
+            //        {
+            //            _title = "";
+            //        }
+            //        else
+            //        {
+            //            _title = message.GetNotification().Title;
+            //        }
+            //        if (string.IsNullOrEmpty(message.GetNotification().Body))
+            //        {
+            //            _mess = "Mensaje vacio";
+            //        }
+            //        else
+            //        {
+            //            _mess = message.GetNotification().Body;
+            //        }
+
+            //        SendNotification(_title,_mess);
+            //}
 
         }
 
@@ -159,19 +174,20 @@ namespace Trato.Droid
 
             var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-            Bitmap largeIcon = BitmapFactory.DecodeResource(Resources, Resource.Drawable.Ambulancia_Large);
+            //Bitmap largeIcon = BitmapFactory.DecodeResource(Resources, Resource.Drawable.ICONOAPP);
 
             var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
-                .SetSmallIcon(Resource.Drawable.Ambulancia)
-                .SetLargeIcon(largeIcon)
+                .SetSmallIcon(Resource.Drawable.Logo_Redondo_512x512_Blanco)
+               // .SetLargeIcon(largeIcon)
                 .SetContentTitle(_titulo)
                 .SetContentText(messageBody)
                 .SetContentIntent(pendingIntent)
                 .SetColor(40150209)
+                .SetStyle(new NotificationCompat.BigTextStyle().BigText(messageBody))
                 .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
                 .SetPriority(1)
                 .SetAutoCancel(true);
-            
+
             var notificationManager = NotificationManager.FromContext(this);
             notificationManager.Notify(0, notificationBuilder.Build());
         }

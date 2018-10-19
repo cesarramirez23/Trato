@@ -14,16 +14,16 @@ namespace Trato.Varios
         { }
         public C_Notificacion(string _titulo, string _body)
         {
-
+            v_titulo = _titulo;
+            string temp = _body.Replace("\n", Environment.NewLine);
+            v_cuerpo = temp;
         }
-        public C_Notificacion(string _titulo, string _body,string _)
-        {
-
-        }
-
-        [JsonProperty("extra")]
+        [JsonProperty("estado")]
+        public string v_estado { get; set; }
+        //Lo que se vaa a mostrar
+        [JsonProperty("title")]
         public string v_titulo { get; set; }
-        [JsonProperty("extra2")]
+        [JsonProperty("message")]
         public string v_cuerpo { set; get; }
     }
     public class Pagar

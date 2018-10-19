@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Trato.Personas;
 ///las cosas del push
 ///
 
@@ -80,11 +83,29 @@ namespace Trato.Views
             IsPresented = false;
             Detail = new NavigationPage(new V_Opciones() { Title = "Opciones" });
         }
-        public void Fn_Salir(object sender, EventArgs _args)
+        public async void Fn_Salir(object sender, EventArgs _args)
         {
+
+            //C_Login _login = new C_Login(App.v_membresia _membre, letra, _conse, pass.Text, fol.Text);
+            ////crear el json
+            //string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+            ////mostrar la pantalla con mensajes
+            //// Mensajes_over.Text +=_jsonLog ;
+            ////crear el cliente
+            //HttpClient _client = new HttpClient();
+            //string _DirEnviar = "http://tratoespecial.com/login.php";
+            //StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
+            ////mandar el json con el post
+            //try
+            //{ }
+            //catch(HttpRequestException ex)
+            //{
+
+            //}
+
+
+
             IsPresented = false;
-            App.v_log = "0";
-            Application.Current.Properties["log"] = App.v_log;
             App.Fn_CerrarSesion();
             App.Current.MainPage =new V_Master(false, "Bienvenido a Trato Especial");
         }

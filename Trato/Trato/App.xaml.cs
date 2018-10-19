@@ -23,6 +23,7 @@ Error de restauración en 47.57 ms para C:\Users\AlsainVR\Documents\GitHub\Trato
  membre     
  letra 
  consecutivo
+ consecutivo
  costo
  nombre   que membresia
 
@@ -49,15 +50,15 @@ namespace Trato
         public static C_PerfilGen v_perfil = new C_PerfilGen();
         public static C_PerfilMed v_perfMed = new C_PerfilMed();
         /// <summary>
-        /// ya trae la letra, hacer el split con -
+        /// viene todo completo(1810I-0558) ya trae la letra, hacer el split con -
         /// </summary>
         public static string v_membresia = "";
         /// <summary>
-        /// la letra de la membresia
+        /// la letra de la membresia( I F E)
         /// </summary>
         public static string v_letra = "";
         /// <summary>
-        /// es solo el numero consecutivo
+        /// folio, 0 I, 1-5 F,
         /// </summary>
         public static string v_folio = "";
         /// <summary>
@@ -358,6 +359,7 @@ namespace Trato
             Current.Properties[NombresAux.v_letra] = v_letra;
             await Current.SavePropertiesAsync();
             await Task.Delay(100);
+            
         }
         public static void Fn_ImgSexo(int _valor)
         {/// 0 MEDICOS,   1 SERVICIOS MEDICOS,    2 SERVICIOS GENERALES
@@ -425,25 +427,33 @@ namespace Trato
                 }//si esta logeado
                 else if (v_log == "1")
                 {
-                    string _jsonGen = Properties[NombresAux.v_perfGen] as string;
-                    v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
-                    string _jsonPerfMed = Properties[NombresAux.v_perMed] as string;
-                    v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonPerfMed);
+                    if(v_log=="1" && Fn_GEtToken()=="a")
+                    {
+                        Fn_CerrarSesion();
+                        MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+                    }
+                    else
+                    {
+                        string _jsonGen = Properties[NombresAux.v_perfGen] as string;
+                        v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
+                        string _jsonPerfMed = Properties[NombresAux.v_perMed] as string;
+                        v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonPerfMed);
 
-                    v_folio = Properties[NombresAux.v_folio] as string;
-                    v_membresia = Properties[NombresAux.v_membre] as string;
-                    v_letra = Properties[NombresAux.v_letra] as string;
-                    string _jsonServ = Current.Properties[NombresAux.v_serviciosmedicos] as string;
-                    v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
-                    string _jsonMed = Current.Properties[NombresAux.v_redmedica] as string;
-                    v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
-                    string _jsonGenerales = Current.Properties[NombresAux.v_serviciosgenereales] as string;
-                    v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonGenerales);
-                    MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
+                        v_folio = Properties[NombresAux.v_folio] as string;
+                        v_membresia = Properties[NombresAux.v_membre] as string;
+                        v_letra = Properties[NombresAux.v_letra] as string;
+                        string _jsonServ = Current.Properties[NombresAux.v_serviciosmedicos] as string;
+                        v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
+                        string _jsonMed = Current.Properties[NombresAux.v_redmedica] as string;
+                        v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
+                        string _jsonGenerales = Current.Properties[NombresAux.v_serviciosgenereales] as string;
+                        v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonGenerales);
+                        MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
+                    }
                 }
                 else
                 {
-                    MainPage = new V_Master(false, v_log);
+                    MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                 }
             }
             else

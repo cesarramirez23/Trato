@@ -433,7 +433,8 @@ namespace Trato.Personas
         string v_pass  { get;set;}
         [JsonProperty("folio")]
         string v_fol { get; set; }
-
+        [JsonProperty("token")]
+        string v_topken { get; set; }
 
 
         public C_Login()
@@ -451,6 +452,13 @@ namespace Trato.Personas
             this.v_conse =_conse;
             this.v_pass = _pass;
             this.v_fol = _fol;
+        }
+        public C_Login(string _membr, string _letr, string _conse, string _token)
+        {
+            this.v_membre = _membr;
+            this.v_letra = _letr;
+            this.v_conse = _conse;
+            this.v_topken = _token;
         }
     }
     

@@ -35,7 +35,7 @@ namespace Trato.Views
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = " Comprobando informacion\n";
                 string prime = usu.Text.Split('-')[0];
-                string _membre = "";
+                string _membre = "";///los 4 numeros de la mebresia sin laletra
                 for(int i=0; i<prime.Length-1; i++)
                 {
                     _membre += prime[i];
@@ -91,6 +91,7 @@ namespace Trato.Views
                                // await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
                                 App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text, letra);
                                 _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                                //membre  letraa folio
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                                 try
                                 {
@@ -110,7 +111,36 @@ namespace Trato.Views
                                     App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text,letra);
                                     //cargar la nueva pagina de perfil
                                     string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
-                                    Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
+
+
+                                    
+                                    _login = new C_Login(_membre, letra, _conse,App.Fn_GEtToken());
+                                    //crear el json
+                                    _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+                                     _DirEnviar = "http://tratoespecial.com/token_notification.php";
+                                     _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
+                                    Console.WriteLine(" infosss ", _jsonLog);
+                                    try
+                                    {
+                                        //mandar el json con el post
+                                        _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                                        _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                                        if(_respuesta=="1")
+                                        {
+                                            Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
+                                        }
+                                        else
+                                        {
+                                            Mensajes_over.Text = "Error";
+                                            Reinten.IsVisible = true;
+                                        }
+
+                                    }
+                                    catch(HttpRequestException exception)
+                                    {
+                                        await DisplayAlert("Error", exception.Message, "Aceptar");
+                                        Reinten.IsVisible = true;
+                                    }
                                 }
                                 catch (HttpRequestException exception)
                                 {

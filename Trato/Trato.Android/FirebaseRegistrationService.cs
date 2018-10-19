@@ -35,12 +35,7 @@ namespace Trato.Droid
             aceptar o no se reenvia el mensaje al topke delpaciente
             cOVB8Sd0VqE:  APA91bGMo1_4ZvR1Uhl2xFKf7ijsAFhdLFMTtMF1UfQ8XnZAmBsD5Sv3T0kpa9WBJF4b85f7eb9dnUYFvKES4K_zTlTW1zbcgd7wn5cUgPBciNdFQXzqmDwZHiDMIpbUjyqLnzFclOjY
              */
-            //SendRegistrationTokenToAzureNotificationHub(refreshedToken);
         }
-
-        void SendRegistrationTokenToAzureNotificationHub(string token)
-        {
-
-        }
+       
     }
 }
