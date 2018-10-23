@@ -130,6 +130,14 @@
                             <Label Text="Perfil" Style="{StaticResource LblBoton}"/>
                             
                             
+                            <Image Source="Citas.png" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Citas"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Citas" Style="{StaticResource LblBoton}"/>
+                           
+                            
                             <Image Source="Opciones" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Opciones"/>

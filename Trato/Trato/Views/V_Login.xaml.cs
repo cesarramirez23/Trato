@@ -20,7 +20,9 @@ namespace Trato.Views
         public V_Login()
         {
             InitializeComponent();
-            
+            usu.Text = "1810I-0558 ";
+            pass.Text = "Cesar1234";
+            fol.Text = "0";
         }
         //el que muestra la pantalla de registro para familiar o empresarial
         public async void Fn_Registro(object sender, EventArgs _Args)
@@ -46,6 +48,7 @@ namespace Trato.Views
                 C_Login _login = new C_Login(_membre,letra,_conse, pass.Text,fol.Text);
                 //crear el json
                 string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+                Console.Write("Envia para login"+ _jsonLog);
                 //mostrar la pantalla con mensajes
                // Mensajes_over.Text +=_jsonLog ;
                 //crear el cliente
@@ -66,17 +69,29 @@ namespace Trato.Views
                         }
                         else if (_respuesta == "1" || _respuesta == "2")
                         {
+
+                            string _noespacios = "";
+                            string _usutexto = usu.Text;
+                            for(int i=0; i<_usutexto.Length;i++)
+                            {
+                                string _temp= _usutexto[i].ToString();
+                                if(_temp!=" ")
+                                {
+                                    _noespacios += _usutexto[i];
+                                }
+                            }
+
                             //cambiar a logeado
                             //StackMen.IsVisible = false;
-                            App.v_log = "1";
                             Perf _perf = new Perf();
                             _perf.v_fol = fol.Text;
-                            _perf.v_membre = usu.Text;
+                            _perf.v_membre = _noespacios;
                             _perf.v_letra = letra;
                             //crear el json
                             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+                            Console.Write("json para perfil"+_jsonper);
                             //mostrar la pantalla con mensajes
-                            //Mensajes_over.Text += "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
+                           // Mensajes_over.Text = "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
                             //crear el cliente
                             _client = new HttpClient();
                             _DirEnviar = "http://tratoespecial.com/query_perfil.php";
@@ -88,8 +103,10 @@ namespace Trato.Views
                                 _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                                 _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                                //Mensajes_over.Text += _nuePer.Fn_GetDatos();
                                // await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
-                                App.Fn_GuardarDatos(_nuePer, usu.Text, fol.Text, letra);
+                                App.Fn_GuardarDatos(_nuePer, _noespacios, fol.Text, letra);
+                                Console.Write("json para perfil medicoo"+ _jsonper);
                                 _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
                                 //membre  letraa folio
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
@@ -107,19 +124,17 @@ namespace Trato.Views
                                     {
                                         _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
                                     }
-                                  //  Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
-                                    App.Fn_GuardarDatos(_nuePerMEd, usu.Text, fol.Text,letra);
+                                    //Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
+                                    App.Fn_GuardarDatos(_nuePerMEd,_noespacios, fol.Text,letra);
+                                 //   Console.Write("perfil medico ", _nuePerMEd.Fn_Info());
                                     //cargar la nueva pagina de perfil
                                     string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
-
-
-                                    
                                     _login = new C_Login(_membre, letra, _conse,App.Fn_GEtToken());
                                     //crear el json
                                     _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
                                      _DirEnviar = "http://tratoespecial.com/token_notification.php";
                                      _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
-                                    Console.WriteLine(" infosss ", _jsonLog);
+                                    Console.WriteLine(" infosss "+ _jsonLog);
                                     try
                                     {
                                         //mandar el json con el post
@@ -127,6 +142,7 @@ namespace Trato.Views
                                         _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                         if(_respuesta=="1")
                                         {
+                                            App.v_log = "1";
                                             Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
                                         }
                                         else

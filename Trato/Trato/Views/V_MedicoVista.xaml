@@ -44,6 +44,6 @@
                 
             </StackLayout>
         </ScrollView>
-        <Button   x:Name="boton" Text="Cita" Margin="0,5,0,5" IsVisible="False" Style="{StaticResource Buton}"></Button>
+        <Button   x:Name="boton" Text="Solicitar Cita" Margin="0,5,0,5" IsVisible="False" Style="{StaticResource Buton}" Clicked="Fn_Cita"/>
     </StackLayout>
 </ContentPage>

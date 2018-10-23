@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Trato.Personas;
+
 using System.Net;
 
 namespace Trato.Views
@@ -46,14 +47,14 @@ namespace Trato.Views
             v_tipo = 0;
 
 
-            //if(App.v_log=="1")
-            //{
-            //    boton.IsVisible = true;
-            //}
-            //else
-            //{
-            //    boton.IsVisible = false;
-            //}
+            if (App.v_log == "1")
+            {
+                boton.IsVisible = true;
+            }
+            else
+            {
+                boton.IsVisible = false;
+            }
         }
         public V_MedicoVista(C_Servicios _servicios)
         {
@@ -131,6 +132,12 @@ namespace Trato.Views
             //    boton.IsVisible = false;
             //}
         }
+
+        public async void Fn_Cita(object sender, EventArgs _args)
+        {
+            await Navigation.PushAsync(new V_NCita(true, v_medico) { Title="Nueva Cita" });
+        }
+
         public async void Fn_AbrirSitio(object sender, EventArgs _args)
         {
             string _valor = "";

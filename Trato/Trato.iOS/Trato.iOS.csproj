@@ -79,7 +79,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
-    <BundleResource Include="GoogleService-Info %283%29.plist" />
+    <BundleResource Include="GoogleService-Info.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -281,5 +281,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\doctora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Citas.png" />
   </ItemGroup>
 </Project>

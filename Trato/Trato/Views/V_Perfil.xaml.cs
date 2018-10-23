@@ -96,6 +96,53 @@ namespace Trato.Views
                 G_Pagar.IsVisible = true;
                 await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Aceptar");
             }
+            ///actualizaar el token
+            string primetok = App.v_membresia.Split('-')[0];
+            string _membreTok = "";
+            for (int i = 0; i < primetok.Length - 1; i++)
+            {
+                _membreTok += primetok[i];
+            }
+            string _conseTok = App.v_membresia.Split('-')[1];
+
+            string _token = "";
+            if(App.Fn_GEtToken()!="a")
+            {
+                _token = "";
+            }
+            else
+            {
+                _token = App.Fn_GEtToken();
+            }
+            
+
+            C_Login _login = new C_Login(_membreTok, App.v_letra, _conseTok, _token);
+            string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+            string _DirEnviar = "http://tratoespecial.com/token_notification.php";
+            StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
+            Console.WriteLine(" infosss " + _jsonLog);
+            //crear el cliente
+            HttpClient _client = new HttpClient();
+
+            try
+            {
+                //mandar el json con el post
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                if (_respuesta == "1")
+                {
+                    Console.Write("token registrado correctamente");
+                }
+                else
+                {
+                    Console.Write("token no se pudo subir");
+                }
+
+            }
+            catch(HttpRequestException ex)
+            {
+                Console.Write(ex.ToString());
+            }
         }
         public async void Fn_PagarEfec(object sender, EventArgs _args)
         {

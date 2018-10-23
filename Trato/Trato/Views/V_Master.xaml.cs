@@ -23,9 +23,9 @@ namespace Trato.Views
 	{/*
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
+       
 
-
-		public V_Master()
+        public V_Master()
         {
             InitializeComponent ();
         }
@@ -55,9 +55,15 @@ namespace Trato.Views
         public void Fn_Contacto(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Contacto() { Title = "Contacto" });
+            Detail = new NavigationPage(new V_Contacto() { Title = "COONTACTO" });
         }
 
+        public void Fn_Citas(object sender, EventArgs _args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Cita() { Title = "CITAS" });
+        }
+        
         public void Fn_Medicos(object sender, EventArgs _args)
         {
             IsPresented = false;
@@ -76,38 +82,63 @@ namespace Trato.Views
         public void Fn_Perfil(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });
+            Detail = new NavigationPage(new V_Perfil() { Title = "PERFIL" });
         }
         public void Fn_Opciones(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Opciones() { Title = "Opciones" });
+            Detail = new NavigationPage(new V_Opciones() { Title = "OPCIONES" });
         }
         public async void Fn_Salir(object sender, EventArgs _args)
         {
+            string prime = App.v_membresia.Split('-')[0];
+            string _membre = "";///los 4 numeros de la mebresia sin laletra
+            for (int i = 0; i < prime.Length - 1; i++)
+            {
+                _membre += prime[i];
+            }
+            string _conse = App.v_membresia.Split('-')[1];
+            C_Login _login = new C_Login( _membre, App.v_letra, _conse, "");
+            string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+            string _DirEnviar = "http://tratoespecial.com/token_notification.php";
+            StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
+            Console.WriteLine(" infosss " + _jsonLog);
 
-            //C_Login _login = new C_Login(App.v_membresia _membre, letra, _conse, pass.Text, fol.Text);
-            ////crear el json
-            //string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-            ////mostrar la pantalla con mensajes
-            //// Mensajes_over.Text +=_jsonLog ;
-            ////crear el cliente
-            //HttpClient _client = new HttpClient();
-            //string _DirEnviar = "http://tratoespecial.com/login.php";
-            //StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
-            ////mandar el json con el post
-            //try
-            //{ }
-            //catch(HttpRequestException ex)
-            //{
+            //crear el cliente
+            HttpClient _client = new HttpClient();
 
-            //}
+            try
+            {
+                //mandar el json con el post
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                if (_respuesta == "1")
+                {
+                    IsPresented = false;
+                    App.Fn_CerrarSesion();
+                    App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+                }
+                else
+                {
+                    await DisplayAlert("Error", "No se pudo cerrar sesion", "Aceptar");
+                    IsPresented = false;
+                }
 
-
-
-            IsPresented = false;
-            App.Fn_CerrarSesion();
-            App.Current.MainPage =new V_Master(false, "Bienvenido a Trato Especial");
+            }
+            catch 
+            {
+                bool _elige= await DisplayAlert("Error", "No se pudo cerrar sesion Correctamente,\n ¿Cerrar sesión de forma local?", "Si", "No");
+                if(_elige)
+                {
+                    IsPresented = false;
+                    App.Fn_CerrarSesion();
+                    App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+                }
+                else
+                {
+                    IsPresented = false;
+                }
+            }
         }
         public void Fn_Info(object sender, EventArgs _Args)
         {

@@ -26,6 +26,104 @@ namespace Trato.Varios
         [JsonProperty("message")]
         public string v_cuerpo { set; get; }
     }
+    public enum EstadoCita
+    {
+        Inactiva,
+        Nueva,
+        Pendiente,
+        Aceptada,
+        Cancelada
+    }
+    public class Cita
+    {
+        /// <summary>
+        /// membresia completa
+        /// </summary>
+        [JsonProperty("ID_Dr")]
+        public string v_doctorId { get; set; }
+        /// <summary>
+        /// membresia completa  1810I-0558
+        /// </summary>
+        [JsonProperty("ID_paciente")]
+        public string v_pacienteId { get; set; }
+        /// <summary>
+        /// folio
+        /// </summary>
+        [JsonProperty("folio")]
+        public string v_folio{ get; set; }
+        [JsonProperty("estado")]
+        public string v_estado { get; set; }
+        [JsonProperty("fecha")]
+        public string v_fecha { get; set; }
+        [JsonProperty("hora")]
+        public TimeSpan v_hora { get; set; }
+        [JsonProperty("nombreDr")]
+        public string v_nombreDR { get; set; }
+        [JsonProperty("nombrePaciente")]
+        public string v_nombrePaciente { get; set; }
+
+        [JsonProperty("tokenDr")]
+        public string v_tokenDR { get; set; }
+        [JsonProperty("tokenPaciente")]
+        public string v_tokenPaciente { get; set; }
+
+        public Cita() { }
+        public Cita(string _membredr, string _membrepac, string _folio, string _estado, DateTime _fecha, TimeSpan _hora, string _tokenDr, string _tokenpac)
+        {
+
+        }
+        public Cita(string _membredr, string _membrepac, string _folio, string _estado, DateTime _fecha, TimeSpan _hora, string _tokenPac)
+        {
+            v_doctorId = _membredr;
+            v_pacienteId = _membrepac;
+            v_folio = _folio;
+            v_estado = _estado;
+            v_hora = _hora;
+            v_tokenPaciente = _tokenPac;
+            string _month = "";
+            if (_fecha.Month < 10)
+            {
+                _month = "0" + _fecha.Month.ToString();
+            }
+            else
+            {
+                _month = _fecha.Month.ToString();
+            }
+            string _day = "";
+            if (_fecha.Day < 10)
+            {
+                _day = "0" + _fecha.Day.ToString();
+            }
+            else
+            {
+                _day = _fecha.Day.ToString();
+            }
+            v_fecha = _fecha.Year.ToString() + "-" + _month + "-" + _day;
+        }
+
+
+        /// <summary>
+        /// en la opantalla de citas colores
+        /// </summary>
+        public Color v_color { get; set; }
+        public EstadoCita v_Estadocita { get; set; }
+        /// <summary>
+        /// para cambiar el color dentro de la lista visible
+        /// </summary>
+        /// <param name="_valor"></param>
+        public void Fn_CAmbioCol(int _valor)
+        {
+            if ((_valor % 2) == 1)
+            {
+                v_color = Color.PaleGreen;
+            }
+            else
+            {
+                v_color = Color.PaleTurquoise;
+            }
+            v_Estadocita = (EstadoCita)(int.Parse(v_estado));
+        }
+    }
     public class Pagar
     {
         /*membre

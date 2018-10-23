@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.Views.V_Cita">
+    <ContentPage.Content>
+        <StackLayout Margin="3,2,3,10">
+            <ListView x:Name="ListaCita" BackgroundColor="Bisque" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="10,0" BackgroundColor="{Binding v_color}">
+                                <StackLayout>
+                                    <Label Text="Nombre del doctor"  Style="{StaticResource AzulMedLbl}"/>
+                                    <Label Text="{Binding v_nombreDR}" FontSize="Medium" TextColor="Black"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Fecha: " Style="{StaticResource AzulMedLbl}"/>
+                                    <DatePicker Date="{Binding v_fecha}" Format="dd/MM/yyyy" IsEnabled="False"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Hora: " Style="{StaticResource AzulMedLbl}"/>
+                                    <!--Format = "HH:mm"   par 24 horas     Format = "hh:mm" para 12-->
+                                    <TimePicker Time="{Binding v_hora}"  IsEnabled="False"/>
+                                </StackLayout>
+                                <Picker SelectedIndex="{Binding v_idCita}" IsEnabled="False">
+                                    <Picker.Items>
+                                        <x:String>Inactiva</x:String>
+                                        <x:String>Nueva</x:String>
+                                        <x:String>Pendiente</x:String>
+                                        <x:String>Aceptada</x:String>
+                                        <x:String>Cancelada</x:String> 
+                                    </Picker.Items>
+                                </Picker>
+
+                                <Label Style="{StaticResource AzulMedLbl}" Text="{Binding v_Estadocita}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

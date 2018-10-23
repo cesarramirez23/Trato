@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trato.Views.V_NCita">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="v_nombre" Style="{StaticResource AzulMedLbl}"/>
+                <StackLayout >
+                    <Label Text="Fecha de la cita" Style="{StaticResource AzulMedLbl}"></Label>
+                    <DatePicker  Format="D" x:Name="v_fecha"></DatePicker>
+                </StackLayout>
+                <StackLayout >
+                    <Label Text="Hora de la cita" Style="{StaticResource AzulMedLbl}"></Label>
+                    <TimePicker x:Name="v_hora"></TimePicker>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Estado " Style="{StaticResource AzulMedLbl}"></Label>
+                    <Picker IsEnabled="False" x:Name="v_estado" TextColor="{StaticResource NavigationPrimary}">
+                        <Picker.Items>
+                            <x:String>Inactiva</x:String>
+                            <x:String>Nueva</x:String>
+                            <x:String>Pendiente</x:String>
+                            <x:String>Aceptada</x:String>
+                            <x:String>Cancelada</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <Button Text="Crear Cita" Clicked="Fn_Crear" x:Name="v_boton" Style="{StaticResource Buton}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

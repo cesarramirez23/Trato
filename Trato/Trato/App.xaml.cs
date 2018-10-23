@@ -351,12 +351,13 @@ namespace Trato
             v_letra = "";
             v_log = "0";
             string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
-            Current.Properties[NombresAux.v_perMed] = _json;
+            Current.Properties[NombresAux.v_perfGen] = _json;
             _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
             Current.Properties[NombresAux.v_perMed] = _json;
             Current.Properties[NombresAux.v_membre] = v_membresia;
             Current.Properties[NombresAux.v_folio] = v_folio;
             Current.Properties[NombresAux.v_letra] = v_letra;
+            Current.Properties[NombresAux.v_log] = v_log;
             await Current.SavePropertiesAsync();
             await Task.Delay(100);
             
