@@ -254,8 +254,6 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\value
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\values\colors.xml
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-anydpi-v26\icon.xml
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-anydpi-v26\icon_round.xml
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-hdpi\icon.png
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-hdpi\launcher_foreground.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-mdpi\icon.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-mdpi\launcher_foreground.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-xhdpi\icon.png
@@ -264,11 +262,8 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipma
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-xxhdpi\launcher_foreground.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-xxxhdpi\icon.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\mipmap-xxxhdpi\launcher_foreground.png
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\xamarin_logo.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\logotratoespecial.png
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\infomedica.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\logout.png
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\medicamentos.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\medicos.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\opciones.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\perfil.png
@@ -281,13 +276,10 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawa
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\membresia_icon.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\m_familiar.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\filtro.png
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\mail_icon.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\services_icon.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\serviciosmedicos.png
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\ambulancia.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\doctor.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\doctora.png
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\ambulancia_large.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\R.cs.flag
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\R.txt
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\uploadflags.txt

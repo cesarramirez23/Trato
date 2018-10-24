@@ -53,8 +53,12 @@ namespace Trato.Varios
         public string v_folio{ get; set; }
         [JsonProperty("estado")]
         public string v_estado { get; set; }
+        /// <summary>
+        /// yyyy-mm-dd
+        /// </summary>
         [JsonProperty("fecha")]
         public string v_fecha { get; set; }
+        public DateTime v_fechaDate { get; set; }
         [JsonProperty("hora")]
         public TimeSpan v_hora { get; set; }
         [JsonProperty("nombreDr")]
@@ -72,6 +76,16 @@ namespace Trato.Varios
         {
 
         }
+        /// <summary>
+        /// para crear el json a enviar
+        /// </summary>
+        /// <param name="_membredr"></param>
+        /// <param name="_membrepac"></param>
+        /// <param name="_folio"></param>
+        /// <param name="_estado"></param>
+        /// <param name="_fecha"></param>
+        /// <param name="_hora"></param>
+        /// <param name="_tokenPac"></param>
         public Cita(string _membredr, string _membrepac, string _folio, string _estado, DateTime _fecha, TimeSpan _hora, string _tokenPac)
         {
             v_doctorId = _membredr;
@@ -108,9 +122,9 @@ namespace Trato.Varios
         public Color v_color { get; set; }
         public EstadoCita v_Estadocita { get; set; }
         /// <summary>
-        /// para cambiar el color dentro de la lista visible
+        /// para cambiar el color dentro de la lista visible, cambia estado cita, y formato de la fecha
         /// </summary>
-        /// <param name="_valor"></param>
+        /// <param name="_valor"></param>       
         public void Fn_CAmbioCol(int _valor)
         {
             if ((_valor % 2) == 1)
@@ -122,6 +136,8 @@ namespace Trato.Varios
                 v_color = Color.PaleTurquoise;
             }
             v_Estadocita = (EstadoCita)(int.Parse(v_estado));
+            string[] _fecha = v_fecha.Split('-');
+            v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]));
         }
     }
     public class Pagar

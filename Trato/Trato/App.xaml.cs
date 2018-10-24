@@ -6,36 +6,7 @@ using System.Collections.ObjectModel;// para las listas
 using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
 using Newtonsoft.Json;
-using System.Net.Http;//para el las cosas que necesitan web
-using System.Text;
-
-/*https://xamarinhelp.com/visual-studio-2017-net-standard-xamarin/ 
- * El archivo de recursos no ha cambiado, así que se omitirá su escritura. Ruta de acceso: C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\project.assets.json
-Ejecutando restauración...
-Error de restauración en 40.16 ms para C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\Trato.Android.csproj.
-El archivo de recursos no ha cambiado, así que se omitirá su escritura. Ruta de acceso: C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.iOS\obj\project.assets.json
-Error de restauración en 47.57 ms para C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.iOS\Trato.iOS.csproj.
- * https://firebase.google.com/docs/cloud-messaging/send-with-console
- * http://www.tothenew.com/blog/push-notifications-using-firebase-cloud-messaging/
- * 
- * https://www.microsoft.com/net/download/thank-you/net452-developer-pack
- * 
- membre     
- letra 
- consecutivo
- consecutivo
- costo
- nombre   que membresia
-
- */
-//legacy server key    AIzaSyBJShtMkJ22N0ksY4KGivhAwelFDFwFWfQ
-
-//com.alsain.trato4 en la oficina
-//com.alsain.trato5 en casa
-
-
-///https://blog.wilsonvargas.com/generando-y-leyendo-codigos-qr-con-xamarin-form/
-//////https://www.youtube.com/watch?v=y7rZbwOqrUk
+using Trato.Varios;
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace Trato
 {
@@ -44,6 +15,7 @@ namespace Trato
         public static ObservableCollection<C_Medico> v_medicos = new ObservableCollection<C_Medico>();
         public static ObservableCollection<C_Servicios> v_servicios = new ObservableCollection<C_Servicios>();
         public static ObservableCollection<C_ServGenerales> v_generales = new ObservableCollection<C_ServGenerales>();
+        public static ObservableCollection<Cita> v_citas = new ObservableCollection<Cita>();
         /// <summary>
         /// Perfil General
         /// </summary>
@@ -70,6 +42,7 @@ namespace Trato
             InitializeComponent();
             // App.Current.MainPage = new V_Master(false,"no properties");
         }
+        #region CCARGA DE DATOS DESDE  EL PROPERTIES
         async void Fn_CrearKey()
         {
             if (!Properties.ContainsKey(NombresAux.v_log))
@@ -123,6 +96,13 @@ namespace Trato
                 Current.Properties.Add(NombresAux.v_serviciosgenereales, "");
                 Current.Properties[NombresAux.v_serviciosgenereales] = _json;
             }
+            if (!Properties.ContainsKey(NombresAux.v_citas))
+            {
+                v_citas = new ObservableCollection<Cita>();
+                string _json = JsonConvert.SerializeObject(v_citas, Formatting.Indented);
+                Current.Properties.Add(NombresAux.v_citas, "");
+                Current.Properties[NombresAux.v_citas] = _json;
+            }
             await Current.SavePropertiesAsync();
         }
         /// <summary>
@@ -168,6 +148,18 @@ namespace Trato
                 string _jsonServ = Current.Properties[NombresAux.v_serviciosgenereales] as string;
                 v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonServ);
             }
+            if (!Current.Properties.ContainsKey(NombresAux.v_citas))
+            {
+                v_citas = new ObservableCollection<Cita>();
+                string _json = JsonConvert.SerializeObject(v_citas);
+                Current.Properties.Add(NombresAux.v_citas, "");
+                Current.Properties[NombresAux.v_citas] = _json;
+            }
+            else
+            {
+                string _jsonCita= Current.Properties[NombresAux.v_citas] as string;
+                v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_jsonCita);
+            }
             await Current.SavePropertiesAsync();
             await Task.Delay(100);
             //aca se hace el set de los doctores
@@ -192,7 +184,6 @@ namespace Trato
             {
                 v_letra = Current.Properties[NombresAux.v_letra] as string;
             }
-
             if (!Current.Properties.ContainsKey(NombresAux.v_folio))
             {
                 v_folio = "";
@@ -238,7 +229,6 @@ namespace Trato
                 string _jsonMed = Current.Properties[NombresAux.v_redmedica] as string;
                 v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
             }
-
             if (!Current.Properties.ContainsKey(NombresAux.v_serviciosmedicos))
             {
                 v_servicios = new ObservableCollection<C_Servicios>();
@@ -251,8 +241,34 @@ namespace Trato
                 string _jsonServ = Current.Properties[NombresAux.v_serviciosmedicos] as string;
                 v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
             }
+            if (!Current.Properties.ContainsKey(NombresAux.v_serviciosgenereales))
+            {
+                v_generales = new ObservableCollection<C_ServGenerales>();
+                string _json = JsonConvert.SerializeObject(v_generales, Formatting.Indented);
+                Current.Properties.Add(NombresAux.v_serviciosgenereales, "");
+                Current.Properties[NombresAux.v_serviciosgenereales] = _json;
+            }
+            else
+            {
+                string _jsonServ = Current.Properties[NombresAux.v_serviciosgenereales] as string;
+                v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonServ);
+            }
+            if (!Current.Properties.ContainsKey(NombresAux.v_citas))
+            {
+                v_citas = new ObservableCollection<Cita>();
+                string _json = JsonConvert.SerializeObject(v_citas, Formatting.Indented);
+                Current.Properties.Add(NombresAux.v_citas, "");
+                Current.Properties[NombresAux.v_citas] = _json;
+            }
+            else
+            {
+                string _jsonCitas = Current.Properties[NombresAux.v_citas] as string;
+                v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_jsonCitas);
+            }
             await Task.Delay(100);
         }
+        #endregion      
+        #region GUARDAR LOS DATOS
         public static async void Fn_GuardarDatos(C_PerfilGen _gen, string _membre, string _folio, string _letra)
         {
             v_perfil = _gen;
@@ -341,7 +357,22 @@ namespace Trato
             }
             await Current.SavePropertiesAsync();
         }
-
+        public static async void Fn_GuardarCitas(ObservableCollection<Cita> _citas)
+        {
+            string _json = JsonConvert.SerializeObject(_citas, Formatting.Indented);
+            if (Current.Properties.ContainsKey(NombresAux.v_citas))
+            {
+                Current.Properties[NombresAux.v_citas] = "";
+                Current.Properties[NombresAux.v_citas] = _json;
+            }
+            else
+            {
+                Current.Properties.Add(NombresAux.v_citas, "");
+                Current.Properties[NombresAux.v_citas] = _json;
+            }
+            await Current.SavePropertiesAsync();
+        }
+        #endregion
         public static async void Fn_CerrarSesion()
         {
             v_perfil = new C_PerfilGen();
@@ -398,11 +429,8 @@ namespace Trato
                 return _valor;
             }
         }
-
         protected override void OnStart()
-        {
-            // Handle when your app starts
-            //existe la variable guardada
+        {    //existe la variable guardada
             //Properties.Clear();
             if (Properties.ContainsKey(NombresAux.v_log))
             {
@@ -419,7 +447,6 @@ namespace Trato
                     Properties[NombresAux.v_perfGen]= _json;
                     _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
                     Properties[NombresAux.v_perMed] = _json;
-
                     Properties[NombresAux.v_letra] = v_letra;
                     Properties[NombresAux.v_membre] = v_membresia;
                     Properties[NombresAux.v_folio] = v_folio;
@@ -435,20 +462,7 @@ namespace Trato
                     }
                     else
                     {
-                        string _jsonGen = Properties[NombresAux.v_perfGen] as string;
-                        v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
-                        string _jsonPerfMed = Properties[NombresAux.v_perMed] as string;
-                        v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonPerfMed);
-
-                        v_folio = Properties[NombresAux.v_folio] as string;
-                        v_membresia = Properties[NombresAux.v_membre] as string;
-                        v_letra = Properties[NombresAux.v_letra] as string;
-                        string _jsonServ = Current.Properties[NombresAux.v_serviciosmedicos] as string;
-                        v_servicios = JsonConvert.DeserializeObject<ObservableCollection<C_Servicios>>(_jsonServ);
-                        string _jsonMed = Current.Properties[NombresAux.v_redmedica] as string;
-                        v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
-                        string _jsonGenerales = Current.Properties[NombresAux.v_serviciosgenereales] as string;
-                        v_generales = JsonConvert.DeserializeObject<ObservableCollection<C_ServGenerales>>(_jsonGenerales);
+                        Fn_CargarDatos();
                         MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
                     }
                 }
@@ -457,7 +471,7 @@ namespace Trato
                     MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                 }
             }
-            else
+            else//es la primera ve que abre la app
             {
                 v_log = "0";
                 v_perfil = new C_PerfilGen();
@@ -469,17 +483,9 @@ namespace Trato
                 Fn_CargarListas();
                 App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
             }
-
         }
-        protected override void OnSleep()
-        {
-
-            // Handle when your app sleeps       
-        }
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
+        protected override void OnSleep(){}
+        protected override void OnResume() {}
         public static async void Fn_SetToken(string _token)
         {
             if (Current.Properties.ContainsKey(NombresAux.v_token))
@@ -505,5 +511,4 @@ namespace Trato
             }
         }
     }
-
 }

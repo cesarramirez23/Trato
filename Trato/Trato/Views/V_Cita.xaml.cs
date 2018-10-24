@@ -8,72 +8,78 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 using Trato.Varios;
+using Newtonsoft.Json;
+using System.Net.Http;
+
+
 
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Cita : ContentPage
 	{
-        ObservableCollection<Cita> citas = new ObservableCollection<Cita>();
+        ObservableCollection<Cita> v_citas = new ObservableCollection<Cita>();
         public V_Cita()
         {
             InitializeComponent();
-            DateTime _fecha = new DateTime(2018, 9, 23, 14, 00, 00);
-            citas.Add(new Cita()
+            //Fn_GetCitas();
+            if (App.v_citas.Count > 0)
             {
-                v_nombreDR = "nombre 1",
-               // v_fecha = _fecha,
-                v_hora = _fecha.TimeOfDay,                 
-                v_estado = "0"
-
-            });
-
-            _fecha = new DateTime(2018, 9, 25, 19, 42, 00);
-            citas.Add(new Cita()
+                v_citas = App.v_citas;
+            }
+            else
             {
-                v_nombreDR = "nombre 2",
-               // v_fecha = _fecha,
-                v_hora = _fecha.TimeOfDay,
-                v_estado = "1"
-            });
-
-            _fecha = new DateTime(2018, 11, 25, 09, 42, 00);
-            citas.Add(new Cita()
-            {
-                v_nombreDR = "nombre 2",
-              //  v_fecha = _fecha,
-                v_hora = _fecha.TimeOfDay,
-                v_estado = "2"
-            });
-
-            _fecha = new DateTime(2018, 9, 7, 12, 12, 00);
-            citas.Add(new Cita()
-            {
-                v_nombreDR = "nombre 2",
-                //v_fecha = _fecha,
-                v_hora = _fecha.TimeOfDay,
-                v_estado = "3"
-            });
-            _fecha = new DateTime(2018, 9, 7, 12, 12, 00);
-            citas.Add(new Cita()
-            {
-                v_nombreDR = "nombre 2",
-                //v_fecha = _fecha,
-                v_hora = _fecha.TimeOfDay,
-                v_estado = "4"
-            });
-
+                v_citas.Add(new Cita() { v_nombreDR = "nombre 1", v_fecha = "2018-11-03", v_hora = new TimeSpan(12, 24, 00), v_estado = "0" });
+                v_citas.Add(new Cita() { v_nombreDR = "nombre 2", v_fecha = "2019-01-22", v_hora = new TimeSpan(10, 04, 00), v_estado = "1" });
+                v_citas.Add(new Cita() { v_nombreDR = "nombre 3", v_fecha = "2018-10-30", v_hora = new TimeSpan(16, 50, 00), v_estado = "2" });
+                v_citas.Add(new Cita() { v_nombreDR = "nombre 4", v_fecha = "2018-12-16", v_hora = new TimeSpan(18, 29, 00), v_estado = "3" });
+                App.Fn_GuardarCitas(v_citas);
+            }
             Ordenar();
-            ListaCita.ItemsSource = citas;
+            ListaCita.ItemsSource = v_citas;
+        }
+        private async void Fn_GetCitas()
+        {
+            HttpClient _client = new HttpClient();
+            string _DirEnviar = "";
+            try
+            {
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, null);
+                if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_respuesta);
+                    Ordenar();
+                    ListaCita.ItemsSource = v_citas;
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                await DisplayAlert("Error", ex.ToString(), "Aceptar");
+                if(App.v_citas.Count>0)
+                {
+                    v_citas = App.v_citas;
+                }
+                else
+                {
+                    v_citas.Add(new Cita() { v_nombreDR = "nombre 1", v_fecha = "2018-11-03", v_hora = new TimeSpan(12, 24, 00), v_estado = "0" });
+                    v_citas.Add(new Cita() { v_nombreDR = "nombre 2", v_fecha = "2019-01-22", v_hora = new TimeSpan(10, 04, 00), v_estado = "1" });
+                    v_citas.Add(new Cita() { v_nombreDR = "nombre 3", v_fecha = "2018-10-30", v_hora = new TimeSpan(16, 50, 00), v_estado = "2" });
+                    v_citas.Add(new Cita() { v_nombreDR = "nombre 4", v_fecha = "2018-12-16", v_hora = new TimeSpan(18, 29, 00), v_estado = "3" });
+                    App.Fn_GuardarCitas(v_citas);
+                }
+                Ordenar();
+                ListaCita.ItemsSource = v_citas;
+            }
         }
         public void Ordenar()
         {
-            IEnumerable<Cita> _temp = citas.OrderBy(x => x.v_fecha);
-            citas = new ObservableCollection<Cita>(_temp);
+            IEnumerable<Cita> _temp = v_citas.OrderBy(x => x.v_fecha);
+            v_citas = new ObservableCollection<Cita>(_temp);
 
-            for (int i = 0; i < citas.Count; i++)
+            for (int i = 0; i < v_citas.Count; i++)
             {
-                citas[i].Fn_CAmbioCol(i);
+                v_citas[i].Fn_CAmbioCol(i);
             }
         }
     }

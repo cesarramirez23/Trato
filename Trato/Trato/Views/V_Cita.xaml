@@ -22,7 +22,7 @@
                                     <!--Format = "HH:mm"   par 24 horas     Format = "hh:mm" para 12-->
                                     <TimePicker Time="{Binding v_hora}"  IsEnabled="False"/>
                                 </StackLayout>
-                                <Picker SelectedIndex="{Binding v_idCita}" IsEnabled="False">
+                                <Picker >
                                     <Picker.Items>
                                         <x:String>Inactiva</x:String>
                                         <x:String>Nueva</x:String>

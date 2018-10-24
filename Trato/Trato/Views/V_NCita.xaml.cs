@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using Trato.Personas;
 using Trato.Varios;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace Trato.Views
 {
@@ -33,11 +34,25 @@ namespace Trato.Views
         {
             Cita _cita = new Cita(v_medico.v_membre, App.v_membresia, App.v_folio, "1",v_fecha.Date,
              v_hora.Time, App.Fn_GEtToken());
-
             string _json = JsonConvert.SerializeObject(_cita, Formatting.Indented);
             Console.Write("Info cita " + _json);
+            HttpClient _client = new HttpClient();
+            string _DirEnviar = "";
+            StringContent _content= new StringContent(_json, Encoding.UTF8, "application/json");
 
-            await Task.Delay(10);
+            try
+            {  //getting exception in the following line    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    await DisplayAlert("Exito", "Cita generada correctamente, espera la respuesta de tu doctor", "Aceptar");
+                    await Navigation.PopAsync();
+                }
+            }
+            catch(HttpRequestException ex)
+            {
+                    await DisplayAlert("Error",ex.ToString(), "Aceptar");
+            }
         }
 
 	}
