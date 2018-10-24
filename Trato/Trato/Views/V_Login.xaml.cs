@@ -20,9 +20,9 @@ namespace Trato.Views
         public V_Login()
         {
             InitializeComponent();
-            usu.Text = "1810I-0558 ";
-            pass.Text = "Cesar1234";
-            fol.Text = "0";
+            //usu.Text = "1810I-0558 ";
+            //pass.Text = "Cesar1234";
+            //fol.Text = "0";
         }
         //el que muestra la pantalla de registro para familiar o empresarial
         public async void Fn_Registro(object sender, EventArgs _Args)

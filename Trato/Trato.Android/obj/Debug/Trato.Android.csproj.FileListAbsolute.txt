@@ -221,12 +221,6 @@ C:/Users/CesarAugusto/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/andro
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/linksrc/FormsViewGroup.dll.mdb
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/linksrc/nunit.framework.dll.mdb
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/linksrc/Xamarin.Forms.Platform.Android.dll.mdb
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.pdb
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato4.apk
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato4-Signed.apk
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.dll
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.pdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csprojAssemblyReference.cache
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Basement.dll.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll.stamp
@@ -243,6 +237,12 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XbdMerge\04db0838.proguard.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\googsvcsjson\values\goog_svcs_json.xml
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csproj.CoreCompileInputs.cache
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.pdb
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato4.apk
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\com.alsain.trato4-Signed.apk
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.dll
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.pdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\XamlC.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.csproj.CopyComplete
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\Trato.Android.dll
@@ -280,6 +280,8 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawa
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\serviciosmedicos.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\doctor.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\doctora.png
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\logo_redondo_512x512_blanco.png
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\citas.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\R.cs.flag
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\R.txt
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\uploadflags.txt
@@ -354,10 +356,7 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\a
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\Trato.pdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\logo_redondo_512x512_blanco.png
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\res\drawable\citas.png
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\bin\Debug\Trato.Android.dll
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.pdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\Trato.Android.dll.mdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato.Android\obj\Debug\linksrc\nunit.framework.dll.mdb
