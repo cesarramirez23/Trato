@@ -68,7 +68,7 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Alsain Soluciones Audiovisuales, S.A. de C.V. (7W483QRYYP)</CodesignKey>
+    <CodesignKey>iPhone Developer: Saul Lopez (Z7G3Y24M78)</CodesignKey>
     <MtouchFloat32>true</MtouchFloat32>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>

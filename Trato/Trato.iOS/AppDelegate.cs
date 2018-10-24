@@ -141,11 +141,5 @@ namespace Trato.iOS
             alert.Show();
 
         }
-        [Export("messaging:didRefreshRegistrationToken:")]
-        public void DidRefreshRegistrationToken(Messaging messaging, string fcmToken)
-        {
-            System.Diagnostics.Debug.WriteLine($"FCM Token: {fcmToken}");
-            App.Fn_SetToken(fcmToken);
-        }
     }
 }
