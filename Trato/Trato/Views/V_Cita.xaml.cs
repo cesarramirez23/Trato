@@ -52,7 +52,8 @@ namespace Trato.Views
                 if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                    v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_respuesta);
+
+                    Cita _jsm = JsonConvert.DeserializeObject<Cita>(_respuesta);
                     App.Fn_GuardarCitas(v_citas);
                     Ordenar();
                     ListaCita.ItemsSource = v_citas;
