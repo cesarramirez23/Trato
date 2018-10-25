@@ -455,16 +455,14 @@ namespace Trato
                 }//si esta logeado
                 else if (v_log == "1")
                 {
-                    if(v_log=="1" && Fn_GEtToken()=="a")
+                    /*if(v_log=="1" && Fn_GEtToken()=="a")
                     {
                         Fn_CerrarSesion();
                         MainPage = new V_Master(false, "Bienvenido a Trato Especial");
-                    }
-                    else
-                    {
+                    }*/
                         Fn_CargarDatos();
                         MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
-                    }
+
                 }
                 else
                 {

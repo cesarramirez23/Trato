@@ -1,17 +1,29 @@
 ﻿<Properties StartupConfiguration="{8A4AA535-184E-4983-89ED-D201A4B95059}|Default">
   <MonoDevelop.Ide.ItemProperties.Trato PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato.iOS/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato.iOS/Main.cs">
     <Files>
-      <File FileName="Trato/Trato.iOS/Info.plist" />
-      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="139" Column="39" />
+      <File FileName="Trato/Trato/Views/V_Master.xaml" Line="138" Column="1" />
+      <File FileName="Trato/Trato/Views/V_Cita.xaml.cs" Line="55" Column="1" />
+      <File FileName="Trato/Trato/C_Varios.cs" Line="83" Column="28" />
+      <File FileName="Trato/Trato.iOS/Main.cs" Line="16" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>_respuesta</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="24" column="1" />
+      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Views/V_Cita.xaml.cs" relfile="Trato/Trato/Views/V_Cita.xaml.cs" line="54" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.28E71A89-C227-4627-ABF7-010A3CD8B8BB" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD246CFB-0CD9-4A03-A77E-AAAEED5B4002" automaticSigning="False" />
   <MonoDevelop.Ide.ItemProperties.Trato.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MultiItemStartupConfigurations />
 </Properties>

@@ -50,7 +50,7 @@ namespace Trato.Varios
         /// folio
         /// </summary>
         [JsonProperty("folio")]
-        public string v_folio{ get; set; }
+        public string v_folio { get; set; }
         [JsonProperty("estado")]
         public string v_estado { get; set; }
         /// <summary>
@@ -70,8 +70,26 @@ namespace Trato.Varios
         public string v_tokenDR { get; set; }
         [JsonProperty("tokenPaciente")]
         public string v_tokenPaciente { get; set; }
+        /// <summary>
+        /// 0 paciente 1 doctor
+        /// </summary>
+        /// <value>The v tipo.</value>
+        [JsonProperty("tipo")]
+        public string v_tipo { get; set; }
 
         public Cita() { }
+        public Cita(string _membre, string _folio, string _tipo)
+        {
+            v_tipo = _tipo;
+            if(_tipo=="0")
+            {
+                v_pacienteId = _membre;
+                v_folio = _folio;
+            }
+            else if(_tipo=="1"){
+                v_doctorId = _membre;
+            }
+        }
         public Cita(string _membredr, string _membrepac, string _folio, string _estado, DateTime _fecha, TimeSpan _hora, string _tokenDr, string _tokenpac)
         {
 

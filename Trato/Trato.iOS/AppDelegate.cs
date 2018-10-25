@@ -42,18 +42,20 @@ namespace Trato.iOS
             // Firebase component initialize
             LoadApplication(new App());
 
-            var config = new PayPalConfiguration(PayPalEnvironment.Sandbox, "AVART2W6j2cnNhmWej6EcQjx_ytsVpl1hmnArzHtVWSsZFRVAWOlZq6y3EjPFM0FHUhG_yrvkftXAAtN")
+            //paypal produccion AQrrFs8D-iSCYiAEEmO9ni3CcQ7GjgjPqSBBVhxNTmRKOnLR_Ol_qRcy2Pr4yxhwcQ2BK1BoZbzl0Hka
+            //paypal sandbox  AVART2W6j2cnNhmWej6EcQjx_ytsVpl1hmnArzHtVWSsZFRVAWOlZq6y3EjPFM0FHUhG_yrvkftXAAtN
+            var config = new PayPalConfiguration(PayPalEnvironment.Production, "AQrrFs8D-iSCYiAEEmO9ni3CcQ7GjgjPqSBBVhxNTmRKOnLR_Ol_qRcy2Pr4yxhwcQ2BK1BoZbzl0Hka")
             {
                 //If you want to accept credit cards
                 AcceptCreditCards = false,
                 //Your business name
-                MerchantName = "Test Store",
+                MerchantName = "Tienda",
                 //Your privacy policy Url
                 MerchantPrivacyPolicyUri = "https://www.useller.com.mx/aviso_privacidad",
                 //Your user agreement Url
                 MerchantUserAgreementUri = "https://www.useller.com.mx/terminos",
                 // OPTIONAL - ShippingAddressOption (Both, None, PayPal, Provided)
-                ShippingAddressOption = ShippingAddressOption.Both, 
+                ShippingAddressOption = ShippingAddressOption.Both,
                 // OPTIONAL - Language: Default languege for PayPal Plug-In
                 Language = "es",
                 // OPTIONAL - PhoneCountryCode: Default phone country code for PayPal Plug-In

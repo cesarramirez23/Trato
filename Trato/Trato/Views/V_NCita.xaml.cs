@@ -36,8 +36,9 @@ namespace Trato.Views
              v_hora.Time, App.Fn_GEtToken());
             string _json = JsonConvert.SerializeObject(_cita, Formatting.Indented);
             Console.Write("Info cita " + _json);
+            await DisplayAlert("Enviar", _json, "aceptar");
             HttpClient _client = new HttpClient();
-            string _DirEnviar = "";
+            string _DirEnviar = "http://tratoespecial.com/set_citas.php";
             StringContent _content= new StringContent(_json, Encoding.UTF8, "application/json");
 
             try
@@ -45,13 +46,21 @@ namespace Trato.Views
                 HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                 if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    await DisplayAlert("Exito", "Cita generada correctamente, espera la respuesta de tu doctor", "Aceptar");
-                    await Navigation.PopAsync();
+                    string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    if(_respuesta=="1")
+                    {
+                        await DisplayAlert("Exito", "Cita generada correctamente, espera la respuesta de tu doctor", "Aceptar");
+                        await Navigation.PopAsync();
+                    }
+                    else 
+                    {
+                        await DisplayAlert("Error", "No se pudo agendar tu cita, intentalo mas tarde", "Aceptar");
+                    }
                 }
             }
             catch(HttpRequestException ex)
             {
-                    await DisplayAlert("Error",ex.ToString(), "Aceptar");
+                await DisplayAlert("Error",ex.Message, "Aceptar");
             }
         }
 

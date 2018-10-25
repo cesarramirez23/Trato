@@ -22,8 +22,8 @@ namespace Trato.Views
         public V_Cita()
         {
             InitializeComponent();
-            //Fn_GetCitas();
-            if (App.v_citas.Count > 0)
+            Fn_GetCitas();
+            /*if (App.v_citas.Count > 0)
             {
                 v_citas = App.v_citas;
             }
@@ -37,18 +37,23 @@ namespace Trato.Views
             }
             Ordenar();
             ListaCita.ItemsSource = v_citas;
+*/
         }
         private async void Fn_GetCitas()
         {
             HttpClient _client = new HttpClient();
-            string _DirEnviar = "";
+            Cita _cita = new Cita(App.v_membresia, App.v_folio, "0");
+            string _json = JsonConvert.SerializeObject(_cita);
+            string _DirEnviar = "http://tratoespecial.com/get_citas.php";
+            StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
             try
             {
-                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, null);
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                 if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                     v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_respuesta);
+                    App.Fn_GuardarCitas(v_citas);
                     Ordenar();
                     ListaCita.ItemsSource = v_citas;
                 }
