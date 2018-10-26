@@ -160,7 +160,8 @@ namespace Trato.Views
             //si es el titular
             //si el rfc esta vacio  es persona fisica,  mostrar lugar fecha de nacimiento
             // no esta vacio moral,  quitar fecha y lugar
-            if ( int.Parse(App.v_folio)==0 )//titular
+            Console.WriteLine("folio " + App.v_folio);
+            if ( App.v_folio=="0" )//titular
             {
                 if(string.IsNullOrEmpty( App.v_perfil.v_Rfc))// null es persona fisica
                 {

@@ -73,6 +73,9 @@
           "build/Xamarin.Build.Download.targets": {}
         }
       },
+      "Xamarin.Firebase.Core/60.1142.1": {
+        "type": "package"
+      },
       "Xamarin.Firebase.iOS.Analytics/5.1.4": {
         "type": "package",
         "dependencies": {
@@ -382,6 +385,9 @@
           "build/Xamarin.Build.Download.props": {},
           "build/Xamarin.Build.Download.targets": {}
         }
+      },
+      "Xamarin.Firebase.Core/60.1142.1": {
+        "type": "package"
       },
       "Xamarin.Firebase.iOS.Analytics/5.1.4": {
         "type": "package",
@@ -693,6 +699,9 @@
           "build/Xamarin.Build.Download.targets": {}
         }
       },
+      "Xamarin.Firebase.Core/60.1142.1": {
+        "type": "package"
+      },
       "Xamarin.Firebase.iOS.Analytics/5.1.4": {
         "type": "package",
         "dependencies": {
@@ -1002,6 +1011,9 @@
           "build/Xamarin.Build.Download.props": {},
           "build/Xamarin.Build.Download.targets": {}
         }
+      },
+      "Xamarin.Firebase.Core/60.1142.1": {
+        "type": "package"
       },
       "Xamarin.Firebase.iOS.Analytics/5.1.4": {
         "type": "package",
@@ -1478,6 +1490,16 @@
         "xamarin.build.download.nuspec"
       ]
     },
+    "Xamarin.Firebase.Core/60.1142.1": {
+      "sha512": "/MeRThRxh6jQqCC/riw+R6PocCWL3v19Q3GJKILCFRQ4/za5vd+tFdPEr3g5oyW0sm1vMtfgIspPIOLS1PSGwg==",
+      "type": "package",
+      "path": "xamarin.firebase.core/60.1142.1",
+      "files": [
+        ".signature.p7s",
+        "xamarin.firebase.core.60.1142.1.nupkg.sha512",
+        "xamarin.firebase.core.nuspec"
+      ]
+    },
     "Xamarin.Firebase.iOS.Analytics/5.1.4": {
       "sha512": "+tvYCrb/5sPPA1qGyNf66WTup8BhD2ryitywErEu4gW3mp8JL1BxNq8p3DbKqrwstJTFSn8CiftHEt7sv8YKiw==",
       "type": "package",
@@ -1737,6 +1759,7 @@
       "Newtonsoft.Json >= 11.0.2",
       "PayPal.Forms >= 2.18.3",
       "Trato >= 1.0.0",
+      "Xamarin.Firebase.Core >= 60.1142.1",
       "Xamarin.Firebase.iOS.Analytics >= 5.1.4",
       "Xamarin.Firebase.iOS.CloudMessaging >= 3.1.2",
       "Xamarin.Firebase.iOS.Core >= 5.1.3",
@@ -1746,77 +1769,80 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AlsainVR\\.nuget\\packages\\": {}
+    "/Users/saullopez/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "projectUniqueName": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
       "projectName": "Trato.iOS",
-      "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
-      "packagesPath": "C:\\Users\\AlsainVR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\obj\\",
+      "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
+      "packagesPath": "/Users/saullopez/.nuget/packages/",
+      "outputPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/obj",
       "projectStyle": "PackageReference",
-      "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\AlsainVR\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/saullopez/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "C:\\Users\\AlsainVR\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
+            "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj": {
+              "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj"
             }
           }
         }
       }
     },
+    "dependencies": {
+      "Xamarin.Firebase.Core": {
+        "target": "Package",
+        "version": "[60.1142.1, )"
+      }
+    },
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
-          "NUnit": {
-            "target": "Package",
-            "version": "[3.11.0, )"
-          },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "[11.0.2, )"
+            "version": "11.0.2"
+          },
+          "NUnit": {
+            "target": "Package",
+            "version": "3.11.0"
           },
           "PayPal.Forms": {
             "target": "Package",
-            "version": "[2.18.3, )"
-          },
-          "Xamarin.Firebase.iOS.Analytics": {
-            "target": "Package",
-            "version": "[5.1.4, )"
+            "version": "2.18.3"
           },
           "Xamarin.Firebase.iOS.CloudMessaging": {
             "target": "Package",
-            "version": "[3.1.2, )"
-          },
-          "Xamarin.Firebase.iOS.Core": {
-            "target": "Package",
-            "version": "[5.1.3, )"
+            "version": "3.1.2"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[3.2.0.871581, )"
+            "version": "3.2.0.871581"
           },
           "ZXing.Net.Mobile": {
             "target": "Package",
-            "version": "[2.4.1, )"
+            "version": "2.4.1"
           },
           "ZXing.Net.Mobile.Forms": {
             "target": "Package",
-            "version": "[2.4.1, )"
+            "version": "2.4.1"
+          },
+          "Xamarin.Firebase.iOS.Analytics": {
+            "target": "Package",
+            "version": "5.1.4"
+          },
+          "Xamarin.Firebase.iOS.Core": {
+            "target": "Package",
+            "version": "5.1.3"
           }
         }
       }
