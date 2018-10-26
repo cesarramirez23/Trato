@@ -4,7 +4,7 @@
              x:Class="Trato.Views.V_Cita">
     <ContentPage.Content>
         <StackLayout Margin="3,2,3,10">
-            <ListView x:Name="ListaCita" BackgroundColor="Bisque" HasUnevenRows="True">
+            <ListView x:Name="ListaCita" BackgroundColor="Bisque" HasUnevenRows="True" ItemTapped="Fn_CitaTap">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

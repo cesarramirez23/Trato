@@ -52,8 +52,8 @@ namespace Trato.Views
                 if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-
-                    Cita _jsm = JsonConvert.DeserializeObject<Cita>(_respuesta);
+                    v_citas=JsonConvert.DeserializeObject<ObservableCollection<  Cita>>(_respuesta);
+                    Console.WriteLine("cuantos "+v_citas.Count+"json citaa " + _respuesta);
                     App.Fn_GuardarCitas(v_citas);
                     Ordenar();
                     ListaCita.ItemsSource = v_citas;
@@ -78,6 +78,12 @@ namespace Trato.Views
                 ListaCita.ItemsSource = v_citas;
             }
         }
+        public async void Fn_CitaTap(object sender, ItemTappedEventArgs _args)
+        {
+            Cita _citaSelec = _args.Item as Cita;
+           await  Navigation.PushAsync(new V_NCita(_citaSelec) );
+        }
+
         public void Ordenar()
         {
             IEnumerable<Cita> _temp = v_citas.OrderBy(x => x.v_fecha);

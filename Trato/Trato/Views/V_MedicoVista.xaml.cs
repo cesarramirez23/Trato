@@ -137,7 +137,7 @@ namespace Trato.Views
 
         public async void Fn_Cita(object sender, EventArgs _args)
         {
-            await Navigation.PushAsync(new V_NCita(true, v_medico) { Title="Nueva Cita" });
+            await Navigation.PushAsync(new V_NCita( v_medico) { Title="Nueva Cita" });
         }
 
         public async void Fn_AbrirSitio(object sender, EventArgs _args)

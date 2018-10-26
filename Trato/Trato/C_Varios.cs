@@ -157,6 +157,14 @@ namespace Trato.Varios
             string[] _fecha = v_fecha.Split('-');
             v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]));
         }
+        public void Fn_SetValores()
+        {
+            v_Estadocita = (EstadoCita)(int.Parse(v_estado));
+            string[] _fecha = v_fecha.Split('/');//month day year
+            string[] _year = _fecha[2].Split(' ');
+
+            v_fechaDate = new DateTime(int.Parse(_year[0]), int.Parse(_fecha[0]), int.Parse(_fecha[1]) );
+        }
     }
     public class Pagar
     {

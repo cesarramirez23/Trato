@@ -634,6 +634,7 @@ namespace Trato.Views
                     url="http://tratoespecial.com/prueba_json.php";
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
                     string _respu = await _respuestphp.Content.ReadAsStringAsync();
+                    Console.Write("json nedicos \n" + _respu);
                     ObservableCollection<C_Medico> _med = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_respu);
                     L_Error.IsVisible = false;
                     B_Filtrar.IsEnabled = true;
