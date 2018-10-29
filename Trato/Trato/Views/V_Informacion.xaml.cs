@@ -18,7 +18,7 @@ namespace Trato.Views
             InitializeComponent();
             v_info.Text = "";
 
-            v_info.Text = "Trato Especial, es una multiplataforma de servicios, que a través de una membresía médica, le damos la oportunidad  a cualquier tipo de persona a tener acceso a servicios de salud y bienestar integral de muy buena calidad a precios accesibles, generando a los usuarios, confianza tranquilidad y un trato especial,  bajo un modelo de suscripción anual.\n" +
+            v_info.Text = "Trato Especial, es una multiplataforma de servicios, que a través de una membresía, le damos la oportunidad  a cualquier tipo de persona a tener acceso a servicios de salud y bienestar integral de muy buena calidad a precios accesibles, generando a los usuarios, confianza tranquilidad y un trato especial,  bajo un modelo de suscripción anual.\n" +
                 " Sin importar la edad, sexo y condición física del usuario. ";
 
         }

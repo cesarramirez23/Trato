@@ -1,27 +1,19 @@
 ﻿<Properties StartupConfiguration="{8A4AA535-184E-4983-89ED-D201A4B95059}|Default">
   <MonoDevelop.Ide.ItemProperties.Trato PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato/Views/V_Cita.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato/Views/V_MedicoVista.xaml.cs">
     <Files>
-      <File FileName="Trato/Trato/Views/V_Pagos.xaml.cs" Line="162" Column="60" />
-      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="97" Column="1" />
-      <File FileName="Trato/Trato.Android/MainActivity.cs" Line="25" Column="20" />
       <File FileName="Trato/Trato/Views/V_Perfil.xaml.cs" Line="157" Column="10" />
-      <File FileName="Trato/Trato/App.xaml.cs" Line="484" Column="1" />
-      <File FileName="Trato/Trato/Views/V_Master.xaml.cs" Line="49" Column="1" />
-      <File FileName="Trato/Trato/Views/V_Login.xaml.cs" Line="45" Column="17" />
-      <File FileName="Trato/Trato/Views/V_Cita.xaml.cs" Line="60" Column="7" />
-      <File FileName="Trato/Trato.iOS/Main.cs" Line="16" Column="1" />
+      <File FileName="Trato/Trato/Views/V_MedicoVista.xaml.cs" Line="52" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="24" column="1" />
       <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Views/V_Pagos.xaml.cs" relfile="Trato/Trato/Views/V_Pagos.xaml.cs" line="53" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD246CFB-0CD9-4A03-A77E-AAAEED5B4002" automaticSigning="False" />
-  <MonoDevelop.Ide.ItemProperties.Trato.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_Oreo" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.Trato.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.0123456789ABCDEF" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MultiItemStartupConfigurations />
 </Properties>

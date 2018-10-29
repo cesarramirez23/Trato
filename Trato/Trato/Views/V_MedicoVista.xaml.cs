@@ -49,10 +49,10 @@ namespace Trato.Views
 
             //
 
-            if (App.v_log == "1")
-            {
-                boton.IsVisible = true;
-            }
+            //if (App.v_log == "1")
+           // {
+              //  boton.IsVisible = true;
+            //}
             //else
             //{ boton.IsVisible = false;
             //}

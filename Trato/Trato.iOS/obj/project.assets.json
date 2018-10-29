@@ -1799,12 +1799,6 @@
         }
       }
     },
-    "dependencies": {
-      "Xamarin.Firebase.Core": {
-        "target": "Package",
-        "version": "[60.1142.1, )"
-      }
-    },
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
@@ -1843,6 +1837,10 @@
           "Xamarin.Firebase.iOS.Core": {
             "target": "Package",
             "version": "5.1.3"
+          },
+          "Xamarin.Firebase.Core": {
+            "target": "Package",
+            "version": "60.1142.1"
           }
         }
       }

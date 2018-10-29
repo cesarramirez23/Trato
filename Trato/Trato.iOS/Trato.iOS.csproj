@@ -167,9 +167,6 @@
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_087.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_120.png">
       <Visible>false</Visible>
     </ImageAsset>

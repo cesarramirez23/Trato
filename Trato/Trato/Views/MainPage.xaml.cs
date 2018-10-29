@@ -35,8 +35,7 @@ namespace Trato.Views
         {
             base.OnAppearing();
             v_cambioban = true;
-        }//1809I-0006    39f8cf
-        //1809E-0003    64abe9
+        }
         protected override void OnDisappearing()
         {
             v_cambioban = false;
