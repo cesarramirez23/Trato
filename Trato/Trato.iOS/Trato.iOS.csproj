@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -143,6 +143,7 @@
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_020.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -167,6 +168,9 @@
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_087.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_1024_SinFondo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_120.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -179,7 +183,6 @@
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_180.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
