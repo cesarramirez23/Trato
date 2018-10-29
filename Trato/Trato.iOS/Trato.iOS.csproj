@@ -168,9 +168,6 @@
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_087.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_1024_SinFondo.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_120.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -186,6 +183,7 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_1024_CHIDO.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

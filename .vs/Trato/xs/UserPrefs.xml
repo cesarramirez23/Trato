@@ -1,11 +1,6 @@
 ﻿<Properties StartupConfiguration="{8A4AA535-184E-4983-89ED-D201A4B95059}|Default">
   <MonoDevelop.Ide.ItemProperties.Trato PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato/Views/V_MedicoVista.xaml.cs">
-    <Files>
-      <File FileName="Trato/Trato/Views/V_Perfil.xaml.cs" Line="157" Column="10" />
-      <File FileName="Trato/Trato/Views/V_MedicoVista.xaml.cs" Line="52" Column="15" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
