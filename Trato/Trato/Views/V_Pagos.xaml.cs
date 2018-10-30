@@ -69,7 +69,7 @@ namespace Trato
                 //await DisplayAlert("llega ",_perf.Fn_GetDatos() +" "+ _resp, "aceptar");
                 Personas.C_PerfilGen _nuePer = JsonConvert.DeserializeObject<Personas.C_PerfilGen>(_resp);
                 await DisplayAlert("perfil general", _resp, "aceptar");
-                App.Fn_GuardarDatos(_nuePer, v_infoPago.v_membresia, v_infoPago.v_conse, App.v_letra);
+                App.Fn_GuardarDatos(_nuePer, v_infoPago.v_membresia, App.v_folio, App.v_letra);
                 _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                 try
@@ -80,7 +80,7 @@ namespace Trato
                     await DisplayAlert("perfil medico", _resp, "aceptar");
                     Personas.C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<Personas.C_PerfilMed>(_resp);
                     //await DisplayAlert("perfil medico", _resp, "sad");
-                    App.Fn_GuardarDatos(_nuePerMEd, v_infoPago.v_membresia, v_infoPago.v_conse, App.v_letra);
+                    App.Fn_GuardarDatos(_nuePerMEd, v_infoPago.v_membresia,App.v_folio, App.v_letra);
                 }
                 catch (HttpRequestException exception)
                 {

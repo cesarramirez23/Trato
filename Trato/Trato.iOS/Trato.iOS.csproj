@@ -183,7 +183,9 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_1024_CHIDO.png" />
+    <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_1024_CHIDO.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
