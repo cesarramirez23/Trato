@@ -43,15 +43,15 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-		<key>NSPhotoLibraryUsageDescription</key>
-		<string>Use for Paypal</string>
-		<key>NSCameraUsageDescription</key>
-		<string>Use for Paypal</string>
 	</dict>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1</string>
+	<string>1.1</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Use for PayPal</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Use for PayPal</string>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>UIRequiredDeviceCapabilities</key>
