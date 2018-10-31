@@ -1,14 +1,23 @@
 ﻿<Properties StartupConfiguration="{8A4AA535-184E-4983-89ED-D201A4B95059}|Default">
   <MonoDevelop.Ide.ItemProperties.Trato PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato/Views/MainPage.xaml.cs">
+    <Files>
+      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="78" Column="38" />
+      <File FileName="Trato/Trato.iOS/Main.cs" Line="1" Column="1" />
+      <File FileName="Trato/Trato/Views/MainPage.xaml.cs" Line="29" Column="13" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Views/V_Pagos.xaml.cs" relfile="Trato/Trato/Views/V_Pagos.xaml.cs" line="53" column="1" />
+      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="21" column="1" />
+      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="99" column="1" />
+      <Breakpoint file="/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/AppDelegate.cs" relfile="Trato/Trato.iOS/AppDelegate.cs" line="127" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.Trato.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD246CFB-0CD9-4A03-A77E-AAAEED5B4002" automaticSigning="False" />
   <MonoDevelop.Ide.ItemProperties.Trato.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.0123456789ABCDEF" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MultiItemStartupConfigurations />
 </Properties>

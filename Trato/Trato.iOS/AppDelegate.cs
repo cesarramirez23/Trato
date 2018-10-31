@@ -9,12 +9,9 @@ using UserNotifications;
 
 using PayPal.Forms;
 using PayPal.Forms.Abstractions;
-/*
-Objective-C exception thrown.  Name: com.firebase.core Reason: Configuration fails. 
-It may be caused by an invalid GOOGLE_APP_ID in GoogleService-Info.plist or set in the customized options.
-*/
 namespace Trato.iOS
 {
+    //https://help.apple.com/app-store-connect/#/devd274dd925
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
@@ -101,6 +98,8 @@ namespace Trato.iOS
         public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             Messaging.SharedInstance.AppDidReceiveMessage(userInfo);
+            //EstaLineaDeCodigoVaMarcarErrorYeah
+
 
             // Generate custom event
             NSString[] keys = { new NSString("Event_type") };
@@ -108,7 +107,7 @@ namespace Trato.iOS
             var parameters = NSDictionary<NSString, NSObject>.FromObjectsAndKeys(keys, values, keys.Length);
 
             // Send custom event
-           // Firebase.Analytics.Analytics.LogEvent("CustomEvent", parameters);
+            Firebase.Analytics.Analytics.LogEvent("CustomEvent", parameters);
 
             if (application.ApplicationState == UIApplicationState.Active)
             {

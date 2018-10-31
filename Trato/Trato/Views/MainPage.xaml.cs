@@ -26,9 +26,9 @@ namespace Trato.Views
             {
                 M_mensaje.IsVisible = false;
             }
-            //M_mensaje.IsVisible = true;
-            //M_mensaje.Text += "token " + App.Fn_GEtToken();
-            //Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
+            M_mensaje.IsVisible = true;
+            M_mensaje.Text += "token " + App.Fn_GEtToken();
+            Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
             //FN_Red();
         }
         protected override  void OnAppearing()
