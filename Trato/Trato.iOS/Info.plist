@@ -47,7 +47,7 @@
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Use for PayPal</string>
 	<key>NSCameraUsageDescription</key>

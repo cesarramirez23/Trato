@@ -45,9 +45,9 @@ namespace Trato.Droid
                 //Your business name
                 MerchantName = "Tienda",
                 //Your privacy policy Url
-                MerchantPrivacyPolicyUri = "https://www.useller.com.mx/aviso_privacidad",
+                MerchantPrivacyPolicyUri = "http://tratoespecial.com/politicas-de-privacidad/",
                 //Your user agreement Url
-                MerchantUserAgreementUri = "https://www.useller.com.mx/terminos",
+                MerchantUserAgreementUri = "http://tratoespecial.com/terminos-y-condiciones/",
                 // OPTIONAL - ShippingAddressOption (Both, None, PayPal, Provided)
                 ShippingAddressOption = ShippingAddressOption.Both,
                 // OPTIONAL - Language: Default languege for PayPal Plug-In
