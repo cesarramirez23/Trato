@@ -137,7 +137,9 @@ namespace Trato.Varios
         /// <summary>
         /// en la opantalla de citas colores
         /// </summary>
+       [JsonIgnore]
         public Color v_color { get; set; }
+       [JsonIgnore]
         public EstadoCita v_Estadocita { get; set; }
         /// <summary>
         /// para cambiar el color dentro de la lista visible, cambia estado cita, y formato de la fecha

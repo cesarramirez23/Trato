@@ -640,7 +640,6 @@ namespace Trato.Views
                     B_Filtrar.IsEnabled = true;
                     App.v_medicos = _med;
                     Orden();
-
                     App.Fn_ImgSexo(v_tipo);
                     v_lista.ItemsSource = App.v_medicos;
                     App.Fn_GuardarRed(App.v_medicos);
