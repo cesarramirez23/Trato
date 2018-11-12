@@ -23,19 +23,15 @@ namespace Trato.Views
     public partial class V_Buscador : ContentPage
     {
         /// <summary>
-        /// para saber si es medico o servicios lo que se va a mostrar
-        /// </summary>
-    
-        /// <summary>
         /// la pantalla con los filtro esta visible
         /// </summary>
         bool v_filtro = false;
         /// <summary>
-        /// Lista que el usuario elige
+        /// Lista que el usuario elige cada  vez que le pica
         /// </summary>
         List<string> _filEspec = new List<string>();
         /// <summary>
-        /// Lista que el usuario elige
+        /// Lista que el usuario elige cada  vez que le pica
         /// </summary>
         List<string> _filCiud = new List<string>();
         /// <summary>
@@ -47,7 +43,6 @@ namespace Trato.Views
         /// </summary>
         ObservableCollection<Filtro> _ciudades = new ObservableCollection<Filtro>();
 
-
         /// <summary>
         /// 0 MEDICOS,   1 SERVICIOS MEDICOS,    2 SERVICIOS GENERALES
         /// </summary>
@@ -58,22 +53,33 @@ namespace Trato.Views
         {
             InitializeComponent();
             overlay.IsVisible = v_filtro;
+           
         }
         public V_Buscador(int _valor)
         {
             InitializeComponent();
             overlay.IsVisible = v_filtro;
-            
-            if(_valor==0)
+            if (Device.RuntimePlatform == Device.Android)//para que solo en ios se vea la barra de arriba y el buscador completo
             {
-                //   v_medico = true;
+                ToolbarItems.Clear();
+                Grid_Busqueda.BackgroundColor = Color.Transparent;
+            }//en prueba
+            else if(Device.RuntimePlatform== Device.iOS)
+            {
+                Grid.SetColumnSpan(v_Search, 4);
+                B_Filtrar.IsVisible = false;
+                v_Search.BackgroundColor = Color.Transparent;                
+                Grid_Busqueda.BackgroundColor = Color.Transparent;
+            }
+
+            if (_valor==0)
+            {
                 v_tipo = _valor;
                 Orden();
                 v_lista.ItemsSource = App.v_medicos;
             }
             else if(_valor==1)
             {
-                //v_medico = false;
                 v_tipo = _valor;
                 Orden();
                 v_lista.ItemsSource = App.v_servicios;
@@ -160,21 +166,36 @@ namespace Trato.Views
             {
                 _especialidades.Clear();
                 List<string> _tempCont = new List<string>();
-                for (int i = 0; i < App.v_medicos.Count; i++)
+                for (int i = 0; i < App.v_medicos.Count; i++)//recorre todos los medicos
                 {
-               // _fil.v_texto= App.v_medicos[i].v_Especialidad ;
-                    if (!_tempCont.Contains( App.v_medicos[i].v_Especialidad))
+                    for (int j = 0; j < App.v_medicos[i].v_ListaEsp.Length; j++)
                     {
-                        _tempCont.Add(App.v_medicos[i].v_Especialidad);
-                        if(_filEspec.Contains(App.v_medicos[i].v_Especialidad))
+                        if ((!string.IsNullOrEmpty(App.v_medicos[i].v_ListaEsp[j]) && !string.IsNullOrWhiteSpace(App.v_medicos[i].v_ListaEsp[j]))
+                            && (!_tempCont.Contains(App.v_medicos[i].v_ListaEsp[j])))
                         {
-                            _especialidades.Add(new Filtro(App.v_medicos[i].v_Especialidad,true));
-                        }
-                        else
-                        {
-                            _especialidades.Add(new Filtro(App.v_medicos[i].v_Especialidad,false));
+                            _tempCont.Add(App.v_medicos[i].v_ListaEsp[j]);
+                            if (_filEspec.Contains(App.v_medicos[i].v_ListaEsp[j]))
+                            {
+                                _especialidades.Add(new Filtro(App.v_medicos[i].v_ListaEsp[j], true));
+                            }
+                            else
+                            {
+                                _especialidades.Add(new Filtro(App.v_medicos[i].v_ListaEsp[j], false));
+                            }
                         }
                     }
+                    // if (!_tempCont.Contains(App.v_medicos[i].v_Especialidad))
+                    //{
+                    //    _tempCont.Add(App.v_medicos[i].v_Especialidad);
+                    //    if (_filEspec.Contains(App.v_medicos[i].v_Especialidad))
+                    //    {
+                    //        _especialidades.Add(new Filtro(App.v_medicos[i].v_Especialidad, true));
+                    //    }
+                    //    else
+                    //    {
+                    //        _especialidades.Add(new Filtro(App.v_medicos[i].v_Especialidad, false));
+                    //    }
+                    //}
                 }
             }
             else if(v_tipo==1)
@@ -222,23 +243,25 @@ namespace Trato.Views
         }
         public void Fn_Cancelar(object sender, EventArgs _Args)
         {
-            _filCiud.Clear();
-            _filEspec.Clear();
-            filEspc.ItemsSource = null;
-            for(int i=0; i<_especialidades.Count;i++)
-            {
-                _especialidades[i].v_color = Color.Blue;
-            }
-            filEspc.ItemsSource = _especialidades;
+            //no limpiar la lista que el usuario le pica
+            //_filCiud.Clear();
+            //_filEspec.Clear();
 
-            filCiudad.ItemsSource = null;
-            for (int i = 0; i < _ciudades.Count; i++)
-            {
-                _ciudades[i].v_color = Color.Blue;
-            }
-            filCiudad.ItemsSource = _ciudades;
+            //filEspc.ItemsSource = null;
+            //for(int i=0; i<_especialidades.Count;i++)
+            //{
+            //    _especialidades[i].v_color = Color.Blue;
+            //}
+            //filEspc.ItemsSource = _especialidades;
 
-            // if (v_medico)
+            //filCiudad.ItemsSource = null;
+            //for (int i = 0; i < _ciudades.Count; i++)
+            //{
+            //    _ciudades[i].v_color = Color.Blue;
+            //}
+            //filCiudad.ItemsSource = _ciudades;
+            
+
             if(v_tipo==0)
             {
                 v_lista.ItemsSource = App.v_medicos;
@@ -249,29 +272,42 @@ namespace Trato.Views
             }
             else if(v_tipo==2)
             {
-
+                v_lista.ItemsSource = App.v_generales;
             }
             Fn_Filtro(sender, _Args);
         }
         public void Fn_BorrarFiltro(object sender, EventArgs _args)
         {
-            // if (v_medico)
-            if(v_tipo==0)
+            filEspc.ItemsSource = null;
+            for(int i=0; i<_especialidades.Count; i++)//quita las imagenes del filtro
             {
-                _filEspec.Clear();
-                _filCiud.Clear();
+                if(_especialidades[i].v_visible==true)
+                {
+                _especialidades[i].v_visible = false;
+                }
+            }
+            filEspc.ItemsSource = _especialidades;
+            filCiudad.ItemsSource =null;
+            for (int i = 0; i < _ciudades.Count; i++)//quita las imagenes del filtro
+            {
+                if (_ciudades[i].v_visible == true)
+                {
+                    _ciudades[i].v_visible = false;
+                }
+            }
+            filCiudad.ItemsSource = _ciudades;
+            _filEspec.Clear();
+            _filCiud.Clear();
+            if (v_tipo==0)
+            {
                 v_lista.ItemsSource = App.v_medicos;
             }
             else if(v_tipo==1)
             {
-                _filEspec.Clear();
-                _filCiud.Clear();
                 v_lista.ItemsSource = App.v_servicios;
             }
             else if(v_tipo==2)
             {
-                _filEspec.Clear();
-                _filCiud.Clear();
                 v_lista.ItemsSource = App.v_generales;
             }
             Fn_Filtro(sender, _args);
@@ -469,21 +505,23 @@ namespace Trato.Views
         public void Fn_Filtro(object sender, EventArgs _Args)
         {
             v_filtro = !v_filtro;
-            if(v_filtro)
-            {
-                Fn_CrearCiud();
-                Fn_CrearEspec();
-            }
+            //if(v_filtro)
+            //{
+            //    Fn_CrearCiud();
+            //    Fn_CrearEspec();
+            //}
             overlay.IsVisible = v_filtro;
         }
         async void Orden()
         {
-            ///if(v_medico)
             if(v_tipo==0)
             {
-                //  List<C_Medico> temp = App.v_medicos.OrderBy(x => x.v_Nombre).ToList(); ;
+                for (int i = 0; i < App.v_medicos.Count; i++)
+                {
+                    App.v_medicos[i].Fn_SetEspec();
+                }
                 IEnumerable<C_Medico> _temp=      App.v_medicos.OrderBy(x => x.v_Apellido);
-                App.v_medicos = new ObservableCollection<C_Medico>(_temp);
+                App.v_medicos = new ObservableCollection<C_Medico>(_temp);  
                 await Task.Delay(100);
             }
             else if(v_tipo==1)
@@ -498,7 +536,6 @@ namespace Trato.Views
                 App.v_generales = new ObservableCollection<C_ServGenerales>(_temp);
                 await Task.Delay(100);
             }
-
         }
         /// <summary>
         /// seleccionas un elemento de la lista para expandir su informacion
@@ -553,31 +590,56 @@ namespace Trato.Views
             //para mostrar un cambio en la lista la estoy haciendo null y despues volviendo a llenar
             var list = (ListView)sender;
             list.ItemsSource = null;
-            var _valor =  _Args.Item as Filtro;//cast al template que ya esta preparado 
+            var _valor =  _Args.Item as Filtro;
+
+            for (int i = 0; i < _especialidades.Count; i++)
+            {
+                if (_especialidades[i].v_texto == _valor.v_texto)
+                {
+                    // _especialidades[i].v_color=Color.Red;
+                    _especialidades[i].v_visible = !_especialidades[i].v_visible;
+                }
+            }
+
             if (!_filEspec.Contains(_valor.v_texto))
             {
-                for(int i=0; i<_especialidades.Count; i++)
-                {
-                    if(_especialidades[i].v_texto==_valor.v_texto)
-                    {
-                        _especialidades[i].v_color=Color.Red;
-                    }
-                }
-               _filEspec.Add(_valor.v_texto);
+                _filEspec.Add(_valor.v_texto);
                 list.ItemsSource = _especialidades;
             }
             else
             {
-                for (int i = 0; i < _especialidades.Count; i++)
-                {
-                    if (_especialidades[i].v_texto == _valor.v_texto)
-                    {
-                        _especialidades[i].v_color = new Color(.15686274509, 0.58823529411, 0.81960784313);
-                    }
-                }
                 _filEspec.Remove(_valor.v_texto);
-                list.ItemsSource = _especialidades;
             }
+            list.ItemsSource = _especialidades;
+
+            /*
+            //if (!_filEspec.Contains(_valor.v_texto))
+            //{
+            //    for(int i=0; i<_especialidades.Count; i++)
+            //    {
+            //        if(_especialidades[i].v_texto==_valor.v_texto)
+            //        {
+            //            // _especialidades[i].v_color=Color.Red;
+            //            _especialidades[i].v_visible = !_especialidades[i].v_visible;
+            //        }
+            //    }
+            //   _filEspec.Add(_valor.v_texto);
+            //    list.ItemsSource = _especialidades;
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < _especialidades.Count; i++)
+            //    {
+            //        if (_especialidades[i].v_texto == _valor.v_texto)
+            //        {
+            //            // _especialidades[i].v_color = new Color(.15686274509, 0.58823529411, 0.81960784313);
+            //            _especialidades[i].v_visible = !_especialidades[i].v_visible;
+            //        }
+            //    }
+            //    _filEspec.Remove(_valor.v_texto);
+            //    list.ItemsSource = _especialidades;
+            //}     
+            */
         }
         /// <summary>
         /// agregar o quitar del filtro de especialidad
@@ -596,7 +658,8 @@ namespace Trato.Views
                 {
                     if (_ciudades[i].v_texto == _valor.v_texto)
                     {
-                        _ciudades[i].v_color = Color.Red;
+                        //_ciudades[i].v_color = Color.Red;
+                        _ciudades[i].v_visible = !_ciudades[i].v_visible;
                     }
                 }
                 _filCiud.Add(_valor.v_texto);
@@ -608,7 +671,8 @@ namespace Trato.Views
                 {
                     if (_ciudades[i].v_texto == _valor.v_texto)
                     {
-                        _ciudades[i].v_color = Color.Blue;
+                        //_ciudades[i].v_color = Color.Blue;
+                        _ciudades[i].v_visible = !_ciudades[i].v_visible;
                     }
                 }
                 _filCiud.Remove(_valor.v_texto);
@@ -631,7 +695,7 @@ namespace Trato.Views
                 L_Error.Text = "Procesando Informacion";
                 try
                 {
-                    url="http://tratoespecial.com/prueba_json.php";
+                    url = "http://tratoespecial.com/prueba_json.php";
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
                     string _respu = await _respuestphp.Content.ReadAsStringAsync();
                     Console.Write("json nedicos \n" + _respu);

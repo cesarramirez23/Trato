@@ -37,12 +37,14 @@ namespace Trato.Views
             nombre.Text = v_medico.v_titulo+" "+ v_medico.v_Nombre +"  "+ v_medico.v_Apellido;
             especial.Text =v_medico.v_Especialidad;
             domicilio.Text = v_medico.v_Domicilio+","+ v_medico.v_Ciudad;
-            info.Text ="Telefono: "+ v_medico.v_Tel+"\nCorreo: "+ v_medico.v_Correo+
+            info.Text = "Telefono: " + v_medico.v_Tel;/*
+                + "\nCorreo: " + v_medico.v_Correo +
             "\nHorario: "+ v_medico.v_horario+
-            "\nCedula Profesional: "+v_medico.v_cedula;
+            "\nCedula Profesional: "+v_medico.v_cedula;*/
             img.Source = v_medico.v_img;
             string conespacio = v_medico.v_descripcion.Replace("/n", Environment.NewLine);
             descrip.Text = " " + conespacio;
+            StackBenef.IsVisible = false;
             //_personaa = true;
             v_tipo = 0;
 
@@ -67,8 +69,8 @@ namespace Trato.Views
             nombre.Text = v_servi.v_completo;
             especial.Text = v_servi.v_Especialidad;
             domicilio.Text = v_servi.v_Domicilio + "," + v_servi.v_Ciudad;
-            info.Text = "Telefono: " + v_servi.v_Tel + "\nCorreo: " + v_servi.v_Correo +
-            "\nHorario: " + v_servi.v_horario;
+            info.Text = "Telefono: " + v_servi.v_Tel;// + "\nCorreo: " + v_servi.v_Corre+
+           // "\nHorario: " + v_servi.v_horario;
             sitio.Text= v_servi.v_sitio;
             img.Source = v_servi.v_img;
             string _benef = v_servi.v_beneficio.Replace("/n", Environment.NewLine);
@@ -105,8 +107,8 @@ namespace Trato.Views
             nombre.Text = v_gene.v_completo;
             especial.Text = v_gene.v_Especialidad;
             domicilio.Text = v_gene.v_Domicilio + "," + v_gene.v_Ciudad;
-            info.Text = "Telefono: " + v_gene.v_Tel + "\nCorreo: " + v_gene.v_Correo +
-            "\nHorario: " + v_gene.v_horario;
+            info.Text = "Telefono: " + v_gene.v_Tel;//+ "\nCorreo: " + v_gene.v_Correo;// +
+            //"\nHorario: " + v_gene.v_horario;
             sitio.Text =  v_gene.v_sitio;
             img.Source = v_gene.v_img;
 
@@ -147,7 +149,6 @@ namespace Trato.Views
             if (v_tipo==1 && !string.IsNullOrEmpty( v_servi.v_sitio))
             {
                 _valor = v_servi.v_sitio;
- // uri=new Uri(" https://www.google.com.mx/search?rlz=1C1CHFX_enMX782MX782&ei=oWiqW7iHCYaytQWn2JroAQ&q=open+web+direction+xamarin+forms&oq=open+web+direction+xamarin&gs_l=psy-ab.3.0.33i22i29i30k1l3.206506.214130.0.215289.30.28.2.0.0.0.178.2423.22j4.26.0....0...1c.1.64.psy-ab..2.27.2338...0j35i39k1j0i67k1j0i203k1j0i10k1j0i10i203k1j0i22i30k1j0i22i10i30k1j33i21k1j33i160k1j33i22i10i29i30k1.0.5zwAtwR6kng");
                 if (Uri.TryCreate(_valor, UriKind.RelativeOrAbsolute, out uri))//se crea correctamente
                 {
                     Device.OpenUri(uri);
@@ -205,20 +206,19 @@ namespace Trato.Views
             }
         }
 
-        public  void Fn_AbrirMapa(object sender, EventArgs _args)
+        public async void Fn_AbrirMapa(object sender, EventArgs _args)
         {
             string direcMapa = "";
             if(Device.RuntimePlatform == Device.Android)
             {
                 direcMapa= "http://maps.google.com/?daddr=";
-               
             }
             else if(Device.RuntimePlatform== Device.iOS)
             {
-                direcMapa = "http://maps.apple.com/?q=";                
+                direcMapa = "http://maps.apple.com/?daddr=";
             }
             //if (_personaa)
-            if(v_tipo==0)
+            if (v_tipo==0)
             {
                 string _nuevo = "";
                 for (int i = 0; i < v_medico.v_Domicilio.Length; i++)
@@ -257,9 +257,13 @@ namespace Trato.Views
                 direcMapa += _nuevo + ",";
                 direcMapa += v_gene.v_Ciudad;
             }
-            Uri _direc = new Uri(direcMapa);
 
-            //await DisplayAlert("sadasd", _direc.ToString(), "sadsa"); 
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                direcMapa = direcMapa.Replace(" ", "+");
+            }
+            Uri _direc = new Uri(direcMapa);
+           // await DisplayAlert("sadasd", _direc.ToString(), "sadsa"); 
             Device.OpenUri(_direc);
         }
     }

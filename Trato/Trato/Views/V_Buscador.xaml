@@ -2,11 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Buscador">
-   
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Filtrar" Clicked="Fn_Filtro"/>
+    </ContentPage.ToolbarItems>
+
     <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="{StaticResource White}">
         <!--Orientation="Vertical">-->
         <StackLayout VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-            <Grid>
+            <Grid x:Name="Grid_Busqueda">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -17,14 +21,15 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <SearchBar Placeholder="Buscar algo" TextChanged="Fn_Buscar" HorizontalOptions="CenterAndExpand"
-                Grid.Column="0" Grid.ColumnSpan="3" x:Name="v_Search" BackgroundColor="Transparent" CancelButtonColor="{StaticResource NavigationPrimary}"/>
+                    Grid.Column="0" Grid.ColumnSpan="3" x:Name="v_Search" BackgroundColor="Transparent"
+                    CancelButtonColor="{StaticResource NavigationPrimary}"/>
                 <Image Source="Filtro" HorizontalOptions="Fill"  x:Name="B_Filtrar" Grid.Column="3" Grid.ColumnSpan="1">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Filtro" NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
-            <ScrollView>
+            <!--<ScrollView>-->
                 <StackLayout>
                     <ListView  x:Name="Buscador"  SeparatorColor="{StaticResource NavigationPrimary}" Margin="20,5"
                     BackgroundColor="{StaticResource White}" IsPullToRefreshEnabled="False" ItemTapped="Fn_TapFiltro">
@@ -40,14 +45,13 @@
                     </ListView>
                     <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
                     <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" BackgroundColor="{StaticResource White}"
-                    SelectionMode="Single" RowHeight="150" ItemSelected="Fn_Select" IsPullToRefreshEnabled="False" Margin="20,5">
+                    SelectionMode="Single" RowHeight="150" ItemSelected="Fn_Select" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="20,5,20,0" >
                         <ListView.ItemTemplate>
                             <DataTemplate >
                                 <ViewCell>
-                                    <!--https://stackoverflow.com/questions/49373982/access-views-inside-a-datatemplate-at-runtime-in-xamarin-forms -->
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource White}">
-                                        <Image x:Name="imgSexo" HorizontalOptions="Start" Source="{Binding v_img}"
-                                               HeightRequest="100" WidthRequest="100" VerticalOptions="Center">
+                                        <Image x:Name="imgSexo" HorizontalOptions="Start" 
+                                               HeightRequest="100" WidthRequest="100" VerticalOptions="Center" Source="{Binding v_img}" >
                                         </Image>
                                         <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" BackgroundColor="{StaticResource White}">
                                             <Label Text="{Binding v_completo}" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource NavigationPrimary}"/>
@@ -61,8 +65,10 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
-            </ScrollView>
+            <!--</ScrollView>-->
         </StackLayout>
+        
+        
         <ContentView x:Name="overlay"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"  IsVisible="False" BackgroundColor="{StaticResource White}" Padding="10, 0">
             <StackLayout Orientation="Vertical">
                 <Grid>
@@ -88,20 +94,36 @@
                         <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Boton2}" HorizontalOptions="End"></Button>
                     </StackLayout>-->
                 <Label HorizontalOptions="Center" Text="Especialidad"></Label>
-                <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec" IsPullToRefreshEnabled="False" BackgroundColor="{StaticResource White}" HasUnevenRows="True">
+                <ListView x:Name="filEspc" ItemTapped="Fn_TapEspec" IsPullToRefreshEnabled="False" BackgroundColor="{StaticResource White}" HasUnevenRows="False">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding v_texto }" TextColor="{Binding v_color}">
-                            </TextCell>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding v_texto }" TextColor="{StaticResource NavigationPrimary}"
+                                           HorizontalOptions="StartAndExpand"></Label>
+                                    <Image Source="INFO_icon.png" IsVisible="{Binding v_visible}"
+                                           HorizontalOptions="End" Aspect="AspectFit"></Image>
+                                </StackLayout>
+                            </ViewCell>
+                            <!--<TextCell Text="{Binding v_texto }" TextColor="{Binding v_color}">
+                            </TextCell>-->
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label HorizontalOptions="Center" Text="Ciudad"></Label>
-                <ListView x:Name="filCiudad" ItemTapped="Fn_TapCiu" IsPullToRefreshEnabled="False" BackgroundColor="{StaticResource White}" HasUnevenRows="True">
+                <ListView x:Name="filCiudad" ItemTapped="Fn_TapCiu" IsPullToRefreshEnabled="False" BackgroundColor="{StaticResource White}" HasUnevenRows="False">
                     <ListView.ItemTemplate>
                         <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding v_texto }" TextColor="{StaticResource NavigationPrimary}"
+                                           HorizontalOptions="StartAndExpand"></Label>
+                                    <Image Source="INFO_icon.png" IsVisible="{Binding v_visible}"
+                                           HorizontalOptions="End" Aspect="AspectFit"></Image>
+                                </StackLayout>
+                            </ViewCell><!--
                             <TextCell Text="{Binding v_texto }" TextColor="{Binding v_color}">
-                            </TextCell>
+                            </TextCell>-->
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

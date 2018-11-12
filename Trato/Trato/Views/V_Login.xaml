@@ -45,6 +45,7 @@
                     -->
                 </StackLayout>
             </StackLayout>
+            
             <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" IsVisible="False" BackgroundColor="LightGray">
                 <StackLayout Margin="20,20" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label x:Name="Mensajes_over" Text="Cargando Formulario de registro" VerticalOptions="Center" HorizontalOptions="Center" ></Label>

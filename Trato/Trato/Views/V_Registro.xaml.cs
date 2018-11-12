@@ -621,7 +621,19 @@ namespace Trato.Views
         public void Fn_IrMenu(object sender, EventArgs _Args)
         {
             StackMen.IsVisible = false;
+            if(App.v_log=="1")
+            {
+            App.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
+            }
+            else if(App.v_log=="0")
+            {
             App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+            }
+            else
+            {
+            App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+            }
+
         }
         /// <summary>
         /// cambio en el drop de membresias

@@ -23,15 +23,25 @@ namespace Trato
 	{
        // string v_dirWeb = "https://tratoespecial.com/paypal_test.php";
         Pagar v_infoPago;
-        public V_Pagos (bool _efectivo, Pagar _pagar)
+        public V_Pagos (bool _efectivo, Pagar _pagar,string _tokenCone)
 		{
 			InitializeComponent ();
+            Console.WriteLine("conekta " + _tokenCone);
             v_infoPago = _pagar;
-            if(_efectivo)
+            if(_efectivo)//oxxo con conekta
             {
                 P_OxxoBut.IsVisible = true;
-                P_mensajes.Text = "Se enviará un correo con la información necesaria";
                 P_PayBut.IsVisible = false;
+                if (string.IsNullOrWhiteSpace(_tokenCone)|| string.IsNullOrEmpty(_tokenCone) )
+                {
+                    P_mensajes.Text = "Se enviará tu ficha de pago al correo que tienes registrado";
+                }
+                else{
+                    P_mensajes.Text = "Ya tienes una ficha generada, no puedes crear una nueva";
+                    P_OxxoBut.Text = "YA TIENES UNA";
+                    P_OxxoBut.IsEnabled = false;
+                   
+                }
             }
             else{
                 P_OxxoBut.IsVisible = false;
@@ -68,7 +78,7 @@ namespace Trato
                 string _resp = await _responphp.Content.ReadAsStringAsync();
                 //await DisplayAlert("llega ",_perf.Fn_GetDatos() +" "+ _resp, "aceptar");
                 Personas.C_PerfilGen _nuePer = JsonConvert.DeserializeObject<Personas.C_PerfilGen>(_resp);
-                await DisplayAlert("perfil general", _resp, "aceptar");
+                //await DisplayAlert("perfil general", _resp, "aceptar");
                 App.Fn_GuardarDatos(_nuePer, v_infoPago.v_membresia, App.v_folio, App.v_letra);
                 _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
@@ -77,7 +87,7 @@ namespace Trato
                     //mandar el json con el post
                     _responphp = await _clien.PostAsync(_DirEnviar, _content);
                     _resp = await _responphp.Content.ReadAsStringAsync();
-                    await DisplayAlert("perfil medico", _resp, "aceptar");
+                    //await DisplayAlert("perfil medico", _resp, "aceptar");
                     Personas.C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<Personas.C_PerfilMed>(_resp);
                     //await DisplayAlert("perfil medico", _resp, "sad");
                     App.Fn_GuardarDatos(_nuePerMEd, v_infoPago.v_membresia,App.v_folio, App.v_letra);
@@ -103,11 +113,15 @@ namespace Trato
             json += "nombre:'" + App.v_perfil.v_Nombre + "',\n";
             json += "correo:'" + App.v_perfil.v_Correo + "',\n";
             json += "tel:'" + App.v_perfil.v_Tel + "',\n";
+            json += "membre:'" + v_infoPago.v_membresia + "',\n";
+            json += "letra:'" + v_infoPago.v_letra + "',\n";
+            json += "consecutivo:'" + v_infoPago.v_conse + "',\n";
             json += "}";
             JObject v_jsonInfo = JObject.Parse(json);
             StringContent _content = new StringContent(v_jsonInfo.ToString(), Encoding.UTF8, "application/json");
-              
-            await DisplayAlert("Envia", v_jsonInfo.ToString(), "Aceptar");
+            
+            P_mensajes.Text += "\nCreando solicitud";
+           // await DisplayAlert("Envia", v_jsonInfo.ToString(), "Acep");
             HttpClient _clien = new HttpClient();
             string _direc = "http://tratoespecial.com/prueba_conekta.php";
             try
@@ -116,8 +130,8 @@ namespace Trato
                 string _resp = await _responphp.Content.ReadAsStringAsync();
                 if(_resp=="1")
                 {
-                    await Navigation.PopAsync();
                     await DisplayAlert("Aviso", "Ficha generada con éxito, cuando pagues se activará tu cuenta y sus servicios", "aceptar");    
+                    await Navigation.PopAsync();
                 }
                 else
                 {
@@ -214,7 +228,7 @@ namespace Trato
                 }
             }
         }
-        public async void Cargado(object sender, WebNavigatedEventArgs _args)
+        public  void Cargado(object sender, WebNavigatedEventArgs _args)
         {
             //if (_args.Result == WebNavigationResult.Timeout || _args.Result == WebNavigationResult.Failure)
             //{

@@ -91,6 +91,7 @@ namespace Trato.Views
                             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
                             Console.Write("json para perfil"+_jsonper);
                             //mostrar la pantalla con mensajes
+                            //await DisplayAlert("envia login ", _jsonper, "Sigue");
                            // Mensajes_over.Text = "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
                             //crear el cliente
                             _client = new HttpClient();

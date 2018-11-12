@@ -265,6 +265,7 @@ letra
     {
         public string v_texto { get; set; }
         public Color v_color { get; set; }
+        public bool v_visible { get; set; }
 
         public Filtro()
         {

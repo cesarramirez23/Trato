@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.V_Pagos">
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView Margin="20,5,20,5">
             <StackLayout>
                 <Label Style="{StaticResource AzulMedLbl}" x:Name="P_mensajes" Text="desde paypal"></Label>
                 <Button Text="Pagar ahora" Clicked="Fn_pagarPay" x:Name="P_PayBut" Style="{StaticResource Buton}"></Button>

@@ -55,7 +55,7 @@ namespace Trato.Views
                 await Task.Delay(10);
 
             }//no esta activado falta pagar  //else if(App.v_perfil.v_activo=="0")
-            else
+            else if(App.v_perfil.v_activo=="0"&& App.v_folio=="0")
             {
                 string prime = App.v_membresia.Split('-')[0];
                 string _membre = "";
@@ -96,6 +96,14 @@ namespace Trato.Views
                 G_Pagar.IsVisible = true;
                 await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Aceptar");
             }
+            else if(App.v_perfil.v_activo=="0" &&App.v_folio=="1")
+            { 
+                G_Editar.IsVisible = false;
+                M_Editar.IsVisible = false;
+                qr_but.IsEnabled = false;
+                await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado", "Aceptar");
+             }
+
             ///actualizaar el token
             string primetok = App.v_membresia.Split('-')[0];
             string _membreTok = "";
@@ -146,21 +154,77 @@ namespace Trato.Views
         }
         public async void Fn_PagarEfec(object sender, EventArgs _args)
         {
-            await Navigation.PushAsync(new V_Pagos(true, v_pagar) { });
+            await Navigation.PushAsync(new V_Pagos(true, v_pagar,App.v_perfil.v_idConekta) { });
         }
         public async void Fn_PagarPay(object sender, EventArgs _args)
         {
-            await Navigation.PushAsync(new V_Pagos(false, v_pagar) { });
+            await Navigation.PushAsync(new V_Pagos(false, v_pagar,"") { });
 
         }
         public async void CargarGen()
         {
+            string _noespacios = "";
+            string _usutexto = App.v_membresia;
+            for (int i = 0; i < _usutexto.Length; i++)
+            {
+                string _temp = _usutexto[i].ToString();
+                if (_temp != " ")
+                {
+                    _noespacios += _usutexto[i];
+                }
+            }
+            Perf _perf = new Perf();
+            _perf.v_fol = App.v_folio;
+            _perf.v_membre = _noespacios;
+            _perf.v_letra = App.v_letra;
+            //crear el json
+            string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+            Console.Write("json para perfil" + _jsonper);
+            HttpClient _client = new HttpClient();
+            string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+            StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+
+            try
+            {
+                //mandar el json con el post
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+
+                App.Fn_GuardarDatos(_nuePer, _noespacios, App.v_folio, App.v_letra);
+                Console.Write("json para perfil medicoo" + _jsonper);
+                _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                //membre  letraa folio
+                _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                try
+                {
+                    //mandar el json con el post
+                    _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                    _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    C_PerfilMed _nuePerMEd = new C_PerfilMed();
+                    if (string.IsNullOrEmpty(_respuesta))
+                    {
+                        _nuePerMEd = new C_PerfilMed(App.v_perfil.v_idsexo);
+                    }
+                    else
+                    {
+                        _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+                    }
+                    //Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
+                    App.Fn_GuardarDatos(_nuePerMEd, _noespacios, App.v_folio, App.v_letra);
+                    //   Console.Write("perfil medico ", _nuePerMEd.Fn_Info());
+                }
+                catch (HttpRequestException exception)
+                {
+                    await DisplayAlert("Error al cargar Perfil", exception.Message, "Aceptar");
+                }
+            }
+            catch (HttpRequestException exception)
+            {
+                await DisplayAlert("Error al cargar perfil", exception.Message, "Aceptar");
+            }
             App.Fn_CargarDatos();
 
-            //si es el titular
-            //si el rfc esta vacio  es persona fisica,  mostrar lugar fecha de nacimiento
-            // no esta vacio moral,  quitar fecha y lugar
-            Console.WriteLine("folio " + App.v_folio);
             if ( App.v_folio=="0" )//titular
             {
                 if(string.IsNullOrEmpty( App.v_perfil.v_Rfc))// null es persona fisica
@@ -210,11 +274,6 @@ namespace Trato.Views
                 }
                 G_fecha.IsEnabled = false;
             }
-
-
-
-
-
 
             Fn_NullEntry( G_Nombre, App.v_perfil.v_Nombre);
             

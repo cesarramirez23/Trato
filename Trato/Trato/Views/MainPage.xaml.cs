@@ -80,11 +80,16 @@ namespace Trato.Views
                         _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                         C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
                         App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
-                        if (App.v_perfil.v_activo != "1")
+                        if (App.v_perfil.v_activo != "1" && App.v_folio=="0")
                         {
                             M_mensaje.IsVisible = true;
-                            M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+                            M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para más información  ";
+                        }else if(App.v_perfil.v_activo != "1" && App.v_folio != "0")
+                        {
+                            M_mensaje.IsVisible = true;
+                            M_mensaje.Text = "Aviso \n Cuenta no activada, Contacta al propietario de la memebresía para más información";
                         }
+
                     }
                     catch (HttpRequestException exception)
                     {
