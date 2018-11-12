@@ -186,6 +186,13 @@
       <Visible>false</Visible>
     </ImageAsset>
     <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\Citasx46.png" />
+    <BundleResource Include="Resources\M_Empresarialx46.png" />
+    <BundleResource Include="Resources\M_Familiarx46.png" />
+    <BundleResource Include="Resources\M_Personalx46.png" />
+    <BundleResource Include="Resources\Medicamentosx46.png" />
+    <BundleResource Include="Resources\Membresia_Iconx46.png" />
+    <BundleResource Include="Resources\Corazonx46.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -280,12 +287,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ServiciosMedicos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\doctor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\doctora.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Citas.png" />

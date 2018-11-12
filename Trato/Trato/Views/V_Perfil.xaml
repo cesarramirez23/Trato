@@ -29,7 +29,7 @@
 
         </ContentPage>
 -->
-        <ContentPage Title="Info General" >
+        <ContentPage Title="Info General" Icon="Citasx46.png" >
 
             <ScrollView Margin="20,10">
                 <StackLayout x:Name="StackGeneral" >
@@ -134,7 +134,7 @@
                 </StackLayout>
             </ScrollView>
         </ContentPage>
-        <ContentPage Title="Info Medica">
+        <ContentPage Title="Info Medica" Icon="Corazonx46.png">
             
             <ScrollView>
                 <StackLayout x:Name="StackMedi" Margin="20,0" >
@@ -211,7 +211,7 @@
                 </StackLayout>
             </ScrollView>
         </ContentPage>
-        <ContentPage Title="Medicamentos">
+        <ContentPage Title="Medicamentos" Icon="Medicamentosx46.png">
             <ScrollView>
                 <StackLayout Margin="20,20">
                     <Label Text="Proximamente" FontSize="Large" TextColor="{StaticResource NavigationPrimary}"></Label>
@@ -220,7 +220,7 @@
         </ContentPage>
 
 
-        <ContentPage Title="Tarjeta Virtual">
+        <ContentPage Title="Tarjeta Virtual" Icon="Membresia_Iconx46.png">
             <ScrollView >
                 <StackLayout>
                     <Button Text="Mostrar Tarjeta Virtual" Clicked="FN_CrearQR" x:Name="qr_but"  Style="{StaticResource Buton}" ></Button>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Membresias" Title="Membresías">
@@ -8,7 +8,7 @@
         </Style>
     </TabbedPage.Resources>
     
-    <ContentPage Title="Individual">
+    <ContentPage Title="Individual" Icon="M_Personalx46.png">
         <StackLayout Style="{StaticResource Key=Stack}">
             <ScrollView >
                 <StackLayout>
@@ -22,7 +22,7 @@
         </StackLayout>
     </ContentPage>
     
-    <ContentPage Title="Familiar">
+    <ContentPage Title="Familiar" Icon="M_Familiarx46.png">
         <StackLayout Style="{StaticResource Key=Stack}">
             <ScrollView >
                 <StackLayout>
@@ -37,7 +37,7 @@
     </ContentPage>
     
     
-    <ContentPage Title="Empresarial">
+    <ContentPage Title="Empresarial" Icon="M_Empresarialx46.png">
         <StackLayout Style="{StaticResource Key=Stack}">
             <ScrollView >
                 <StackLayout>
