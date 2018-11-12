@@ -704,7 +704,7 @@ namespace Trato.Views
                     B_Filtrar.IsEnabled = true;
                     App.v_medicos = _med;
                     Orden();
-                    App.Fn_ImgSexo(v_tipo);
+                    App.Fn_ImgSexo();
                     v_lista.ItemsSource = App.v_medicos;
                     App.Fn_GuardarRed(App.v_medicos);
                 }
@@ -715,7 +715,7 @@ namespace Trato.Views
                         string _json = App.Current.Properties["medicos"] as string;
                         App.v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_json);
                         Orden();
-                        App.Fn_ImgSexo(v_tipo);
+                        App.Fn_ImgSexo();
                         if(App.v_medicos.Count>0)
                         {
                             L_Error.IsVisible = false;

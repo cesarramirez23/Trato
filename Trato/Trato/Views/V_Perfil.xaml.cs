@@ -145,7 +145,6 @@ namespace Trato.Views
                 {
                     Console.Write("token no se pudo subir");
                 }
-
             }
             catch(HttpRequestException ex)
             {

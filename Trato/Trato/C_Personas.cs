@@ -56,6 +56,10 @@ namespace Trato.Personas
         public string v_numEmple { get; set; }
         [JsonProperty("token")]
         public string v_token  { get; set; }
+        [JsonProperty("conekta_id")]
+        public string v_idConekta { get; set; }
+
+
 
         public C_PerfilGen()
         {

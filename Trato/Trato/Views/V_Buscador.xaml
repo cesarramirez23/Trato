@@ -51,7 +51,10 @@
                                 <ViewCell>
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource White}">
                                         <Image x:Name="imgSexo" HorizontalOptions="Start" 
-                                               HeightRequest="100" WidthRequest="100" VerticalOptions="Center" Source="{Binding v_img}" >
+                                               HeightRequest="100" WidthRequest="100" VerticalOptions="Center" >
+                                        <Image.Source>
+                                            <UriImageSource Uri="{Binding v_img}" CacheValidity="5" CachingEnabled="True"></UriImageSource>
+                                        </Image.Source>
                                         </Image>
                                         <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" BackgroundColor="{StaticResource White}">
                                             <Label Text="{Binding v_completo}" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource NavigationPrimary}"/>

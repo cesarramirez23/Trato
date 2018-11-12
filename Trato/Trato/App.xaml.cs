@@ -393,29 +393,21 @@ namespace Trato
             await Task.Delay(100);
             
         }
-        public static void Fn_ImgSexo(int _valor)
+        public static void Fn_ImgSexo()
         {/// 0 MEDICOS,   1 SERVICIOS MEDICOS,    2 SERVICIOS GENERALES
-            switch (_valor)
+
+            for (int i = 0; i < v_medicos.Count; i++)
             {
-                case 0:
-                    {
-                        for (int i = 0; i < v_medicos.Count; i++)
-                        {
-                            if (v_medicos[i].v_idsexo == 0)
-                            {
-                                v_medicos[i].v_img = "doctor.png";
-                            }
-                            else
-                            {
-                                v_medicos[i].v_img = "doctora.png";
-                            }
-                            v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " +
-                                v_medicos[i].v_Apellido;
-                        }
-                    }
-                    break;
-                default:
-                    break;
+                if (v_medicos[i].v_idsexo == 0)
+                {
+                    v_medicos[i].v_img = "http://www.tratoespecial.com/imgs/dr_app.jpeg";
+                }
+                else
+                {
+                    v_medicos[i].v_img = "http://www.tratoespecial.com/imgs/dra_app.jpeg";
+                }
+                v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " +
+                    v_medicos[i].v_Apellido;
             }
         }
         public static string Fn_Vacio(string _valor)
