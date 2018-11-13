@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text;
 //using Xamarin.Forms;
@@ -484,7 +485,15 @@ namespace Trato.Personas
         /// </summary>
         [JsonProperty("ape")]
         public string v_Apellido { get; set; }
+        /// <summary>
+        /// la lista que se manda
+        /// </summary>
         [JsonProperty("espe")]
+        public ObservableCollection<Varios.C_EspeTitu> v_ListaEsp;
+        /// <summary>
+        /// la que se muestra en la red medica
+        /// </summary>
+        /// <value>The v especialidad.</value>
         public string v_Especialidad { get; set; }
         [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
@@ -510,8 +519,6 @@ namespace Trato.Personas
         public string v_activo { get; set; }
         [JsonProperty("fecha_vig")]
         public string v_vig;
-        [JsonIgnore]
-        public string[] v_ListaEsp { get; set; }
 
 
         public bool Fn_GetActivado()
@@ -523,8 +530,16 @@ namespace Trato.Personas
         }
         public void Fn_SetEspec()
         {
-           v_ListaEsp= v_Especialidad.Split('&');
-            v_Especialidad = v_Especialidad.Replace('&', ',');
+            for (int i = 0; i < v_ListaEsp.Count;i++)
+            {
+                if(i==0)
+                {
+                    v_Especialidad = v_ListaEsp[i].v_nombreEspec;
+                }
+                else{
+                    v_Especialidad += " , " + v_ListaEsp[i].v_nombreEspec;
+                }
+            }
         }
         public string v_img { get; set; }
         [JsonIgnore]

@@ -168,19 +168,19 @@ namespace Trato.Views
                 List<string> _tempCont = new List<string>();
                 for (int i = 0; i < App.v_medicos.Count; i++)//recorre todos los medicos
                 {
-                    for (int j = 0; j < App.v_medicos[i].v_ListaEsp.Length; j++)
+                    for (int j = 0; j < App.v_medicos[i].v_ListaEsp.Count; j++)
                     {
-                        if ((!string.IsNullOrEmpty(App.v_medicos[i].v_ListaEsp[j]) && !string.IsNullOrWhiteSpace(App.v_medicos[i].v_ListaEsp[j]))
-                            && (!_tempCont.Contains(App.v_medicos[i].v_ListaEsp[j])))
+                        if ((!string.IsNullOrEmpty(App.v_medicos[i].v_ListaEsp[j].v_nombreEspec) && !string.IsNullOrWhiteSpace(App.v_medicos[i].v_ListaEsp[j].v_nombreEspec))
+                            && (!_tempCont.Contains(App.v_medicos[i].v_ListaEsp[j].v_nombreEspec)))
                         {
-                            _tempCont.Add(App.v_medicos[i].v_ListaEsp[j]);
-                            if (_filEspec.Contains(App.v_medicos[i].v_ListaEsp[j]))
+                            _tempCont.Add(App.v_medicos[i].v_ListaEsp[j].v_nombreEspec);
+                            if (_filEspec.Contains(App.v_medicos[i].v_ListaEsp[j].v_nombreEspec))
                             {
-                                _especialidades.Add(new Filtro(App.v_medicos[i].v_ListaEsp[j], true));
+                                _especialidades.Add(new Filtro(App.v_medicos[i].v_ListaEsp[j].v_nombreEspec, true));
                             }
                             else
                             {
-                                _especialidades.Add(new Filtro(App.v_medicos[i].v_ListaEsp[j], false));
+                                _especialidades.Add(new Filtro(App.v_medicos[i].v_ListaEsp[j].v_nombreEspec, false));
                             }
                         }
                     }
@@ -330,10 +330,21 @@ namespace Trato.Views
                         {//recorre lista de especialidad a filtrar
                             for (int k = 0; k < _filEspec.Count; k++)
                             {
-                                if ((App.v_medicos[i].v_Ciudad == _filCiud[j] && App.v_medicos[i].v_Especialidad == _filEspec[k]) && !_filtrada.Contains(App.v_medicos[i]))
+                                //falta recorrer la lista de cada medico por si tiene mas especialidades
+                                for (int e = 0; e < App.v_medicos[i].v_ListaEsp.Count; e++)
+                                {
+                                    if ((App.v_medicos[i].v_Ciudad == _filCiud[j] 
+                                         && App.v_medicos[i].v_ListaEsp[e].v_nombreEspec == _filEspec[k]) 
+                                        && !_filtrada.Contains(App.v_medicos[i]))
+                                    {
+                                        _filtrada.Add(App.v_medicos[i]);
+                                    }
+                                }
+
+                                /*if ((App.v_medicos[i].v_Ciudad == _filCiud[j] && App.v_medicos[i].v_Especialidad == _filEspec[k]) && !_filtrada.Contains(App.v_medicos[i]))
                                 {
                                     _filtrada.Add(App.v_medicos[i]);
-                                }
+                                }*/
                             }
                         }
                     }
@@ -344,6 +355,7 @@ namespace Trato.Views
                     {//recorre toda la lista de medicos
                         for (int i = 0; i < App.v_medicos.Count; i++)
                         { //recorre lista de ciudad a filtrar
+
                             if (App.v_medicos[i].v_Ciudad == _filCiud[j] && !_filtrada.Contains(App.v_medicos[i]))
                             {
                                 _filtrada.Add(App.v_medicos[i]);
@@ -356,9 +368,17 @@ namespace Trato.Views
                         //recorre toda la lista de medicos
                         for (int i = 0; i < App.v_medicos.Count; i++)
                         {
-                            if (App.v_medicos[i].v_Especialidad == _filEspec[j] && !_filtrada.Contains(App.v_medicos[i]))
+                            //falta recorrer la lista de cada medico por si tiene mas especialidades
+                            for  (int e = 0; e < App.v_medicos[i].v_ListaEsp.Count; e++)
                             {
-                                _filtrada.Add(App.v_medicos[i]);
+                                if (App.v_medicos[i].v_ListaEsp[e].v_nombreEspec == _filEspec[j] && !_filtrada.Contains(App.v_medicos[i]))
+                                {
+                                    _filtrada.Add(App.v_medicos[i]);
+                                }
+                                /* if (App.v_medicos[i].v_Especialidad == _filEspec[j] && !_filtrada.Contains(App.v_medicos[i]))
+                                 {
+                                     _filtrada.Add(App.v_medicos[i]);
+                                 }*/
                             }
                         }
                     }
@@ -979,10 +999,13 @@ namespace Trato.Views
                 ObservableCollection<C_Medico> _medicosTemp = new ObservableCollection<C_Medico>();
                 for(int i=0; i<App.v_medicos.Count; i++)
                 {
-                    if( (App.v_medicos[i].v_Nombre== _nuevoFiltro.v_texto) ||
-                       (App.v_medicos[i].v_Apellido == _nuevoFiltro.v_texto) || (App.v_medicos[i].v_Especialidad == _nuevoFiltro.v_texto) )
+                    for (int e = 0; e < App.v_medicos[i].v_ListaEsp.Count; e++)
                     {
-                        _medicosTemp.Add(App.v_medicos[i]);
+                        if ((App.v_medicos[i].v_Nombre == _nuevoFiltro.v_texto) ||
+                            (App.v_medicos[i].v_Apellido == _nuevoFiltro.v_texto) || (App.v_medicos[i].v_ListaEsp[e].v_nombreEspec == _nuevoFiltro.v_texto))
+                        {
+                            _medicosTemp.Add(App.v_medicos[i]);
+                        }
                     }
                 }
                 v_lista.ItemsSource = _medicosTemp;

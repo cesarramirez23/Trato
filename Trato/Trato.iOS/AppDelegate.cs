@@ -4,14 +4,24 @@ using System.Linq;
 using System;
 using Foundation;
 using UIKit;
+
 using Firebase.CloudMessaging;
 using UserNotifications;
 
 using PayPal.Forms;
 using PayPal.Forms.Abstractions;
+
+using Firebase.Core;
 namespace Trato.iOS
 {
-
+    /*<Google/Utilities/Network/ERROR> Encounter network error. Code, error: -1200, Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred and a secure connection to the server cannot be made." 
+    UserInfo={_kCFStreamErrorCodeKey=-9802, NSLocalizedRecoverySuggestion=Would you like to connect to the server anyway?,
+        NSUnderlyingError=0x10f138870 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 "(null)" UserInfo={_kCFStreamPropertySSLClientCertificateState=0,
+                _kCFNetworkCFStreamSSLErrorOriginalValue=-9802, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9802}},
+        NSLocalizedDescription=An SSL error has occurred and a secure connection to the server cannot be made.,
+        NSErrorFailingURLKey=https://play.googleapis.com/log, NSErrorFailingURLStringKey=https://play.googleapis.com/log, _kCFStreamErrorDomainKey=3}
+    Thread started:  #11
+*/
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
@@ -34,7 +44,7 @@ namespace Trato.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            Firebase.Core.App.Configure();
+           // Firebase.Core.App.Configure();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             // Firebase component initialize
             LoadApplication(new App());
@@ -67,14 +77,15 @@ namespace Trato.iOS
                 // iOS 10 or later
                 var authOptions = UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound;
                 UNUserNotificationCenter.Current.RequestAuthorization(authOptions, (granted, error) => {
-                    Console.WriteLine(granted);
+                    Console.WriteLine("granted  "+granted);
                 });
 
                 // For iOS 10 display notification (sent via APNS)
                 UNUserNotificationCenter.Current.Delegate = this;
 
+                //UIApplication.SharedApplication.RegisterUserNotificationSettings(authOptions);
                 // For iOS 10 data message (sent via FCM)
-                Messaging.SharedInstance.Delegate = this;
+                //Messaging.SharedInstance.Delegate = this;
                 //Messaging.SharedInstance.RemoteMessageDelegate = this;
             }
             else
@@ -88,6 +99,14 @@ namespace Trato.iOS
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
 
+            
+            Firebase.Core.App.Configure();
+            Firebase.InstanceID.InstanceId.Notifications.ObserveTokenRefresh((sender, e) =>
+            {
+                var newtoken = Firebase.InstanceID.InstanceId.SharedInstance.Token;
+                System.Diagnostics.Debug.WriteLine($"FCM Token: {newtoken}");
+                App.Fn_SetToken(newtoken);
+            });
 
             //https://github.com/codercampos/FirebaseXF-XamarinLatino/blob/master/src/FirebaseXL/FirebaseXL.iOS/AppDelegate.cs        // blog.xamarians.com/blog/2017/9/18/firebase-cloud-messaging
             return base.FinishedLaunching(app, options);
@@ -98,9 +117,6 @@ namespace Trato.iOS
         public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             Messaging.SharedInstance.AppDidReceiveMessage(userInfo);
-            //EstaLineaDeCodigoVaMarcarErrorYeah
-
-
             // Generate custom event
             NSString[] keys = { new NSString("Event_type") };
             NSObject[] values = { new NSString("Recieve_Notification") };
@@ -119,7 +135,6 @@ namespace Trato.iOS
                 debugAlert(title, body);
             }
         }
-
         // iOS 10, fire when recieve notification foreground
         [Export("userNotificationCenter:willPresentNotification:withCompletionHandler:")]
         public void WillPresentNotification(UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler)
@@ -128,9 +143,6 @@ namespace Trato.iOS
             var body = notification.Request.Content.Body;
             debugAlert(title, body);
         }
-
-
-      
         private void debugAlert(string title, string message)
         {
             UIAlertView alert = new UIAlertView()
@@ -141,7 +153,6 @@ namespace Trato.iOS
             alert.AddButton("Cancel");
             alert.AddButton("OK");
             alert.Show();
-
         }
     }
 }
