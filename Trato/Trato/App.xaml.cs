@@ -452,7 +452,7 @@ namespace Trato
                         Fn_CerrarSesion();
                         MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                     }*/
-                        Fn_CargarDatos();
+                      //  Fn_CargarDatos();
                         MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
 
                 }

@@ -38,6 +38,7 @@ namespace Trato.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+          //  Fn_CargaQuery();
             CargarMed();
             CargarGen();
             Fn_Activo();
@@ -160,6 +161,9 @@ namespace Trato.Views
             await Navigation.PushAsync(new V_Pagos(false, v_pagar,"") { });
 
         }
+        /// <summary>
+        /// carga el perfil desde la web y despues lo vuelve a guardar
+        /// </summary>
         public async void CargarGen()
         {
             string _noespacios = "";
@@ -712,6 +716,31 @@ namespace Trato.Views
         }
         public async void CargarMed()
         {
+            Perf _perf = new Perf();
+            _perf.v_fol = App.v_folio;
+            _perf.v_membre = App.v_membresia;
+            //crear el json
+            string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+            HttpClient _client = new HttpClient();
+            try
+            {
+                //carga la info del PERFIL MEDICO
+               string  _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+                //mandar el json con el post
+                HttpResponseMessage v_respuestphp = await _client.PostAsync(_DirEnviar, _content);
+
+                string _respuesta = await v_respuestphp.Content.ReadAsStringAsync();
+                C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+
+                App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
+            }
+            catch (HttpRequestException exception)
+            {
+                await DisplayAlert("Error al cargar perfil medico", exception.Message, "Aceptar");
+            }
+
+
             App.Fn_CargarDatos();
 
             if(!string.IsNullOrEmpty( App.v_perfMed.v_sangre))
