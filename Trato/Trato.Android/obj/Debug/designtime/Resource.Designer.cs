@@ -5154,62 +5154,62 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F010002
 			public const int Citas = 2130771970;
 			
-			// aapt resource value: 0x7F010340
-			public const int common_full_open_on_phone = 2130772800;
+			// aapt resource value: 0x7F010338
+			public const int common_full_open_on_phone = 2130772792;
+			
+			// aapt resource value: 0x7F010324
+			public const int common_google_signin_btn_icon_dark = 2130772772;
+			
+			// aapt resource value: 0x7F010325
+			public const int common_google_signin_btn_icon_dark_focused = 2130772773;
 			
 			// aapt resource value: 0x7F010326
-			public const int common_google_signin_btn_icon_dark = 2130772774;
-			
-			// aapt resource value: 0x7F010327
-			public const int common_google_signin_btn_icon_dark_focused = 2130772775;
-			
-			// aapt resource value: 0x7F010328
-			public const int common_google_signin_btn_icon_dark_normal = 2130772776;
-			
-			// aapt resource value: 0x7F010341
-			public const int common_google_signin_btn_icon_dark_normal_background = 2130772801;
-			
-			// aapt resource value: 0x7F010329
-			public const int common_google_signin_btn_icon_disabled = 2130772777;
-			
-			// aapt resource value: 0x7F010330
-			public const int common_google_signin_btn_icon_light = 2130772784;
-			
-			// aapt resource value: 0x7F010331
-			public const int common_google_signin_btn_icon_light_focused = 2130772785;
-			
-			// aapt resource value: 0x7F010332
-			public const int common_google_signin_btn_icon_light_normal = 2130772786;
-			
-			// aapt resource value: 0x7F010342
-			public const int common_google_signin_btn_icon_light_normal_background = 2130772802;
-			
-			// aapt resource value: 0x7F010333
-			public const int common_google_signin_btn_text_dark = 2130772787;
-			
-			// aapt resource value: 0x7F010334
-			public const int common_google_signin_btn_text_dark_focused = 2130772788;
-			
-			// aapt resource value: 0x7F010335
-			public const int common_google_signin_btn_text_dark_normal = 2130772789;
-			
-			// aapt resource value: 0x7F010343
-			public const int common_google_signin_btn_text_dark_normal_background = 2130772803;
-			
-			// aapt resource value: 0x7F010336
-			public const int common_google_signin_btn_text_disabled = 2130772790;
-			
-			// aapt resource value: 0x7F010337
-			public const int common_google_signin_btn_text_light = 2130772791;
-			
-			// aapt resource value: 0x7F010338
-			public const int common_google_signin_btn_text_light_focused = 2130772792;
+			public const int common_google_signin_btn_icon_dark_normal = 2130772774;
 			
 			// aapt resource value: 0x7F010339
-			public const int common_google_signin_btn_text_light_normal = 2130772793;
+			public const int common_google_signin_btn_icon_dark_normal_background = 2130772793;
 			
-			// aapt resource value: 0x7F010344
-			public const int common_google_signin_btn_text_light_normal_background = 2130772804;
+			// aapt resource value: 0x7F010327
+			public const int common_google_signin_btn_icon_disabled = 2130772775;
+			
+			// aapt resource value: 0x7F010328
+			public const int common_google_signin_btn_icon_light = 2130772776;
+			
+			// aapt resource value: 0x7F010329
+			public const int common_google_signin_btn_icon_light_focused = 2130772777;
+			
+			// aapt resource value: 0x7F010330
+			public const int common_google_signin_btn_icon_light_normal = 2130772784;
+			
+			// aapt resource value: 0x7F010340
+			public const int common_google_signin_btn_icon_light_normal_background = 2130772800;
+			
+			// aapt resource value: 0x7F010331
+			public const int common_google_signin_btn_text_dark = 2130772785;
+			
+			// aapt resource value: 0x7F010332
+			public const int common_google_signin_btn_text_dark_focused = 2130772786;
+			
+			// aapt resource value: 0x7F010333
+			public const int common_google_signin_btn_text_dark_normal = 2130772787;
+			
+			// aapt resource value: 0x7F010341
+			public const int common_google_signin_btn_text_dark_normal_background = 2130772801;
+			
+			// aapt resource value: 0x7F010334
+			public const int common_google_signin_btn_text_disabled = 2130772788;
+			
+			// aapt resource value: 0x7F010335
+			public const int common_google_signin_btn_text_light = 2130772789;
+			
+			// aapt resource value: 0x7F010336
+			public const int common_google_signin_btn_text_light_focused = 2130772790;
+			
+			// aapt resource value: 0x7F010337
+			public const int common_google_signin_btn_text_light_normal = 2130772791;
+			
+			// aapt resource value: 0x7F010342
+			public const int common_google_signin_btn_text_light_normal_background = 2130772802;
 			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
@@ -5230,25 +5230,19 @@ namespace Trato.Droid
 			public const int design_snackbar_background = 2131296347;
 			
 			// aapt resource value: 0x7F010003
-			public const int doctor = 2130771971;
+			public const int Filtro = 2130771971;
+			
+			// aapt resource value: 0x7F010343
+			public const int googleg_disabled_color_18 = 2130772803;
+			
+			// aapt resource value: 0x7F010344
+			public const int googleg_standard_color_18 = 2130772804;
 			
 			// aapt resource value: 0x7F010004
-			public const int doctora = 2130771972;
+			public const int HOME_icon = 2130771972;
 			
 			// aapt resource value: 0x7F010005
-			public const int Filtro = 2130771973;
-			
-			// aapt resource value: 0x7F010345
-			public const int googleg_disabled_color_18 = 2130772805;
-			
-			// aapt resource value: 0x7F010346
-			public const int googleg_standard_color_18 = 2130772806;
-			
-			// aapt resource value: 0x7F010006
-			public const int HOME_icon = 2130771974;
-			
-			// aapt resource value: 0x7F010007
-			public const int ICONOAPP = 2130771975;
+			public const int ICONOAPP = 2130771973;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -5793,26 +5787,26 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F090104
 			public const int ic_vol_type_tv_light = 2131296516;
 			
+			// aapt resource value: 0x7F010006
+			public const int INFO_icon = 2130771974;
+			
+			// aapt resource value: 0x7F010007
+			public const int LOGOTRATOESPECIAL = 2130771975;
+			
 			// aapt resource value: 0x7F010008
-			public const int INFO_icon = 2130771976;
+			public const int LogOut = 2130771976;
 			
 			// aapt resource value: 0x7F010009
-			public const int LOGOTRATOESPECIAL = 2130771977;
+			public const int Logo_Redondo_512 = 2130771977;
 			
 			// aapt resource value: 0x7F010010
-			public const int LogOut = 2130771984;
+			public const int Logo_Redondo_512x512_Blanco = 2130771984;
 			
 			// aapt resource value: 0x7F010011
-			public const int Logo_Redondo_512 = 2130771985;
+			public const int Medicos = 2130771985;
 			
 			// aapt resource value: 0x7F010012
-			public const int Logo_Redondo_512x512_Blanco = 2130771986;
-			
-			// aapt resource value: 0x7F010013
-			public const int Medicos = 2130771987;
-			
-			// aapt resource value: 0x7F010014
-			public const int Membresia_icon = 2130771988;
+			public const int Membresia_icon = 2130771986;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
@@ -5874,14 +5868,14 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F090118
 			public const int mr_vol_type_audiotrack_light = 2131296536;
 			
+			// aapt resource value: 0x7F010013
+			public const int M_Empresarial = 2130771987;
+			
+			// aapt resource value: 0x7F010014
+			public const int M_Familiar = 2130771988;
+			
 			// aapt resource value: 0x7F010015
-			public const int M_Empresarial = 2130771989;
-			
-			// aapt resource value: 0x7F010016
-			public const int M_Familiar = 2130771990;
-			
-			// aapt resource value: 0x7F010017
-			public const int M_Personal = 2130771991;
+			public const int M_Personal = 2130771989;
 			
 			// aapt resource value: 0x7F09005C
 			public const int navigation_empty_icon = 2131296348;
@@ -5922,11 +5916,11 @@ namespace Trato.Droid
 			// aapt resource value: 0x7F09000C
 			public const int notify_panel_notification_icon_bg = 2131296268;
 			
-			// aapt resource value: 0x7F010018
-			public const int Opciones = 2130771992;
+			// aapt resource value: 0x7F010016
+			public const int Opciones = 2130771990;
 			
-			// aapt resource value: 0x7F010019
-			public const int Perfil = 2130771993;
+			// aapt resource value: 0x7F010017
+			public const int Perfil = 2130771991;
 			
 			// aapt resource value: 0x1
 			public const int places_ic_clear = 1;
@@ -6063,14 +6057,14 @@ namespace Trato.Droid
 			// aapt resource value: 0x1
 			public const int quantum_ic_volume_up_white_36 = 1;
 			
+			// aapt resource value: 0x7F010018
+			public const int Services_icon = 2130771992;
+			
+			// aapt resource value: 0x7F010019
+			public const int ServiciosMedicos = 2130771993;
+			
 			// aapt resource value: 0x7F010020
-			public const int Services_icon = 2130772000;
-			
-			// aapt resource value: 0x7F010021
-			public const int ServiciosMedicos = 2130772001;
-			
-			// aapt resource value: 0x7F010022
-			public const int Thumbs = 2130772002;
+			public const int Thumbs = 2130772000;
 			
 			// aapt resource value: 0x7F090069
 			public const int tooltip_frame_dark = 2131296361;

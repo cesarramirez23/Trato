@@ -31,7 +31,7 @@ JObject o = JObject.Parse(json);
         1809I-0015
  */
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class V_Opciones : TabbedPage
+	public partial class V_Opciones : ContentPage
 	{
         Regex regex = new Regex(@"^(?=.*[A-Za-z])(?=.*\w)[A-Za-z\w]{8,}$");
         public V_Opciones ()
@@ -187,6 +187,13 @@ JObject o = JObject.Parse(json);
                     return true;
                 }
             }
+        }
+        /// <summary>
+        /// prende apaga el al stak para cambio de contraseña
+        /// </summary>
+        public void MostrarPass(object sender, EventArgs _Args)
+        {
+            StackPass.IsVisible = !StackPass.IsVisible;
         }
     }
 }

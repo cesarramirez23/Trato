@@ -42,11 +42,11 @@ namespace Trato.Varios
     }
     public enum EstadoCita
     {
-        Inactiva,
-        Nueva,
-        Pendiente,
-        Aceptada,
-        Cancelada
+        Terminada=0,
+        Nueva=1,
+        Pendiente=2,
+        Aceptada=3,
+        Cancelada=4
     }
     public class Cita
     {
@@ -90,6 +90,8 @@ namespace Trato.Varios
         /// <value>The v tipo.</value>
         [JsonProperty("tipo")]
         public string v_tipo { get; set; }
+        [JsonProperty("ID_cita")]
+        public string v_idCita { get; set; }
 
         public Cita() { }
         public Cita(string _membre, string _folio, string _tipo)
@@ -146,15 +148,49 @@ namespace Trato.Varios
             }
             v_fecha = _fecha.Year.ToString() + "-" + _month + "-" + _day;
         }
-
+        /// <summary>
+        /// para el update
+        /// </summary>
+        /// <param name="_estado"></param>
+        /// <param name="_fecha"></param>
+        /// <param name="_hora"></param>
+        /// <param name="_idcita"></param>
+        public Cita(string _estado, DateTime _fecha, TimeSpan _hora, string _idcita)
+        {
+            v_idCita = _idcita;
+            v_estado = _estado;
+            v_hora = _hora;
+            string _month = "";
+            if (_fecha.Month < 10)
+            {
+                _month = "0" + _fecha.Month.ToString();
+            }
+            else
+            {
+                _month = _fecha.Month.ToString();
+            }
+            string _day = "";
+            if (_fecha.Day < 10)
+            {
+                _day = "0" + _fecha.Day.ToString();
+            }
+            else
+            {
+                _day = _fecha.Day.ToString();
+            }
+            v_fecha = _fecha.Year.ToString() + "-" + _month + "-" + _day;
+        }
 
         /// <summary>
         /// en la opantalla de citas colores
         /// </summary>
-       [JsonIgnore]
+        [JsonIgnore]
         public Color v_color { get; set; }
-       [JsonIgnore]
-        public EstadoCita v_Estadocita { get; set; }
+
+        /// <summary>
+        /// el int,   Terminada=0,Nueva=1,Pendiente=2,Aceptada=3,Cancelada=4
+        /// </summary>
+        public int v_Estadocita { get; set; }
         /// <summary>
         /// para cambiar el color dentro de la lista visible, cambia estado cita, y formato de la fecha
         /// </summary>
@@ -169,17 +205,17 @@ namespace Trato.Varios
             {
                 v_color = Color.PaleTurquoise;
             }
-            v_Estadocita = (EstadoCita)(int.Parse(v_estado));
-            string[] _fecha = v_fecha.Split('-');
-            v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]));
+            v_Estadocita = (int.Parse(v_estado));
+            string[] _fecha = v_fecha.Split('-');//month day year
+            v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]),
+                                         v_hora.Hours, v_hora.Minutes, v_hora.Seconds);
         }
         public void Fn_SetValores()
         {
-            v_Estadocita = (EstadoCita)(int.Parse(v_estado));
-            string[] _fecha = v_fecha.Split('/');//month day year
-            string[] _year = _fecha[2].Split(' ');
-
-            v_fechaDate = new DateTime(int.Parse(_year[0]), int.Parse(_fecha[0]), int.Parse(_fecha[1]) );
+            v_Estadocita = (int.Parse(v_estado));
+            string[] _fecha = v_fecha.Split('-');//month day year
+            v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]), 
+                                        v_hora.Hours,v_hora.Minutes,v_hora.Seconds);
         }
     }
     public class Pagar

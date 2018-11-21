@@ -4,7 +4,8 @@
              x:Class="Trato.Views.V_Cita">
     <ContentPage.Content>
         <StackLayout Margin="3,2,3,10">
-            <ListView x:Name="ListaCita" BackgroundColor="Bisque" HasUnevenRows="True" ItemTapped="Fn_CitaTap" SelectionMode="Single">
+            <ListView x:Name="ListaCita" BackgroundColor="Bisque" IsPullToRefreshEnabled="True" 
+                      Refreshing="ListaCita_Refreshing" HasUnevenRows="True" ItemTapped="Fn_CitaTap" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -22,17 +23,16 @@
                                     <!--Format = "HH:mm"   par 24 horas     Format = "hh:mm" para 12-->
                                     <TimePicker Time="{Binding v_hora}"  IsEnabled="False"/>
                                 </StackLayout>
-                                <Picker>
+                                <Picker IsEnabled="False" SelectedIndex="{Binding v_Estadocita}" >
                                     <Picker.Items>
-                                        <x:String>Inactiva</x:String>
+                                        <x:String>Terminada</x:String>
                                         <x:String>Nueva</x:String>
                                         <x:String>Pendiente</x:String>
                                         <x:String>Aceptada</x:String>
-                                        <x:String>Cancelada</x:String> 
+                                        <x:String>Cancelada</x:String>
                                     </Picker.Items>
                                 </Picker>
-
-                                <Label Style="{StaticResource AzulMedLbl}" Text="{Binding v_Estadocita}"></Label>
+                               <!-- <Label Style="{StaticResource AzulMedLbl}" Text="{Binding v_Estadocita}"></Label>-->
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

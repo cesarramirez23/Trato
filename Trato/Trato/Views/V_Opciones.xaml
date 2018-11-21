@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_Opciones"  BarTextColor="{StaticResource NavigationPrimary}" BarBackgroundColor="White"><!-- como es tabbed hay que especificar el color que tambien esta en app xml-->
-    <TabbedPage.Children>
-        <ContentPage Title="Cuenta" x:Name="ContentCuenta">
-            <StackLayout Margin="20,0">
-                <Label Style="{StaticResource AzulMedLbl}" Text="Tipo de Membresía"/>
-                <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_Tipo"/>
+             x:Class="Trato.Views.V_Opciones" ><!-- como es tabbed hay que especificar el color que tambien esta en app xml-->
 
-                <Label Style="{StaticResource AzulMedLbl}" Text="Membresía"/>
-                <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_Membre"/>
-
-                <Label Style="{StaticResource AzulMedLbl}" Text="Vigencia (Dia/Mes/Año)"/>
-                <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_fecha"/>
-
-                <Label Style="{StaticResource AzulMedLbl}" Text="Total de usuarios" x:Name="C_T_usu" IsVisible="False"/>
-            </StackLayout>
-        </ContentPage>
-        <ContentPage Title="Contraseña">
-            <ScrollView>
-                <StackLayout  Margin="20,0">
-                    <Label Text="Cambio de Contraseña" Style="{StaticResource AzulMedLbl}" FontSize="Large"/>
-                    <Label Text="Ingresa tu contraseña actual" Style="{StaticResource AzulMedLbl}"/>
-                    <Entry IsPassword="True" x:Name="P_actual"></Entry>
-                    <Label Text="" x:Name="P_mensaje" Style="{StaticResource AzulMedLbl}" TextColor="Red"></Label>
-                    <Label Text="Ingresa la nueva contraseña" Style="{StaticResource AzulMedLbl}"></Label>
-                    <Entry IsPassword="True"  x:Name="P_Nueva" TextChanged="FN_passCambio"></Entry>
-                    <Button Text="Cambiar" x:Name="P_but"  Clicked="Fn_CambioPass" Style="{StaticResource Buton}" IsEnabled="False"></Button>
+    <ContentPage.Content Title="Cuenta" >
+        <ScrollView Margin="20,0">
+                <StackLayout >
+                    <Label Style="{StaticResource AzulMedLbl}" Text="Tipo de Membresía"/>
+                    <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_Tipo"/>
+                    <Label Style="{StaticResource AzulMedLbl}" Text="Membresía"/>
+                    <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_Membre"/>
+                    <Label Style="{StaticResource AzulMedLbl}" Text="Vigencia (Dia/Mes/Año)"/>
+                    <Label Text="" FontSize="Medium" TextColor="Black" x:Name="C_fecha"/>
+                    <Label Style="{StaticResource AzulMedLbl}" Text="Total de usuarios" x:Name="C_T_usu" IsVisible="False"/>
+                    <Button Text="Mostrar cambio de contraseña" Clicked="MostrarPass" Style="{StaticResource Buton}"/>
+                    <StackLayout x:Name="StackPass" IsVisible="False">
+                        <Label Text="Cambio de Contraseña" Style="{StaticResource AzulMedLbl}" FontSize="Large"/>
+                        <Label Text="Ingresa tu contraseña actual" Style="{StaticResource AzulMedLbl}"/>
+                        <Entry IsPassword="True" x:Name="P_actual"></Entry>
+                        <Label Text="" x:Name="P_mensaje" Style="{StaticResource AzulMedLbl}" TextColor="Red"></Label>
+                        <Label Text="Ingresa la nueva contraseña" Style="{StaticResource AzulMedLbl}"></Label>
+                        <Entry IsPassword="True"  x:Name="P_Nueva" TextChanged="FN_passCambio"></Entry>
+                        <Button Text="Cambiar" x:Name="P_but"  Clicked="Fn_CambioPass" Style="{StaticResource Buton}" IsEnabled="False"></Button>
+                    </StackLayout>
                 </StackLayout>
             </ScrollView>
-        </ContentPage>
-       
-    </TabbedPage.Children>
-</TabbedPage>
+    </ContentPage.Content>
+</ContentPage>

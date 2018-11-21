@@ -6,27 +6,46 @@
         <ScrollView>
             <StackLayout>
                 <Label x:Name="v_nombre" Style="{StaticResource AzulMedLbl}"/>
-                <StackLayout >
-                    <Label Text="Fecha de la cita" Style="{StaticResource AzulMedLbl}"></Label>
-                    <DatePicker  Format="D" x:Name="v_fecha"></DatePicker>
-                </StackLayout>
-                <StackLayout >
-                    <Label Text="Hora de la cita" Style="{StaticResource AzulMedLbl}"></Label>
-                    <TimePicker x:Name="v_hora"></TimePicker>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Estado " Style="{StaticResource AzulMedLbl}"></Label>
-                    <Picker IsEnabled="False" x:Name="v_estado" TextColor="{StaticResource NavigationPrimary}">
-                        <Picker.Items>
-                            <x:String>Inactiva</x:String>
-                            <x:String>Nueva</x:String>
-                            <x:String>Pendiente</x:String>
-                            <x:String>Aceptada</x:String>
-                            <x:String>Cancelada</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </StackLayout>
-                <Button Text="Crear Cita" Clicked="Fn_Crear" x:Name="v_boton" Style="{StaticResource Buton}"/>
+                <Label Text="Fecha de la cita" Style="{StaticResource AzulMedLbl}"></Label>
+                <DatePicker  Format="D" x:Name="v_fecha"></DatePicker>
+                <Label Text="Hora de la cita" Style="{StaticResource AzulMedLbl}"></Label>
+                <TimePicker x:Name="v_hora"></TimePicker>
+                
+                <Label Text="Estado " Style="{StaticResource AzulMedLbl}"></Label>
+                <Label x:Name="v_estado"  Style="{StaticResource AzulMedLbl}"></Label>
+
+                <Grid  x:Name="StackTre">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+                    <Button Text="Aceptar Cita" Clicked="Fn_Acep" x:Name="v_botAcep" HorizontalOptions="Start" 
+                            Style="{StaticResource Buton2}"/>
+                    <Button Text="Cancelar Cita" Clicked="Fn_Recha" x:Name="v_botRec" HorizontalOptions="Center" 
+                            Style="{StaticResource Buton2}"  Grid.Column="1"/>
+                    <Button Text="Reagendar Cita" Clicked="Fn_Cambios" x:Name="v_botCambio" HorizontalOptions="End" 
+                            Style="{StaticResource Buton2}"  Grid.Column="2"/>
+                </Grid>
+
+                <Grid x:Name="StackPendiente" IsVisible="False">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+                    <Button Text="Aceptar Cita" Clicked="Fn_AcepCambio"
+                            Style="{StaticResource Buton2}"/>
+                    <Button Text="Cancelar" Clicked="Fn_CancelCambio" 
+                            Style="{StaticResource Buton2}"  Grid.Column="1"/>
+                </Grid>
+                <Button Text="Crear Cita" Clicked="Fn_Crear" x:Name="v_botCrear" Style="{StaticResource Buton}"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

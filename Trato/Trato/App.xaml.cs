@@ -75,12 +75,16 @@ namespace Trato
                 Current.Properties.Add(NombresAux.v_perMed, "");
                 Current.Properties[NombresAux.v_perMed] = _json;
             }
-            if (!Properties.ContainsKey(NombresAux.v_redmedica))
+            if (!Properties.ContainsKey(NombresAux.v_redmedica2))
             {
                 v_medicos = new ObservableCollection<C_Medico>();
                 string _json = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
-                Current.Properties.Add(NombresAux.v_redmedica, "");
-                Current.Properties[NombresAux.v_redmedica] = _json;
+                Current.Properties.Add(NombresAux.v_redmedica2, "");
+                Current.Properties[NombresAux.v_redmedica2] = _json;
+                if (Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
+                {
+                    Current.Properties.Remove(NombresAux.v_redmedica);
+                }
             }
             if (!Properties.ContainsKey(NombresAux.v_serviciosmedicos))
             {
@@ -110,17 +114,25 @@ namespace Trato
         /// </summary>
         async void Fn_CargarListas()
         {
-            if (!Current.Properties.ContainsKey(NombresAux.v_redmedica))
+            if (!Current.Properties.ContainsKey(NombresAux.v_redmedica2))
             {
                 v_medicos = new ObservableCollection<C_Medico>();
                 string _json = JsonConvert.SerializeObject(v_medicos);
-                Current.Properties.Add(NombresAux.v_redmedica, "");
-                Current.Properties[NombresAux.v_redmedica] = _json;
+                Current.Properties.Add(NombresAux.v_redmedica2, "");
+                Current.Properties[NombresAux.v_redmedica2] = _json;
+                if (Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
+                {
+                    Current.Properties.Remove(NombresAux.v_redmedica);
+                }
             }
             else
             {
-                string _jsonMed = Current.Properties[NombresAux.v_redmedica] as string;
+                string _jsonMed = Current.Properties[NombresAux.v_redmedica2] as string;
                 v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
+                if (Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
+                {
+                    Current.Properties.Remove(NombresAux.v_redmedica);
+                }
             }
 
             if (!Current.Properties.ContainsKey(NombresAux.v_serviciosmedicos))
@@ -217,17 +229,25 @@ namespace Trato
                 string _jsonMed = Current.Properties[NombresAux.v_perMed] as string;
                 v_perfMed = JsonConvert.DeserializeObject<C_PerfilMed>(_jsonMed);
             }
-            if (!Current.Properties.ContainsKey(NombresAux.v_redmedica))
+            if (!Current.Properties.ContainsKey(NombresAux.v_redmedica2))
             {
                 v_medicos = new ObservableCollection<C_Medico>();
                 string _json = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
-                Current.Properties.Add(NombresAux.v_redmedica, "");
-                Current.Properties[NombresAux.v_redmedica] = _json;
+                Current.Properties.Add(NombresAux.v_redmedica2, "");
+                Current.Properties[NombresAux.v_redmedica2] = _json;
+                if (Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
+                {
+                    Current.Properties.Remove(NombresAux.v_redmedica);
+                }
             }
             else
             {
-                string _jsonMed = Current.Properties[NombresAux.v_redmedica] as string;
+                string _jsonMed = Current.Properties[NombresAux.v_redmedica2] as string;
                 v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_jsonMed);
+                if (Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
+                {
+                    Current.Properties.Remove(NombresAux.v_redmedica);
+                }
             }
             if (!Current.Properties.ContainsKey(NombresAux.v_serviciosmedicos))
             {
@@ -284,7 +304,7 @@ namespace Trato
             string _jsoServ = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
             Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
             string _jsonMed = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
-            Current.Properties[NombresAux.v_redmedica] = _jsonMed;
+            Current.Properties[NombresAux.v_redmedica2] = _jsonMed;
 
             await Current.SavePropertiesAsync();
             Fn_CargarDatos();
@@ -325,6 +345,10 @@ namespace Trato
                 Current.Properties.Add(NombresAux.v_redmedica, "");
                 Current.Properties[NombresAux.v_redmedica] = _json;
             }
+            //if(Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
+            //{
+            //    Current.Properties.Remove(NombresAux.v_redmedica);
+            //}
             await Current.SavePropertiesAsync();
         }
         public static async void Fn_GuardarServcios(ObservableCollection<C_Servicios> _servicios)
@@ -442,7 +466,7 @@ namespace Trato
                     Properties[NombresAux.v_letra] = v_letra;
                     Properties[NombresAux.v_membre] = v_membresia;
                     Properties[NombresAux.v_folio] = v_folio;
-                    Fn_CargarListas();
+                    //Fn_CargarListas();
                     MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                 }//si esta logeado
                 else if (v_log == "1")
@@ -452,8 +476,20 @@ namespace Trato
                         Fn_CerrarSesion();
                         MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                     }*/
-                      //  Fn_CargarDatos();
-                        MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
+                    //  Fn_CargarDatos();
+                    if (!Current.Properties.ContainsKey(NombresAux.v_perfGen))
+                    {
+                        v_perfil = new C_PerfilGen();
+                        string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                        Current.Properties.Add(NombresAux.v_perfGen, "");
+                        Current.Properties[NombresAux.v_perfGen] = _json;
+                    }
+                    else
+                    {
+                        string _jsonGen = Current.Properties[NombresAux.v_perfGen] as string;
+                        v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
+                    }
+                    MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
 
                 }
                 else

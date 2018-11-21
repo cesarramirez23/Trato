@@ -730,9 +730,9 @@ namespace Trato.Views
                 }
                 catch
                 {
-                    if (Application.Current.Properties.ContainsKey("medicos"))
+                    if (Application.Current.Properties.ContainsKey(NombresAux.v_redmedica2))
                     {
-                        string _json = App.Current.Properties["medicos"] as string;
+                        string _json = App.Current.Properties[NombresAux.v_redmedica2] as string;
                         App.v_medicos = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_json);
                         Orden();
                         App.Fn_ImgSexo();

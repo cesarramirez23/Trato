@@ -87,7 +87,7 @@ namespace Trato.Views
         public void Fn_Opciones(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Opciones() { Title = "OPCIONES" });
+            Detail = new NavigationPage(new V_Opciones() { Title = "CUENTA" });
         }
         public async void Fn_Salir(object sender, EventArgs _args)
         {

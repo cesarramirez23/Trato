@@ -51,13 +51,14 @@ namespace Trato.Views
 
             //
 
-            //if (App.v_log == "1")
-           // {
-              //  boton.IsVisible = true;
-            //}
-            //else
-            //{ boton.IsVisible = false;
-            //}
+            if (App.v_log == "1")
+            {
+                boton.IsVisible = true;
+            }
+            else
+            {
+                boton.IsVisible = false;
+            }
 
         }
         public V_MedicoVista(C_Servicios _servicios)
