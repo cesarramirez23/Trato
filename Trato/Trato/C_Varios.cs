@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
+
 
 
 namespace Trato.Varios
@@ -55,6 +57,9 @@ namespace Trato.Varios
         /// </summary>
         [JsonProperty("ID_Dr")]
         public string v_doctorId { get; set; }
+        [JsonProperty("espe")]
+        public ObservableCollection<C_EspeTitu> v_espe;
+        public string v_especialidad { get; set; }
         /// <summary>
         /// membresia completa  1810I-0558
         /// </summary>
@@ -65,6 +70,9 @@ namespace Trato.Varios
         /// </summary>
         [JsonProperty("folio")]
         public string v_folio { get; set; }
+        /// <summary>
+        /// Terminada=0,Nueva=1,Pendiente=2,Aceptada=3,Cancelada=4
+        /// </summary>
         [JsonProperty("estado")]
         public string v_estado { get; set; }
         /// <summary>
@@ -79,7 +87,6 @@ namespace Trato.Varios
         public string v_nombreDR { get; set; }
         [JsonProperty("nombrePaciente")]
         public string v_nombrePaciente { get; set; }
-
         [JsonProperty("tokenDr")]
         public string v_tokenDR { get; set; }
         [JsonProperty("tokenPaciente")]
@@ -188,9 +195,9 @@ namespace Trato.Varios
         public Color v_color { get; set; }
 
         /// <summary>
-        /// el int,   Terminada=0,Nueva=1,Pendiente=2,Aceptada=3,Cancelada=4
+        /// el string  Terminada=0,Nueva=1,Pendiente=2,Aceptada=3,Cancelada=4
         /// </summary>
-        public int v_Estadocita { get; set; }
+        public string v_Estadocita { get; set; }
         /// <summary>
         /// para cambiar el color dentro de la lista visible, cambia estado cita, y formato de la fecha
         /// </summary>
@@ -199,23 +206,31 @@ namespace Trato.Varios
         {
             if ((_valor % 2) == 1)
             {
-                v_color = Color.PaleGreen;
+                v_color =Color.FromHex("F2F2F2");
             }
             else
             {
-                v_color = Color.PaleTurquoise;
+                v_color = Color.White;
             }
-            v_Estadocita = (int.Parse(v_estado));
+            int _a = int.Parse(v_estado);
+            v_Estadocita = ((EstadoCita)_a).ToString();
             string[] _fecha = v_fecha.Split('-');//month day year
             v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]),
                                          v_hora.Hours, v_hora.Minutes, v_hora.Seconds);
         }
         public void Fn_SetValores()
         {
-            v_Estadocita = (int.Parse(v_estado));
+            int _a = int.Parse(v_estado);
+            v_Estadocita = ((EstadoCita)_a).ToString();
             string[] _fecha = v_fecha.Split('-');//month day year
             v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]), 
                                         v_hora.Hours,v_hora.Minutes,v_hora.Seconds);
+
+            v_especialidad = "";
+            for(int i=0; i<v_espe.Count; i++)
+            {
+                v_especialidad += v_espe[i].v_nombreEspec;
+            }
         }
     }
     public class Pagar
@@ -269,24 +284,53 @@ letra
             v_sitio = _sitio;
         }
     }
+    /// <summary>
+    /// clase para mostrar en el perfil, los que estan activos o no
+    /// </summary>
     public class Medicamentos
     {
+        /// <summary>
+        /// nombre del medicamento
+        /// </summary>
         [JsonProperty("nombre")]
         public string v_nombre { get; set; }
+        [JsonProperty("dosis")]
+        public string v_dosis { get; set; }
         [JsonProperty("periodo")]
         /// <summary>
         /// por cuantos dias 
         /// </summary>
-        public int v_periodo { get; set; }
+        public float v_periodo { get; set; }
         [JsonProperty("tiempo")]
         /// <summary>
         /// cada cuantas horas
         /// </summary>
-        public int v_tiempo { get; set; }
-
+        public float v_tiempo { get; set; }
         [JsonProperty("extra")]
         public string v_extra { get; set; }
+        [JsonProperty("estado")]
+        public string v_estado { get; set; }
+        [JsonProperty("ID_cita")]
+        public string v_idCita { get; set; }
+        [JsonProperty("id")]
+        public string v_idMedi { get; set; }
+        [JsonIgnore]
+        public string v_texto { get; set; }
 
+        public void Fn_SetTexto()
+        {
+            if(v_estado=="0")//todavia no empieza a tomar
+            {
+                v_texto = "Comenzar tratamiento";
+            }
+            else if(v_estado=="1")//ya tomandose
+            {
+                v_texto = "Terminar tratamiento";
+            }else if(v_estado=="2")//ya se acabo
+            {
+                v_texto = "Terminado";
+            }
+        }
         public string Fn_Info()
         {
             string _info = "";
@@ -343,5 +387,49 @@ letra
     public class PrefFil
     {
         public string v_texto { get; set; }
+    }
+    public class C_NotaMed
+    {
+        /// <summary>
+        /// membresia completa  1810I-0558
+        /// </summary>
+        [JsonProperty("ID_paciente")]
+        public string v_pacienteId { get; set; }
+        /// <summary>
+        /// folio del usuario
+        /// </summary>
+        [JsonProperty("folio")]
+        public string v_folio { get; set; }
+        [JsonProperty("ID_cita")]
+        public string v_idCita { get; set; }
+        [JsonProperty("cuantos")]
+        public string v_cuantos { get; set; }
+
+        [JsonProperty("nombreDr")]
+        public string v_nombreDr { get; set; }
+        [JsonProperty("titulo")]
+        public string v_titulo { get; set; }
+            
+            
+
+        /// <summary>
+        /// LISTA DE MEDICAMENTOS
+        /// </summary>
+        [JsonProperty("medicamentos")]
+        public ObservableCollection<Medicamentos> v_medic = new ObservableCollection<Medicamentos>();
+
+
+
+        public C_NotaMed() { }
+        public C_NotaMed(string _paci, string _folio, string _idcita, string _cuantos, ObservableCollection<Medicamentos> _medi)
+        {
+            v_pacienteId = _paci;
+            v_folio = _folio;
+            v_idCita = _idcita;
+            v_cuantos = _cuantos;
+            v_medic = _medi;
+        }
+
+
     }
 }

@@ -22,5 +22,6 @@ namespace Trato
         public const string v_serviciosgenereales = "generales";
         public const string v_token="token";
         public const string v_citas = "citas";
+        public const string v_Nota = "notaMed";
     }
 }

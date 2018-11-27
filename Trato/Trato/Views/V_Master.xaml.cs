@@ -55,13 +55,19 @@ namespace Trato.Views
         public void Fn_Contacto(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Contacto() { Title = "COONTACTO" });
+            Detail = new NavigationPage(new V_Contacto("1") { Title = "COONTACTO" });
         }
 
         public void Fn_Citas(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Cita() { Title = "CITAS" });
+            Console.Write("medicam   ---- true");
+            Detail = new NavigationPage(new V_Cita(false) { Title = "CITAS" });
+        }
+        public void Fn_Medicamentos(object sender, EventArgs _args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Cita(true) { Title = "MEDICAMENTOS" });
         }
         
         public void Fn_Medicos(object sender, EventArgs _args)
@@ -145,6 +151,11 @@ namespace Trato.Views
             IsPresented = false;
             Detail = new NavigationPage(new V_Informacion());
 
+        }
+        public void Fn_Tarjeta(object sender, EventArgs _Args)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new V_Contacto("1"));
         }
         public void Fn_Membre(object sender, EventArgs _Args)
         {

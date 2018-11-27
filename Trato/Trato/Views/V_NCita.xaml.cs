@@ -39,7 +39,7 @@ namespace Trato.Views
             v_nueva = false;
             v_botCrear.IsVisible = false;
             v_cita = _cita;
-            v_cita.Fn_SetValores();
+            //v_cita.Fn_SetValores();
             v_fecha.Date = v_cita.v_fechaDate;
             v_fecha.IsEnabled = false;
             v_hora.IsEnabled = false;

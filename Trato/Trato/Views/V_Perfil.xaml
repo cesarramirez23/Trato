@@ -211,24 +211,19 @@
                 </StackLayout>
             </ScrollView>
         </ContentPage>
+<!--
         <ContentPage Title="Medicamentos" Icon="Medicamentosx46.png">
-            <ScrollView>
-                <StackLayout Margin="20,20">
-                    <Label Text="Proximamente" FontSize="Large" TextColor="{StaticResource NavigationPrimary}"></Label>
-                </StackLayout>
-            </ScrollView>
+            <StackLayout Margin="20,20">
+               
+            </StackLayout>
         </ContentPage>
-
 
         <ContentPage Title="Tarjeta Virtual" Icon="Membresia_Iconx46.png">
             <ScrollView >
-                <StackLayout>
-                    <Button Text="Mostrar Tarjeta Virtual" Clicked="FN_CrearQR" x:Name="qr_but"  Style="{StaticResource Buton}" ></Button>
-                    <ContentView x:Name="qr_content">
-                    </ContentView>
-                </StackLayout>
+                
             </ScrollView>
         </ContentPage>
+        -->
     </TabbedPage.Children>
     
 

@@ -25,6 +25,12 @@
             <Style TargetType="ContentPage">
                 <Setter  Property="BackgroundColor" Value="{StaticResource White}"/>
             </Style>
+            <Style TargetType="ListView">
+                <Setter Property="SeparatorVisibility" Value="Default"/>
+                <Setter Property="SeparatorColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
             <Style TargetType="TabbedPage">
                 <Setter  Property="BackgroundColor" Value="{StaticResource White}"/>
             </Style>
@@ -60,6 +66,10 @@
             </Style>
             <Style x:Key="AzulMedLbl" TargetType="Label">
                 <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
+            </Style>
+            <Style x:Key="AzulChLbl" TargetType="Label">
+                <Setter Property="FontSize" Value="Small"/>
                 <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
             </Style>
             <Style x:Key="StyLbl" TargetType="Label">

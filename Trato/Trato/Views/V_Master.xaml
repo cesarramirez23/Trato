@@ -6,6 +6,7 @@
     <MasterDetailPage.Resources>
         <Style x:Key="imgBoton" TargetType="Image">
             <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Aspect" Value="AspectFit"/>
             <Setter Property="HeightRequest" Value="100"/>
             <Setter Property="WidthRequest" Value="100"/>
             <Setter Property="Margin" Value="2,10,2,5"/>
@@ -141,6 +142,21 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Citas" Style="{StaticResource LblBoton}"/>
+
+                            <Image Source="QR.png" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Tarjeta"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Tarjeta Virtual" Style="{StaticResource LblBoton}"/>
+                            
+                            
+                            <Image Source="Medicamentos.png" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Medicamentos"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Medicamentos" Style="{StaticResource LblBoton}"/>
                           
                             
                             <Image Source="Opciones" Style="{StaticResource imgBoton}">

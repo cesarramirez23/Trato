@@ -4,9 +4,12 @@ using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Trato.Varios;
 using System.Threading.Tasks;
 using Trato.Personas;
+using System.Text;
+
 namespace Trato.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -21,6 +24,7 @@ namespace Trato.Views
             if (App.v_log == "1")
             {
                 Fn_Fecha();
+                Fn_GetMedic();
             }
             else
             {
@@ -30,6 +34,31 @@ namespace Trato.Views
             //M_mensaje.Text += "token " + App.Fn_GEtToken();
             Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
             //FN_Red();
+        }
+        private async void Fn_GetMedic()
+        {
+            HttpClient _client = new HttpClient();
+            Cita _cita = new Cita(App.v_membresia, App.v_folio, "0");
+            string _json = JsonConvert.SerializeObject(_cita);
+            string _DirEnviar = "http://tratoespecial.com/get_medicamentos.php";
+            //await DisplayAlert("ENVIA PARA medicamentos", _json, "acep");
+            StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
+            try
+            {
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    //await DisplayAlert("LLega get medicamentos", _respuesta, "acep");
+                   ObservableCollection<C_NotaMed> v_medicamentos = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_respuesta);
+                    //Console.WriteLine("cuantos "+v_citas.Count+"json citaa " + _respuesta);
+                    App.Fn_GuardarMedicamentos(v_medicamentos);
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+            }
         }
         protected override  void OnAppearing()
         {

@@ -16,6 +16,8 @@ namespace Trato
         public static ObservableCollection<C_Servicios> v_servicios = new ObservableCollection<C_Servicios>();
         public static ObservableCollection<C_ServGenerales> v_generales = new ObservableCollection<C_ServGenerales>();
         public static ObservableCollection<Cita> v_citas = new ObservableCollection<Cita>();
+        public static ObservableCollection<C_NotaMed> v_NotasMedic = new ObservableCollection<C_NotaMed>();
+
         /// <summary>
         /// Perfil General
         /// </summary>
@@ -107,6 +109,13 @@ namespace Trato
                 Current.Properties.Add(NombresAux.v_citas, "");
                 Current.Properties[NombresAux.v_citas] = _json;
             }
+            if (!Properties.ContainsKey(NombresAux.v_Nota))
+            {
+                v_NotasMedic = new ObservableCollection<C_NotaMed>();
+                string _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
+                Current.Properties.Add(NombresAux.v_Nota, "");
+                Current.Properties[NombresAux.v_Nota] = _json;
+            }
             await Current.SavePropertiesAsync();
         }
         /// <summary>
@@ -171,6 +180,18 @@ namespace Trato
             {
                 string _jsonCita= Current.Properties[NombresAux.v_citas] as string;
                 v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_jsonCita);
+            }
+            if (!Current.Properties.ContainsKey(NombresAux.v_Nota))
+            {
+                v_NotasMedic = new ObservableCollection<C_NotaMed>();
+                string _json = JsonConvert.SerializeObject(v_NotasMedic);
+                Current.Properties.Add(NombresAux.v_Nota, "");
+                Current.Properties[NombresAux.v_Nota] = _json;
+            }
+            else
+            {
+                string _jsonCita= Current.Properties[NombresAux.v_Nota] as string;
+                v_NotasMedic = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_jsonCita);
             }
             await Current.SavePropertiesAsync();
             await Task.Delay(100);
@@ -285,6 +306,18 @@ namespace Trato
                 string _jsonCitas = Current.Properties[NombresAux.v_citas] as string;
                 v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_jsonCitas);
             }
+            if (!Current.Properties.ContainsKey(NombresAux.v_Nota))
+            {
+                v_NotasMedic = new ObservableCollection<C_NotaMed>();
+                string _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
+                Current.Properties.Add(NombresAux.v_Nota, "");
+                Current.Properties[NombresAux.v_Nota] = _json;
+            }
+            else
+            {
+                string _jsonCitas = Current.Properties[NombresAux.v_Nota] as string;
+                v_NotasMedic = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_jsonCitas);
+            }
             await Task.Delay(100);
         }
         #endregion      
@@ -396,19 +429,41 @@ namespace Trato
             }
             await Current.SavePropertiesAsync();
         }
+        public static async void Fn_GuardarMedicamentos(ObservableCollection<C_NotaMed> _medica)
+        {
+            string _json = JsonConvert.SerializeObject(_medica, Formatting.Indented);
+            if (Current.Properties.ContainsKey(NombresAux.v_Nota))
+            {
+                Current.Properties[NombresAux.v_Nota] = "";
+                Current.Properties[NombresAux.v_Nota] = _json;
+            }
+            else
+            {
+                Current.Properties.Add(NombresAux.v_Nota, "");
+                Current.Properties[NombresAux.v_Nota] = _json;
+            }
+            await Current.SavePropertiesAsync();
+        }
         #endregion
         public static async void Fn_CerrarSesion()
         {
             v_perfil = new C_PerfilGen();
             v_perfMed = new C_PerfilMed();
-            v_folio = "";
+            v_NotasMedic = new ObservableCollection<C_NotaMed>();
+            v_citas = new ObservableCollection<Cita>();
             v_membresia = "";
+            v_folio = "";
             v_letra = "";
             v_log = "0";
             string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
             Current.Properties[NombresAux.v_perfGen] = _json;
             _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
             Current.Properties[NombresAux.v_perMed] = _json;
+            _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
+            Current.Properties[NombresAux.v_Nota] = _json;
+            _json = JsonConvert.SerializeObject(v_citas, Formatting.Indented);
+            Current.Properties[NombresAux.v_Nota] = _json;
+
             Current.Properties[NombresAux.v_membre] = v_membresia;
             Current.Properties[NombresAux.v_folio] = v_folio;
             Current.Properties[NombresAux.v_letra] = v_letra;
@@ -535,6 +590,32 @@ namespace Trato
             {
                 return "a";
             }
+        }
+        public static ObservableCollection<Medicamentos> Fn_GetMedic(string _idcita)
+        {
+            bool _re = false;
+            ObservableCollection<Medicamentos> _ret = new ObservableCollection<Medicamentos>();
+            for (int i = 0; i < v_NotasMedic.Count; i++)
+            {
+                if (v_NotasMedic[i].v_idCita == _idcita && !_re)
+                {
+                    _ret=v_NotasMedic[i].v_medic;
+                    _re = true;
+                }
+            }
+            return _ret;
+        }
+        public static string Fn_GetNombreCita(string _idcita)
+        {
+            string _nombre = "";
+            for (int i = 0; i < v_NotasMedic.Count; i++)
+            {
+                if (v_NotasMedic[i].v_idCita == _idcita )
+                {
+                    _nombre = v_NotasMedic[i].v_titulo + " " + v_NotasMedic[i].v_nombreDr;
+                }
+            }
+            return _nombre;
         }
     }
 }

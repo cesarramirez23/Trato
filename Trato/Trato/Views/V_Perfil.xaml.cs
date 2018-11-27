@@ -16,19 +16,18 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Collections.Specialized;
 
-using ZXing.Net.Mobile.Forms;
 
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Perfil : TabbedPage
 	{
-        private ZXingBarcodeImageView barcode;
 
         bool v_editando = false;
         bool v_editarMed = false;
         Pagar v_pagar;
-
+        /*
+         get_medicamentos*/
         
 		public  V_Perfil ()
 		{
@@ -52,7 +51,6 @@ namespace Trato.Views
                 G_Editar.IsVisible = true;
                 G_Pagar.IsVisible = false;
                 M_Editar.IsVisible = true;
-                qr_but.IsVisible = true;
                 await Task.Delay(10);
 
             }//no esta activado falta pagar  //else if(App.v_perfil.v_activo=="0")
@@ -93,7 +91,6 @@ namespace Trato.Views
 
                 G_Editar.IsVisible = false;
                 M_Editar.IsVisible = false;
-                qr_but.IsEnabled = false;
                 G_Pagar.IsVisible = true;
                 await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Aceptar");
             }
@@ -101,7 +98,6 @@ namespace Trato.Views
             { 
                 G_Editar.IsVisible = false;
                 M_Editar.IsVisible = false;
-                qr_but.IsEnabled = false;
                 await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado", "Aceptar");
              }
 
@@ -822,32 +818,7 @@ namespace Trato.Views
 
             await Task.Delay(100);
         }
-        public  void FN_CrearQR(object sender, EventArgs _Args)
-        {
-            barcode = new ZXingBarcodeImageView
-            {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-            };
-            barcode.BarcodeFormat = ZXing.BarcodeFormat.AZTEC;
-            barcode.BarcodeOptions.Width = 700;
-            barcode.BarcodeOptions.Height = 700;
-
-            string json = @"{";
-            json += "idmembre:'" + App.v_membresia + "',\n";
-            json += "idfolio:'" + App.v_folio + "',\n";
-            json += "letra:'" + App.v_letra + "',\n";
-            json += "}";
-
-            // barcode.BarcodeValue = qrTexto.Text;
-
-            JObject jsonper = JObject.Parse(json);
-
-            barcode.BarcodeValue = jsonper.ToString();// "hola a todos"; //jsonEnviar.ToString() ;
-            //qrTexto.Text = barcode.BarcodeValue;
-            qr_content.Content = barcode;
-            qr_but.IsEnabled = false;
-        }
+       
 
     }
 }

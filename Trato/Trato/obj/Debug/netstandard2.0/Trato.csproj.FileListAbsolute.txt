@@ -72,3 +72,4 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Tr
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.pdb
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_Medicamento.xaml.g.cs

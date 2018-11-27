@@ -3,27 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Cita">
     <ContentPage.Content>
-        <StackLayout Margin="3,2,3,10">
-            <ListView x:Name="ListaCita" BackgroundColor="Bisque" IsPullToRefreshEnabled="True" 
+        <StackLayout Margin="5,10,5,10">
+            <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
+            <ListView x:Name="ListaCita" IsPullToRefreshEnabled="True" 
                       Refreshing="ListaCita_Refreshing" HasUnevenRows="True" ItemTapped="Fn_CitaTap" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Margin="10,0" BackgroundColor="{Binding v_color}">
-                                <StackLayout>
-                                    <Label Text="Nombre del doctor"  Style="{StaticResource AzulMedLbl}"/>
-                                    <Label Text="{Binding v_nombreDR}" FontSize="Medium" TextColor="Black"/>
+                            <StackLayout BackgroundColor="{Binding v_color}">
+                                <Label  FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Nombre del médico: " TextColor="{StaticResource NavigationPrimary}"/>
+                                            <Span Text="{Binding v_nombreDR}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                    <Label  FontSize="Medium">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Especialidad: " TextColor="{StaticResource NavigationPrimary}" />
+                                                <Span Text="{Binding v_especialidad}" TextColor="Black"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label FontSize="Medium" >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Fecha: " TextColor="{StaticResource NavigationPrimary}"/>
+                                                <Span Text="{Binding v_fecha}" TextColor="Black"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label FontSize="Medium" >
+                                         <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Estado: " TextColor="{StaticResource NavigationPrimary}"/>
+                                                <Span Text="{Binding v_Estadocita}" TextColor="Black"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+<!--
+                                    <Label Text="Nombre del médico"  Style="{StaticResource AzulMedLbl}"/>
+                                    <Label Text="Especialidad"  Style="{StaticResource AzulMedLbl}"/>
                                 </StackLayout>
-                                <StackLayout>
-                                    <Label Text="Fecha: " Style="{StaticResource AzulMedLbl}"/>
-                                    <DatePicker Date="{Binding v_fecha}" Format="dd/MM/yyyy" IsEnabled="False"/>
-                                </StackLayout>
-                                <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Fecha: " Style="{StaticResource AzulMedLbl}" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding v_fecha}" FontSize="Medium" TextColor="Black" HorizontalOptions="CenterAndExpand"/>-->
+                                <!--Format = "HH:mm"   par 24 horas     Format = "hh:mm" para 12
+                                <StackLayout Orientation="Horizontal">
+                                    
                                     <Label Text="Hora: " Style="{StaticResource AzulMedLbl}"/>
-                                    <!--Format = "HH:mm"   par 24 horas     Format = "hh:mm" para 12-->
+                                    <Label Text="{Binding v_hora}" Style="{StaticResource AzulMedLbl}"/>
+                                    
+                                    <DatePicker Date="{Binding v_fecha}" Format="dd/MM/yyyy" IsEnabled="False"/>
                                     <TimePicker Time="{Binding v_hora}"  IsEnabled="False"/>
-                                </StackLayout>
-                                <Picker IsEnabled="False" SelectedIndex="{Binding v_Estadocita}" >
+                                    
+                                    <Picker IsEnabled="False" SelectedIndex="{Binding v_Estadocita}" >
                                     <Picker.Items>
                                         <x:String>Terminada</x:String>
                                         <x:String>Nueva</x:String>
@@ -32,7 +68,9 @@
                                         <x:String>Cancelada</x:String>
                                     </Picker.Items>
                                 </Picker>
-                               <!-- <Label Style="{StaticResource AzulMedLbl}" Text="{Binding v_Estadocita}"></Label>-->
+                                <Label Style="{StaticResource AzulMedLbl}" Text="{Binding v_Estadocita}"></Label>
+                                </StackLayout>
+                                    -->
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

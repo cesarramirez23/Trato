@@ -10,14 +10,33 @@ using System.Text.RegularExpressions;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using ZXing.Net.Mobile.Forms;
+
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Contacto : ContentPage
 	{
-		public V_Contacto ()
+        private ZXingBarcodeImageView barcode;
+        /// <summary>
+        /// 1 es el qr
+        /// </summary>
+        /// <param name="_valor"></param>
+		public V_Contacto (string _valor)
 		{
 			InitializeComponent ();
+            if(_valor=="1")
+            {
+                Tarjeta.IsVisible = true;
+                if(App.v_perfil.v_activo=="1")
+                {
+                    qr_but.IsEnabled = true;
+                }
+                else
+                {
+                    qr_but.IsEnabled = false;
+                }
+            }
         }
 
         public async void Fn_Enviar(object sender, EventArgs _args)
@@ -110,6 +129,32 @@ namespace Trato.Views
             }
         }
 
+        public void FN_CrearQR(object sender, EventArgs _Args)
+        {
+            barcode = new ZXingBarcodeImageView
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
+            barcode.BarcodeFormat = ZXing.BarcodeFormat.AZTEC;
+            barcode.BarcodeOptions.Width = 700;
+            barcode.BarcodeOptions.Height = 700;
+
+            string json = @"{";
+            json += "idmembre:'" + App.v_membresia + "',\n";
+            json += "idfolio:'" + App.v_folio + "',\n";
+            json += "letra:'" + App.v_letra + "',\n";
+            json += "}";
+
+            // barcode.BarcodeValue = qrTexto.Text;
+
+            JObject jsonper = JObject.Parse(json);
+
+            barcode.BarcodeValue = jsonper.ToString();// "hola a todos"; //jsonEnviar.ToString() ;
+            //qrTexto.Text = barcode.BarcodeValue;
+            qr_content.Content = barcode;
+            qr_but.IsEnabled = false;
+        }
 
 
 
