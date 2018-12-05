@@ -16,6 +16,7 @@ using Trato.Varios;
 
 
 
+
 namespace Trato.Views
 {
 
@@ -718,7 +719,7 @@ namespace Trato.Views
                     url = "http://tratoespecial.com/prueba_json.php";
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
                     string _respu = await _respuestphp.Content.ReadAsStringAsync();
-                    Console.Write("json nedicos \n" + _respu);
+                  //  Console.Write("json nedicos \n" + _respu);
                     ObservableCollection<C_Medico> _med = JsonConvert.DeserializeObject<ObservableCollection<C_Medico>>(_respu);
                     L_Error.IsVisible = false;
                     B_Filtrar.IsEnabled = true;
@@ -892,6 +893,7 @@ namespace Trato.Views
         {
             var list = (ListView)sender;
             Fn_CargarDAtos();
+            v_Search.Text = "";
             await Task.Delay(100);
             //cancelar la actualizacion
             list.IsRefreshing = false;
@@ -930,7 +932,7 @@ namespace Trato.Views
                // if (v_medico)
                 if(v_tipo==0)//recorre solo los  medicos, para ver su nombre y apellido
                 {
-                    for(int i=0; i<App.v_medicos.Count; i++)
+                    for(int i=0; i<App.v_medicos.Count; i++)//hacer cambios para cuando tienen  2 nombre apellidoos
                     {
                         if (App.v_medicos[i].v_Nombre.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_medicos[i].v_Nombre) )
                         {
@@ -946,7 +948,7 @@ namespace Trato.Views
                 {
                     for (int i = 0; i < App.v_servicios.Count; i++)
                     {
-                        if (App.v_servicios[i].v_completo.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_medicos[i].v_Nombre))
+                        if (App.v_servicios[i].v_completo.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_servicios[i].v_completo))
                         {
                             _lista.Add(App.v_servicios[i].v_completo);
                         }
@@ -1001,8 +1003,10 @@ namespace Trato.Views
                 {
                     for (int e = 0; e < App.v_medicos[i].v_ListaEsp.Count; e++)
                     {
-                        if ((App.v_medicos[i].v_Nombre == _nuevoFiltro.v_texto) ||
-                            (App.v_medicos[i].v_Apellido == _nuevoFiltro.v_texto) || (App.v_medicos[i].v_ListaEsp[e].v_nombreEspec == _nuevoFiltro.v_texto))
+                        if (((App.v_medicos[i].v_Nombre == _nuevoFiltro.v_texto) ||
+                            (App.v_medicos[i].v_Apellido == _nuevoFiltro.v_texto) || 
+                            (App.v_medicos[i].v_ListaEsp[e].v_nombreEspec == _nuevoFiltro.v_texto)
+                            )&& !_medicosTemp.Contains(App.v_medicos[i]) )
                         {
                             _medicosTemp.Add(App.v_medicos[i]);
                         }
@@ -1015,7 +1019,8 @@ namespace Trato.Views
                 ObservableCollection<C_Servicios> _serTemp = new ObservableCollection<C_Servicios>();
                 for (int i = 0; i < App.v_servicios.Count; i++)
                 {
-                    if ((App.v_servicios[i].v_completo == _nuevoFiltro.v_texto) || (App.v_servicios[i].v_Especialidad == _nuevoFiltro.v_texto))
+                    if (( (App.v_servicios[i].v_completo == _nuevoFiltro.v_texto) ||
+                        (App.v_servicios[i].v_Especialidad == _nuevoFiltro.v_texto))&& !_serTemp.Contains(App.v_servicios[i]) )
                     {
                         _serTemp.Add(App.v_servicios[i]);
                     }
@@ -1027,7 +1032,8 @@ namespace Trato.Views
                 ObservableCollection<C_ServGenerales> _serTemp = new ObservableCollection<C_ServGenerales>();
                 for (int i = 0; i < App.v_generales.Count; i++)
                 {
-                    if ((App.v_generales[i].v_completo == _nuevoFiltro.v_texto) || (App.v_generales[i].v_Especialidad == _nuevoFiltro.v_texto))
+                    if (((App.v_generales[i].v_completo == _nuevoFiltro.v_texto) ||
+                        (App.v_generales[i].v_Especialidad == _nuevoFiltro.v_texto) ) && !_serTemp.Contains(App.v_generales[i]))
                     {
                         _serTemp.Add(App.v_generales[i]);
                     }

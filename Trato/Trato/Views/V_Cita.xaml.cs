@@ -22,19 +22,39 @@ namespace Trato.Views
         /// el bool
         /// </summary>
         bool v_medi = false;
-
+        Cita v_CitaNotif = new Cita();
         ObservableCollection<C_NotaMed> v_medicamentos = new ObservableCollection<C_NotaMed>();
         ObservableCollection<Cita> v_citas = new ObservableCollection<Cita>();
-        public V_Cita(bool _medic)
+        public V_Cita(bool _medic, bool _tiene, Cita _nuevaCita)
         {
             InitializeComponent();
             v_medi = _medic;
             Fn_GetCitas();
+            if (_tiene)
+            {
+                v_CitaNotif = _nuevaCita;
+                Fn_Notif(_nuevaCita);
+            }
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Fn_GetCitas();
+            if (v_CitaNotif.v_estado == "-1")
+            {
+                Fn_GetCitas();
+            }
+        }
+        protected override void OnDisappearing()
+        {
+            if (v_CitaNotif.v_estado != "-1")
+            {
+                v_CitaNotif = new Cita();
+            }
+            base.OnDisappearing();
+        }
+        public async void Fn_Notif(Cita _nuevacita)
+        {
+            await Navigation.PushAsync(new V_NCita(_nuevacita, false));
         }
         private async void Fn_GetMedic()
         {
@@ -52,8 +72,8 @@ namespace Trato.Views
                     string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                    // await DisplayAlert("LLega get medicamentos", _respuesta, "acep");
                     v_medicamentos = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_respuesta);
-                    //Console.WriteLine("cuantos "+v_citas.Count+"json citaa " + _respuesta);
                     App.Fn_GuardarMedicamentos(v_medicamentos);
+
                 }
             }
             catch (HttpRequestException ex)
@@ -92,6 +112,11 @@ namespace Trato.Views
                         Fn_GetMedic();
                         Fn_GetTerminada();
                     }
+                    if (v_citas.Count < 1)
+                    {
+                        L_Error.IsVisible = true;
+                        L_Error.Text = "No tiene citas";
+                    }
                 }
             }
             catch (HttpRequestException ex)
@@ -104,8 +129,8 @@ namespace Trato.Views
                 }
                 else
                 {
-                    L_Error.Text = "Error de Conexion";
                     L_Error.IsVisible = true;
+                    L_Error.Text = "No tiene citas";
                 }
                 Ordenar();
                 ListaCita.ItemsSource = v_citas;

@@ -43,7 +43,7 @@ namespace Trato.Views
             string _DirEnviar = "http://tratoespecial.com/get_medicamentos.php";
             //await DisplayAlert("ENVIA PARA medicamentos", _json, "acep");
             StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
-            try
+            try 
             {
                 HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                 if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)

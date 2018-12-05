@@ -10,7 +10,8 @@ using Trato.Personas;
 using System.Net.Http;
 using Trato.Varios;
 using Newtonsoft.Json;
-
+using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 
 namespace Trato.Views
 {
@@ -270,5 +271,106 @@ namespace Trato.Views
 
         }
 
+
+
+        #region CAMBIO PASS
+
+
+        /// <summary>
+        /// mostrar panel pass
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_args"></param>
+        public void Fn_Reenviar(object sender, EventArgs _args)
+        {
+            StackContra.IsVisible = true;
+          //  PassCorreo.Text = "";
+           // PassMembre.Text = "";
+        }
+        /// <summary>
+        /// apaga el panel de contraseña
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="_args"></param>
+        public void Fn_APagaPass(object sender, EventArgs _args)
+        {
+            StackContra.IsVisible = false;
+        }
+        private async void Fn_CambioPass(object sender, EventArgs _args)
+        {
+            Button _buton = (Button)sender;
+            _buton.IsEnabled = false;
+            //correo
+            Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (string.IsNullOrEmpty(PassCorreo.Text) || string.IsNullOrWhiteSpace(PassCorreo.Text)  || !EmailRegex.IsMatch(PassCorreo.Text))
+            {
+                await DisplayAlert("Error", "Correo vacio o no contiene formato correcto", "Reintentar");
+            }
+            else if(string.IsNullOrEmpty(PassMembre.Text) || string.IsNullOrWhiteSpace(PassMembre.Text))
+            {
+                await DisplayAlert("Error", "Error en Membresia", "Reintentar");
+            }
+            else if (string.IsNullOrEmpty(PassFol.Text) || string.IsNullOrWhiteSpace(PassFol.Text))
+            {
+                await DisplayAlert("Error", "Error en Folio", "Reintentar");
+            }
+            else
+            {
+                string prime = PassMembre.Text.Split('-')[0];
+                string _membre = "";///los 4 numeros de la mebresia sin laletra
+                for (int i = 0; i < prime.Length - 1; i++)
+                {
+                    _membre += prime[i];
+                }
+                string letra = prime[prime.Length - 1].ToString();
+                string _conse = PassMembre.Text.Split('-')[1];
+
+                string json = @"{";
+                json += "correo:'" + App.Fn_Vacio(PassCorreo.Text) + "',\n";
+                json += "membre:'" + App.Fn_Vacio(_membre) + "',\n";
+                json += "letra:'" + App.Fn_Vacio(letra) + "',\n";
+                json += "consecutivo:'" + App.Fn_Vacio(_conse) + "',\n";
+                json += "folio:'" + App.Fn_Vacio(PassFol.Text) + "'\n";
+                json += "}";
+                JObject jsonper = JObject.Parse(json);
+
+                string _DirEnviar = "http://tratoespecial.com/restore_pass.php";
+                StringContent _content = new StringContent(jsonper.ToString(), Encoding.UTF8, "application/json");
+               // await DisplayAlert("Envia", jsonper.ToString(), "Envia");
+                HttpClient _client= new HttpClient();
+                try
+                {
+                    //mandar el json con el post
+                    HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                    string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    if(_respuesta=="0")
+                    {
+                        await DisplayAlert("Error", "Falló el correo", "Aceptar");
+                    }
+                    else if (_respuesta == "1")
+                    {
+                        await DisplayAlert("Exito", "Correo enviado correctamente", "Aceptar");
+                        Fn_APagaPass(null,null);
+                    }
+                    else if (_respuesta=="32")
+                    {
+                        await DisplayAlert("Error", "membresia no coincide con el correo", "Aceptar");
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", _respuesta, "Aceptar");
+                    }
+
+
+                }
+                catch (HttpRequestException exception)
+                {
+                    await DisplayAlert("Error", exception.Message, "Aceptar");
+                    Reinten.IsVisible = true;
+                }
+            }
+            _buton.IsEnabled = true;
+        }
+        #endregion
     }
 }

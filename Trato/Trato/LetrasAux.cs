@@ -17,11 +17,14 @@ namespace Trato
         /// los medicos pueden tener mas especialidades
         /// </summary>
         public const string v_redmedica2="medicos2";
-
         public const string v_serviciosmedicos = "servicios";
         public const string v_serviciosgenereales = "generales";
         public const string v_token="token";
         public const string v_citas = "citas";
         public const string v_Nota = "notaMed";
+        /// <summary>
+        /// Cita de notificacion
+        /// </summary>
+        public const string v_citaNot = "Notif";
     }
 }

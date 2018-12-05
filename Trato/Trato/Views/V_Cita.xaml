@@ -19,7 +19,7 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                    <Label  FontSize="Medium">
+                                <Label  FontSize="Medium">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="Especialidad: " TextColor="{StaticResource NavigationPrimary}" />
@@ -27,7 +27,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label FontSize="Medium" >
+                                <Label FontSize="Medium" >
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="Fecha: " TextColor="{StaticResource NavigationPrimary}"/>
@@ -35,7 +35,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Label FontSize="Medium" >
+                                <Label FontSize="Medium" >
                                          <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="Estado: " TextColor="{StaticResource NavigationPrimary}"/>

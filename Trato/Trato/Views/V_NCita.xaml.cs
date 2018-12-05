@@ -11,6 +11,12 @@ using Trato.Varios;
 using Newtonsoft.Json;
 using System.Net.Http;
 
+//para agregar loos eventos al calendario
+using Plugin.Calendars;
+using Plugin.Calendars.Abstractions;
+//para agregar loos eventos al calendario
+
+
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -20,6 +26,28 @@ namespace Trato.Views
         Cita v_cita;
         bool v_nueva;
         string _esta;
+
+
+        public V_NCita(Cita _cita, bool _nueva)
+        {
+            InitializeComponent();
+            v_nueva = _nueva;
+            v_cita = _cita;
+            v_cita.Fn_SetValores();
+            v_fecha.Date = v_cita.v_fechaDate;
+            v_fecha.MinimumDate = DateTime.Now;
+            v_fecha.MaximumDate = v_fecha.MinimumDate.AddMonths(1);
+            v_fecha.IsEnabled = false;
+            v_hora.IsEnabled = false;
+            v_hora.Time = v_cita.v_hora;
+            _esta = v_cita.v_estado;
+            int _a = int.Parse(v_cita.v_estado);
+            v_estado.Text = ((EstadoCita)_a).ToString();
+            v_nombre.Text = v_cita.v_nombrePaciente;
+            Fn_Botones(v_cita.v_estado);
+            App.Fn_Borra();
+        }
+
         public V_NCita( C_Medico _medico)
         {
             InitializeComponent();
@@ -126,6 +154,7 @@ namespace Trato.Views
                         v_botAcep.IsEnabled = false;
                         v_botCambio.IsEnabled = false;
                         v_botRec.IsEnabled = true;
+                        Fn_Calendario(v_cita.v_fechaDate, v_cita.v_hora);
                     }
                     break;
                 case "4"://cancelada
@@ -144,7 +173,7 @@ namespace Trato.Views
         private async void Fn_ActualizarInfo(string _nuevoestado)
         {
             Fn_Botones("4");
-            Cita _cita = new Cita(_nuevoestado, v_fecha.Date, v_hora.Time, v_cita.v_idCita);
+            Cita _cita = new Cita(_nuevoestado, v_fecha.Date, v_hora.Time, v_cita.v_idCita,"0");
             string _json = JsonConvert.SerializeObject(_cita, Formatting.Indented);
           //  await DisplayAlert("Enviar", _json, "aceptar");
             HttpClient _client = new HttpClient();
@@ -159,6 +188,12 @@ namespace Trato.Views
                     if (_respuesta == "1")
                     {
                         await DisplayAlert("Exito", "Cambios generados correctamente", "Aceptar");
+                        ///aca tomar el nuevo estado y ver si es 3(aceptadaa), agregar el evento al calaendario, la cita
+                        ///recoordatorio de horas antes y de 1 dia antes
+                        if(_nuevoestado=="3")
+                        {
+                            Fn_Calendario(v_fecha.Date, v_hora.Time);
+                        }
                         await Navigation.PopAsync();
                     }
                     else
@@ -211,6 +246,68 @@ namespace Trato.Views
             Fn_Botones(_esta);
             StackPendiente.IsVisible = false;
             StackTre.IsVisible = true;
+        }
+
+        /// <summary>
+        /// agrega la cita a tu calendario
+        /// </summary>
+        private async void Fn_Calendario(DateTime _fecha, TimeSpan _hora)
+        {
+            //los calendarios en el telefono,   el 0 es el calendario del sistema
+            var TodosCalen = await CrossCalendars.Current.GetCalendarsAsync();
+
+            //crear recordatorios
+            //List<CalendarEventReminder> _lista = new List<CalendarEventReminder>();
+            //CalendarEventReminder _va = new CalendarEventReminder();
+            //_va.Method = CalendarReminderMethod.Alert;
+            //_va.TimeBefore = new TimeSpan(24, 0, 0);
+            //_lista.Add(_va);
+            //_va.TimeBefore = new TimeSpan(2, 0, 0);
+            //_lista.Add(_va);
+            //_va.TimeBefore = new TimeSpan(0, 10, 0);
+            //_lista.Add(_va);
+
+
+
+            //DateTime _final = new DateTime(_fecha.Year, _fecha.Month, _fecha.Day, _hora.Hours, _hora.Minutes, _hora.Seconds);
+
+            ////info a mostrar en la agenda
+            //var calendarEvent = new CalendarEvent
+            //{
+            //    Name = "Cita desde Trato Especial",
+            //    Start = _final,
+            //    //End = DateTime.Now.AddHours(1),
+            //    End =_final.AddHours(1),
+            //    Description = "Tienes agendada una cita con " + v_cita.v_nombreDR,
+            //    Reminders = new List<CalendarEventReminder>()
+            //    {
+            //        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(24, 0, 0) },
+            //        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(2, 0, 0) },
+            //        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 10, 0) },
+            //        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 30, 0) }
+            //    },
+            //    AllDay = false
+            //};
+
+            //if(TodosCalen[0].ExternalID  .Contains(calendarEvent))
+            //{
+
+            //}
+
+            Calendar _nuevoCal = new Calendar()
+            {
+                AccountName = "Trato Especial", Name = "Trato Especial", Color = "2896D1"
+
+            };
+
+            if(!TodosCalen.Contains(_nuevoCal))
+            {
+            await CrossCalendars.Current.AddOrUpdateCalendarAsync(_nuevoCal);
+
+            }
+
+            //agregarlo
+            //await CrossCalendars.Current.AddOrUpdateEventAsync(TodosCalen[0], calendarEvent);
         }
     }
 }

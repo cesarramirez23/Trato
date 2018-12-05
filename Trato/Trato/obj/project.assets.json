@@ -2,6 +2,17 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "CClarke.Plugin.Calendars/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/Plugin.Calendars.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Calendars.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Calendars.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Calendars.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -112,6 +123,37 @@
     }
   },
   "libraries": {
+    "CClarke.Plugin.Calendars/1.0.0": {
+      "sha512": "lyA+3cDBYDA0t8ruy5AIYAE7X+3ZzagdRY5mVNXyFuZBjS+DPwMjqXSKiI06m75LIks0NCdRRESofo5PLMew3Q==",
+      "type": "package",
+      "path": "cclarke.plugin.calendars/1.0.0",
+      "files": [
+        ".signature.p7s",
+        "cclarke.plugin.calendars.1.0.0.nupkg.sha512",
+        "cclarke.plugin.calendars.nuspec",
+        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Calendars.dll",
+        "lib/MonoAndroid10/Plugin.Calendars.xml",
+        "lib/UAP10/Plugin.Calendars.Abstractions.dll",
+        "lib/UAP10/Plugin.Calendars.Abstractions.pdb",
+        "lib/UAP10/Plugin.Calendars.Abstractions.xml",
+        "lib/UAP10/Plugin.Calendars.dll",
+        "lib/UAP10/Plugin.Calendars.pdb",
+        "lib/UAP10/Plugin.Calendars.xml",
+        "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Calendars.dll",
+        "lib/Xamarin.iOS10/Plugin.Calendars.xml",
+        "lib/netstandard1.0/Plugin.Calendars.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Calendars.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Calendars.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.Calendars.dll",
+        "lib/netstandard1.0/Plugin.Calendars.pdb",
+        "lib/netstandard1.0/Plugin.Calendars.xml"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -526,6 +568,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "CClarke.Plugin.Calendars >= 1.0.0",
       "NETStandard.Library >= 2.0.1",
       "NUnit >= 3.11.0",
       "Newtonsoft.Json >= 11.0.2",
@@ -576,6 +619,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "CClarke.Plugin.Calendars": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",

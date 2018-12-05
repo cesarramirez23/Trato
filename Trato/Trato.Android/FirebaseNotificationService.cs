@@ -66,6 +66,7 @@ namespace Trato.Droid
         "image": "",
         "action": "",
         "action_destination": "",
+        "estadoo":"1"
         "data": {
             "extra": "info extra 1\nngvjhfgujhg\nngvjhfgujh\nngvjhfgujhg\nngvjhfgujhg",
             "extra2": "info extra 22222ojbgjkhv jkhv jkhvbjkhvjkhvbkuhjkvjkvjk"
@@ -91,11 +92,36 @@ namespace Trato.Droid
                 _minotif = new C_Notificacion(message.GetNotification().Title, message.GetNotification().Body);
             }
 
-            if (message.Data.ContainsKey("estado"))//tiene la info para la cita
+            if (message.Data.ContainsKey("data"))//tiene la info para la cita
             {
-                //_minotif.v_titulo += "--  " + (EstadoCita)int.Parse(message.Data["estado"]);
-                //SendNotification(_minotif.v_cuerpo, _minotif.v_titulo);
-
+                //Cita _citaActual = new Cita(message.Data["estado"]);
+                Cita _citaActual = JsonConvert.DeserializeObject<Cita>(message.Data["data"]);
+                Console.Write("info cita" + _citaActual.Fn_GetInfo());
+                _citaActual.Fn_SetValores();
+                App.Fn_SetCita(_citaActual);
+                string _titulo="";
+                string _mensaje = "";
+                if (_citaActual.v_estado == "0")
+                {
+                    _titulo = "Aviso de cita";
+                    _mensaje = "Se ha Terminado una cita";
+                }
+                else if (_citaActual.v_estado == "2")
+                {
+                    _titulo = "Aviso de cita";
+                    _mensaje = "Se ha reagendado una cita";
+                }
+                else if (_citaActual.v_estado == "3")
+                {
+                    _titulo = "Aviso de cita";
+                    _mensaje = "Se ha aceptado una cita";
+                }
+                else if (_citaActual.v_estado == "4")
+                {
+                    _titulo = "Aviso de cita";
+                    _mensaje = "Se ha cancelado una cita";
+                }
+                SendNotification(_mensaje, _titulo);
             }
             else//es una nootif normal, solo mensaje y titulo
             {
@@ -171,13 +197,13 @@ namespace Trato.Droid
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
-
+            //intent.PutExtra
             var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
             //Bitmap largeIcon = BitmapFactory.DecodeResource(Resources, Resource.Drawable.ICONOAPP);
 
             var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
-                .SetSmallIcon(Resource.Drawable.Logo_Redondo_512x512_Blanco)
+                .SetSmallIcon(Resource.Drawable.Logo_Redondo_512x512_Blanco)//color
                // .SetLargeIcon(largeIcon)
                 .SetContentTitle(_titulo)
                 .SetContentText(messageBody)

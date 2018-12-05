@@ -2,6 +2,17 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v8.1": {
+      "CClarke.Plugin.Calendars/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/Plugin.Calendars.Abstractions.dll": {},
+          "lib/MonoAndroid10/Plugin.Calendars.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/Plugin.Calendars.Abstractions.dll": {},
+          "lib/MonoAndroid10/Plugin.Calendars.dll": {}
+        }
+      },
       "FastAndroidCamera/2.0.0": {
         "type": "package",
         "compile": {
@@ -600,6 +611,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "CClarke.Plugin.Calendars": "1.0.0",
           "NUnit": "3.11.0",
           "Newtonsoft.Json": "11.0.2",
           "PayPal.Forms": "2.18.3",
@@ -617,6 +629,37 @@
     }
   },
   "libraries": {
+    "CClarke.Plugin.Calendars/1.0.0": {
+      "sha512": "lyA+3cDBYDA0t8ruy5AIYAE7X+3ZzagdRY5mVNXyFuZBjS+DPwMjqXSKiI06m75LIks0NCdRRESofo5PLMew3Q==",
+      "type": "package",
+      "path": "cclarke.plugin.calendars/1.0.0",
+      "files": [
+        ".signature.p7s",
+        "cclarke.plugin.calendars.1.0.0.nupkg.sha512",
+        "cclarke.plugin.calendars.nuspec",
+        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Calendars.dll",
+        "lib/MonoAndroid10/Plugin.Calendars.xml",
+        "lib/UAP10/Plugin.Calendars.Abstractions.dll",
+        "lib/UAP10/Plugin.Calendars.Abstractions.pdb",
+        "lib/UAP10/Plugin.Calendars.Abstractions.xml",
+        "lib/UAP10/Plugin.Calendars.dll",
+        "lib/UAP10/Plugin.Calendars.pdb",
+        "lib/UAP10/Plugin.Calendars.xml",
+        "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Calendars.dll",
+        "lib/Xamarin.iOS10/Plugin.Calendars.xml",
+        "lib/netstandard1.0/Plugin.Calendars.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Calendars.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Calendars.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.Calendars.dll",
+        "lib/netstandard1.0/Plugin.Calendars.pdb",
+        "lib/netstandard1.0/Plugin.Calendars.xml"
+      ]
+    },
     "FastAndroidCamera/2.0.0": {
       "sha512": "RQix6VHmVyQXVdP3Y4+Khw1F7HirONNCa5ubGng58gUkmSAhlS4t1Qf1Biyfakx/LjCYJ3SZ99rWSjQgV15uVQ==",
       "type": "package",
@@ -1429,6 +1472,7 @@
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
+      "CClarke.Plugin.Calendars >= 1.0.0",
       "NUnit >= 3.11.0",
       "Newtonsoft.Json >= 11.0.2",
       "PayPal.Forms >= 2.18.3",
@@ -1482,6 +1526,10 @@
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
+          "CClarke.Plugin.Calendars": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "NUnit": {
             "target": "Package",
             "version": "[3.11.0, )"

@@ -50,7 +50,6 @@ C:/Users/CesarAugusto/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\bin\Debug\netstandard2.0\Trato.deps.json
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\bin\Debug\netstandard2.0\Trato.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\bin\Debug\netstandard2.0\Trato.pdb
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.csprojAssemblyReference.cache
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_Buscador.xaml.g.cs
@@ -69,7 +68,8 @@ C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Vi
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.csproj.CoreCompileInputs.cache
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.AssemblyInfoInputs.cache
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.AssemblyInfo.cs
-C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.dll
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.pdb
 C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_Medicamento.xaml.g.cs
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.csprojAssemblyReference.cache
+C:\Users\AlsainVR\Documents\GitHub\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp

@@ -521,6 +521,10 @@ namespace Trato.Personas
         public string v_vig;
 
 
+        [JsonProperty("citas")]
+        public string v_cita;
+
+
         public bool Fn_GetActivado()
         {
             if(v_activo=="1")

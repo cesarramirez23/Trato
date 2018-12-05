@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CClarke.Plugin.Calendars" Version="1.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="NUnit" Version="3.11.0" />
     <PackageReference Include="PayPal.Forms" Version="2.18.3" />

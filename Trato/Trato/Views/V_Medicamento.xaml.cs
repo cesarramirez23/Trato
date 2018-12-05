@@ -83,9 +83,9 @@ namespace Trato.Views
                     }
                 }
             }
-            else if(_medi.v_estado=="1")
+            else if(_medi.v_estado=="1")//terminar tratamiento
             {
-                bool _res = await DisplayAlert("Iniciar Tratamiento", "Seguro de iniciar", "Continuar", "Cancelar");
+                bool _res = await DisplayAlert("Terminar Tratamiento", "Seguro de Terminar", "Continuar", "Cancelar");
                 if (_res)
                 {
                     HttpClient _client = new HttpClient();

@@ -29,18 +29,6 @@ namespace Trato.Droid
             Log.Debug(TAG, "Refreshed token: " + refreshedToken);
             Console.WriteLine("Refreshed token: " + refreshedToken);
             App.Fn_SetToken(refreshedToken);
-            /*TOKEN 22/10/2018
-             * SXz8GAZVcU:APA91bEc1eHJUmWRiWMahRYUmObMl-8PM_dVoyXqxBb3rx9IdAbM8nCJXupKp4QQuT_PhHwMLHkJHYplyMwjK065Ra1kvzz0h3LvQA5ObcX8ix0ITAG73cP_JploOHsQTaVlhkpk6lv0
-             * 
-             * HACE EL REFRESH CUANDO SE INSTALA Y TAMBIEN CUANDO BORRAS LOS DATOS DESDE EL TELEFONO,
-             * NOOOOO CUANDO SE HACE DESDE ACA EL CLEAR PROPERTIES
-             * 
-             * 
-             * 
-            guardar este token, al hacer la cita mandar a base mi propio toke y los datos del doctor,
-            el doctor debe tenr su propio token , entonces mandarle la notif al doctor junto con el json del paciente y su token
-            aceptar o no se reenvia el mensaje al topke delpaciente
-            */
         }
 
     }

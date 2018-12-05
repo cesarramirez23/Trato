@@ -58,7 +58,7 @@ namespace Trato.Varios
         [JsonProperty("ID_Dr")]
         public string v_doctorId { get; set; }
         [JsonProperty("espe")]
-        public ObservableCollection<C_EspeTitu> v_espe;
+        public ObservableCollection<C_EspeTitu> v_espe= new ObservableCollection<C_EspeTitu>();
         public string v_especialidad { get; set; }
         /// <summary>
         /// membresia completa  1810I-0558
@@ -100,7 +100,7 @@ namespace Trato.Varios
         [JsonProperty("ID_cita")]
         public string v_idCita { get; set; }
 
-        public Cita() { }
+        public Cita() { v_estado = "-1"; }
         public Cita(string _membre, string _folio, string _tipo)
         {
             v_tipo = _tipo;
@@ -156,13 +156,13 @@ namespace Trato.Varios
             v_fecha = _fecha.Year.ToString() + "-" + _month + "-" + _day;
         }
         /// <summary>
-        /// para el update
+        /// para el update, tipo al que se le envia
         /// </summary>
         /// <param name="_estado"></param>
         /// <param name="_fecha"></param>
         /// <param name="_hora"></param>
         /// <param name="_idcita"></param>
-        public Cita(string _estado, DateTime _fecha, TimeSpan _hora, string _idcita)
+        public Cita(string _estado, DateTime _fecha, TimeSpan _hora, string _idcita,string _tipo)
         {
             v_idCita = _idcita;
             v_estado = _estado;
@@ -186,8 +186,25 @@ namespace Trato.Varios
                 _day = _fecha.Day.ToString();
             }
             v_fecha = _fecha.Year.ToString() + "-" + _month + "-" + _day;
+            v_tipo = _tipo;
         }
+        /// <summary>
+        /// prueba de notification
+        /// </summary>
+        /// <param name="_estado"></param>
+        public Cita(string _estado)
+        {
+            v_doctorId = "1808D-0008";
+            v_pacienteId = "1810I-0558";
+            v_folio = "0";
+            v_estado = _estado;
+            v_hora = DateTime.Now.TimeOfDay;
+            v_fecha = DateTime.Now.Date.Year + "-" + DateTime.Now.Date.Month + "-" + DateTime.Now.Date.Day;
+            v_fechaDate = DateTime.Now.Date;
 
+            v_nombreDR = "prueba notif";
+            v_nombrePaciente = "Prueba notif paciente";
+        }
         /// <summary>
         /// en la opantalla de citas colores
         /// </summary>
@@ -220,18 +237,29 @@ namespace Trato.Varios
         }
         public void Fn_SetValores()
         {
-            int _a = int.Parse(v_estado);
+           int _a = int.Parse(v_estado);
             v_Estadocita = ((EstadoCita)_a).ToString();
+            /*if (v_fechaDate== null)
+            {
+            }*/
             string[] _fecha = v_fecha.Split('-');//month day year
-            v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]), 
-                                        v_hora.Hours,v_hora.Minutes,v_hora.Seconds);
-
+            v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]),
+                                       v_hora.Hours, v_hora.Minutes, v_hora.Seconds);
             v_especialidad = "";
             for(int i=0; i<v_espe.Count; i++)
             {
                 v_especialidad += v_espe[i].v_nombreEspec;
             }
         }
+
+        public string Fn_GetInfo()
+        {
+            string _ret = v_doctorId + "   " + v_especialidad + "  " + v_pacienteId + " " + v_folio + " " + v_estado + " " + v_fecha + " " +
+                v_fechaDate + " " + v_hora + " " + v_nombreDR + " " + v_nombrePaciente + " " + v_tokenDR + " " +
+                v_tokenPaciente + " " + v_tipo + " " + v_idCita;
+            return _ret;
+    }
+
     }
     public class Pagar
     {
@@ -308,12 +336,12 @@ letra
         public float v_tiempo { get; set; }
         [JsonProperty("extra")]
         public string v_extra { get; set; }
-        [JsonProperty("estado")]
-        public string v_estado { get; set; }
         [JsonProperty("ID_cita")]
         public string v_idCita { get; set; }
         [JsonProperty("id")]
         public string v_idMedi { get; set; }
+        [JsonProperty("estado")]
+        public string v_estado { get; set; }
         [JsonIgnore]
         public string v_texto { get; set; }
 

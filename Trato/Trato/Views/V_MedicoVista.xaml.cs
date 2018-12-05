@@ -51,6 +51,7 @@ namespace Trato.Views
 
             //
 
+            //if(v_medico.v_cita=="1" && App.v_log == "1")
             if (App.v_log == "1")
             {
                 boton.IsVisible = true;

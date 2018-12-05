@@ -17,10 +17,7 @@ using PayPal.Forms;
 using Android.Content;
 
 /*
- empre   1809E-0005     58de8a    nom
-         1809F-0014     44d2fa      nom fami
-         1809I-0015     ef02e3      Indivi
-     
+https://stackoverflow.com/questions/40181654/firebase-fcm-open-activity-and-pass-data-on-notification-click-android/40185654
      */
 namespace Trato.Droid
 {

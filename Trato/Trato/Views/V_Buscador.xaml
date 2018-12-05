@@ -52,9 +52,9 @@
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource White}">
                                         <Image x:Name="imgSexo" HorizontalOptions="Start" 
                                                HeightRequest="100" WidthRequest="100" VerticalOptions="Center" >
-                                        <Image.Source>
-                                            <UriImageSource Uri="{Binding v_img}" CacheValidity="5" CachingEnabled="True"></UriImageSource>
-                                        </Image.Source>
+                                            <Image.Source>
+                                                <UriImageSource Uri="{Binding v_img}"/><!-- CacheValidity="2" CachingEnabled="True"></UriImageSource>-->
+                                            </Image.Source>
                                         </Image>
                                         <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" BackgroundColor="{StaticResource White}">
                                             <Label Text="{Binding v_completo}" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource NavigationPrimary}"/>
@@ -85,7 +85,7 @@
                     </Grid.RowDefinitions>
                     <Button Text="Cancelar" Clicked="Fn_Cancelar" Style="{StaticResource Buton2}" 
                                 Grid.Column="0" Grid.ColumnSpan="1"></Button>
-                    <Button Text="Aceptar" Clicked="Fn_Aceptar" Style="{StaticResource Buton2}"
+                    <Button Text="Buscar" Clicked="Fn_Aceptar" Style="{StaticResource Buton2}"
                                 Grid.Column="1" Grid.ColumnSpan="1"></Button>
                     <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Buton2}"
                                 Grid.Column="2" Grid.ColumnSpan="1"></Button>

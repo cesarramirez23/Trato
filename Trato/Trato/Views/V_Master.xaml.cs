@@ -36,16 +36,29 @@ namespace Trato.Views
             {
                 StackLog.IsVisible = true;
                 App.Fn_CargarDatos();
-                Detail.Title = _title;
+                //Detail.Title = _title;
                 StackPrin.IsVisible = false;
+                if (App.Fn_GetCita())
+                {
+                    string _json = App.Current.Properties[NombresAux.v_citaNot] as string;
+                    App.v_nueva = JsonConvert.DeserializeObject<Varios.Cita>(_json);
+                    IsPresented = false;
+                    Detail = new NavigationPage(new V_Cita(false,true, App.v_nueva) { Title = "Citas" });
+                }
+                else
+                {
+                    IsPresented = false;
+                    Detail = new NavigationPage(new MainPage() { Title = _title });
+                }
             }
             else
             {
                 StackPrin.IsVisible = true;
                 StackLog.IsVisible = false;
+                IsPresented = false;
+                Detail = new NavigationPage(new MainPage() { Title = _title });
             }
-            IsPresented = false;
-            Detail = new NavigationPage(new MainPage() {Title=_title });
+           
         }
 
         public async void A()
@@ -62,12 +75,12 @@ namespace Trato.Views
         {
             IsPresented = false;
             Console.Write("medicam   ---- true");
-            Detail = new NavigationPage(new V_Cita(false) { Title = "CITAS" });
+            Detail = new NavigationPage(new V_Cita(false,false,null) { Title = "CITAS" });
         }
         public void Fn_Medicamentos(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Cita(true) { Title = "MEDICAMENTOS" });
+            Detail = new NavigationPage(new V_Cita(true,false,null) { Title = "MEDICAMENTOS" });
         }
         
         public void Fn_Medicos(object sender, EventArgs _args)

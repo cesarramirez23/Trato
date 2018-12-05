@@ -12,12 +12,14 @@ namespace Trato
 {
     public partial class App : Application
     {
+        #region Listas de servicios y citas
         public static ObservableCollection<C_Medico> v_medicos = new ObservableCollection<C_Medico>();
         public static ObservableCollection<C_Servicios> v_servicios = new ObservableCollection<C_Servicios>();
         public static ObservableCollection<C_ServGenerales> v_generales = new ObservableCollection<C_ServGenerales>();
         public static ObservableCollection<Cita> v_citas = new ObservableCollection<Cita>();
         public static ObservableCollection<C_NotaMed> v_NotasMedic = new ObservableCollection<C_NotaMed>();
-
+        #endregion
+        #region PErfil y cosas propias para el login
         /// <summary>
         /// Perfil General
         /// </summary>
@@ -39,11 +41,85 @@ namespace Trato
         /// 0 no esta logeado 1 logeado
         /// </summary>
         public static string v_log;
+
+        #endregion
+
+        #region Propias de la app
+
         public App()
         {
             InitializeComponent();
             // App.Current.MainPage = new V_Master(false,"no properties");
         }
+        protected override void OnStart()
+        {    //existe la variable guardada
+            //Properties.Clear();
+            if (Properties.ContainsKey(NombresAux.v_log))
+            {
+                //lee el valor guardado
+                v_log = Current.Properties[NombresAux.v_log] as string;
+                if (v_log == "0")
+                {//no esta logeado
+                    v_perfil = new C_PerfilGen();
+                    v_perfMed = new C_PerfilMed();
+                    v_membresia = "";
+                    v_folio = "";
+                    v_letra = "";
+                    string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                    Properties[NombresAux.v_perfGen]= _json;
+                    _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+                    Properties[NombresAux.v_perMed] = _json;
+                    Properties[NombresAux.v_letra] = v_letra;
+                    Properties[NombresAux.v_membre] = v_membresia;
+                    Properties[NombresAux.v_folio] = v_folio;
+                    //Fn_CargarListas();
+                    MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+                }//si esta logeado
+                else if (v_log == "1")
+                {
+                    /*if(v_log=="1" && Fn_GEtToken()=="a")
+                    {
+                        Fn_CerrarSesion();
+                        MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+                    }*/
+                    //  Fn_CargarDatos();
+                    if (!Current.Properties.ContainsKey(NombresAux.v_perfGen))
+                    {
+                        v_perfil = new C_PerfilGen();
+                        string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                        Current.Properties.Add(NombresAux.v_perfGen, "");
+                        Current.Properties[NombresAux.v_perfGen] = _json;
+                    }
+                    else
+                    {
+                        string _jsonGen = Current.Properties[NombresAux.v_perfGen] as string;
+                        v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
+                    }
+                    MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
+
+                }
+                else
+                {
+                    MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+                }
+            }
+            else//es la primera ve que abre la app
+            {
+                v_log = "0";
+                v_perfil = new C_PerfilGen();
+                v_perfMed = new C_PerfilMed();
+                v_folio = "";
+                v_letra = "";
+                v_membresia = "";
+                Fn_CrearKey();
+                Fn_CargarListas();
+                App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+            }
+        }
+        protected override void OnSleep(){}
+        protected override void OnResume() {}
+        #endregion
+
         #region CCARGA DE DATOS DESDE  EL PROPERTIES
         async void Fn_CrearKey()
         {
@@ -115,6 +191,13 @@ namespace Trato
                 string _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
                 Current.Properties.Add(NombresAux.v_Nota, "");
                 Current.Properties[NombresAux.v_Nota] = _json;
+            }
+            //CIta para la notif
+            if (!Properties.ContainsKey(NombresAux.v_citaNot))
+            {
+                v_nueva = new Cita();
+                string _json = JsonConvert.SerializeObject(v_nueva);
+                Properties.Add(NombresAux.v_citaNot, _json);
             }
             await Current.SavePropertiesAsync();
         }
@@ -445,6 +528,8 @@ namespace Trato
             await Current.SavePropertiesAsync();
         }
         #endregion
+
+        #region Varios
         public static async void Fn_CerrarSesion()
         {
             v_perfil = new C_PerfilGen();
@@ -500,97 +585,9 @@ namespace Trato
                 return _valor;
             }
         }
-        protected override void OnStart()
-        {    //existe la variable guardada
-            //Properties.Clear();
-            if (Properties.ContainsKey(NombresAux.v_log))
-            {
-                //lee el valor guardado
-                v_log = Current.Properties[NombresAux.v_log] as string;
-                if (v_log == "0")
-                {//no esta logeado
-                    v_perfil = new C_PerfilGen();
-                    v_perfMed = new C_PerfilMed();
-                    v_membresia = "";
-                    v_folio = "";
-                    v_letra = "";
-                    string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
-                    Properties[NombresAux.v_perfGen]= _json;
-                    _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
-                    Properties[NombresAux.v_perMed] = _json;
-                    Properties[NombresAux.v_letra] = v_letra;
-                    Properties[NombresAux.v_membre] = v_membresia;
-                    Properties[NombresAux.v_folio] = v_folio;
-                    //Fn_CargarListas();
-                    MainPage = new V_Master(false, "Bienvenido a Trato Especial");
-                }//si esta logeado
-                else if (v_log == "1")
-                {
-                    /*if(v_log=="1" && Fn_GEtToken()=="a")
-                    {
-                        Fn_CerrarSesion();
-                        MainPage = new V_Master(false, "Bienvenido a Trato Especial");
-                    }*/
-                    //  Fn_CargarDatos();
-                    if (!Current.Properties.ContainsKey(NombresAux.v_perfGen))
-                    {
-                        v_perfil = new C_PerfilGen();
-                        string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
-                        Current.Properties.Add(NombresAux.v_perfGen, "");
-                        Current.Properties[NombresAux.v_perfGen] = _json;
-                    }
-                    else
-                    {
-                        string _jsonGen = Current.Properties[NombresAux.v_perfGen] as string;
-                        v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
-                    }
-                    MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
+        #endregion
 
-                }
-                else
-                {
-                    MainPage = new V_Master(false, "Bienvenido a Trato Especial");
-                }
-            }
-            else//es la primera ve que abre la app
-            {
-                v_log = "0";
-                v_perfil = new C_PerfilGen();
-                v_perfMed = new C_PerfilMed();
-                v_folio = "";
-                v_letra = "";
-                v_membresia = "";
-                Fn_CrearKey();
-                Fn_CargarListas();
-                App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
-            }
-        }
-        protected override void OnSleep(){}
-        protected override void OnResume() {}
-        public static async void Fn_SetToken(string _token)
-        {
-            if (Current.Properties.ContainsKey(NombresAux.v_token))
-            {
-                Current.Properties[NombresAux.v_token] = _token;
-            }
-            else
-            {
-                Current.Properties.Add(NombresAux.v_token, "");
-                Current.Properties[NombresAux.v_token] = _token;
-            }
-            await Current.SavePropertiesAsync();
-        }
-        public static string Fn_GEtToken()
-        {
-            if (Current.Properties.ContainsKey(NombresAux.v_token))
-            {
-                return Current.Properties[NombresAux.v_token].ToString();
-            }
-            else
-            {
-                return "a";
-            }
-        }
+        #region Coosas de la cita
         public static ObservableCollection<Medicamentos> Fn_GetMedic(string _idcita)
         {
             bool _re = false;
@@ -617,5 +614,87 @@ namespace Trato
             }
             return _nombre;
         }
+        #endregion
+
+        #region Notificaciones
+        /// <summary>
+        /// la cita desde la notif
+        /// </summary>
+        public static Cita v_nueva;
+        /// <summary>
+        /// cuando lo pones desde la notif
+        /// </summary>
+        public static async void Fn_SetCita(Cita _nueva)
+        {
+            v_nueva = _nueva;
+            string _json = JsonConvert.SerializeObject(v_nueva);
+            if (Current.Properties.ContainsKey(NombresAux.v_citaNot))
+            {
+                Current.Properties[NombresAux.v_citaNot] = _json;
+            }
+            else
+            {
+                Current.Properties.Add(NombresAux.v_citaNot, "");
+                Current.Properties[NombresAux.v_citaNot] = _json;
+            }
+            await Current.SavePropertiesAsync();
+            await Task.Delay(100);
+        }
+        /// <summary>
+        /// get cita de la notif
+        /// </summary>
+        /// <returns></returns>
+        public static bool Fn_GetCita()
+        {
+            if (Current.Properties.ContainsKey(NombresAux.v_citaNot))
+            {
+                string _json = Current.Properties[NombresAux.v_citaNot] as string;
+                v_nueva = JsonConvert.DeserializeObject<Cita>(_json);
+                if (v_nueva.v_estado != "-1")//tiene valores
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public async static void Fn_Borra()
+        {
+            v_nueva = new Cita();
+            string _json = JsonConvert.SerializeObject(v_nueva);
+            Current.Properties[NombresAux.v_citaNot] = _json;
+            await Current.SavePropertiesAsync();
+        }
+        public static async void Fn_SetToken(string _token)
+        {
+            if (Current.Properties.ContainsKey(NombresAux.v_token))
+            {
+                Current.Properties[NombresAux.v_token] = _token;
+            }
+            else
+            {
+                Current.Properties.Add(NombresAux.v_token, "");
+                Current.Properties[NombresAux.v_token] = _token;
+            }
+            await Current.SavePropertiesAsync();
+        }
+        public static string Fn_GEtToken()
+        {
+            if (Current.Properties.ContainsKey(NombresAux.v_token))
+            {
+                return Current.Properties[NombresAux.v_token].ToString();
+            }
+            else
+            {
+                return "a";
+            }
+        }
+        #endregion
     }
 }
