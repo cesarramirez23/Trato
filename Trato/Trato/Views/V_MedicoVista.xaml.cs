@@ -41,6 +41,14 @@ namespace Trato.Views
                 + "\nCorreo: " + v_medico.v_Correo +
             "\nHorario: "+ v_medico.v_horario+
             "\nCedula Profesional: "+v_medico.v_cedula;*/
+            if (!string.IsNullOrEmpty(v_medico.v_horario))
+            {
+                string _hor = v_medico.v_horario.Replace('-', ':');
+                string[] _split = _hor.Split('/');
+                info.Text += "\nHorario de consulta: " + _split[0] + " a " + _split[1];
+            }
+
+
             img.Source = v_medico.v_img;
             string conespacio = v_medico.v_descripcion.Replace("/n", Environment.NewLine);
             descrip.Text = " " + conespacio;
@@ -51,8 +59,8 @@ namespace Trato.Views
 
             //
 
-            //if(v_medico.v_cita=="1" && App.v_log == "1")
-            if (App.v_log == "1")
+            //if (App.v_log == "1")
+            if(v_medico.v_cita=="1" && App.v_log == "1")
             {
                 boton.IsVisible = true;
             }

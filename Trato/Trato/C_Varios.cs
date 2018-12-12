@@ -80,6 +80,7 @@ namespace Trato.Varios
         /// </summary>
         [JsonProperty("fecha")]
         public string v_fecha { get; set; }
+        [JsonIgnore]
         public DateTime v_fechaDate { get; set; }
         [JsonProperty("hora")]
         public TimeSpan v_hora { get; set; }
@@ -99,6 +100,9 @@ namespace Trato.Varios
         public string v_tipo { get; set; }
         [JsonProperty("ID_cita")]
         public string v_idCita { get; set; }
+
+        [JsonProperty("idcalendario")]
+        public string v_idCalendar;
 
         public Cita() { v_estado = "-1"; }
         public Cita(string _membre, string _folio, string _tipo)
@@ -127,14 +131,14 @@ namespace Trato.Varios
         /// <param name="_fecha"></param>
         /// <param name="_hora"></param>
         /// <param name="_tokenPac"></param>
-        public Cita(string _membredr, string _membrepac, string _folio, string _estado, DateTime _fecha, TimeSpan _hora, string _tokenPac)
+        public Cita(string _membredr, string _membrepac, string _folio, string _estado, DateTime _fecha, TimeSpan _hora, string _tokenDoc)
         {
             v_doctorId = _membredr;
             v_pacienteId = _membrepac;
             v_folio = _folio;
             v_estado = _estado;
             v_hora = _hora;
-            v_tokenPaciente = _tokenPac;
+            v_tokenDR = _tokenDoc;
             string _month = "";
             if (_fecha.Month < 10)
             {
@@ -154,6 +158,7 @@ namespace Trato.Varios
                 _day = _fecha.Day.ToString();
             }
             v_fecha = _fecha.Year.ToString() + "-" + _month + "-" + _day;
+            v_fechaDate = _fecha;
         }
         /// <summary>
         /// para el update, tipo al que se le envia
@@ -210,7 +215,8 @@ namespace Trato.Varios
         /// </summary>
         [JsonIgnore]
         public Color v_color { get; set; }
-
+        [JsonIgnore]
+        public bool v_visible { get; set; }
         /// <summary>
         /// el string  Terminada=0,Nueva=1,Pendiente=2,Aceptada=3,Cancelada=4
         /// </summary>
@@ -251,7 +257,17 @@ namespace Trato.Varios
                 v_especialidad += v_espe[i].v_nombreEspec;
             }
         }
-
+        public void Fn_SetVisible()
+        {
+            if (v_estado == "0")
+            {
+                v_visible = false;
+            }
+            else
+            {
+                v_visible = true;
+            }
+        }
         public string Fn_GetInfo()
         {
             string _ret = v_doctorId + "   " + v_especialidad + "  " + v_pacienteId + " " + v_folio + " " + v_estado + " " + v_fecha + " " +

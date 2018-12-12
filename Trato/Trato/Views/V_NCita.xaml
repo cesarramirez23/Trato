@@ -4,7 +4,7 @@
              x:Class="Trato.Views.V_NCita">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+            <StackLayout Margin="10,0">
                 <Label x:Name="v_nombre" Style="{StaticResource AzulMedLbl}"/>
                 <Label Text="Fecha de la cita" Style="{StaticResource AzulMedLbl}"></Label>
                 <DatePicker  Format="D" x:Name="v_fecha"></DatePicker>

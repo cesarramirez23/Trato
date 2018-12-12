@@ -127,11 +127,48 @@ namespace Trato.Droid
             {
                 SendNotification(_minotif.v_cuerpo, _minotif.v_titulo);
             }
+        }
+        //https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/navigation/hierarchical
+        //https://documentation.onesignal.com/docs/customize-notification-icons
+        void SendNotification(string messageBody, string _titulo)
+        {
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.AddFlags(ActivityFlags.ClearTop);
+            //intent.PutExtra
+            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-
-
-
-
+            //Bitmap largeIcon = BitmapFactory.DecodeResource(Resources, Resource.Drawable.ICONOAPP);
+            var notificationManager = NotificationManager.FromContext(this);
+            var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
+             .SetSmallIcon(Resource.Drawable.Logo_Redondo_512x512_Blanco)//color
+                                                                         // .SetLargeIcon(largeIcon)
+             .SetContentTitle(_titulo)
+             .SetContentText(messageBody)
+             .SetContentIntent(pendingIntent)
+             .SetColor(40150209)
+             .SetStyle(new NotificationCompat.BigTextStyle().BigText(messageBody))
+             .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
+             .SetPriority(1)
+             .SetAutoCancel(true);
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+            {
+                                                                // The id of the channel.    ----The user-visible name of the channel.
+                NotificationChannel mChannel = new NotificationChannel("channelTratoEspecial", "Canal Visible", NotificationImportance.High);
+                // Configure the notification channel.
+                mChannel.Description="Description channel";               
+                mChannel.EnableLights(true);
+                // Sets the notification light color for notifications posted to this
+                // channel, if the device supports this feature.
+                mChannel.LightColor=Color.Red;
+                mChannel.SetShowBadge(true);
+                notificationBuilder.SetChannelId("channelTratoEspecial");
+                notificationManager.CreateNotificationChannel(mChannel);
+            }
+                notificationManager.Notify(0, notificationBuilder.Build());
+        }
+    }
+}
+/*
 
             //    if (message.Data.ContainsKey("data"))//este data es un arreglo extra de loos keys que se manda desde el php que hice
             //    {
@@ -190,32 +227,5 @@ namespace Trato.Droid
 
             //        SendNotification(_title,_mess);
             //}
-
-        }
-
-        void SendNotification(string messageBody, string _titulo)
-        {
-            var intent = new Intent(this, typeof(MainActivity));
-            intent.AddFlags(ActivityFlags.ClearTop);
-            //intent.PutExtra
-            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-
-            //Bitmap largeIcon = BitmapFactory.DecodeResource(Resources, Resource.Drawable.ICONOAPP);
-
-            var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
-                .SetSmallIcon(Resource.Drawable.Logo_Redondo_512x512_Blanco)//color
-               // .SetLargeIcon(largeIcon)
-                .SetContentTitle(_titulo)
-                .SetContentText(messageBody)
-                .SetContentIntent(pendingIntent)
-                .SetColor(40150209)
-                .SetStyle(new NotificationCompat.BigTextStyle().BigText(messageBody))
-                .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
-                .SetPriority(1)
-                .SetAutoCancel(true);
-
-            var notificationManager = NotificationManager.FromContext(this);
-            notificationManager.Notify(0, notificationBuilder.Build());
-        }
-    }
-}
+            
+             */

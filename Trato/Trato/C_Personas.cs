@@ -520,7 +520,8 @@ namespace Trato.Personas
         [JsonProperty("fecha_vig")]
         public string v_vig;
 
-
+        [JsonProperty("tokenDr")]
+        public string v_tokenDR { get; set; }
         [JsonProperty("citas")]
         public string v_cita;
 

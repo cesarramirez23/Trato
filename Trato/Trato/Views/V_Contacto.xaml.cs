@@ -34,6 +34,7 @@ namespace Trato.Views
                 }
                 else
                 {
+                    qr_but.Text = "Cuenta no Activada";
                     qr_but.IsEnabled = false;
                 }
             }

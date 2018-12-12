@@ -7,6 +7,10 @@ using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
 using Newtonsoft.Json;
 using Trato.Varios;
+//para agregar loos eventos al calendario
+using Plugin.Calendars;
+using Plugin.Calendars.Abstractions;
+//para agregar loos eventos al calendario
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace Trato
 {
@@ -41,7 +45,7 @@ namespace Trato
         /// 0 no esta logeado 1 logeado
         /// </summary>
         public static string v_log;
-
+        //public static string v_IdCalendar = "";
         #endregion
 
         #region Propias de la app
@@ -72,6 +76,7 @@ namespace Trato
                     Properties[NombresAux.v_letra] = v_letra;
                     Properties[NombresAux.v_membre] = v_membresia;
                     Properties[NombresAux.v_folio] = v_folio;
+                    //v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
                     //Fn_CargarListas();
                     MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                 }//si esta logeado
@@ -95,6 +100,7 @@ namespace Trato
                         string _jsonGen = Current.Properties[NombresAux.v_perfGen] as string;
                         v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
                     }
+                   // v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
                     MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
 
                 }
@@ -199,6 +205,23 @@ namespace Trato
                 string _json = JsonConvert.SerializeObject(v_nueva);
                 Properties.Add(NombresAux.v_citaNot, _json);
             }
+            //if (!Properties.ContainsKey(NombresAux.v_IdCalendar))
+            //{
+            //    v_IdCalendar = "";
+            //    var TodosCalen = await CrossCalendars.Current.GetCalendarsAsync();
+            //    Calendar _nuevoCal = new Calendar()
+            //    {
+            //        AccountName = "Trato Especial",
+            //        Name = "Trato Especial",
+            //        Color = "2896D1"
+            //    };
+            //    if (!TodosCalen.Contains(_nuevoCal))
+            //    {
+            //        await CrossCalendars.Current.AddOrUpdateCalendarAsync(_nuevoCal);
+            //        v_IdCalendar = _nuevoCal.ExternalID;
+            //        Current.Properties.Add(NombresAux.v_IdCalendar, v_IdCalendar);
+            //    }
+            //}
             await Current.SavePropertiesAsync();
         }
         /// <summary>
@@ -401,6 +424,28 @@ namespace Trato
                 string _jsonCitas = Current.Properties[NombresAux.v_Nota] as string;
                 v_NotasMedic = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_jsonCitas);
             }
+            //ID DEL CALENDARIO
+            //if (!Current.Properties.ContainsKey(NombresAux.v_IdCalendar))
+            //{
+            //    v_IdCalendar = "";
+            //    var TodosCalen = await CrossCalendars.Current.GetCalendarsAsync();
+            //    Calendar _nuevoCal = new Calendar()
+            //    {
+            //        AccountName = "Trato Especial",
+            //        Name = "Trato Especial",
+            //        Color = "2896D1"
+            //    };
+            //    if (!TodosCalen.Contains(_nuevoCal))
+            //    {
+            //        await CrossCalendars.Current.AddOrUpdateCalendarAsync(_nuevoCal);
+            //        v_IdCalendar = _nuevoCal.ExternalID;
+            //        Current.Properties.Add(NombresAux.v_IdCalendar, v_IdCalendar);
+            //    }
+            //}
+            //else
+            //{
+            //    v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
+            //}
             await Task.Delay(100);
         }
         #endregion      
@@ -499,7 +544,8 @@ namespace Trato
         }
         public static async void Fn_GuardarCitas(ObservableCollection<Cita> _citas)
         {
-            string _json = JsonConvert.SerializeObject(_citas, Formatting.Indented);
+            v_citas = _citas;
+            string _json = JsonConvert.SerializeObject(v_citas, Formatting.Indented);
             if (Current.Properties.ContainsKey(NombresAux.v_citas))
             {
                 Current.Properties[NombresAux.v_citas] = "";
@@ -512,9 +558,14 @@ namespace Trato
             }
             await Current.SavePropertiesAsync();
         }
+        /// <summary>
+        /// guarda la nota medica
+        /// </summary>
+        /// <param name="_medica"></param>
         public static async void Fn_GuardarMedicamentos(ObservableCollection<C_NotaMed> _medica)
         {
-            string _json = JsonConvert.SerializeObject(_medica, Formatting.Indented);
+            v_NotasMedic = _medica;
+            string _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
             if (Current.Properties.ContainsKey(NombresAux.v_Nota))
             {
                 Current.Properties[NombresAux.v_Nota] = "";
@@ -588,6 +639,11 @@ namespace Trato
         #endregion
 
         #region Coosas de la cita
+        /// <summary>
+        /// se manda un id y busca en todos los medicamentos
+        /// </summary>
+        /// <param name="_idcita"></param>
+        /// <returns></returns>
         public static ObservableCollection<Medicamentos> Fn_GetMedic(string _idcita)
         {
             bool _re = false;

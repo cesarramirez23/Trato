@@ -26,5 +26,9 @@ namespace Trato
         /// Cita de notificacion
         /// </summary>
         public const string v_citaNot = "Notif";
+        /// <summary>
+        /// ID PARA GUARDAR LOS EVENTOS
+        /// </summary>
+        // public const string v_IdCalendar = "IdCalendar";
     }
 }

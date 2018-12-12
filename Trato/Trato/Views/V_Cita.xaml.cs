@@ -23,6 +23,9 @@ namespace Trato.Views
         /// </summary>
         bool v_medi = false;
         Cita v_CitaNotif = new Cita();
+        /// <summary>
+        /// es la nota medica
+        /// </summary>
         ObservableCollection<C_NotaMed> v_medicamentos = new ObservableCollection<C_NotaMed>();
         ObservableCollection<Cita> v_citas = new ObservableCollection<Cita>();
         public V_Cita(bool _medic, bool _tiene, Cita _nuevaCita)
@@ -73,7 +76,6 @@ namespace Trato.Views
                    // await DisplayAlert("LLega get medicamentos", _respuesta, "acep");
                     v_medicamentos = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_respuesta);
                     App.Fn_GuardarMedicamentos(v_medicamentos);
-
                 }
             }
             catch (HttpRequestException ex)
@@ -105,12 +107,17 @@ namespace Trato.Views
                     L_Error.IsVisible = false;
                     //Console.WriteLine("cuantos "+v_citas.Count+"json citaa " + _respuesta);
                     Ordenar();
+                 
                     App.Fn_GuardarCitas(v_citas);
                     ListaCita.ItemsSource = v_citas;
-                    if(v_medi)
+                    if (v_medi)
                     {
                         Fn_GetMedic();
                         Fn_GetTerminada();
+                        for (int i = 0; i < v_citas.Count; i++)
+                        {
+                            v_citas[i].Fn_SetVisible();
+                        }
                     }
                     if (v_citas.Count < 1)
                     {
@@ -136,6 +143,10 @@ namespace Trato.Views
                 ListaCita.ItemsSource = v_citas;
                 if (v_medi)
                 {
+                    for (int i = 0; i <v_citas.Count; i++)
+                    {
+                        v_citas[i].Fn_SetVisible();
+                    }
                     Fn_GetTerminada();
                 }
             }
@@ -164,6 +175,7 @@ namespace Trato.Views
             for (int i = 0; i < v_citas.Count; i++)
             {
                 v_citas[i].Fn_SetValores();
+                v_citas[i].v_visible = true;
             }
             var _temp = v_citas.OrderBy(x => x.v_fechaDate);
             v_citas = new ObservableCollection<Cita>(_temp);

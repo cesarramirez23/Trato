@@ -28,22 +28,26 @@
                                         </Label.FormattedText>
                                     </Label>
                                 <Label FontSize="Medium" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Fecha: " TextColor="{StaticResource NavigationPrimary}"/>
+                                            <Span Text="{Binding v_fecha}" TextColor="Black"/>
+                                            <Span Text=" Hora:" TextColor="{StaticResource NavigationPrimary}"/>
+                                            <Span Text="{Binding v_hora.Hours,StringFormat=' {0:00}'}" TextColor="Black"/>
+                                            <Span Text="{Binding v_hora.Minutes,StringFormat=': {0:00}'}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="Medium" IsVisible="{Binding v_visible}">
                                         <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="Fecha: " TextColor="{StaticResource NavigationPrimary}"/>
-                                                <Span Text="{Binding v_fecha}" TextColor="Black"/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                <Label FontSize="Medium" >
-                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="Estado: " TextColor="{StaticResource NavigationPrimary}"/>
                                                 <Span Text="{Binding v_Estadocita}" TextColor="Black"/>
+
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-<!--
+                                    <!--
                                     <Label Text="Nombre del médico"  Style="{StaticResource AzulMedLbl}"/>
                                     <Label Text="Especialidad"  Style="{StaticResource AzulMedLbl}"/>
                                 </StackLayout>
