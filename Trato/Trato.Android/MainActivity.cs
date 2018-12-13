@@ -15,10 +15,10 @@ using Android.Gms.Common;
 using PayPal.Forms.Abstractions;
 using PayPal.Forms;
 using Android.Content;
-using Java.Lang;
+using Plugin.Permissions;
 /*
 https://stackoverflow.com/questions/40181654/firebase-fcm-open-activity-and-pass-data-on-notification-click-android/40185654
-     */
+*/
 namespace Trato.Droid
 {
     //label es el nombre que se va a ver en pantalla de aplicaciones 
@@ -54,7 +54,7 @@ namespace Trato.Droid
             };
             CrossPayPalManager.Init(config, this);
 
-
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);//para pedir los permisos cross plat
             global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             LoadApplication(new App());
             CheckForGoogleServices();
@@ -69,33 +69,7 @@ namespace Trato.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-     
-            //Manifest.permission.READ_CALENDAR },
-            if(CheckSelfPermission("android.permission.READ_CALENDAR") != Permission.Granted)
-            {
-               RequestPermissions(new string[] {"android.permission.READ_CALENDAR" },requestCode);
-            }
-            if (CheckSelfPermission("android.permission.WRITE_CALENDAR") != Permission.Granted)
-            {
-                RequestPermissions(new string[] { "android.permission.WRITE_CALENDAR" }, requestCode);
-            }
-
-            //switch (requestCode)
-            //    {
-            //        case 0:
-            //            {
-            //                if (grantResults.Length > 0 && grantResults[0] ==  Permission.Granted )
-            //                {
-            //                    Toast.MakeText(this, "Permission Granted!", ToastLength.Long).Show();
-            //                }
-            //                else
-            //                {
-            //                    Toast.MakeText(this, "Permission Denied!", ToastLength.Long).Show();
-            //                }
-            //            }
-            //            break;
-            //    }
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
         }
         public bool CheckForGoogleServices()

@@ -15,8 +15,10 @@ using System.Net.Http;
 using Plugin.Calendars;
 using Plugin.Calendars.Abstractions;
 using Newtonsoft.Json.Linq;
-//para agregar loos eventos al calendario
 
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
+//para agregar loos eventos al calendario
 
 namespace Trato.Views
 {
@@ -27,8 +29,6 @@ namespace Trato.Views
         Cita v_cita;
         bool v_nueva;
         string _esta;
-
-
         public V_NCita(Cita _cita, bool _nueva)
         {
             InitializeComponent();
@@ -56,7 +56,6 @@ namespace Trato.Views
             Fn_Botones(v_cita.v_estado);
             App.Fn_Borra();
         }
-
         public V_NCita( C_Medico _medico)
         {
             InitializeComponent();
@@ -261,159 +260,203 @@ namespace Trato.Views
         /// </summary>
         private async void Fn_Calendario(DateTime _fecha, TimeSpan _hora)
         {
-            //los calendarios en el telefono,   el 0 es el calendario del sistema
-            var TodosCalen = await CrossCalendars.Current.GetCalendarsAsync();
-
-            //var _cal =await CrossCalendars.Current.GetCalendarByIdAsync(App.v_IdCalendar);
-
-
-            //if(_cal.AccountName== "Trato Especial")//encuentrab el calendario
-            //{
-            if (string.IsNullOrEmpty( v_cita.v_idCalendar)|| string.IsNullOrWhiteSpace(v_cita.v_idCalendar) )//la cita no tiene ningun evento
+            try
             {
-                DateTime _final = new DateTime(_fecha.Year, _fecha.Month, _fecha.Day, _hora.Hours, _hora.Minutes, _hora.Seconds);
-                if (DateTime.Compare(DateTime.Now,_final)<0 )//la fecha actual es menor a la cita agregarla al calendario
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Calendar);
+                if (status != PermissionStatus.Granted)// si no tiene los permisos
                 {
-                    //info a mostrar en la agenda
-                    var calendarEvent = new CalendarEvent
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Calendar))
                     {
-                        Name = "Cita desde Trato Especial",
-                        Start = _final,
-                        End = _final.AddHours(1),
-                        Description = "Tienes agendada una cita con " + v_cita.v_nombreDR,
-                        Reminders = new List<CalendarEventReminder>()
-                        {
-                            new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(24, 0, 0) },
-                            new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(2, 0, 0) },
-                            new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 10, 0) },
-                            new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 30, 0) }
-                        },
-                        AllDay = false
-                    };
-                    //agregarlo
+                        await DisplayAlert("Acceso a tu agenda", "Se necesita permisos para agregar eventos a tu Agenda", "Aceptar");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Calendar);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Calendar))
+                        status = results[Permission.Calendar];
+                }
+
+                if (status == PermissionStatus.Granted)
+                {
                     try
                     {
-
-                        await CrossCalendars.Current.AddOrUpdateEventAsync(TodosCalen[0], calendarEvent);
-                        v_cita.v_idCalendar = calendarEvent.ExternalID;//guarda el id del evento
-
-                        string json = @"{";
-                        json += "ID_cita:'" + v_cita.v_idCita + "',\n";
-                        json += "idcalendario:'" + v_cita.v_idCalendar + "'\n";
-                        json += "}";
-                        JObject _json = JObject.Parse(json);
-                        HttpClient _client = new HttpClient();
-                        string _DirEnviar = "http://tratoespecial.com/update_calendario.php";
-                        StringContent _content = new StringContent(_json.ToString(), Encoding.UTF8, "application/json");
-                        try
+                        //los calendarios en el telefono,   el 0 es el calendario del sistema
+                        var TodosCalen = await CrossCalendars.Current.GetCalendarsAsync();
+                        if (string.IsNullOrEmpty(v_cita.v_idCalendar) || string.IsNullOrWhiteSpace(v_cita.v_idCalendar))//la cita no tiene ningun evento
                         {
-                            HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                            if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                            DateTime _final = new DateTime(_fecha.Year, _fecha.Month, _fecha.Day, _hora.Hours, _hora.Minutes, _hora.Seconds);
+                            if (DateTime.Compare(DateTime.Now, _final) < 0)//la fecha actual es menor a la cita agregarla al calendario
                             {
-                                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                if (_respuesta == "1")
+                                //info a mostrar en la agenda
+                                var calendarEvent = new CalendarEvent
                                 {
-                                    await DisplayAlert("Exito", "Agregado a tu agenda correctamente", "Aceptar");
+                                    Name = "Cita desde Trato Especial",
+                                    Start = _final,
+                                    End = _final.AddHours(1),
+                                    Description = "Tienes agendada una cita con " + v_cita.v_nombreDR,
+                                    Reminders = new List<CalendarEventReminder>()
+                                {
+                                    new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(24, 0, 0) },
+                                    new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(2, 0, 0) },
+                                    new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 10, 0) },
+                                    new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 30, 0) }
+                                },
+                                    AllDay = false
+                                };
+                                //agregarlo
+                                try
+                                {
+                                    bool _sel = await DisplayAlert("Agendar", "Deseas agregar este evento a tu agenda y recibir recordatorios?", "Si", "No");
+                                    if (_sel)
+                                    {
+                                        await CrossCalendars.Current.AddOrUpdateEventAsync(TodosCalen[0], calendarEvent);
+                                        v_cita.v_idCalendar = calendarEvent.ExternalID;//guarda el id del evento
+                                    }
+                                    else
+                                    {
+                                        v_cita.v_idCalendar = "-1";
+                                    }
+
+                                    string json = @"{";
+                                    json += "ID_cita:'" + v_cita.v_idCita + "',\n";
+                                    json += "idcalendario:'" + v_cita.v_idCalendar + "'\n";
+                                    json += "}";
+                                    JObject _json = JObject.Parse(json);
+                                    HttpClient _client = new HttpClient();
+                                    string _DirEnviar = "http://tratoespecial.com/update_calendario.php";
+                                    StringContent _content = new StringContent(_json.ToString(), Encoding.UTF8, "application/json");
+                                    try
+                                    {
+                                        HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                                        if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                                        {
+                                            string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                                            if (_respuesta == "1")
+                                            {
+                                            }
+                                            else
+                                            {
+                                                await DisplayAlert("Error", "No se pudo agendar tu cita, intentalo mas tarde", "Aceptar");
+                                            }
+                                        }
+                                    }
+                                    catch (HttpRequestException ex)
+                                    {
+                                        await DisplayAlert("Error post", ex.Message, "Aceptar");
+                                    }
                                 }
-                                else
+                                catch (UnauthorizedAccessException ex)
                                 {
-                                    await DisplayAlert("Error", "No se pudo agendar tu cita, intentalo mas tarde", "Aceptar");
+                                    await DisplayAlert("Error unauthor", "Se Necesita acceso darle permiso de uso de calendario", "Aceptar");
+                                }
+                                catch(Exception ex)
+                                {
+                                    await DisplayAlert("Error   updateEvent", ex.Message, "Aceptar");
                                 }
                             }
-                        }
-                        catch (HttpRequestException ex)
-                        {
-                            await DisplayAlert("Error", ex.Message, "Aceptar");
+                            else
+                            {
+                                v_cita.v_idCalendar = "-1";
+                                string json = @"{";
+                                json += "ID_cita:'" + v_cita.v_idCita + "',\n";
+                                json += "idcalendario:'" + v_cita.v_idCalendar + "'\n";
+                                json += "}";
+                                JObject _json = JObject.Parse(json);
+                                HttpClient _client = new HttpClient();
+                                string _DirEnviar = "http://tratoespecial.com/update_calendario.php";
+                                StringContent _content = new StringContent(_json.ToString(), Encoding.UTF8, "application/json");
+                                try
+                                {
+                                    HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                                    if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                                    {
+                                        string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                                        if (_respuesta == "1")
+                                        {
+                                            await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
+                                        }
+                                        else
+                                        {
+                                            await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
+                                        }
+                                    }
+                                }
+                                catch (HttpRequestException ex)
+                                {
+                                    await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
+                                }//try post   evento pasado
+                            }
                         }
                     }
                     catch (UnauthorizedAccessException ex)
                     {
-                        await DisplayAlert("Error calendario", ex.Message, "asa");
+                        await DisplayAlert("Aviso", "Se Necesita  permisos de uso de Agenda, ve a la seccion de permisos de la aplicacion desde ajustes de telefono", "Aceptar");
                     }
                 }
-                else
+                else if(status == PermissionStatus.Denied)
                 {
-                    v_cita.v_idCalendar = "-1";
-                    string json = @"{";
-                    json += "ID_cita:'" + v_cita.v_idCita + "',\n";
-                    json += "idcalendario:'" + v_cita.v_idCalendar + "'\n";
-                    json += "}";
-                    JObject _json = JObject.Parse(json);
-                    HttpClient _client = new HttpClient();
-                    string _DirEnviar = "http://tratoespecial.com/update_calendario.php";
-                    StringContent _content = new StringContent(_json.ToString(), Encoding.UTF8, "application/json");
-                    try
-                    {
-                        HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                        if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
-                        {
-                            string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                            if (_respuesta == "1")
-                            {
-                                await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
-                            }
-                            else
-                            {
-                                await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
-                            }
-                        }
-                    }
-                    catch (HttpRequestException ex)
-                    {
-                        await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
-                    }
+                    await DisplayAlert("Acceso a Agenda negado", "No se agregarán eventos a tu Agenda del telefono", "Aceptar");
                 }
             }
-            //}
-            //crear recordatorios
-            //List<CalendarEventReminder> _lista = new List<CalendarEventReminder>();
-            //CalendarEventReminder _va = new CalendarEventReminder();
-            //_va.Method = CalendarReminderMethod.Alert;
-            //_va.TimeBefore = new TimeSpan(24, 0, 0);
-            //_lista.Add(_va);
-            //_va.TimeBefore = new TimeSpan(2, 0, 0);
-            //_lista.Add(_va);
-            //_va.TimeBefore = new TimeSpan(0, 10, 0);
-            //_lista.Add(_va);
-            //DateTime _final = new DateTime(_fecha.Year, _fecha.Month, _fecha.Day, _hora.Hours, _hora.Minutes, _hora.Seconds);
+            catch
+            {
 
-            ////info a mostrar en la agenda
-            //var calendarEvent = new CalendarEvent
-            //{
-            //    Name = "Cita desde Trato Especial",
-            //    Start = _final,
-            //    //End = DateTime.Now.AddHours(1),
-            //    End =_final.AddHours(1),
-            //    Description = "Tienes agendada una cita con " + v_cita.v_nombreDR,
-            //    Reminders = new List<CalendarEventReminder>()
-            //    {
-            //        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(24, 0, 0) },
-            //        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(2, 0, 0) },
-            //        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 10, 0) },
-            //        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 30, 0) }
-            //    },
-            //    AllDay = false
-            //};
-
-            //if(TodosCalen[0].ExternalID  .Contains(calendarEvent))
-            //{
-
-            //}
-
-            //Calendar _nuevoCal = new Calendar()
-            //{
-            //    AccountName = "Trato Especial", Name = "Trato Especial", Color = "2896D1"
-
-            //};
-
-            //if(!TodosCalen.Contains(_nuevoCal))
-            //{
-            //await CrossCalendars.Current.AddOrUpdateCalendarAsync(_nuevoCal);
-
-            //}
-
-            //agregarlo
-            //await CrossCalendars.Current.AddOrUpdateEventAsync(TodosCalen[0], calendarEvent);
+            }
         }
     }
 }
+//var _cal =await CrossCalendars.Current.GetCalendarByIdAsync(App.v_IdCalendar);
+
+
+//if(_cal.AccountName== "Trato Especial")//encuentrab el calendario
+//{
+//}
+//crear recordatorios
+//List<CalendarEventReminder> _lista = new List<CalendarEventReminder>();
+//CalendarEventReminder _va = new CalendarEventReminder();
+//_va.Method = CalendarReminderMethod.Alert;
+//_va.TimeBefore = new TimeSpan(24, 0, 0);
+//_lista.Add(_va);
+//_va.TimeBefore = new TimeSpan(2, 0, 0);
+//_lista.Add(_va);
+//_va.TimeBefore = new TimeSpan(0, 10, 0);
+//_lista.Add(_va);
+//DateTime _final = new DateTime(_fecha.Year, _fecha.Month, _fecha.Day, _hora.Hours, _hora.Minutes, _hora.Seconds);
+
+////info a mostrar en la agenda
+//var calendarEvent = new CalendarEvent
+//{
+//    Name = "Cita desde Trato Especial",
+//    Start = _final,
+//    //End = DateTime.Now.AddHours(1),
+//    End =_final.AddHours(1),
+//    Description = "Tienes agendada una cita con " + v_cita.v_nombreDR,
+//    Reminders = new List<CalendarEventReminder>()
+//    {
+//        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(24, 0, 0) },
+//        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(2, 0, 0) },
+//        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 10, 0) },
+//        new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 30, 0) }
+//    },
+//    AllDay = false
+//};
+
+//if(TodosCalen[0].ExternalID  .Contains(calendarEvent))
+//{
+
+//}
+
+//Calendar _nuevoCal = new Calendar()
+//{
+//    AccountName = "Trato Especial", Name = "Trato Especial", Color = "2896D1"
+
+//};
+
+//if(!TodosCalen.Contains(_nuevoCal))
+//{
+//await CrossCalendars.Current.AddOrUpdateCalendarAsync(_nuevoCal);
+
+//}
+
+//agregarlo
+//await CrossCalendars.Current.AddOrUpdateEventAsync(TodosCalen[0], calendarEvent);
