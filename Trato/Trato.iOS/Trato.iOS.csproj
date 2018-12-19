@@ -58,9 +58,9 @@
     <CodesignKey>iPhone Developer: Saul Lopez (Z7G3Y24M78)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision />
     <CodesignExtraArgs />
     <CodesignResourceRules />
+    <CodesignProvision>ProfTratoDEv</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -185,7 +185,6 @@
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_1024_CHIDO.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="GoogleService-Info.plist" />
     <BundleResource Include="Resources\Citasx46.png" />
     <BundleResource Include="Resources\M_Empresarialx46.png" />
     <BundleResource Include="Resources\M_Familiarx46.png" />
@@ -193,6 +192,7 @@
     <BundleResource Include="Resources\Medicamentosx46.png" />
     <BundleResource Include="Resources\Membresia_Iconx46.png" />
     <BundleResource Include="Resources\Corazonx46.png" />
+    <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -236,9 +236,6 @@
       <Project>{836A9D76-73EE-400C-91EE-81D95837F9F2}</Project>
       <Name>Trato</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\menu_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ICONOAPP.png" />

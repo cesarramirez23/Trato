@@ -202,7 +202,9 @@ namespace Trato.Views
                         {
                             Fn_Calendario(v_fecha.Date, v_hora.Time);
                         }
-                        await Navigation.PopAsync();
+                        else{
+                            await Navigation.PopAsync();
+                        }
                     }
                     else
                     {
@@ -333,6 +335,8 @@ namespace Trato.Views
                                             string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                             if (_respuesta == "1")
                                             {
+                                                await DisplayAlert("Exito", "evento agregado con exitosamente", "Aceptar");
+                                                await Navigation.PopAsync();
                                             }
                                             else
                                             {
@@ -345,7 +349,7 @@ namespace Trato.Views
                                         await DisplayAlert("Error post", ex.Message, "Aceptar");
                                     }
                                 }
-                                catch (UnauthorizedAccessException ex)
+                                catch (UnauthorizedAccessException )
                                 {
                                     await DisplayAlert("Error unauthor", "Se Necesita acceso darle permiso de uso de calendario", "Aceptar");
                                 }
@@ -381,14 +385,14 @@ namespace Trato.Views
                                         }
                                     }
                                 }
-                                catch (HttpRequestException ex)
+                                catch (HttpRequestException )
                                 {
                                     await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
                                 }//try post   evento pasado
                             }
                         }
                     }
-                    catch (UnauthorizedAccessException ex)
+                    catch (UnauthorizedAccessException )
                     {
                         await DisplayAlert("Aviso", "Se Necesita  permisos de uso de Agenda, ve a la seccion de permisos de la aplicacion desde ajustes de telefono", "Aceptar");
                     }
@@ -398,9 +402,9 @@ namespace Trato.Views
                     await DisplayAlert("Acceso a Agenda negado", "No se agregarán eventos a tu Agenda del telefono", "Aceptar");
                 }
             }
-            catch
+            catch(Exception ex)
             {
-
+                await DisplayAlert("Error ", ex.Message, "asadsad");
             }
         }
     }

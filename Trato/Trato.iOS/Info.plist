@@ -46,6 +46,8 @@
 	<string>Use for PayPal</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Use for PayPal</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Agregar eventos y recordatorios</string>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>UIRequiredDeviceCapabilities</key>

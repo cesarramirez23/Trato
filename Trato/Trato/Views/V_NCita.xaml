@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_NCita">
@@ -16,19 +16,19 @@
 
                 <Grid  x:Name="StackTre">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
                     </Grid.RowDefinitions>
-                    <Button Text="Aceptar Cita" Clicked="Fn_Acep" x:Name="v_botAcep" HorizontalOptions="Start" 
-                            Style="{StaticResource Buton2}"/>
-                    <Button Text="Cancelar Cita" Clicked="Fn_Recha" x:Name="v_botRec" HorizontalOptions="Center" 
-                            Style="{StaticResource Buton2}"  Grid.Column="1"/>
-                    <Button Text="Reagendar Cita" Clicked="Fn_Cambios" x:Name="v_botCambio" HorizontalOptions="End" 
-                            Style="{StaticResource Buton2}"  Grid.Column="2"/>
+                    <Button Text="Aceptar Cita" Clicked="Fn_Acep" x:Name="v_botAcep" HorizontalOptions="StartAndExpand" 
+                            Style="{StaticResource Buton2}" Grid.ColumnSpan="1" />
+                    <Button Text="Cancelar Cita" Clicked="Fn_Recha" x:Name="v_botRec" HorizontalOptions="CenterAndExpand" 
+                            Style="{StaticResource Buton2}"  Grid.Column="1" Grid.ColumnSpan="1"/>
+                    <Button Text="Reagendar Cita" Clicked="Fn_Cambios" x:Name="v_botCambio" HorizontalOptions="EndAndExpand" 
+                            Style="{StaticResource Buton2}"  Grid.Column="2" Grid.ColumnSpan="1"/>
                 </Grid>
 
                 <Grid x:Name="StackPendiente" IsVisible="False">

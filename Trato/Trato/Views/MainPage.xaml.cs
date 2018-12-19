@@ -32,6 +32,7 @@ namespace Trato.Views
             }
             //M_mensaje.IsVisible = true;
             //M_mensaje.Text += "token " + App.Fn_GEtToken();
+            
             Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
             //FN_Red();
         }
@@ -60,7 +61,7 @@ namespace Trato.Views
                 await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
             }
         }
-        protected override  void OnAppearing()
+        protected async override  void OnAppearing()
         {
             base.OnAppearing();
             v_cambioban = true;
