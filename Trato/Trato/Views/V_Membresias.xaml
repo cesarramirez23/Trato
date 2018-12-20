@@ -8,7 +8,7 @@
         </Style>
     </TabbedPage.Resources>
     
-    <ContentPage Title="Individual" Icon="M_Personalx46.png">
+    <ContentPage Title="Individual" Icon="tab_M_Personal.png">
         <StackLayout Style="{StaticResource Key=Stack}">
             <ScrollView >
                 <StackLayout>
@@ -22,7 +22,7 @@
         </StackLayout>
     </ContentPage>
     
-    <ContentPage Title="Familiar" Icon="M_Familiarx46.png">
+    <ContentPage Title="Familiar" Icon="tab_M_Familiar.png">
         <StackLayout Style="{StaticResource Key=Stack}">
             <ScrollView >
                 <StackLayout>
@@ -37,7 +37,7 @@
     </ContentPage>
     
     
-    <ContentPage Title="Empresarial" Icon="M_Empresarialx46.png">
+    <ContentPage Title="Empresarial" Icon="tab_M_Empresarial.png">
         <StackLayout Style="{StaticResource Key=Stack}">
             <ScrollView >
                 <StackLayout>

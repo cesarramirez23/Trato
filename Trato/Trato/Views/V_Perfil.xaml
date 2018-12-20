@@ -29,7 +29,7 @@
 
         </ContentPage>
 -->
-        <ContentPage Title="Info General" Icon="Citasx46.png" >
+        <ContentPage Title="Info General" Icon="tab_Citas.png" >
 
             <ScrollView Margin="20,10">
                 <StackLayout x:Name="StackGeneral" >
@@ -134,7 +134,7 @@
                 </StackLayout>
             </ScrollView>
         </ContentPage>
-        <ContentPage Title="Info Medica" Icon="Corazonx46.png">
+        <ContentPage Title="Info Medica" Icon="tab_Corazon.png">
             
             <ScrollView>
                 <StackLayout x:Name="StackMedi" Margin="20,0" >

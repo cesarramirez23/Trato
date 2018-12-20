@@ -193,6 +193,27 @@
     <BundleResource Include="Resources\Membresia_Iconx46.png" />
     <BundleResource Include="Resources\Corazonx46.png" />
     <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\tab_Citas.png" />
+    <BundleResource Include="Resources\tab_Corazon.png" />
+    <BundleResource Include="Resources\tab_M_Empresarial.png" />
+    <BundleResource Include="Resources\tab_M_Familiar.png" />
+    <BundleResource Include="Resources\tab_M_Personal.png" />
+    <BundleResource Include="Resources\tab_Medicamentos.png" />
+    <BundleResource Include="Resources\tab_Membresia_Icon.png" />
+    <BundleResource Include="Resources\tab_Citas%402x.png" />
+    <BundleResource Include="Resources\tab_Corazon%402x.png" />
+    <BundleResource Include="Resources\tab_M_Empresarial%402x.png" />
+    <BundleResource Include="Resources\tab_M_Familiar%402x.png" />
+    <BundleResource Include="Resources\tab_M_Personal%402x.png" />
+    <BundleResource Include="Resources\tab_Medicamentos%402x.png" />
+    <BundleResource Include="Resources\tab_Membresia_Icon%402x.png" />
+    <BundleResource Include="Resources\tab_Citas%403x.png" />
+    <BundleResource Include="Resources\tab_Corazon%403x.png" />
+    <BundleResource Include="Resources\tab_M_Empresarial%403x.png" />
+    <BundleResource Include="Resources\tab_M_Familiar%403x.png" />
+    <BundleResource Include="Resources\tab_M_Personal%403x.png" />
+    <BundleResource Include="Resources\tab_Medicamentos%403x.png" />
+    <BundleResource Include="Resources\tab_Membresia_Icon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
