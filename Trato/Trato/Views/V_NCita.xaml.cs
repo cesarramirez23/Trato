@@ -19,7 +19,6 @@ using Newtonsoft.Json.Linq;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 //para agregar loos eventos al calendario
-
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -82,7 +81,7 @@ namespace Trato.Views
             v_hora.Time = v_cita.v_hora;
             _esta = v_cita.v_estado;
             int _a = int.Parse(v_cita.v_estado);
-            v_estado.Text = ((EstadoCita)_a).ToString();
+            v_estado.Text = ((EstadoCita)_a).ToString().Replace('_',' ');
             v_nombre.Text = v_cita.v_nombreDR;
             v_fecha.MinimumDate = DateTime.Now;
             v_fecha.MaximumDate = DateTime.Today.AddMonths(1);
@@ -129,7 +128,7 @@ namespace Trato.Views
 
         }
         /// <summary>
-        /// Terminada = 0,  Nueva = 1, Pendiente = 2, Aceptada = 3, Cancelada = 4
+        /// Terminada = 0,  Nueva = 1, Pendiente esperando paciente = 2, Aceptada = 3, Cancelada = 4, esperando al doctor  5
         /// </summary>
         /// <param name="_valor"></param>
         private void Fn_Botones(string _valor)
@@ -170,6 +169,13 @@ namespace Trato.Views
                         v_botAcep.IsEnabled = false;
                         v_botCambio.IsEnabled = false;
                         v_botRec.IsEnabled = false;
+                    }
+                    break;
+                case "5":
+                    {
+                        v_botAcep.IsEnabled = false;
+                        v_botCambio.IsEnabled = false;
+                        v_botRec.IsEnabled = true;
                     }
                     break;
             }
@@ -245,7 +251,7 @@ namespace Trato.Views
         {
             StackPendiente.IsVisible = false;
             StackTre.IsVisible = true;
-            Fn_ActualizarInfo("2");
+            Fn_ActualizarInfo("5");
         }
         private void Fn_CancelCambio(object sender, EventArgs _args)
         {
@@ -300,7 +306,6 @@ namespace Trato.Views
                                 {
                                     new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(24, 0, 0) },
                                     new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(2, 0, 0) },
-                                    new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 10, 0) },
                                     new  CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore=new TimeSpan(0, 30, 0) }
                                 },
                                     AllDay = false
@@ -333,9 +338,14 @@ namespace Trato.Views
                                         if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                                         {
                                             string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                            if (_respuesta == "1")
+                                            if (_respuesta == "1" &&  _sel)
                                             {
                                                 await DisplayAlert("Exito", "evento agregado con exitosamente", "Aceptar");
+                                                await Navigation.PopAsync();
+                                            }
+                                            else if(_respuesta=="1" && !_sel)
+                                            {
+                                                await DisplayAlert("Exito", "El evento no se agregó a tu agenda", "Aceptar");
                                                 await Navigation.PopAsync();
                                             }
                                             else
@@ -357,7 +367,7 @@ namespace Trato.Views
                                 {
                                     await DisplayAlert("Error   updateEvent", ex.Message, "Aceptar");
                                 }
-                            }
+                            }//if la hora y fecha ya paso
                             else
                             {
                                 v_cita.v_idCalendar = "-1";
@@ -377,11 +387,11 @@ namespace Trato.Views
                                         string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                                         if (_respuesta == "1")
                                         {
-                                            await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
+                                            await DisplayAlert("Aviso", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
                                         }
                                         else
                                         {
-                                            await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
+                                            await DisplayAlert("Error", _respuesta, "Continuar");
                                         }
                                     }
                                 }

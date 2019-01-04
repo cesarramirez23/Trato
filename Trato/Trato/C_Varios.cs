@@ -46,9 +46,16 @@ namespace Trato.Varios
     {
         Terminada=0,
         Nueva=1,
-        Pendiente=2,
-        Aceptada=3,
-        Cancelada=4
+        /// <summary>
+        /// esperando respuesta del paciente
+        /// </summary>
+        Pendiente_respuesta_del_paciente = 2,
+        Aceptada = 3,
+        Cancelada = 4,
+        /// <summary>
+        /// esperando respuyesta del medico
+        /// </summary>
+        Pendiente_respuesta_del_medico = 5
     }
     public class Cita
     {
@@ -236,7 +243,7 @@ namespace Trato.Varios
                 v_color = Color.White;
             }
             int _a = int.Parse(v_estado);
-            v_Estadocita = ((EstadoCita)_a).ToString();
+            v_Estadocita = ((EstadoCita)_a).ToString().Replace('_', ' ');
             string[] _fecha = v_fecha.Split('-');//month day year
             v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]),
                                          v_hora.Hours, v_hora.Minutes, v_hora.Seconds);
@@ -244,7 +251,7 @@ namespace Trato.Varios
         public void Fn_SetValores()
         {
            int _a = int.Parse(v_estado);
-            v_Estadocita = ((EstadoCita)_a).ToString();
+            v_Estadocita = ((EstadoCita)_a).ToString().Replace('_', ' ');
             /*if (v_fechaDate== null)
             {
             }*/

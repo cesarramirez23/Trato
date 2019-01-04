@@ -78,17 +78,17 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <!--<ColumnDefinition Width="*"/>-->
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
-                    <Button Text="Cancelar" Clicked="Fn_Cancelar" Style="{StaticResource Buton2}" 
-                                Grid.Column="0" Grid.ColumnSpan="1"></Button>
+                    <!--<Button Text="Cancelar" Clicked="Fn_Cancelar" Style="{StaticResource Buton2}" 
+                                Grid.Column="0" Grid.ColumnSpan="1"></Button>-->
                     <Button Text="Buscar" Clicked="Fn_Aceptar" Style="{StaticResource Buton2}"
-                                Grid.Column="1" Grid.ColumnSpan="1"></Button>
+                                Grid.Column="0" Grid.ColumnSpan="1"></Button>
                     <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Buton2}"
-                                Grid.Column="2" Grid.ColumnSpan="1"></Button>
+                                Grid.Column="1" Grid.ColumnSpan="1"></Button>
                 </Grid>
                 <!--
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Margin="40,0">

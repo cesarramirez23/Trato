@@ -28,8 +28,8 @@ namespace Trato.Views
 		{
 			InitializeComponent ();
             v_cita = _cita;
-            Title = v_cita.v_idCita;
-            fecha.Text = v_cita.v_fecha +"      "+ v_cita.v_hora.Hours+":" +v_cita.v_hora.Minutes;
+            //Title = v_cita.v_idCita;
+            fecha.Text = v_cita.v_fechaDate.ToString("dd-MM-yyyy") + "      " + v_cita.v_hora.ToString(@"hh\:mm");
             v_medicamentos = App.Fn_GetMedic(v_cita.v_idCita);
             nombre.Text = v_cita.v_nombreDR + "  " +v_cita.v_especialidad;
             if(v_medicamentos.Count>0)
@@ -74,7 +74,7 @@ namespace Trato.Views
                             string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                             if(_respuesta=="1")
                             {
-                                await DisplayAlert("Exito", _respuesta, "Aceptar");                               
+                                await DisplayAlert("Exito", "Cambios generados correctamente", "Aceptar");                               
                                 Fn_Cambio(_medi, "1");
                             }
                             else
@@ -111,7 +111,7 @@ namespace Trato.Views
                             string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                             if (_respuesta == "1")
                             {
-                                await DisplayAlert("Exito", _respuesta, "Aceptar");
+                                await DisplayAlert("Exito", "Cambios generados correctamente", "Aceptar");
                                 Fn_Cambio(_medi, "2");
                             }
                             else
