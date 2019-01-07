@@ -75,7 +75,9 @@ namespace Trato.Views
             v_botCrear.IsVisible = false;
             v_cita = _cita;
             //v_cita.Fn_SetValores();
+            v_fecha.MinimumDate = DateTime.MinValue;
             v_fecha.Date = v_cita.v_fechaDate;
+            v_fecha.MaximumDate = DateTime.Now.AddMonths(1);
             v_fecha.IsEnabled = false;
             v_hora.IsEnabled = false;
             v_hora.Time = v_cita.v_hora;
@@ -83,8 +85,6 @@ namespace Trato.Views
             int _a = int.Parse(v_cita.v_estado);
             v_estado.Text = ((EstadoCita)_a).ToString().Replace('_',' ');
             v_nombre.Text = v_cita.v_nombreDR;
-            v_fecha.MinimumDate = DateTime.Now;
-            v_fecha.MaximumDate = DateTime.Today.AddMonths(1);
             Fn_Botones(v_cita.v_estado);
         }
         public async void Fn_Crear(object sender, EventArgs _args)
@@ -239,6 +239,8 @@ namespace Trato.Views
         /// <param name="_Args"></param>
         private void Fn_Cambios(object sender, EventArgs _Args)
         {
+            v_fecha.MinimumDate = DateTime.Now;
+            v_fecha.MaximumDate = DateTime.Now.AddMonths(1);
             v_fecha.IsEnabled = true;
             v_hora.IsEnabled = true;
             StackPendiente.IsVisible = true;
@@ -255,6 +257,7 @@ namespace Trato.Views
         }
         private void Fn_CancelCambio(object sender, EventArgs _args)
         {
+            v_fecha.MinimumDate = DateTime.MinValue;
             v_fecha.Date = v_cita.v_fechaDate;
             v_fecha.IsEnabled = false;
             v_hora.Time = v_cita.v_hora;
