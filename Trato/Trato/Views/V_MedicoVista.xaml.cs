@@ -60,7 +60,7 @@ namespace Trato.Views
             //
 
             //if (App.v_log == "1")
-            if(v_medico.v_cita=="1" && App.v_log == "1")
+            if(v_medico.v_cita=="1" && App.v_log == "1"  && App.v_membresia=="180I-0558")
             {
                 boton.IsVisible = true;
             }

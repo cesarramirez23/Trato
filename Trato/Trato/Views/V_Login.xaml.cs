@@ -38,123 +38,130 @@ namespace Trato.Views
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = " Comprobando informacion\n";
                 string prime = usu.Text.Split('-')[0];
-                string _membre = "";///los 4 numeros de la mebresia sin laletra
-                for(int i=0; i<prime.Length-1; i++)
-                {
-                    _membre += prime[i];
-                }
-                string letra = prime[prime.Length - 1].ToString();
-                string _conse = usu.Text.Split('-')[1];
-
-                C_Login _login = new C_Login(_membre,letra,_conse, pass.Text,fol.Text);
-                //crear el json
-                string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-                Console.Write("Envia para login"+ _jsonLog);
-                //mostrar la pantalla con mensajes
-               // Mensajes_over.Text +=_jsonLog ;
-                //crear el cliente
-                HttpClient _client = new HttpClient();
-                string _DirEnviar = "http://tratoespecial.com/login.php";
-                StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
-                //mandar el json con el post
-                try
-                {  //getting exception in the following line    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
-                    HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                    if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                if(prime.Length<3){
+                    string _membre = "";///los 4 numeros de la mebresia sin laletra
+                    for(int i=0; i<prime.Length-1; i++)
                     {
-                        string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                        if (_respuesta == "0")
-                        {
-                            Mensajes_over.Text += "\n Error en los datos";
-                            Reinten.IsVisible = true;
-                        }
-                        else if (_respuesta == "1" || _respuesta == "2")
-                        {
+                        _membre += prime[i];
+                    }
+                    string letra = prime[prime.Length - 1].ToString();
+                    string _conse = usu.Text.Split('-')[1];
 
-                            string _noespacios = "";
-                            string _usutexto = usu.Text;
-                            for(int i=0; i<_usutexto.Length;i++)
+                    C_Login _login = new C_Login(_membre,letra,_conse, pass.Text,fol.Text);
+                    //crear el json
+                    string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+                    Console.Write("Envia para login"+ _jsonLog);
+                    //mostrar la pantalla con mensajes
+                   // Mensajes_over.Text +=_jsonLog ;
+                    //crear el cliente
+                    HttpClient _client = new HttpClient();
+                    string _DirEnviar = "http://tratoespecial.com/login.php";
+                    StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
+                    //mandar el json con el post
+                    try
+                    {  //getting exception in the following line    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
+                        HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                        if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                            if (_respuesta == "0")
                             {
-                                string _temp= _usutexto[i].ToString();
-                                if(_temp!=" ")
-                                {
-                                    _noespacios += _usutexto[i];
-                                }
+                                Mensajes_over.Text += "\n Error en los datos";
+                                Reinten.IsVisible = true;
                             }
-
-                            //cambiar a logeado
-                            //StackMen.IsVisible = false;
-                            Perf _perf = new Perf();
-                            _perf.v_fol = fol.Text;
-                            _perf.v_membre = _noespacios;
-                            _perf.v_letra = letra;
-                            //crear el json
-                            string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
-                            Console.Write("json para perfil"+_jsonper);
-                            //mostrar la pantalla con mensajes
-                            //await DisplayAlert("envia login ", _jsonper, "Sigue");
-                           // Mensajes_over.Text = "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
-                            //crear el cliente
-                            _client = new HttpClient();
-                            _DirEnviar = "http://tratoespecial.com/query_perfil.php";
-                            _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
-
-                            try
+                            else if (_respuesta == "1" || _respuesta == "2")
                             {
-                                //mandar el json con el post
-                                _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                                _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                                //Mensajes_over.Text += _nuePer.Fn_GetDatos();
-                               // await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
-                                App.Fn_GuardarDatos(_nuePer, _noespacios, fol.Text, letra);
-                                Console.Write("json para perfil medicoo"+ _jsonper);
-                                _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
-                                //membre  letraa folio
+
+                                string _noespacios = "";
+                                string _usutexto = usu.Text;
+                                for(int i=0; i<_usutexto.Length;i++)
+                                {
+                                    string _temp= _usutexto[i].ToString();
+                                    if(_temp!=" ")
+                                    {
+                                        _noespacios += _usutexto[i];
+                                    }
+                                }
+
+                                //cambiar a logeado
+                                //StackMen.IsVisible = false;
+                                Perf _perf = new Perf();
+                                _perf.v_fol = fol.Text;
+                                _perf.v_membre = _noespacios;
+                                _perf.v_letra = letra;
+                                //crear el json
+                                string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+                                Console.Write("json para perfil"+_jsonper);
+                                //mostrar la pantalla con mensajes
+                                //await DisplayAlert("envia login ", _jsonper, "Sigue");
+                               // Mensajes_over.Text = "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
+                                //crear el cliente
+                                _client = new HttpClient();
+                                _DirEnviar = "http://tratoespecial.com/query_perfil.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+
                                 try
                                 {
                                     //mandar el json con el post
                                     _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                                     _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                    C_PerfilMed _nuePerMEd = new C_PerfilMed();
-                                    if(string.IsNullOrEmpty( _respuesta) )
-                                    {
-                                        _nuePerMEd = new C_PerfilMed(App.v_perfil.v_idsexo);
-                                    }
-                                    else
-                                    {
-                                        _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-                                    }
-                                    //Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
-                                    App.Fn_GuardarDatos(_nuePerMEd,_noespacios, fol.Text,letra);
-                                 //   Console.Write("perfil medico ", _nuePerMEd.Fn_Info());
-                                    //cargar la nueva pagina de perfil
-                                    string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
-                                    _login = new C_Login(_membre, letra, _conse,App.Fn_GEtToken());
-                                    //crear el json
-                                    _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-                                     _DirEnviar = "http://tratoespecial.com/token_notification.php";
-                                     _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
-                                    Console.WriteLine(" infosss "+ _jsonLog);
+                                    C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                                    //Mensajes_over.Text += _nuePer.Fn_GetDatos();
+                                   // await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
+                                    App.Fn_GuardarDatos(_nuePer, _noespacios, fol.Text, letra);
+                                    Console.Write("json para perfil medicoo"+ _jsonper);
+                                    _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                                    //membre  letraa folio
+                                    _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                                     try
                                     {
                                         //mandar el json con el post
                                         _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                                         _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                        if(_respuesta=="1")
+                                        C_PerfilMed _nuePerMEd = new C_PerfilMed();
+                                        if(string.IsNullOrEmpty( _respuesta) )
                                         {
-                                            App.v_log = "1";
-                                            Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
+                                            _nuePerMEd = new C_PerfilMed(App.v_perfil.v_idsexo);
                                         }
                                         else
                                         {
-                                            Mensajes_over.Text = "Error";
+                                            _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+                                        }
+                                        //Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
+                                        App.Fn_GuardarDatos(_nuePerMEd,_noespacios, fol.Text,letra);
+                                     //   Console.Write("perfil medico ", _nuePerMEd.Fn_Info());
+                                        //cargar la nueva pagina de perfil
+                                        string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
+                                        _login = new C_Login(_membre, letra, _conse,App.Fn_GEtToken());
+                                        //crear el json
+                                        _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+                                         _DirEnviar = "http://tratoespecial.com/token_notification.php";
+                                         _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
+                                        Console.WriteLine(" infosss "+ _jsonLog);
+                                        try
+                                        {
+                                            //mandar el json con el post
+                                            _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                                            _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                                            if(_respuesta=="1")
+                                            {
+                                                App.v_log = "1";
+                                                Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
+                                            }
+                                            else
+                                            {
+                                                Mensajes_over.Text = "Error";
+                                                Reinten.IsVisible = true;
+                                            }
+
+                                        }
+                                        catch(HttpRequestException exception)
+                                        {
+                                            await DisplayAlert("Error", exception.Message, "Aceptar");
                                             Reinten.IsVisible = true;
                                         }
-
                                     }
-                                    catch(HttpRequestException exception)
+                                    catch (HttpRequestException exception)
                                     {
                                         await DisplayAlert("Error", exception.Message, "Aceptar");
                                         Reinten.IsVisible = true;
@@ -166,24 +173,25 @@ namespace Trato.Views
                                     Reinten.IsVisible = true;
                                 }
                             }
-                            catch (HttpRequestException exception)
+                            else
                             {
-                                await DisplayAlert("Error", exception.Message, "Aceptar");
+                                //Mensajes_over.Text = "otra cosa que no entra en el if " + _respuesta;
+                                Mensajes_over.Text = "Error";
+
                                 Reinten.IsVisible = true;
                             }
                         }
-                        else
-                        {
-                            //Mensajes_over.Text = "otra cosa que no entra en el if " + _respuesta;
-                            Mensajes_over.Text = "Error";
-
-                            Reinten.IsVisible = true;
-                        }
+                    }
+                    catch (HttpRequestException ex)
+                    {
+                        Mensajes_over.Text = ex.Message.ToString();
+                        Reinten.IsVisible = true;
                     }
                 }
-                catch (HttpRequestException ex)
+                else
                 {
-                    Mensajes_over.Text = ex.Message.ToString();
+                    //Mensajes_over.Text = "otra cosa que no entra en el if " + _respuesta;
+                    Mensajes_over.Text = "\n Error en los datos";
                     Reinten.IsVisible = true;
                 }
             }

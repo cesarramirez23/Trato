@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Login" Title="Inicio de Sesión">
@@ -47,9 +47,20 @@
             <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="StackMen" IsVisible="False" BackgroundColor="LightGray">
                 <StackLayout Margin="20,20" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label x:Name="Mensajes_over" Text="Cargando Formulario de registro" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Button Text="Reintentar" Style="{StaticResource Buton2}" x:Name="Reinten" Clicked="Fn_Reintento" HorizontalOptions="Start" IsVisible="False"></Button>
-                    </StackLayout>
+                   
+                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>  <ColumnDefinition Width="*"/>  <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+                    <Button Text="Reintentar" Style="{StaticResource Buton2}" x:Name="Reinten" Clicked="Fn_Reintento" 
+                               Grid.Column="1" Grid.ColumnSpan="2" IsVisible="False" ></Button>
+                    </Grid>
+                    
+                  <!--  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"> </StackLayout>-->
                 </StackLayout>
             </ContentView>
 
