@@ -68,13 +68,13 @@
                 <StackLayout Margin="10,0" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label Text="El correo se enviará al titular de la membresia" Style="{StaticResource AzulMedLbl}"/>
                     <Label Style="{StaticResource AzulMedLbl}" Text="Correo del titular de la membresia"/>
-                    <Entry Style="{StaticResource StyEntry}" Text="programacion3@alsain.mx"  x:Name="PassCorreo" Placeholder="correo@algo.com"/>
+                    <Entry Style="{StaticResource StyEntry}"   x:Name="PassCorreo" Placeholder="correo@algo.com"/>
 
                     <Label Style="{StaticResource AzulMedLbl}" Text="Membresia completa del titular"/>
-                    <Entry Style="{StaticResource StyEntry}" Text="1810I-0558" Placeholder="0000F-0000" x:Name="PassMembre"/>
+                    <Entry Style="{StaticResource StyEntry}"  Placeholder="0000F-0000" x:Name="PassMembre"/>
 
                     <Label Style="{StaticResource AzulMedLbl}" Text="Folio de la cuenta"/>
-                    <Entry Style="{StaticResource StyEntry}" Placeholder="123" Text="0" x:Name="PassFol"/>
+                    <Entry Style="{StaticResource StyEntry}" Placeholder=""  x:Name="PassFol"/>
 
 
                     <Grid>

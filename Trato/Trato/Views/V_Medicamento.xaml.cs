@@ -128,7 +128,7 @@ namespace Trato.Views
             }
             else
             {
-                await DisplayAlert("Tratamiento terminado","NO PUEDE HACER NADA"+ _medi.v_estado+"  id "+_medi.v_idMedi, "Aceptar");
+                await DisplayAlert("Tratamiento terminado","", "Aceptar");
             }
             await Task.Delay(100);
         }
@@ -173,8 +173,6 @@ namespace Trato.Views
             List<CalendarEvent> _lisEvent = new List<CalendarEvent>();
             //los recordatorios van a ser iguales
             List<CalendarEventReminder> _lisRemain = new List<CalendarEventReminder>();
-            _lisRemain.Add(new CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore = new TimeSpan(0, 10, 0)});
-            _lisRemain.Add(new CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore = new TimeSpan(0, 5, 0)});
             _lisRemain.Add(new CalendarEventReminder() { Method = CalendarReminderMethod.Alert, TimeBefore = new TimeSpan(0, 2, 0)});
 
             for(int i=0; i<_numeroEventos; i++)

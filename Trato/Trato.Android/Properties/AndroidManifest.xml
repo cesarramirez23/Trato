@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.2.1" package="com.alsain.trato4" android:installLocation="preferExternal" android:versionCode="13">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.2.3" package="com.alsain.trato4" android:installLocation="preferExternal" android:versionCode="15">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />

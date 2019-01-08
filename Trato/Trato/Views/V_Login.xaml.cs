@@ -37,8 +37,8 @@ namespace Trato.Views
             {
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = " Comprobando informacion\n";
-                string prime = usu.Text.Split('-')[0];
-                if(prime.Length<3){
+                if (usu.Text.Split('-').Length==2){
+                    string prime = usu.Text.Split('-')[0];
                     string _membre = "";///los 4 numeros de la mebresia sin laletra
                     for(int i=0; i<prime.Length-1; i++)
                     {

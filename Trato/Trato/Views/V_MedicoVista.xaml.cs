@@ -43,8 +43,8 @@ namespace Trato.Views
             "\nCedula Profesional: "+v_medico.v_cedula;*/
             if (!string.IsNullOrEmpty(v_medico.v_horario))
             {
-                string _hor = v_medico.v_horario.Replace('-', ':');
-                string[] _split = _hor.Split('/');
+                //string _hor = v_medico.v_horario.Replace('-', ':');
+                string[] _split = v_medico.v_horario.Split('/');
                 info.Text += "\nHorario de consulta: " + _split[0] + " a " + _split[1];
             }
 
@@ -58,16 +58,19 @@ namespace Trato.Views
 
 
             //
-
+            
             //if (App.v_log == "1")
-            if(v_medico.v_cita=="1" && App.v_log == "1"  && App.v_membresia=="180I-0558")
-            {
-                boton.IsVisible = true;
-            }
-            else
-            {
+            //if(v_medico.v_cita=="1" && App.v_log == "1"  )
+            //{
+            //    //Console.WriteLine(App.v_membresia);
+            //    //if(App.v_membresia == "1810I-0558")
+            //    boton.IsVisible = true;
+            //}
+            //else
+            //{
+            //    boton.IsVisible = false;
+            //}
                 boton.IsVisible = false;
-            }
 
         }
         public V_MedicoVista(C_Servicios _servicios)
