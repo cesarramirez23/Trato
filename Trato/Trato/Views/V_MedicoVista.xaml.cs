@@ -56,21 +56,18 @@ namespace Trato.Views
             //_personaa = true;
             v_tipo = 0;
 
-
-            //
             
-            //if (App.v_log == "1")
-            //if(v_medico.v_cita=="1" && App.v_log == "1"  )
-            //{
-            //    //Console.WriteLine(App.v_membresia);
-            //    //if(App.v_membresia == "1810I-0558")
-            //    boton.IsVisible = true;
-            //}
-            //else
-            //{
-            //    boton.IsVisible = false;
-            //}
+            if (v_medico.v_cita == "1" && App.v_log == "1")
+            {
+                //Console.WriteLine(App.v_membresia);
+                if(App.v_membresia == "1810I-0558"  || App.v_membresia == "1811E-0011" || App.v_membresia == "1811F-0559")
+                    boton.IsVisible = true;
+            }
+            else
+            {
                 boton.IsVisible = false;
+            }
+           // boton.IsVisible = false;
 
         }
         public V_MedicoVista(C_Servicios _servicios)
@@ -219,7 +216,7 @@ namespace Trato.Views
             }
         }
 
-        public async void Fn_AbrirMapa(object sender, EventArgs _args)
+        public void Fn_AbrirMapa(object sender, EventArgs _args)
         {
             string direcMapa = "";
             if(Device.RuntimePlatform == Device.Android)

@@ -38,6 +38,7 @@ namespace Trato.Views
             if (_tiene)
             {
                 v_CitaNotif = _nuevaCita;
+                ToolbarItems.Clear();
                 Fn_Notif(_nuevaCita);
             }
         }
@@ -83,6 +84,11 @@ namespace Trato.Views
                    // await DisplayAlert("LLega get medicamentos", _respuesta, "acep");
                     v_medicamentos = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_respuesta);
                     App.Fn_GuardarMedicamentos(v_medicamentos);
+                    if(v_medicamentos.Count<1)
+                    {
+                        L_Error.IsVisible = true;
+                        L_Error.Text = "No se encuentran medicamentos";
+                    }
                 }
             }
             catch (HttpRequestException ex)

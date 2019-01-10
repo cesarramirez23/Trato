@@ -9,27 +9,9 @@ using Xamarin.Forms.Xaml;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
 using System.Net.Http;
-
-
-
 namespace Trato.Views
 {
-    /*PARA CREAR LA CONSTRASEÑA SIN NECESIDAD DE CLASES
- * 
- * string json = @"{
-  CPU: 'Intel',
-  Drives: [
-    'DVD read/writer',
-    '500 gigabyte hard drive'
-  ]
-}";
-
-JObject o = JObject.Parse(json);
-
-        1809I-0015
- */
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Opciones : ContentPage
 	{
@@ -45,16 +27,16 @@ JObject o = JObject.Parse(json);
             { C_Tipo.Text = "Membresia Familiar"; }
             else if (App.v_letra == "E"  )
             { C_Tipo.Text = "Membresia Empresarial";
-                if( int.Parse(App.v_folio) == 0)
+                //P_actual.Text = "c1e501";
+                //P_Nueva.Text = "Cesar1234";
+                if ( int.Parse(App.v_folio) == 0)
                 {
                     C_T_usu.IsVisible = true;
                     C_T_usu.Text = "Total de usuarios: " + App.v_perfil.v_numEmple;
                 }
             }
-
             string[] _Arr = App.v_perfil.v_vig.Split('-');
             C_fecha.Text = _Arr[2] + " - " + _Arr[1] + " - " + _Arr[0];
-           
 		}
         protected override void OnAppearing()
         {
@@ -123,7 +105,7 @@ JObject o = JObject.Parse(json);
                         json += "password:'" + P_actual.Text + "',\n";
                         json += "newpassword:'" + P_Nueva.Text + "',\n";
                         json += "}";
-
+                        await DisplayAlert("respuesta", json, "Aceptar");
                         JObject jsonPer = JObject.Parse(json);
                         StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
                         HttpClient _client = new HttpClient();
@@ -152,6 +134,10 @@ JObject o = JObject.Parse(json);
                             else if (_result=="10")
                             {
                                 await DisplayAlert("respuesta", "Usuario no encontrado, por favor intentalo mas tarde ", "Aceptar");
+                            }
+                            else
+                            {
+                                await DisplayAlert("respuesta", _result, "Aceptar");
                             }
                         }
                         catch (HttpRequestException exception)

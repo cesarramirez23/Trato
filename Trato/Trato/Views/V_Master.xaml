@@ -9,7 +9,7 @@
             <Setter Property="Aspect" Value="AspectFit"/>
             <Setter Property="HeightRequest" Value="100"/>
             <Setter Property="WidthRequest" Value="100"/>
-            <Setter Property="Margin" Value="2,10,2,5"/>
+            <Setter Property="Margin" Value="2,5,2,5"/>
         </Style>
         <Style x:Key="LblBoton" TargetType="Label">
             <Setter Property="TextColor" Value="White"/>
@@ -23,7 +23,7 @@
             <ContentPage.Content>
                 <ScrollView>
                     <StackLayout>
-                        <StackLayout x:Name="StackPrin" IsVisible="True">
+                        <StackLayout x:Name="StackPrin" HorizontalOptions="FillAndExpand" IsVisible="True">
                             <Image Source="HOME_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Inicio"/>
@@ -90,7 +90,7 @@
                         </StackLayout>
                         
                         
-                        <StackLayout x:Name="StackLog" IsVisible="True">
+                        <StackLayout x:Name="StackLog" HorizontalOptions="FillAndExpand" IsVisible="True">
                             <Image Source="HOME_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Inicio"/>

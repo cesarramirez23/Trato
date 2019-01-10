@@ -37,7 +37,9 @@ namespace Trato.Views
             {
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = " Comprobando informacion\n";
-                if (usu.Text.Split('-').Length==2){
+                Regex MembreRegex = new Regex(@"^([0-9]){4}([A-Z]){1}-([0-9]){4}$");
+                if (MembreRegex.IsMatch(usu.Text))
+                {
                     string prime = usu.Text.Split('-')[0];
                     string _membre = "";///los 4 numeros de la mebresia sin laletra
                     for(int i=0; i<prime.Length-1; i++)
@@ -46,7 +48,6 @@ namespace Trato.Views
                     }
                     string letra = prime[prime.Length - 1].ToString();
                     string _conse = usu.Text.Split('-')[1];
-
                     C_Login _login = new C_Login(_membre,letra,_conse, pass.Text,fol.Text);
                     //crear el json
                     string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
@@ -71,7 +72,6 @@ namespace Trato.Views
                             }
                             else if (_respuesta == "1" || _respuesta == "2")
                             {
-
                                 string _noespacios = "";
                                 string _usutexto = usu.Text;
                                 for(int i=0; i<_usutexto.Length;i++)
@@ -82,7 +82,7 @@ namespace Trato.Views
                                         _noespacios += _usutexto[i];
                                     }
                                 }
-
+                                Console.WriteLine("Login empre" + _respuesta);
                                 //cambiar a logeado
                                 //StackMen.IsVisible = false;
                                 Perf _perf = new Perf();
@@ -99,7 +99,6 @@ namespace Trato.Views
                                 _client = new HttpClient();
                                 _DirEnviar = "http://tratoespecial.com/query_perfil.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
-
                                 try
                                 {
                                     //mandar el json con el post
@@ -191,7 +190,7 @@ namespace Trato.Views
                 else
                 {
                     //Mensajes_over.Text = "otra cosa que no entra en el if " + _respuesta;
-                    Mensajes_over.Text = "\n Error en los datos";
+                    Mensajes_over.Text = "No contiene el formato de membresia\n 0000F-0000";
                     Reinten.IsVisible = true;
                 }
             }
@@ -267,7 +266,6 @@ namespace Trato.Views
             {
                 fol.BackgroundColor = Color.Transparent;
             }
-
             if (_conta > 0)
             {
                 return false;
@@ -276,7 +274,6 @@ namespace Trato.Views
             {
                 return true;
             }
-
         }
 
 
@@ -310,11 +307,11 @@ namespace Trato.Views
             _buton.IsEnabled = false;
             //correo
             Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            if (string.IsNullOrEmpty(PassCorreo.Text) || string.IsNullOrWhiteSpace(PassCorreo.Text)  || !EmailRegex.IsMatch(PassCorreo.Text))
+            if (string.IsNullOrEmpty(PassCorreo.Text) || string.IsNullOrWhiteSpace(PassCorreo.Text) || !EmailRegex.IsMatch(PassCorreo.Text))
             {
                 await DisplayAlert("Error", "Correo vacio o no contiene formato correcto", "Reintentar");
             }
-            else if(string.IsNullOrEmpty(PassMembre.Text) || string.IsNullOrWhiteSpace(PassMembre.Text))
+            else if (string.IsNullOrEmpty(PassMembre.Text) || string.IsNullOrWhiteSpace(PassMembre.Text))
             {
                 await DisplayAlert("Error", "Error en Membresia", "Reintentar");
             }
@@ -324,57 +321,62 @@ namespace Trato.Views
             }
             else
             {
-                string prime = PassMembre.Text.Split('-')[0];
-                string _membre = "";///los 4 numeros de la mebresia sin laletra
-                for (int i = 0; i < prime.Length - 1; i++)
+                                             //4 numeros  1 letra  guion   4 numeros o mas
+                Regex MembreRegex = new Regex(@"^([0-9]){4}([A-Z]){1}-([0-9]){4}$");
+                if (MembreRegex.IsMatch(PassMembre.Text))
                 {
-                    _membre += prime[i];
+                    string prime = PassMembre.Text.Split('-')[0];
+                    string _membre = "";///los 4 numeros de la mebresia sin laletra
+                    for (int i = 0; i < prime.Length - 1; i++)
+                    {
+                        _membre += prime[i];
+                    }
+                    string letra = prime[prime.Length - 1].ToString();
+                    string _conse = PassMembre.Text.Split('-')[1];
+                    string json = @"{";
+                    json += "correo:'" + App.Fn_Vacio(PassCorreo.Text) + "',\n";
+                    json += "membre:'" + App.Fn_Vacio(_membre) + "',\n";
+                    json += "letra:'" + App.Fn_Vacio(letra) + "',\n";
+                    json += "consecutivo:'" + App.Fn_Vacio(_conse) + "',\n";
+                    json += "folio:'" + App.Fn_Vacio(PassFol.Text) + "'\n";
+                    json += "}";
+                    JObject jsonper = JObject.Parse(json);
+                    string _DirEnviar = "http://tratoespecial.com/restore_pass.php";
+                    StringContent _content = new StringContent(jsonper.ToString(), Encoding.UTF8, "application/json");
+                    // await DisplayAlert("Envia", jsonper.ToString(), "Envia");
+                    HttpClient _client = new HttpClient();
+                    try
+                    {
+                        //mandar el json con el post
+                        HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                        string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                        if (_respuesta == "0")
+                        {
+                            await DisplayAlert("Error", "Falló el correo", "Aceptar");
+                        }
+                        else if (_respuesta == "1")
+                        {
+                            await DisplayAlert("Exito", "Correo enviado correctamente", "Aceptar");
+                            Fn_APagaPass(null, null);
+                        }
+                        else if (_respuesta == "32")
+                        {
+                            await DisplayAlert("Error", "membresia no coincide con el correo", "Aceptar");
+                        }
+                        else
+                        {
+                            await DisplayAlert("Error", _respuesta, "Aceptar");
+                        }
+                    }
+                    catch (HttpRequestException exception)
+                    {
+                        await DisplayAlert("Error", exception.Message, "Aceptar");
+                        Reinten.IsVisible = true;
+                    }
                 }
-                string letra = prime[prime.Length - 1].ToString();
-                string _conse = PassMembre.Text.Split('-')[1];
-
-                string json = @"{";
-                json += "correo:'" + App.Fn_Vacio(PassCorreo.Text) + "',\n";
-                json += "membre:'" + App.Fn_Vacio(_membre) + "',\n";
-                json += "letra:'" + App.Fn_Vacio(letra) + "',\n";
-                json += "consecutivo:'" + App.Fn_Vacio(_conse) + "',\n";
-                json += "folio:'" + App.Fn_Vacio(PassFol.Text) + "'\n";
-                json += "}";
-                JObject jsonper = JObject.Parse(json);
-
-                string _DirEnviar = "http://tratoespecial.com/restore_pass.php";
-                StringContent _content = new StringContent(jsonper.ToString(), Encoding.UTF8, "application/json");
-               // await DisplayAlert("Envia", jsonper.ToString(), "Envia");
-                HttpClient _client= new HttpClient();
-                try
+                else
                 {
-                    //mandar el json con el post
-                    HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                    string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                    if(_respuesta=="0")
-                    {
-                        await DisplayAlert("Error", "Falló el correo", "Aceptar");
-                    }
-                    else if (_respuesta == "1")
-                    {
-                        await DisplayAlert("Exito", "Correo enviado correctamente", "Aceptar");
-                        Fn_APagaPass(null,null);
-                    }
-                    else if (_respuesta=="32")
-                    {
-                        await DisplayAlert("Error", "membresia no coincide con el correo", "Aceptar");
-                    }
-                    else
-                    {
-                        await DisplayAlert("Error", _respuesta, "Aceptar");
-                    }
-
-
-                }
-                catch (HttpRequestException exception)
-                {
-                    await DisplayAlert("Error", exception.Message, "Aceptar");
-                    Reinten.IsVisible = true;
+                    await DisplayAlert("Error", "No contiene el formato de membresia\n0000F-0000", "Aceptar");
                 }
             }
             _buton.IsEnabled = true;

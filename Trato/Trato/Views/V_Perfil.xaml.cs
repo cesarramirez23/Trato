@@ -499,7 +499,15 @@ namespace Trato.Views
             string json = @"{";
             json += "idmembre:'" + App.v_membresia + "',\n";
             json += "idfolio:'" + App.v_folio + "',\n";
+            if(M_Sangre.SelectedItem!= null)
+            {
             json += "sangre:'" + App.Fn_Vacio(M_Sangre.SelectedItem.ToString()) + "',\n";
+            }
+            else
+            {
+
+            }
+
             json += "idsexo:'" +M_sexoPick.SelectedIndex + "',\n";
 
             if(M_sexoPick.SelectedIndex==1)

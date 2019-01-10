@@ -253,19 +253,22 @@ namespace Trato.Views
                         if (_respuesta == "422")
                         {
                             await DisplayAlert("Error", " error de folio", "Aceptar");
+                            Mensajes_over.Text = "Reintentar";
                         }
                         else if (_respuesta == "834")
                         {
-
                             await DisplayAlert("Error", "Limite de folio Excedido", "Aceptar");
+                            Mensajes_over.Text = "Reintentar";
                         }
                         else if (_respuesta == "200")
                         {
                             await DisplayAlert("Error", "no coincide el numero de folio con el nombre de la empresa", "Aceptar");
+                            Mensajes_over.Text = "Reintentar";
                         }
                         else if (_respuesta == "2")
                         {
                             await DisplayAlert("Error", "La cuenta del titular no está activa, contacta al titular para mas información", "Aceptar");
+                            Mensajes_over.Text = "Reintentar";
                         }
                         else if (_respuesta == "0")
                         {

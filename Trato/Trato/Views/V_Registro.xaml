@@ -151,10 +151,10 @@
                         </StackLayout>
 
                         <Label Text="Ingresa tu Número de Membresía" Style="{StaticResource RegSty}"></Label>
-                        <Entry Placeholder="No de Membresía" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
+                        <Entry Placeholder="4444I-0000" x:Name="Fol_NumMembre" Margin="0,5"></Entry>
 
                         <Label Text="Ingresa tu Nombre Completo" Style="{StaticResource RegSty}"></Label>
-                        <Entry Placeholder="Nombre"  x:Name="Fol_Nombre" Margin="0,5"></Entry>
+                        <Entry Placeholder="Nombre Completo"  x:Name="Fol_Nombre" Margin="0,5"></Entry>
 
                         
                         <Label Text="Elige tu Sexo" Style="{StaticResource RegSty}"></Label>
@@ -171,7 +171,7 @@
                         </StackLayout>
                         <StackLayout x:Name="Stack_Empre" IsVisible="False">
                             <Label Text="Ingresa tu Folio" Style="{StaticResource RegSty}"></Label>
-                            <Entry Placeholder="No de Folio" x:Name="Fol_Folio" Keyboard="Numeric"  Margin="0,5"></Entry>
+                            <Entry Placeholder="1" x:Name="Fol_Folio" Keyboard="Numeric"  Margin="0,5"></Entry>
                             <Label Text="Empresa donde labora" Style="{StaticResource RegSty}"></Label>
                             <Entry Placeholder="Nombre de la empresa" x:Name="Fol_Empre" Margin="0,5"></Entry>
                         </StackLayout>
@@ -183,7 +183,7 @@
                         <Entry  Placeholder="Celular" Keyboard="Numeric" x:Name="Fol_Cel" ></Entry>
 
                         <Label Text="Dirección de Correo Electrónico" Style="{StaticResource RegSty}"></Label>
-                        <Entry  Placeholder="Correo Electronico" Keyboard="Default" x:Name="Fol_Correo" ></Entry>
+                        <Entry  Placeholder="correo@algo.com" Keyboard="Default" x:Name="Fol_Correo" ></Entry>
 
 
                         <Label Text="La contraseña debe tener, mínimo una letra mayuscula, una letra minuscula, un numero y ser mayor a 8 caracteres"

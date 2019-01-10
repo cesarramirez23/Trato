@@ -21,20 +21,6 @@ namespace Trato.Views
         public MainPage()
         {
             InitializeComponent();
-            if (App.v_log == "1")
-            {
-                Fn_Fecha();
-                Fn_GetMedic();
-            }
-            else
-            {
-                M_mensaje.IsVisible = false;
-            }
-            //M_mensaje.IsVisible = true;
-            //M_mensaje.Text += "token " + App.Fn_GEtToken();
-            
-            Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
-            //FN_Red();
         }
         private async void Fn_GetMedic()
         {
@@ -64,12 +50,64 @@ namespace Trato.Views
         protected async override  void OnAppearing()
         {
             base.OnAppearing();
+            if (App.v_log == "1")
+            {
+                Fn_Fecha();
+                Fn_GetMedic();
+                Token();
+            }
+            else
+            {
+                M_mensaje.IsVisible = false;
+            }
+            await Task.Delay(1000);
+            //M_mensaje.IsVisible = true;
+            //M_mensaje.Text += "token " + App.Fn_GEtToken();
+
+            Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
+            //FN_Red();
             v_cambioban = true;
         }
         protected override void OnDisappearing()
         {
             v_cambioban = false;
             base.OnDisappearing();
+        }
+        public async void Token()
+        {
+            string prime = App.v_membresia.Split('-')[0];
+            string _membre = "";///los 4 numeros de la mebresia sin laletra
+            for (int i = 0; i < prime.Length - 1; i++)//-1 para no agarrar la letra
+            {
+                _membre += prime[i];
+            }
+            string _conse = App.v_membresia.Split('-')[1];
+            C_Login  _login = new C_Login(_membre, App.v_letra, _conse, App.Fn_GEtToken());
+            //crear el json
+           string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+           string _DirEnviar = "http://tratoespecial.com/token_notification.php";
+           StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
+            HttpClient _client = new HttpClient();
+            Console.WriteLine(" infosss " + _jsonLog);
+            try
+            {
+                //mandar el json con el post
+               HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+               string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                if (_respuesta == "1")
+                {
+                    Console.Write("token 1");
+                }
+                else
+                {
+                    Console.WriteLine("token no 1");
+                }
+
+            }
+            catch
+            {
+                Console.WriteLine("error token");
+            }
         }
         /// <summary>
         /// hace la consulta a la fecha de vigencia para descativarla o no

@@ -195,18 +195,25 @@ namespace Trato.Views
             //los calendarios en el telefono,   el 0 es el calendario del sistema
             var TodosCalen = await CrossCalendars.Current.GetCalendarsAsync();
             
-            for(int i=0; i<_lisEvent.Count; i++)
+            if(TodosCalen.Count>1)
             {
-                //agregarlo
-                try
+                for(int i=0; i<_lisEvent.Count; i++)
                 {
+                    //agregarlo
+                    try
+                    {
 
-                    await CrossCalendars.Current.AddOrUpdateEventAsync(TodosCalen[0], _lisEvent[i]);
+                        await CrossCalendars.Current.AddOrUpdateEventAsync(TodosCalen[0], _lisEvent[i]);
+                    }
+                    catch
+                    {
+                        await DisplayAlert("Error","No es posible agregar el evento", "Aceptar");
+                    }
                 }
-                catch (UnauthorizedAccessException ex)
-                {
-                    await DisplayAlert("Error calendario", ex.Message, "asa");
-                }
+            }
+            else
+            {
+                await DisplayAlert("Error calendario", "No se encontraron calendarios", "asa");
             }
         }
         private async void Fn_ListaRefresh(object sender, EventArgs e)
