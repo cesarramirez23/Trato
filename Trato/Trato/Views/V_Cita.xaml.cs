@@ -38,7 +38,6 @@ namespace Trato.Views
             if (_tiene)
             {
                 v_CitaNotif = _nuevaCita;
-                ToolbarItems.Clear();
                 Fn_Notif(_nuevaCita);
             }
         }
@@ -47,7 +46,7 @@ namespace Trato.Views
             base.OnAppearing();
             if (v_CitaNotif.v_estado == "-1")
             {
-                Fn_GetCitas();
+                Fn_GetCitas();            
             }
             if(v_medi)
             {
