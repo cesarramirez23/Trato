@@ -20,7 +20,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Trato Especial</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.alsain.trato4</string>
+	<string>com.alsain.tratoesp</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -41,7 +41,7 @@
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Use for PayPal</string>
 	<key>NSCameraUsageDescription</key>

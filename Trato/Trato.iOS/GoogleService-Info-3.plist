@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>640683501502-t1ego3v141j118u1fuell1eopdugaf30.apps.googleusercontent.com</string>
+	<string>1091175536245-s39ko0k1jrpa4q9cioj69cgp75biot7a.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.640683501502-t1ego3v141j118u1fuell1eopdugaf30</string>
+	<string>com.googleusercontent.apps.1091175536245-s39ko0k1jrpa4q9cioj69cgp75biot7a</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA7wdvxuZPJzPV3BtrzLc8khQ_49XkuToc</string>
+	<string>AIzaSyApfQB67U0KRZAF1vTEJ-5jDQjoyG7U4p0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>640683501502</string>
+	<string>1091175536245</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.alsain.trato4</string>
+	<string>com.alsain.tratoesp</string>
 	<key>PROJECT_ID</key>
-	<string>trato-especial</string>
+	<string>trato-especial-paciente</string>
 	<key>STORAGE_BUCKET</key>
-	<string>trato-especial.appspot.com</string>
+	<string>trato-especial-paciente.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:640683501502:ios:8f22a44eb06d302a</string>
+	<string>1:1091175536245:ios:0263b3dc58307b05</string>
 	<key>DATABASE_URL</key>
-	<string>https://trato-especial.firebaseio.com</string>
+	<string>https://trato-especial-paciente.firebaseio.com</string>
 </dict>
 </plist>
