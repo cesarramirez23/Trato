@@ -140,8 +140,7 @@ namespace Trato.Droid
             //Bitmap largeIcon = BitmapFactory.DecodeResource(Resources, Resource.Drawable.ICONOAPP);
             var notificationManager = NotificationManager.FromContext(this);
             var notificationBuilder = new Android.Support.V4.App.NotificationCompat.Builder(this)
-             .SetSmallIcon(Resource.Drawable.Logo_Redondo_512x512_Blanco)//color
-                                                                         // .SetLargeIcon(largeIcon)
+             .SetSmallIcon(Resource.Drawable.Logo_Redondo_512x512_Blanco)//color// .SetLargeIcon(largeIcon)
              .SetContentTitle(_titulo)
              .SetContentText(messageBody)
              .SetContentIntent(pendingIntent)

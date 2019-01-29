@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "640683501502",
-    "firebase_url": "https://trato-especial.firebaseio.com",
-    "project_id": "trato-especial",
-    "storage_bucket": "trato-especial.appspot.com"
+    "project_number": "1091175536245",
+    "firebase_url": "https://trato-especial-paciente.firebaseio.com",
+    "project_id": "trato-especial-paciente",
+    "storage_bucket": "trato-especial-paciente.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:640683501502:android:8f22a44eb06d302a",
+        "mobilesdk_app_id": "1:1091175536245:android:8f22a44eb06d302a",
         "android_client_info": {
           "package_name": "com.alsain.trato4"
         }
       },
       "oauth_client": [
         {
-          "client_id": "640683501502-q9he7lv3trd9kf0e0s4ip6faj8d3rdh9.apps.googleusercontent.com",
+          "client_id": "1091175536245-ts4jb8123o3m77thpsf87df93359j34c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDNMEEcYzXCwxClvgy5rvNxm_sHheb_v8Y"
+          "current_key": "AIzaSyCSC7tUEKzq65IUMS9FL9Vo1vHqD4wy2xs"
         }
       ],
       "services": {
