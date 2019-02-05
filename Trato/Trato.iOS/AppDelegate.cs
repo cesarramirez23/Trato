@@ -145,7 +145,7 @@ NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 
 
 
-            Firebase.Core.App.Configure();
+            //Firebase.Core.App.Configure();
 
             Firebase.InstanceID.InstanceId.Notifications.ObserveTokenRefresh((sender, e) =>
             {

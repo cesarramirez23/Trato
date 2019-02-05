@@ -23,17 +23,16 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
                     </Grid.RowDefinitions>
-                    <Button Text="Aceptar Cita" Clicked="Fn_Acep" x:Name="v_botAcep" HorizontalOptions="StartAndExpand" 
+                    <Button Text="Aceptar Cita" Clicked="Fn_Acep" x:Name="v_botAcep" 
                             Style="{StaticResource Buton2}" Grid.ColumnSpan="1" />
-                    <Button Text="Cancelar Cita" Clicked="Fn_Recha" x:Name="v_botRec" HorizontalOptions="CenterAndExpand" 
+                    <Button Text="Cancelar Cita" Clicked="Fn_Recha" x:Name="v_botRec" 
                             Style="{StaticResource Buton2}"  Grid.Column="1" Grid.ColumnSpan="1"/>
-                    <Button Text="Reagendar Cita" Clicked="Fn_Cambios" x:Name="v_botCambio" HorizontalOptions="EndAndExpand" 
+                    <Button Text="Reagendar Cita" Clicked="Fn_Cambios" x:Name="v_botCambio" 
                             Style="{StaticResource Buton2}"  Grid.Column="2" Grid.ColumnSpan="1"/>
                 </Grid>
 
                 <Grid x:Name="StackPendiente" IsVisible="False">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
