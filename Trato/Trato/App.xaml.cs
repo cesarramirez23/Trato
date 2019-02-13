@@ -66,12 +66,12 @@ namespace Trato
                 {//no esta logeado
                     v_perfil = new C_PerfilGen();
                     v_perfMed = new C_PerfilMed();
-                    v_membresia = "";
+                    v_membresia = "0000D-0000";
                     v_folio = "";
                     v_letra = "";
-                    string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                    string _json = JsonConvert.SerializeObject(v_perfil);
                     Properties[NombresAux.v_perfGen]= _json;
-                    _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+                    _json = JsonConvert.SerializeObject(v_perfMed);
                     Properties[NombresAux.v_perMed] = _json;
                     Properties[NombresAux.v_letra] = v_letra;
                     Properties[NombresAux.v_membre] = v_membresia;
@@ -87,11 +87,12 @@ namespace Trato
                         Fn_CerrarSesion();
                         MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                     }*/
-                    //  Fn_CargarDatos();
+                    Fn_CargarDatos();
+                    Console.Write(" carga " + Current.Properties[NombresAux.v_perfGen] + "\n");
                     if (!Current.Properties.ContainsKey(NombresAux.v_perfGen))
                     {
                         v_perfil = new C_PerfilGen();
-                        string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                        string _json = JsonConvert.SerializeObject(v_perfil);
                         Current.Properties.Add(NombresAux.v_perfGen, "");
                         Current.Properties[NombresAux.v_perfGen] = _json;
                     }
@@ -99,6 +100,7 @@ namespace Trato
                     {
                         string _jsonGen = Current.Properties[NombresAux.v_perfGen] as string;
                         v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
+                        Console.Write("cargca carga " + v_perfil.Fn_GetDatos() +"\n");
                     }
                    // v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
                     MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
@@ -116,7 +118,7 @@ namespace Trato
                 v_perfMed = new C_PerfilMed();
                 v_folio = "";
                 v_letra = "";
-                v_membresia = "";
+                v_membresia = "0000D-0000";
                 Fn_CrearKey();
                 Fn_CargarListas();
                 App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
@@ -148,21 +150,21 @@ namespace Trato
             if (!Properties.ContainsKey(NombresAux.v_perfGen))
             {
                 v_perfil = new C_PerfilGen();
-                string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_perfil);
                 Current.Properties.Add(NombresAux.v_perfGen, "");
                 Current.Properties[NombresAux.v_perfGen] = _json;
             }
             if (!Properties.ContainsKey(NombresAux.v_perMed))
             {
                 v_perfMed = new C_PerfilMed();
-                string _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_perfMed);
                 Current.Properties.Add(NombresAux.v_perMed, "");
                 Current.Properties[NombresAux.v_perMed] = _json;
             }
             if (!Properties.ContainsKey(NombresAux.v_redmedica2))
             {
                 v_medicos = new ObservableCollection<C_Medico>();
-                string _json = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_medicos);
                 Current.Properties.Add(NombresAux.v_redmedica2, "");
                 Current.Properties[NombresAux.v_redmedica2] = _json;
                 if (Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
@@ -173,28 +175,28 @@ namespace Trato
             if (!Properties.ContainsKey(NombresAux.v_serviciosmedicos))
             {
                 v_servicios = new ObservableCollection<C_Servicios>();
-                string _json = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_servicios);
                 Current.Properties.Add(NombresAux.v_serviciosmedicos, "");
                 Current.Properties[NombresAux.v_serviciosmedicos] = _json;
             }
             if (!Properties.ContainsKey(NombresAux.v_serviciosgenereales))
             {
                 v_servicios = new ObservableCollection<C_Servicios>();
-                string _json = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_servicios);
                 Current.Properties.Add(NombresAux.v_serviciosgenereales, "");
                 Current.Properties[NombresAux.v_serviciosgenereales] = _json;
             }
             if (!Properties.ContainsKey(NombresAux.v_citas))
             {
                 v_citas = new ObservableCollection<Cita>();
-                string _json = JsonConvert.SerializeObject(v_citas, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_citas);
                 Current.Properties.Add(NombresAux.v_citas, "");
                 Current.Properties[NombresAux.v_citas] = _json;
             }
             if (!Properties.ContainsKey(NombresAux.v_Nota))
             {
                 v_NotasMedic = new ObservableCollection<C_NotaMed>();
-                string _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_NotasMedic);
                 Current.Properties.Add(NombresAux.v_Nota, "");
                 Current.Properties[NombresAux.v_Nota] = _json;
             }
@@ -307,7 +309,7 @@ namespace Trato
         {
             if (!Current.Properties.ContainsKey(NombresAux.v_membre))
             {
-                v_membresia = "";
+                v_membresia = "0000D-0000";
                 Current.Properties.Add(NombresAux.v_membre, v_membresia);
             }
             else
@@ -334,20 +336,22 @@ namespace Trato
             }
             if (!Current.Properties.ContainsKey(NombresAux.v_perfGen))
             {
+                Console.Write("carga datos nada");
                 v_perfil = new C_PerfilGen();
-                string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_perfil);
                 Current.Properties.Add(NombresAux.v_perfGen, "");
                 Current.Properties[NombresAux.v_perfGen] = _json;
             }
             else
             {
                 string _jsonGen = Current.Properties[NombresAux.v_perfGen] as string;
+                Console.Write("carga datos " + _jsonGen);
                 v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
             }
             if (!Current.Properties.ContainsKey(NombresAux.v_perMed))
             {
                 v_perfMed = new C_PerfilMed();
-                string _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_perfMed);
                 Current.Properties.Add(NombresAux.v_perMed, "");
                 Current.Properties[NombresAux.v_perMed] = _json;
             }
@@ -359,7 +363,7 @@ namespace Trato
             if (!Current.Properties.ContainsKey(NombresAux.v_redmedica2))
             {
                 v_medicos = new ObservableCollection<C_Medico>();
-                string _json = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_medicos);
                 Current.Properties.Add(NombresAux.v_redmedica2, "");
                 Current.Properties[NombresAux.v_redmedica2] = _json;
                 if (Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
@@ -379,7 +383,7 @@ namespace Trato
             if (!Current.Properties.ContainsKey(NombresAux.v_serviciosmedicos))
             {
                 v_servicios = new ObservableCollection<C_Servicios>();
-                string _json = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_servicios);
                 Current.Properties.Add(NombresAux.v_serviciosmedicos, "");
                 Current.Properties[NombresAux.v_serviciosmedicos] = _json;
             }
@@ -391,7 +395,7 @@ namespace Trato
             if (!Current.Properties.ContainsKey(NombresAux.v_serviciosgenereales))
             {
                 v_generales = new ObservableCollection<C_ServGenerales>();
-                string _json = JsonConvert.SerializeObject(v_generales, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_generales);
                 Current.Properties.Add(NombresAux.v_serviciosgenereales, "");
                 Current.Properties[NombresAux.v_serviciosgenereales] = _json;
             }
@@ -403,7 +407,7 @@ namespace Trato
             if (!Current.Properties.ContainsKey(NombresAux.v_citas))
             {
                 v_citas = new ObservableCollection<Cita>();
-                string _json = JsonConvert.SerializeObject(v_citas, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_citas);
                 Current.Properties.Add(NombresAux.v_citas, "");
                 Current.Properties[NombresAux.v_citas] = _json;
             }
@@ -415,7 +419,7 @@ namespace Trato
             if (!Current.Properties.ContainsKey(NombresAux.v_Nota))
             {
                 v_NotasMedic = new ObservableCollection<C_NotaMed>();
-                string _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
+                string _json = JsonConvert.SerializeObject(v_NotasMedic);
                 Current.Properties.Add(NombresAux.v_Nota, "");
                 Current.Properties[NombresAux.v_Nota] = _json;
             }
@@ -456,15 +460,39 @@ namespace Trato
             v_folio = _folio;
             v_membresia = _membre;
             v_letra = _letra;
-            string _jsonGen = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+            string _jsonGen = JsonConvert.SerializeObject(v_perfil);
             Current.Properties[NombresAux.v_log] = v_log;
             Current.Properties[NombresAux.v_perfGen] = _jsonGen;
             Current.Properties[NombresAux.v_membre] = v_membresia;
             Current.Properties[NombresAux.v_folio] = v_folio;
             Current.Properties[NombresAux.v_letra] = v_letra;
-            string _jsoServ = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
+            string _jsoServ = JsonConvert.SerializeObject(v_servicios );
             Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
-            string _jsonMed = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
+            string _jsonMed = JsonConvert.SerializeObject(v_medicos );
+            Current.Properties[NombresAux.v_redmedica2] = _jsonMed;
+
+            await Current.SavePropertiesAsync();
+            Fn_CargarDatos();
+            await Task.Delay(100);
+        }
+        public static async void Fn_GuardarDatos(string _gen , string _membre, string _folio, string _letra)
+        {
+            Console.Write("carga llega" + _gen);
+            v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>( _gen);
+            v_folio = _folio;
+            v_membresia = _membre;
+            v_letra = _letra;
+            Console.Write("Guarda perfil " + v_perfil.Fn_GetDatos());
+            //string _jsonGen = JsonConvert.SerializeObject(v_perfil);
+            Console.Write("guarda perfil" + _gen);
+            Current.Properties[NombresAux.v_log] = v_log;
+            Current.Properties[NombresAux.v_perfGen] = _gen;
+            Current.Properties[NombresAux.v_membre] = v_membresia;
+            Current.Properties[NombresAux.v_folio] = v_folio;
+            Current.Properties[NombresAux.v_letra] = v_letra;
+            string _jsoServ = JsonConvert.SerializeObject(v_servicios);
+            Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
+            string _jsonMed = JsonConvert.SerializeObject(v_medicos);
             Current.Properties[NombresAux.v_redmedica2] = _jsonMed;
 
             await Current.SavePropertiesAsync();
@@ -477,15 +505,15 @@ namespace Trato
             v_folio = _folio;
             v_membresia = _membre;
             v_letra = _letra;
-            string _jsonPerMed = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+            string _jsonPerMed = JsonConvert.SerializeObject(v_perfMed);
             Current.Properties[NombresAux.v_log] = v_log;
             Current.Properties[NombresAux.v_perMed] = _jsonPerMed;
             Current.Properties[NombresAux.v_membre] = v_membresia;
             Current.Properties[NombresAux.v_folio] = v_folio;
             Current.Properties[NombresAux.v_letra] = v_letra;
-            string _jsoServ = JsonConvert.SerializeObject(v_servicios, Formatting.Indented);
+            string _jsoServ = JsonConvert.SerializeObject(v_servicios );
             Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
-            string _jsonMed = JsonConvert.SerializeObject(v_medicos, Formatting.Indented);
+            string _jsonMed = JsonConvert.SerializeObject(v_medicos );
             Current.Properties[NombresAux.v_redmedica] = _jsonMed;
 
             await Current.SavePropertiesAsync();
@@ -495,7 +523,7 @@ namespace Trato
 
         public static async void Fn_GuardarRed(ObservableCollection<C_Medico> _medicos)
         {
-            string _json = JsonConvert.SerializeObject(_medicos, Formatting.Indented);
+            string _json = JsonConvert.SerializeObject(_medicos );
             if (Current.Properties.ContainsKey(NombresAux.v_redmedica))
             {
                 Current.Properties[NombresAux.v_redmedica] = "";
@@ -514,7 +542,7 @@ namespace Trato
         }
         public static async void Fn_GuardarServcios(ObservableCollection<C_Servicios> _servicios)
         {
-            string _json = JsonConvert.SerializeObject(_servicios, Formatting.Indented);
+            string _json = JsonConvert.SerializeObject(_servicios );
             if (Current.Properties.ContainsKey(NombresAux.v_serviciosmedicos))
             {
                 Current.Properties[NombresAux.v_serviciosmedicos] = "";
@@ -529,7 +557,7 @@ namespace Trato
         }
         public static async void Fn_GuardarGenerales(ObservableCollection<C_ServGenerales> _general)
         {
-            string _json = JsonConvert.SerializeObject(_general, Formatting.Indented);
+            string _json = JsonConvert.SerializeObject(_general);
             if (Current.Properties.ContainsKey(NombresAux.v_serviciosgenereales))
             {
                 Current.Properties[NombresAux.v_serviciosgenereales] = "";
@@ -545,7 +573,7 @@ namespace Trato
         public static async void Fn_GuardarCitas(ObservableCollection<Cita> _citas)
         {
             v_citas = _citas;
-            string _json = JsonConvert.SerializeObject(v_citas, Formatting.Indented);
+            string _json = JsonConvert.SerializeObject(v_citas );
             if (Current.Properties.ContainsKey(NombresAux.v_citas))
             {
                 Current.Properties[NombresAux.v_citas] = "";
@@ -565,7 +593,7 @@ namespace Trato
         public static async void Fn_GuardarMedicamentos(ObservableCollection<C_NotaMed> _medica)
         {
             v_NotasMedic = _medica;
-            string _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
+            string _json = JsonConvert.SerializeObject(v_NotasMedic);
             if (Current.Properties.ContainsKey(NombresAux.v_Nota))
             {
                 Current.Properties[NombresAux.v_Nota] = "";
@@ -587,17 +615,17 @@ namespace Trato
             v_perfMed = new C_PerfilMed();
             v_NotasMedic = new ObservableCollection<C_NotaMed>();
             v_citas = new ObservableCollection<Cita>();
-            v_membresia = "";
+            v_membresia = "0000D-0000";
             v_folio = "";
             v_letra = "";
             v_log = "0";
-            string _json = JsonConvert.SerializeObject(v_perfil, Formatting.Indented);
+            string _json = JsonConvert.SerializeObject(v_perfil);
             Current.Properties[NombresAux.v_perfGen] = _json;
-            _json = JsonConvert.SerializeObject(v_perfMed, Formatting.Indented);
+            _json = JsonConvert.SerializeObject(v_perfMed);
             Current.Properties[NombresAux.v_perMed] = _json;
-            _json = JsonConvert.SerializeObject(v_NotasMedic, Formatting.Indented);
+            _json = JsonConvert.SerializeObject(v_NotasMedic);
             Current.Properties[NombresAux.v_Nota] = _json;
-            _json = JsonConvert.SerializeObject(v_citas, Formatting.Indented);
+            _json = JsonConvert.SerializeObject(v_citas );
             Current.Properties[NombresAux.v_Nota] = _json;
 
             Current.Properties[NombresAux.v_membre] = v_membresia;

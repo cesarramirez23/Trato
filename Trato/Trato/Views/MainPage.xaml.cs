@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Trato.Personas;
 using System.Text;
 
+//https://www.c-sharpcorner.com/blogs/store-data-and-access-from-any-pages-in-xamarinform
 namespace Trato.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -42,9 +43,9 @@ namespace Trato.Views
                     App.Fn_GuardarMedicamentos(v_medicamentos);
                 }
             }
-            catch (HttpRequestException ex)
+            catch 
             {
-                await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                Console.Write("Error request");
             }
         }
         protected async override  void OnAppearing()
@@ -65,6 +66,7 @@ namespace Trato.Views
             //M_mensaje.Text += "token " + App.Fn_GEtToken();
 
             Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
+
             //FN_Red();
             v_cambioban = true;
         }
@@ -88,7 +90,7 @@ namespace Trato.Views
            string _DirEnviar = "http://tratoespecial.com/token_notification.php";
            StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
             HttpClient _client = new HttpClient();
-            Console.WriteLine(" infosss " + _jsonLog);
+            //Console.WriteLine(" infosss " + _jsonLog);
             try
             {
                 //mandar el json con el post
@@ -114,12 +116,14 @@ namespace Trato.Views
         /// </summary>
         async void Fn_Fecha()
         {
+            App.Fn_CargarDatos();
             Perf _perf = new Perf();
             _perf.v_fol = App.v_folio ;
             _perf.v_membre = App.v_membresia;
             _perf.v_letra = App.v_letra;
             //crear el json
             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+            //await DisplayAlert("envia ", _jsonper, "asda");
             //crear el cliente
             HttpClient _client = new HttpClient();
             string _DirEnviar="" ;
@@ -130,14 +134,30 @@ namespace Trato.Views
                 //mandar el json con el post
                 HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                //await DisplayAlert("llega validacion", _respuesta, "sdsad");
+                App.v_perfil.v_activo = _respuesta;
+                App.Fn_GuardarDatos(App.v_perfil, App.v_membresia, App.v_folio, App.v_letra);
+                if(_respuesta!="1")
+                {
+                    M_mensaje.IsVisible = true;
+                    M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
+                  
+                }
+                /*
                 try
                 {
-                    _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+                    _client = new HttpClient();
+                    _DirEnviar = "https://tratoespecial.com/query_perfil.php";
                     //mandar el json con el post
+                    _respuesta = "";
+                    _respuestaphp = new HttpResponseMessage();
                     _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                     _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                    await DisplayAlert("llega ", _respuesta, "sdsad");
                     C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                    //await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
+                    await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
+
+                    //App.Fn_GuardarDatos(_respuesta,App.v_membresia, App.v_folio, App.v_letra);
                     App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
                     _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
                     _content = new StringContent(_jsonper, System.Text.Encoding.UTF8, "application/json");
@@ -148,6 +168,11 @@ namespace Trato.Views
                         _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                         C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
                         App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
+                        //string _as = Application.Current.Properties[NombresAux.v_perfGen] as string;
+
+                        App.Fn_CargarDatos();
+                        await DisplayAlert("activacion", "asasas  " + App.v_perfil.Fn_GetDatos()+"\n activ " +App.v_perfil.v_activo, "sads");
+
                         if (App.v_perfil.v_activo != "1" && App.v_folio=="0")
                         {
                             M_mensaje.IsVisible = true;
@@ -180,6 +205,7 @@ namespace Trato.Views
                         M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
                     }
                 }
+                */
             }
             catch
             {
@@ -191,7 +217,7 @@ namespace Trato.Views
                 }
             }
         }
-        public async void FN_Red()
+       public async void FN_Red()
         {
             HttpClient _cliente= new HttpClient();
             string url = " s";
@@ -248,5 +274,7 @@ namespace Trato.Views
             Uri _url= new Uri(v_mostrar[v_actual].v_sitio);
             Device.OpenUri(_url);
         }
+
+
     }
 }

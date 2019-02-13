@@ -16,33 +16,7 @@ using Newtonsoft.Json;
 
 namespace Trato.iOS
 {
-    /*
-     * 
-     *  ApplicationVerificationFailed: Failed to verify code signature of /private/var/installd/Library/Caches/com.apple.mobile.installd.staging/temp.ur3RO8/extracted/Trato.iOS.app :
-     * 0xe8008015 (A valid provisioning profile for this executable was not found.)
-     * 
-error MT1006: Could not install the application '/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/bin/iPhone/Debug/device-builds/ipad4.1-11.4.1/Trato.iOS.app' on the device
-'iPad de Edgar': AMDeviceSecureInstallApplicationBundle returned: 0xe8008015.
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *XPC connection interrupted
-NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
-     * 
-     * 
-     * 
-     * <Google/Utilities/Network/ERROR> Encounter network error. Code, error: -1200, Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred and a secure connection to the server cannot be made." 
-    UserInfo={_kCFStreamErrorCodeKey=-9802, NSLocalizedRecoverySuggestion=Would you like to connect to the server anyway?,
-        NSUnderlyingError=0x10f138870 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 "(null)" UserInfo={_kCFStreamPropertySSLClientCertificateState=0,
-                _kCFNetworkCFStreamSSLErrorOriginalValue=-9802, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9802}},
-        NSLocalizedDescription=An SSL error has occurred and a secure connection to the server cannot be made.,
-        NSErrorFailingURLKey=https://play.googleapis.com/log, NSErrorFailingURLStringKey=https://play.googleapis.com/log, _kCFStreamErrorDomainKey=3}
-    Thread started:  #11
-*/
+
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
@@ -140,12 +114,7 @@ NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
                 UIApplication.SharedApplication.RegisterForRemoteNotifications();
                 System.Diagnostics.Debug.WriteLine($"despues 9: {app.IsRegisteredForRemoteNotifications.ToString()}");*/
             }
-
-
-
-
-
-            //Firebase.Core.App.Configure();
+            Firebase.Core.App.Configure();
 
             Firebase.InstanceID.InstanceId.Notifications.ObserveTokenRefresh((sender, e) =>
             {

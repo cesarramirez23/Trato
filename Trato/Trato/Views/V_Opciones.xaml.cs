@@ -18,30 +18,37 @@ namespace Trato.Views
         Regex regex = new Regex(@"^(?=.*[A-Za-z])(?=.*\w)[A-Za-z\w]{8,}$");
         public V_Opciones ()
 		{
-			InitializeComponent ();
+            InitializeComponent();
+
+		}
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+
+
+            Console.Write(App.v_membresia);
+            Console.Write(App.v_folio);
+            App.Fn_CargarDatos();
             C_Membre.Text = App.v_membresia + "  folio: " + App.v_folio;// + "  token " + App.Fn_GEtToken()+"   --aaaaa" ;
 
             if (App.v_letra == "I")
             { C_Tipo.Text = "Membresia Individual"; }
             else if (App.v_letra == "F")
             { C_Tipo.Text = "Membresia Familiar"; }
-            else if (App.v_letra == "E"  )
-            { C_Tipo.Text = "Membresia Empresarial";
+            else if (App.v_letra == "E")
+            {
+                C_Tipo.Text = "Membresia Empresarial";
                 //P_actual.Text = "c1e501";
                 //P_Nueva.Text = "Cesar1234";
-                if ( int.Parse(App.v_folio) == 0)
+                if (int.Parse(App.v_folio) == 0)
                 {
                     C_T_usu.IsVisible = true;
                     C_T_usu.Text = "Total de usuarios: " + App.v_perfil.v_numEmple;
                 }
             }
+            //await DisplayAlert("TOoken", App.v_perfil.Fn_GetDatos(), "sdasd");
             string[] _Arr = App.v_perfil.v_vig.Split('-');
             C_fecha.Text = _Arr[2] + " - " + _Arr[1] + " - " + _Arr[0];
-		}
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            //DisplayAlert("TOoken", App.Fn_GEtToken(), "asdsa");
         }
         public void FN_passCambio(object sender, TextChangedEventArgs args)
         {
@@ -51,7 +58,7 @@ namespace Trato.Views
                 P_mensaje.Text = "Este campo no puede estar vacio o con espacios";
                 P_but.IsEnabled = false;
             }
-            else
+            else//1804F-0442
             {
                 if (!regex.IsMatch(P_Nueva.Text))
                 {
@@ -105,7 +112,7 @@ namespace Trato.Views
                         json += "password:'" + P_actual.Text + "',\n";
                         json += "newpassword:'" + P_Nueva.Text + "',\n";
                         json += "}";
-                        await DisplayAlert("respuesta", json, "Aceptar");
+                        //await DisplayAlert("respuesta", json, "Aceptar");
                         JObject jsonPer = JObject.Parse(json);
                         StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
                         HttpClient _client = new HttpClient();

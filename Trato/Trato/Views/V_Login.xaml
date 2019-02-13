@@ -29,7 +29,12 @@
                     <Entry x:Name="pass" IsPassword="True" Placeholder="Contraseña"></Entry>
                     <!--="ac1602"   cesar1234   3eb868-->
                     <Button Style="{StaticResource Buton}"  Text="Iniciar sesión" Clicked="Fn_Login"></Button>
-
+                    
+                    <Button Style="{StaticResource Buton}"  Text="Agregar usuarios a cuenta existente"  Clicked="Fn_Registro"></Button>
+                    <Button Style="{StaticResource Buton}"  Text="Recuperar Contraseña" Clicked="Fn_Reenviar"></Button>
+                    
+                   <!--
+                    
                     <Label Text="Agregar usuarios a cuenta existente" Style="{StaticResource AzulMedLbl}" FontAttributes="Bold" >
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Fn_Registro" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -41,6 +46,7 @@
                             <TapGestureRecognizer Tapped="Fn_Reenviar" NumberOfTapsRequired="1"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
+                    -->
                 </StackLayout>
             </StackLayout>
             

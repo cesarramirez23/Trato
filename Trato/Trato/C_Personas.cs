@@ -13,6 +13,7 @@ namespace Trato.Personas
      * EN LA TARJETA CON LOS DATOS DE COBRO ENVIAR EL NOMBRE DE LA MEMBRESIA CON STRING
      * Y TAMBIEN ENVIAR  COMO NUMERO EL TIPO DE MEMBRESiA( DE 0 A 2)
          */
+    [Serializable]
     public class C_PerfilGen
     {
         [JsonProperty("nombre")]
@@ -67,8 +68,8 @@ namespace Trato.Personas
             v_idsexo = -1;
             v_Nombre = "";
             v_Rfc = "";
-            v_FecNaci = "";
-                v_LugNac = "";
+            v_FecNaci = "0000-00-00";
+            v_LugNac = "";
             v_Ocup = "";
             v_Tel = "";
             v_Cel = "";
@@ -82,7 +83,7 @@ namespace Trato.Personas
             v_Cp = "";
             v_Correo= "";
             v_activo = "-23";
-            v_vig = "-1241";
+            v_vig = "0000-00-00";
         }
         public C_PerfilGen(string _nom, string _rfc, DateTime _fechnac, string _lugnac, string _ocu,int _idsexo,  string _tel, string _cel,
             string _calle, string _numExt, string _numInt, string _col, string _ciud, string _mun, string _est, string _cp, string _corr)
@@ -136,6 +137,7 @@ namespace Trato.Personas
                   
         }
     }
+    [Serializable]
     public class C_PerfilMed
     {
         [JsonProperty("sangre")]
@@ -465,7 +467,8 @@ namespace Trato.Personas
             this.v_topken = _token;
         }
     }
-    
+
+    [Serializable]
     /// <summary>
     /// informacion a mostrar en el buscador, para solicitar citas 
     /// </summary>
@@ -562,6 +565,7 @@ namespace Trato.Personas
             return _ret;
         }
     }
+    [Serializable]
     /// <summary>
     /// lugares, hospitales
     /// </summary>
@@ -613,6 +617,7 @@ namespace Trato.Personas
         }
 
     }
+    [Serializable]
     /// <summary>
     /// lugares diferentes
     /// </summary>

@@ -45,6 +45,7 @@
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Profile Distribution Trato Paciente</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,7 +75,6 @@
     <CodesignKey>iPhone Distribution: Trato Especial S.A. de C.V. (45C945Z924)</CodesignKey>
     <MtouchFloat32>true</MtouchFloat32>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <MtouchUseLlvm>true</MtouchUseLlvm>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Profile Distribution Trato Paciente</CodesignProvision>
   </PropertyGroup>
@@ -214,7 +214,7 @@
     <BundleResource Include="Resources\tab_M_Personal%403x.png" />
     <BundleResource Include="Resources\tab_Medicamentos%403x.png" />
     <BundleResource Include="Resources\tab_Membresia_Icon%403x.png" />
-    <BundleResource Include="GoogleService-Info-3.plist" />
+    <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

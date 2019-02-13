@@ -42,6 +42,8 @@ namespace Trato.Views
             CargarGen();
             Fn_Activo();
            await Task.Delay(100);
+
+
         }
         public async void Fn_Activo()
         {
@@ -179,6 +181,7 @@ namespace Trato.Views
             //crear el json
             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
             Console.Write("json para perfil" + _jsonper);
+            //await DisplayAlert("enviar datos", _jsonper, "sdfds");
             HttpClient _client = new HttpClient();
             string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
             StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
@@ -188,8 +191,19 @@ namespace Trato.Views
                 //mandar el json con el post
                 HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-
+                //await DisplayAlert("REspuesta", _respuesta, "sdasd");
+                C_PerfilGen _nuePer;
+                if (string.IsNullOrEmpty( _respuesta))
+                {
+                    _nuePer = new C_PerfilGen();
+                }
+                else{
+                    _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                }
+                //await DisplayAlert("cast respuesta ", _nuePer.Fn_GetDatos(), "sadasd");
+                string _vars = JsonConvert.SerializeObject(_nuePer);
+                //await DisplayAlert("varsss ",_vars,"sadad");
+                //App.Fn_GuardarDatos(_vars,_noespacios, App.v_folio, App.v_letra);
                 App.Fn_GuardarDatos(_nuePer, _noespacios, App.v_folio, App.v_letra);
                 Console.Write("json para perfil medicoo" + _jsonper);
                 _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
@@ -286,7 +300,6 @@ namespace Trato.Views
                 G_sexoPick.Title = G_sexoPick.SelectedIndex.ToString();
                 G_sexoPick.IsEnabled = false;
             }
-            
             Fn_NullEntry(G_Ocu, App.v_perfil.v_Ocup);
             Fn_NullEntry(G_Tel, App.v_perfil.v_Tel);
             Fn_NullEntry(G_Cel, App.v_perfil.v_Cel);
@@ -593,7 +606,7 @@ namespace Trato.Views
                 }
                 else if (_result == "0")
                 {
-                    await DisplayAlert("error 0", _result + "\n" + jsonPer.ToString(), "Aceptar");
+                    await DisplayAlert("Error", _result + "\n" + jsonPer.ToString(), "Aceptar");
                 }
                 else
                 {
@@ -623,7 +636,9 @@ namespace Trato.Views
             {
                 HttpResponseMessage _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
+
                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+
                 App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
                 try
                 {
@@ -797,7 +812,7 @@ namespace Trato.Views
                     M_sexolbl.Text = "";
                 }
             }
-            if(string.IsNullOrEmpty( App.v_perfMed.v_alergias))
+            if (string.IsNullOrEmpty( App.v_perfMed.v_alergias))
             {
                 Tog_Aler.IsToggled = false;
                 M_Alergias.IsVisible = false;
