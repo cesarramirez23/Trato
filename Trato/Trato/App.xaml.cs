@@ -88,7 +88,6 @@ namespace Trato
                         MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                     }*/
                     Fn_CargarDatos();
-                    Console.Write(" carga " + Current.Properties[NombresAux.v_perfGen] + "\n");
                     if (!Current.Properties.ContainsKey(NombresAux.v_perfGen))
                     {
                         v_perfil = new C_PerfilGen();
@@ -514,7 +513,7 @@ namespace Trato
             string _jsoServ = JsonConvert.SerializeObject(v_servicios );
             Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
             string _jsonMed = JsonConvert.SerializeObject(v_medicos );
-            Current.Properties[NombresAux.v_redmedica] = _jsonMed;
+            Current.Properties[NombresAux.v_redmedica2] = _jsonMed;
 
             await Current.SavePropertiesAsync();
             Fn_CargarDatos();
@@ -524,15 +523,15 @@ namespace Trato
         public static async void Fn_GuardarRed(ObservableCollection<C_Medico> _medicos)
         {
             string _json = JsonConvert.SerializeObject(_medicos );
-            if (Current.Properties.ContainsKey(NombresAux.v_redmedica))
+            if (Current.Properties.ContainsKey(NombresAux.v_redmedica2))
             {
-                Current.Properties[NombresAux.v_redmedica] = "";
-                Current.Properties[NombresAux.v_redmedica] = _json;
+                Current.Properties[NombresAux.v_redmedica2] = "";
+                Current.Properties[NombresAux.v_redmedica2] = _json;
             }
             else
             {
-                Current.Properties.Add(NombresAux.v_redmedica, "");
-                Current.Properties[NombresAux.v_redmedica] = _json;
+                Current.Properties.Add(NombresAux.v_redmedica2, "");
+                Current.Properties[NombresAux.v_redmedica2] = _json;
             }
             //if(Current.Properties.ContainsKey(NombresAux.v_redmedica))//eliminar el valor anterior cuando la red medica
             //{

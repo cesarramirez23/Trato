@@ -90,9 +90,9 @@ namespace Trato.Views
                     }
                 }
             }
-            catch (HttpRequestException ex)
+            catch
             {
-                await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                //await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
                 if (App.v_NotasMedic.Count > 0)
                 {
                     v_medicamentos = App.v_NotasMedic;
@@ -122,6 +122,39 @@ namespace Trato.Views
                  
                     App.Fn_GuardarCitas(v_citas);
                     ListaCita.ItemsSource = v_citas;
+
+                    if (v_citas.Count < 1 && !v_medi)
+                    {
+                        L_Error.IsVisible = true;
+                        L_Error.Text = "No tiene citas";
+                    }
+                    else if (v_citas.Count < 1 && v_medi)
+                    {
+                        L_Error.IsVisible = true;
+                        L_Error.Text = "No tiene Medicamentos";
+                    }
+                    else if(v_citas.Count>0 && v_medi)
+                    {
+                        Fn_GetMedic();
+                        Fn_GetTerminada();
+                        for (int i = 0; i < v_citas.Count; i++)
+                        {
+                            v_citas[i].Fn_SetVisible();
+                        }
+                    }
+                }
+               // enum citras  sn internet quitar el alert
+                //tambien perfil
+            }
+            catch
+            {
+                //await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                if (App.v_citas.Count > 0)
+                {
+                    v_citas = App.v_citas;
+                    Ordenar();
+                    ListaCita.ItemsSource = v_citas;
+                    L_Error.IsVisible = false;
                     if (v_medi)
                     {
                         Fn_GetMedic();
@@ -131,36 +164,18 @@ namespace Trato.Views
                             v_citas[i].Fn_SetVisible();
                         }
                     }
-                    if (v_citas.Count < 1)
-                    {
-                        L_Error.IsVisible = true;
-                        L_Error.Text = "No tiene citas";
-                    }
-                }
-            }
-            catch (HttpRequestException ex)
-            {
-                await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
-                if (App.v_citas.Count > 0)
-                {
-                    v_citas = App.v_citas;
-                    L_Error.IsVisible = false;
                 }
                 else
                 {
                     L_Error.IsVisible = true;
                     L_Error.Text = "No tiene citas";
-                }
-                Ordenar();
-                ListaCita.ItemsSource = v_citas;
-                if (v_medi)
-                {
-                    for (int i = 0; i <v_citas.Count; i++)
+                    if (v_medi)
                     {
-                        v_citas[i].Fn_SetVisible();
+                        L_Error.Text = "No tiene Medicamentos";
                     }
-                    Fn_GetTerminada();
                 }
+
+
             }
         }
         public async void Fn_CitaTap(object sender, ItemTappedEventArgs _args)
