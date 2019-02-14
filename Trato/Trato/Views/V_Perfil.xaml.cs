@@ -16,7 +16,6 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Collections.Specialized;
 
-
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -145,9 +144,9 @@ namespace Trato.Views
                     Console.Write("token no se pudo subir");
                 }
             }
-            catch(HttpRequestException ex)
+            catch
             {
-                Console.Write(ex.ToString());
+                Console.Write("error token");
             }
         }
         public async void Fn_PagarEfec(object sender, EventArgs _args)
@@ -227,14 +226,14 @@ namespace Trato.Views
                     App.Fn_GuardarDatos(_nuePerMEd, _noespacios, App.v_folio, App.v_letra);
                     //   Console.Write("perfil medico ", _nuePerMEd.Fn_Info());
                 }
-                catch (HttpRequestException exception)
+                catch
                 {
-                    await DisplayAlert("Error al cargar Perfil", exception.Message, "Aceptar");
+                    await DisplayAlert("Error al cargar Perfil", "Se mostrará la ultima información guardada", "Aceptar");
                 }
             }
-            catch (HttpRequestException exception)
+            catch 
             {
-                await DisplayAlert("Error al cargar perfil", exception.Message, "Aceptar");
+                await DisplayAlert("Error al cargar perfil", "Se mostrará la ultima información guardada", "Aceptar");
             }
             App.Fn_CargarDatos();
 
@@ -464,9 +463,9 @@ namespace Trato.Views
                 
                 }
             }
-            catch (HttpRequestException exception)
+            catch
             {
-                await DisplayAlert("Error", exception.Message, "Aceptar");
+                await DisplayAlert("Error", "Se mostrará la ultima información guardada", "Aceptar");
             }
             _buton.IsEnabled = true;
         }
@@ -594,14 +593,14 @@ namespace Trato.Views
                             CargarGen();
                             CargarMed();
                         }
-                        catch (HttpRequestException exception)
+                        catch 
                         {
-                            await DisplayAlert("Error", exception.Message, "Aceptar");
+                            await DisplayAlert("Error", "Se mostrará la ultima información guardada", "Aceptar");
                         }
                     }
-                    catch (HttpRequestException exception)
+                    catch
                     {
-                        await DisplayAlert("Error", exception.Message, "Aceptar");
+                        await DisplayAlert("Error", "Se mostrará la ultima información guardada", "Aceptar");
                     }
                 }
                 else if (_result == "0")
@@ -613,9 +612,9 @@ namespace Trato.Views
                     await DisplayAlert("ERROR ", _result + "\n" + jsonPer.ToString(), "Aceptar");
                 }
             }
-            catch (HttpRequestException exception)
+            catch
             {
-                await DisplayAlert("Error",  exception.Message,"Aceptar");                
+                await DisplayAlert("Error", "Se mostrará la ultima información guardada", "Aceptar");                
             }
             _buton.IsEnabled = true;
         }
@@ -653,14 +652,14 @@ namespace Trato.Views
 
                     App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
                 }
-                catch (HttpRequestException exception)
+                catch 
                 {
-                    await DisplayAlert("Error", exception.Message, "Aceptar");
+                    await DisplayAlert("Error", "Se mostrará la ultima información guardada", "Aceptar");
                 }
             }
-            catch (HttpRequestException exception)
+            catch 
             {
-                await DisplayAlert("Error", exception.Message, "Aceptar");
+                await DisplayAlert("Error", "Se mostrará la ultima información guardada", "Aceptar");
             }
             await Task.Delay(100);
         }
@@ -754,9 +753,9 @@ namespace Trato.Views
 
                 App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
             }
-            catch (HttpRequestException exception)
+            catch 
             {
-                await DisplayAlert("Error al cargar perfil medico", exception.Message, "Aceptar");
+                await DisplayAlert("Error al cargar perfil medico", "Se mostrará la ultima información guardada", "Aceptar");
             }
 
 

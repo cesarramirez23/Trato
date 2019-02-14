@@ -850,87 +850,91 @@ namespace Trato.Views
         public void Fn_Buscar(object sender, TextChangedEventArgs e)
         {
             SearchBar _search = (SearchBar)sender;
-            string _abuscar = _search.Text.ToLower(); //.StartsWith()
-            if (string.IsNullOrEmpty(_abuscar) || string.IsNullOrWhiteSpace(_abuscar))
+            if (_search != null)
             {
-                v_lista.IsVisible = false;
-                Buscador.ItemsSource = null;
-                Buscador.IsVisible = false;
-                v_lista.IsVisible = true;
-                if(v_tipo==0)
+                string _abuscar = _search.Text;//.StartsWith()
+                if (string.IsNullOrEmpty(_abuscar) || string.IsNullOrWhiteSpace(_abuscar))
                 {
-                    v_lista.ItemsSource = App.v_medicos;
-                }
-                else if(v_tipo==1)
-                {
-                    v_lista.ItemsSource = App.v_servicios;
-                }
-                else if(v_tipo==2)
-                {
-                    v_lista.ItemsSource = App.v_generales;
-                }
-            }
-            else
-            {
-                v_lista.IsVisible = false;
-                Buscador.ItemsSource = null;
-                Buscador.IsVisible = true;
-                ObservableCollection<string> _lista = new ObservableCollection<string>();
-                if(v_tipo==0)//recorre solo los  medicos, para ver su nombre y apellido
-                {
-                    for(int i=0; i<App.v_medicos.Count; i++)//hacer cambios para cuando tienen  2 nombre apellidoos
+                    v_lista.IsVisible = false;
+                    Buscador.ItemsSource = null;
+                    Buscador.IsVisible = false;
+                    v_lista.IsVisible = true;
+                    if (v_tipo == 0)
                     {
-                        if (App.v_medicos[i].v_Nombre.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_medicos[i].v_Nombre) )
-                        {
-                            _lista.Add(App.v_medicos[i].v_Nombre);
-                        }
-                        else if( App.v_medicos[i].v_Apellido.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_medicos[i].v_Apellido))
-                        {
-                            _lista.Add(App.v_medicos[i].v_Apellido);
-                        }
+                        v_lista.ItemsSource = App.v_medicos;
                     }
-                }
-                else if(v_tipo==1)
-                {
-                    for (int i = 0; i < App.v_servicios.Count; i++)
+                    else if (v_tipo == 1)
                     {
-                        if (App.v_servicios[i].v_completo.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_servicios[i].v_completo))
-                        {
-                            _lista.Add(App.v_servicios[i].v_completo);
-                        }
+                        v_lista.ItemsSource = App.v_servicios;
                     }
-                }
-                else if(v_tipo==2)
-                {
-                    for (int i = 0; i < App.v_generales.Count; i++)
+                    else if (v_tipo == 2)
                     {
-                        if (App.v_generales[i].v_completo.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_generales[i].v_completo))
-                        {
-                            _lista.Add(App.v_generales[i].v_completo);
-                        }
+                        v_lista.ItemsSource = App.v_generales;
                     }
-                }
-                //recorre solamente las especialidades que ya se guardaron antes
-                for (int i = 0; i <_especialidades.Count; i++)
-                {
-                    if (_especialidades[i].v_texto.ToLower().StartsWith(_abuscar))
-                    {
-                        _lista.Add(_especialidades[i].v_texto);
-                    }
-                }
-                if(_lista.Count>0)
-                {
-                    ObservableCollection<PrefFil> _pref = new ObservableCollection<PrefFil>();
-                    for(int i=0; i<_lista.Count; i++)
-                    {
-                        _pref.Add(new PrefFil{ v_texto = _lista[i] });
-                    }
-                    Buscador.ItemsSource = _pref;
-                    Buscador.IsVisible = true;
                 }
                 else
                 {
-                    Buscador.IsVisible = false;
+                    _abuscar = _abuscar.ToLower();
+                    v_lista.IsVisible = false;
+                    Buscador.ItemsSource = null;
+                    Buscador.IsVisible = true;
+                    ObservableCollection<string> _lista = new ObservableCollection<string>();
+                    if (v_tipo == 0)//recorre solo los  medicos, para ver su nombre y apellido
+                    {
+                        for (int i = 0; i < App.v_medicos.Count; i++)//hacer cambios para cuando tienen  2 nombre apellidoos
+                        {
+                            if (App.v_medicos[i].v_Nombre.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_medicos[i].v_Nombre))
+                            {
+                                _lista.Add(App.v_medicos[i].v_Nombre);
+                            }
+                            else if (App.v_medicos[i].v_Apellido.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_medicos[i].v_Apellido))
+                            {
+                                _lista.Add(App.v_medicos[i].v_Apellido);
+                            }
+                        }
+                    }
+                    else if (v_tipo == 1)
+                    {
+                        for (int i = 0; i < App.v_servicios.Count; i++)
+                        {
+                            if (App.v_servicios[i].v_completo.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_servicios[i].v_completo))
+                            {
+                                _lista.Add(App.v_servicios[i].v_completo);
+                            }
+                        }
+                    }
+                    else if (v_tipo == 2)
+                    {
+                        for (int i = 0; i < App.v_generales.Count; i++)
+                        {
+                            if (App.v_generales[i].v_completo.ToLower().StartsWith(_abuscar) && !_lista.Contains(App.v_generales[i].v_completo))
+                            {
+                                _lista.Add(App.v_generales[i].v_completo);
+                            }
+                        }
+                    }
+                    //recorre solamente las especialidades que ya se guardaron antes
+                    for (int i = 0; i < _especialidades.Count; i++)
+                    {
+                        if (_especialidades[i].v_texto.ToLower().StartsWith(_abuscar))
+                        {
+                            _lista.Add(_especialidades[i].v_texto);
+                        }
+                    }
+                    if (_lista.Count > 0)
+                    {
+                        ObservableCollection<PrefFil> _pref = new ObservableCollection<PrefFil>();
+                        for (int i = 0; i < _lista.Count; i++)
+                        {
+                            _pref.Add(new PrefFil { v_texto = _lista[i] });
+                        }
+                        Buscador.ItemsSource = _pref;
+                        Buscador.IsVisible = true;
+                    }
+                    else
+                    {
+                        Buscador.IsVisible = false;
+                    }
                 }
             }
         }

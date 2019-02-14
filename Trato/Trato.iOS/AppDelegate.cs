@@ -13,7 +13,7 @@ using PayPal.Forms.Abstractions;
 
 using Trato.Varios;
 using Newtonsoft.Json;
-
+//xamarin.firebase.ios.cloudMessaging
 namespace Trato.iOS
 {
 

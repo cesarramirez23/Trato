@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ZXing.Net.Mobile.Forms;
 
+
+
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -151,14 +153,15 @@ namespace Trato.Views
 
             JObject jsonper = JObject.Parse(json);
 
-            barcode.BarcodeValue = jsonper.ToString();// "hola a todos"; //jsonEnviar.ToString() ;
+            string a_encrip= jsonper.ToString();
+
+            string _encyipted =NombresAux.EncryptString(a_encrip, "PassCesar123TE");
+            barcode.BarcodeValue = _encyipted;
+
+            //barcode.BarcodeValue = jsonper.ToString();// "hola a todos"; //jsonEnviar.ToString() ;
             //qrTexto.Text = barcode.BarcodeValue;
             qr_content.Content = barcode;
             qr_but.IsEnabled = false;
         }
-
-
-
-
     }
 }

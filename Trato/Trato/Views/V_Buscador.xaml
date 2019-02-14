@@ -22,7 +22,7 @@
                 </Grid.RowDefinitions>
                 <SearchBar Placeholder="Buscar algo" TextChanged="Fn_Buscar" HorizontalOptions="CenterAndExpand"
                     Grid.Column="0" Grid.ColumnSpan="3" x:Name="v_Search" BackgroundColor="Transparent"
-                    CancelButtonColor="{StaticResource NavigationPrimary}"/>
+                    CancelButtonColor="{StaticResource NavigationPrimary}" />
                 <Image Source="Filtro" HorizontalOptions="Fill"  x:Name="B_Filtrar" Grid.Column="3" Grid.ColumnSpan="1">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Filtro" NumberOfTapsRequired="1"></TapGestureRecognizer>
@@ -45,7 +45,7 @@
                     </ListView>
                     <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
                     <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" BackgroundColor="{StaticResource White}"
-                    SelectionMode="Single" RowHeight="150" ItemSelected="Fn_Select" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="20,5,20,0" >
+                    SelectionMode="Single" HasUnevenRows="true" ItemSelected="Fn_Select" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="20,5,20,0" >
                         <ListView.ItemTemplate>
                             <DataTemplate >
                                 <ViewCell>
