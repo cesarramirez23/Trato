@@ -319,4 +319,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\QR.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Palomita.png" />
+  </ItemGroup>
 </Project>

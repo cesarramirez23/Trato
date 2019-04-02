@@ -44,8 +44,8 @@
                         </ListView.ItemTemplate>
                     </ListView>
                     <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
-                    <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" BackgroundColor="{StaticResource White}"
-                    SelectionMode="Single" HasUnevenRows="true" ItemSelected="Fn_Select" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="20,5,20,0" >
+                    <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" BackgroundColor="{StaticResource White}" RowHeight="170"
+                    SelectionMode="Single" HasUnevenRows="False" ItemSelected="Fn_Select" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="20,5,20,0" >
                         <ListView.ItemTemplate>
                             <DataTemplate >
                                 <ViewCell>
@@ -104,7 +104,7 @@
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding v_texto }" TextColor="{StaticResource NavigationPrimary}"
                                            HorizontalOptions="StartAndExpand"></Label>
-                                    <Image Source="INFO_icon.png" IsVisible="{Binding v_visible}"
+                                    <Image Source="Palomita.png" IsVisible="{Binding v_visible}"
                                            HorizontalOptions="End" Aspect="AspectFit"></Image>
                                 </StackLayout>
                             </ViewCell>
