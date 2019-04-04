@@ -121,7 +121,7 @@
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding v_texto }" TextColor="{StaticResource NavigationPrimary}"
                                            HorizontalOptions="StartAndExpand"></Label>
-                                    <Image Source="INFO_icon.png" IsVisible="{Binding v_visible}"
+                                    <Image Source="Palomita.png" IsVisible="{Binding v_visible}"
                                            HorizontalOptions="End" Aspect="AspectFit"></Image>
                                 </StackLayout>
                             </ViewCell><!--
