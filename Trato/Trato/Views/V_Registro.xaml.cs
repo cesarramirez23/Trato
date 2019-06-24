@@ -165,7 +165,7 @@ namespace Trato.Views
                         //crea el cliente
                         HttpClient v_cliente = new HttpClient();
                         //url
-                        var url = "http://tratoespecial.com/tarjeta_alta.php";
+                        var url = NombresAux.BASE_URL + "tarjeta_alta.php";
 
                         try
                         {
@@ -240,7 +240,7 @@ namespace Trato.Views
                     //crea el cliente
                     HttpClient _clien = new HttpClient();
                     //direccion a enviar
-                    string _direc = "http://tratoespecial.com/crear_cuenta.php";
+                    string _direc = NombresAux.BASE_URL + "crear_cuenta.php";
                     try
                     {
                         //se envia

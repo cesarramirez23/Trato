@@ -12,7 +12,7 @@
             <Setter Property="Margin" Value="2,5,2,5"/>
         </Style>
         <Style x:Key="LblBoton" TargetType="Label">
-            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="TextColor" Value="White"/> 
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="FontSize" Value="Large"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
@@ -30,15 +30,27 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Inicio" Style="{StaticResource LblBoton}"/>
-                            
-                            
+
+                            <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Info"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Información" Style="{StaticResource LblBoton}"/>
+
+                            <Image Source="Membresia_Icon.png" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Membre"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Membresías" Style="{StaticResource LblBoton}" />
+
                             <Image Source="Medicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Medicos"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Red Médica" Style="{StaticResource LblBoton}"/>
-
 
                             <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
@@ -53,31 +65,13 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Servicios Generales" Style="{StaticResource LblBoton}" />
-                            
-                            
-                            <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Info"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="Información" Style="{StaticResource LblBoton}"/>
-                            
-                            
-                            <Image Source="Membresia_Icon.png" Style="{StaticResource imgBoton}">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Membre"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="Membresías" Style="{StaticResource LblBoton}" />
-                            
-                            
+
                             <Image Source="Perfil" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Log"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Iniciar Sesión" Style="{StaticResource LblBoton}" />
-
                             <!--
                             <Image Source="mail_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
@@ -86,10 +80,8 @@
                             </Image>
                             <Label Text="Contacto" Style="{StaticResource LblBoton}" />
                             -->
-                            
                         </StackLayout>
-                        
-                        
+
                         <StackLayout x:Name="StackLog" HorizontalOptions="FillAndExpand" IsVisible="True">
                             <Image Source="HOME_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
@@ -97,15 +89,27 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Inicio" Style="{StaticResource LblBoton}"/>
-                            
-                            
+
+                            <Image Source="INFO_icon" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Info"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Información" Style="{StaticResource LblBoton}"/>
+
+                            <Image Source="Membresia_Icon.png" Style="{StaticResource imgBoton}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Membre"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Membresías" Style="{StaticResource LblBoton}" />
+
                             <Image Source="Medicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Medicos"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Red Médica" Style="{StaticResource LblBoton}"/>
-
 
                             <Image Source="ServiciosMedicos" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
@@ -121,21 +125,13 @@
                             </Image>
                             <Label Text="Servicios Generales" Style="{StaticResource LblBoton}" />
 
-                            <Image Source="Membresia_Icon.png" Style="{StaticResource imgBoton}">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Membre"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="Membresías" Style="{StaticResource LblBoton}" />
-
                             <Image Source="Perfil" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Perfil"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Perfil" Style="{StaticResource LblBoton}"/>
-                            
-                            
+
                             <Image Source="Citas.png" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Citas"/>
@@ -149,23 +145,19 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Tarjeta Virtual" Style="{StaticResource LblBoton}"/>
-                            
-                            
+
                             <Image Source="Medicamentos.png" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Medicamentos"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Medicamentos" Style="{StaticResource LblBoton}"/>
-                          
-                            
                             <Image Source="Opciones" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Opciones"/>
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="Cuenta" Style="{StaticResource LblBoton}"/>
-
                             <!--
                             <Image Source="mail_icon" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
@@ -174,7 +166,6 @@
                             </Image>
                             <Label Text="Contacto" Style="{StaticResource LblBoton}" />
                             -->
-
                             <Image Source="LogOut" Style="{StaticResource imgBoton}">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_Salir"/>
@@ -187,21 +178,7 @@
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>
-
     <MasterDetailPage.Detail>
-        <NavigationPage>
-        <!--
-            <x:Arguments>
-                <ContentPage Title="Bienvenido" >
-                    <AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-
-                        <Image  Source="ICONOAPP.png" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="All"></Image>
-
-                        <Label x:Name="texto"></Label>
-                    </AbsoluteLayout>
-                </ContentPage>
-            </x:Arguments>
-                    -->
-        </NavigationPage>
+        <NavigationPage/>
     </MasterDetailPage.Detail>
 </MasterDetailPage>  

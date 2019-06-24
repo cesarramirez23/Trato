@@ -15,7 +15,7 @@ using System.Net.Http;
 using Plugin.Calendars;
 using Plugin.Calendars.Abstractions;
 using Newtonsoft.Json.Linq;
-
+using Trato.Models;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 //para agregar loos eventos al calendario
@@ -97,7 +97,7 @@ namespace Trato.Views
                 Console.Write("Info cita " + _json);
                // await DisplayAlert("Enviar", _json, "aceptar");
                 HttpClient _client = new HttpClient();
-                string _DirEnviar = "http://tratoespecial.com/set_citas.php";
+                string _DirEnviar = NombresAux.BASE_URL + "set_citas.php";
                 StringContent _content= new StringContent(_json, Encoding.UTF8, "application/json");
                 try
                 {  //getting exception in the following line    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
@@ -191,7 +191,7 @@ namespace Trato.Views
             string _json = JsonConvert.SerializeObject(_cita, Formatting.Indented);
           //  await DisplayAlert("Enviar", _json, "aceptar");
             HttpClient _client = new HttpClient();
-            string _DirEnviar = "http://tratoespecial.com/update_citas.php";
+            string _DirEnviar = NombresAux.BASE_URL + "update_citas.php";
             StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
             try
             {  //getting exception in the following line    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
@@ -333,7 +333,7 @@ namespace Trato.Views
                                     json += "}";
                                     JObject _json = JObject.Parse(json);
                                     HttpClient _client = new HttpClient();
-                                    string _DirEnviar = "http://tratoespecial.com/update_calendario.php";
+                                    string _DirEnviar = NombresAux.BASE_URL + "update_calendario.php";
                                     StringContent _content = new StringContent(_json.ToString(), Encoding.UTF8, "application/json");
                                     try
                                     {
@@ -380,7 +380,7 @@ namespace Trato.Views
                                 json += "}";
                                 JObject _json = JObject.Parse(json);
                                 HttpClient _client = new HttpClient();
-                                string _DirEnviar = "http://tratoespecial.com/update_calendario.php";
+                                string _DirEnviar = NombresAux.BASE_URL + "update_calendario.php";
                                 StringContent _content = new StringContent(_json.ToString(), Encoding.UTF8, "application/json");
                                 try
                                 {

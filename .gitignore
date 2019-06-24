@@ -193,3 +193,10 @@ project.lock.json
 .vs/Trato/v15/Server/sqlite3/storage.ide-shm
 .vs/Trato/v15/Server/sqlite3/storage.ide-wal
 .vs/Trato/v15/Server/sqlite3/storage.ide-shm
+*.ide
+*.ide
+*.ide-shm
+*.ide-wal
+*.ide
+.vs/Trato/v15/Server/sqlite3/storage.ide
+.vs/Trato/v15/Server/sqlite3/storage.ide

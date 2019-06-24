@@ -16,7 +16,7 @@
                     <Label FontSize="Large" Text="MEMBRESIA INDIVIDUAL:" HorizontalOptions="Center" FontAttributes="Bold"/>
                     <Label x:Name="M_Ind" />
                     <Label FontSize="Medium" HorizontalOptions="Center" Text=" COSTO: MEMBRESÍA ANUAL $500 MNX + IVA PARA 1 PERSONA "></Label>
-                    <Button Text="Comprar" Clicked="Fn_CompraInd"  Style="{StaticResource Buton}" ></Button>
+                    <Button Text="Comprar" x:Name="ButInd" Clicked="Fn_CompraInd"  Style="{StaticResource Buton}" ></Button>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
@@ -30,7 +30,7 @@
                     <Label FontSize="Large" Text="MEMBRESIA FAMILIAR:" HorizontalOptions="Center" FontAttributes="Bold"/>
                     <Label x:Name="M_Fam" ></Label>
                     <Label FontSize="Medium" HorizontalOptions="Center" Text="COSTO: MEMBRESÍA ANUAL $1500 MNX  + IVA PARA 5 PERSONAS"></Label>
-                    <Button Text="Comprar" Clicked="Fn_CompraFam"  Style="{StaticResource Buton}" ></Button>
+                    <Button Text="Comprar" x:Name="ButFam" Clicked="Fn_CompraFam"  Style="{StaticResource Buton}" ></Button>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
@@ -45,7 +45,7 @@
                     <Label FontSize="Large" Text="MEMBRESIA EMPRESARIAL:" HorizontalOptions="Center" FontAttributes="Bold"/>
                     <Label x:Name="M_Emp" />
                     <Label FontSize="Medium" HorizontalOptions="Center" Text="COSTO: MEMBRESÍA ANUAL $400 MNX + IVA POR TRABAJADOR"></Label>
-                <Button Text="Comprar" Clicked="Fn_CompraEmpre" Style="{StaticResource Buton}" ></Button>
+                <Button Text="Comprar" x:Name="ButEmp" Clicked="Fn_CompraEmpre" Style="{StaticResource Buton}" ></Button>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

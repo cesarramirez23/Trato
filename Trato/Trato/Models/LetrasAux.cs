@@ -34,7 +34,7 @@ namespace Trato
         /// ID PARA GUARDAR LOS EVENTOS
         /// </summary>
         // public const string v_IdCalendar = "IdCalendar";
-
+        public const string BASE_URL = "https://tratoespecial.com/";
 
         // This size of the IV (in bytes) must = (keysize / 8).  Default keysize is 256, so the IV must be
         // 32 bytes long.  Using a 16 character string here gives us 32 bytes when converted to a byte array.

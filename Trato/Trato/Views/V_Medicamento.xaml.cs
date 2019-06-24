@@ -14,7 +14,7 @@ using Newtonsoft.Json.Linq;
 //para agregar loos eventos al calendario
 using Plugin.Calendars;
 using Plugin.Calendars.Abstractions;
-
+using Trato.Models;
 //para agregar loos eventos al calendario
 namespace Trato.Views
 {

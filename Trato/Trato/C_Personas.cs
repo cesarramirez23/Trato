@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Text;
+using Trato.Models;
 //using Xamarin.Forms;
 namespace Trato.Personas
 {
@@ -451,6 +452,11 @@ namespace Trato.Personas
             this.v_pass = "";
             this.v_fol = "";
         }
+        public C_Login(string _membr, string _pass)
+        {
+            this.v_membre = _membr;
+            this.v_pass = _pass;
+        }
         public C_Login(string _membr,string _letr,string _conse, string _pass,string _fol)
         {
             this.v_membre = _membr;
@@ -492,7 +498,7 @@ namespace Trato.Personas
         /// la lista que se manda
         /// </summary>
         [JsonProperty("espe")]
-        public ObservableCollection<Varios.C_EspeTitu> v_ListaEsp;
+        public ObservableCollection<Models.C_EspeTitu> v_ListaEsp;
         /// <summary>
         /// la que se muestra en la red medica
         /// </summary>
@@ -507,6 +513,8 @@ namespace Trato.Personas
         /// </summary>
         [JsonProperty("ciudad")]
         public string v_Ciudad { get; set; }
+        [JsonProperty("estado")]
+        public string v_estado { get; set; }
         [JsonProperty("tel")]
         public string v_Tel { get; set; }
         [JsonProperty("correo")]
@@ -571,6 +579,8 @@ namespace Trato.Personas
     /// </summary>
     public class C_Servicios
     {
+        [JsonProperty("ID_servicio")]
+        public string v_id { get; set; }
         //cambio del nombre de la variable para que en el buscador con el binding no de espacios es blanco
         [JsonProperty("nombre")]
         public string v_completo { get; set; }
@@ -585,6 +595,8 @@ namespace Trato.Personas
         /// </summary>
         [JsonProperty("ciudad")]
         public string v_Ciudad { get; set; }
+        [JsonProperty("estado")]
+        public string v_estado { get; set; }
         [JsonProperty("tel")]
         public string v_Tel { get; set; }
         [JsonProperty("correo")]
@@ -623,6 +635,8 @@ namespace Trato.Personas
     /// </summary>
     public class C_ServGenerales
     {
+        [JsonProperty("ID_servicio")]
+        public string v_id { get; set; }
         //cambio del nombre de la variable para que en el buscador con el binding no de espacios es blanco
         [JsonProperty("nombre")]
         public string v_completo { get; set; }
@@ -644,7 +658,8 @@ namespace Trato.Personas
         /// </summary>
         [JsonProperty("ciudad")]
         public string v_Ciudad { get; set; }
-
+        [JsonProperty("estado")]
+        public string v_estado { get; set; }
         [JsonProperty("horario")]
         public string v_horario;
 

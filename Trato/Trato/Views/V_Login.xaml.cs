@@ -56,7 +56,7 @@ namespace Trato.Views
                    // Mensajes_over.Text +=_jsonLog ;
                     //crear el cliente
                     HttpClient _client = new HttpClient();
-                    string _DirEnviar = "http://tratoespecial.com/login.php";
+                    string _DirEnviar = NombresAux.BASE_URL + "login.php";
                     StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
                     //mandar el json con el post
                     try
@@ -97,7 +97,7 @@ namespace Trato.Views
                                // Mensajes_over.Text = "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
                                 //crear el cliente
                                 _client = new HttpClient();
-                                _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+                                _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
                                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                                 try
                                 {
@@ -110,7 +110,7 @@ namespace Trato.Views
 
                                     App.Fn_GuardarDatos(_nuePer, _noespacios, fol.Text, letra);
                                     Console.Write("json para perfil medicoo"+ _jsonper);
-                                    _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                                    _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                                     //membre  letraa folio
                                     _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                                     try
@@ -135,7 +135,7 @@ namespace Trato.Views
                                         _login = new C_Login(_membre, letra, _conse,App.Fn_GEtToken());
                                         //crear el json
                                         _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-                                         _DirEnviar = "http://tratoespecial.com/token_notification.php";
+                                         _DirEnviar = NombresAux.BASE_URL + "token_notification.php";
                                          _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
                                         Console.WriteLine(" infosss "+ _jsonLog);
                                         try
@@ -342,7 +342,7 @@ namespace Trato.Views
                     json += "folio:'" + App.Fn_Vacio(PassFol.Text) + "'\n";
                     json += "}";
                     JObject jsonper = JObject.Parse(json);
-                    string _DirEnviar = "http://tratoespecial.com/restore_pass.php";
+                    string _DirEnviar = NombresAux.BASE_URL + "restore_pass.php";
                     StringContent _content = new StringContent(jsonper.ToString(), Encoding.UTF8, "application/json");
                     // await DisplayAlert("Envia", jsonper.ToString(), "Envia");
                     HttpClient _client = new HttpClient();

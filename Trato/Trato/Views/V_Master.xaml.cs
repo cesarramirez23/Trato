@@ -41,7 +41,7 @@ namespace Trato.Views
                 if (App.Fn_GetCita())
                 {
                     string _json = App.Current.Properties[NombresAux.v_citaNot] as string;
-                    App.v_nueva = JsonConvert.DeserializeObject<Varios.Cita>(_json);
+                    App.v_nueva = JsonConvert.DeserializeObject<Models.Cita>(_json);
                     IsPresented = false;
                     Detail = new NavigationPage(new V_Cita(false,true, App.v_nueva) { Title = "Citas" });
                 }
@@ -119,7 +119,7 @@ namespace Trato.Views
             string _conse = App.v_membresia.Split('-')[1];
             C_Login _login = new C_Login( _membre, App.v_letra, _conse, "");
             string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-            string _DirEnviar = "http://tratoespecial.com/token_notification.php";
+            string _DirEnviar = NombresAux.BASE_URL + "token_notification.php";
             StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
             Console.WriteLine(" infosss " + _jsonLog);
 

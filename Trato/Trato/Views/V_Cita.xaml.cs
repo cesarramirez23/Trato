@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using Trato.Varios;
 using Newtonsoft.Json;
 using System.Net.Http;
+using Trato.Models;
 namespace Trato.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -71,7 +72,7 @@ namespace Trato.Views
             HttpClient _client = new HttpClient();
             Cita _cita = new Cita(App.v_membresia, App.v_folio, "0");
             string _json = JsonConvert.SerializeObject(_cita);
-            string _DirEnviar = "http://tratoespecial.com/get_medicamentos.php";
+            string _DirEnviar = NombresAux.BASE_URL + "get_medicamentos.php";
            // await DisplayAlert("ENVIA PARA medicamentos", _json, "acep");
             StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
             try
@@ -106,7 +107,7 @@ namespace Trato.Views
             L_Error.Text = "Procesando Informacion";
             Cita _cita = new Cita(App.v_membresia, App.v_folio, "0");
             string _json = JsonConvert.SerializeObject(_cita);
-            string _DirEnviar = "http://tratoespecial.com/get_citas.php";
+            string _DirEnviar = NombresAux.BASE_URL + "get_citas.php";
             StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
             try
             {

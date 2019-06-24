@@ -23,7 +23,7 @@ using Android.Graphics;
 using Newtonsoft.Json;
 using Trato.Varios;
 
-
+using Trato.Models;
 
 namespace Trato.Droid
 {

@@ -18,8 +18,8 @@ namespace Trato.Views
             M_Ind.Text= "Ésta es la membresía ideal para una persona independiente como tu. \n"
                         +"* Asistencia Telefónica.\n"
                         +"* Acceso a Red Médica.\n"
-                        +"* Consultas ilimitadas con Médicos Especialistas a $250 MNX.\n"
-                        +"* Consultas ilimitadas con Médicos Generales a $100 MNX.\n"
+                        + "* Consultas ilimitadas con Médicos Especialistas a $350 o $250 MNX.\n"
+                        + "* Consultas ilimitadas con Médicos Generales a $100 MNX.\n"
                         +"* Hospitales y Laboratorios descuentos del 5 % al 35 %\n"
                          +"* Centros de Rehabilitación y Terapias Físicas descuentos del 10 % al 35 %\n"
                           +"* Precios preferenciales y descuentos en muchos servicios más.\n";
@@ -27,7 +27,7 @@ namespace Trato.Views
             M_Fam.Text = "La membresía familiar es ideal para cubrir todas las necesidades de salud y bienestar de tus seres queridos.\n"
                         + "* Asistencia Telefónica.\n"
                         + "* Acceso a Red Médica.\n"
-                        + "* Consultas ilimitadas con Médicos Especialistas a $250 MNX.\n"
+                        + "* Consultas ilimitadas con Médicos Especialistas a $350 o $250 MNX.\n"
                         + "* Consultas ilimitadas con Médicos Generales a $100 MNX.\n"
                         + "* Hospitales y  Laboratorios descuentos del 5% al 35%\n"
                         + "* Centros de  Rehabilitación y Terapias Físicas descuentos del 10% al 35%\n"
@@ -36,11 +36,17 @@ namespace Trato.Views
             M_Emp.Text = "Cubre las necesidades de salud y bienestar del capital mas importante de tu negocio, tu Equipo de trabajo. \n" 
                         + "* Asistencia Telefónica.\n" 
                         + "* Acceso a Red Médica.\n"
-                        + "* Consultas ilimitadas con Médicos Especialistas a $250 MNX.\n"
+                        + "* Consultas ilimitadas con Médicos Especialistas a $350 o $250 MNX.\n"
                         + "* Consultas ilimitadas con Médicos Generales a $100 MNX.\n"
                         + "* Hospitales y  Laboratorios descuentos del 5% al 35%\n"
                         + "* Centros de  Rehabilitación y Terapias Físicas descuentos del 10% al 35%\n"
                         + "* Precios preferenciales y descuentos en muchos servicios más.\n";
+            if (App.v_log == "1")
+            {
+                ButEmp.IsVisible = false;
+                ButFam.IsVisible = false;
+                ButInd.IsVisible = false;
+            }
         }
         public async void Fn_Comprar(object _sender, EventArgs _args)
         {

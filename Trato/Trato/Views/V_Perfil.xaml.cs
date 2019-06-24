@@ -124,7 +124,7 @@ namespace Trato.Views
 
             C_Login _login = new C_Login(_membreTok, App.v_letra, _conseTok, _token);
             string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-            string _DirEnviar = "http://tratoespecial.com/token_notification.php";
+            string _DirEnviar = NombresAux.BASE_URL + "token_notification.php";
             StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
             Console.WriteLine(" infosss " + _jsonLog);
             //crear el cliente
@@ -182,7 +182,7 @@ namespace Trato.Views
             Console.Write("json para perfil" + _jsonper);
             //await DisplayAlert("enviar datos", _jsonper, "sdfds");
             HttpClient _client = new HttpClient();
-            string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+            string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
             StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
 
             try
@@ -205,7 +205,7 @@ namespace Trato.Views
                 //App.Fn_GuardarDatos(_vars,_noespacios, App.v_folio, App.v_letra);
                 App.Fn_GuardarDatos(_nuePer, _noespacios, App.v_folio, App.v_letra);
                 Console.Write("json para perfil medicoo" + _jsonper);
-                _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                 //membre  letraa folio
                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                 try
@@ -413,7 +413,7 @@ namespace Trato.Views
             JObject jsonPer = JObject.Parse(json);
             StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
             HttpClient _client = new HttpClient();
-            string _url = "http://tratoespecial.com/update_perfil.php";
+            string _url = NombresAux.BASE_URL + "update_perfil.php";
 
             try
             {
@@ -432,7 +432,7 @@ namespace Trato.Views
 
                     //HACIENDO EL QUERY para la info del GENERAL
                     _client = new HttpClient();
-                    string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+                    string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
                     _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                     //mandar el json con el post
                     _respuestphp = await _client.PostAsync(_DirEnviar, _content);
@@ -441,7 +441,7 @@ namespace Trato.Views
                     App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
 
                     //carga la info del PERFIL MEDICO
-                    _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                    _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                     _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                     //mandar el json con el post
                     _respuestphp = await _client.PostAsync(_DirEnviar, _content);
@@ -554,7 +554,7 @@ namespace Trato.Views
             JObject jsonPer = JObject.Parse(json);
             StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
             HttpClient _client = new HttpClient();
-            string _url = "http://tratoespecial.com/update_perfil_medico.php";
+            string _url = NombresAux.BASE_URL + "update_perfil_medico.php";
             try
             {
                 HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
@@ -571,7 +571,7 @@ namespace Trato.Views
                     string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
                     //HACIENDO EL QUERY para la info del GENERAL
                     _client = new HttpClient();
-                    string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+                    string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
                     _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                     //mandar el json con el post
                     try
@@ -581,7 +581,7 @@ namespace Trato.Views
                         C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
                         App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
                         //carga la info del PERFIL MEDICO
-                        _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                        _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                         _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                         try
                         {
@@ -628,7 +628,7 @@ namespace Trato.Views
 
             //HACIENDO EL QUERY para la info del GENERAL
             HttpClient _client = new HttpClient();
-            string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+            string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
            StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
             //mandar el json con el post
             try
@@ -642,7 +642,7 @@ namespace Trato.Views
                 try
                 {
                     //carga la info del PERFIL MEDICO
-                    _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                    _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                     _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                     //mandar el json con el post
                     HttpResponseMessage v_respuestphp = await _client.PostAsync(_DirEnviar, _content);
@@ -743,7 +743,7 @@ namespace Trato.Views
             try
             {
                 //carga la info del PERFIL MEDICO
-               string  _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+               string  _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                 StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                 //mandar el json con el post
                 HttpResponseMessage v_respuestphp = await _client.PostAsync(_DirEnviar, _content);
@@ -840,7 +840,5 @@ namespace Trato.Views
 
             await Task.Delay(100);
         }
-       
-
     }
 }

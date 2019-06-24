@@ -7,6 +7,7 @@ using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
 using Newtonsoft.Json;
 using Trato.Varios;
+using Trato.Models;
 //para agregar loos eventos al calendario
 using Plugin.Calendars;
 using Plugin.Calendars.Abstractions;
@@ -49,11 +50,9 @@ namespace Trato
         #endregion
 
         #region Propias de la app
-
         public App()
         {
             InitializeComponent();
-            // App.Current.MainPage = new V_Master(false,"no properties");
         }
         protected override void OnStart()
         {    //existe la variable guardada
@@ -103,7 +102,6 @@ namespace Trato
                     }
                    // v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
                     MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
-
                 }
                 else
                 {
@@ -126,7 +124,6 @@ namespace Trato
         protected override void OnSleep(){}
         protected override void OnResume() {}
         #endregion
-
         #region CCARGA DE DATOS DESDE  EL PROPERTIES
         async void Fn_CrearKey()
         {
@@ -335,7 +332,6 @@ namespace Trato
             }
             if (!Current.Properties.ContainsKey(NombresAux.v_perfGen))
             {
-                Console.Write("carga datos nada");
                 v_perfil = new C_PerfilGen();
                 string _json = JsonConvert.SerializeObject(v_perfil);
                 Current.Properties.Add(NombresAux.v_perfGen, "");
@@ -344,7 +340,6 @@ namespace Trato
             else
             {
                 string _jsonGen = Current.Properties[NombresAux.v_perfGen] as string;
-                Console.Write("carga datos " + _jsonGen);
                 v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
             }
             if (!Current.Properties.ContainsKey(NombresAux.v_perMed))
@@ -469,21 +464,17 @@ namespace Trato
             Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
             string _jsonMed = JsonConvert.SerializeObject(v_medicos );
             Current.Properties[NombresAux.v_redmedica2] = _jsonMed;
-
             await Current.SavePropertiesAsync();
             Fn_CargarDatos();
             await Task.Delay(100);
         }
         public static async void Fn_GuardarDatos(string _gen , string _membre, string _folio, string _letra)
         {
-            Console.Write("carga llega" + _gen);
             v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>( _gen);
             v_folio = _folio;
             v_membresia = _membre;
             v_letra = _letra;
-            Console.Write("Guarda perfil " + v_perfil.Fn_GetDatos());
             //string _jsonGen = JsonConvert.SerializeObject(v_perfil);
-            Console.Write("guarda perfil" + _gen);
             Current.Properties[NombresAux.v_log] = v_log;
             Current.Properties[NombresAux.v_perfGen] = _gen;
             Current.Properties[NombresAux.v_membre] = v_membresia;
@@ -493,7 +484,6 @@ namespace Trato
             Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
             string _jsonMed = JsonConvert.SerializeObject(v_medicos);
             Current.Properties[NombresAux.v_redmedica2] = _jsonMed;
-
             await Current.SavePropertiesAsync();
             Fn_CargarDatos();
             await Task.Delay(100);
@@ -519,7 +509,6 @@ namespace Trato
             Fn_CargarDatos();
             await Task.Delay(100);
         }
-
         public static async void Fn_GuardarRed(ObservableCollection<C_Medico> _medicos)
         {
             string _json = JsonConvert.SerializeObject(_medicos );
@@ -588,7 +577,6 @@ namespace Trato
         /// <summary>
         /// guarda la nota medica
         /// </summary>
-        /// <param name="_medica"></param>
         public static async void Fn_GuardarMedicamentos(ObservableCollection<C_NotaMed> _medica)
         {
             v_NotasMedic = _medica;
@@ -606,7 +594,6 @@ namespace Trato
             await Current.SavePropertiesAsync();
         }
         #endregion
-
         #region Varios
         public static async void Fn_CerrarSesion()
         {
@@ -633,7 +620,6 @@ namespace Trato
             Current.Properties[NombresAux.v_log] = v_log;
             await Current.SavePropertiesAsync();
             await Task.Delay(100);
-            
         }
         public static void Fn_ImgSexo()
         {/// 0 MEDICOS,   1 SERVICIOS MEDICOS,    2 SERVICIOS GENERALES
@@ -642,11 +628,11 @@ namespace Trato
             {
                 if (v_medicos[i].v_idsexo == 0)
                 {
-                    v_medicos[i].v_img = "http://www.tratoespecial.com/imgs/dr_app.jpeg";
+                    v_medicos[i].v_img = NombresAux.BASE_URL + "imgs/dr_app.jpeg";
                 }
                 else
                 {
-                    v_medicos[i].v_img = "http://www.tratoespecial.com/imgs/dra_app.jpeg";
+                    v_medicos[i].v_img = NombresAux.BASE_URL + "imgs/dra_app.jpeg";
                 }
                 v_medicos[i].v_completo = v_medicos[i].v_titulo + " " + v_medicos[i].v_Nombre + " " +
                     v_medicos[i].v_Apellido;
@@ -664,13 +650,10 @@ namespace Trato
             }
         }
         #endregion
-
         #region Coosas de la cita
         /// <summary>
         /// se manda un id y busca en todos los medicamentos
         /// </summary>
-        /// <param name="_idcita"></param>
-        /// <returns></returns>
         public static ObservableCollection<Medicamentos> Fn_GetMedic(string _idcita)
         {
             bool _re = false;
@@ -698,7 +681,6 @@ namespace Trato
             return _nombre;
         }
         #endregion
-
         #region Notificaciones
         /// <summary>
         /// la cita desde la notif
@@ -726,7 +708,6 @@ namespace Trato
         /// <summary>
         /// get cita de la notif
         /// </summary>
-        /// <returns></returns>
         public static bool Fn_GetCita()
         {
             if (Current.Properties.ContainsKey(NombresAux.v_citaNot))

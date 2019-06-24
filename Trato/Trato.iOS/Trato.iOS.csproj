@@ -322,4 +322,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Palomita.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\flecha.png" />
+  </ItemGroup>
 </Project>

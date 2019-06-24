@@ -45,6 +45,12 @@ namespace Trato
             }
             else{
                 P_OxxoBut.IsVisible = false;
+                CrossPayPalManager.Current.SetConfig(
+                    new PayPalConfiguration(PayPalEnvironment.Production, "")
+                    {
+
+                    }
+                    );
                 if (CrossPayPalManager.IsInitialized)
                 {
                     P_PayBut.IsEnabled = true;
@@ -69,7 +75,7 @@ namespace Trato
             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
             //crear el cliente
             HttpClient _clien = new HttpClient();
-            string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+            string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
             StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
             try
             {
@@ -80,7 +86,7 @@ namespace Trato
                 Personas.C_PerfilGen _nuePer = JsonConvert.DeserializeObject<Personas.C_PerfilGen>(_resp);
                 //await DisplayAlert("perfil general", _resp, "aceptar");
                 App.Fn_GuardarDatos(_nuePer, v_infoPago.v_membresia, App.v_folio, App.v_letra);
-                _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                 try
                 {
@@ -123,7 +129,7 @@ namespace Trato
             P_mensajes.Text += "\nCreando solicitud";
            // await DisplayAlert("Envia", v_jsonInfo.ToString(), "Acep");
             HttpClient _clien = new HttpClient();
-            string _direc = "http://tratoespecial.com/prueba_conekta.php";
+            string _direc = NombresAux.BASE_URL + "prueba_conekta.php";
             try
             {
                 HttpResponseMessage _responphp = await _clien.PostAsync(_direc, _content);
@@ -162,7 +168,7 @@ namespace Trato
             else if (result.Status == PayPalStatus.Successful)
             {
                 HttpClient _clien = new HttpClient();
-                string _direc = "http://tratoespecial.com/activacion.php";
+                string _direc = NombresAux.BASE_URL + "activacion.php";
                 string _json = JsonConvert.SerializeObject(v_infoPago, Formatting.Indented);
                 StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
                 try
@@ -187,7 +193,7 @@ namespace Trato
                     string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
                     //crear el cliente
                     _clien = new HttpClient();
-                    string _DirEnviar = "http://tratoespecial.com/query_perfil.php";
+                    string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
                  _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                     try
                     {
@@ -197,7 +203,7 @@ namespace Trato
                         //await DisplayAlert("llega ",_perf.Fn_GetDatos() +" "+ _resp, "aceptar");
                         Personas.C_PerfilGen _nuePer = JsonConvert.DeserializeObject<Personas.C_PerfilGen>(_resp);
                         App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
-                        _DirEnviar = "http://tratoespecial.com/query_perfil_medico.php";
+                        _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                         _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                         try
                         {

@@ -15,7 +15,7 @@
                 <Label FontSize="Medium" x:Name="nombre"></Label>
                 <Label FontSize="Medium" x:Name="especial"></Label>
                 <StackLayout x:Name="StackDescrip">
-                    <Label FontSize="Large" FontAttributes="Bold" Text="Descripcion" TextColor="{StaticResource NavigationPrimary}"/>
+                    <Label FontSize="Large" FontAttributes="Bold" Text="Descripción" TextColor="{StaticResource NavigationPrimary}"/>
                     <Label FontSize="Medium" x:Name="descrip" HorizontalTextAlignment="Start"></Label>
                 </StackLayout>
                 <Label FontSize="Large" FontAttributes="Bold" Text="Información de contacto:" TextColor="{StaticResource NavigationPrimary}"></Label>

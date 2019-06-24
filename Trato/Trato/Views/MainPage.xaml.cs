@@ -9,7 +9,7 @@ using Trato.Varios;
 using System.Threading.Tasks;
 using Trato.Personas;
 using System.Text;
-
+using Trato.Models;
 //https://www.c-sharpcorner.com/blogs/store-data-and-access-from-any-pages-in-xamarinform
 namespace Trato.Views
 {
@@ -28,7 +28,7 @@ namespace Trato.Views
             HttpClient _client = new HttpClient();
             Cita _cita = new Cita(App.v_membresia, App.v_folio, "0");
             string _json = JsonConvert.SerializeObject(_cita);
-            string _DirEnviar = "http://tratoespecial.com/get_medicamentos.php";
+            string _DirEnviar = NombresAux.BASE_URL+"get_medicamentos.php";
             //await DisplayAlert("ENVIA PARA medicamentos", _json, "acep");
             StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
             try 
@@ -87,7 +87,7 @@ namespace Trato.Views
             C_Login  _login = new C_Login(_membre, App.v_letra, _conse, App.Fn_GEtToken());
             //crear el json
            string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-           string _DirEnviar = "http://tratoespecial.com/token_notification.php";
+           string _DirEnviar = NombresAux.BASE_URL + "token_notification.php";
            StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
             HttpClient _client = new HttpClient();
             //Console.WriteLine(" infosss " + _jsonLog);
@@ -127,7 +127,7 @@ namespace Trato.Views
             //crear el cliente
             HttpClient _client = new HttpClient();
             string _DirEnviar="" ;
-            _DirEnviar = "http://tratoespecial.com/validacion.php";
+            _DirEnviar = NombresAux.BASE_URL + "validacion.php";
             StringContent _content = new StringContent(_jsonper, System.Text.Encoding.UTF8, "application/json");
             try
             {
