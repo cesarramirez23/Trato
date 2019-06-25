@@ -116,7 +116,7 @@ namespace Trato.Views
                         JObject jsonPer = JObject.Parse(json);
                         StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
                         HttpClient _client = new HttpClient();
-                        string _url = "http://tratoespecial.com/password_change.php";
+                        string _url = NombresAux.BASE_URL + "password_change.php";
                         try
                         {
                             HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);

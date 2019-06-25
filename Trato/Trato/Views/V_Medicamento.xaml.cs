@@ -63,7 +63,7 @@ namespace Trato.Views
                     json += "estado:'" + "1" + "'\n";
                     json += "}";
                     JObject jsonper = JObject.Parse(json);
-                    string _DirEnviar = "http://tratoespecial.com/update_medicamentos.php";
+                    string _DirEnviar = NombresAux.BASE_URL + "update_medicamentos.php";
                     StringContent _content = new StringContent(jsonper.ToString(), Encoding.UTF8, "application/json");
                    // await DisplayAlert("Exito", jsonper.ToString(), "Aceptar");
                     try
@@ -100,7 +100,7 @@ namespace Trato.Views
                     json += "estado:'" + "2" + "'\n";
                     json += "}";
                     JObject jsonper = JObject.Parse(json);
-                    string _DirEnviar = "http://tratoespecial.com/update_medicamentos.php";
+                    string _DirEnviar = NombresAux.BASE_URL + "update_medicamentos.php";
                     StringContent _content = new StringContent(jsonper.ToString(), Encoding.UTF8, "application/json");
                     //await DisplayAlert("Exito", jsonper.ToString(), "Aceptar");
                     try
