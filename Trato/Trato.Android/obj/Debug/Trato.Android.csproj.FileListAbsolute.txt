@@ -335,6 +335,7 @@ C:/Users/AlsainVR/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/android/a
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/drawable/medicamentos.png
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/drawable/qr.png
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/drawable/palomita.png
+/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/res/drawable/flecha.png
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/R.cs.flag
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/R.txt
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/Debug/uploadflags.txt

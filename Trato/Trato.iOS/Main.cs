@@ -34,7 +34,7 @@ namespace Trato.iOS
                 // OPTIONAL - PhoneCountryCode: Default phone country code for PayPal Plug-In
                 PhoneCountryCode = "52",
             };
-            CrossPayPalManager.Init(config, this);
+            CrossPayPalManager.Init(config);
         }
     }
 }
