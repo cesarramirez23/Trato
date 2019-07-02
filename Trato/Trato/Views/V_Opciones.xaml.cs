@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Trato.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
+using Trato.Personas;
+using Trato.Varios;
+
 namespace Trato.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -19,18 +22,13 @@ namespace Trato.Views
         public V_Opciones ()
 		{
             InitializeComponent();
-
 		}
-        protected async override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-
-            Console.Write(App.v_membresia);
-            Console.Write(App.v_folio);
+            await CargarGen();
             App.Fn_CargarDatos();
             C_Membre.Text = App.v_membresia + "  folio: " + App.v_folio;// + "  token " + App.Fn_GEtToken()+"   --aaaaa" ;
-
             if (App.v_letra == "I")
             { C_Tipo.Text = "Membresia Individual"; }
             else if (App.v_letra == "F")
@@ -46,9 +44,81 @@ namespace Trato.Views
                     C_T_usu.Text = "Total de usuarios: " + App.v_perfil.v_numEmple;
                 }
             }
-            //await DisplayAlert("TOoken", App.v_perfil.Fn_GetDatos(), "sdasd");
             string[] _Arr = App.v_perfil.v_vig.Split('-');
             C_fecha.Text = _Arr[2] + " - " + _Arr[1] + " - " + _Arr[0];
+
+            Pro_Membre.Text = App.v_membresia;
+            Pro_Fol.Text = App.v_folio;
+            if(App.v_perfil.v_activo=="1")
+            {
+                StackTodoPromo.IsVisible = true;
+                if (App.v_perfil.v_promotor == "0")
+                {
+                    Pro_Pass.IsEnabled = true;
+                    Pro_Promo.IsEnabled = true;
+                    Pro_Mensaje.IsVisible = false;
+                    StackApp.IsVisible = false;
+                    btnReg.IsEnabled = true;
+                }
+                else
+                {
+                    Pro_Pass.IsEnabled = false;
+                    Pro_Promo.IsEnabled = false;
+                    Pro_Mensaje.IsVisible = true;
+                    Pro_Mensaje.Text = "Este usuario ya es promotor";
+                    StackApp.IsVisible = true;
+                    btnReg.IsEnabled = false;
+                }
+            }
+            else
+            {
+                StackTodoPromo.IsVisible = false;
+            }
+        }
+        public async Task CargarGen()
+        {
+            string _noespacios = "";
+            string _usutexto = App.v_membresia;
+            for (int i = 0; i < _usutexto.Length; i++)
+            {
+                string _temp = _usutexto[i].ToString();
+                if (_temp != " ")
+                {
+                    _noespacios += _usutexto[i];
+                }
+            }
+            Perf _perf = new Perf();
+            _perf.v_fol = App.v_folio;
+            _perf.v_membre = _noespacios;
+            _perf.v_letra = App.v_letra;
+            //crear el json
+            string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
+            Console.Write("json para perfil" + _jsonper);
+            //await DisplayAlert("enviar datos", _jsonper, "sdfds");
+            HttpClient _client = new HttpClient();
+            string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
+            StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
+            try
+            {
+                //mandar el json con el post
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                //await DisplayAlert("REspuesta", _respuesta, "sdasd");
+                C_PerfilGen _nuePer;
+                if (string.IsNullOrEmpty(_respuesta))
+                {
+                    _nuePer = new C_PerfilGen();
+                }
+                else
+                {
+                    _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                }
+                App.Fn_GuardarDatos(_nuePer, _noespacios, App.v_folio, App.v_letra);
+            }
+            catch
+            {
+                await CargarGen();
+            }
         }
         public void FN_passCambio(object sender, TextChangedEventArgs args)
         {
@@ -147,7 +217,7 @@ namespace Trato.Views
                                 await DisplayAlert("respuesta", _result, "Aceptar");
                             }
                         }
-                        catch (HttpRequestException exception)
+                        catch (Exception exception)
                         {
                             await DisplayAlert("Error", exception.Message, "Aceptar");
                         }
@@ -160,7 +230,6 @@ namespace Trato.Views
             }
             _buton.IsEnabled = true;
         }
-
         public bool Fn_validar(string _actual, string _nueva)
         {
             if (_actual == _nueva)
@@ -187,6 +256,92 @@ namespace Trato.Views
         public void MostrarPass(object sender, EventArgs _Args)
         {
             StackPass.IsVisible = !StackPass.IsVisible;
+        }
+        private void Fn_VisibleProm(object sender, EventArgs e)
+        {
+            StackPromotor.IsVisible = !StackPromotor.IsVisible;
+        }
+        private async void FN_registra(object sender, EventArgs e)
+        {
+            Button _btn = sender as Button;
+            _btn.IsEnabled = false;
+            if(!Fn_Inputs())//error
+            {
+                await DisplayAlert("Error", "Uno o mas campos esta incompleto", "Aceptar");
+            }
+            else
+            {
+                HttpClient _client = new HttpClient();
+                Prom_Reg _reg = new Prom_Reg() { v_membre = Pro_Membre.Text, v_pass = Pro_Pass.Text, v_recom = Pro_Promo.Text ,
+                 v_folio = Pro_Fol.Text};
+                string _json = JsonConvert.SerializeObject(_reg);
+                StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
+                try
+                {
+                    HttpResponseMessage _respuestaphp = await _client.PostAsync(NombresAux.BASE_URL+"registro_promotor.php", _content);
+                    string _respuesta =await _respuestaphp.Content.ReadAsStringAsync();
+                    C_Mensaje _men = JsonConvert.DeserializeObject<C_Mensaje>(_respuesta);
+                    if(_men.v_code=="1")
+                    {
+                        await DisplayAlert("Éxito", "Registrado correctamente", "Aceptar");
+                        Pro_Mensaje.Text = "Ahora eres promotor, descarga la aplicacion para iniciar sesión";
+                        StackApp.IsVisible = true;
+                        Pro_Promo.IsEnabled = false;
+                        Pro_Pass.IsEnabled = false;
+                    }
+                    else if(_men.v_code=="0")
+                    {
+                        _btn.IsEnabled = true;
+                    }
+                }
+                catch
+                {
+                    await DisplayAlert("Error", "Error, reintentarlo más tarde", "Aceptar");
+                }
+            }
+        }
+        bool Fn_Inputs()
+        {
+            int _cont = 0;
+            if(string.IsNullOrEmpty( Pro_Membre.Text) || string.IsNullOrWhiteSpace(Pro_Membre.Text))
+            {
+                Pro_Membre.BackgroundColor = Color.Red;
+                _cont++;
+            }
+            else
+            {
+                Pro_Membre.BackgroundColor = Color.Transparent;
+            }
+            if (string.IsNullOrEmpty(Pro_Pass.Text) || string.IsNullOrWhiteSpace(Pro_Pass.Text))
+            {
+                Pro_Pass.BackgroundColor = Color.Red;
+                _cont++;
+            }
+            else
+            {
+                Pro_Pass.BackgroundColor = Color.Transparent;
+            }
+            if (string.IsNullOrEmpty(Pro_Fol.Text) || string.IsNullOrWhiteSpace(Pro_Fol.Text))
+            {
+                Pro_Fol.BackgroundColor = Color.Red;
+                _cont++;
+            }
+            else
+            {
+                Pro_Fol.BackgroundColor = Color.Transparent;
+            }
+            if (_cont > 0)
+                return false;
+            else
+                return true;
+        }
+        private void Fn_AppIos(object sender, EventArgs e)
+        {
+           Device.OpenUri(new Uri( "https://apps.apple.com/mx/app/te-servicios/id1450966914"));
+        }
+        private void Fn_AppAndroid(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri("https://play.google.com/store/apps/details?id=com.alsain.teservicios"));
         }
     }
 }

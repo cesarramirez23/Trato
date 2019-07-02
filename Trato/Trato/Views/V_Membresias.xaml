@@ -4,7 +4,7 @@
              x:Class="Trato.Views.V_Membresias" Title="Membresías">
     <TabbedPage.Resources>
         <Style x:Key="Stack" TargetType="StackLayout">
-            <Setter Property="Margin" Value="20,10"></Setter>                
+            <Setter Property="Margin" Value="10,10"></Setter>                
         </Style>
     </TabbedPage.Resources>
     

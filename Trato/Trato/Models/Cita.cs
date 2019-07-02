@@ -148,7 +148,6 @@ namespace Trato.Models
             v_hora = DateTime.Now.TimeOfDay;
             v_fecha = DateTime.Now.Date.Year + "-" + DateTime.Now.Date.Month + "-" + DateTime.Now.Date.Day;
             v_fechaDate = DateTime.Now.Date;
-
             v_nombreDR = "prueba notif";
             v_nombrePaciente = "Prueba notif paciente";
         }
@@ -195,7 +194,7 @@ namespace Trato.Models
             v_especialidad = "";
             for (int i = 0; i < v_espe.Count; i++)
             {
-                v_especialidad += v_espe[i].v_nombreEspec;
+                v_especialidad += v_espe[i].v_nombreEspec+",";
             }
         }
         public void Fn_SetVisible()

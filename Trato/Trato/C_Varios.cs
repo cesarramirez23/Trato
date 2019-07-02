@@ -42,6 +42,10 @@ letra
        public string v_costo { get; set; }
        [JsonProperty("nombre")]
        public string v_nombre { get; set; }
+       [JsonProperty("codigo")]
+       public string v_codigo { get; set; }
+        [JsonProperty("promotor")]
+        public string v_IdProm { get; set; }
         public Pagar()
         {
             v_membresia = string.Empty;
@@ -49,6 +53,7 @@ letra
             v_conse = string.Empty;
             v_costo = string.Empty;
             v_nombre = string.Empty;
+            v_codigo = string.Empty;
         }
         public Pagar(string _membre, string _letra, string _conse,  string _costo, string _nombre)
         {

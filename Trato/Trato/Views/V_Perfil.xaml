@@ -31,7 +31,7 @@
 -->
         <ContentPage Title="Info General" Icon="tab_Citas.png" >
 
-            <ScrollView Margin="20,10">
+            <ScrollView Margin="5,5">
                 <StackLayout x:Name="StackGeneral" >
                     <Label Text="Nombre completo" Style="{StaticResource lblSty}"></Label>
                     <Entry Style="{StaticResource entry_perfil}" x:Name="G_Nombre" IsEnabled="False"></Entry>
@@ -134,10 +134,10 @@
                 </StackLayout>
             </ScrollView>
         </ContentPage>
+        
         <ContentPage Title="Info Medica" Icon="tab_Corazon.png">
-            
-            <ScrollView>
-                <StackLayout x:Name="StackMedi" Margin="20,0" >
+            <ScrollView Margin="5,5">
+                <StackLayout x:Name="StackMedi"  >
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
                         <Picker  x:Name="M_Sangre" IsEnabled="False" HorizontalOptions="FillAndExpand" Title="Elige tipo de sangre">

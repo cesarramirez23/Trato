@@ -164,10 +164,12 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -177,10 +179,12 @@
       ]
     },
     "NETStandard.Library/2.0.3": {
-      "sha512": "st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "sha512": "548M6mnBSJWxsIlkQHfbzoYxpiYFXZZSL00p4GHYv8PkiqFBnnT68mW5mGEsA/ch9fDO9GkPgkFQpWiXZN7mAQ==",
       "type": "package",
       "path": "netstandard.library/2.0.3",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/NETStandard.Library.targets",
@@ -304,10 +308,12 @@
       ]
     },
     "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "sha512": "znZGbws7E4BA9jxNZ7FuiIRI3C9hrgatVQSTKhIYZYNOud4M5VfGlTYi6RdYO5sQrebFuF/g9UEV3hOxDMXF6Q==",
       "type": "package",
       "path": "newtonsoft.json/11.0.2",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -366,10 +372,12 @@
       ]
     },
     "PayPal.Forms/2.18.3": {
-      "sha512": "STghNkZDa7HbZd1tdn73pZLeX9fUdFZK3ruzmqjlS8AretnQr6PtQpRx5n2Rd3dNIQO7vev2wN3q7enV7eRBtA==",
+      "sha512": "UZBpRHtHeWJx/urGdQF6F7IhraK/m6tpKGHpbsRZIMNDIFV9Pz9OS+xgytfIXZiNqmhtuM0A80YG0O/rU86eXQ==",
       "type": "package",
       "path": "paypal.forms/2.18.3",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll",
         "lib/MonoAndroid10/PayPal.Forms.dll",
         "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll",
@@ -405,10 +413,11 @@
       ]
     },
     "Xamarin.Forms/3.2.0.871581": {
-      "sha512": "1yKOnOHYR1v4Afa5XIkpPfdIG3A3Tu0gT5TX4923xG5DV+8dJw+beSPuLagSJoU33NzV023t73R5iSbMoSF7qQ==",
+      "sha512": "lgOTS5P5Cfava33D2F/ISm70uYLTW2q07DOYrAXXLp3qsBPs0ax9Vj+Z9p2k4L5NZ/CeglJ9wLAbElx0eXYllg==",
       "type": "package",
       "path": "xamarin.forms/3.2.0.871581",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "build/netstandard1.0/Mono.Cecil.Mdb.dll",
         "build/netstandard1.0/Mono.Cecil.Pdb.dll",
@@ -556,10 +565,12 @@
       ]
     },
     "ZXing.Net.Mobile/2.4.1": {
-      "sha512": "iCL2WcqOyUnC1iFFdzXijk0EXfoLMDqW88MyhoTZigSyhJZM2C5hKgSZVyfx9E35tgkde/IZwHkk8cVDnbQlYg==",
+      "sha512": "UJVTeViJx6D5vqhMNzvWw6Jacsm6/mgAGQOMLYIG+DyYHLmY/+OPT5uiGY3CjdcmjnIoiPTXsTgM9YUsgsutVw==",
       "type": "package",
       "path": "zxing.net.mobile/2.4.1",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "lib/MonoAndroid71/ZXing.Net.Mobile.Core.dll",
         "lib/MonoAndroid71/ZXingNetMobile.dll",
         "lib/MonoAndroid71/zxing.portable.dll",
@@ -579,10 +590,12 @@
       ]
     },
     "ZXing.Net.Mobile.Forms/2.4.1": {
-      "sha512": "7z+MfL8TbfE36s1GGvrnlkhLUOV5dgdn1gYhUb3GU2W6YXzpfF39k6EqkmFsyNm1O07evTaKFgh7UTOqcWub3g==",
+      "sha512": "LD9SHG/6k+QzVD3gEujl5SF+Bz72VYbMjRos6pf1B3kG/TV5WJ9ygPuazibTTWg0OaKoftPhbmfQYSEfCIXWMA==",
       "type": "package",
       "path": "zxing.net.mobile.forms/2.4.1",
       "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
         "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.Android.dll",
         "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.dll",
         "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll",
@@ -610,28 +623,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/saullopez/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Arkms-Alsain\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj",
+      "projectUniqueName": "C:\\Users\\Arkms-Alsain\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
       "projectName": "Trato",
-      "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj",
-      "packagesPath": "/Users/saullopez/.nuget/packages/",
-      "outputPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj",
+      "projectPath": "C:\\Users\\Arkms-Alsain\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
+      "packagesPath": "C:\\Users\\Arkms-Alsain\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arkms-Alsain\\Documents\\GitHub\\Trato\\Trato\\Trato\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/saullopez/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Arkms-Alsain\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -650,41 +665,41 @@
         "dependencies": {
           "CClarke.Plugin.Calendars": {
             "target": "Package",
-            "version": "1.0.0"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "11.0.2"
-          },
-          "NUnit": {
-            "target": "Package",
-            "version": "3.11.0"
-          },
-          "PayPal.Forms": {
-            "target": "Package",
-            "version": "2.18.3"
-          },
-          "Plugin.Permissions": {
-            "target": "Package",
-            "version": "3.0.0.12"
-          },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "3.2.0.871581"
-          },
-          "ZXing.Net.Mobile": {
-            "target": "Package",
-            "version": "2.4.1"
-          },
-          "ZXing.Net.Mobile.Forms": {
-            "target": "Package",
-            "version": "2.4.1"
+            "version": "[1.0.0, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.3",
+            "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "NUnit": {
+            "target": "Package",
+            "version": "[3.11.0, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[11.0.2, )"
+          },
+          "PayPal.Forms": {
+            "target": "Package",
+            "version": "[2.18.3, )"
+          },
+          "Plugin.Permissions": {
+            "target": "Package",
+            "version": "[3.0.0.12, )"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "[3.2.0.871581, )"
+          },
+          "ZXing.Net.Mobile": {
+            "target": "Package",
+            "version": "[2.4.1, )"
+          },
+          "ZXing.Net.Mobile.Forms": {
+            "target": "Package",
+            "version": "[2.4.1, )"
           }
         },
         "imports": [

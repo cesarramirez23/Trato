@@ -7,6 +7,7 @@ namespace Trato
 {
     public static class NombresAux
     {
+        #region PERFIL NORMAL PACIENTE
         public const string v_log="log";
         public const string v_membre="membre"; 
         public const string v_letra="letra"; 
@@ -30,12 +31,10 @@ namespace Trato
         /// Cita de notificacion
         /// </summary>
         public const string v_citaNot = "Notif";
-        /// <summary>
-        /// ID PARA GUARDAR LOS EVENTOS
-        /// </summary>
-        // public const string v_IdCalendar = "IdCalendar";
+        #endregion
         public const string BASE_URL = "https://tratoespecial.com/";
 
+        #region ENCRYPT
         // This size of the IV (in bytes) must = (keysize / 8).  Default keysize is 256, so the IV must be
         // 32 bytes long.  Using a 16 character string here gives us 32 bytes when converted to a byte array.
         private const string initVector = "pemgail9uzpgzl88";
@@ -60,5 +59,6 @@ namespace Trato
             cryptoStream.Close();
             return Convert.ToBase64String(cipherTextBytes);
         }
+        #endregion
     }
 }

@@ -61,7 +61,8 @@ namespace Trato.Personas
         public string v_token  { get; set; }
         [JsonProperty("conekta_id")]
         public string v_idConekta { get; set; }
-
+        [JsonProperty("promotor")]
+        public string v_promotor { get; set; }
 
 
         public C_PerfilGen()
@@ -442,8 +443,6 @@ namespace Trato.Personas
         string v_fol { get; set; }
         [JsonProperty("token")]
         string v_topken { get; set; }
-
-
         public C_Login()
         {
             this.v_membre = "";
@@ -473,7 +472,6 @@ namespace Trato.Personas
             this.v_topken = _token;
         }
     }
-
     [Serializable]
     /// <summary>
     /// informacion a mostrar en el buscador, para solicitar citas 
@@ -502,7 +500,6 @@ namespace Trato.Personas
         /// <summary>
         /// la que se muestra en la red medica
         /// </summary>
-        /// <value>The v especialidad.</value>
         public string v_Especialidad { get; set; }
         [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
@@ -519,24 +516,18 @@ namespace Trato.Personas
         public string v_Tel { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
-        //[JsonProperty("cedula")]
-        //public string v_cedula { get; set; }
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
         [JsonProperty("idsexo")]
         public int v_idsexo { get; set; }
-
         [JsonProperty("activado")]
         public string v_activo { get; set; }
         [JsonProperty("fecha_vig")]
         public string v_vig;
-
         [JsonProperty("tokenDr")]
         public string v_tokenDR { get; set; }
         [JsonProperty("citas")]
         public string v_cita;
-
-
         public bool Fn_GetActivado()
         {
             if(v_activo=="1")
@@ -560,8 +551,6 @@ namespace Trato.Personas
         public string v_img { get; set; }
         [JsonIgnore]
         public string v_completo { get; set; }
-
-
         public string FN_GetInfo()
         {
             string _ret;
@@ -574,9 +563,6 @@ namespace Trato.Personas
         }
     }
     [Serializable]
-    /// <summary>
-    /// lugares, hospitales
-    /// </summary>
     public class C_Servicios
     {
         [JsonProperty("ID_servicio")]
@@ -603,7 +589,6 @@ namespace Trato.Personas
         public string v_Correo { get; set; }
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
-
         [JsonProperty("beneficios")]
         public string v_beneficio { get; set; }
         [JsonProperty("sitio")]
@@ -611,15 +596,12 @@ namespace Trato.Personas
         /// <summary>
         /// imagen para mostrar
         /// </summary>
-
         [JsonProperty("img")]
         public string v_img { get; set; }
-
         [JsonProperty("activado")]
         public string v_activo { get; set; }
         [JsonProperty("fecha_vig")]
         public string v_vig;
-
         public bool Fn_GetActivado()
         {
             if (v_activo == "1")
@@ -627,7 +609,6 @@ namespace Trato.Personas
             else
             { return false; }
         }
-
     }
     [Serializable]
     /// <summary>
@@ -645,10 +626,8 @@ namespace Trato.Personas
         /// </summary>
         [JsonProperty("espe")]     
         public string v_Especialidad { get; set; }
-
         [JsonProperty("descrip")]
         public string v_descripcion { get; set; }
-
         [JsonProperty("beneficios")]
         public string v_beneficio { get; set; }
         [JsonProperty("dom")]
@@ -662,25 +641,21 @@ namespace Trato.Personas
         public string v_estado { get; set; }
         [JsonProperty("horario")]
         public string v_horario;
-
         [JsonProperty("tel")]
         public string v_Tel { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
         [JsonProperty("sitio")]
         public string v_sitio;
-               // return "http://tratoespecial.com//imgs//LOGOS%20SERVICIOS%20GENERALES//400X400//7.jpg";
         /// <summary>
         /// imagen para mostrar
         /// </summary>
         [JsonProperty("img")]
         public string v_img { get; set ; }
-
         [JsonProperty("activado")]
         public string v_activo { get; set; }
         [JsonProperty("fecha_vig")]
         public string v_vig;
-
         public bool Fn_GetActivado()
         {
             if (v_activo == "1")

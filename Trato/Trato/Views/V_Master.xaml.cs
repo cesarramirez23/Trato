@@ -70,7 +70,6 @@ namespace Trato.Views
             IsPresented = false;
             Detail = new NavigationPage(new V_Contacto("1") { Title = "COONTACTO" });
         }
-
         public void Fn_Citas(object sender, EventArgs _args)
         {
             IsPresented = false;
@@ -82,7 +81,6 @@ namespace Trato.Views
             IsPresented = false;
             Detail = new NavigationPage(new V_Cita(true,false,null) { Title = "MEDICAMENTOS" });
         }
-        
         public void Fn_Medicos(object sender, EventArgs _args)
         {
             IsPresented = false;
@@ -168,7 +166,7 @@ namespace Trato.Views
         public void Fn_Tarjeta(object sender, EventArgs _Args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Contacto("1"));
+            Detail = new NavigationPage(new V_Contacto("1") { Title = "Tarjeta Virtual" });
         }
         public void Fn_Membre(object sender, EventArgs _Args)
         {

@@ -153,23 +153,22 @@ namespace Trato.Views
                                                 Mensajes_over.Text = "Error";
                                                 Reinten.IsVisible = true;
                                             }
-
                                         }
-                                        catch(HttpRequestException exception)
+                                        catch(Exception exception)
                                         {
-                                            await DisplayAlert("Error", exception.Message, "Aceptar");
+                                            await DisplayAlert("Error", "Error al inciar sesión", "Aceptar");
                                             Reinten.IsVisible = true;
                                         }
                                     }
-                                    catch (HttpRequestException exception)
+                                    catch (Exception exception)
                                     {
-                                        await DisplayAlert("Error", exception.Message, "Aceptar");
+                                        await DisplayAlert("Error", "Error al inciar sesión", "Aceptar");
                                         Reinten.IsVisible = true;
                                     }
                                 }
-                                catch (HttpRequestException exception)
+                                catch (Exception exception)
                                 {
-                                    await DisplayAlert("Error", exception.Message, "Aceptar");
+                                    await DisplayAlert("Error", "Error al inciar sesión", "Aceptar");
                                     Reinten.IsVisible = true;
                                 }
                             }
@@ -182,9 +181,9 @@ namespace Trato.Views
                             }
                         }
                     }
-                    catch (HttpRequestException ex)
+                    catch (Exception ex)
                     {
-                        Mensajes_over.Text = ex.Message.ToString();
+                        Mensajes_over.Text = "Error al inciar sesión";
                         Reinten.IsVisible = true;
                     }
                 }
@@ -199,8 +198,6 @@ namespace Trato.Views
         /// <summary>
         /// apagar el panel de mensajes para reintentar el formulario
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="_args"></param>
         public void Fn_Reintento(object sender, EventArgs _args)
         {
             StackMen.IsVisible = false; 
@@ -210,8 +207,6 @@ namespace Trato.Views
         /// <summary>
         /// para no enviar basura solo numeros
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="_args"></param>
         void Fn_SoloNumero(object sender, TextChangedEventArgs _args)
         {
             //-  ,  _  .
@@ -236,7 +231,6 @@ namespace Trato.Views
         /// <summary>
         /// si es false, hay algun dato mal y no puedes continuar
         /// </summary>
-        /// <returns></returns>
         bool Fn_Condiciones()
         {
             int _conta = 0;
@@ -276,9 +270,6 @@ namespace Trato.Views
                 return true;
             }
         }
-
-
-
         #region CAMBIO PASS
 
 

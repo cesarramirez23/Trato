@@ -12,7 +12,7 @@
                 <TimePicker x:Name="v_hora"></TimePicker>
                 
                 <Label Text="Estado " Style="{StaticResource AzulMedLbl}"></Label>
-                <Label x:Name="v_estado"  Style="{StaticResource AzulMedLbl}"></Label>
+                <Label x:Name="v_estado"  Style="{StaticResource AzulMedLbl}" TextColor="Black"></Label>
 
                 <Grid  x:Name="StackTre">
                     <Grid.ColumnDefinitions>

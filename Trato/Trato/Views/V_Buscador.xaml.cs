@@ -1018,16 +1018,20 @@ namespace Trato.Views
             if(_especialidades.Count>0)
             {
                 StackEspe.Children.Clear();
+                ContentView _vi = new ContentView() { HeightRequest = 1, BackgroundColor = Color.Black, HorizontalOptions = LayoutOptions.FillAndExpand };
+                StackEspe.Children.Add(_vi);
                 for (int i = 0; i < _especialidades.Count; i++)
                 {
                     StackLayout _stack = new StackLayout() { };
                     _stack.BindingContext = _especialidades[i];
                     Grid _grid = new Grid();
-                    _grid.RowDefinitions.Add(new RowDefinition { Height = 50 });
+                    _grid.RowDefinitions.Add(new RowDefinition { Height = 30 });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
                     Label _espe = new Label() { Text = _especialidades[i].v_texto, VerticalOptions= LayoutOptions.End };                  
-                    Image _img = new Image() { Source = "Palomita.png", IsVisible = _especialidades[i].v_visible };
+                    Image _img = new Image() { Source = "Palomita.png", IsVisible = _especialidades[i].v_visible,
+                    HeightRequest=30, WidthRequest=30, Aspect = Aspect.AspectFit
+                    };
                     _grid.Children.Add(_espe, 0, 0);
                     _grid.Children.Add(_img, 1, 0);
                     ContentView _view = new ContentView() { HeightRequest = 1, BackgroundColor = Color.Black, HorizontalOptions = LayoutOptions.FillAndExpand };
@@ -1065,16 +1069,22 @@ namespace Trato.Views
             if (_ciudades.Count > 0)
             {
                 StackCiudad.Children.Clear();
+                ContentView _vi = new ContentView() { HeightRequest = 1, BackgroundColor = Color.Black, HorizontalOptions = LayoutOptions.FillAndExpand };
+                StackCiudad.Children.Add(_vi);
                 for (int i = 0; i < _ciudades.Count; i++)
                 {
                     StackLayout _stack = new StackLayout() { };
                     _stack.BindingContext = _ciudades[i];
                     Grid _grid = new Grid();
-                    _grid.RowDefinitions.Add(new RowDefinition { Height = 50 });
+                    _grid.RowDefinitions.Add(new RowDefinition { Height = 30 });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
                     Label _espe = new Label() { Text = _ciudades[i].v_texto , VerticalOptions = LayoutOptions.End };
-                    Image _img = new Image() { Source = "Palomita.png", IsVisible = _ciudades[i].v_visible };
+                    Image _img = new Image() { Source = "Palomita.png", IsVisible = _ciudades[i].v_visible,
+                        HeightRequest = 30,
+                        WidthRequest = 30,
+                        Aspect = Aspect.AspectFit
+                    };
                     _grid.Children.Add(_espe, 0, 0);
                     _grid.Children.Add(_img, 1, 0);
                     ContentView _view = new ContentView() { HeightRequest = 1, BackgroundColor = Color.Black, HorizontalOptions = LayoutOptions.FillAndExpand };
@@ -1120,16 +1130,22 @@ namespace Trato.Views
             if (_estados.Count > 0)
             {
                 StackEstado.Children.Clear();
+                ContentView _vi = new ContentView() { HeightRequest = 1, BackgroundColor = Color.Black, HorizontalOptions = LayoutOptions.FillAndExpand };
+                StackEstado.Children.Add(_vi);
                 for (int i = 0; i < _estados.Count; i++)
                 {
                     StackLayout _stack = new StackLayout() { };
                     _stack.BindingContext = _estados[i];
                     Grid _grid = new Grid();
-                    _grid.RowDefinitions.Add(new RowDefinition { Height = 50 });
+                    _grid.RowDefinitions.Add(new RowDefinition { Height = 30 });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
-                    Label _espe = new Label() { Text = _estados[i].v_texto };
-                    Image _img = new Image() { Source = "Palomita.png", IsVisible = _estados[i].v_visible };
+                    Label _espe = new Label() { Text = _estados[i].v_texto, VerticalOptions = LayoutOptions.End };
+                    Image _img = new Image() { Source = "Palomita.png", IsVisible = _estados[i].v_visible,
+                        HeightRequest = 30,
+                        WidthRequest = 30,
+                        Aspect = Aspect.AspectFit
+                    };
                     _grid.Children.Add(_espe, 0, 0);
                     _grid.Children.Add(_img, 1, 0);
                     ContentView _view = new ContentView() { HeightRequest = 1, BackgroundColor = Color.Black, HorizontalOptions = LayoutOptions.FillAndExpand };
@@ -1170,11 +1186,11 @@ namespace Trato.Views
             Image _img = sender as Image;
             if(StackEspe.IsVisible)
             {
-                await _img.RotateTo(180, 500, Easing.Linear);
+                await _img.RotateTo(180, 250, Easing.Linear);
             }
             else
             {
-                await _img.RotateTo(90, 500, Easing.Linear);
+                await _img.RotateTo(90, 250, Easing.Linear);
             }
             StackEspe.IsVisible = !StackEspe.IsVisible;
         }
@@ -1183,11 +1199,11 @@ namespace Trato.Views
             Image _img = sender as Image;
             if (StackCiudad.IsVisible)
             {
-                await _img.RotateTo(180, 500, Easing.Linear);
+                await _img.RotateTo(180, 250, Easing.Linear);
             }
             else
             {
-                await _img.RotateTo(90, 500, Easing.Linear);
+                await _img.RotateTo(90, 250, Easing.Linear);
             }
             StackCiudad.IsVisible = !StackCiudad.IsVisible;
         }
@@ -1196,11 +1212,11 @@ namespace Trato.Views
             Image _img = sender as Image;
             if (StackEstado.IsVisible)
             {
-                await _img.RotateTo(180, 500, Easing.Linear);
+                await _img.RotateTo(180, 250, Easing.Linear);
             }
             else
             {
-                await _img.RotateTo(90, 500, Easing.Linear);
+                await _img.RotateTo(90, 250, Easing.Linear);
             }
             StackEstado.IsVisible = !StackEstado.IsVisible;
 
