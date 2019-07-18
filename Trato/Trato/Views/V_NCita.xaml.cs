@@ -89,6 +89,8 @@ namespace Trato.Views
         }
         public async void Fn_Crear(object sender, EventArgs _args)
         {
+            Button _btn = sender as Button;
+            _btn.IsEnabled = false;
             if(v_nueva)
             {
                 Cita _cita = new Cita(v_medico.v_membre, App.v_membresia, App.v_folio, "1",v_fecha.Date,
@@ -116,16 +118,16 @@ namespace Trato.Views
                         }
                     }
                 }
-                catch(HttpRequestException ex)
+                catch(Exception ex)
                 {
-                    await DisplayAlert("Error",ex.Message, "Aceptar");
+                    await DisplayAlert("Error","Error de Conexión", "Aceptar");
                 }
             }
             else//aca actualizar el estado de la cita
             {
 
             }
-
+            _btn.IsEnabled = true;
         }
         /// <summary>
         /// Terminada = 0,  Nueva = 1, Pendiente esperando paciente = 2, Aceptada = 3, Cancelada = 4, esperando al doctor  5
@@ -186,6 +188,7 @@ namespace Trato.Views
         /// <param name="_nuevoestado"></param>
         private async void Fn_ActualizarInfo(string _nuevoestado)
         {
+            
             Fn_Botones("4");
             Cita _cita = new Cita(_nuevoestado, v_fecha.Date, v_hora.Time, v_cita.v_idCita,"0");
             string _json = JsonConvert.SerializeObject(_cita, Formatting.Indented);
@@ -218,9 +221,9 @@ namespace Trato.Views
                     }
                 }
             }
-            catch (HttpRequestException ex)
+            catch (Exception ex)
             {
-                await DisplayAlert("Error", ex.Message, "Aceptar");
+                await DisplayAlert("Error","Error de Conexión", "Aceptar");
             }
             Fn_Botones("1");
         }
@@ -357,18 +360,18 @@ namespace Trato.Views
                                             }
                                         }
                                     }
-                                    catch (HttpRequestException ex)
+                                    catch (Exception ex)
                                     {
-                                        await DisplayAlert("Error post", ex.Message, "Aceptar");
+                                        await DisplayAlert("Error ", "Error de Conexión", "Aceptar");
                                     }
                                 }
                                 catch (UnauthorizedAccessException )
                                 {
-                                    await DisplayAlert("Error unauthor", "Se Necesita acceso darle permiso de uso de calendario", "Aceptar");
+                                    await DisplayAlert("Error", "Se Necesita acceso darle permiso de uso de calendario", "Aceptar");
                                 }
                                 catch(Exception ex)
                                 {
-                                    await DisplayAlert("Error   updateEvent", ex.Message, "Aceptar");
+                                    await DisplayAlert("Error", "Error de Conexión", "Aceptar");
                                 }
                             }//if la hora y fecha ya paso
                             else
@@ -398,7 +401,7 @@ namespace Trato.Views
                                         }
                                     }
                                 }
-                                catch (HttpRequestException )
+                                catch (Exception _ex )
                                 {
                                     await DisplayAlert("Error", "La fecha que se trata de agendar, ya ha pasado", "Continuar");
                                 }//try post   evento pasado
@@ -417,7 +420,7 @@ namespace Trato.Views
             }
             catch(Exception ex)
             {
-                await DisplayAlert("Error ", ex.Message, "asadsad");
+                await DisplayAlert("Error ", "Error de Conexión", "asadsad");
             }
         }
     }

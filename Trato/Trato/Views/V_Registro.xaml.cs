@@ -195,9 +195,9 @@ namespace Trato.Views
                                 ReintenRegPri.IsVisible = true;
                             }
                         }
-                        catch (HttpRequestException exception)
+                        catch (Exception exception)
                         {
-                            Mensajes_over.Text = exception.Message;
+                            Mensajes_over.Text = "Error de Conexión";
                             ReintenRegPri.IsVisible = true;
                             NavigationPage.SetHasNavigationBar(this, true);
                             RegPrin.IsEnabled = true;
@@ -282,9 +282,9 @@ namespace Trato.Views
                         }
                         ReintenSec.IsVisible = true;
                     }
-                    catch (HttpRequestException exception)
+                    catch (Exception exception)
                     {
-                        Mensajes_over.Text = exception.Message;
+                        Mensajes_over.Text = "Error de Conexión";
                         ReintenSec.IsVisible = true;
                     }
                 }

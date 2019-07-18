@@ -219,7 +219,7 @@ namespace Trato.Views
                         }
                         catch (Exception exception)
                         {
-                            await DisplayAlert("Error", exception.Message, "Aceptar");
+                            await DisplayAlert("Error", "Error de Conexión", "Aceptar");
                         }
                     }
                 }

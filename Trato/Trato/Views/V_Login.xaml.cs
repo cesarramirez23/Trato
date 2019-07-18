@@ -360,9 +360,9 @@ namespace Trato.Views
                             await DisplayAlert("Error", _respuesta, "Aceptar");
                         }
                     }
-                    catch (HttpRequestException exception)
+                    catch (Exception exception)
                     {
-                        await DisplayAlert("Error", exception.Message, "Aceptar");
+                        await DisplayAlert("Error", "Error de Conexión", "Aceptar");
                         Reinten.IsVisible = true;
                     }
                 }

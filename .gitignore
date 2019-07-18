@@ -204,3 +204,10 @@ project.lock.json
 .vs/Trato/v15/Server/sqlite3/storage.ide
 .vs/Trato/v15/Server/sqlite3/storage.ide-wal
 *.ide-shm
+
+*.ide
+*.ide-shm
+*.ide-shm
+.vs/Trato/v15/Server/sqlite3/storage.ide
+.vs/Trato/v15/Server/sqlite3/storage.ide-shm
+.vs/Trato/v15/Server/sqlite3/storage.ide-wal

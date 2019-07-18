@@ -76,6 +76,9 @@
                 <Setter Property="TextColor" Value="Gray"/>
                 <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
             </Style>
+            <Style TargetType="Switch">
+                <Setter Property="OnColor" Value="Green"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
    

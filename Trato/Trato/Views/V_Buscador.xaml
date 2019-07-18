@@ -10,11 +10,12 @@
             <Setter Property="Grid.Column" Value="1"/>
         </Style>
         <Style x:Key="LabelFiltro" TargetType="Label">
-            <Setter Property="Margin" Value="0,5"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HeightRequest" Value="50"/>
             <Setter Property="Grid.Column" Value="0"/>
             <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -22,7 +23,7 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout BackgroundColor="{StaticResource White}">
-        <StackLayout VerticalOptions="Start" x:Name="StackTodo" >
+        <StackLayout VerticalOptions="StartAndExpand" x:Name="StackTodo" >
             <Grid x:Name="Grid_Busqueda">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -42,7 +43,7 @@
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
-            <StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
                 <ListView  x:Name="Buscador"  SeparatorColor="{StaticResource NavigationPrimary}" Margin="5,5" VerticalOptions="FillAndExpand"
                     BackgroundColor="{StaticResource White}" IsPullToRefreshEnabled="False" ItemTapped="Fn_TapFiltro">
                     <ListView.ItemTemplate>

@@ -169,7 +169,11 @@
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
                         <Label Text="Alergias" Style="{StaticResource lblSty}"></Label>
-                        <Switch x:Name="Tog_Aler" Toggled="Fn_SwiAlergias" Style="{StaticResource entry_perfil}" IsEnabled="False"></Switch>
+                        <Switch x:Name="Tog_Aler" Toggled="Fn_SwiAlergias" Style="{StaticResource entry_perfil}" IsEnabled="False">
+                            <Switch.OnColor>
+                                <OnPlatform iOS="Red" Android="Blue"/>
+                            </Switch.OnColor>
+                        </Switch>
                     </StackLayout>
                     <Editor Text=" lista de alergias" IsVisible="False" x:Name="M_Alergias" Style="{StaticResource Editor}" IsEnabled="False"></Editor>
 

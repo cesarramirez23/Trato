@@ -35,7 +35,7 @@ namespace Trato.Views
             }
             List_Fil.ItemsSource = v_estados;
             v_medi = _medic;
-            Fn_GetCitas();
+            //Fn_GetCitas();
             if (_tiene)
             {
                 v_CitaNotif = _nuevaCita;
@@ -73,7 +73,6 @@ namespace Trato.Views
             Cita _cita = new Cita(App.v_membresia, App.v_folio, "0");
             string _json = JsonConvert.SerializeObject(_cita);
             string _DirEnviar = NombresAux.BASE_URL + "get_medicamentos.php";
-           // await DisplayAlert("ENVIA PARA medicamentos", _json, "acep");
             StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
             try
             {
@@ -81,7 +80,6 @@ namespace Trato.Views
                 if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                   // await DisplayAlert("LLega get medicamentos", _respuesta, "acep");
                     v_medicamentos = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_respuesta);
                     App.Fn_GuardarMedicamentos(v_medicamentos);
                     if(v_medicamentos.Count<1)
@@ -93,7 +91,6 @@ namespace Trato.Views
             }
             catch
             {
-                //await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
                 if (App.v_NotasMedic.Count > 0)
                 {
                     v_medicamentos = App.v_NotasMedic;
@@ -115,15 +112,11 @@ namespace Trato.Views
                 if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                   // await DisplayAlert("LLega get citas", _respuesta, "acep");
                     v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_respuesta);
                     L_Error.IsVisible = false;
-                    //Console.WriteLine("cuantos "+v_citas.Count+"json citaa " + _respuesta);
                     Ordenar();
-                 
                     App.Fn_GuardarCitas(v_citas);
                     ListaCita.ItemsSource = v_citas;
-
                     if (v_citas.Count < 1 && !v_medi)
                     {
                         L_Error.IsVisible = true;
@@ -144,12 +137,9 @@ namespace Trato.Views
                         }
                     }
                 }
-               // enum citras  sn internet quitar el alert
-                //tambien perfil
             }
-            catch
+            catch(Exception _ex)
             {
-                //await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
                 if (App.v_citas.Count > 0)
                 {
                     v_citas = App.v_citas;
@@ -175,8 +165,6 @@ namespace Trato.Views
                         L_Error.Text = "No tiene Medicamentos";
                     }
                 }
-
-
             }
         }
         public async void Fn_CitaTap(object sender, ItemTappedEventArgs _args)
@@ -205,9 +193,8 @@ namespace Trato.Views
                 v_citas[i].Fn_SetValores();
                 v_citas[i].v_visible = true;
             }
-            var _temp = v_citas.OrderBy(x => x.v_fechaDate);
+            var _temp = v_citas.OrderByDescending(x => x.v_fechaDate);
             v_citas = new ObservableCollection<Cita>(_temp);
-
             for (int i = 0; i < v_citas.Count; i++)
             {
                 v_citas[i].Fn_CAmbioCol(i);
@@ -218,8 +205,7 @@ namespace Trato.Views
             var list = (ListView)sender;
             Fn_Borrar(null, null);
             Fn_GetCitas();
-            await Task.Delay(100);
-            //cancelar la actualizacion
+            await Task.Delay(100); //cancelar la actualizacion
             list.IsRefreshing = false;
         }
         private  void Fn_GetTerminada()
@@ -234,7 +220,7 @@ namespace Trato.Views
                 }
             }
             ListaCita.ItemsSource = _Temp;
-        }
+        }       
         #region FILTROOO
         /// <summary>
         /// Lista que el usuario elige cada  vez que le pica
@@ -249,8 +235,6 @@ namespace Trato.Views
         /// </summary>
         ObservableCollection<Filtro> v_estados = new ObservableCollection<Filtro>();
         bool v_visible = false;
-
-
         private void Fn_ToolFil(object sender, EventArgs e)
         {
             v_visible = !v_visible;
@@ -301,7 +285,6 @@ namespace Trato.Views
         }
         void Fn_TapFiltro(object sender, ItemTappedEventArgs _Args)
         {
-            //para mostrar un cambio en la lista la estoy haciendo null y despues volviendo a llenar
             var list = (ListView)sender;
             list.ItemsSource = null;
             var _valor = _Args.Item as Filtro;

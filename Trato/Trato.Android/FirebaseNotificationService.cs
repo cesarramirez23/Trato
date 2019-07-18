@@ -37,6 +37,7 @@ namespace Trato.Droid
 
         public override void OnMessageReceived(RemoteMessage message)
         {
+           
             /* 
              * USUARIO ELIGE EL DIA Y LA HORA, ESO SE LE ENVIA AL MEDICO,
              * MEDICO RECIBE LA CITA, SI ACEPTA

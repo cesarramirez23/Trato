@@ -83,9 +83,9 @@ namespace Trato.Views
                             }
                         }
                     }
-                    catch (HttpRequestException ex)
+                    catch (Exception ex)
                     {
-                        await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                        await DisplayAlert("Error","Error de Conexión", "Aceptar");
                     }
                 }
             }
@@ -120,9 +120,9 @@ namespace Trato.Views
                             }
                         }
                     }
-                    catch (HttpRequestException ex)
+                    catch (Exception ex)
                     {
-                        await DisplayAlert("Error", ex.Message.ToString(), "Aceptar");
+                        await DisplayAlert("Error", "Error de Conexión", "Aceptar");
                     }
                 }
             }

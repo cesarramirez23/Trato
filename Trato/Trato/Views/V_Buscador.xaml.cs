@@ -1028,7 +1028,7 @@ namespace Trato.Views
                     _grid.RowDefinitions.Add(new RowDefinition { Height = 30 });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
-                    Label _espe = new Label() { Text = _especialidades[i].v_texto, VerticalOptions= LayoutOptions.End };                  
+                    Label _espe = new Label() { Text = _especialidades[i].v_texto, VerticalOptions= LayoutOptions.End, TextColor= Color.Black };                  
                     Image _img = new Image() { Source = "Palomita.png", IsVisible = _especialidades[i].v_visible,
                     HeightRequest=30, WidthRequest=30, Aspect = Aspect.AspectFit
                     };
@@ -1079,7 +1079,7 @@ namespace Trato.Views
                     _grid.RowDefinitions.Add(new RowDefinition { Height = 30 });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
-                    Label _espe = new Label() { Text = _ciudades[i].v_texto , VerticalOptions = LayoutOptions.End };
+                    Label _espe = new Label() { Text = _ciudades[i].v_texto , VerticalOptions = LayoutOptions.End, TextColor = Color.Black };
                     Image _img = new Image() { Source = "Palomita.png", IsVisible = _ciudades[i].v_visible,
                         HeightRequest = 30,
                         WidthRequest = 30,
@@ -1140,7 +1140,7 @@ namespace Trato.Views
                     _grid.RowDefinitions.Add(new RowDefinition { Height = 30 });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
-                    Label _espe = new Label() { Text = _estados[i].v_texto, VerticalOptions = LayoutOptions.End };
+                    Label _espe = new Label() { Text = _estados[i].v_texto, VerticalOptions = LayoutOptions.End, TextColor = Color.Black };
                     Image _img = new Image() { Source = "Palomita.png", IsVisible = _estados[i].v_visible,
                         HeightRequest = 30,
                         WidthRequest = 30,
@@ -1186,11 +1186,11 @@ namespace Trato.Views
             Image _img = sender as Image;
             if(StackEspe.IsVisible)
             {
-                await _img.RotateTo(180, 250, Easing.Linear);
+                await _img.RotateTo(180, 100, Easing.Linear);
             }
             else
             {
-                await _img.RotateTo(90, 250, Easing.Linear);
+                await _img.RotateTo(90, 100, Easing.Linear);
             }
             StackEspe.IsVisible = !StackEspe.IsVisible;
         }
@@ -1199,11 +1199,11 @@ namespace Trato.Views
             Image _img = sender as Image;
             if (StackCiudad.IsVisible)
             {
-                await _img.RotateTo(180, 250, Easing.Linear);
+                await _img.RotateTo(180, 100, Easing.Linear);
             }
             else
             {
-                await _img.RotateTo(90, 250, Easing.Linear);
+                await _img.RotateTo(90, 100, Easing.Linear);
             }
             StackCiudad.IsVisible = !StackCiudad.IsVisible;
         }
@@ -1212,11 +1212,11 @@ namespace Trato.Views
             Image _img = sender as Image;
             if (StackEstado.IsVisible)
             {
-                await _img.RotateTo(180, 250, Easing.Linear);
+                await _img.RotateTo(180, 100, Easing.Linear);
             }
             else
             {
-                await _img.RotateTo(90, 250, Easing.Linear);
+                await _img.RotateTo(90, 100, Easing.Linear);
             }
             StackEstado.IsVisible = !StackEstado.IsVisible;
 

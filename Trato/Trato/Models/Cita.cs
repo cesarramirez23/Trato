@@ -194,7 +194,14 @@ namespace Trato.Models
             v_especialidad = "";
             for (int i = 0; i < v_espe.Count; i++)
             {
-                v_especialidad += v_espe[i].v_nombreEspec+",";
+                if(i== v_espe.Count-1)
+                {
+                    v_especialidad += v_espe[i].v_nombreEspec;
+                }
+                else
+                {
+                    v_especialidad += v_espe[i].v_nombreEspec+", ";
+                }
             }
         }
         public void Fn_SetVisible()
