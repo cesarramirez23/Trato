@@ -1,33 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_MedicoVista">
-    <StackLayout Orientation="Vertical" Margin="10,0,10,30">
+             x:Class="Trato.Views.V_MedicoVista" BackgroundColor="White">
+    <ContentPage.Content>
         <ScrollView>
-            <StackLayout Orientation="Vertical" Margin="20,5,20,5">
-                <Image x:Name="img" WidthRequest="200" HeightRequest="200" BackgroundColor="Transparent">
-                    <!--BackgroundColor="Green">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirImg"></TapGestureRecognizer>
-                        </Image.GestureRecognizers>-->
-                </Image>
-                <Label FontSize="Large" FontAttributes="Bold" Text="Información" TextColor="{StaticResource NavigationPrimary}"/>
+            <StackLayout>
+                <Label FontSize="Large" HorizontalOptions="CenterAndExpand" IsVisible="True" x:Name="Mensaje"
+                       TextColor="{StaticResource AzulTab}" Text="Buscando Información"/>
+                <StackLayout Orientation="Vertical" Margin="20,30" x:Name="StackTodo" IsVisible="False">
+                    <Image x:Name="img" WidthRequest="250" HeightRequest="250" BackgroundColor="Transparent"/>
+                    <Label FontSize="Large" HorizontalOptions="CenterAndExpand" 
+                           TextColor="{StaticResource AzulTab}" Text="{Binding v_completo}"/>
+                    <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource GrisBold}" HorizontalOptions="CenterAndExpand"/>
+                    <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulTab}" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout>
+                        <Label Text="Descripción" TextColor="{StaticResource AzulTab}" FontSize="Large" HorizontalOptions="Start"/>
+                        <Label TextColor="{StaticResource GrisBold}" Text="{Binding v_descripcion}"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Domicilio" TextColor="{StaticResource AzulTab}" FontSize="Large" HorizontalOptions="Start"/>
+                        <Label TextColor="{StaticResource GrisBold}" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Fn_AbrirMapa"/>
+                            </Label.GestureRecognizers>
+                            <Label.FormattedText>
+                                <FormattedString >
+                                    <Span Text="{Binding v_Domicilio}"/>
+                                    <Span Text=" , "/>
+                                    <Span Text="{Binding v_Ciudad}"/>
+                                    <Span Text=" , "/>
+                                    <Span Text="{Binding v_estado}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Teléfono" TextColor="{StaticResource AzulTab}" FontSize="Large" HorizontalOptions="Start"/>
+                        <Label TextColor="{StaticResource GrisBold}" Text="{Binding v_Tel}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="StackCorreo" IsVisible="False">
+                        <Label Text="Correo Electrónico" TextColor="{StaticResource AzulTab}" FontSize="Large" HorizontalOptions="Start"/>
+                        <Label TextColor="{StaticResource GrisBold}" Text="{Binding v_Correo}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="StackHorario" IsVisible="False">
+                        <Label Text="Horario" TextColor="{StaticResource AzulTab}" FontSize="Large" HorizontalOptions="Start"/>
+                        <Label TextColor="{StaticResource GrisBold}" Text="{Binding v_horario}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="StackSitio" IsVisible="False">
+                        <Label Text="Sitio web" TextColor="{StaticResource AzulTab}" FontSize="Large" HorizontalOptions="Start"/>
+                        <Label TextColor="{StaticResource GrisBold}" Text="{Binding v_sitio}"/>
+                    </StackLayout>
+                    <StackLayout x:Name="StackBeneficios" IsVisible="False">
+                        <Label Text="Beneficios" TextColor="{StaticResource AzulTab}" FontSize="Large" HorizontalOptions="Start"/>
+                        <Label TextColor="{StaticResource GrisBold}" Text="{Binding v_beneficio}"/>
+                    </StackLayout>
+                    <Button x:Name="boton" Text="Solicitar Cita" Margin="0,5" 
+                        IsVisible="False" Style="{StaticResource Buton}" Clicked="Fn_Cita"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+                <!--
+                <Label FontSize="Large" FontAttributes="Bold" Text="Información" TextColor="{StaticResource AzulPrincipal}"/>
                 <Label FontSize="Medium" x:Name="nombre"></Label>
                 <Label FontSize="Medium" x:Name="especial"></Label>
                 <StackLayout x:Name="StackDescrip">
-                    <Label FontSize="Large" FontAttributes="Bold" Text="Descripción" TextColor="{StaticResource NavigationPrimary}"/>
+                    <Label FontSize="Large" FontAttributes="Bold" Text="Descripción" TextColor="{StaticResource AzulPrincipal}"/>
                     <Label FontSize="Medium" x:Name="descrip" HorizontalTextAlignment="Start"></Label>
                 </StackLayout>
-                <Label FontSize="Large" FontAttributes="Bold" Text="Información de contacto:" TextColor="{StaticResource NavigationPrimary}"></Label>
+                <Label FontSize="Large" FontAttributes="Bold" Text="Información de contacto:" TextColor="{StaticResource AzulPrincipal}"></Label>
                 <Label FontSize="Medium" x:Name="info"></Label>
-                <Label Text="Domicilio: " FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource NavigationPrimary}"></Label>
+                <Label Text="Domicilio: " FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource AzulPrincipal}"></Label>
                 <Label x:Name="domicilio" FontAttributes="Italic" FontSize="Medium">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirMapa"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
                 <StackLayout x:Name="StackSitio" IsVisible="False">
-                    <Label Text="Sitio Web: " FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource NavigationPrimary}" />
+                    <Label Text="Sitio Web: " FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource AzulPrincipal}" />
                     <Label x:Name="sitio" FontAttributes="Italic" FontSize="Medium">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fn_AbrirSitio"></TapGestureRecognizer>
@@ -35,11 +86,7 @@
                     </Label>
                 </StackLayout>
                 <StackLayout x:Name="StackBenef">
-                    <Label Text="Beneficios:" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource NavigationPrimary}"></Label>
+                    <Label Text="Beneficios:" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource AzulPrincipal}"></Label>
                     <Label x:Name="beneficios" FontSize="Medium" HorizontalTextAlignment="Start"/>
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
-        <Button   x:Name="boton" Text="Solicitar Cita" Margin="0,5,0,5" IsVisible="False" Style="{StaticResource Buton}" Clicked="Fn_Cita"/>
-    </StackLayout>
-</ContentPage>
+           --> 

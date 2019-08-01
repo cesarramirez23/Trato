@@ -15,7 +15,7 @@ namespace Trato.Models
         public string v_doctorId { get; set; }
         [JsonProperty("espe")]
         public ObservableCollection<C_EspeTitu> v_espe = new ObservableCollection<C_EspeTitu>();
-        public string v_especialidad { get; set; }
+        public string v_Especialidad { get; set; }
         /// <summary>
         /// membresia completa  1810I-0558
         /// </summary>
@@ -57,6 +57,11 @@ namespace Trato.Models
         public string v_idCita { get; set; }
         [JsonProperty("idcalendario")]
         public string v_idCalendar;
+        [JsonProperty("titulo")]
+        public string v_titulo { get; set; }
+        public string v_completo { get; set; }
+
+
         public Cita() { v_estado = "-1"; }
         public Cita(string _membre, string _folio, string _tipo)
         {
@@ -169,7 +174,8 @@ namespace Trato.Models
         {
             if ((_valor % 2) == 1)
             {
-                v_color = Color.FromHex("F2F2F2");
+                // v_color = Color.FromHex("F2F2F2");
+                v_color = (Color)App.Current.Resources["AzulFondo"];
             }
             else
             {
@@ -191,18 +197,19 @@ namespace Trato.Models
             string[] _fecha = v_fecha.Split('-');//month day year
             v_fechaDate = new DateTime(int.Parse(_fecha[0]), int.Parse(_fecha[1]), int.Parse(_fecha[2]),
                                        v_hora.Hours, v_hora.Minutes, v_hora.Seconds);
-            v_especialidad = "";
+            v_Especialidad = "";
             for (int i = 0; i < v_espe.Count; i++)
             {
                 if(i== v_espe.Count-1)
                 {
-                    v_especialidad += v_espe[i].v_nombreEspec;
+                    v_Especialidad += v_espe[i].v_nombreEspec;
                 }
                 else
                 {
-                    v_especialidad += v_espe[i].v_nombreEspec+", ";
+                    v_Especialidad += v_espe[i].v_nombreEspec+", ";
                 }
             }
+            v_completo = v_titulo + " " + v_nombreDR;
         }
         public void Fn_SetVisible()
         {
@@ -217,7 +224,7 @@ namespace Trato.Models
         }
         public string Fn_GetInfo()
         {
-            string _ret = v_doctorId + "   " + v_especialidad + "  " + v_pacienteId + " " + v_folio + " " + v_estado + " " + v_fecha + " " +
+            string _ret = v_doctorId + "   " + v_Especialidad + "  " + v_pacienteId + " " + v_folio + " " + v_estado + " " + v_fecha + " " +
                 v_fechaDate + " " + v_hora + " " + v_nombreDR + " " + v_nombrePaciente + " " + v_tokenDR + " " +
                 v_tokenPaciente + " " + v_tipo + " " + v_idCita;
             return _ret;

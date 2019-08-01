@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_NCita">
+             x:Class="Trato.Views.V_NCita" BackgroundColor="White">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Margin="10,0">
+        <ScrollView BackgroundColor="White">
+            <StackLayout Margin="10,0,10,10">
+                <Label Text="{Binding v_Especialidad}" FontAttributes="Bold" FontSize="Large" TextColor="{StaticResource GrisBase}"/>
+                <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulTab}"/>
+                <Label Text="Fecha de la cita" TextColor="{StaticResource AzulPrincipal}"/>
+                <DatePicker  Format="dddd, dd MMMM yyyy" x:Name="v_fecha" TextColor="{StaticResource GrisBase}" BackgroundColor="White"/>
+                <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulTab}"/>
+                <Label Text="Hora de la cita" TextColor="{StaticResource AzulPrincipal}" />
+                <TimePicker x:Name="v_hora" Format="hh:mm tt" TextColor="{StaticResource GrisBase}" BackgroundColor="White"/>
+                <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulTab}"/>
+                <Label x:Name="v_estado" HorizontalOptions="StartAndExpand" FontAttributes="Bold"
+                       FontSize="Large" TextColor="{StaticResource AzulTab}"/>
+
+
+
+<!--
                 <Label x:Name="v_nombre" Style="{StaticResource AzulMedLbl}"/>
                 <Label Text="Fecha de la cita" Style="{StaticResource AzulMedLbl}"></Label>
                 <DatePicker  Format="D" x:Name="v_fecha"></DatePicker>
@@ -13,16 +27,13 @@
                 
                 <Label Text="Estado " Style="{StaticResource AzulMedLbl}"></Label>
                 <Label x:Name="v_estado"  Style="{StaticResource AzulMedLbl}" TextColor="Black"></Label>
-
-                <Grid  x:Name="StackTre">
+-->
+                <Grid  x:Name="StackTre" VerticalOptions="EndAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                    </Grid.RowDefinitions>
                     <Button Text="Aceptar Cita" Clicked="Fn_Acep" x:Name="v_botAcep" 
                             Style="{StaticResource Buton2}" Grid.ColumnSpan="1" />
                     <Button Text="Cancelar Cita" Clicked="Fn_Recha" x:Name="v_botRec" 
@@ -31,20 +42,17 @@
                             Style="{StaticResource Buton2}"  Grid.Column="2" Grid.ColumnSpan="1"/>
                 </Grid>
 
-                <Grid x:Name="StackPendiente" IsVisible="False">
+                <Grid x:Name="StackPendiente" IsVisible="False" VerticalOptions="EndAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                    </Grid.RowDefinitions>
                     <Button Text="Aceptar Cita" Clicked="Fn_AcepCambio"
                             Style="{StaticResource Buton2}"/>
                     <Button Text="Cancelar" Clicked="Fn_CancelCambio" 
                             Style="{StaticResource Buton2}"  Grid.Column="1"/>
                 </Grid>
-                <Button Text="Crear Cita" Clicked="Fn_Crear" x:Name="v_botCrear" Style="{StaticResource Buton}"/>
+                <Button Text="Crear Cita" Clicked="Fn_Crear" x:Name="v_botCrear" Style="{StaticResource Buton}" VerticalOptions="EndAndExpand"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

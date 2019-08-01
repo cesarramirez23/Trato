@@ -19,6 +19,11 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Contacto : ContentPage
 	{
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         private ZXingBarcodeImageView barcode;
         /// <summary>
         /// 1 es el qr
@@ -137,7 +142,7 @@ namespace Trato.Views
             barcode = new ZXingBarcodeImageView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.Start,
             };
             barcode.BarcodeFormat = ZXing.BarcodeFormat.AZTEC;
             barcode.BarcodeOptions.Width = 700;
@@ -161,6 +166,7 @@ namespace Trato.Views
             //barcode.BarcodeValue = jsonper.ToString();// "hola a todos"; //jsonEnviar.ToString() ;
             //qrTexto.Text = barcode.BarcodeValue;
             qr_content.Content = barcode;
+            qr_content.Content.HeightRequest = barcode.BarcodeOptions.Height;
             qr_but.IsEnabled = false;
         }
     }

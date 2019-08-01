@@ -51,9 +51,10 @@ namespace Trato.Views
             _esta = v_cita.v_estado;
             int _a = int.Parse(v_cita.v_estado);
             v_estado.Text = ((EstadoCita)_a).ToString();
-            v_nombre.Text = v_cita.v_nombreDR;
+            //v_nombre.Text = v_cita.v_nombreDR;
             Fn_Botones(v_cita.v_estado);
             App.Fn_Borra();
+            this.BindingContext = _cita;
         }
         public V_NCita( C_Medico _medico)
         {
@@ -61,12 +62,13 @@ namespace Trato.Views
             v_nueva = true;
             v_medico = _medico;
             v_botCrear.IsVisible = true;
-            v_nombre.Text = v_medico.v_completo;
+            //v_nombre.Text = v_medico.v_completo;
             v_fecha.MinimumDate = DateTime.Now;
             v_fecha.MaximumDate = DateTime.Today.AddMonths(1);
             v_estado.Text = (EstadoCita.Nueva).ToString();
             StackPendiente.IsVisible = false;
             StackTre.IsVisible = false;
+            this.BindingContext = _medico;
         }
         public V_NCita(Cita _cita)
         {
@@ -84,8 +86,9 @@ namespace Trato.Views
             _esta = v_cita.v_estado;
             int _a = int.Parse(v_cita.v_estado);
             v_estado.Text = ((EstadoCita)_a).ToString().Replace('_',' ');
-            v_nombre.Text = v_cita.v_nombreDR;
+            //v_nombre.Text = v_cita.v_nombreDR;
             Fn_Botones(v_cita.v_estado);
+            this.BindingContext = _cita;
         }
         public async void Fn_Crear(object sender, EventArgs _args)
         {

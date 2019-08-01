@@ -1,30 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_Medicamento" Title="Cita/Medicamentos">
+             x:Class="Trato.Views.V_Medicamento" BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout Margin="10,5">
-            <Label x:Name="nombre" Style="{StaticResource AzulMedLbl}" TextColor="Black"></Label>
-            <!--<Label x:Name="espe" Style="{StaticResource AzulMedLbl}"></Label>-->
-            
-            <Label x:Name="fecha" Style="{StaticResource AzulMedLbl}" TextColor="Black"></Label>
-            <Label Text="Nota Médica" x:Name="nota" Style="{StaticResource AzulMedLbl}" TextColor="Black"></Label>
-            <ListView x:Name="ListaMed" SelectionMode="None" HasUnevenRows="True" Margin="0,5" Refreshing="Fn_ListaRefresh" IsPullToRefreshEnabled="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout BackgroundColor="{Binding v_color}" Margin="0,2">
-                                <Label Text="{Binding v_nombre,StringFormat='Nombre del Medicamento : {0}'}"  Style="{StaticResource AzulChLbl}"/>
-                                <Label Text="{Binding v_dosis, StringFormat='Dosis : {0}'}"  Style="{StaticResource AzulChLbl}"/>
-                                <Label Text="{Binding v_periodo, StringFormat='Días : {0}'}"  Style="{StaticResource AzulChLbl}"/>
-                                <Label Text="{Binding v_tiempo, StringFormat='Horas : {0}'}"  Style="{StaticResource AzulChLbl}"/>
-                                <Label Text="{Binding v_extra, StringFormat='Información Extra : {0}'}"  Style="{StaticResource AzulChLbl}"/>
-                                <Button Style="{StaticResource Buton}" Clicked="Fn_SetEstado" Text="{Binding v_texto, Mode=TwoWay}" FontSize="Small"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+        <ListView x:Name="List_Fil" HasUnevenRows="True" SelectionMode="None" Margin="10,2" ItemTapped="List_Fil_ItemTapped"
+                  SeparatorColor="{StaticResource AzulTab}" SeparatorVisibility="Default">
+            <ListView.Header>
+                <StackLayout>
+                    <Label x:Name="L_Error" FontSize="Medium"/>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" BackgroundColor="{Binding v_color}" >
+                            <Label Text="{Binding v_completo}" FontSize="Large" TextColor="{StaticResource AzulTab}"/>
+                            <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource GrisBase}"/>
+                            <Label  TextColor="{StaticResource AzulPrincipal}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Fecha: " TextColor="{StaticResource AzulPrincipal}"/>
+                                        <Span Text="{Binding v_fechaDate,StringFormat=' {0:dd-MM-yyyy}'}" 
+                                              TextColor="{StaticResource GrisBase}"/>
+                                        <Span Text="    Hora: " TextColor="{StaticResource AzulPrincipal}"/>
+                                        <Span Text="{Binding v_fechaDate, StringFormat=' {0:hh:mm tt}'}"
+                                              TextColor="{StaticResource GrisBase}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

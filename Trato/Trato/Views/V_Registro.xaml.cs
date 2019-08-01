@@ -101,13 +101,11 @@ namespace Trato.Views
                         json += "folio:'" + App.v_folio + "',\n";
                         json += "}";
                         v_jsonInfo = JObject.Parse(json);
-
-
                         NavigationPage.SetHasNavigationBar(this, false);
                         RegPrin.IsEnabled = false;
                         StackMen.IsVisible = true;
+                        stackTodo.IsVisible = false;
                         Mensajes_over.Text = "Procesando Informacion";
-
                         int _persona;
                         if (v_T_Persona)
                         {
@@ -118,9 +116,6 @@ namespace Trato.Views
                         {
                             _persona = 1;
                         }
-
-
-
                         //if (!v_primero)
                         //{
                         //    await Browser.EvaluateJavaScriptAsync("submitbutton()");
@@ -166,6 +161,7 @@ namespace Trato.Views
                         HttpClient v_cliente = new HttpClient();
                         //url
                         var url = NombresAux.BASE_URL + "tarjeta_alta.php";
+                        //var url = NombresAux.BASE_URL + "tarjeta_a.php";
 
                         try
                         {
@@ -182,6 +178,7 @@ namespace Trato.Views
                                 else if (content == "0")
                                 {
                                     StackMen.IsVisible = false;
+                                    stackTodo.IsVisible = true;
                                     Mensajes_over.Text = "";
                                     await DisplayAlert("Error", "Existe un error, por favor revisa tu información", "Aceptar", "cancel");
                                     NavigationPage.SetHasNavigationBar(this, true);
@@ -220,7 +217,8 @@ namespace Trato.Views
             else
             {
                 if (Fn_Condiciones(true))
-                {// 0 familiar
+                {// 0 familiar                    
+                    StackFolio.IsVisible = false;
                     StackMen.IsVisible = true;
                     Mensajes_over.Text = "Enviando informacion";
                     C_RegistroSec _registro = new C_RegistroSec();
@@ -241,6 +239,7 @@ namespace Trato.Views
                     HttpClient _clien = new HttpClient();
                     //direccion a enviar
                     string _direc = NombresAux.BASE_URL + "crear_cuenta.php";
+                    //string _direc = NombresAux.BASE_URL + "crear_.php";
                     try
                     {
                         //se envia
@@ -443,8 +442,6 @@ namespace Trato.Views
         /// <summary>
         /// cuando es crear usuario, folio y contraseña
         /// </summary>
-        /// <param name="_folio"></param>
-        /// <returns></returns>
         bool Fn_Condiciones(bool _folio)
         {
             int _conta = 0;
@@ -554,8 +551,6 @@ namespace Trato.Views
         /// <summary>
         /// el switch, tru es fisico falso es moral
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
         public void Cambio(object sender, EventArgs args)
         {
             v_T_Persona = !v_T_Persona;
@@ -641,8 +636,6 @@ namespace Trato.Views
         /// <summary>
         /// cambio en el drop de membresias
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="_args"></param>
         void Fn_Drop(object sender, EventArgs _args)
         {
             if (tipo.SelectedIndex==2)
@@ -694,6 +687,7 @@ namespace Trato.Views
         {
             StackMen.IsVisible = false;
             ReintenRegPri.IsVisible = false;
+            stackTodo.IsVisible = true;
             Mensajes_over.Text = "";
         }
         public void Fn_ocultar(object sender, EventArgs _args)
@@ -701,6 +695,7 @@ namespace Trato.Views
             Mensajes_over.Text = "";
             StackMen.IsVisible = false;
             ReintenSec.IsVisible = false;
+            StackFolio.IsVisible = true;
         }
 
        

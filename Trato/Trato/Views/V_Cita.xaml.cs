@@ -16,25 +16,42 @@ namespace Trato.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Cita : ContentPage
     {
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         /// <summary>
         /// el bool
         /// </summary>
-        bool v_medi = false;
+        //bool v_medi = false;
+
+        /// <summary>
+        /// la pantalla con los filtro esta visible
+        /// </summary>
+        bool v_filtro = false;
         Cita v_CitaNotif = new Cita();
         /// <summary>
         /// es la nota medica
         /// </summary>
-        ObservableCollection<C_NotaMed> v_medicamentos = new ObservableCollection<C_NotaMed>();
+        //ObservableCollection<C_NotaMed> v_medicamentos = new ObservableCollection<C_NotaMed>();
         ObservableCollection<Cita> v_citas = new ObservableCollection<Cita>();
-        public V_Cita(bool _medic, bool _tiene, Cita _nuevaCita)
+        public V_Cita( bool _tiene, Cita _nuevaCita)
         {
             InitializeComponent();
-            for (int i = 0; i < 6; i++)
+            App.Fn_GuardaFiltro(new List<string>[]
             {
-                v_estados.Add(new Filtro() { v_texto = ((EstadoCita)i).ToString().Replace('_', ' '), v_visible = false });
-            }
-            List_Fil.ItemsSource = v_estados;
-            v_medi = _medic;
+                new List<string>(),
+                new List<string>(),
+                new List<string>()
+            });
+
+            //for (int i = 0; i < 6; i++)
+            //{
+            //    v_estados.Add(new Filtro() { v_texto = ((EstadoCita)i).ToString().Replace('_', ' '), v_visible = false });
+            //}
+            //List_Fil.ItemsSource = v_estados;
+            //v_medi = _medic;
             //Fn_GetCitas();
             if (_tiene)
             {
@@ -42,18 +59,46 @@ namespace Trato.Views
                 Fn_Notif(_nuevaCita);
             }
         }
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
-            if (v_CitaNotif.v_estado == "-1")
+            if (v_filtro)
             {
-                Fn_GetCitas();            
+                Fn_GEtFiltro();
             }
-            if(v_medi)
+            else if (v_CitaNotif.v_estado == "-1")
             {
-                ToolbarItems.Clear();
+                await Fn_GetCitas();            
             }
-            Fn_Borrar(null, null);
+        }
+        /// <summary>
+        /// con el nuevo metodo delk filtro en otro lado
+        /// </summary>
+        private async void Fn_GEtFiltro()
+        {
+            List<string>[] _filtro = App.Fn_Getfiltro();
+            ObservableCollection<Cita> _tempCita = new ObservableCollection<Cita>();
+            for (int i = 0; i < v_citas.Count; i++)
+            {
+                for (int j = 0; j < _filtro[0].Count; j++)
+                {
+                    if ( ((v_citas[i].v_Estadocita) == _filtro[0][j]) && !_tempCita.Contains(v_citas[i]))
+                    {
+                        _tempCita.Add(v_citas[i]);
+                    }
+                }
+            }
+
+            if (_tempCita.Count < 1)
+            {
+                await DisplayAlert("Aviso", "Filtro no encuentra coincidencias", "Aceptar");
+                ListaCita.ItemsSource = v_citas;
+            }
+            else
+            {
+                _tempCita= Ordenar(_tempCita);
+                ListaCita.ItemsSource = _tempCita;
+            }
         }
         protected override void OnDisappearing()
         {
@@ -67,7 +112,7 @@ namespace Trato.Views
         {
             await Navigation.PushAsync(new V_NCita(_nuevacita, false));
         }
-        private async void Fn_GetMedic()
+        /*private async Task Fn_GetMedic()
         {
             HttpClient _client = new HttpClient();
             Cita _cita = new Cita(App.v_membresia, App.v_folio, "0");
@@ -97,7 +142,8 @@ namespace Trato.Views
                 }
             }
         }
-        private async void Fn_GetCitas()
+        */
+        private async Task Fn_GetCitas()
         {
             HttpClient _client = new HttpClient();
             L_Error.IsVisible = true;
@@ -113,28 +159,17 @@ namespace Trato.Views
                 {
                     string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                     v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_respuesta);
-                    L_Error.IsVisible = false;
-                    Ordenar();
+                    v_citas =Ordenar(v_citas);
                     App.Fn_GuardarCitas(v_citas);
-                    ListaCita.ItemsSource = v_citas;
-                    if (v_citas.Count < 1 && !v_medi)
+                    if (v_citas.Count ==0 )
                     {
                         L_Error.IsVisible = true;
                         L_Error.Text = "No tiene citas";
                     }
-                    else if (v_citas.Count < 1 && v_medi)
+                    else
                     {
-                        L_Error.IsVisible = true;
-                        L_Error.Text = "No tiene Medicamentos";
-                    }
-                    else if(v_citas.Count>0 && v_medi)
-                    {
-                        Fn_GetMedic();
-                        Fn_GetTerminada();
-                        for (int i = 0; i < v_citas.Count; i++)
-                        {
-                            v_citas[i].Fn_SetVisible();
-                        }
+                        L_Error.IsVisible = false;
+                        ListaCita.ItemsSource = v_citas;
                     }
                 }
             }
@@ -143,71 +178,49 @@ namespace Trato.Views
                 if (App.v_citas.Count > 0)
                 {
                     v_citas = App.v_citas;
-                    Ordenar();
-                    ListaCita.ItemsSource = v_citas;
+                    v_citas=Ordenar(v_citas);
                     L_Error.IsVisible = false;
-                    if (v_medi)
-                    {
-                        Fn_GetMedic();
-                        Fn_GetTerminada();
-                        for (int i = 0; i < v_citas.Count; i++)
-                        {
-                            v_citas[i].Fn_SetVisible();
-                        }
-                    }
+                    ListaCita.ItemsSource = v_citas;
                 }
                 else
                 {
                     L_Error.IsVisible = true;
                     L_Error.Text = "No tiene citas";
-                    if (v_medi)
-                    {
-                        L_Error.Text = "No tiene Medicamentos";
-                    }
                 }
             }
         }
         public async void Fn_CitaTap(object sender, ItemTappedEventArgs _args)
         {
             Cita _citaSelec = _args.Item as Cita;
-            if (v_medi)
+            if (_citaSelec!= null)
             {
-                if (_citaSelec.v_estado == "0")
-                {
-                    await Navigation.PushAsync(new V_Medicamento(_citaSelec));
-                }
-                else
-                {
-                    await DisplayAlert("Error", "Esta cita no ha sido terminada por el medico", "Aceptar");
-                }
-            }
-            else
-            {
-                await Navigation.PushAsync(new V_NCita(_citaSelec));
+                v_filtro = false;
+                await Navigation.PushAsync(new V_NCita(_citaSelec) { Title = _citaSelec.v_nombreDR });
             }
         }
-        public void Ordenar()
+        public ObservableCollection<Cita> Ordenar( ObservableCollection<Cita> _args)
         {
-            for (int i = 0; i < v_citas.Count; i++)
+            for (int i = 0; i < _args.Count; i++)
             {
-                v_citas[i].Fn_SetValores();
-                v_citas[i].v_visible = true;
+                _args[i].Fn_SetValores();
+                _args[i].v_visible = true;
             }
-            var _temp = v_citas.OrderByDescending(x => x.v_fechaDate);
-            v_citas = new ObservableCollection<Cita>(_temp);
-            for (int i = 0; i < v_citas.Count; i++)
+            var _temp = _args.OrderByDescending(x => x.v_fechaDate);
+            _args = new ObservableCollection<Cita>(_temp);
+            for (int i = 0; i < _args.Count; i++)
             {
-                v_citas[i].Fn_CAmbioCol(i);
+                _args[i].Fn_CAmbioCol(i);
             }
+            return _args;
         }
         private async void ListaCita_Refreshing(object sender, EventArgs e)
         {
             var list = (ListView)sender;
-            Fn_Borrar(null, null);
-            Fn_GetCitas();
-            await Task.Delay(100); //cancelar la actualizacion
+            list.ItemsSource = null;
+            await Fn_GetCitas();
             list.IsRefreshing = false;
         }
+        /*
         private  void Fn_GetTerminada()
         {
             ListaCita.ItemsSource = null;
@@ -219,8 +232,19 @@ namespace Trato.Views
                     _Temp.Add(App.v_citas[i]);
                 }
             }
+            _Temp =Ordenar(_Temp);
             ListaCita.ItemsSource = _Temp;
-        }       
+        }*/
+        private async void Fn_ToolFil(object sender, EventArgs e)
+        {
+            if (ListaCita.IsRefreshing)
+                return;
+
+            await Navigation.PushAsync(new V_FiltroCita());
+            v_filtro = true;
+        }
+
+        /*
         #region FILTROOO
         /// <summary>
         /// Lista que el usuario elige cada  vez que le pica
@@ -237,11 +261,15 @@ namespace Trato.Views
         bool v_visible = false;
         private void Fn_ToolFil(object sender, EventArgs e)
         {
+            if (ListaCita.IsRefreshing)
+                return;
             v_visible = !v_visible;
             stackOver.IsVisible = v_visible;
+            StackPrin.IsVisible = !v_visible;
             if (!v_visible)
             {
                 Fn_Borrar(null, null);
+                ListaCita.ItemsSource = v_citas;
             }
         }
         private async void Fn_Buscar(object sender, EventArgs e)
@@ -259,6 +287,7 @@ namespace Trato.Views
             }
             v_visible = false;
             stackOver.IsVisible = v_visible;
+            StackPrin.IsVisible = !v_visible;
             if (_tempCita.Count < 1)
             {
                 await DisplayAlert("Aviso", "Filtro no encuentra coincidencias", "Aceptar");
@@ -281,7 +310,8 @@ namespace Trato.Views
             v_indiceTap.Clear();
             v_visible = false;
             stackOver.IsVisible = v_visible;
-            ListaCita.ItemsSource = v_citas;
+            StackPrin.IsVisible = !v_visible;
+            //ListaCita.ItemsSource = v_citas;
         }
         void Fn_TapFiltro(object sender, ItemTappedEventArgs _Args)
         {
@@ -310,5 +340,6 @@ namespace Trato.Views
             list.ItemsSource = v_estados;
         }
         #endregion
+        */
     }
 }

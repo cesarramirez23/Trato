@@ -1,12 +1,110 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_Cita">
+             x:Class="Trato.Views.V_Cita" BackgroundColor="White">
     <ContentPage.ToolbarItems>
         <ToolbarItem  Name="filtros" Text="Filtrar" Clicked="Fn_ToolFil" Order="Primary" Priority="0"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+        <StackLayout>
+            <ListView x:Name="ListaCita" Margin="5,10,5,10" IsPullToRefreshEnabled="True" VerticalOptions="FillAndExpand"
+                              Refreshing="ListaCita_Refreshing" HasUnevenRows="True" ItemTapped="Fn_CitaTap"
+                      SeparatorColor="{StaticResource AzulPrincipal}" SeparatorVisibility="Default">
+                <ListView.Header>
+                    <StackLayout>
+                        <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="{Binding v_color}">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="Campana.png" HorizontalOptions="Start" HeightRequest="30" Aspect="AspectFit"/>
+                                    <Label FontSize="Medium" Text="{Binding v_fechaDate,StringFormat=' {0:MMMM dd yyyy hh:mm tt}'}" 
+                                           TextColor="{StaticResource AzulTab}" FontAttributes="Bold" />
+                                </StackLayout>
+                                <Label Text="{Binding v_completo}" TextColor="{StaticResource AzulTab}"/>
+                                <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource GrisBase}"/>
+                                <Label Text="{Binding v_Estadocita}" TextColor="{StaticResource AzulPrincipal}"/>
+<!--
+                                <Label  FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Nombre del médico: " TextColor="{StaticResource AzulPrincipal}"/>
+                                            <Span Text="{Binding v_nombreDR}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label  FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Especialidad: " TextColor="{StaticResource AzulPrincipal}" />
+                                            <Span Text="{Binding v_Especialidad}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="Medium" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Fecha: " TextColor="{StaticResource AzulPrincipal}"/>
+                                            <Span Text="{Binding v_fechaDate,StringFormat=' {0:MMMM dd yyyy}'}" TextColor="Black"/>
+                                            <Span Text=" Hora:" TextColor="{StaticResource AzulPrincipal}"/>
+                                            <Span Text="{Binding v_hora.Hours,StringFormat=' {0:00}'}" TextColor="Black"/>
+                                            <Span Text="{Binding v_hora.Minutes,StringFormat=': {0:00}'}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="Medium" IsVisible="{Binding v_visible}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Estado: " TextColor="{StaticResource AzulPrincipal}"/>
+                                            <Span Text="{Binding v_Estadocita}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                -->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--
+            <StackLayout Orientation="Vertical" x:Name="stackOver" IsVisible="False"  Padding="10, 0">
+                <ListView x:Name="List_Fil" ItemTapped="Fn_TapFiltro">
+                    <ListView.Header>
+                        <Grid Margin="0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+                            <Button Text="Buscar" Clicked="Fn_Buscar" Style="{StaticResource Buton2}"
+                                Grid.Column="1" Grid.ColumnSpan="1"></Button>
+                            <Button Text="Borrar" Clicked="Fn_Borrar" Style="{StaticResource Buton2}"
+                                Grid.Column="0" Grid.ColumnSpan="1"></Button>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding v_texto }" TextColor="{StaticResource AzulPrincipal}"
+                                           HorizontalOptions="StartAndExpand"></Label>
+                                    <Image Source="Palomita.png" IsVisible="{Binding v_visible}"
+                                           HorizontalOptions="End" Aspect="AspectFit"></Image>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+<!--<AbsoluteLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
             <StackLayout Margin="5,10,5,10" x:Name="StackPrin" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
                 <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
                 <ListView x:Name="ListaCita" IsPullToRefreshEnabled="True" 
@@ -18,7 +116,7 @@
                                     <Label  FontSize="Medium">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Nombre del médico: " TextColor="{StaticResource NavigationPrimary}"/>
+                                                <Span Text="Nombre del médico: " TextColor="{StaticResource AzulPrincipal}"/>
                                                 <Span Text="{Binding v_nombreDR}" TextColor="Black"/>
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -26,7 +124,7 @@
                                     <Label  FontSize="Medium">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Especialidad: " TextColor="{StaticResource NavigationPrimary}" />
+                                                <Span Text="Especialidad: " TextColor="{StaticResource AzulPrincipal}" />
                                                 <Span Text="{Binding v_especialidad}" TextColor="Black"/>
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -34,12 +132,12 @@
                                     <Label FontSize="Medium" >
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Fecha: " TextColor="{StaticResource NavigationPrimary}"/>
-                                                <!--<Span Text="{Binding v_fecha}" TextColor="Black"/>-->
+                                                <Span Text="Fecha: " TextColor="{StaticResource AzulPrincipal}"/>
+                                                
                                                 <Span Text="{Binding v_fechaDate.Day,StringFormat=' {0:00}'}" TextColor="Black"/>
                                                 <Span Text="{Binding v_fechaDate.Month,StringFormat='-{0:00}'}" TextColor="Black"/>
                                                 <Span Text="{Binding v_fechaDate.Year,StringFormat='-{0:00}'}" TextColor="Black"/>
-                                                <Span Text=" Hora:" TextColor="{StaticResource NavigationPrimary}"/>
+                                                <Span Text=" Hora:" TextColor="{StaticResource AzulPrincipal}"/>
                                                 <Span Text="{Binding v_hora.Hours,StringFormat=' {0:00}'}" TextColor="Black"/>
                                                 <Span Text="{Binding v_hora.Minutes,StringFormat=': {0:00}'}" TextColor="Black"/>
                                             </FormattedString>
@@ -48,40 +146,13 @@
                                     <Label FontSize="Medium" IsVisible="{Binding v_visible}">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Estado: " TextColor="{StaticResource NavigationPrimary}"/>
+                                                <Span Text="Estado: " TextColor="{StaticResource AzulPrincipal}"/>
                                                 <Span Text="{Binding v_Estadocita}" TextColor="Black"/>
 
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <!--
-                                        <Label Text="Nombre del médico"  Style="{StaticResource AzulMedLbl}"/>
-                                        <Label Text="Especialidad"  Style="{StaticResource AzulMedLbl}"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Fecha: " Style="{StaticResource AzulMedLbl}" HorizontalOptions="Start"/>
-                                        <Label Text="{Binding v_fecha}" FontSize="Medium" TextColor="Black" HorizontalOptions="CenterAndExpand"/>-->
-                                    <!--Format = "HH:mm"   par 24 horas     Format = "hh:mm" para 12
-                                    <StackLayout Orientation="Horizontal">
                                     
-                                        <Label Text="Hora: " Style="{StaticResource AzulMedLbl}"/>
-                                        <Label Text="{Binding v_hora}" Style="{StaticResource AzulMedLbl}"/>
-                                    
-                                        <DatePicker Date="{Binding v_fecha}" Format="dd/MM/yyyy" IsEnabled="False"/>
-                                        <TimePicker Time="{Binding v_hora}"  IsEnabled="False"/>
-                                    
-                                        <Picker IsEnabled="False" SelectedIndex="{Binding v_Estadocita}" >
-                                        <Picker.Items>
-                                            <x:String>Terminada</x:String>
-                                            <x:String>Nueva</x:String>
-                                            <x:String>Pendiente</x:String>
-                                            <x:String>Aceptada</x:String>
-                                            <x:String>Cancelada</x:String>
-                                        </Picker.Items>
-                                    </Picker>
-                                    <Label Style="{StaticResource AzulMedLbl}" Text="{Binding v_Estadocita}"></Label>
-                                    </StackLayout>
-                                        -->
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -110,7 +181,7 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding v_texto }" TextColor="{StaticResource NavigationPrimary}"
+                                        <Label Text="{Binding v_texto }" TextColor="{StaticResource AzulPrincipal}"
                                            HorizontalOptions="StartAndExpand"></Label>
                                         <Image Source="INFO_icon.png" IsVisible="{Binding v_visible}"
                                            HorizontalOptions="End" Aspect="AspectFit"></Image>
@@ -122,5 +193,4 @@
                 </StackLayout>
             </ContentView>
         </AbsoluteLayout>
-    </ContentPage.Content>
-</ContentPage>
+        -->

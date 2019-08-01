@@ -504,7 +504,7 @@ namespace Trato.Personas
         [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
         [JsonProperty("horario")]
-        public string v_horario;
+        public string v_horario { get; set; }
         /// <summary>
         /// este lo necesito yo para el filtro
         /// </summary>
@@ -523,11 +523,11 @@ namespace Trato.Personas
         [JsonProperty("activado")]
         public string v_activo { get; set; }
         [JsonProperty("fecha_vig")]
-        public string v_vig;
+        public string v_vig { get; set; }
         [JsonProperty("tokenDr")]
         public string v_tokenDR { get; set; }
         [JsonProperty("citas")]
-        public string v_cita;
+        public string v_cita { get; set; }
         public bool Fn_GetActivado()
         {
             if(v_activo=="1")
@@ -575,7 +575,7 @@ namespace Trato.Personas
         [JsonProperty("dom")]
         public string v_Domicilio { get; set; }
         [JsonProperty("horario")]
-        public string v_horario;
+        public string v_horario { get; set; }
         /// <summary>
         /// este lo necesito yo para el filtro
         /// </summary>
@@ -592,7 +592,7 @@ namespace Trato.Personas
         [JsonProperty("beneficios")]
         public string v_beneficio { get; set; }
         [JsonProperty("sitio")]
-        public string v_sitio;
+        public string v_sitio { get; set; }
         /// <summary>
         /// imagen para mostrar
         /// </summary>
@@ -640,13 +640,13 @@ namespace Trato.Personas
         [JsonProperty("estado")]
         public string v_estado { get; set; }
         [JsonProperty("horario")]
-        public string v_horario;
+        public string v_horario { get; set; }
         [JsonProperty("tel")]
         public string v_Tel { get; set; }
         [JsonProperty("correo")]
         public string v_Correo { get; set; }
         [JsonProperty("sitio")]
-        public string v_sitio;
+        public string v_sitio { get; set; }
         /// <summary>
         /// imagen para mostrar
         /// </summary>
@@ -655,7 +655,7 @@ namespace Trato.Personas
         [JsonProperty("activado")]
         public string v_activo { get; set; }
         [JsonProperty("fecha_vig")]
-        public string v_vig;
+        public string v_vig { get; set; }
         public bool Fn_GetActivado()
         {
             if (v_activo == "1")

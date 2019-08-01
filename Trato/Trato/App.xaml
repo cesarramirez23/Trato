@@ -4,12 +4,36 @@
              x:Class="Trato.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!--Global Styles              rgb 40,150,209 -->
-            <Color x:Key="NavigationPrimary">#2896D1</Color>
+            <!-- https://stackoverflow.com/questions/41761197/change-the-colour-of-datepicker-xamarin-forms -->
+            <!--Global Styles  rgb 40,150,209 -->
+            
+            <Color x:Key="AzulPrincipal">#2796ce</Color>
+            <Color x:Key="AzulTab">#2287b1</Color>
+            <Color x:Key="AzulFondo">#CFEFF9</Color>
+
+            <Color x:Key="GrisBase">#797d80</Color>
+            <Color x:Key="GrisBold">#5d5e5e</Color>
+
+            <!--<Color x:Key="NavigationPrimary">#2796ce</Color>
             <Color x:Key="LetrCol" >#000000</Color>
-            <Color x:Key="Lightgray">#FFD3D3D3</Color>
+            <Color x:Key="Lightgray">#FFD3D3D3</Color>-->
+            
             <Color x:Key="White" >#FFFFFF </Color>
 
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{StaticResource GrisBase}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulFondo}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style TargetType="TimePicker">
+                <Setter Property="TextColor" Value="{StaticResource GrisBase}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulFondo}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulFondo}"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
             <Style TargetType="ScrollView">
                 <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
@@ -20,65 +44,121 @@
                 <Setter  Property="BackgroundColor" Value="White"/>
                 <Setter Property="Margin" Value="20,6"/>
                 <Setter Property="CornerRadius" Value="4"/>
-                <Setter Property="BorderColor" Value="{StaticResource Lightgray}"/>
+                <Setter Property="BorderColor" Value="LightGray"/>
             </Style>
             <Style TargetType="ContentPage">
-                <Setter  Property="BackgroundColor" Value="{StaticResource White}"/>
+                <Setter  Property="BackgroundColor" Value="White"/>
             </Style>
             <Style TargetType="ListView">
                 <Setter Property="SeparatorVisibility" Value="Default"/>
-                <Setter Property="SeparatorColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="SeparatorColor" Value="{StaticResource AzulTab}"/>
                 <Setter Property="VerticalOptions" Value="FillAndExpand"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
-            <Style TargetType="TabbedPage">
-                <Setter  Property="BackgroundColor" Value="{StaticResource White}"/>
-            </Style>
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource AzulPrincipal}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
             <Style x:Key="Buton" TargetType="Button">
                 <Setter Property="CornerRadius" Value="10"/>
-                <Setter Property="BackgroundColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulPrincipal}"/>
                 <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="BorderRadius" Value="10"/>
-                <Setter Property="BorderColor" Value="{StaticResource Lightgray}"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="Margin" Value="30,0"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
-             <Style x:Key="Buton2" TargetType="Button">
+            <Style x:Key="Buton2" TargetType="Button">
                 <Setter Property="CornerRadius" Value="10"/>
-                <Setter Property="BackgroundColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulPrincipal}"/>
                 <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="BorderRadius" Value="10"/>
-                <Setter Property="BorderColor" Value="{StaticResource Lightgray}"/>
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="Margin" Value="2,0"/>
+                <Setter Property="Padding" Value="0,0"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <Style x:Key="StyEntry" TargetType="Entry">
-                <Setter Property="TextColor" Value="Gray"/>
-                <Setter Property="PlaceholderColor" Value="Gray"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulFondo}"/>
+                <Setter Property="TextColor" Value="{StaticResource GrisBase}"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource GrisBase}"></Setter>
                 <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <Style x:Key="AzulMedLbl" TargetType="Label">
                 <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="TextColor" Value="{StaticResource AzulPrincipal}"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <Style x:Key="AzulChLbl" TargetType="Label">
                 <Setter Property="FontSize" Value="Small"/>
-                <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
+                <Setter Property="TextColor" Value="{StaticResource AzulPrincipal}"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <Style x:Key="StyLbl" TargetType="Label">
-                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulFondo}"/>
+                <Setter Property="TextColor" Value="{StaticResource GrisBase}"/>
                 <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
-            <Style TargetType="Switch">
-                <Setter Property="OnColor" Value="Green"/>
+            <Style TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="TextColor" Value="{StaticResource GrisBase}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulFondo}"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource GrisBase}"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
+            <Style TargetType="Editor">
+                <Setter Property="AutoSize" Value="TextChanges"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource GrisBase}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulFondo}"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{StaticResource GrisBase}"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform  Android="Helvetica.ttf#Helvetica" iOS="Helvetica"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+                
         </ResourceDictionary>
     </Application.Resources>
    

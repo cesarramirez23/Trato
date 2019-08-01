@@ -18,6 +18,11 @@ namespace Trato.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Opciones : ContentPage
 	{
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         Regex regex = new Regex(@"^(?=.*[A-Za-z])(?=.*\w)[A-Za-z\w]{8,}$");
         public V_Opciones ()
 		{
@@ -28,7 +33,8 @@ namespace Trato.Views
             base.OnAppearing();
             await CargarGen();
             App.Fn_CargarDatos();
-            C_Membre.Text = App.v_membresia + "  folio: " + App.v_folio;// + "  token " + App.Fn_GEtToken()+"   --aaaaa" ;
+            C_Membre.Text = App.v_membresia;// + "  token " + App.Fn_GEtToken()+"   --aaaaa" ;
+            C_Fol.Text= App.v_folio;
             if (App.v_letra == "I")
             { C_Tipo.Text = "Membresia Individual"; }
             else if (App.v_letra == "F")
@@ -49,31 +55,31 @@ namespace Trato.Views
 
             Pro_Membre.Text = App.v_membresia;
             Pro_Fol.Text = App.v_folio;
-            if(App.v_perfil.v_activo=="1")
-            {
-                StackTodoPromo.IsVisible = true;
-                if (App.v_perfil.v_promotor == "0")
-                {
-                    Pro_Pass.IsEnabled = true;
-                    Pro_Promo.IsEnabled = true;
-                    Pro_Mensaje.IsVisible = false;
-                    StackApp.IsVisible = false;
-                    btnReg.IsEnabled = true;
-                }
-                else
-                {
-                    Pro_Pass.IsEnabled = false;
-                    Pro_Promo.IsEnabled = false;
-                    Pro_Mensaje.IsVisible = true;
-                    Pro_Mensaje.Text = "Este usuario ya es promotor";
-                    StackApp.IsVisible = true;
-                    btnReg.IsEnabled = false;
-                }
-            }
-            else
-            {
-                StackTodoPromo.IsVisible = false;
-            }
+            //if(App.v_perfil.v_activo=="1")
+            //{
+            //    StackTodoPromo.IsVisible = true;
+            //    if (App.v_perfil.v_promotor == "0")
+            //    {
+            //        Pro_Pass.IsEnabled = true;
+            //        Pro_Promo.IsEnabled = true;
+            //        Pro_Mensaje.IsVisible = false;
+            //        StackApp.IsVisible = false;
+            //        btnReg.IsEnabled = true;
+            //    }
+            //    else
+            //    {
+            //        Pro_Pass.IsEnabled = false;
+            //        Pro_Promo.IsEnabled = false;
+            //        Pro_Mensaje.IsVisible = true;
+            //        Pro_Mensaje.Text = "Este usuario ya es promotor";
+            //        StackApp.IsVisible = true;
+            //        btnReg.IsEnabled = false;
+            //    }
+            //}
+            //else
+            //{
+            //    StackTodoPromo.IsVisible = false;
+            //}
         }
         public async Task CargarGen()
         {
@@ -335,13 +341,17 @@ namespace Trato.Views
             else
                 return true;
         }
-        private void Fn_AppIos(object sender, EventArgs e)
-        {
-           Device.OpenUri(new Uri( "https://apps.apple.com/mx/app/te-servicios/id1450966914"));
-        }
+       
         private void Fn_AppAndroid(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri("https://play.google.com/store/apps/details?id=com.alsain.teservicios"));
+            if(Device.RuntimePlatform ==Device.Android  )
+            {
+                Device.OpenUri(new Uri("https://play.google.com/store/apps/details?id=com.alsain.teservicios"));
+            }
+            else if (Device.RuntimePlatform == Device.iOS)
+            {
+                Device.OpenUri(new Uri( "https://apps.apple.com/mx/app/te-servicios/id1450966914"));
+            }
         }
     }
 }

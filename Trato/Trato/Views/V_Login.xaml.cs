@@ -31,10 +31,16 @@ namespace Trato.Views
             await Navigation.PushAsync(new V_Registro(true,0));
             //await App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new V_Registro(true)) );
         }
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         public async void Fn_Login(object sender, EventArgs _args)
         {
             if (Fn_Condiciones())
             {
+                StackPrincipal.IsVisible = false;
                 StackMen.IsVisible = true;
                 Mensajes_over.Text = " Comprobando informacion\n";
                 Regex MembreRegex = new Regex(@"^([0-9]){4}([A-Z]){1}-([0-9]){4}$");
@@ -49,18 +55,12 @@ namespace Trato.Views
                     string letra = prime[prime.Length - 1].ToString();
                     string _conse = usu.Text.Split('-')[1];
                     C_Login _login = new C_Login(_membre,letra,_conse, pass.Text,fol.Text);
-                    //crear el json
                     string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-                    Console.Write("Envia para login"+ _jsonLog);
-                    //mostrar la pantalla con mensajes
-                   // Mensajes_over.Text +=_jsonLog ;
-                    //crear el cliente
                     HttpClient _client = new HttpClient();
                     string _DirEnviar = NombresAux.BASE_URL + "login.php";
                     StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
-                    //mandar el json con el post
                     try
-                    {  //getting exception in the following line    //HttpResponseMessage upd_now_playing = await cli.PostAsync(new Uri("http://ws.audioscrobbler.com/2.0/", UriKind.RelativeOrAbsolute), tunp);
+                    {
                         HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                         if (_respuestaphp.StatusCode == System.Net.HttpStatusCode.OK)
                         {
@@ -82,101 +82,49 @@ namespace Trato.Views
                                         _noespacios += _usutexto[i];
                                     }
                                 }
-                                Console.WriteLine("Login empre" + _respuesta);
-                                //cambiar a logeado
-                                //StackMen.IsVisible = false;
                                 Perf _perf = new Perf();
                                 _perf.v_fol = fol.Text;
                                 _perf.v_membre = _noespacios;
                                 _perf.v_letra = letra;
-                                //crear el json
                                 string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
-                                Console.Write("json para perfil"+_jsonper);
-                                //mostrar la pantalla con mensajes
-                                //await DisplayAlert("envia login ", _jsonper, "Sigue");
-                               // Mensajes_over.Text = "\n" + _jsonper + "\n  valor llega"+_respuesta+"\n";
-                                //crear el cliente
-                                _client = new HttpClient();
-                                _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
-                                _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
-                                try
-                                {
-                                    //mandar el json con el post
-                                    _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                                    _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                    C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-                                    //Mensajes_over.Text += _nuePer.Fn_GetDatos();
-                                    // await DisplayAlert("Info del perfil", _nuePer.Fn_GetDatos(), "Aceptar");
+                                string _respPerf = await Fn_GetPerfil(new StringContent(_jsonper, Encoding.UTF8, "application/json"),
+                                    _noespacios,letra);
 
-                                    App.Fn_GuardarDatos(_nuePer, _noespacios, fol.Text, letra);
-                                    Console.Write("json para perfil medicoo"+ _jsonper);
-                                    _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
-                                    //membre  letraa folio
-                                    _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
-                                    try
+                                if (!string.IsNullOrEmpty(_respPerf))//error
+                                {
+                                    Mensajes_over.Text = "Error al inciar sesión";
+                                    Reinten.IsVisible = true;
+                                }
+                                else
+                                {
+                                    string _med =await Fn_GetMedico(new StringContent(_jsonper, Encoding.UTF8, "application/json"),
+                                         _noespacios, letra);
+                                    if (!string.IsNullOrEmpty(_med))//error
                                     {
-                                        //mandar el json con el post
-                                        _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                                        _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                        C_PerfilMed _nuePerMEd = new C_PerfilMed();
-                                        if(string.IsNullOrEmpty( _respuesta) )
+                                        Mensajes_over.Text = "Error al inciar sesión";
+                                        Reinten.IsVisible = true;
+                                    }
+                                    else
+                                    {
+                                        string _token = await Fn_SetToken(_membre, letra, _conse);
+                                        if (!string.IsNullOrEmpty(_token))//error
                                         {
-                                            _nuePerMEd = new C_PerfilMed(App.v_perfil.v_idsexo);
+                                            Mensajes_over.Text = "Error al inciar sesión";
+                                            Reinten.IsVisible = true;
                                         }
                                         else
                                         {
-                                            _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-                                        }
-                                        //Mensajes_over.Text ="info medica\n" + _nuePerMEd.Fn_Info();
-                                        App.Fn_GuardarDatos(_nuePerMEd,_noespacios, fol.Text,letra);
-                                        //   Console.Write("perfil medico ", _nuePerMEd.Fn_Info());
-                                        //cargar la nueva pagina de perfil
-                                        string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
-                                        _login = new C_Login(_membre, letra, _conse,App.Fn_GEtToken());
-                                        //crear el json
-                                        _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
-                                         _DirEnviar = NombresAux.BASE_URL + "token_notification.php";
-                                         _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
-                                        Console.WriteLine(" infosss "+ _jsonLog);
-                                        try
-                                        {
-                                            //mandar el json con el post
-                                            _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
-                                            _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
-                                            if(_respuesta=="1")
-                                            {
-                                                App.v_log = "1";
-                                                Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
-                                            }
-                                            else
-                                            {
-                                                Mensajes_over.Text = "Error";
-                                                Reinten.IsVisible = true;
-                                            }
-                                        }
-                                        catch(Exception exception)
-                                        {
-                                            await DisplayAlert("Error", "Error al inciar sesión", "Aceptar");
-                                            Reinten.IsVisible = true;
+                                            App.v_log = "1";
+                                            Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
                                         }
                                     }
-                                    catch (Exception exception)
-                                    {
-                                        await DisplayAlert("Error", "Error al inciar sesión", "Aceptar");
-                                        Reinten.IsVisible = true;
-                                    }
-                                }
-                                catch (Exception exception)
-                                {
-                                    await DisplayAlert("Error", "Error al inciar sesión", "Aceptar");
-                                    Reinten.IsVisible = true;
+
                                 }
                             }
                             else
                             {
                                 //Mensajes_over.Text = "otra cosa que no entra en el if " + _respuesta;
                                 Mensajes_over.Text = "Error";
-
                                 Reinten.IsVisible = true;
                             }
                         }
@@ -194,6 +142,91 @@ namespace Trato.Views
                     Reinten.IsVisible = true;
                 }
             }
+            else
+            {
+                await DisplayAlert("Error", "Uno o mas campos se encuentran vacios", "Aceptar");
+            }
+        }
+        async Task<string> Fn_GetMedico(StringContent _content, string _membre, string _letra)
+        {
+            string _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
+            HttpClient _client = new HttpClient();
+            try
+            {
+                //mandar el json con el post
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                C_PerfilMed _nuePerMEd = new C_PerfilMed();
+                if (string.IsNullOrEmpty(_respuesta))
+                {
+                    _nuePerMEd = new C_PerfilMed(App.v_perfil.v_idsexo);
+                }
+                else
+                {
+                    _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
+                }
+                App.Fn_GuardarDatos(_nuePerMEd, _membre, fol.Text, _letra);
+                return string.Empty;
+
+               
+            }
+            catch (Exception exception)
+            {
+                return "Error al inciar sesión";
+                //await DisplayAlert("Error", "Error al inciar sesión", "Aceptar");
+                //Reinten.IsVisible = true;
+            }
+        }
+        async Task<string> Fn_SetToken(string _membre, string _letra, string _conse)
+        {
+            //cargar la nueva pagina de perfil
+            //string _nombre = (_nuePer.v_Nombre.Split(' ')[0]);
+            HttpClient _client = new HttpClient();
+            C_Login _login = new C_Login(_membre, _letra, _conse, App.Fn_GEtToken());
+            //crear el json
+            string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
+            string _DirEnviar = NombresAux.BASE_URL + "token_notification.php";
+            StringContent _content = new StringContent(_jsonLog, Encoding.UTF8, "application/json");
+            try
+            {
+                //mandar el json con el post
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                if (_respuesta == "1")
+                {
+                    return string.Empty;
+                    //App.v_log = "1";
+                    //Application.Current.MainPage = new V_Master(true, "Bienvenido " + App.v_perfil.v_Nombre);
+                }
+                else
+                {
+                    return "Error";
+                }
+            }
+            catch (Exception exception)
+            {
+                return "Error al inciar sesión";
+            }
+        }
+        async Task<string> Fn_GetPerfil(StringContent _content, string _membre, string _letra)
+        {
+            HttpClient _client = new HttpClient();
+            string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
+            try
+            {
+                //mandar el json con el post
+                HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
+                string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
+                C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
+                App.Fn_GuardarDatos(_nuePer, _membre, fol.Text, _letra);
+                return string.Empty;
+            }
+            catch (Exception exception)
+            {
+                return "Error al inciar sesión";
+                //await DisplayAlert("Error", "Error al inciar sesión", "Aceptar");
+                //Reinten.IsVisible = true;
+            }
         }
         /// <summary>
         /// apagar el panel de mensajes para reintentar el formulario
@@ -203,13 +236,13 @@ namespace Trato.Views
             StackMen.IsVisible = false; 
             Mensajes_over.Text="";
             Reinten.IsVisible = false;
+            StackPrincipal.IsVisible = true;
         }
         /// <summary>
         /// para no enviar basura solo numeros
         /// </summary>
         void Fn_SoloNumero(object sender, TextChangedEventArgs _args)
         {
-            //-  ,  _  .
             Entry _entry = (Entry)sender;
             if (_entry.Text.Length > 0)
             {
@@ -227,7 +260,6 @@ namespace Trato.Views
                 }
             }
         }
-
         /// <summary>
         /// si es false, hay algun dato mal y no puedes continuar
         /// </summary>
@@ -271,33 +303,28 @@ namespace Trato.Views
             }
         }
         #region CAMBIO PASS
-
-
         /// <summary>
         /// mostrar panel pass
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="_args"></param>
         public void Fn_Reenviar(object sender, EventArgs _args)
         {
             StackContra.IsVisible = true;
+            StackPrincipal.IsVisible = false;
           //  PassCorreo.Text = "";
            // PassMembre.Text = "";
         }
         /// <summary>
         /// apaga el panel de contraseña
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="_args"></param>
         public void Fn_APagaPass(object sender, EventArgs _args)
         {
             StackContra.IsVisible = false;
+            StackPrincipal.IsVisible = true;
         }
         private async void Fn_CambioPass(object sender, EventArgs _args)
         {
             Button _buton = (Button)sender;
             _buton.IsEnabled = false;
-            //correo
             Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             if (string.IsNullOrEmpty(PassCorreo.Text) || string.IsNullOrWhiteSpace(PassCorreo.Text) || !EmailRegex.IsMatch(PassCorreo.Text))
             {
@@ -335,11 +362,9 @@ namespace Trato.Views
                     JObject jsonper = JObject.Parse(json);
                     string _DirEnviar = NombresAux.BASE_URL + "restore_pass.php";
                     StringContent _content = new StringContent(jsonper.ToString(), Encoding.UTF8, "application/json");
-                    // await DisplayAlert("Envia", jsonper.ToString(), "Envia");
                     HttpClient _client = new HttpClient();
                     try
                     {
-                        //mandar el json con el post
                         HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                         string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                         if (_respuesta == "0")

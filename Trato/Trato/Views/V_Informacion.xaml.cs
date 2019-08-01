@@ -12,7 +12,11 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Informacion : ContentPage
     {
-       
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         public V_Informacion()
         {
             InitializeComponent();

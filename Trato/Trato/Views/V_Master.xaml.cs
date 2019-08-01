@@ -23,8 +23,6 @@ namespace Trato.Views
 	{/*
         las funciones se le agregan en lugar de mandar un view se lo agregas a master.detail
          */
-       
-
         public V_Master()
         {
             InitializeComponent ();
@@ -43,7 +41,7 @@ namespace Trato.Views
                     string _json = App.Current.Properties[NombresAux.v_citaNot] as string;
                     App.v_nueva = JsonConvert.DeserializeObject<Models.Cita>(_json);
                     IsPresented = false;
-                    Detail = new NavigationPage(new V_Cita(false,true, App.v_nueva) { Title = "Citas" });
+                    Detail = new NavigationPage(new V_Cita(true, App.v_nueva) { Title = "Citas" });
                 }
                 else
                 {
@@ -60,11 +58,6 @@ namespace Trato.Views
             }
            
         }
-
-        public async void A()
-        {
-            await Task.Delay(100);
-        } 
         public void Fn_Contacto(object sender, EventArgs _args)
         {
             IsPresented = false;
@@ -74,12 +67,12 @@ namespace Trato.Views
         {
             IsPresented = false;
             Console.Write("medicam   ---- true");
-            Detail = new NavigationPage(new V_Cita(false,false,null) { Title = "CITAS" });
+            Detail = new NavigationPage(new V_Cita(false,null) { Title = "CITAS" });
         }
         public void Fn_Medicamentos(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Cita(true,false,null) { Title = "MEDICAMENTOS" });
+            Detail = new NavigationPage(new V_Medicamento() { Title = "MEDICAMENTOS" });//   new V_Cita(true,false,null) { Title = "MEDICAMENTOS" });
         }
         public void Fn_Medicos(object sender, EventArgs _args)
         {

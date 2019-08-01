@@ -16,6 +16,11 @@ namespace Trato.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         public List<Banner> v_mostrar = new List<Banner>();
         int v_actual = 0;
         bool v_cambioban = false;
@@ -65,7 +70,7 @@ namespace Trato.Views
             //M_mensaje.IsVisible = true;
             //M_mensaje.Text += "token " + App.Fn_GEtToken();
 
-            Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
+            //Console.WriteLine("Refreshed token: " + App.Fn_GEtToken());
 
             //FN_Red();
             v_cambioban = true;

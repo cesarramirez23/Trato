@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Trato.Views;
 using Xamarin.Forms.Xaml;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;// para las listas
 using Trato.Personas;//cargar las clases
 using System.Threading.Tasks; // delay 
@@ -63,13 +64,14 @@ namespace Trato
                 v_log = Current.Properties[NombresAux.v_log] as string;
                 if (v_log == "0")
                 {//no esta logeado
+                    Fn_CargarDatos();
                     v_perfil = new C_PerfilGen();
                     v_perfMed = new C_PerfilMed();
                     v_membresia = "0000D-0000";
                     v_folio = "";
                     v_letra = "";
                     string _json = JsonConvert.SerializeObject(v_perfil);
-                    Properties[NombresAux.v_perfGen]= _json;
+                    Properties[NombresAux.v_perfGen] = _json;
                     _json = JsonConvert.SerializeObject(v_perfMed);
                     Properties[NombresAux.v_perMed] = _json;
                     Properties[NombresAux.v_letra] = v_letra;
@@ -98,9 +100,9 @@ namespace Trato
                     {
                         string _jsonGen = Current.Properties[NombresAux.v_perfGen] as string;
                         v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_jsonGen);
-                        Console.Write("cargca carga " + v_perfil.Fn_GetDatos() +"\n");
+                        Console.Write("cargca carga " + v_perfil.Fn_GetDatos() + "\n");
                     }
-                   // v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
+                    // v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
                     MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
                 }
                 else
@@ -121,8 +123,8 @@ namespace Trato
                 App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
             }
         }
-        protected override void OnSleep(){}
-        protected override void OnResume() {}
+        protected override void OnSleep() { }
+        protected override void OnResume() { }
         #endregion
         #region CCARGA DE DATOS DESDE  EL PROPERTIES
         async void Fn_CrearKey()
@@ -203,6 +205,23 @@ namespace Trato
                 string _json = JsonConvert.SerializeObject(v_nueva);
                 Properties.Add(NombresAux.v_citaNot, _json);
             }
+            if (!Properties.ContainsKey(NombresAux.v_filtro))
+            {
+                List<string>[] _arr =new List<string>[]
+                    {
+                        new List<string>(),
+                        new List<string>(),
+                        new List<string>()
+                    };
+                string _json = JsonConvert.SerializeObject(_arr);
+                Properties.Add(NombresAux.v_filtro, _json);
+            }
+            if (!Properties.ContainsKey(NombresAux.v_filCita))
+            {
+                List<string> _arr = new List<string>();
+                string _json = JsonConvert.SerializeObject(_arr);
+                Properties.Add(NombresAux.v_filCita, _json);
+            }
             //if (!Properties.ContainsKey(NombresAux.v_IdCalendar))
             //{
             //    v_IdCalendar = "";
@@ -282,7 +301,7 @@ namespace Trato
             }
             else
             {
-                string _jsonCita= Current.Properties[NombresAux.v_citas] as string;
+                string _jsonCita = Current.Properties[NombresAux.v_citas] as string;
                 v_citas = JsonConvert.DeserializeObject<ObservableCollection<Cita>>(_jsonCita);
             }
             if (!Current.Properties.ContainsKey(NombresAux.v_Nota))
@@ -294,7 +313,7 @@ namespace Trato
             }
             else
             {
-                string _jsonCita= Current.Properties[NombresAux.v_Nota] as string;
+                string _jsonCita = Current.Properties[NombresAux.v_Nota] as string;
                 v_NotasMedic = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_jsonCita);
             }
             await Current.SavePropertiesAsync();
@@ -422,6 +441,23 @@ namespace Trato
                 string _jsonCitas = Current.Properties[NombresAux.v_Nota] as string;
                 v_NotasMedic = JsonConvert.DeserializeObject<ObservableCollection<C_NotaMed>>(_jsonCitas);
             }
+            if (!Current.Properties.ContainsKey(NombresAux.v_filtro))
+            {
+                List<string>[] _arr = new List<string>[]
+                    {
+                        new List<string>(),
+                        new List<string>(),
+                        new List<string>()
+                    };
+                string _json = JsonConvert.SerializeObject(_arr);
+                Current.Properties.Add(NombresAux.v_filtro, _json);
+            }
+            if (!Current.Properties.ContainsKey(NombresAux.v_filCita))
+            {
+                List<string> _arr = new List<string>();
+                string _json = JsonConvert.SerializeObject(_arr);
+                Current.Properties.Add(NombresAux.v_filCita, _json);
+            }
             //ID DEL CALENDARIO
             //if (!Current.Properties.ContainsKey(NombresAux.v_IdCalendar))
             //{
@@ -460,17 +496,17 @@ namespace Trato
             Current.Properties[NombresAux.v_membre] = v_membresia;
             Current.Properties[NombresAux.v_folio] = v_folio;
             Current.Properties[NombresAux.v_letra] = v_letra;
-            string _jsoServ = JsonConvert.SerializeObject(v_servicios );
+            string _jsoServ = JsonConvert.SerializeObject(v_servicios);
             Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
-            string _jsonMed = JsonConvert.SerializeObject(v_medicos );
+            string _jsonMed = JsonConvert.SerializeObject(v_medicos);
             Current.Properties[NombresAux.v_redmedica2] = _jsonMed;
             await Current.SavePropertiesAsync();
             Fn_CargarDatos();
             await Task.Delay(100);
         }
-        public static async void Fn_GuardarDatos(string _gen , string _membre, string _folio, string _letra)
+        public static async void Fn_GuardarDatos(string _gen, string _membre, string _folio, string _letra)
         {
-            v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>( _gen);
+            v_perfil = JsonConvert.DeserializeObject<C_PerfilGen>(_gen);
             v_folio = _folio;
             v_membresia = _membre;
             v_letra = _letra;
@@ -500,9 +536,9 @@ namespace Trato
             Current.Properties[NombresAux.v_membre] = v_membresia;
             Current.Properties[NombresAux.v_folio] = v_folio;
             Current.Properties[NombresAux.v_letra] = v_letra;
-            string _jsoServ = JsonConvert.SerializeObject(v_servicios );
+            string _jsoServ = JsonConvert.SerializeObject(v_servicios);
             Current.Properties[NombresAux.v_serviciosmedicos] = _jsoServ;
-            string _jsonMed = JsonConvert.SerializeObject(v_medicos );
+            string _jsonMed = JsonConvert.SerializeObject(v_medicos);
             Current.Properties[NombresAux.v_redmedica2] = _jsonMed;
 
             await Current.SavePropertiesAsync();
@@ -511,7 +547,7 @@ namespace Trato
         }
         public static async void Fn_GuardarRed(ObservableCollection<C_Medico> _medicos)
         {
-            string _json = JsonConvert.SerializeObject(_medicos );
+            string _json = JsonConvert.SerializeObject(_medicos);
             if (Current.Properties.ContainsKey(NombresAux.v_redmedica2))
             {
                 Current.Properties[NombresAux.v_redmedica2] = "";
@@ -530,7 +566,7 @@ namespace Trato
         }
         public static async void Fn_GuardarServcios(ObservableCollection<C_Servicios> _servicios)
         {
-            string _json = JsonConvert.SerializeObject(_servicios );
+            string _json = JsonConvert.SerializeObject(_servicios);
             if (Current.Properties.ContainsKey(NombresAux.v_serviciosmedicos))
             {
                 Current.Properties[NombresAux.v_serviciosmedicos] = "";
@@ -561,7 +597,7 @@ namespace Trato
         public static async void Fn_GuardarCitas(ObservableCollection<Cita> _citas)
         {
             v_citas = _citas;
-            string _json = JsonConvert.SerializeObject(v_citas );
+            string _json = JsonConvert.SerializeObject(v_citas);
             if (Current.Properties.ContainsKey(NombresAux.v_citas))
             {
                 Current.Properties[NombresAux.v_citas] = "";
@@ -593,6 +629,18 @@ namespace Trato
             }
             await Current.SavePropertiesAsync();
         }
+        public static async void Fn_GuardaFiltro(List<string>[] _filtro)
+        {
+            string _json = JsonConvert.SerializeObject(_filtro);
+            Current.Properties[NombresAux.v_filtro] = _json;
+            await Current.SavePropertiesAsync();
+        }
+        public static async void Fn_GuardaFiltro(List<string> _filtro)
+        {
+            string _json = JsonConvert.SerializeObject(_filtro);
+            Current.Properties[NombresAux.v_filCita] = _json;
+            await Current.SavePropertiesAsync();
+        }
         #endregion
         #region Varios
         public static async void Fn_CerrarSesion()
@@ -611,7 +659,7 @@ namespace Trato
             Current.Properties[NombresAux.v_perMed] = _json;
             _json = JsonConvert.SerializeObject(v_NotasMedic);
             Current.Properties[NombresAux.v_Nota] = _json;
-            _json = JsonConvert.SerializeObject(v_citas );
+            _json = JsonConvert.SerializeObject(v_citas);
             Current.Properties[NombresAux.v_Nota] = _json;
 
             Current.Properties[NombresAux.v_membre] = v_membresia;
@@ -648,6 +696,20 @@ namespace Trato
             {
                 return _valor;
             }
+        }
+        public static List<string>[] Fn_Getfiltro()
+        {
+            List<string>[] _ret ;
+            string  _sa=Current.Properties[NombresAux.v_filtro] as string;
+            _ret = JsonConvert.DeserializeObject<List<string>[]>(_sa);
+            return _ret;
+        }
+        public static List<string> Fn_GetfiltroCita()
+        {
+            List<string> _ret;
+            string _sa = Current.Properties[NombresAux.v_filCita] as string;
+            _ret = JsonConvert.DeserializeObject<List<string>>(_sa);
+            return _ret;
         }
         #endregion
         #region Coosas de la cita

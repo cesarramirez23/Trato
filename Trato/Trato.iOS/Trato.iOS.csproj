@@ -85,8 +85,10 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
+    <None Include="Helvetica.ttf" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Lobster-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -186,13 +188,11 @@
     <ImageAsset Include="Assets.xcassets\AppIconTrato.appiconset\Logo_iOS_1024_CHIDO.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="Resources\Citasx46.png" />
     <BundleResource Include="Resources\M_Empresarialx46.png" />
     <BundleResource Include="Resources\M_Familiarx46.png" />
     <BundleResource Include="Resources\M_Personalx46.png" />
     <BundleResource Include="Resources\Medicamentosx46.png" />
     <BundleResource Include="Resources\Membresia_Iconx46.png" />
-    <BundleResource Include="Resources\Corazonx46.png" />
     <BundleResource Include="Resources\tab_Citas.png" />
     <BundleResource Include="Resources\tab_Corazon.png" />
     <BundleResource Include="Resources\tab_M_Empresarial.png" />
@@ -266,12 +266,6 @@
     <BundleResource Include="Resources\LOGOTRATOESPECIAL.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\InfoMedica.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\LogOut.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Medicamentos.png" />
   </ItemGroup>
   <ItemGroup>
@@ -284,19 +278,10 @@
     <BundleResource Include="Resources\Perfil.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\HOME_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\INFO_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\M_Empresarial.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\M_Personal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Membresia_Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\M_Familiar.png" />
@@ -305,24 +290,45 @@
     <BundleResource Include="Resources\Filtro.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\mail_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Services_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ServiciosMedicos.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Citas.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\QR.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Palomita.png" />
+    <BundleResource Include="Resources\flecha.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\flecha.png" />
+    <BundleResource Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Log_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Membresia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Servicios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Campana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Circulo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Menos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Servicios_Medicos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tarjeta_Virtual.png" />
   </ItemGroup>
 </Project>

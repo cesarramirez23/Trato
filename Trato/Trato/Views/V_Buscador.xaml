@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Trato.Views.V_Buscador">
+             x:Class="Trato.Views.V_Buscador" BackgroundColor="White">
     <ContentPage.Resources>
         <Style x:Key="ImgFiltro" TargetType="Image">
             <Setter Property="HeightRequest" Value="50"/>
@@ -15,16 +15,14 @@
             <Setter Property="Grid.Column" Value="0"/>
             <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             <Setter Property="FontSize" Value="Medium"/>
-            <Setter Property="TextColor" Value="{StaticResource NavigationPrimary}"/>
+            <Setter Property="TextColor" Value="{StaticResource AzulPrincipal}"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Filtrar" Clicked="Fn_Filtro"/>
     </ContentPage.ToolbarItems>
 
-    <StackLayout BackgroundColor="{StaticResource White}">
-        <StackLayout VerticalOptions="StartAndExpand" x:Name="StackTodo" >
-            <Grid x:Name="Grid_Busqueda">
+        <!--<Grid x:Name="Grid_Busqueda">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -34,64 +32,73 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
-                <SearchBar Placeholder="Buscar algo" TextChanged="Fn_Buscar" HorizontalOptions="CenterAndExpand"
+            <SearchBar Placeholder="Buscar algo" TextChanged="Fn_Buscar" HorizontalOptions="CenterAndExpand"
                     Grid.Column="0" Grid.ColumnSpan="3" x:Name="v_Search" BackgroundColor="Transparent"
-                    CancelButtonColor="{StaticResource NavigationPrimary}" />
+                    CancelButtonColor="{StaticResource AzulPrincipal}" />
                 <Image Source="Filtro" HorizontalOptions="Fill"  x:Name="B_Filtrar" Grid.Column="3" Grid.ColumnSpan="1">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_Filtro" NumberOfTapsRequired="1"/>
                     </Image.GestureRecognizers>
                 </Image>
-            </Grid>
-            <StackLayout VerticalOptions="FillAndExpand">
-                <ListView  x:Name="Buscador"  SeparatorColor="{StaticResource NavigationPrimary}" Margin="5,5" VerticalOptions="FillAndExpand"
-                    BackgroundColor="{StaticResource White}" IsPullToRefreshEnabled="False" ItemTapped="Fn_TapFiltro">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout>
-                                    <Label TextColor="{StaticResource NavigationPrimary}" Text="{Binding v_texto}"></Label>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
-                <ListView  x:Name="v_lista" SeparatorColor="{StaticResource NavigationPrimary}" BackgroundColor="{StaticResource White}" RowHeight="150" VerticalOptions="FillAndExpand"
-                    SelectionMode="Single" HasUnevenRows="False" ItemSelected="Fn_Select" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="5,5,5,0" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate >
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource White}">
-                                    <Image x:Name="imgSexo" HorizontalOptions="Start" 
-                                               HeightRequest="100" WidthRequest="100" VerticalOptions="Center" >
-                                        <Image.Source>
-                                            <UriImageSource Uri="{Binding v_img}"/>
-                                        </Image.Source>
-                                    </Image>
-                                    <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" BackgroundColor="{StaticResource White}">
-                                        <Label Text="{Binding v_completo}" FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource NavigationPrimary}"/>
-                                        <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource LetrCol}" />
-                                        <Label Text="{Binding v_Domicilio}" TextColor="{StaticResource LetrCol}"/>
-                                        <Label>
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{Binding v_Ciudad}" TextColor="{StaticResource LetrCol}"></Span>
-                                                    <Span Text=", " TextColor="{StaticResource LetrCol}"></Span>
-                                                    <Span Text="{Binding v_estado}" TextColor="{StaticResource LetrCol}"></Span>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
+            </Grid>-->
+        <!--RowHeight="150"-->
+        <ListView  x:Name="v_lista" SeparatorColor="{StaticResource AzulPrincipal}" BackgroundColor="{StaticResource White}"  VerticalOptions="FillAndExpand" 
+                    SelectionMode="None" HasUnevenRows="True" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="5,5" ItemTapped="Fn_Select" >
+            <ListView.Header>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <SearchBar Placeholder="Buscar" TextChanged="Fn_Buscar" HorizontalOptions="FillAndExpand"
+                                x:Name="v_Search" BackgroundColor="Transparent" CancelButtonColor="{StaticResource AzulPrincipal}" />
+                    <StackLayout x:Name="Buscador"  BackgroundColor="{StaticResource White}" IsVisible="False"/>
+                    <!--<ListView  x:Name="Buscador"  SeparatorColor="{StaticResource AzulPrincipal}" Margin="5,5" VerticalOptions="FillAndExpand"
+                                BackgroundColor="{StaticResource White}" IsPullToRefreshEnabled="False" ItemTapped="Fn_TapFiltro">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label TextColor="{StaticResource AzulPrincipal}" Text="{Binding v_texto}"></Label>
                                     </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>-->
+                    <Label Text="Error de Conexión" FontSize="Large" x:Name="L_Error" IsVisible="False"></Label>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="{Binding v_completo}" FontAttributes="Bold" FontSize="Medium" 
+                             HorizontalOptions="StartAndExpand" TextColor="{StaticResource AzulPrincipal}"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource White}">
+                                <Image x:Name="imgSexo" HorizontalOptions="Start" 
+                                                   HeightRequest="70" WidthRequest="70" VerticalOptions="Center" >
+                                    <Image.Source>
+                                        <UriImageSource Uri="{Binding v_img}"/>
+                                    </Image.Source>
+                                </Image>
+                                <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" BackgroundColor="{StaticResource White}">
+                                    <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource GrisBase}" />
+                                    <Label Text="{Binding v_Domicilio}" TextColor="{StaticResource GrisBase}"/>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding v_Ciudad}" TextColor="{StaticResource GrisBase}"></Span>
+                                                <Span Text=", " TextColor="{StaticResource GrisBase}"></Span>
+                                                <Span Text="{Binding v_estado}" TextColor="{StaticResource GrisBase}"></Span>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                 </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </StackLayout>
-        
-        <ScrollView x:Name="StackOver" Margin="5,5">
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+</ContentPage>
+<!--
+        <ScrollView x:Name="StackOver" Margin="5,5" >
             <StackLayout>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -101,12 +108,12 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
-                    <Button Text="Buscar" Clicked="Fn_Aceptar" Style="{StaticResource Buton2}"
+                    <Button Text="Buscar"  Clicked="Fn_Aceptar" Style="{StaticResource Buton2}"
                                     Grid.Column="2" Grid.ColumnSpan="2"/>
-                    <Button Text="Borrar" Clicked="Fn_BorrarFiltro" Style="{StaticResource Buton2}"
+                    <Button Text="Borrar" Style="{StaticResource Buton2}"  Clicked="Fn_BorrarFiltro"
                                     Grid.Column="0" Grid.ColumnSpan="2"/>
                 </Grid>
-                <ContentView HeightRequest="1" BackgroundColor="{StaticResource LetrCol}"/>
+                <ContentView HeightRequest="1" BackgroundColor="{StaticResource GrisBase}"/>
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -124,7 +131,7 @@
                     </Image>
                 </Grid>
                 <StackLayout x:Name="StackEspe" IsVisible="False"/>
-                <ContentView HeightRequest="1" BackgroundColor="{StaticResource LetrCol}"/>
+                <ContentView HeightRequest="1" BackgroundColor="{StaticResource GrisBase}"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -142,7 +149,7 @@
                     </Image>
                 </Grid>
                 <StackLayout x:Name="StackEstado" IsVisible="False"/>
-                <ContentView HeightRequest="1" BackgroundColor="{StaticResource LetrCol}"/>
+                <ContentView HeightRequest="1" BackgroundColor="{StaticResource GrisBase}"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -162,31 +169,4 @@
                 <StackLayout x:Name="StackCiudad" IsVisible="False"/>
             </StackLayout>
         </ScrollView>
-        <!--
-        <ListView x:Name="ListaGroup" ItemTapped="FnTapGroup" IsPullToRefreshEnabled="False" BackgroundColor="{StaticResource White}" 
-                      HasUnevenRows="False" HeightRequest="30" IsGroupingEnabled="True">
-            <ListView.GroupHeaderTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding v_titulo}" FontSize="Medium" TextColor="Black"
-                                       HorizontalOptions="Center" VerticalOptions="Center"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.GroupHeaderTemplate>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding v_texto }" TextColor="{StaticResource NavigationPrimary}"
-                                               HorizontalOptions="StartAndExpand"></Label>
-                            <Image Source="Palomita.png" IsVisible="{Binding v_visible}" 
-                                               HorizontalOptions="End" Aspect="AspectFit"></Image>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView> -->
-    </StackLayout>
-</ContentPage>
+        -->

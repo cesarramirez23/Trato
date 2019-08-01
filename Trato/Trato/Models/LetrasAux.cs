@@ -31,6 +31,8 @@ namespace Trato
         /// Cita de notificacion
         /// </summary>
         public const string v_citaNot = "Notif";
+        public const string v_filtro = "filtro";
+        public const string v_filCita = "filtroCita";
         #endregion
         public const string BASE_URL = "https://tratoespecial.com/";
 

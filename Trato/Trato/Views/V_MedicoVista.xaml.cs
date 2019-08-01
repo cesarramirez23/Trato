@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 using Trato.Personas;
 using Newtonsoft.Json;
 using System.Net;
-
 namespace Trato.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -22,42 +21,28 @@ namespace Trato.Views
         /// 0 medico,    1 servicios medicos,   2 servicios generales
         /// </summary>
         int v_tipo = -1;
-      //  bool _personaa =false;
-
-            /*
-             
-             mailto para correo
-             */
         public V_MedicoVista (C_Medico _medico)
 		{
 			InitializeComponent ();
-            sitio.IsVisible = false;
+            //sitio.IsVisible = false;
             v_medico = _medico;
-            nombre.Text = "Buscando Información";
-            Fn_GetInfoDr();
+            //nombre.Text = "Buscando Información";
+            //Fn_GetInfoDr();
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
             if(v_medico!=null)
             {
-                sitio.IsVisible = false;
-                nombre.Text = "Buscando Información";
                 Fn_GetInfoDr();
             }
             else if(v_servi != null)
             {
-                StackSitio.IsVisible = true;
-                sitio.IsVisible = true;
                 Fn_GetInfoServicios();
-                nombre.Text = "Buscando Información";
             }
             else if(v_gene!= null)
             {
-                StackSitio.IsVisible = true;
-                sitio.IsVisible = true;
                 Fn_GetInfoGenerales();
-                nombre.Text = "Buscando Información";
             }
         }
         async void Fn_GetInfoDr()
@@ -73,22 +58,30 @@ namespace Trato.Views
                 string _result = await _respuestphp.Content.ReadAsStringAsync();
                 C_Medico _nuePer = JsonConvert.DeserializeObject<C_Medico>(_result);
 
-                nombre.Text = v_medico.v_titulo + " " + v_medico.v_Nombre + "  " + v_medico.v_Apellido;
-                especial.Text = v_medico.v_Especialidad;
-                domicilio.Text = v_medico.v_Domicilio + "," + v_medico.v_Ciudad;
-                info.Text = "Telefono: " + _nuePer.v_Tel;
+                //nombre.Text = v_medico.v_titulo + " " + v_medico.v_Nombre + "  " + v_medico.v_Apellido;
+                //especial.Text = v_medico.v_Especialidad;
+                //domicilio.Text = v_medico.v_Domicilio + "," + v_medico.v_Ciudad;
+                //info.Text = "Telefono: " + _nuePer.v_Tel;
                 if (!string.IsNullOrEmpty(_nuePer.v_horario))
                 {
                     //string _hor = v_medico.v_horario.Replace('-', ':');
                     string[] _split = _nuePer.v_horario.Split('/');
-                    info.Text += "\nHorario de consulta: " + _split[0] + " a " + _split[1];
+                    v_medico.v_horario = "De " + _split[0] + " a " + _split[1];
+                    StackHorario.IsVisible = true;
+                    //info.Text += "\nHorario de consulta: " + _split[0] + " a " + _split[1];
                 }
                 img.Source = v_medico.v_img;
                 string conespacio = _nuePer.v_descripcion.Replace("/n", Environment.NewLine);
-                descrip.Text = " " + conespacio;
-                StackBenef.IsVisible = false;
+                //descrip.Text = " " + conespacio;
+                //StackBenef.IsVisible = false;
                 //_personaa = true;
                 v_tipo = 0;
+
+                v_medico.v_Tel = _nuePer.v_Tel;
+                v_medico.v_descripcion = conespacio;
+                this.BindingContext = v_medico;
+                Mensaje.IsVisible = false;
+                StackTodo.IsVisible = true;
                 if (_nuePer.v_cita == "1" && App.v_log == "1")
                 {
                     //Console.WriteLine(App.v_membresia);
@@ -108,11 +101,11 @@ namespace Trato.Views
         public V_MedicoVista(C_Servicios _servicios)
         {
             InitializeComponent();
-            StackSitio.IsVisible = true;
-            sitio.IsVisible = true;
+            //StackSitio.IsVisible = true;
+           // sitio.IsVisible = true;
             v_servi = _servicios;
-            Fn_GetInfoServicios();
-            nombre.Text = "Buscando Información";
+            //Fn_GetInfoServicios();
+            //nombre.Text = "Buscando Información";
         }
         async void Fn_GetInfoServicios()
         {
@@ -127,27 +120,49 @@ namespace Trato.Views
                 string _result = await _respuestphp.Content.ReadAsStringAsync();
                 C_Servicios _nuePer = JsonConvert.DeserializeObject<C_Servicios>(_result);
 
-                nombre.Text = v_servi.v_completo;
-                especial.Text = v_servi.v_Especialidad;
-                domicilio.Text = v_servi.v_Domicilio + "," + v_servi.v_Ciudad;
-                info.Text = "Telefono: " + _nuePer.v_Tel;// + "\nCorreo: " + v_servi.v_Corre+
-                                                         // "\nHorario: " + v_servi.v_horario;
-                sitio.Text = _nuePer.v_sitio;
+                //nombre.Text = v_servi.v_completo;
+                //especial.Text = v_servi.v_Especialidad;
+                //domicilio.Text = v_servi.v_Domicilio + "," + v_servi.v_Ciudad;
+                //info.Text = "Telefono: " + _nuePer.v_Tel;// + "\nCorreo: " + v_servi.v_Corre+
+                //                                         // "\nHorario: " + v_servi.v_horario;
+                //sitio.Text = _nuePer.v_sitio;
                 img.Source = v_servi.v_img;
                 string _benef = _nuePer.v_beneficio.Replace("/n", Environment.NewLine);
-                beneficios.Text = _benef;
-                if (string.IsNullOrEmpty(_nuePer.v_descripcion) || string.IsNullOrWhiteSpace(_nuePer.v_descripcion))
-                {
-                    StackDescrip.IsVisible = false;
-                }
-                else
-                {
-                    StackDescrip.IsVisible = true;
-                    string conespacio = _nuePer.v_descripcion.Replace("/n", Environment.NewLine);
-                    descrip.Text = " " + conespacio;
-                }
-                v_tipo = 1;
+                //beneficios.Text = _benef;
 
+                v_servi.v_Tel = _nuePer.v_Tel;
+                //v_servi.v_sitio = _nuePer.v_sitio;
+                v_servi.v_beneficio = _benef;
+                v_servi.v_descripcion = _nuePer.v_descripcion;
+                //StackCorreo.IsVisible = true;
+                StackBeneficios.IsVisible = true;
+                //StackSitio.IsVisible = true;
+
+                if (!string.IsNullOrWhiteSpace(_nuePer.v_Correo)|| !string.IsNullOrEmpty(_nuePer.v_Correo)  )
+                {
+                    StackCorreo.IsVisible = true;
+                    v_servi.v_Correo = _nuePer.v_Correo;
+                }
+                if (!string.IsNullOrWhiteSpace(_nuePer.v_sitio) ||!string.IsNullOrEmpty(_nuePer.v_sitio)  )
+                {
+                    StackSitio.IsVisible = true;
+                    v_servi.v_sitio = _nuePer.v_sitio;
+                }
+                if (!string.IsNullOrWhiteSpace(_nuePer.v_descripcion) ||!string.IsNullOrEmpty(_nuePer.v_descripcion) )
+                {
+                //    StackDescrip.IsVisible = false;
+                //}
+                //else
+                //{
+                //    StackDescrip.IsVisible = true;
+                    string conespacio = _nuePer.v_descripcion.Replace("/n", Environment.NewLine);
+                    // descrip.Text = " " + conespacio;
+                    v_servi.v_descripcion = conespacio;
+                }
+                Mensaje.IsVisible = false;
+                StackTodo.IsVisible = true;
+                this.BindingContext = v_servi;
+                v_tipo = 1;
             }
             catch (Exception ex)
             {
@@ -157,11 +172,11 @@ namespace Trato.Views
         public V_MedicoVista(C_ServGenerales _gene)
         {
             InitializeComponent();
-            StackSitio.IsVisible = true;
-            sitio.IsVisible = true;
+            //StackSitio.IsVisible = true;
+            //sitio.IsVisible = true;
             v_gene = _gene;
-            Fn_GetInfoGenerales();
-            nombre.Text = "Buscando Información";           
+            //Fn_GetInfoGenerales();            
+            //nombre.Text = "Buscando Información";           
         }
         async void Fn_GetInfoGenerales()
         {
@@ -175,38 +190,46 @@ namespace Trato.Views
                 HttpResponseMessage _respuestphp = await _client.PostAsync(_url, _content);
                 string _result = await _respuestphp.Content.ReadAsStringAsync();
                 C_ServGenerales _nuePer = JsonConvert.DeserializeObject<C_ServGenerales>(_result);
-
-                nombre.Text = v_gene.v_completo;
-                especial.Text = v_gene.v_Especialidad;
-                domicilio.Text = v_gene.v_Domicilio + "," + v_gene.v_Ciudad;
-                info.Text = "Telefono: " + _nuePer.v_Tel;//+ "\nCorreo: " + v_gene.v_Correo;// +
+                //nombre.Text = v_gene.v_completo;
+                //especial.Text = v_gene.v_Especialidad;
+                //domicilio.Text = v_gene.v_Domicilio + "," + v_gene.v_Ciudad;
+                //info.Text = "Telefono: " + _nuePer.v_Tel;//+ "\nCorreo: " + v_gene.v_Correo;// +
                                                         //"\nHorario: " + v_gene.v_horario;
-                sitio.Text = _nuePer.v_sitio;
+                //sitio.Text = _nuePer.v_sitio;
                 img.Source = v_gene.v_img;
-
                 string _benef = _nuePer.v_beneficio.Replace("/n", Environment.NewLine);
-                beneficios.Text = _benef;
-                if (string.IsNullOrEmpty(_nuePer.v_descripcion) || string.IsNullOrWhiteSpace(_nuePer.v_descripcion))
+                //beneficios.Text = _benef;
+                v_gene.v_Tel = _nuePer.v_Tel;
+                //v_gene.v_Correo = _nuePer.v_Correo;
+                v_gene.v_beneficio = _benef;
+                //v_gene.v_sitio = _nuePer.v_sitio;
+                //StackCorreo.IsVisible = true;
+                StackBeneficios.IsVisible = true;
+                //StackSitio.IsVisible = true;
+                if (!string.IsNullOrWhiteSpace(_nuePer.v_Correo) ||!string.IsNullOrEmpty(_nuePer.v_Correo)  )
                 {
-                    StackDescrip.IsVisible = false;
+                    StackCorreo.IsVisible = true;
+                    v_gene.v_Correo = _nuePer.v_Correo;
                 }
-                else
+                if (!string.IsNullOrWhiteSpace(_nuePer.v_sitio) ||!string.IsNullOrEmpty(_nuePer.v_sitio)  )
                 {
-                    string conespacio = _nuePer.v_descripcion.Replace("/n", Environment.NewLine);
-                    descrip.Text = conespacio;
+                    StackSitio.IsVisible = true;
+                    v_gene.v_sitio = _nuePer.v_sitio;
                 }
-                //descrip.Text = " " + v_gene.v_descripcion;
-                //_personaa = false;
-                v_tipo = 2;
-
-                //if (App.v_log=="1")
-                //{
-                //    boton.IsVisible = true;
+                if (!string.IsNullOrWhiteSpace(_nuePer.v_descripcion) || !string.IsNullOrEmpty(_nuePer.v_descripcion)  )
+                {
+                //    StackDescrip.IsVisible = false;
                 //}
                 //else
                 //{
-                //    boton.IsVisible = false;
-                //}
+                    string conespacio = _nuePer.v_descripcion.Replace("/n", Environment.NewLine);
+                    //descrip.Text = conespacio;
+                    v_gene.v_descripcion = conespacio;
+                }
+                Mensaje.IsVisible = false;
+                StackTodo.IsVisible = true;
+                this.BindingContext=v_gene;
+                v_tipo = 2;
             }
             catch (Exception ex)
             {
@@ -215,7 +238,7 @@ namespace Trato.Views
         }
         public async void Fn_Cita(object sender, EventArgs _args)
         {
-            await Navigation.PushAsync(new V_NCita( v_medico) { Title="Nueva Cita" });
+            await Navigation.PushAsync(new V_NCita( v_medico) { Title= v_medico.v_completo});
         }
         public async void Fn_AbrirSitio(object sender, EventArgs _args)
         {

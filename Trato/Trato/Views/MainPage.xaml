@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="Trato.Views.MainPage" Title="Bienvenido">
+            x:Class="Trato.Views.MainPage" Title="Bienvenido" BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="img" TargetType="Image">
@@ -24,7 +24,8 @@
             <!-- para encimar texto a la imagen https://forums.xamarin.com/discussion/92896/display-an-image-inside-in-a-text-->
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="" x:Name="M_mensaje" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="5,1" IsVisible="false" Style="{StaticResource AzulMedLbl}"/>
+            <Label Text="" x:Name="M_mensaje" HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                   Margin="5,1" IsVisible="false" Style="{StaticResource AzulMedLbl}" FontFamily="Helvetica"/>
             <Grid>
                 <Grid.RowDefinitions >
                     <RowDefinition Height="400"/>

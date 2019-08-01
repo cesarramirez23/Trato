@@ -21,7 +21,11 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class V_Perfil : TabbedPage
 	{
-
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         bool v_editando = false;
         bool v_editarMed = false;
         Pagar v_pagar;

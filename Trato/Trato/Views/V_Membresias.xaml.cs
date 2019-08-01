@@ -12,10 +12,15 @@ namespace Trato.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class V_Membresias :TabbedPage
     {
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            return true;
+        }
         public V_Membresias()
         {
             InitializeComponent();
-            M_Ind.Text= "Ésta es la membresía ideal para una persona independiente como tu. \n"
+            /*M_Ind.Text= "Ésta es la membresía ideal para una persona independiente como tu. \n"
                         +"* Asistencia Telefónica.\n"
                         +"* Acceso a Red Médica.\n"
                         + "* Consultas ilimitadas con Médicos Especialistas a $350 o $250 MNX.\n"
@@ -23,7 +28,6 @@ namespace Trato.Views
                         +"* Hospitales y Laboratorios descuentos del 5 % al 35 %\n"
                          +"* Centros de Rehabilitación y Terapias Físicas descuentos del 10 % al 35 %\n"
                           +"* Precios preferenciales y descuentos en muchos servicios más.\n";
-
             M_Fam.Text = "La membresía familiar es ideal para cubrir todas las necesidades de salud y bienestar de tus seres queridos.\n"
                         + "* Asistencia Telefónica.\n"
                         + "* Acceso a Red Médica.\n"
@@ -41,6 +45,7 @@ namespace Trato.Views
                         + "* Hospitales y  Laboratorios descuentos del 5% al 35%\n"
                         + "* Centros de  Rehabilitación y Terapias Físicas descuentos del 10% al 35%\n"
                         + "* Precios preferenciales y descuentos en muchos servicios más.\n";
+            */
             if (App.v_log == "1")
             {
                 ButEmp.IsVisible = false;
