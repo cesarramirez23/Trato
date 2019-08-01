@@ -63,6 +63,7 @@
                 <Setter Property="CornerRadius" Value="10"/>
                 <Setter Property="BackgroundColor" Value="{StaticResource AzulPrincipal}"/>
                 <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
                 <Setter Property="BorderRadius" Value="10"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="FontSize" Value="Medium"/>
@@ -78,6 +79,7 @@
                 <Setter Property="CornerRadius" Value="10"/>
                 <Setter Property="BackgroundColor" Value="{StaticResource AzulPrincipal}"/>
                 <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
                 <Setter Property="BorderRadius" Value="10"/>
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>

@@ -573,7 +573,7 @@ namespace Trato.Views
             {
                 HttpClient _cliente = new HttpClient();
                 L_Error.IsVisible = true;
-                L_Error.Text = "Procesando Informacion";
+                L_Error.Text = "Procesando Información";
                 try
                 {
                     url = NombresAux.BASE_URL + "prueba_json.php";
@@ -623,7 +623,7 @@ namespace Trato.Views
                 url = NombresAux.BASE_URL + "query_servicios_medicos.php";
                 HttpClient _cliente = new HttpClient();
                 L_Error.IsVisible = true;
-                L_Error.Text = "Procesando Informacion";
+                L_Error.Text = "Procesando Información";
                 try
                 {
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);
@@ -678,7 +678,7 @@ namespace Trato.Views
                 HttpClient _cliente = new HttpClient();
                 url = NombresAux.BASE_URL + "query_servicios_generales.php";
                 L_Error.IsVisible = true;
-                L_Error.Text = "Procesando Informacion";
+                L_Error.Text = "Procesando Información";
                 try
                 {
                     HttpResponseMessage _respuestphp = await _cliente.PostAsync(url, null);

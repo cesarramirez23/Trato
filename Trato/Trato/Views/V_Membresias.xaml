@@ -5,13 +5,13 @@
             BarBackgroundColor="{StaticResource AzulTab}">
     <TabbedPage.Resources>
         <Style x:Key="Stack" TargetType="StackLayout">
-            <Setter Property="Margin" Value="5,5"></Setter>                
+            <Setter Property="Margin" Value="10,10"></Setter>                
         </Style>
         <Style TargetType="Image">
             <Setter Property="Source" Value="Circulo.png"/>
             <Setter Property="Aspect" Value="AspectFit"/>
-            <Setter Property="HeightRequest" Value="15"/>
-            <Setter Property="WidthRequest" Value="15"/>
+            <Setter Property="HeightRequest" Value="7"/>
+            <Setter Property="WidthRequest" Value="7"/>
             <Setter Property="HorizontalOptions" Value="Start"/>
         </Style>
         <Style TargetType="Label">
@@ -61,8 +61,8 @@
                             <Label Text="Precios preferenciales y descuentos en muchos servicios más."/>
                         </StackLayout>
                     </StackLayout>
-                    <Label   Text="COSTO" Margin="0,5,0,2" TextColor="{StaticResource AzulPrincipal}"/>
-                    <Label>
+                    <Label FontAttributes="Bold"  Text="COSTO" Margin="0,5,0,2" TextColor="{StaticResource AzulPrincipal}"/>
+                    <Label FontAttributes="Bold">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Membresía anual " TextColor="{StaticResource GrisBold}"/>
@@ -117,8 +117,8 @@
                             <Label Text="Precios preferenciales y descuentos en muchos servicios más."/>
                         </StackLayout>
                     </StackLayout>
-                    <Label   Text="COSTO" Margin="0,5,0,2" TextColor="{StaticResource AzulPrincipal}"/>
-                    <Label>
+                    <Label FontAttributes="Bold"  Text="COSTO" Margin="0,5,0,2" TextColor="{StaticResource AzulPrincipal}"/>
+                    <Label FontAttributes="Bold">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Membresía anual " TextColor="{StaticResource GrisBold}"/>
@@ -173,8 +173,8 @@
                             <Label Text="Precios preferenciales y descuentos en muchos servicios más."/>
                         </StackLayout>
                     </StackLayout>
-                    <Label   Text="COSTO" Margin="0,5,0,2" TextColor="{StaticResource AzulPrincipal}"/>
-                    <Label>
+                    <Label FontAttributes="Bold"  Text="COSTO" Margin="0,5,0,2" TextColor="{StaticResource AzulPrincipal}"/>
+                    <Label FontAttributes="Bold">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Membresía anual " TextColor="{StaticResource GrisBold}"/>

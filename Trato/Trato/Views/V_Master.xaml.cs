@@ -61,43 +61,43 @@ namespace Trato.Views
         public void Fn_Contacto(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Contacto("1") { Title = "COONTACTO" });
+            Detail = new NavigationPage(new V_Contacto("1") { Title = "Contacto" });
         }
         public void Fn_Citas(object sender, EventArgs _args)
         {
             IsPresented = false;
             Console.Write("medicam   ---- true");
-            Detail = new NavigationPage(new V_Cita(false,null) { Title = "CITAS" });
+            Detail = new NavigationPage(new V_Cita(false,null) { Title = "Citas" });
         }
         public void Fn_Medicamentos(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Medicamento() { Title = "MEDICAMENTOS" });//   new V_Cita(true,false,null) { Title = "MEDICAMENTOS" });
+            Detail = new NavigationPage(new V_Medicamento() { Title = "Medicamentos" });//   new V_Cita(true,false,null) { Title = "MEDICAMENTOS" });
         }
         public void Fn_Medicos(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage( new V_Buscador(0) { Title = "RED MÉDICA" });
+            Detail = new NavigationPage( new V_Buscador(0) { Title = "Red Médica" });
         }
         public void Fn_Servicios(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage( new V_Buscador(1) { Title = "SERVICIOS DE SALUD" });
+            Detail = new NavigationPage( new V_Buscador(1) { Title = "Servicios de Salud" });
         }
         public void Fn_ServGen(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Buscador(2) { Title = "SERVICIOS GENERALES" });
+            Detail = new NavigationPage(new V_Buscador(2) { Title = "Servicios Generales" });
         }
         public void Fn_Perfil(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Perfil() { Title = "PERFIL" });
+            Detail = new NavigationPage(new V_Perfil() { Title = "Perfil" });
         }
         public void Fn_Opciones(object sender, EventArgs _args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Opciones() { Title = "CUENTA" });
+            Detail = new NavigationPage(new V_Opciones() { Title = "Cuenta" });
         }
         public async void Fn_Salir(object sender, EventArgs _args)
         {
@@ -153,7 +153,7 @@ namespace Trato.Views
         public void Fn_Info(object sender, EventArgs _Args)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new V_Informacion());
+            Detail = new NavigationPage(new V_Informacion(){Title="Información"});
 
         }
         public void Fn_Tarjeta(object sender, EventArgs _Args)

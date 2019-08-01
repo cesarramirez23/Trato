@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Trato.Views.V_Contacto" BackgroundColor="White">
@@ -15,8 +15,8 @@
                     <Editor AutoSize="TextChanges" x:Name="v_mensaje"></Editor>
                     <Button Text="Enviar" Style="{StaticResource Buton}" Clicked="Fn_Enviar"></Button>
                 </StackLayout>
-                <StackLayout x:Name="Tarjeta" IsVisible="False" VerticalOptions="FillAndExpand">
-                    <ContentView x:Name="qr_content" HorizontalOptions="Center" HeightRequest="400"/>
+                <StackLayout x:Name="Tarjeta" IsVisible="False" VerticalOptions="FillAndExpand" Margin="0,15">
+                    <ContentView x:Name="qr_content" HorizontalOptions="CenterAndExpand" HeightRequest="400" Margin="5,5"/>
                     <Button Text="Mostrar Tarjeta Virtual" Clicked="FN_CrearQR" x:Name="qr_but" VerticalOptions="EndAndExpand"  
                             Style="{StaticResource Buton}" ></Button>
                 </StackLayout>
