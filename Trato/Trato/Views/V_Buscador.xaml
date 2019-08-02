@@ -43,7 +43,7 @@
             </Grid>-->
         <!--RowHeight="150"-->
         <ListView  x:Name="v_lista" SeparatorColor="{StaticResource AzulPrincipal}" BackgroundColor="{StaticResource White}"  VerticalOptions="FillAndExpand" 
-                    SelectionMode="None" HasUnevenRows="True" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="5,5" ItemTapped="Fn_Select" >
+                    SelectionMode="None" HasUnevenRows="True" IsPullToRefreshEnabled="true" Refreshing="Fn_Refresh" IsRefreshing="false" Margin="10" ItemTapped="Fn_Select" >
             <ListView.Header>
                 <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                     <SearchBar Placeholder="Buscar" TextChanged="Fn_Buscar" HorizontalOptions="FillAndExpand"
@@ -66,18 +66,17 @@
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate >
-                    <ViewCell>
+                    <ViewCell >
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <Label Text="{Binding v_completo}" FontAttributes="Bold" FontSize="Medium" 
-                             HorizontalOptions="StartAndExpand" TextColor="{StaticResource AzulPrincipal}"/>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource White}">
-                                <Image x:Name="imgSexo" HorizontalOptions="Start" 
-                                                   HeightRequest="70" WidthRequest="70" VerticalOptions="Center" >
+                                 HorizontalOptions="StartAndExpand" TextColor="{StaticResource AzulPrincipal}"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+                                <Image x:Name="imgSexo" HorizontalOptions="Start"  HeightRequest="70" WidthRequest="70" VerticalOptions="Center" >
                                     <Image.Source>
                                         <UriImageSource Uri="{Binding v_img}"/>
                                     </Image.Source>
                                 </Image>
-                                <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" BackgroundColor="{StaticResource White}">
+                                <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" BackgroundColor="Transparent">
                                     <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource GrisBase}" />
                                     <Label Text="{Binding v_Domicilio}" TextColor="{StaticResource GrisBase}"/>
                                     <Label>

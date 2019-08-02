@@ -138,11 +138,11 @@ namespace Trato.Views
                 StackBeneficios.IsVisible = true;
                 //StackSitio.IsVisible = true;
 
-                if (!string.IsNullOrWhiteSpace(_nuePer.v_Correo)|| !string.IsNullOrEmpty(_nuePer.v_Correo)  )
-                {
-                    StackCorreo.IsVisible = true;
-                    v_servi.v_Correo = _nuePer.v_Correo;
-                }
+                //if (!string.IsNullOrWhiteSpace(_nuePer.v_Correo)|| !string.IsNullOrEmpty(_nuePer.v_Correo)  )
+                //{
+                //    StackCorreo.IsVisible = true;
+                //    v_servi.v_Correo = _nuePer.v_Correo;
+                //}
                 if (!string.IsNullOrWhiteSpace(_nuePer.v_sitio) ||!string.IsNullOrEmpty(_nuePer.v_sitio)  )
                 {
                     StackSitio.IsVisible = true;
@@ -206,11 +206,11 @@ namespace Trato.Views
                 //StackCorreo.IsVisible = true;
                 StackBeneficios.IsVisible = true;
                 //StackSitio.IsVisible = true;
-                if (!string.IsNullOrWhiteSpace(_nuePer.v_Correo) ||!string.IsNullOrEmpty(_nuePer.v_Correo)  )
-                {
-                    StackCorreo.IsVisible = true;
-                    v_gene.v_Correo = _nuePer.v_Correo;
-                }
+                //if (!string.IsNullOrWhiteSpace(_nuePer.v_Correo) ||!string.IsNullOrEmpty(_nuePer.v_Correo)  )
+                //{
+                //    StackCorreo.IsVisible = true;
+                //    v_gene.v_Correo = _nuePer.v_Correo;
+                //}
                 if (!string.IsNullOrWhiteSpace(_nuePer.v_sitio) ||!string.IsNullOrEmpty(_nuePer.v_sitio)  )
                 {
                     StackSitio.IsVisible = true;
