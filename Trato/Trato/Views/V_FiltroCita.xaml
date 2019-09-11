@@ -4,12 +4,12 @@
              x:Class="Trato.Views.V_FiltroCita" BackgroundColor="White" Title="Filtro">
     <ContentPage.Content>
         <ScrollView BackgroundColor="White" Margin="0,0,0,2">
-            <StackLayout>
+            <StackLayout Margin="10,0">
                 <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="0,0" >
-                    <Label Text="Estados de la cita" TextColor="{StaticResource AzulTab}"
+                    <Label Text="Estados de la cita" TextColor="{StaticResource AzulTab}" FontSize="Large"
                     HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" BackgroundColor="White"/>
                 </StackLayout>
-                <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulPrincipal}" 
+                <ContentView HeightRequest="1" BackgroundColor="{StaticResource AzulPrincipal}" 
                                  HorizontalOptions="FillAndExpand" Margin="0,0"/>
                 <StackLayout x:Name="StackFiltro" Margin="10,5,10,10"/>
             </StackLayout>

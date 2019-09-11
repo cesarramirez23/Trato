@@ -4,45 +4,45 @@
              x:Class="Trato.Views.V_Filtro" BackgroundColor="White" Title="Filtro">
     <ContentPage.Content>
         <ScrollView BackgroundColor="White" Margin="0,0,0,2">
-            <StackLayout> 
+            <StackLayout Margin="10,0"> 
                 <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="0,0" >
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapEspe"/>
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Especialidades" TextColor="{StaticResource AzulTab}"
+                    <Label Text="Especialidades" TextColor="{StaticResource AzulTab}" FontSize="Large"
                     HorizontalOptions="Start" HorizontalTextAlignment="Start" BackgroundColor="White"/>
                     <Image Source="mas.png" HeightRequest="20" WidthRequest="20" 
                            Aspect="AspectFit" HorizontalOptions="EndAndExpand" />
                 </StackLayout>
-                <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulPrincipal}" 
+                <ContentView HeightRequest="1" BackgroundColor="{StaticResource AzulPrincipal}" 
                                  HorizontalOptions="FillAndExpand" Margin="0,0"/>
                 <StackLayout x:Name="StackFiltro" Margin="10,5,10,10" IsVisible="False"/>
 
 
-                <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="0,0" >
+                <StackLayout Orientation="Horizontal" BackgroundColor="White" Margin="5,0"  Padding="0,0" >
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapEstado"/>
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Estado" TextColor="{StaticResource AzulTab}"
+                    <Label Text="Estado" TextColor="{StaticResource AzulTab}" FontSize="Large"
                     HorizontalOptions="Start" HorizontalTextAlignment="Start" BackgroundColor="White"/>
                     <Image Source="mas.png" HeightRequest="20" WidthRequest="20" 
                            Aspect="AspectFit" HorizontalOptions="EndAndExpand" />
                 </StackLayout>
-                <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulPrincipal}" 
+                <ContentView HeightRequest="1" BackgroundColor="{StaticResource AzulPrincipal}" 
                                  HorizontalOptions="FillAndExpand" Margin="0,0"/>
                 <StackLayout x:Name="StackEstado" Margin="10,5,10,10" IsVisible="False"/>
 
 
-                <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="0,0" >
+                <StackLayout Orientation="Horizontal" BackgroundColor="White" Margin="5,0" Padding="0,0" >
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapCiudad"/>
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Ciudad" TextColor="{StaticResource AzulTab}"
+                    <Label Text="Ciudad" TextColor="{StaticResource AzulTab}" FontSize="Large"
                     HorizontalOptions="Start" HorizontalTextAlignment="Start" BackgroundColor="White"/>
                     <Image Source="mas.png" HeightRequest="20" WidthRequest="20" 
                            Aspect="AspectFit" HorizontalOptions="EndAndExpand" />
                 </StackLayout>
-                <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulPrincipal}" 
+                <ContentView HeightRequest="1" BackgroundColor="{StaticResource AzulPrincipal}" 
                         HorizontalOptions="FillAndExpand" Margin="0,0"/>
                 <StackLayout x:Name="StackCiudad" Margin="10,5,10,10" IsVisible="False"/>
                 

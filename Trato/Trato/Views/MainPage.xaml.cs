@@ -222,6 +222,7 @@ namespace Trato.Views
                 }
             }
         }
+        /*
        public async void FN_Red()
         {
             HttpClient _cliente= new HttpClient();
@@ -274,9 +275,12 @@ namespace Trato.Views
             }
             
         }
+        */
+
         public void Fn_AbrirSitio(object sender, EventArgs _args)
         {
-            Uri _url= new Uri(v_mostrar[v_actual].v_sitio);
+            //Uri _url= new Uri(v_mostrar[v_actual].v_sitio);
+            Uri _url= new Uri("https://server.anaseguros.com.mx/Micrositios/TRATOESPECIAL/Cotizador.html");
             Device.OpenUri(_url);
         }
 

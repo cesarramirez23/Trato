@@ -17,7 +17,7 @@
 
             <ScrollView >
                 <StackLayout x:Name="StackGeneral" Margin="10,5">
-                    <Label Text="Nombre completo" Style="{StaticResource lblSty}"/>
+                    <Label Text="Nombre Completo" Style="{StaticResource lblSty}"/>
                     <Entry x:Name="G_Nombre" IsEnabled="False"/>
 
                     <StackLayout x:Name="G_Stack_rf">
@@ -44,13 +44,13 @@
                     <Label Text="Ocupación/Giro" Style="{StaticResource lblSty}"/>
                     <Entry Placeholder="Ocupacion/Giro"  IsEnabled="False"  x:Name="G_Ocu"/>
 
-                    <Label Text="Nombre de la calle" Style="{StaticResource lblSty}"/>
+                    <Label Text="Nombre de la Calle" Style="{StaticResource lblSty}"/>
                     <Entry  Placeholder="Domicilio Calle" IsEnabled="False"  Keyboard="Default" x:Name="G_dom" />
 
                     <Label Text="Número Exterior" Style="{StaticResource lblSty}"/>
                     <Entry  Placeholder="Numero Exterior" IsEnabled="False"  Keyboard="Numeric" x:Name="G_ext" />
 
-                    <Label Text="Número interior" Style="{StaticResource lblSty}"/>
+                    <Label Text="Número Interior" Style="{StaticResource lblSty}"/>
                     <Entry  Placeholder="Numero Interior" IsEnabled="False"  Keyboard="Numeric" x:Name="G_inte" />
 
                     <Label Text="Colonia" Style="{StaticResource lblSty}"/>
@@ -74,7 +74,7 @@
                     <Label Text="Teléfono" Style="{StaticResource lblSty}"/>
                     <Entry IsEnabled="False"  x:Name="G_Tel" Keyboard="Numeric"/>
 
-                    <Label Text="celular"  Style="{StaticResource lblSty}"/>
+                    <Label Text="Celular"  Style="{StaticResource lblSty}"/>
                     <Entry IsEnabled="False" x:Name="G_Cel" Keyboard="Numeric"/>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" x:Name="G_Pagar" IsVisible="False">
@@ -97,7 +97,7 @@
                         </Grid>
                     </StackLayout>
 
-                    <Grid Margin="0,0,0,10">
+                    <Grid Margin="0,15">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
@@ -114,31 +114,28 @@
         <ContentPage Title="Info Medica" Icon="tab_Corazon.png">
             <ScrollView >
                 <StackLayout x:Name="StackMedi" Margin="10,5" >
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
-                        <Picker  x:Name="M_Sangre" IsEnabled="False" HorizontalOptions="FillAndExpand" Title="Elige tipo de sangre">
-                            <Picker.Items>
-                                <x:String>O-</x:String>
-                                <x:String>O+</x:String>
-                                <x:String>A-</x:String>
-                                <x:String>A+</x:String>
-                                <x:String>B-</x:String>
-                                <x:String>B+</x:String>
-                                <x:String>AB-</x:String>
-                                <x:String>AB+</x:String>
-                            </Picker.Items>
-                        </Picker>
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Sexo" Style="{StaticResource lblSty}"/>
-                        <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo" IsEnabled="False"  Title="Elige tu sexo">
-                            <Picker.Items>
-                                <x:String>Masculino</x:String>
-                                <x:String>Femenino</x:String>
-                            </Picker.Items>
-                        </Picker>
-                    </StackLayout>
+                    
+                    <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
+                    <Picker  x:Name="M_Sangre" IsEnabled="False" HorizontalOptions="FillAndExpand" Title="Elige tipo de sangre">
+                        <Picker.Items>
+                            <x:String>O-</x:String>
+                            <x:String>O+</x:String>
+                            <x:String>A-</x:String>
+                            <x:String>A+</x:String>
+                            <x:String>B-</x:String>
+                            <x:String>B+</x:String>
+                            <x:String>AB-</x:String>
+                            <x:String>AB+</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    
+                    <Label Text="Sexo" Style="{StaticResource lblSty}"/>
+                    <Picker x:Name="M_sexoPick" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Fn_PickSexo" IsEnabled="False"  Title="Elige tu sexo">
+                        <Picker.Items>
+                            <x:String>Masculino</x:String>
+                            <x:String>Femenino</x:String>
+                        </Picker.Items>
+                    </Picker>
 
                     <Label x:Name="M_sexolbl" IsVisible="False" Style="{StaticResource lblSty}"/>
                     <Editor x:Name="M_sexo" IsVisible="False"  IsEnabled="False"/>
@@ -153,17 +150,15 @@
                     <Editor  x:Name="M_Operaciones" IsEnabled="False"/>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                        <Label Text="Enfermedades constantes?. ¿Qúe esfermedad y que medicamentos toman?" Style="{StaticResource lblSty}"></Label>
+                        <Label Text="Enfermedades constantes,cuáles y qué medicamentos toman?" Style="{StaticResource lblSty}"></Label>
                         <Switch x:Name="Tog_Enfer" Toggled="Fn_SwiEnfer" HorizontalOptions="CenterAndExpand" IsEnabled="False"></Switch>
                     </StackLayout>
                     <Editor  IsVisible="False" x:Name="M_Enferme" IsEnabled="False"/>
-
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Toma algun medicamento?. ¿Cúales?"  Style="{StaticResource lblSty}"></Label>
-                    </StackLayout>
+                    
+                    <Label Text="Toma algún medicamento?.¿Cuáles?"  Style="{StaticResource lblSty}"/>
                     <Editor  x:Name="M_Medicamentos"  IsEnabled="False"/>
 
-                    <Grid Margin="0,0,0,10">
+                    <Grid Margin="0,15">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />

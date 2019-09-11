@@ -84,7 +84,11 @@ namespace Trato.Views
                 Style _stylebut = (Style)App.Current.Resources["Buton"];
                 for (int i = 0; i < v_medicamentos.Count; i++)
                 {
-                    StackLayout _stack = new StackLayout() { BackgroundColor = Color.White, Padding = new Thickness(0) };
+                    StackLayout _stack = new StackLayout() {
+                        BackgroundColor = Color.White,
+                        Padding = new Thickness(0),
+                        Margin= new Thickness(0,5)
+                    };
                     if(i%2==1)
                     {
                         _stack.BackgroundColor = _azulfondo;
@@ -93,7 +97,7 @@ namespace Trato.Views
                     v_medicamentos[i].Fn_SetTexto();
                     StackLayout _hori = new StackLayout() { Orientation = StackOrientation.Horizontal, Padding = new Thickness(0)};
                     Image _img = new Image() { Source = "Circulo.png",HorizontalOptions= LayoutOptions.Start,
-                        HeightRequest =15, Aspect= Aspect.AspectFit, WidthRequest=15 };
+                        HeightRequest =7, Aspect= Aspect.AspectFit, WidthRequest=7 };
                     Label _nombre = new Label() { Text = v_medicamentos[i].v_nombre, TextColor= _azulprin };
                     _hori.Children.Add(_img);
                     _hori.Children.Add(_nombre);
@@ -114,18 +118,11 @@ namespace Trato.Views
                         _btn.IsEnabled = false;
                     }
                     _btn.Clicked += Fn_SetEstado;
-                    ContentView _linea = new ContentView() {
-                        HeightRequest = 2,
-                        BackgroundColor = _azulprin,
-                        Margin =new Thickness(0),
-                        Padding = new Thickness(0)
-                     };
                     _stack.Children.Add(_dosis);
                     _stack.Children.Add(_dias);
                     _stack.Children.Add(_horas);
                     _stack.Children.Add(_info);
                     _stack.Children.Add(_btn);
-                    _stack.Children.Add(_linea);
                     StackLista.Children.Add(_stack);
                 }
             }

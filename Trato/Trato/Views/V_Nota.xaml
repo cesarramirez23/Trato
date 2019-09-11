@@ -5,7 +5,8 @@
     <ContentPage.Content>
         <ScrollView Margin="0,10">
             <StackLayout Margin="10,10">
-                <Label x:Name="nombre" TextColor="{StaticResource AzulPrincipal}"/>
+                <Label x:Name="nombre" TextColor="{StaticResource AzulPrincipal}"
+                       FontAttributes="Bold" FontSize="Large"/>
                 <Label x:Name="especialidad" TextColor="{StaticResource GrisBold}"/>
                 <Label x:Name="descripcion" TextColor="{StaticResource GrisBase}" FontSize="Small"/>
                 <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulTab}"

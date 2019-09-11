@@ -18,7 +18,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout BackgroundColor="{Binding v_color}">
+                            <StackLayout BackgroundColor="{Binding v_color}" Margin="0,10">
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="Campana.png" HorizontalOptions="Start" HeightRequest="30" Aspect="AspectFit"/>
                                     <Label FontSize="Medium" Text="{Binding v_fechaDate,StringFormat=' {0:MMMM dd yyyy hh:mm tt}'}" 

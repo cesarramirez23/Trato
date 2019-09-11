@@ -13,8 +13,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Vertical" BackgroundColor="{Binding v_color}" >
-                            <Label Text="{Binding v_completo}" FontSize="Large" TextColor="{StaticResource AzulTab}"/>
+                        <StackLayout Orientation="Vertical" BackgroundColor="{Binding v_color}" Margin="0,5" >
+                            <Label Text="{Binding v_completo}" FontSize="Large" FontAttributes="Bold"
+                                   TextColor="{StaticResource AzulTab}"/>
                             <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource GrisBase}"/>
                             <Label  TextColor="{StaticResource AzulPrincipal}">
                                 <Label.FormattedText>

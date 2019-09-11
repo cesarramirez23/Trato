@@ -331,4 +331,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Tarjeta_Virtual.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logo_Ana.png" />
+  </ItemGroup>
 </Project>

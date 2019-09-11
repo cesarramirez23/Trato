@@ -9,7 +9,7 @@
                        TextColor="{StaticResource AzulTab}" Text="Buscando Información"/>
                 <StackLayout Orientation="Vertical" Margin="20,30" x:Name="StackTodo" IsVisible="False">
                     <Image x:Name="img" WidthRequest="250" HeightRequest="250" BackgroundColor="Transparent"/>
-                    <Label FontSize="Large" HorizontalOptions="CenterAndExpand" 
+                    <Label FontSize="Large" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" 
                            TextColor="{StaticResource AzulTab}" Text="{Binding v_completo}"/>
                     <Label Text="{Binding v_Especialidad}" TextColor="{StaticResource GrisBold}" HorizontalOptions="CenterAndExpand"/>
                     <ContentView HeightRequest="2" BackgroundColor="{StaticResource AzulTab}" HorizontalOptions="FillAndExpand"/>

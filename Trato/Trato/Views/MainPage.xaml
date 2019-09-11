@@ -23,24 +23,30 @@
     
             <!-- para encimar texto a la imagen https://forums.xamarin.com/discussion/92896/display-an-image-inside-in-a-text-->
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="" x:Name="M_mensaje" HorizontalOptions="Center" HorizontalTextAlignment="Center"
+        <StackLayout Orientation="Vertical">
+                <Label Text="" x:Name="M_mensaje" HorizontalOptions="Center" HorizontalTextAlignment="Center"
                    Margin="5,1" IsVisible="false" Style="{StaticResource AzulMedLbl}" FontFamily="Helvetica"/>
-            <Grid>
-                <Grid.RowDefinitions >
-                    <RowDefinition Height="400"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Image Source="LOGOTRATOESPECIAL.png" Grid.Column="0" Grid.Row="0"></Image>
-                <Image x:Name="MainBanner" Source="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Grid.Column="0" Grid.Row="1" Aspect="AspectFit" Margin="0,20">
+                <Image Source="LOGOTRATOESPECIAL.png" Grid.Column="0" Grid.Row="0" HeightRequest="250"></Image>
+                <!--
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="400"/>
+                    </Grid.RowDefinitions>
+                    <Image x:Name="MainBanner" Source="" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Grid.Column="0" Grid.Row="1" Aspect="AspectFit" Margin="0,20">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_AbrirSitio"   NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Image.GestureRecognizers>
                 </Image>
-            </Grid>
+                </Grid>
+                    -->
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Fn_AbrirSitio"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="Logo_Ana" Aspect="AspectFit" HeightRequest="100"/>
+                    <Label Text="COTIZA Y ASEGURA TU AUTO AQUÍ" Style="{StaticResource AzulMedLbl}" 
+                       TextColor="Black" HorizontalOptions="Center"/>
+                </StackLayout>
 
             </StackLayout>
     </ContentPage.Content>

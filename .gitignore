@@ -213,3 +213,10 @@ project.lock.json
 .vs/Trato/v15/Server/sqlite3/storage.ide-wal
 .vs/Trato/v15/Server/sqlite3/storage.ide
 .vs/Trato/v15/Server/sqlite3/storage.ide
+*.ide
+*.ide
+*.ide-shm
+*.ide
+*.ide-wal
+*.ide-wal
+.vs/Trato/v15/Server/sqlite3/storage.ide-wal

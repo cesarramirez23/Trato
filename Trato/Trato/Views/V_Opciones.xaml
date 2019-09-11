@@ -8,16 +8,16 @@
             <StackLayout >
                 <Label FontSize="Medium" TextColor="{StaticResource GrisBold}" x:Name="C_Tipo"/>
                 <Label Style="{StaticResource AzulMedLbl}" Text="Membresía" TextColor="{StaticResource AzulPrincipal}"/>
-                <Label  FontSize="Medium" TextColor="{StaticResource GrisBold}" x:Name="C_Membre"/>
+                <Label  FontSize="Large" TextColor="{StaticResource GrisBold}" x:Name="C_Membre"/>
                 <Label Style="{StaticResource AzulMedLbl}" Text="Folio" TextColor="{StaticResource AzulPrincipal}"/>
                 <Label FontSize="Medium" TextColor="{StaticResource GrisBold}" x:Name="C_Fol"/>
                 <Label Style="{StaticResource AzulMedLbl}" Text="Vigencia"/>
                 <Label  FontSize="Medium" TextColor="{StaticResource GrisBold}" x:Name="C_fecha"/>
                 <Label Style="{StaticResource AzulMedLbl}" Text="Total de usuarios" x:Name="C_T_usu" IsVisible="False"/>
                 
-                <StackLayout x:Name="StackTodoPromo" IsVisible="False">
+                <StackLayout x:Name="StackTodoPromo" IsVisible="False" >
                     <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource AzulPrincipal}"/>
-                    <Button Text="Promotor" Clicked="Fn_VisibleProm" Style="{StaticResource Buton}" HorizontalOptions="Start" Margin="0"/>
+                    <Button Text="Promotor" Clicked="Fn_VisibleProm" Style="{StaticResource Buton}" HorizontalOptions="Start" Margin="0,10"/>
                     <StackLayout x:Name="StackPromotor" IsVisible="False">
                         <Label Style="{StaticResource AzulMedLbl}" Text="Membresía actual"/>
                         <Entry x:Name="Pro_Membre" IsEnabled="False"/>
@@ -41,7 +41,7 @@
                     </StackLayout>
                 </StackLayout>
                 <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource AzulPrincipal}"/>
-                <Button Text="Contraseña" Margin="0,0" Clicked="MostrarPass" Style="{StaticResource Buton}" HorizontalOptions="End"/>
+                <Button Text="Contraseña" Margin="0,10" Clicked="MostrarPass" Style="{StaticResource Buton}" HorizontalOptions="End"/>
                 <StackLayout x:Name="StackPass" IsVisible="False">
                     <Label Text="Cambio de Contraseña" Style="{StaticResource AzulMedLbl}" FontSize="Large"/>
                     <Label Text="Ingresa tu contraseña actual" Style="{StaticResource AzulMedLbl}"/>
