@@ -220,3 +220,7 @@ project.lock.json
 *.ide-wal
 *.ide-wal
 .vs/Trato/v15/Server/sqlite3/storage.ide-wal
+.vs/Trato/v15/Server/sqlite3/storage.ide-wal
+.vs/Trato/DesignTimeBuild/.dtbcache
+*.ide
+*.ide-shm
