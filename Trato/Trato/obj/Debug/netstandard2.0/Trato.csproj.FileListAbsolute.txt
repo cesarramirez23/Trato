@@ -130,7 +130,6 @@ C:/Users/Cesar-Alsain/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.0/Views/V_Pagos.xaml.g.cs
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.0/Views/V_Perfil.xaml.g.cs
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.0/Views/V_Registro.xaml.g.cs
-/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.0/Trato.csproj.CoreCompileInputs.cache
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.0/Trato.AssemblyInfoInputs.cache
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.0/Trato.AssemblyInfo.cs
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj/Debug/netstandard2.0/XamlC.stamp
