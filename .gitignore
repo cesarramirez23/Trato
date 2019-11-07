@@ -224,3 +224,4 @@ project.lock.json
 .vs/Trato/DesignTimeBuild/.dtbcache
 *.ide
 *.ide-shm
+*.ide

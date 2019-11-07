@@ -39,7 +39,12 @@
                 </Image>
                 </Grid>
                     -->
-                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+            <Grid VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_AbrirSitio"/>
                     </StackLayout.GestureRecognizers>
@@ -47,6 +52,14 @@
                     <Label Text="COTIZA Y ASEGURA TU AUTO AQUÍ" Style="{StaticResource AzulMedLbl}" 
                        TextColor="Black" HorizontalOptions="Center"/>
                 </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Fn_AbrirSitioSolin"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="logo_colores.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="100"/>
+                </StackLayout>
+            </Grid>
 
             </StackLayout>
     </ContentPage.Content>

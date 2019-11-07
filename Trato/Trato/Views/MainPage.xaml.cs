@@ -283,7 +283,13 @@ namespace Trato.Views
             Uri _url= new Uri("https://server.anaseguros.com.mx/Micrositios/TRATOESPECIAL/Cotizador.html");
             Device.OpenUri(_url);
         }
-
+        public void Fn_AbrirSitioSolin(object sender, EventArgs _args)
+        {
+            //Uri _url= new Uri(v_mostrar[v_actual].v_sitio);
+            Uri _url = new Uri("https://m.facebook.com/Solinmedic");
+            Device.OpenUri(_url);
+        }
+        
 
     }
 }

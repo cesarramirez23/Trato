@@ -1619,32 +1619,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/saullopez/.nuget/packages/": {}
+    "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/Trato.Android.csproj",
+      "projectUniqueName": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
       "projectName": "Trato.Android",
-      "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/Trato.Android.csproj",
-      "packagesPath": "/Users/saullopez/.nuget/packages/",
-      "outputPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.Android/obj/",
+      "projectPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
+      "packagesPath": "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\",
+      "outputPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/saullopez/.config/NuGet/NuGet.Config"
+        "C:\\Users\\PRODUCCION-ALSAIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid81"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj": {
-              "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj"
+            "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj": {
+              "projectPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj"
             }
           }
         }

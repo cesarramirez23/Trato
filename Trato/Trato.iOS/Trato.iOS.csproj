@@ -334,4 +334,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Logo_Ana.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_colores.jpg" />
+  </ItemGroup>
 </Project>
