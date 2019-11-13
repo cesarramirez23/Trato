@@ -6,11 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="CClarke.Plugin.Calendars" Version="1.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NUnit" Version="3.11.0" />
-    <PackageReference Include="PayPal.Forms" Version="2.18.3" />
+    <PackageReference Include="PayPal.Forms" Version="2.18.6" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
-    <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
   </ItemGroup>

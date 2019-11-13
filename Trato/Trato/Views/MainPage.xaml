@@ -57,7 +57,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Fn_AbrirSitioSolin"/>
                     </StackLayout.GestureRecognizers>
-                    <Image Source="logo_colores.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="100"/>
+                    <Image Source="logo_colores.jpg" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="100"/>
                 </StackLayout>
             </Grid>
 
