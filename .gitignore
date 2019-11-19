@@ -225,3 +225,6 @@ project.lock.json
 *.ide
 *.ide-shm
 *.ide
+*.ide
+*.ide
+.vs/Trato/v15/Server/sqlite3/storage.ide

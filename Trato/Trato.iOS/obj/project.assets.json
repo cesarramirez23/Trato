@@ -2012,32 +2012,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/saullopez/.nuget/packages/": {}
+    "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
+      "projectUniqueName": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
       "projectName": "Trato.iOS",
-      "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
-      "packagesPath": "/Users/saullopez/.nuget/packages/",
-      "outputPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/obj/",
+      "projectPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "packagesPath": "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\",
+      "outputPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/saullopez/.config/NuGet/NuGet.Config"
+        "C:\\Users\\PRODUCCION-ALSAIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj": {
-              "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj"
+            "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj": {
+              "projectPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj"
             }
           }
         }

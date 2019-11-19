@@ -723,24 +723,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/saullopez/.nuget/packages/": {}
+    "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj",
+      "projectUniqueName": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj",
       "projectName": "Trato",
-      "projectPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/Trato.csproj",
-      "packagesPath": "/Users/saullopez/.nuget/packages/",
-      "outputPath": "/Users/saullopez/Documents/GitHub/Trato/Trato/Trato/obj/",
+      "projectPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj",
+      "packagesPath": "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\",
+      "outputPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/Users/saullopez/.config/NuGet/NuGet.Config"
+        "C:\\Users\\PRODUCCION-ALSAIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -797,16 +803,10 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
   }
