@@ -586,7 +586,7 @@ namespace Trato.Views
                     await Orden();
                     App.Fn_ImgSexo();
                     v_lista.ItemsSource = App.v_medicos;
-                    App.Fn_GuardarRed(App.v_medicos);
+                    //App.Fn_GuardarRed(App.v_medicos);
                 }
                 catch (Exception _ex)
                 {

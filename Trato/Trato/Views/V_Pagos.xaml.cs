@@ -36,7 +36,6 @@ namespace Trato
                     P_mensajes.Text = "Ya tienes una ficha generada, no puedes crear una nueva";
                     P_OxxoBut.Text = "YA TIENES UNA";
                     P_OxxoBut.IsEnabled = false;
-                   
                 }
             }
             else{

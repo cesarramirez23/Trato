@@ -16,7 +16,7 @@
         <ContentPage Title="Info General" Icon="tab_Citas.png" >
 
             <ScrollView >
-                <StackLayout x:Name="StackGeneral" Margin="10,5">
+                <StackLayout x:Name="StackGeneral" Margin="5,5">
                     <Label Text="Nombre Completo" Style="{StaticResource lblSty}"/>
                     <Entry x:Name="G_Nombre" IsEnabled="False"/>
 
@@ -77,23 +77,30 @@
                     <Label Text="Celular"  Style="{StaticResource lblSty}"/>
                     <Entry IsEnabled="False" x:Name="G_Cel" Keyboard="Numeric"/>
 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" x:Name="G_Pagar" IsVisible="False">
-                        <Grid>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" x:Name="G_Pagar" IsVisible="False">
+                        <Grid HorizontalOptions="FillAndExpand">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="80"/>
+                                <RowDefinition />
+                                <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Button Text="Pagar vía OXXO" Clicked="Fn_PagarEfec"  Style="{StaticResource Buton2}" 
-                                Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" x:Name="G_ButOxxo" ></Button>
-                            <Button Text="Pagar con PayPal" Clicked="Fn_PagarPay" Style="{StaticResource Buton2}"
-                                Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" x:Name="G_ButPay"></Button>
-                            <Label Text ="Tu cuenta no está activada, es posible que tengas acceso limitado" 
-                                   TextColor="{StaticResource AzulPrincipal}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="1"/>
-
+                            <Label Text ="Tu cuenta no está activada, es posible que tengas acceso limitado" x:Name="LblMensaje"
+                                Grid.ColumnSpan="3" TextColor="{StaticResource AzulPrincipal}"/>
+                            <Label Text ="Métodos de pago:" Grid.Row="1" FontAttributes="Bold" TextColor="{StaticResource AzulPrincipal}"
+                                  Grid.ColumnSpan="3" VerticalTextAlignment="End"/>
+                            <Button Text="Vía OXXO" Clicked="Fn_PagarEfec"  Style="{StaticResource Buton2}" 
+                                Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2" x:Name="G_ButOxxo" />
+                            <Button Text="Vía PayPal" Clicked="Fn_PagarPay" Style="{StaticResource Buton2}"
+                                Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="2" x:Name="G_ButPay"/>
+                            <Button Text="Tarjeta de crédito o débito" Clicked="Fn_PagarBillpocket" Style="{StaticResource Buton2}"
+                                Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="2" />
+                            <!-- "Vía Billpocketa Tarjeta de crédito o débito"
+                            -->
                         </Grid>
                     </StackLayout>
 
@@ -113,7 +120,7 @@
 
         <ContentPage Title="Info Medica" Icon="tab_Corazon.png">
             <ScrollView >
-                <StackLayout x:Name="StackMedi" Margin="10,5" >
+                <StackLayout x:Name="StackMedi" Margin="5,5" >
                     
                     <Label Text="Tipo de Sangre" Style="{StaticResource lblSty}"></Label>
                     <Picker  x:Name="M_Sangre" IsEnabled="False" HorizontalOptions="FillAndExpand" Title="Elige tipo de sangre">

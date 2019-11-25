@@ -13,7 +13,8 @@ namespace Trato
         public const string v_letra="letra"; 
         public const string v_folio="folio"; 
         public const string v_perfGen= "perfGen";
-        public const string v_perMed= "perfMed"; 
+        public const string v_perMed= "perfMed";
+        public const string v_validar="validar";
         /// <summary>
         /// cuando los doctores solo tenian una especialidad
         /// </summary>

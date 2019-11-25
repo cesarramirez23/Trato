@@ -140,13 +140,14 @@ namespace Trato.Views
                 HttpResponseMessage _respuestaphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestaphp.Content.ReadAsStringAsync();
                 //await DisplayAlert("llega validacion", _respuesta, "sdsad");
-                App.v_perfil.v_activo = _respuesta;
+                C_Validar _validar = JsonConvert.DeserializeObject<C_Validar>(_respuesta);
+                App.Fn_GuardaValidacion(_validar);
+                App.v_perfil.v_activo = _validar.v_activado;
                 App.Fn_GuardarDatos(App.v_perfil, App.v_membresia, App.v_folio, App.v_letra);
-                if(_respuesta!="1")
+                if(_validar.v_activado != "1")
                 {
                     M_mensaje.IsVisible = true;
                     M_mensaje.Text = "Aviso \n Cuenta no activada, ve a la seccion de perfil para mas información  ";
-                  
                 }
                 /*
                 try
@@ -212,8 +213,9 @@ namespace Trato.Views
                 }
                 */
             }
-            catch
+            catch(Exception _ex)
             {
+                App.Fn_GuardaValidacion(new C_Validar() { v_activado = "1", v_renovacion = "1" });
                 App.Fn_CargarDatos();
                 if (App.v_perfil.v_activo != "1")
                 {

@@ -11,7 +11,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ZXing.Net.Mobile.Forms;
-
+using Xamarin.Essentials;
 
 
 namespace Trato.Views
@@ -139,14 +139,20 @@ namespace Trato.Views
 
         public void FN_CrearQR(object sender, EventArgs _Args)
         {
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+            //await DisplayAlert("", mainDisplayInfo.Width + "  hei " + mainDisplayInfo.Height,"sdasd");
             barcode = new ZXingBarcodeImageView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Start,
             };
             barcode.BarcodeFormat = ZXing.BarcodeFormat.AZTEC;
-            barcode.BarcodeOptions.Width = 700;
-            barcode.BarcodeOptions.Height = 700;
+
+            // Get Metrics
+            int _val = (int)mainDisplayInfo.Width - 20;
+            barcode.BarcodeOptions.Width = _val; //700;
+            barcode.BarcodeOptions.Height = _val;//700;
+
 
             string json = @"{";
             json += "idmembre:'" + App.v_membresia + "',\n";

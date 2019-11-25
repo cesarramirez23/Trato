@@ -52,6 +52,8 @@ D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_Registr
 D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.csproj.CoreCompileInputs.cache
 D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.AssemblyInfoInputs.cache
 D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.AssemblyInfo.cs
-D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp
 D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.dll
 D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\Trato.pdb
+D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\Page1.xaml.g.cs
+D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\Views\V_PagoBill.xaml.g.cs
+D:\cesar cosas\Github\Trato\Trato\Trato\obj\Debug\netstandard2.0\XamlC.stamp

@@ -26,6 +26,7 @@ namespace Trato
         public static ObservableCollection<C_NotaMed> v_NotasMedic = new ObservableCollection<C_NotaMed>();
         #endregion
         #region PErfil y cosas propias para el login
+        public static C_Validar v_valida = new C_Validar();
         /// <summary>
         /// Perfil General
         /// </summary>
@@ -79,7 +80,9 @@ namespace Trato
                     Properties[NombresAux.v_folio] = v_folio;
                     //v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
                     //Fn_CargarListas();
+
                     MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+                    //MainPage = new Page1();
                 }//si esta logeado
                 else if (v_log == "1")
                 {
@@ -103,10 +106,12 @@ namespace Trato
                         Console.Write("cargca carga " + v_perfil.Fn_GetDatos() + "\n");
                     }
                     // v_IdCalendar = Current.Properties[NombresAux.v_IdCalendar] as string;
+                    //MainPage = new Page1();
                     MainPage = new V_Master(true, "Bienvenido " + v_perfil.v_Nombre);
                 }
                 else
                 {
+                    //MainPage = new Page1();
                     MainPage = new V_Master(false, "Bienvenido a Trato Especial");
                 }
             }
@@ -239,6 +244,12 @@ namespace Trato
             //        Current.Properties.Add(NombresAux.v_IdCalendar, v_IdCalendar);
             //    }
             //}
+            if (!Properties.ContainsKey(NombresAux.v_validar))
+            {
+                v_valida = new C_Validar();
+                string _json = JsonConvert.SerializeObject(v_valida);
+                Properties.Add(NombresAux.v_validar, _json);
+            }
             await Current.SavePropertiesAsync();
         }
         /// <summary>
@@ -458,6 +469,18 @@ namespace Trato
                 string _json = JsonConvert.SerializeObject(_arr);
                 Current.Properties.Add(NombresAux.v_filCita, _json);
             }
+            if (!Current.Properties.ContainsKey(NombresAux.v_validar))
+            {
+                v_valida = new C_Validar();
+                string _json = JsonConvert.SerializeObject(v_valida);
+                Current.Properties.Add(NombresAux.v_validar, "");
+                Current.Properties[NombresAux.v_validar] = _json;
+            }
+            else
+            {
+                string _json = Current.Properties[NombresAux.v_validar] as string;
+                v_valida = JsonConvert.DeserializeObject<C_Validar>(_json);
+            }
             //ID DEL CALENDARIO
             //if (!Current.Properties.ContainsKey(NombresAux.v_IdCalendar))
             //{
@@ -639,6 +662,12 @@ namespace Trato
         {
             string _json = JsonConvert.SerializeObject(_filtro);
             Current.Properties[NombresAux.v_filCita] = _json;
+            await Current.SavePropertiesAsync();
+        }
+        public static async void Fn_GuardaValidacion(C_Validar _val)
+        {
+            string _json = JsonConvert.SerializeObject(_val);
+            Current.Properties[NombresAux.v_validar] = _json;
             await Current.SavePropertiesAsync();
         }
         #endregion

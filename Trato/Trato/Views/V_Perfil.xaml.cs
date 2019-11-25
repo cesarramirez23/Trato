@@ -31,81 +31,85 @@ namespace Trato.Views
         Pagar v_pagar;
         /*
          get_medicamentos*/
-        
 		public  V_Perfil ()
 		{
 			InitializeComponent ();
-
         }
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-          //  Fn_CargaQuery();
+            base.OnAppearing();//  Fn_CargaQuery();
             CargarMed();
             CargarGen();
             Fn_Activo();
-           await Task.Delay(100);
-
-
+            await Task.Delay(100);
         }
         public async void Fn_Activo()
-        {
-            //1 es ya
-            if (App.v_perfil.v_activo == "1")
+        {//1 es ya
+            App.Fn_CargarDatos();
+            Trato.Models.C_Validar _val = App.v_valida;
+            if (App.v_perfil.v_activo == "1"  && App.v_valida.v_renovacion == "0")//activado y aun no esta por terminar
             {
                 G_Editar.IsVisible = true;
                 G_Pagar.IsVisible = false;
                 M_Editar.IsVisible = true;
                 await Task.Delay(10);
-
-            }//no esta activado falta pagar  //else if(App.v_perfil.v_activo=="0")
-            else if(App.v_perfil.v_activo=="0"&& App.v_folio=="0")
+            }
+            else if(App.v_perfil.v_activo == "1" && App.v_valida.v_renovacion == "1")//activo y ya puede renovar
             {
-                string prime = App.v_membresia.Split('-')[0];
-                string _membre = "";
-                for (int i = 0; i < prime.Length - 1; i++)
-                {
-                    _membre += prime[i];
-                }
-                string letra = prime[prime.Length - 1].ToString();
-                string _conse = App.v_membresia.Split('-')[1];
-                string _nombre = "";
-                string _costo = "";
-                //familiar 1740   indi  580    empre por persona  464
-                if (letra=="F")
-                {
-                    _nombre = "Pago membresia Familiar de Trato Especial";
-                    _costo = "1740";
-                }
-                else if(letra=="I")
-                {
-                    _nombre = "Pago membresia Indiviual de Trato Especial";
-                    _costo = "580";
-                }
-                else if(letra=="E")
-                {
-                    _nombre = "Pago membresia Empresarial de Trato Especial";
-
-                    _costo = (int.Parse("464")* int.Parse(App.v_perfil.v_numEmple)).ToString();
-                }
-                else
-                {
-                    await DisplayAlert("Error", "error en letra", "aceptar");
-                }
-                v_pagar = new Pagar(_membre, letra, _conse, _costo, _nombre);
-
+                LblMensaje.Text = "Está por terminar la vigencia de tu membresía, puedes renovar desde este momento";
+                Fn_SetPagar();
+                G_Editar.IsVisible = true;
+                G_Pagar.IsVisible = true;
+                M_Editar.IsVisible = true;
+                await Task.Delay(10);
+            }//no esta activado falta pagar  //else if(App.v_perfil.v_activo=="0")
+            else if( App.v_perfil.v_activo == "0"  && App.v_folio=="0")//no activada
+            {
+                LblMensaje.Text = "Tu cuenta no está activada, es posible que tengas acceso limitado";
+                await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado", "Aceptar");
+                Fn_SetPagar();
                 G_Editar.IsVisible = false;
                 M_Editar.IsVisible = false;
                 G_Pagar.IsVisible = true;
-                await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado","Aceptar");
+                //string prime = App.v_membresia.Split('-')[0];
+                //string _membre = "";
+                //for (int i = 0; i < prime.Length - 1; i++)
+                //{
+                //    _membre += prime[i];
+                //}
+                //string letra = prime[prime.Length - 1].ToString();
+                //string _conse = App.v_membresia.Split('-')[1];
+                //string _nombre = "";
+                //string _costo = "";
+                ////familiar 1740   indi  580    empre por persona  464
+                //if (letra=="F")
+                //{
+                //    _nombre = "Pago membresia Familiar de Trato Especial";
+                //    _costo = "1740";
+                //}
+                //else if(letra=="I")
+                //{
+                //    _nombre = "Pago membresia Indiviual de Trato Especial";
+                //    _costo = "580";
+                //}
+                //else if(letra=="E")
+                //{
+                //    _nombre = "Pago membresia Empresarial de Trato Especial";
+                //    _costo = (int.Parse("464")* int.Parse(App.v_perfil.v_numEmple)).ToString();
+                //}
+                //else
+                //{
+                //    await DisplayAlert("Error", "error en letra", "aceptar");
+                //}
+                //v_pagar = new Pagar(_membre, letra, _conse, _costo, _nombre);
             }
-            else if(App.v_perfil.v_activo=="0" &&App.v_folio=="1")
+            else if(App.v_perfil.v_activo == "0"  && App.v_folio!="0")
             { 
                 G_Editar.IsVisible = false;
                 M_Editar.IsVisible = false;
+                LblMensaje.Text = "Tu cuenta no está activada, es posible que tengas acceso limitado";
                 await DisplayAlert("Aviso", "Tu cuenta no está activada, es posible que tengas acceso limitado", "Aceptar");
              }
-
             ///actualizaar el token
             string primetok = App.v_membresia.Split('-')[0];
             string _membreTok = "";
@@ -114,7 +118,6 @@ namespace Trato.Views
                 _membreTok += primetok[i];
             }
             string _conseTok = App.v_membresia.Split('-')[1];
-
             string _token = "";
             if(App.Fn_GEtToken()!="a")
             {
@@ -124,8 +127,6 @@ namespace Trato.Views
             {
                 _token = App.Fn_GEtToken();
             }
-            
-
             C_Login _login = new C_Login(_membreTok, App.v_letra, _conseTok, _token);
             string _jsonLog = JsonConvert.SerializeObject(_login, Formatting.Indented);
             string _DirEnviar = NombresAux.BASE_URL + "token_notification.php";
@@ -133,7 +134,6 @@ namespace Trato.Views
             Console.WriteLine(" infosss " + _jsonLog);
             //crear el cliente
             HttpClient _client = new HttpClient();
-
             try
             {
                 //mandar el json con el post
@@ -160,7 +160,41 @@ namespace Trato.Views
         public async void Fn_PagarPay(object sender, EventArgs _args)
         {
             await Navigation.PushAsync(new V_Pagos(false, v_pagar,"") { });
+        }
+         public async void Fn_PagarBillpocket(object sender, EventArgs _args)
+        {
+            await Navigation.PushAsync(new V_PagoBill(v_pagar));
+        }
+        private void Fn_SetPagar()
+        {
+            string prime = App.v_membresia.Split('-')[0];
+            string _membre = "";
+            for (int i = 0; i < prime.Length - 1; i++)
+            {
+                _membre += prime[i];
+            }
+            string letra = prime[prime.Length - 1].ToString();
+            string _conse = App.v_membresia.Split('-')[1];
+            string _nombre = "";
+            string _costo = "";
+            //familiar 1740   indi  580    empre por persona  464
+            if (letra == "F")
+            {
+                _nombre = "Pago membresia Familiar de Trato Especial";
+                _costo = "1740";
+            }
+            else if (letra == "I")
+            {
+                _nombre = "Pago membresia Indiviual de Trato Especial";
+                _costo = "580";
+            }
+            else if (letra == "E")
+            {
+                _nombre = "Pago membresia Empresarial de Trato Especial";
 
+                _costo = (int.Parse("464") * int.Parse(App.v_perfil.v_numEmple)).ToString();
+            } 
+            v_pagar = new Pagar(_membre, letra, _conse, _costo, _nombre);
         }
         /// <summary>
         /// carga el perfil desde la web y despues lo vuelve a guardar
@@ -188,7 +222,6 @@ namespace Trato.Views
             HttpClient _client = new HttpClient();
             string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
             StringContent _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
-
             try
             {
                 //mandar el json con el post
@@ -240,7 +273,6 @@ namespace Trato.Views
                 await DisplayAlert("Error al cargar perfil", "Se mostrará la ultima información guardada", "Aceptar");
             }
             App.Fn_CargarDatos();
-
             if ( App.v_folio=="0" )//titular
             {
                 if(string.IsNullOrEmpty( App.v_perfil.v_Rfc))// null es persona fisica
@@ -290,7 +322,6 @@ namespace Trato.Views
                 }
                 G_fecha.IsEnabled = false;
             }
-
             Fn_NullEntry( G_Nombre, App.v_perfil.v_Nombre);
             
             if ((App.v_perfil.v_idsexo<0) || (App.v_perfil.v_idsexo>1) )
@@ -315,7 +346,6 @@ namespace Trato.Views
             Fn_NullEntry(G_est,App.v_perfil.v_Estado);
             Fn_NullEntry(G_cp,App.v_perfil.v_Cp);
             Fn_NullEntry(G_Correo,App.v_perfil.v_Correo);
-
             await Task.Delay(100);
         }
         public void  Fn_EditarGen(object sender, EventArgs _args)
@@ -325,7 +355,6 @@ namespace Trato.Views
             {
                 G_Editar.Text = "Cancelar";
                 G_Guardar.IsVisible = true;
-
                 G_Ocu.IsEnabled = true;
                 G_dom.IsEnabled = true;
                 G_ext.IsEnabled = true;
@@ -338,7 +367,6 @@ namespace Trato.Views
                 G_Correo.IsEnabled = true;
                 G_Tel.IsEnabled = true;
                 G_Cel.IsEnabled = true;
-
                 if ((App.v_perfil.v_idsexo < 0) || (App.v_perfil.v_idsexo > 1))
                 {
                     G_sexoPick.IsEnabled = true;
@@ -352,13 +380,11 @@ namespace Trato.Views
                 {
                     G_fecha.IsEnabled = false;
                 }
-
             }
             else
             {
                 G_Editar.Text = "Editar";
                 G_Guardar.IsVisible = false;
-
                 G_Ocu.IsEnabled = false;
                 G_dom.IsEnabled = false;
                 G_ext.IsEnabled = false;
@@ -372,7 +398,6 @@ namespace Trato.Views
                 G_Tel.IsEnabled = false;
                 G_Cel.IsEnabled = false;
                 G_fecha.IsEnabled = false;
-
                 G_sexoPick.IsEnabled = false;
                 CargarGen();
             }
@@ -418,12 +443,10 @@ namespace Trato.Views
             StringContent _content = new StringContent(jsonPer.ToString(), Encoding.UTF8, "application/json");
             HttpClient _client = new HttpClient();
             string _url = NombresAux.BASE_URL + "update_perfil.php";
-
             try
             {
                 HttpResponseMessage _respuestphp=  await _client.PostAsync(_url, _content);
                 string _result = _respuestphp.Content.ReadAsStringAsync().Result;
-
                 if(_result=="1")
                 {
                     Fn_EditarGen(sender,_args);
@@ -433,7 +456,6 @@ namespace Trato.Views
                     _perf.v_membre = App.v_membresia;
                     //crear el json
                     string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
-
                     //HACIENDO EL QUERY para la info del GENERAL
                     _client = new HttpClient();
                     string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
@@ -443,7 +465,6 @@ namespace Trato.Views
                     string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                     C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
                     App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
-
                     //carga la info del PERFIL MEDICO
                     _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                     _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
@@ -452,7 +473,6 @@ namespace Trato.Views
                     _respuesta = await _respuestphp.Content.ReadAsStringAsync();
                     C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
                     App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
-
                     CargarGen();
                     CargarMed();
                     await DisplayAlert("Actualizado", "Informacion Guardado con éxito", "Aceptar");
@@ -463,8 +483,7 @@ namespace Trato.Views
                 }
                 else
                 {
-                    await DisplayAlert("NO 0 NI 1",  _result + "\n" + jsonPer.ToString(), "Aceptar");                
-                
+                    await DisplayAlert("NO 0 NI 1",  _result + "\n" + jsonPer.ToString(), "Aceptar");
                 }
             }
             catch
@@ -480,7 +499,6 @@ namespace Trato.Views
             {
                 M_Editar.Text = "Cancelar";
                 M_Guardar.IsVisible = true;
-
                 Tog_Aler.IsEnabled = true;
                 Tog_Enfer.IsEnabled = true;
                 M_Sangre.IsEnabled = true;
@@ -494,7 +512,6 @@ namespace Trato.Views
             {
                 M_Editar.Text = "Editar";
                 M_Guardar.IsVisible = false;
-
                 Tog_Aler.IsEnabled = false;
                 Tog_Enfer.IsEnabled = false;
                 M_Sangre.IsEnabled = false;
@@ -503,7 +520,6 @@ namespace Trato.Views
                 M_Operaciones.IsEnabled = false;
                 M_Enferme.IsEnabled = false;
                 M_Medicamentos.IsEnabled = false;
-
                 CargarMed();
             }
         }
@@ -521,11 +537,8 @@ namespace Trato.Views
             }
             else
             {
-
             }
-
             json += "idsexo:'" +M_sexoPick.SelectedIndex + "',\n";
-
             if(M_sexoPick.SelectedIndex==1)
             {
                 json += "infoMuj:'" +App.Fn_Vacio (M_sexo.Text)+ "',\n";
@@ -534,7 +547,6 @@ namespace Trato.Views
             {
                 json += "infoMuj:'" +""+ "',\n";
             }
-
             if(Tog_Aler.IsToggled)
             {
                 json += "alergias:'" + App.Fn_Vacio(M_Alergias.Text) + "',\n";
@@ -552,7 +564,6 @@ namespace Trato.Views
             {
                 json += "enfermedades:'" + "" + "',\n";
             }
-
             json += "medicamentos:'" + App.Fn_Vacio(M_Medicamentos.Text) + "',\n";
             json += "}";
             JObject jsonPer = JObject.Parse(json);
@@ -629,7 +640,6 @@ namespace Trato.Views
             _perf.v_membre = App.v_membresia;
             //crear el json
             string _jsonper = JsonConvert.SerializeObject(_perf, Formatting.Indented);
-
             //HACIENDO EL QUERY para la info del GENERAL
             HttpClient _client = new HttpClient();
             string _DirEnviar = NombresAux.BASE_URL + "query_perfil.php";
@@ -639,9 +649,7 @@ namespace Trato.Views
             {
                 HttpResponseMessage _respuestphp = await _client.PostAsync(_DirEnviar, _content);
                 string _respuesta = await _respuestphp.Content.ReadAsStringAsync();
-
                 C_PerfilGen _nuePer = JsonConvert.DeserializeObject<C_PerfilGen>(_respuesta);
-
                 App.Fn_GuardarDatos(_nuePer, App.v_membresia, App.v_folio, App.v_letra);
                 try
                 {
@@ -650,10 +658,8 @@ namespace Trato.Views
                     _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                     //mandar el json con el post
                     HttpResponseMessage v_respuestphp = await _client.PostAsync(_DirEnviar, _content);
-
                     _respuesta = await v_respuestphp.Content.ReadAsStringAsync();
                     C_PerfilMed _nuePerMEd = JsonConvert.DeserializeObject<C_PerfilMed>(_respuesta);
-
                     App.Fn_GuardarDatos(_nuePerMEd, App.v_membresia, App.v_folio, App.v_letra);
                 }
                 catch 
@@ -761,10 +767,7 @@ namespace Trato.Views
             {
                 await DisplayAlert("Error al cargar perfil medico", "Se mostrará la ultima información guardada", "Aceptar");
             }
-
-
             App.Fn_CargarDatos();
-
             if(!string.IsNullOrEmpty( App.v_perfMed.v_sangre))
             {
                 for(int i=0; i<M_Sangre.Items.Count; i++)
@@ -841,7 +844,6 @@ namespace Trato.Views
                 Fn_NullEntry(M_Enferme, App.v_perfMed.v_enfer);
             }
             Fn_NullEntry(M_Medicamentos, App.v_perfMed.v_medica);
-
             await Task.Delay(100);
         }
     }
