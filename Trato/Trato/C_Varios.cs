@@ -46,6 +46,8 @@ letra
        public string v_codigo { get; set; }
         [JsonProperty("promotor")]
         public string v_IdProm { get; set; }
+        [JsonProperty("metodo")]
+        public string v_metodo { get; set; }
         public Pagar()
         {
             v_membresia = string.Empty;

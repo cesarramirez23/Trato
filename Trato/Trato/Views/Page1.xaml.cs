@@ -32,7 +32,7 @@ namespace Trato.Views
                 {
                     if (NumTar.Text.Length == 16)
                     {
-                        await v_pago.Fn_SetTarjeta(NumTar.Text, Fecha.Text, CVC.Text, "10");
+                        await v_pago.Fn_SetTarjeta(NumTar.Text, Fecha.Text, CVC.Text, "10",null);
                         //await DisplayAlert("datos bien", v_pago.ToString(), "Aceptar");
                         
 

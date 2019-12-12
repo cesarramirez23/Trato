@@ -242,7 +242,7 @@ namespace Trato.Views
                 //App.Fn_GuardarDatos(_vars,_noespacios, App.v_folio, App.v_letra);
                 App.Fn_GuardarDatos(_nuePer, _noespacios, App.v_folio, App.v_letra);
                 Console.Write("json para perfil medicoo" + _jsonper);
-                _DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
+                /*_DirEnviar = NombresAux.BASE_URL + "query_perfil_medico.php";
                 //membre  letraa folio
                 _content = new StringContent(_jsonper, Encoding.UTF8, "application/json");
                 try
@@ -267,6 +267,7 @@ namespace Trato.Views
                 {
                     await DisplayAlert("Error al cargar Perfil", "Se mostrará la ultima información guardada", "Aceptar");
                 }
+                */
             }
             catch 
             {

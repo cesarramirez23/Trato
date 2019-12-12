@@ -183,6 +183,7 @@ namespace Trato
                 {
                     HttpClient _clien = new HttpClient();
                     string _direc = NombresAux.BASE_URL + "activacion.php";
+                    v_infoPago.v_metodo = "Paypal";
                     string _json = JsonConvert.SerializeObject(v_infoPago, Formatting.Indented);
                     StringContent _content = new StringContent(_json, Encoding.UTF8, "application/json");
                     try
