@@ -844,24 +844,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Grafico\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj",
+      "projectUniqueName": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
       "projectName": "Trato",
-      "projectPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj",
-      "packagesPath": "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\",
-      "outputPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\obj\\",
+      "projectPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj",
+      "packagesPath": "C:\\Users\\Grafico\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\PRODUCCION-ALSAIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Grafico\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -928,10 +929,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

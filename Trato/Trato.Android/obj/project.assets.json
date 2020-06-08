@@ -2037,21 +2037,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\": {}
+    "C:\\Users\\Grafico\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
       "projectName": "Trato.Android",
-      "projectPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
-      "packagesPath": "C:\\Users\\PRODUCCION-ALSAIN\\.nuget\\packages\\",
-      "outputPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato.Android\\obj\\",
+      "projectPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
+      "packagesPath": "C:\\Users\\Grafico\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\PRODUCCION-ALSAIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Grafico\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid81"
@@ -2063,8 +2068,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "D:\\cesar cosas\\Github\\Trato\\Trato\\Trato\\Trato.csproj"
+            "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
+              "projectPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
             }
           }
         }

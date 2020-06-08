@@ -58,7 +58,7 @@ namespace Trato
         }
         protected override void OnStart()
         {    //existe la variable guardada
-            //Properties.Clear();
+            Properties.Clear();
             if (Properties.ContainsKey(NombresAux.v_log))
             {
                 //lee el valor guardado
@@ -125,7 +125,8 @@ namespace Trato
                 v_membresia = "0000D-0000";
                 Fn_CrearKey();
                 Fn_CargarListas();
-                App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
+                App.Current.MainPage = new Inicio();
+                //App.Current.MainPage = new V_Master(false, "Bienvenido a Trato Especial");
             }
         }
         protected override void OnSleep() { }
