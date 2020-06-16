@@ -20,7 +20,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.alsain.tratoesp</string>
 	<key>CFBundleVersion</key>
-	<string>1.2.7</string>
+	<string>1.2.8</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>XSAppIconAssets</key>
@@ -38,12 +38,6 @@
 	</dict>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Use for PayPal</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Use for PayPal</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Agregar eventos y recordatorios</string>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -52,21 +46,9 @@
 	</array>
 	<key>CFBundleName</key>
 	<string>Trato Especial</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>remote-notification</string>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string></string>
 	<key>CFBundleShortVersionString</key>
-	<string>13</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>ubicacion</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>ubicacion</string>
-	<key>FirebaseScreenReportingEnabled</key>
-	<false/>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<string>NO</string>
+	<string>14</string>
 </dict>
 </plist>

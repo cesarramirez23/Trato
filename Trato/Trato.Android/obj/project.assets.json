@@ -2,26 +2,6 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v8.1": {
-      "CClarke.Plugin.Calendars/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/MonoAndroid10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/MonoAndroid10/Plugin.Calendars.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/MonoAndroid10/Plugin.Calendars.dll": {}
-        }
-      },
-      "FastAndroidCamera/2.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/MonoAndroid403/FastAndroidCamera.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid403/FastAndroidCamera.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -46,15 +26,6 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/12.0.3": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
       "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
@@ -68,72 +39,6 @@
         },
         "build": {
           "build/NUnit.props": {}
-        }
-      },
-      "PayPal.Forms/2.18.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.1",
-          "Xamarin.Forms": "3.4.0.1029999",
-          "Xamarin.PayPal.Android": "2.18.1"
-        },
-        "compile": {
-          "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll": {},
-          "lib/MonoAndroid10/PayPal.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll": {},
-          "lib/MonoAndroid10/PayPal.Forms.dll": {}
-        }
-      },
-      "Plugin.CurrentActivity/2.1.0.2": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Java.Interop"
-        ],
-        "compile": {
-          "lib/monoandroid44/Plugin.CurrentActivity.dll": {}
-        },
-        "runtime": {
-          "lib/monoandroid44/Plugin.CurrentActivity.dll": {}
-        }
-      },
-      "Plugin.Permissions/3.0.0.12": {
-        "type": "package",
-        "dependencies": {
-          "Plugin.CurrentActivity": "2.1.0.2",
-          "Xamarin.Android.Support.Compat": "25.4.0.2",
-          "Xamarin.Android.Support.Core.Utils": "25.4.0.2"
-        },
-        "frameworkAssemblies": [
-          "Java.Interop"
-        ],
-        "compile": {
-          "lib/monoandroid71/Plugin.Permissions.dll": {}
-        },
-        "runtime": {
-          "lib/monoandroid71/Plugin.Permissions.dll": {}
-        }
-      },
-      "Square.OkHttp3/3.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Square.OkIO": "1.11.0"
-        },
-        "compile": {
-          "lib/MonoAndroid/Square.OkHttp3.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid/Square.OkHttp3.dll": {}
-        }
-      },
-      "Square.OkIO/1.11.0": {
-        "type": "package",
-        "compile": {
-          "lib/MonoAndroid/Square.OkIO.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid/Square.OkIO.dll": {}
         }
       },
       "System.Numerics.Vectors/4.5.0": {
@@ -498,55 +403,6 @@
           "lib/monoandroid81/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Firebase.Common/60.1142.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.GooglePlayServices.Basement": "[60.1142.1]",
-          "Xamarin.GooglePlayServices.Tasks": "[60.1142.1]"
-        },
-        "compile": {
-          "lib/MonoAndroid80/Xamarin.Firebase.Common.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid80/Xamarin.Firebase.Common.dll": {}
-        },
-        "build": {
-          "build/MonoAndroid80/Xamarin.Firebase.Common.targets": {}
-        }
-      },
-      "Xamarin.Firebase.Iid/60.1142.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Firebase.Common": "[60.1142.1]",
-          "Xamarin.GooglePlayServices.Basement": "[60.1142.1]"
-        },
-        "compile": {
-          "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll": {}
-        },
-        "build": {
-          "build/MonoAndroid80/Xamarin.Firebase.Iid.targets": {}
-        }
-      },
-      "Xamarin.Firebase.Messaging/60.1142.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Firebase.Common": "[60.1142.1]",
-          "Xamarin.Firebase.Iid": "[60.1142.1]",
-          "Xamarin.GooglePlayServices.Basement": "[60.1142.1]"
-        },
-        "compile": {
-          "lib/MonoAndroid80/Xamarin.Firebase.Messaging.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid80/Xamarin.Firebase.Messaging.dll": {}
-        },
-        "build": {
-          "build/MonoAndroid80/Xamarin.Firebase.Messaging.targets": {}
-        }
-      },
       "Xamarin.Forms/4.3.0.947036": {
         "type": "package",
         "dependencies": {
@@ -626,73 +482,13 @@
           "build/MonoAndroid80/Xamarin.GooglePlayServices.Tasks.targets": {}
         }
       },
-      "Xamarin.PayPal.Android/2.18.1": {
-        "type": "package",
-        "dependencies": {
-          "Square.OkHttp3": "3.5.0",
-          "Xamarin.PayPal.Android.CardIO": "2.0.1"
-        },
-        "compile": {
-          "lib/MonoAndroid10/Xamarin.PayPal.Android.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid10/Xamarin.PayPal.Android.dll": {}
-        }
-      },
-      "Xamarin.PayPal.Android.CardIO/2.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile/2.4.1": {
-        "type": "package",
-        "dependencies": {
-          "FastAndroidCamera": "2.0.0",
-          "Xamarin.Android.Support.v4": "25.4.0.1"
-        },
-        "compile": {
-          "lib/MonoAndroid71/ZXing.Net.Mobile.Core.dll": {},
-          "lib/MonoAndroid71/ZXingNetMobile.dll": {},
-          "lib/MonoAndroid71/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid71/ZXing.Net.Mobile.Core.dll": {},
-          "lib/MonoAndroid71/ZXingNetMobile.dll": {},
-          "lib/MonoAndroid71/zxing.portable.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile.Forms/2.4.1": {
-        "type": "package",
-        "dependencies": {
-          "FastAndroidCamera": "2.0.0",
-          "Xamarin.Android.Support.v4": "25.4.0.2"
-        },
-        "compile": {
-          "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.Android.dll": {},
-          "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.Android.dll": {},
-          "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.dll": {}
-        }
-      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "CClarke.Plugin.Calendars": "1.0.0",
           "NUnit": "3.11.0",
-          "Newtonsoft.Json": "12.0.3",
-          "PayPal.Forms": "2.18.6",
-          "Plugin.Permissions": "3.0.0.12",
           "Xamarin.Essentials": "1.3.1",
-          "Xamarin.Forms": "4.3.0.947036",
-          "ZXing.Net.Mobile": "2.4.1",
-          "ZXing.Net.Mobile.Forms": "2.4.1"
+          "Xamarin.Forms": "4.3.0.947036"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -704,54 +500,6 @@
     }
   },
   "libraries": {
-    "CClarke.Plugin.Calendars/1.0.0": {
-      "sha512": "+glJm1FLp6W4MRpTbvNwCB/RhXrwVQlPsW5ukYuj+HaYVswH/pd8Mm0x+9msHrqDfiSHlUAMvcGplKSns0R8iA==",
-      "type": "package",
-      "path": "cclarke.plugin.calendars/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "cclarke.plugin.calendars.1.0.0.nupkg.sha512",
-        "cclarke.plugin.calendars.nuspec",
-        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.dll",
-        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.pdb",
-        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.xml",
-        "lib/MonoAndroid10/Plugin.Calendars.dll",
-        "lib/MonoAndroid10/Plugin.Calendars.xml",
-        "lib/UAP10/Plugin.Calendars.Abstractions.dll",
-        "lib/UAP10/Plugin.Calendars.Abstractions.pdb",
-        "lib/UAP10/Plugin.Calendars.Abstractions.xml",
-        "lib/UAP10/Plugin.Calendars.dll",
-        "lib/UAP10/Plugin.Calendars.pdb",
-        "lib/UAP10/Plugin.Calendars.xml",
-        "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll",
-        "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.xml",
-        "lib/Xamarin.iOS10/Plugin.Calendars.dll",
-        "lib/Xamarin.iOS10/Plugin.Calendars.xml",
-        "lib/netstandard1.0/Plugin.Calendars.Abstractions.dll",
-        "lib/netstandard1.0/Plugin.Calendars.Abstractions.pdb",
-        "lib/netstandard1.0/Plugin.Calendars.Abstractions.xml",
-        "lib/netstandard1.0/Plugin.Calendars.dll",
-        "lib/netstandard1.0/Plugin.Calendars.pdb",
-        "lib/netstandard1.0/Plugin.Calendars.xml"
-      ]
-    },
-    "FastAndroidCamera/2.0.0": {
-      "sha512": "RQix6VHmVyQXVdP3Y4+Khw1F7HirONNCa5ubGng58gUkmSAhlS4t1Qf1Biyfakx/LjCYJ3SZ99rWSjQgV15uVQ==",
-      "type": "package",
-      "path": "fastandroidcamera/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fastandroidcamera.2.0.0.nupkg.sha512",
-        "fastandroidcamera.nuspec",
-        "lib/MonoAndroid403/FastAndroidCamera.dll",
-        "lib/MonoAndroid403/FastAndroidCamera.xml",
-        "src/CameraExtensions.cs",
-        "src/FastJavaByteArray.cs",
-        "src/FastJavaByteArrayEnumerator.cs"
-      ]
-    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -897,37 +645,6 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.3": {
-      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
-      "type": "package",
-      "path": "newtonsoft.json/12.0.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "lib/net20/Newtonsoft.Json.dll",
-        "lib/net20/Newtonsoft.Json.xml",
-        "lib/net35/Newtonsoft.Json.dll",
-        "lib/net35/Newtonsoft.Json.xml",
-        "lib/net40/Newtonsoft.Json.dll",
-        "lib/net40/Newtonsoft.Json.xml",
-        "lib/net45/Newtonsoft.Json.dll",
-        "lib/net45/Newtonsoft.Json.xml",
-        "lib/netstandard1.0/Newtonsoft.Json.dll",
-        "lib/netstandard1.0/Newtonsoft.Json.xml",
-        "lib/netstandard1.3/Newtonsoft.Json.dll",
-        "lib/netstandard1.3/Newtonsoft.Json.xml",
-        "lib/netstandard2.0/Newtonsoft.Json.dll",
-        "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.3.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "packageIcon.png"
-      ]
-    },
     "NUnit/3.11.0": {
       "sha512": "BzGk+u02RCrysmLlSzD+okxzMQ8JRF4eFC/qijDJ8Y/FBdTrTkxkQyTFsYkG1o++pr7QpFAE4VDXDqIfZ/gBAg==",
       "type": "package",
@@ -961,90 +678,6 @@
         "lib/netstandard2.0/nunit.framework.xml",
         "nunit.3.11.0.nupkg.sha512",
         "nunit.nuspec"
-      ]
-    },
-    "PayPal.Forms/2.18.6": {
-      "sha512": "WmTBbDTSVl8GlELpHYuiIwZk5WKqrn9MvdCG/xxH9Mq86/q9mgyfJJEiJVmAxPJHGpN1VizA1Lmhqy7dGbJiKw==",
-      "type": "package",
-      "path": "paypal.forms/2.18.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll",
-        "lib/MonoAndroid10/PayPal.Forms.dll",
-        "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll",
-        "lib/Xamarin.iOS10/PayPal.Forms.dll",
-        "lib/netstandard1.0/PayPal.Forms.Abstractions.dll",
-        "lib/netstandard1.0/PayPal.Forms.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.Abstractions.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.dll",
-        "paypal.forms.2.18.6.nupkg.sha512",
-        "paypal.forms.nuspec"
-      ]
-    },
-    "Plugin.CurrentActivity/2.1.0.2": {
-      "sha512": "uiMbA0G1ulSEj7MtGUQDDhzw80+QgvH5ts+Yt9cyft1dF4Eb0tYxiXAgNPuohJXpxhZmRs+6ZjL6QBaL/wUKDQ==",
-      "type": "package",
-      "path": "plugin.currentactivity/2.1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/monoandroid44/Plugin.CurrentActivity.dll",
-        "lib/monoandroid44/Plugin.CurrentActivity.xml",
-        "plugin.currentactivity.2.1.0.2.nupkg.sha512",
-        "plugin.currentactivity.nuspec",
-        "readme.txt"
-      ]
-    },
-    "Plugin.Permissions/3.0.0.12": {
-      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
-      "type": "package",
-      "path": "plugin.permissions/3.0.0.12",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/monoandroid71/Plugin.Permissions.dll",
-        "lib/monoandroid71/Plugin.Permissions.xml",
-        "lib/netstandard1.0/Plugin.Permissions.dll",
-        "lib/netstandard1.0/Plugin.Permissions.xml",
-        "lib/netstandard2.0/Plugin.Permissions.dll",
-        "lib/netstandard2.0/Plugin.Permissions.xml",
-        "lib/uap10.0.10240/Plugin.Permissions.dll",
-        "lib/uap10.0.10240/Plugin.Permissions.pri",
-        "lib/uap10.0.10240/Plugin.Permissions.xml",
-        "lib/xamarinios10/Plugin.Permissions.dll",
-        "lib/xamarinios10/Plugin.Permissions.xml",
-        "plugin.permissions.3.0.0.12.nupkg.sha512",
-        "plugin.permissions.nuspec",
-        "readme.txt"
-      ]
-    },
-    "Square.OkHttp3/3.5.0": {
-      "sha512": "3oy8Gqf2drckI22TrGPLqzkXzAc1n4CaHO0/SFDjLhfgRS8GmaoD2YddmtCt9nSMZ2SWgvKruJvS/OTTb8ssnQ==",
-      "type": "package",
-      "path": "square.okhttp3/3.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "README.md",
-        "lib/MonoAndroid/Square.OkHttp3.dll",
-        "square.okhttp3.3.5.0.nupkg.sha512",
-        "square.okhttp3.nuspec"
-      ]
-    },
-    "Square.OkIO/1.11.0": {
-      "sha512": "RY+E9Lqvf79hsBWQKepC1dqSJ27Ig6VyHHE+82cojnUsAT/JmyIKJR+SreU0IDqStzteuJnlmz/LqcPunzPYOQ==",
-      "type": "package",
-      "path": "square.okio/1.11.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "README.md",
-        "lib/MonoAndroid/Square.OkIO.dll",
-        "square.okio.1.11.0.nupkg.sha512",
-        "square.okio.nuspec"
       ]
     },
     "System.Numerics.Vectors/4.5.0": {
@@ -1614,45 +1247,6 @@
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Firebase.Common/60.1142.1": {
-      "sha512": "lBkdcgaqAvAkkkBzZGvYviGl3C7J4n2B3CXY3izVR7M1xPZ6Q9scrm0tZJMwwEP+/z3qqZRL/DBVH1dNChGJ4A==",
-      "type": "package",
-      "path": "xamarin.firebase.common/60.1142.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/MonoAndroid80/Xamarin.Firebase.Common.targets",
-        "lib/MonoAndroid80/Xamarin.Firebase.Common.dll",
-        "xamarin.firebase.common.60.1142.1.nupkg.sha512",
-        "xamarin.firebase.common.nuspec"
-      ]
-    },
-    "Xamarin.Firebase.Iid/60.1142.1": {
-      "sha512": "cHauaYNySwKJPBhTFhPujlFLUkr/2CzXHes2DMXDkBi6BcKcnuClwyQ9izY/PuDzflyaqfX5rJGtrkwwZ8pQxw==",
-      "type": "package",
-      "path": "xamarin.firebase.iid/60.1142.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/MonoAndroid80/Xamarin.Firebase.Iid.targets",
-        "lib/MonoAndroid80/Xamarin.Firebase.Iid.dll",
-        "xamarin.firebase.iid.60.1142.1.nupkg.sha512",
-        "xamarin.firebase.iid.nuspec"
-      ]
-    },
-    "Xamarin.Firebase.Messaging/60.1142.1": {
-      "sha512": "RuSRm4QpsDMuQ+hoBf1K0fFiREhuJRzQxL/9cz3ApNfXz58zqrLCGanmaAn/ZBhoQRz/l0OKJRHEfiL4B4bCeQ==",
-      "type": "package",
-      "path": "xamarin.firebase.messaging/60.1142.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/MonoAndroid80/Xamarin.Firebase.Messaging.targets",
-        "lib/MonoAndroid80/Xamarin.Firebase.Messaging.dll",
-        "xamarin.firebase.messaging.60.1142.1.nupkg.sha512",
-        "xamarin.firebase.messaging.nuspec"
-      ]
-    },
     "Xamarin.Forms/4.3.0.947036": {
       "sha512": "oEAwwHfaZesC+VvP07UoctI1DGIgewZlKMr/sHPl/hNMRM6ZfccPgOY19Yw017asj9z7PKXqpDDUbFFOJ2jN4A==",
       "type": "package",
@@ -1941,74 +1535,6 @@
         "xamarin.googleplayservices.tasks.nuspec"
       ]
     },
-    "Xamarin.PayPal.Android/2.18.1": {
-      "sha512": "YecI7Dcm1oDtMHDEDgMu5F1XTl1F2Kt/hioNlP6XzqYVDLDgY0+DqJPDLAblR24KFwCvkc/tQksyUTJp1U19DQ==",
-      "type": "package",
-      "path": "xamarin.paypal.android/2.18.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Xamarin.PayPal.Android.dll",
-        "xamarin.paypal.android.2.18.1.nupkg.sha512",
-        "xamarin.paypal.android.nuspec"
-      ]
-    },
-    "Xamarin.PayPal.Android.CardIO/2.0.1": {
-      "sha512": "by/sVV8aFy5ZsGAGLzmxUMvzw0ipYx9mtxswT/bYjHMfK5Z64+8A6Pnv7TShoiFWk7id5JilmbsOE/beDqUBjg==",
-      "type": "package",
-      "path": "xamarin.paypal.android.cardio/2.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/Xamarin.PayPal.Android.CardIO.dll",
-        "xamarin.paypal.android.cardio.2.0.1.nupkg.sha512",
-        "xamarin.paypal.android.cardio.nuspec"
-      ]
-    },
-    "ZXing.Net.Mobile/2.4.1": {
-      "sha512": "iCL2WcqOyUnC1iFFdzXijk0EXfoLMDqW88MyhoTZigSyhJZM2C5hKgSZVyfx9E35tgkde/IZwHkk8cVDnbQlYg==",
-      "type": "package",
-      "path": "zxing.net.mobile/2.4.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid71/ZXing.Net.Mobile.Core.dll",
-        "lib/MonoAndroid71/ZXingNetMobile.dll",
-        "lib/MonoAndroid71/zxing.portable.dll",
-        "lib/UAP10/ZXing.Net.Mobile.Core.dll",
-        "lib/UAP10/ZXingNetMobile.dll",
-        "lib/UAP10/ZXingNetMobile.pri",
-        "lib/UAP10/ZXingNetMobile/ZXingNetMobile.xr.xml",
-        "lib/UAP10/zxing.portable.dll",
-        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
-        "lib/Xamarin.iOS10/ZXingNetMobile.dll",
-        "lib/Xamarin.iOS10/zxing.portable.dll",
-        "lib/netstandard1.0/ZXing.Net.Mobile.Core.dll",
-        "lib/netstandard1.0/ZXingNetMobile.dll",
-        "lib/netstandard1.0/zxing.portable.dll",
-        "zxing.net.mobile.2.4.1.nupkg.sha512",
-        "zxing.net.mobile.nuspec"
-      ]
-    },
-    "ZXing.Net.Mobile.Forms/2.4.1": {
-      "sha512": "7z+MfL8TbfE36s1GGvrnlkhLUOV5dgdn1gYhUb3GU2W6YXzpfF39k6EqkmFsyNm1O07evTaKFgh7UTOqcWub3g==",
-      "type": "package",
-      "path": "zxing.net.mobile.forms/2.4.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.Android.dll",
-        "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.dll",
-        "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll",
-        "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.pri",
-        "lib/UAP10/ZXing.Net.Mobile.Forms.dll",
-        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll",
-        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll",
-        "lib/netstandard1.0/ZXing.Net.Mobile.Forms.dll",
-        "zxing.net.mobile.forms.2.4.1.nupkg.sha512",
-        "zxing.net.mobile.forms.nuspec"
-      ]
-    },
     "Trato/1.0.0": {
       "type": "project",
       "path": "../Trato/Trato.csproj",
@@ -2017,11 +1543,7 @@
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
-      "CClarke.Plugin.Calendars >= 1.0.0",
       "NUnit >= 3.11.0",
-      "Newtonsoft.Json >= 12.0.3",
-      "PayPal.Forms >= 2.18.6",
-      "Plugin.Permissions >= 3.0.0.12",
       "Trato >= 1.0.0",
       "Xamarin.Android.Support.Design >= 28.0.0.3",
       "Xamarin.Android.Support.v4 >= 28.0.0.3",
@@ -2029,47 +1551,37 @@
       "Xamarin.Android.Support.v7.CardView >= 28.0.0.3",
       "Xamarin.Android.Support.v7.MediaRouter >= 28.0.0.3",
       "Xamarin.Essentials >= 1.3.1",
-      "Xamarin.Firebase.Messaging >= 60.1142.1",
       "Xamarin.Forms >= 4.3.0.947036",
-      "Xamarin.GooglePlayServices.Base >= 60.1142.1",
-      "ZXing.Net.Mobile >= 2.4.1",
-      "ZXing.Net.Mobile.Forms >= 2.4.1"
+      "Xamarin.GooglePlayServices.Base >= 60.1142.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Grafico\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/alsain/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
+      "projectUniqueName": "/Users/alsain/Documents/Github/Trato/Trato/Trato.Android/Trato.Android.csproj",
       "projectName": "Trato.Android",
-      "projectPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\Trato.Android.csproj",
-      "packagesPath": "C:\\Users\\Grafico\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.Android\\obj\\",
+      "projectPath": "/Users/alsain/Documents/Github/Trato/Trato/Trato.Android/Trato.Android.csproj",
+      "packagesPath": "/Users/alsain/.nuget/packages/",
+      "outputPath": "/Users/alsain/Documents/Github/Trato/Trato/Trato.Android/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Grafico\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/alsain/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "monoandroid81"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
+            "/Users/alsain/Documents/Github/Trato/Trato/Trato/Trato.csproj": {
+              "projectPath": "/Users/alsain/Documents/Github/Trato/Trato/Trato/Trato.csproj"
             }
           }
         }
@@ -2078,25 +1590,9 @@
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
-          "CClarke.Plugin.Calendars": {
-            "target": "Package",
-            "version": "[1.0.0, )"
-          },
           "NUnit": {
             "target": "Package",
             "version": "[3.11.0, )"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "[12.0.3, )"
-          },
-          "PayPal.Forms": {
-            "target": "Package",
-            "version": "[2.18.6, )"
-          },
-          "Plugin.Permissions": {
-            "target": "Package",
-            "version": "[3.0.0.12, )"
           },
           "Xamarin.Android.Support.Design": {
             "target": "Package",
@@ -2122,10 +1618,6 @@
             "target": "Package",
             "version": "[1.3.1, )"
           },
-          "Xamarin.Firebase.Messaging": {
-            "target": "Package",
-            "version": "[60.1142.1, )"
-          },
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[4.3.0.947036, )"
@@ -2133,14 +1625,6 @@
           "Xamarin.GooglePlayServices.Base": {
             "target": "Package",
             "version": "[60.1142.1, )"
-          },
-          "ZXing.Net.Mobile": {
-            "target": "Package",
-            "version": "[2.4.1, )"
-          },
-          "ZXing.Net.Mobile.Forms": {
-            "target": "Package",
-            "version": "[2.4.1, )"
           }
         }
       }

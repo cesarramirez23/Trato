@@ -8,8 +8,10 @@
              x:Class="Trato.Views.Inicio">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="App fuera de servicio,
-                   por favor contacte a Trato Especial para más información" FontSize="Large"
+            <Label Text="App fuera de servicio," FontSize="Large"
+                VerticalOptions="CenterAndExpand" TextColor="{StaticResource AzulPrincipal}" HorizontalTextAlignment="Center"
+                HorizontalOptions="Center" />
+            <Label Text="por favor contacte a Trato Especial para más información" FontSize="Large"
                 VerticalOptions="CenterAndExpand" TextColor="{StaticResource AzulPrincipal}" HorizontalTextAlignment="Center"
                 HorizontalOptions="Center" />
         </StackLayout>

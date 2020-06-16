@@ -365,78 +365,203 @@ C:/Users/Cesar-Alsain/Documents/GitHub/Trato/Trato/Trato.iOS/obj/iPhoneSimulator
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.csproj.CopyComplete
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.exe
 /Users/saullopez/Documents/GitHub/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.pdb
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Trato.iOS.exe
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Trato.iOS.pdb
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Plugin.Calendars.Abstractions.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Plugin.Calendars.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\nunit.framework.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\nunit.framework.pdb
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\PayPal.Forms.Abstractions.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\PayPal.Forms.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Plugin.Permissions.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Firebase.Analytics.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Firebase.CloudMessaging.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Firebase.Core.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Firebase.InstanceID.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.pdb
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.iOS.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.iOS.pdb
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Xaml.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Xaml.pdb
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ar\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ca\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\cs\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\da\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\de\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\el\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\es\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\fi\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\fr\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\he\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\hi\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\hr\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\hu\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\id\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\it\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ja\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ko\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ms\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\nb\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\nl\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\pl\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\pt-br\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\pt\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ro\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ru\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\sk\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\sv\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\th\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\tr\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\uk\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\vi\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zh-HK\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zh-Hans\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Xamarin.PayPal.iOS.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ZXing.Net.Mobile.Core.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ZXingNetMobile.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\zxing.portable.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ZXing.Net.Mobile.Forms.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\ZXing.Net.Mobile.Forms.iOS.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Trato.dll
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\bin\iPhoneSimulator\Debug\Trato.pdb
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\actool\_PartialAppManifest.items
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\actool\_BundleResourceWithLogicalName.items
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\optimized\
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\Trato.iOS.csprojAssemblyReference.cache
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\Trato.iOS.csproj.CoreCompileInputs.cache
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\XamlC.stamp
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\Trato.iOS.csproj.CopyComplete
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\Trato.iOS.exe
-D:\cesar cosas\Github\Trato\Trato\Trato.iOS\obj\iPhoneSimulator\Debug\Trato.iOS.pdb
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Trato.iOS.exe
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Trato.iOS.pdb
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Plugin.Calendars.Abstractions.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Plugin.Calendars.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/nunit.framework.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/nunit.framework.pdb
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/PayPal.Forms.Abstractions.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/PayPal.Forms.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Plugin.Permissions.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Firebase.Analytics.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Firebase.CloudMessaging.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Firebase.Core.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Firebase.InstanceID.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.pdb
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.pdb
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.pdb
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ar/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ca/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/cs/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/da/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/de/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/el/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/es/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/fi/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/fr/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/he/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/hi/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/hr/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/hu/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/id/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/it/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ja/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ko/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ms/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/nb/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/nl/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/pl/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/pt-br/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/pt/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ro/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ru/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/sk/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/sv/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/th/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/tr/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/uk/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/vi/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/zh-HK/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/zh-Hans/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/zh-Hant/Xamarin.Forms.Platform.iOS.resources.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.PayPal.iOS.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ZXing.Net.Mobile.Core.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ZXingNetMobile.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/zxing.portable.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ZXing.Net.Mobile.Forms.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ZXing.Net.Mobile.Forms.iOS.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Trato.dll
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Trato.pdb
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/coremlc/_PartialAppManifest.items
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/coremlc/_BundleResourceWithLogicalName.items
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/optimized/
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.csprojAssemblyReference.cache
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.csproj.CoreCompileInputs.cache
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/XamlC.stamp
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.csproj.CopyComplete
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.exe
+D:/cesar cosas/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.csprojAssemblyReference.cache
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.csproj.CoreCompileInputs.cache
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Trato.iOS.exe
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Trato.iOS.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/nunit.framework.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/nunit.framework.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Essentials.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Essentials.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ar/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ca/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/cs/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/da/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/de/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/el/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/es/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/fi/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/fr/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/he/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/hi/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/hr/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/hu/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/id/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/it/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ja/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ko/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ms/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/nb/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/nl/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/pl/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/pt-br/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/pt/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ro/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/ru/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/sk/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/sv/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/th/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/tr/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/uk/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/vi/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/zh-HK/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/zh-Hans/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/zh-Hant/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Trato.dll
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/bin/iPhoneSimulator/Debug/Trato.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/XamlC.stamp
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.csproj.CopyComplete
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.exe
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/Trato.iOS.pdb
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/ibtool/_BundleResourceWithLogicalName.items
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/actool/_PartialAppManifest.items
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/actool/_BundleResourceWithLogicalName.items
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/coremlc/_PartialAppManifest.items
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/coremlc/_BundleResourceWithLogicalName.items
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_about.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_about@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_about@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_feed.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_feed@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_feed@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/xamarin_logo.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/xamarin_logo@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/xamarin_logo@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/M_Empresarialx46.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/M_Familiarx46.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/M_Personalx46.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Medicamentosx46.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Membresia_Iconx46.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Citas.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Corazon.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Empresarial.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Familiar.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Personal.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Medicamentos.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Membresia_Icon.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Citas@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Corazon@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Empresarial@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Familiar@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Personal@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Medicamentos@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Membresia_Icon@2x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Citas@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Corazon@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Empresarial@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Familiar@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_M_Personal@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Medicamentos@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/tab_Membresia_Icon@3x.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/ICONOAPP.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/LOGOTRATOESPECIAL.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Medicamentos.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Medicos.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Opciones.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Perfil.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/M_Empresarial.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/M_Personal.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/M_Familiar.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Filtro.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Citas.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/QR.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/flecha.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Home.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Info.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Log_out.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Membresia.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Servicios.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Campana.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Circulo.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/mas.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Menos.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Servicios_Medicos.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Tarjeta_Virtual.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Logo_Ana.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/American.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Master.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/Visa.png
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/GoogleService-Info.plist
+/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/iPhoneSimulator/Debug/device-builds/ipad pro (11-inch) (2nd generation)-13.5/optimized/

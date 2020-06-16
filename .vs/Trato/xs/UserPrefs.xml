@@ -1,29 +1,29 @@
 ﻿<Properties StartupConfiguration="{8A4AA535-184E-4983-89ED-D201A4B95059}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Trato/Trato/Views/Inicio.xaml">
     <Files>
-      <File FileName="Trato/Trato.iOS/Info.plist" />
-      <File FileName="Trato/Trato/Views/V_Pagos.xaml.cs" Line="41" Column="14" />
-      <File FileName="Trato/Trato.iOS/AppDelegate.cs" Line="49" Column="13" />
-      <File FileName="Trato/Trato.Android/MainActivity.cs" Line="38" Column="13" />
-      <File FileName="Trato/Trato/Views/V_Perfil.xaml.cs" Line="1" Column="1" />
+      <File FileName="Trato/Trato/Views/Inicio.xaml" Line="19" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Trato" expanded="True">
             <Node name="Trato" expanded="True">
-              <Node name="Views" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Inicio.xaml" selected="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True" />
             </Node>
-            <Node name="Trato.iOS" expanded="True" selected="True" />
+            <Node name="Trato.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Trato.Android PreferredExecutionTarget="Android.320495631732" />
-  <MonoDevelop.Ide.ItemProperties.Trato.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.ItemProperties.Trato.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.36BFD9D0-A328-40EA-BF34-BF294710FBB2" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

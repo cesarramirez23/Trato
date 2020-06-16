@@ -2,17 +2,6 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
-      "CClarke.Plugin.Calendars/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/Plugin.Calendars.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/Plugin.Calendars.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -37,15 +26,6 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/12.0.3": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
       "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
@@ -61,31 +41,6 @@
           "build/NUnit.props": {}
         }
       },
-      "PayPal.Forms/2.18.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.1",
-          "Xamarin.Forms": "3.4.0.1029999",
-          "Xamarin.PayPal.iOS": "2.18.0"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
-        }
-      },
-      "Plugin.Permissions/3.0.0.12": {
-        "type": "package",
-        "compile": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
-        }
-      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -93,13 +48,6 @@
         },
         "runtime": {
           "lib/xamarinios10/_._": {}
-        }
-      },
-      "Xamarin.Build.Download/0.4.11": {
-        "type": "package",
-        "build": {
-          "build/Xamarin.Build.Download.props": {},
-          "build/Xamarin.Build.Download.targets": {}
         }
       },
       "Xamarin.Essentials/1.3.1": {
@@ -115,65 +63,6 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.Analytics/5.1.4": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3",
-          "Xamarin.Firebase.iOS.InstanceID": "3.2.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
-        },
-        "build": {
-          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.CloudMessaging/3.1.2": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3",
-          "Xamarin.Firebase.iOS.InstanceID": "3.2.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.Core/5.1.3": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.InstanceID/3.2.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
-        },
-        "build": {
-          "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
       "Xamarin.Forms/4.3.0.947036": {
@@ -299,56 +188,13 @@
           "build/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.PayPal.iOS/2.18.0": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile/2.4.1": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
-          "lib/Xamarin.iOS10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
-          "lib/Xamarin.iOS10/zxing.portable.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile.Forms/2.4.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.5.0.122203",
-          "ZXing.Net.Mobile": "2.4.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
-        }
-      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "CClarke.Plugin.Calendars": "1.0.0",
           "NUnit": "3.11.0",
-          "Newtonsoft.Json": "12.0.3",
-          "PayPal.Forms": "2.18.6",
-          "Plugin.Permissions": "3.0.0.12",
           "Xamarin.Essentials": "1.3.1",
-          "Xamarin.Forms": "4.3.0.947036",
-          "ZXing.Net.Mobile": "2.4.1",
-          "ZXing.Net.Mobile.Forms": "2.4.1"
+          "Xamarin.Forms": "4.3.0.947036"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -359,17 +205,6 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
-      "CClarke.Plugin.Calendars/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/Plugin.Calendars.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/Plugin.Calendars.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -394,15 +229,6 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/12.0.3": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
       "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
@@ -418,31 +244,6 @@
           "build/NUnit.props": {}
         }
       },
-      "PayPal.Forms/2.18.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.1",
-          "Xamarin.Forms": "3.4.0.1029999",
-          "Xamarin.PayPal.iOS": "2.18.0"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
-        }
-      },
-      "Plugin.Permissions/3.0.0.12": {
-        "type": "package",
-        "compile": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
-        }
-      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -450,13 +251,6 @@
         },
         "runtime": {
           "lib/xamarinios10/_._": {}
-        }
-      },
-      "Xamarin.Build.Download/0.4.11": {
-        "type": "package",
-        "build": {
-          "build/Xamarin.Build.Download.props": {},
-          "build/Xamarin.Build.Download.targets": {}
         }
       },
       "Xamarin.Essentials/1.3.1": {
@@ -472,65 +266,6 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.Analytics/5.1.4": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3",
-          "Xamarin.Firebase.iOS.InstanceID": "3.2.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
-        },
-        "build": {
-          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.CloudMessaging/3.1.2": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3",
-          "Xamarin.Firebase.iOS.InstanceID": "3.2.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.Core/5.1.3": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.InstanceID/3.2.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
-        },
-        "build": {
-          "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
       "Xamarin.Forms/4.3.0.947036": {
@@ -656,56 +391,13 @@
           "build/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.PayPal.iOS/2.18.0": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile/2.4.1": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
-          "lib/Xamarin.iOS10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
-          "lib/Xamarin.iOS10/zxing.portable.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile.Forms/2.4.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.5.0.122203",
-          "ZXing.Net.Mobile": "2.4.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
-        }
-      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "CClarke.Plugin.Calendars": "1.0.0",
           "NUnit": "3.11.0",
-          "Newtonsoft.Json": "12.0.3",
-          "PayPal.Forms": "2.18.6",
-          "Plugin.Permissions": "3.0.0.12",
           "Xamarin.Essentials": "1.3.1",
-          "Xamarin.Forms": "4.3.0.947036",
-          "ZXing.Net.Mobile": "2.4.1",
-          "ZXing.Net.Mobile.Forms": "2.4.1"
+          "Xamarin.Forms": "4.3.0.947036"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -716,17 +408,6 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
-      "CClarke.Plugin.Calendars/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/Plugin.Calendars.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/Plugin.Calendars.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -751,15 +432,6 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/12.0.3": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
       "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
@@ -775,31 +447,6 @@
           "build/NUnit.props": {}
         }
       },
-      "PayPal.Forms/2.18.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.1",
-          "Xamarin.Forms": "3.4.0.1029999",
-          "Xamarin.PayPal.iOS": "2.18.0"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
-        }
-      },
-      "Plugin.Permissions/3.0.0.12": {
-        "type": "package",
-        "compile": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
-        }
-      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -807,13 +454,6 @@
         },
         "runtime": {
           "lib/xamarinios10/_._": {}
-        }
-      },
-      "Xamarin.Build.Download/0.4.11": {
-        "type": "package",
-        "build": {
-          "build/Xamarin.Build.Download.props": {},
-          "build/Xamarin.Build.Download.targets": {}
         }
       },
       "Xamarin.Essentials/1.3.1": {
@@ -829,65 +469,6 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.Analytics/5.1.4": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3",
-          "Xamarin.Firebase.iOS.InstanceID": "3.2.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
-        },
-        "build": {
-          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.CloudMessaging/3.1.2": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3",
-          "Xamarin.Firebase.iOS.InstanceID": "3.2.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.Core/5.1.3": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.InstanceID/3.2.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
-        },
-        "build": {
-          "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
       "Xamarin.Forms/4.3.0.947036": {
@@ -1013,56 +594,13 @@
           "build/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.PayPal.iOS/2.18.0": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile/2.4.1": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
-          "lib/Xamarin.iOS10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
-          "lib/Xamarin.iOS10/zxing.portable.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile.Forms/2.4.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.5.0.122203",
-          "ZXing.Net.Mobile": "2.4.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
-        }
-      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "CClarke.Plugin.Calendars": "1.0.0",
           "NUnit": "3.11.0",
-          "Newtonsoft.Json": "12.0.3",
-          "PayPal.Forms": "2.18.6",
-          "Plugin.Permissions": "3.0.0.12",
           "Xamarin.Essentials": "1.3.1",
-          "Xamarin.Forms": "4.3.0.947036",
-          "ZXing.Net.Mobile": "2.4.1",
-          "ZXing.Net.Mobile.Forms": "2.4.1"
+          "Xamarin.Forms": "4.3.0.947036"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -1073,17 +611,6 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
-      "CClarke.Plugin.Calendars/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/Plugin.Calendars.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/Plugin.Calendars.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -1108,15 +635,6 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/12.0.3": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
       "NUnit/3.11.0": {
         "type": "package",
         "dependencies": {
@@ -1132,31 +650,6 @@
           "build/NUnit.props": {}
         }
       },
-      "PayPal.Forms/2.18.6": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.1",
-          "Xamarin.Forms": "3.4.0.1029999",
-          "Xamarin.PayPal.iOS": "2.18.0"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll": {},
-          "lib/Xamarin.iOS10/PayPal.Forms.dll": {}
-        }
-      },
-      "Plugin.Permissions/3.0.0.12": {
-        "type": "package",
-        "compile": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
-        },
-        "runtime": {
-          "lib/xamarinios10/Plugin.Permissions.dll": {}
-        }
-      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -1164,13 +657,6 @@
         },
         "runtime": {
           "lib/xamarinios10/_._": {}
-        }
-      },
-      "Xamarin.Build.Download/0.4.11": {
-        "type": "package",
-        "build": {
-          "build/Xamarin.Build.Download.props": {},
-          "build/Xamarin.Build.Download.targets": {}
         }
       },
       "Xamarin.Essentials/1.3.1": {
@@ -1186,65 +672,6 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.Analytics/5.1.4": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3",
-          "Xamarin.Firebase.iOS.InstanceID": "3.2.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.Analytics.dll": {}
-        },
-        "build": {
-          "build/Xamarin.Firebase.iOS.Analytics.targets": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.CloudMessaging/3.1.2": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3",
-          "Xamarin.Firebase.iOS.InstanceID": "3.2.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.Core/5.1.3": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.Core.dll": {}
-        }
-      },
-      "Xamarin.Firebase.iOS.InstanceID/3.2.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Build.Download": "0.4.11",
-          "Xamarin.Firebase.iOS.Core": "5.1.3"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Firebase.InstanceID.dll": {}
-        },
-        "build": {
-          "build/Xamarin.Firebase.iOS.InstanceID.targets": {}
         }
       },
       "Xamarin.Forms/4.3.0.947036": {
@@ -1370,56 +797,13 @@
           "build/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.PayPal.iOS/2.18.0": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile/2.4.1": {
-        "type": "package",
-        "compile": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
-          "lib/Xamarin.iOS10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/Xamarin.iOS10/ZXingNetMobile.dll": {},
-          "lib/Xamarin.iOS10/zxing.portable.dll": {}
-        }
-      },
-      "ZXing.Net.Mobile.Forms/2.4.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "2.5.0.122203",
-          "ZXing.Net.Mobile": "2.4.1"
-        },
-        "compile": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
-        },
-        "runtime": {
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll": {},
-          "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll": {}
-        }
-      },
       "Trato/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "CClarke.Plugin.Calendars": "1.0.0",
           "NUnit": "3.11.0",
-          "Newtonsoft.Json": "12.0.3",
-          "PayPal.Forms": "2.18.6",
-          "Plugin.Permissions": "3.0.0.12",
           "Xamarin.Essentials": "1.3.1",
-          "Xamarin.Forms": "4.3.0.947036",
-          "ZXing.Net.Mobile": "2.4.1",
-          "ZXing.Net.Mobile.Forms": "2.4.1"
+          "Xamarin.Forms": "4.3.0.947036"
         },
         "compile": {
           "bin/placeholder/Trato.dll": {}
@@ -1431,38 +815,6 @@
     }
   },
   "libraries": {
-    "CClarke.Plugin.Calendars/1.0.0": {
-      "sha512": "+glJm1FLp6W4MRpTbvNwCB/RhXrwVQlPsW5ukYuj+HaYVswH/pd8Mm0x+9msHrqDfiSHlUAMvcGplKSns0R8iA==",
-      "type": "package",
-      "path": "cclarke.plugin.calendars/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "cclarke.plugin.calendars.1.0.0.nupkg.sha512",
-        "cclarke.plugin.calendars.nuspec",
-        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.dll",
-        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.pdb",
-        "lib/MonoAndroid10/Plugin.Calendars.Abstractions.xml",
-        "lib/MonoAndroid10/Plugin.Calendars.dll",
-        "lib/MonoAndroid10/Plugin.Calendars.xml",
-        "lib/UAP10/Plugin.Calendars.Abstractions.dll",
-        "lib/UAP10/Plugin.Calendars.Abstractions.pdb",
-        "lib/UAP10/Plugin.Calendars.Abstractions.xml",
-        "lib/UAP10/Plugin.Calendars.dll",
-        "lib/UAP10/Plugin.Calendars.pdb",
-        "lib/UAP10/Plugin.Calendars.xml",
-        "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.dll",
-        "lib/Xamarin.iOS10/Plugin.Calendars.Abstractions.xml",
-        "lib/Xamarin.iOS10/Plugin.Calendars.dll",
-        "lib/Xamarin.iOS10/Plugin.Calendars.xml",
-        "lib/netstandard1.0/Plugin.Calendars.Abstractions.dll",
-        "lib/netstandard1.0/Plugin.Calendars.Abstractions.pdb",
-        "lib/netstandard1.0/Plugin.Calendars.Abstractions.xml",
-        "lib/netstandard1.0/Plugin.Calendars.dll",
-        "lib/netstandard1.0/Plugin.Calendars.pdb",
-        "lib/netstandard1.0/Plugin.Calendars.xml"
-      ]
-    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -1608,37 +960,6 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.3": {
-      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
-      "type": "package",
-      "path": "newtonsoft.json/12.0.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "lib/net20/Newtonsoft.Json.dll",
-        "lib/net20/Newtonsoft.Json.xml",
-        "lib/net35/Newtonsoft.Json.dll",
-        "lib/net35/Newtonsoft.Json.xml",
-        "lib/net40/Newtonsoft.Json.dll",
-        "lib/net40/Newtonsoft.Json.xml",
-        "lib/net45/Newtonsoft.Json.dll",
-        "lib/net45/Newtonsoft.Json.xml",
-        "lib/netstandard1.0/Newtonsoft.Json.dll",
-        "lib/netstandard1.0/Newtonsoft.Json.xml",
-        "lib/netstandard1.3/Newtonsoft.Json.dll",
-        "lib/netstandard1.3/Newtonsoft.Json.xml",
-        "lib/netstandard2.0/Newtonsoft.Json.dll",
-        "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.3.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "packageIcon.png"
-      ]
-    },
     "NUnit/3.11.0": {
       "sha512": "BzGk+u02RCrysmLlSzD+okxzMQ8JRF4eFC/qijDJ8Y/FBdTrTkxkQyTFsYkG1o++pr7QpFAE4VDXDqIfZ/gBAg==",
       "type": "package",
@@ -1672,48 +993,6 @@
         "lib/netstandard2.0/nunit.framework.xml",
         "nunit.3.11.0.nupkg.sha512",
         "nunit.nuspec"
-      ]
-    },
-    "PayPal.Forms/2.18.6": {
-      "sha512": "WmTBbDTSVl8GlELpHYuiIwZk5WKqrn9MvdCG/xxH9Mq86/q9mgyfJJEiJVmAxPJHGpN1VizA1Lmhqy7dGbJiKw==",
-      "type": "package",
-      "path": "paypal.forms/2.18.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid10/PayPal.Forms.Abstractions.dll",
-        "lib/MonoAndroid10/PayPal.Forms.dll",
-        "lib/Xamarin.iOS10/PayPal.Forms.Abstractions.dll",
-        "lib/Xamarin.iOS10/PayPal.Forms.dll",
-        "lib/netstandard1.0/PayPal.Forms.Abstractions.dll",
-        "lib/netstandard1.0/PayPal.Forms.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.Abstractions.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81/PayPal.Forms.dll",
-        "paypal.forms.2.18.6.nupkg.sha512",
-        "paypal.forms.nuspec"
-      ]
-    },
-    "Plugin.Permissions/3.0.0.12": {
-      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
-      "type": "package",
-      "path": "plugin.permissions/3.0.0.12",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/monoandroid71/Plugin.Permissions.dll",
-        "lib/monoandroid71/Plugin.Permissions.xml",
-        "lib/netstandard1.0/Plugin.Permissions.dll",
-        "lib/netstandard1.0/Plugin.Permissions.xml",
-        "lib/netstandard2.0/Plugin.Permissions.dll",
-        "lib/netstandard2.0/Plugin.Permissions.xml",
-        "lib/uap10.0.10240/Plugin.Permissions.dll",
-        "lib/uap10.0.10240/Plugin.Permissions.pri",
-        "lib/uap10.0.10240/Plugin.Permissions.xml",
-        "lib/xamarinios10/Plugin.Permissions.dll",
-        "lib/xamarinios10/Plugin.Permissions.xml",
-        "plugin.permissions.3.0.0.12.nupkg.sha512",
-        "plugin.permissions.nuspec",
-        "readme.txt"
       ]
     },
     "System.Numerics.Vectors/4.5.0": {
@@ -1761,24 +1040,6 @@
         "system.numerics.vectors.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Xamarin.Build.Download/0.4.11": {
-      "sha512": "svGAoBnMVQwUbIv1+j7vDypY+2R7jruefJRmVsxhuvSFXMP8dV+yZK3UGuZa3zV5ThKimk9eqHuvRcl/JVipbA==",
-      "type": "package",
-      "path": "xamarin.build.download/0.4.11",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "THIRD-PARTY-NOTICES.txt",
-        "build/Mono.Cecil.dll",
-        "build/Newtonsoft.Json.dll",
-        "build/System.Net.Http.Formatting.dll",
-        "build/Xamarin.Build.Download.dll",
-        "build/Xamarin.Build.Download.props",
-        "build/Xamarin.Build.Download.targets",
-        "xamarin.build.download.0.4.11.nupkg.sha512",
-        "xamarin.build.download.nuspec"
       ]
     },
     "Xamarin.Essentials/1.3.1": {
@@ -1831,58 +1092,6 @@
         "readme.txt",
         "xamarin.essentials.1.3.1.nupkg.sha512",
         "xamarin.essentials.nuspec"
-      ]
-    },
-    "Xamarin.Firebase.iOS.Analytics/5.1.4": {
-      "sha512": "aBrMaqaSvyPqu9G4w8Ms4LU/UILNcX2VIKFyUI5SLUjEtML5+/39Q7+TvkhPq2RMwqb6E5WYxPxHl+GzM1mvDQ==",
-      "type": "package",
-      "path": "xamarin.firebase.ios.analytics/5.1.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/Xamarin.Firebase.iOS.Analytics.targets",
-        "lib/Xamarin.iOS10/Firebase.Analytics.dll",
-        "xamarin.firebase.ios.analytics.5.1.4.nupkg.sha512",
-        "xamarin.firebase.ios.analytics.nuspec"
-      ]
-    },
-    "Xamarin.Firebase.iOS.CloudMessaging/3.1.2": {
-      "sha512": "d/ZkenBiY9xmEgaPDkr7UdMi4m9JqEDcYumajplQNFSevt6IhtTFlGF7ZpQNjz2/WPI+GkE0pKExNGBBT94cKQ==",
-      "type": "package",
-      "path": "xamarin.firebase.ios.cloudmessaging/3.1.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "THIRD-PARTY-NOTICES",
-        "lib/Xamarin.iOS10/Firebase.CloudMessaging.dll",
-        "xamarin.firebase.ios.cloudmessaging.3.1.2.nupkg.sha512",
-        "xamarin.firebase.ios.cloudmessaging.nuspec"
-      ]
-    },
-    "Xamarin.Firebase.iOS.Core/5.1.3": {
-      "sha512": "B676z2x99pBGc0+IEL5r8fCX9KT6xLlzUv6EbY4g87dFrDg/8AeixDAZNwiTV25sstz+qvm7OKVvndGkxM7uqQ==",
-      "type": "package",
-      "path": "xamarin.firebase.ios.core/5.1.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "THIRD-PARTY-NOTICES",
-        "lib/Xamarin.iOS10/Firebase.Core.dll",
-        "xamarin.firebase.ios.core.5.1.3.nupkg.sha512",
-        "xamarin.firebase.ios.core.nuspec"
-      ]
-    },
-    "Xamarin.Firebase.iOS.InstanceID/3.2.1": {
-      "sha512": "gRQppUZPkZpT70WmEjbj45EZZI4C7oPIap0tbIwNCTLAjs71VwwUU6kBbOSs+ONOHOsViYtHjwihVgZNRakfpQ==",
-      "type": "package",
-      "path": "xamarin.firebase.ios.instanceid/3.2.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/Xamarin.Firebase.iOS.InstanceID.targets",
-        "lib/Xamarin.iOS10/Firebase.InstanceID.dll",
-        "xamarin.firebase.ios.instanceid.3.2.1.nupkg.sha512",
-        "xamarin.firebase.ios.instanceid.nuspec"
       ]
     },
     "Xamarin.Forms/4.3.0.947036": {
@@ -2133,62 +1342,6 @@
         "xamarin.forms.nuspec"
       ]
     },
-    "Xamarin.PayPal.iOS/2.18.0": {
-      "sha512": "DrPpN+Oa87t7h/MtE3k7ge88MaZIlpsMOqclFR82+BUtOFz4S8kwsC/QOWOc6E+C1BCpFdeJzbcUNN771bArlg==",
-      "type": "package",
-      "path": "xamarin.paypal.ios/2.18.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/Xamarin.iOS10/Xamarin.PayPal.iOS.dll",
-        "xamarin.paypal.ios.2.18.0.nupkg.sha512",
-        "xamarin.paypal.ios.nuspec"
-      ]
-    },
-    "ZXing.Net.Mobile/2.4.1": {
-      "sha512": "iCL2WcqOyUnC1iFFdzXijk0EXfoLMDqW88MyhoTZigSyhJZM2C5hKgSZVyfx9E35tgkde/IZwHkk8cVDnbQlYg==",
-      "type": "package",
-      "path": "zxing.net.mobile/2.4.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid71/ZXing.Net.Mobile.Core.dll",
-        "lib/MonoAndroid71/ZXingNetMobile.dll",
-        "lib/MonoAndroid71/zxing.portable.dll",
-        "lib/UAP10/ZXing.Net.Mobile.Core.dll",
-        "lib/UAP10/ZXingNetMobile.dll",
-        "lib/UAP10/ZXingNetMobile.pri",
-        "lib/UAP10/ZXingNetMobile/ZXingNetMobile.xr.xml",
-        "lib/UAP10/zxing.portable.dll",
-        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
-        "lib/Xamarin.iOS10/ZXingNetMobile.dll",
-        "lib/Xamarin.iOS10/zxing.portable.dll",
-        "lib/netstandard1.0/ZXing.Net.Mobile.Core.dll",
-        "lib/netstandard1.0/ZXingNetMobile.dll",
-        "lib/netstandard1.0/zxing.portable.dll",
-        "zxing.net.mobile.2.4.1.nupkg.sha512",
-        "zxing.net.mobile.nuspec"
-      ]
-    },
-    "ZXing.Net.Mobile.Forms/2.4.1": {
-      "sha512": "7z+MfL8TbfE36s1GGvrnlkhLUOV5dgdn1gYhUb3GU2W6YXzpfF39k6EqkmFsyNm1O07evTaKFgh7UTOqcWub3g==",
-      "type": "package",
-      "path": "zxing.net.mobile.forms/2.4.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.Android.dll",
-        "lib/MonoAndroid71/ZXing.Net.Mobile.Forms.dll",
-        "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll",
-        "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.pri",
-        "lib/UAP10/ZXing.Net.Mobile.Forms.dll",
-        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll",
-        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll",
-        "lib/netstandard1.0/ZXing.Net.Mobile.Forms.dll",
-        "zxing.net.mobile.forms.2.4.1.nupkg.sha512",
-        "zxing.net.mobile.forms.nuspec"
-      ]
-    },
     "Trato/1.0.0": {
       "type": "project",
       "path": "../Trato/Trato.csproj",
@@ -2197,54 +1350,39 @@
   },
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
-      "CClarke.Plugin.Calendars >= 1.0.0",
       "NUnit >= 3.11.0",
-      "Newtonsoft.Json >= 12.0.3",
-      "PayPal.Forms >= 2.18.6",
-      "Plugin.Permissions >= 3.0.0.12",
       "Trato >= 1.0.0",
       "Xamarin.Essentials >= 1.3.1",
-      "Xamarin.Firebase.iOS.Analytics >= 5.1.4",
-      "Xamarin.Firebase.iOS.CloudMessaging >= 3.1.2",
-      "Xamarin.Forms >= 4.3.0.947036",
-      "ZXing.Net.Mobile >= 2.4.1",
-      "ZXing.Net.Mobile.Forms >= 2.4.1"
+      "Xamarin.Forms >= 4.3.0.947036"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Grafico\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/alsain/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
+      "projectUniqueName": "/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
       "projectName": "Trato.iOS",
-      "projectPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\Trato.iOS.csproj",
-      "packagesPath": "C:\\Users\\Grafico\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato.iOS\\obj\\",
+      "projectPath": "/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/Trato.iOS.csproj",
+      "packagesPath": "/Users/alsain/.nuget/packages/",
+      "outputPath": "/Users/alsain/Documents/Github/Trato/Trato/Trato.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Grafico\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/alsain/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj": {
-              "projectPath": "C:\\Users\\Grafico\\Documents\\GitHub\\Trato\\Trato\\Trato\\Trato.csproj"
+            "/Users/alsain/Documents/Github/Trato/Trato/Trato/Trato.csproj": {
+              "projectPath": "/Users/alsain/Documents/Github/Trato/Trato/Trato/Trato.csproj"
             }
           }
         }
@@ -2253,49 +1391,17 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
-          "CClarke.Plugin.Calendars": {
-            "target": "Package",
-            "version": "[1.0.0, )"
-          },
           "NUnit": {
             "target": "Package",
             "version": "[3.11.0, )"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "[12.0.3, )"
-          },
-          "PayPal.Forms": {
-            "target": "Package",
-            "version": "[2.18.6, )"
-          },
-          "Plugin.Permissions": {
-            "target": "Package",
-            "version": "[3.0.0.12, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.3.1, )"
           },
-          "Xamarin.Firebase.iOS.Analytics": {
-            "target": "Package",
-            "version": "[5.1.4, )"
-          },
-          "Xamarin.Firebase.iOS.CloudMessaging": {
-            "target": "Package",
-            "version": "[3.1.2, )"
-          },
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[4.3.0.947036, )"
-          },
-          "ZXing.Net.Mobile": {
-            "target": "Package",
-            "version": "[2.4.1, )"
-          },
-          "ZXing.Net.Mobile.Forms": {
-            "target": "Package",
-            "version": "[2.4.1, )"
           }
         }
       }
